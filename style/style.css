@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background color added in HTML */
+}
+
+/* navigation bar */
+
+header{
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 70px 5px 10px ;
+    box-shadow:  0px 1px 6px #4e4e4e;
+}
+header img {
+    width: 10rem;
+    height: 3.3rem;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+li,a ,button{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #161B6E;
+    text-decoration: none;
+}
+.nav_link{
+    list-style: none;
+    /* border: 2px solid rebeccapurple;   */
+}
+
+.nav_link li{
+    padding: 5px 20px;
+    display: inline-block;
+
+}
+
+.nav_link li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_link li a:hover{
+    color: #575A89;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: #161B6E;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: #D9D9D9;
+}
+button:hover{
+    background-color: #575A89;
+}
+
+/* container */
+
+.container{
+    display: flex;
+    font-family: sans-serif;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px 0px 50px;
+}
+.content h1{
+    font-size: 80px;
+    color: #D9D9D9;
+
+}
+.content h1 span{
+    color: #F9A826;
+}
+.content h4{
+    font-size: 20px;
+    margin-top: 30px;
+    padding-right: 40px;
+    line-height: 1.5;
+    color: #D9D9D9;
+}
+.content h4 span {
+    color: #F9A826;
+}
+
+.container img {
+    width: 30%;
+    margin: 40px 70px;
+}
+
+.local{
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+    align-items: center;
+}
+
+.local input[type=search]{
+    padding:25px 130px;
+   border-radius: 40px;
+   font-family: sans-serif;
+   border: none;
+   background-color: #D9D9D9;
+   text-align: center;
+   font-size: 35px;
+}
+::placeholder{
+    color: #575A89;
+}
+::-webkit-input-placeholder {
+    text-align: center;
+}
+  
+:-moz-placeholder {
+    text-align: center;
+}
+.local img{
+    width: 60px;
+    position: relative;
+    right: 100px;    
+}
