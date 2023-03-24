@@ -66,7 +66,7 @@ If you want to work on this unique project and share it with the world, you can 
 **We're accepting PRs for our open and unassigned [issues](https://github.com/codervivek5/VigyBag/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md). We'd love your contributions! **Kindly follow the steps below to get started:** 
 
 
-**1.** Fork [this](https://codervivek5.github.io/VigyBag/) repository.
+**1.** Fork [this](https://github.com/codervivek5/VigyBag) repository.
 
 **2.** Clone the forked repository.
 
