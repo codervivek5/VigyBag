@@ -109,9 +109,9 @@ Password - Vivek@123
 
 
 ## ⌛Links for the Website
-[Live Website](https://codervivek5.github.io/VigyBag/)
+- [Live Website](https://codervivek5.github.io/VigyBag/)
 
-[Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
+- [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
 
 ## ⚙️ Things to Note
 - Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
