@@ -22,27 +22,24 @@
  </div>
 
 ## 👋 Welcome
-- This site is specifically designed for cyber cafes to manage their operations and provide services to their customers. 
-- Whether you're running a small internet cafe or a large gaming center, this site has everything you need to streamline your business and offer an exceptional experience to your customers. 
-- With features such as **Online Form Filling, Samaj kalyan vibhag work like create adhar,PAN card, voter ID card** and many more services helps you efficiently manage your cyber cafe, freeing up time and resources to focus on growing your business. 
+This website is a location-based platform that allows users to search for products and services based on their geographical location. The website uses GPS technology to pinpoint the user's location and then displays nearby stores or businesses that offer the products or services they are searching for.
 
-<h3><em>So, if you're looking for a complete solution for your cyber cafe, this site is the right choice for you! </em></h3>
+<h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
     
   
 ## 📌Repository
 
-FormFill is a website that is help the people to save there time for going and cyber caife for complete there work.
-This will be very helpful for villagers and for those who is so far from the city or town area.
+Are you tired of scrolling through endless online stores, only to find that they don't ship to your area? Look no further than VigyBag - the ultimate online shopping destination for those looking to shop local! With our location-based platform, you can easily find and buy products from your favorite nearby shops. Whether you're a city slicker or living off the beaten path, VigyBag makes shopping a breeze. Say goodbye to long drives to the mall and hello to stress-free, convenient shopping with VigyBag!
 
 ## ✔Feature
-- User-Friendly process (fill any form, content writing, poster designing, website development, app development and many more...).
-- live update.
-- Complete transparency.
-- encription security of all the document of the user.
+- Search for products and services based on location
+- GPS technology to locate user's position
+- Displays nearby stores and businesses
+- Compare prices and make purchases directly through the website
 
 
 ## 🔑Tech Stacks
-<!-- Skills : Python, HTML, CSS, JS, Java, Bootstrap, Android, Django -->
+<!-- Skills : Python, HTML, CSS, JS, Java, Bootstrap, Android, Django, GPS technology -->
 Technologies Used :
 
 - ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
@@ -53,6 +50,7 @@ Technologies Used :
 - ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-blueviolet)
 - ![Android](https://img.shields.io/badge/Android-9%2B-brightgreen)
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
+- ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
 
 ## :sparkles: Note 
 When raising an issue, do make sure to mention the kind of feature, feature title, short description of the feature and how would you expect it to work. As a good practice, always link the issue number with pull request. (#issue number : Give this details when you raise a PR).
