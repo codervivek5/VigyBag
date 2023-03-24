@@ -126,8 +126,8 @@ Password - Vivek@123
 
 ## 😍 Our Contributors :
 
-<a href="https://github.com/codervivek5/Formfil.in/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=codervivek5/Formfil.in" />
+<a href="https://github.com/codervivek5/VigyBag/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=codervivek5/VigyBag" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).
@@ -135,7 +135,7 @@ Made with [contrib.rocks](https://contrib.rocks).
 <p><a href="https://GitHub.com/codervivek5/"><img src="http://ForTheBadge.com/images/badges/built-by-developers.svg" alt="ForTheBadge built-by-developers"></a></p>
 
 ## 🛡️ License
-This repository is licensed under the [MIT License](https://github.com/codervivek5/Formfil.in/blob/main/LICENSE) - see the LICENSE file for details.
+This repository is licensed under the [MIT License](https://github.com/codervivek5/VigyBag/blob/main/LICENSE) - see the LICENSE file for details.
 
 ## 📬 Contact:
 If you want to contact me, you can reach me through below handles.
