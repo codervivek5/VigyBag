@@ -8,14 +8,14 @@ This documentation contains a set of guidelines to help you during the contribut
 
 ## Before Contributing
 
-Welcome to [codervivek5/Formfil.in](https://github.com/codervivek5/VigyBag). Before sending your pull requests, make sure that you **read the whole
+Welcome to [codervivek5/VigyBag](https://github.com/codervivek5/VigyBag). Before sending your pull requests, make sure that you **read the whole
 guidelines**. If you have any doubt about the contribution guidelines, please feel free to reach out.
 
 ### 🔖Steps to Contribute
 
 Following are the steps to guide you:
 
-**1.** Fork [this](https://codervivek5.github.io/VigyBag) repository.
+**1.** Fork [this](https://github.com/codervivek5/VigyBag/) repository.
 
 **2.** Clone the forked repository.
 
@@ -45,11 +45,11 @@ git commit -m "<your_commit_message>"
 git push 
 ```
 
-**8.** Create a [PR](https://codervivek5.github.io/VigyBag) to `develop` !) repository.
+**8.** Create a [PR](https://github.com/codervivek5/VigyBag/) to `develop` !) repository.
 
 ### 🔑Guidelines
 
-Here are some set of guidelines to follow while contributing to `Formfill.in` :
+Here are some set of guidelines to follow while contributing to `VigyBag` :
 
 1. Welcome to this repository, if you are here as an open-source program participant/contributor.
 2. Participants/contributors have to **comment** on issues they would like to work on, and mentors or the PA will assign you.
