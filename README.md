@@ -68,18 +68,18 @@ If you want to work on this unique project and share it with the world, you can 
 **We're accepting PRs for our open and unassigned [issues](https://github.com/hound77/jwoc-archive/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/Formfil.in/blob/main/CONTRIBUTING.md). We'd love your contributions! **Kindly follow the steps below to get started:** 
 
 
-**1.** Fork [this](https://codervivek5.github.io/Formfil.in/) repository.
+**1.** Fork [this](https://codervivek5.github.io/VigyBag/) repository.
 
 **2.** Clone the forked repository.
 
 ```bash
-git clone https://github.com/codervivek5/Formfil.in.git
+git clone https://github.com/codervivek5/VigyBag.git
 ```
 
 **3.** Navigate to the project directory.
 
 ```bash
-cd Formfil.in
+cd VigyBag
 ```
 
 
@@ -98,12 +98,11 @@ git commit -m "<your_commit_message>"
 git push 
 ```
 
-**8.** Create a [PR](https://codervivek5.github.io/Formfil.in/) to `develop` !) repository.
+**8.** Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository.
 
 ## 🦄 Django Admin Authentificaion 
 ```bash
-Admin Username - codervivek
-Password - Vivek@123
+Update it later
 ```
 
 
