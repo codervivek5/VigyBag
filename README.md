@@ -52,6 +52,11 @@ Technologies Used :
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
 - ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
 
+## ⌛Links for the Website
+- [Live Website](https://codervivek5.github.io/VigyBag/)
+
+- [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
+
 ## :sparkles: Note 
 When raising an issue, do make sure to mention the kind of feature, feature title, short description of the feature and how would you expect it to work. As a good practice, always link the issue number with pull request. (#issue number : Give this details when you raise a PR).
 
@@ -104,11 +109,6 @@ Update it later
 ```
 
 
-
-## ⌛Links for the Website
-- [Live Website](https://codervivek5.github.io/VigyBag/)
-
-- [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
 
 ## ⚙️ Things to Note
 - Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
