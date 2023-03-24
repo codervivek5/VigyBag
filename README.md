@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Formfil.in</h1>
+<h1>VigyBag</h1>
 </div>
 
 <div align="center">
