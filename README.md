@@ -6,17 +6,17 @@
  <p>
 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
-![Visitors](https://api.visitorbadge.io/api/visitors?path=codervivek5%2FFormfil%20&countColor=%23263759&style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/codervivek5/Formfil?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/codervivek5/Formfil?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/codervivek5/Formfil?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/codervivek5/Formfil?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/codervivek5/Formfil?style=for-the-badge)
-![Github](https://img.shields.io/github/license/codervivek5/Formfil?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/codervivek5/Formfil?style=for-the-badge)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/codervivek5/Formfil?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/codervivek5/Formfil?style=for-the-badge)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/codervivek5/Formfil?style=for-the-badge)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=codervivek5/VigyBag%20&countColor=%2523263759&style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/codervivek5/VigyBag?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/codervivek5/VigyBag?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/codervivek5/VigyBag?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/codervivek5/VigyBag?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/codervivek5/VigyBag?style=for-the-badge)
+![Github](https://img.shields.io/github/license/codervivek5/VigyBag?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/codervivek5/VigyBag?style=for-the-badge)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/codervivek5/VigyBag?style=for-the-badge)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/codervivek5/VigyBag?style=for-the-badge)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/codervivek5/VigyBag?style=for-the-badge)
   
  </p>
  </div>
