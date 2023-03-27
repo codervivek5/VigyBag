@@ -180,3 +180,75 @@ text-align: center;
     font-weight: 400;
     font-size: 24px;
 }
+
+/* footer section */
+
+.footer-container{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   background: #07081D;
+   color: white;
+   font-family:arial;
+   padding: 17px 0px;
+}
+
+.footer-container a{
+    color: white;
+}
+
+.footer-title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 42px;
+
+    margin-top: 27px;
+    margin-bottom: 38px;
+}
+
+.contact-info div{
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    margin-bottom: 38px;
+    padding-left: 50px;
+}
+
+.contact-info img{
+    margin-right: 23px;
+}
+
+.contact-info p{
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.quick-links{
+    border-right: 1px solid #E6E6E6;
+    border-left: 1px solid #E6E6E6;
+}
+
+.quick-links-info div{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.social-div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 60px 0px 60px;
+}
+
+.social-div img,
+.social-div p{
+    cursor: pointer;
+}
+
+.social-div div{
+    text-align: center;
+}
+
+.social-div a{
+    font-size: 12px ;
+}
