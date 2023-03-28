@@ -51,7 +51,7 @@ li,a ,button{
     color: #575A89;
 }
 
-button{
+header button{
     padding: 9px 25px;
     background-color: #161B6E;
     border: none;
@@ -60,7 +60,7 @@ button{
     transition: all 0.3s ease 0s;
     color: #D9D9D9;
 }
-button:hover{
+ header button:hover{
     background-color: #575A89;
 }
 
@@ -180,6 +180,92 @@ text-align: center;
     font-weight: 400;
     font-size: 24px;
 }
+
+/* app section */
+
+.app-container{
+    height: 627px;
+    background-image: url('../img/app-section.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 866px;
+}
+
+.device-box{
+    position: relative;
+}
+
+.device-box img{
+    position: absolute;
+}
+
+.device-1st{
+    top: 50px;
+}
+
+.device-2nd{
+    top: 90px;
+    left: 225px;
+}
+
+.app-info{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 20px;
+}
+
+.app-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 75px;
+}
+
+.app-text img{
+width: 803px;
+height: 174px;
+}
+
+.google-play-button{
+    background-color: #161B6E;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 30px;
+}
+
+.google-play-button:hover{
+    background-color: #575a89;
+}
+
+.play-button{
+width: 340px;
+height: 100px;
+display: flex;
+justify-content: left;
+align-items: center;
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.play-img-div{
+    padding-left: 14px;
+    padding-right: 15px;
+}
+
+.play-img-div img{
+    width: 76px;
+    height: 76px;
+}
+
+.play-text{
+    text-align: left;
+    line-height: 32px;
+}
+
 
 /* footer section */
 
