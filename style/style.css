@@ -51,7 +51,7 @@ li,a ,button{
     color: #575A89;
 }
 
-button{
+header button{
     padding: 9px 25px;
     background-color: #161B6E;
     border: none;
@@ -60,7 +60,7 @@ button{
     transition: all 0.3s ease 0s;
     color: #D9D9D9;
 }
-button:hover{
+ header button:hover{
     background-color: #575A89;
 }
 
@@ -103,11 +103,12 @@ button:hover{
     display: flex;
     justify-content: center;
     margin-top: 2px;
+    margin-bottom: 134px;
     align-items: center;
 }
 
 .local input[type=search]{
-    padding:25px 130px;
+   padding:25px 130px;
    border-radius: 40px;
    font-family: sans-serif;
    border: none;
@@ -129,4 +130,211 @@ button:hover{
     width: 60px;
     position: relative;
     right: 100px;    
+}
+
+/* product container */
+
+.product-container{
+    height: 267px;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rectangle-42{
+box-sizing: border-box;
+width: 138px;
+height: 138px;
+background: #D9D9D9;
+border: 4px solid #161B6E;
+border-radius: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+transition: box-shadow 0.5s border-color 0.8s;
+}
+
+.rectangle-42:active{
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+    border-color: #D9D9D9;
+}
+
+.product-name{
+width: 145px;
+height: 58px;
+margin-top: 27px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+}
+
+.product-name a{
+    color: black;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+/* app section */
+
+.app-container{
+    height: 627px;
+    background-image: url('../img/app-section.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 866px;
+}
+
+.device-box{
+    position: relative;
+}
+
+.device-box img{
+    position: absolute;
+}
+
+.device-1st{
+    top: 50px;
+}
+
+.device-2nd{
+    top: 90px;
+    left: 225px;
+}
+
+.app-info{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 20px;
+}
+
+.app-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 75px;
+}
+
+.app-text img{
+width: 803px;
+height: 174px;
+}
+
+.google-play-button{
+    background-color: #161B6E;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 30px;
+}
+
+.google-play-button:hover{
+    background-color: #575a89;
+}
+
+.play-button{
+width: 340px;
+height: 100px;
+display: flex;
+justify-content: left;
+align-items: center;
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.play-img-div{
+    padding-left: 14px;
+    padding-right: 15px;
+}
+
+.play-img-div img{
+    width: 76px;
+    height: 76px;
+}
+
+.play-text{
+    text-align: left;
+    line-height: 32px;
+}
+
+
+/* footer section */
+
+.footer-container{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   background: #07081D;
+   color: white;
+   font-family:arial;
+   padding: 17px 0px;
+}
+
+.footer-container a{
+    color: white;
+}
+
+.footer-title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 42px;
+
+    margin-top: 27px;
+    margin-bottom: 38px;
+}
+
+.contact-info div{
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    margin-bottom: 38px;
+    padding-left: 50px;
+}
+
+.contact-info img{
+    margin-right: 23px;
+}
+
+.contact-info p{
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.quick-links{
+    border-right: 1px solid #E6E6E6;
+    border-left: 1px solid #E6E6E6;
+}
+
+.quick-links-info div{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.social-div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 60px 0px 60px;
+}
+
+.social-div img,
+.social-div p{
+    cursor: pointer;
+}
+
+.social-div div{
+    text-align: center;
+}
+
+.social-div a{
+    font-size: 12px ;
 }
