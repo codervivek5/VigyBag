@@ -55,7 +55,7 @@ Technologies Used :
 ## ⌛Links for the Website
 - [Live Website](https://codervivek5.github.io/VigyBag/)
 - [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
-- We can take reference of this website [Click Here](http://yellowpages.in/)
+<!-- - We can take reference of this website [Click Here](http://yellowpages.in/) -->
 
 
 
