@@ -145,7 +145,8 @@ header button{
 .Accessories-box{
     border-radius: 14px;
     width: 170px;
-    height: 250px;
+    height: 220px;
+    margin: auto 5px;
 }
 .rectangle-42{
 box-sizing: border-box;
@@ -160,29 +161,26 @@ cursor: pointer;
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 transition: box-shadow 0.5s border-color 0.8s;
 }
-
-.rectangle-42:hover{
-    box-shadow: 1px 1px 5px 3px #575A89;
-    transition: .5s ease-in-out;
-    
-}
 .rectangle-42:active{
-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
-border-color: #D9D9D9;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+    border-color: #D9D9D9;
 }
-
+.Accessories-box:hover .rectangle-42{
+    box-shadow: 1px 1px 5px 3px #575A89;
+    transition: .5s ease-in-out;  
+}
+.Accessories-box:hover .product-name{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
 .product-name{
-margin-top: 27px;
+margin-top: 10px;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 24px;
 line-height: 29px;
 text-align: center;
-}
-.product-name:hover{
-    transform: scale(1.1);
-    transition: 0.3s ease;
 }
 
 /* app section */
