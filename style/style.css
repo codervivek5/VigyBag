@@ -471,7 +471,28 @@ transition: background-color 0.15s, color 0.15s;
     transition: 0.5s ease-in-out;
     transform: scale(1.1);
   }
- 
+    
+
+/* ====================== SCROLL BAR ===================== */
+
+::-webkit-scrollbar{
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background: rgb(7, 31, 48);
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background: linear-gradient(#161B6E , #09a0f1);
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(#161B6E , #ff00ff);
+  }
+  
+
   
   
   
