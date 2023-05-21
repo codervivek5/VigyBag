@@ -404,6 +404,11 @@ transition: background-color 0.15s, color 0.15s;
 
 .footer-container a{
     color: white;
+    
+}
+.footer-container a:hover{
+    transition: .7s ease;
+    color:  #8f79b9;
 }
 
 .footer-title{
@@ -462,4 +467,15 @@ transition: background-color 0.15s, color 0.15s;
 .social-div a{
     font-size: 12px ;
 }
-
+.social-div img:hover {
+    transition: 0.5s ease-in-out;
+    transform: scale(1.1);
+  }
+ 
+  
+  
+  
+  
+  
+  
+ 
