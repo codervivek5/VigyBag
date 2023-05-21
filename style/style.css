@@ -283,27 +283,47 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .item-cards-div{
-    /* display: flex;
-    justify-content: space-around; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+     display: flex;
+    /* justify-content: space-around;  */
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; */
     margin: 0;
-    padding: 0px 0px 0px 52px;
+    /* padding: 0px 0px 0px 52px; */
+    background: var(--second-bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    text-align: center;
 
 }
 
 .item-card{
     display: inline-block;
-    width: 300px;
-    height: 423px;
+    width: 270px;
+    height: 380px;
     border-radius: 15px;
+    padding: 0 20px;
+    margin: 10px;
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20); */
+}
+.Item-H {
+    height: 235px;
+    width: 235px;
+}
+.T-shirt{
+    height: 170px;
+    width: 180px;
+}
+.see-more-text{
 
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20);
+   position: relative;
+   text-align: right;
+   bottom: 100px;
+   padding-right: 42px;
 }
 
 .item-image{
-    width: 300px;
-    height: 300px;
+    width: 230px;
+    height: 210px;
     background-color:#D9D9D9;
     display: flex;
     justify-content: center;
