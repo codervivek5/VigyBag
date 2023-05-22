@@ -20,7 +20,7 @@
 <body bgcolor="#575A89">
 
     <header>
-        <img src="img/logo.png" alt="brand logo">
+        <img src="img/logo.png" alt="brand logo" class="brand-logo">
         <nav>
             <ul class="nav_link">
                 <li><a href="#">Home</a></li>
@@ -42,8 +42,8 @@
                 Get ready to shop smarter, not harder - <span>Download VigyBag today!</span>
             </h4>
         </div>
-
-        <img src="img/landing_svg_image.svg" alt="">
+        <div class="top-side-img-container"><img src="img/landing_svg_image.svg" alt="" class="top-side-img"></div>
+        
     </div>
 
     <div class="local">
@@ -55,7 +55,7 @@
     <!-- product container -->
     <div class="product-container">
         <!-- product-1 -->
-        <div>
+        <div class="Accessories-box">
             <div>
                 <div class="rectangle-42">
                     <img src="img/Suit.png" alt="">
@@ -67,7 +67,7 @@
         </div>
         <div>
             <!-- product-2 -->
-            <div>
+            <div class="Accessories-box">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Stationery.png" alt="">
@@ -81,7 +81,7 @@
         </div>
         <div>
             <!-- product-3 -->
-            <div>
+            <div class="Accessories-box">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Food Bar.png" alt="">
@@ -95,7 +95,7 @@
         </div>
         <div>
             <!-- product-4 -->
-            <div>
+            <div class="Accessories-box">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Aroma.png" alt="">
@@ -117,8 +117,8 @@
             <div class="item-title">
                 Headphones for you!
             </div>
-            <div class="item-cards-div">
-                <div class="item-card">
+            <div class="item-carts-div">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/toppng.png" class="Item-H" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -135,7 +135,7 @@
                                 <div>(121)</div>
                             </div>
 
-                            <button class="add-to-card-button">
+                             <button class="add-to-card-button">
                                 Add to cart
                             </button>
                         </div>
@@ -144,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/toppng.png" class="Item-H" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -258,7 +258,7 @@
         <!-- secoond row -->
         <div class="item-row">
             <div class="item-title">
-                Cloths for you!
+                Clothes for you!
             </div>
             <div class="item-cards-div">
                 <div class="item-card">
@@ -338,7 +338,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/t-shirt.png" class="T-shirt" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -364,7 +364,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/t-shirt.png" class="T-shirt" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -406,13 +406,16 @@
 
     <!-- app section -->
     <div class="app-container">
-        <div class="device-box">
-            <img class="device-2nd" src="img/deviceframes (1) 1.png" alt="">
-            <img class="device-1st" src="img/deviceframes 1.png" alt="">
+        <div class="device-box">  
+            <div class="device-container-1st"> <img class="device-1st" src="img/deviceframes 1(mod).png" alt="">
+            </div>
+            <div class="device-container-2nd"> <img class="device-2nd" src="img/deviceframes (1) 1(mod).png" alt="">
+            </div>
+         
         </div>
         <div class="app-info">
             <div class="app-text">
-                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="">
+                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="" class="app-text-img">
             </div>
             <div>
                 <button class="google-play-button">
@@ -448,16 +451,18 @@
             </div>
             <div class="contact-info">
                 <div class="contact-location">
-                    <img src="img/home icon.png" alt="">
-                    <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
+                    <div class="contact-location-img"><img src="img/home icon.png" alt=""></div>
+                    <div class="contact-location-text"> <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
+                    </div>
+                   
                 </div>
                 <div class="contact-email">
-                    <img src="img/msg icon.png" alt="">
-                    <p><a href="">contact@vigybag.com</a></p>
+                    <div class="contact-email-img"><img src="img/msg icon.png" alt=""></div>
+                    <div class="contact-email-text"><p><a href="">contact@vigybag.com</a></p></div>    
                 </div>
                 <div class="contact-ph-number">
-                    <img src="img/call icon.png" alt="">
-                    <p><a href="">+91 1234567890</a></p>
+                    <div class="contact-ph-number-img"><img src="img/call icon.png" alt=""></div>
+                    <div class="contact-ph-number-text"><p><a href="">+91 1234567890</a></p></div>                   
                 </div>
             </div>
         </div>
@@ -482,19 +487,19 @@
             <div class="social-container">
                 <div class="social-div">
                     <div>
-                        <a href=""><img src="img/Facebook.png" alt=""></a>
+                        <a href=""><img src="img/Facebook.png" alt="https://www.facebook.com/codervivek/"></a>
                         <p><a href="">Facebook</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/Twitter (1).png" alt=""></a>
+                        <a href=""><img src="img/Twitter (1).png" alt="https://twitter.com/codervivek5/"></a>
                         <p><a href="">Twitter</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/Instagram (2).png" alt=""></a>
+                        <a href=""><img src="img/Instagram (2).png" alt="https://www.instagram.com/coder_vivek/"></a>
                         <p><a href="">Instagram</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/LinkedIn Circled.png" alt=""></a>
+                        <a href=""><img src="img/LinkedIn Circled.png" alt="https://www.linkedin.com/in/codervivek/"></a>
                         <p><a href="">Linkdedin</a></p>
                     </div>
                 </div>
