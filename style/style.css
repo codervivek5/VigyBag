@@ -299,6 +299,13 @@ font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 
+
+.item-carts-div{
+    /* display: flex;
+    justify-content: space-around; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .item-cards-div{
     display: flex;
     justify-content: space-around;
@@ -310,7 +317,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 }
 
-.item-card{
+.item-cart{
     display: inline-block;
     width: 300px;
     height: 423px;
@@ -388,7 +395,7 @@ margin-top: 10px;
 transition: background-color 0.15s, color 0.15s;
 }
 
-.add-to-card-button:hover{
+.add-to-cart-button:hover{
     background-color:  #161B6E;
     color:#D9D9D9;
 }
@@ -803,6 +810,5 @@ transition: background-color 0.15s, color 0.15s;
   }
   
 
-  
   
  
