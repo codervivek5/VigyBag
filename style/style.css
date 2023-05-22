@@ -18,7 +18,7 @@ header{
     padding: 5px 70px 5px 10px ;
     box-shadow:  0px 1px 6px #4e4e4e;
 }
-.brand-logo {
+header img {
     width: 10rem;
     height: 3.3rem;
     cursor: pointer;
@@ -93,18 +93,11 @@ header button{
 .content h4 span {
     color: #F9A826;
 }
-.top-side-img-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-.top-side-img{
-    width: 30vw;
-}
-/* .container img {
+
+.container img {
     width: 30%;
     margin: 40px 70px;
-} */
+}
 
 .local{
     display: flex;
@@ -142,10 +135,9 @@ header button{
 /* product container */
 
 .product-container{
-    height: 100%;
+    height: 267px;
     background-color: #D9D9D9;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -194,37 +186,30 @@ text-align: center;
 /* app section */
 
 .app-container{
-    height: 100%;
+    height: 627px;
     background-image: url('../img/app-section.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* grid-template-columns: 1fr 1fr; */
+    display: grid;
+    grid-template-columns: 1fr 866px;
 }
 
 .device-box{
-    position:relative;
-    display: flex;
+    position: relative;
 }
 
-/* .device-box img{
+.device-box img{
     position: absolute;
-} */
-.device-container-1st{
-    width: 220px;
-    z-index: 100;
 }
+
 .device-1st{
-    height: 70vh;
-    padding-top: 40px;
+    top: 50px;
 }
 
 .device-2nd{
-   padding-top: 50px;
-    left: 20vw;
+    top: 90px;
+    left: 225px;
 }
 
 .app-info{
@@ -241,8 +226,8 @@ text-align: center;
 }
 
 .app-text img{
-width: 50vw;
-height: auto;
+width: 803px;
+height: 174px;
 }
 
 .google-play-button{
@@ -286,7 +271,7 @@ font-family: Arial, Helvetica, sans-serif;
 /* items section */   
 
 .items-container{
-    height: 100%;
+    height: 1294px;
     background-color: #575A89;
     font-family: Arial, Helvetica, sans-serif;
     color: #161B6E;;
@@ -299,31 +284,24 @@ font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
 }
 
-
-.item-carts-div{
+.item-cards-div{
     /* display: flex;
     justify-content: space-around; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.item-cards-div{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    /* display: grid;
-    grid-template-columns: repeat(1fr); */
     margin: 0;
     padding: 0px 0px 0px 52px;
 
 }
 
-.item-cart{
+.item-card{
     display: inline-block;
     width: 300px;
     height: 423px;
     border-radius: 15px;
-    margin-top: 10px;
+
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20);
+    transition: 0.3s;
 }
 
 .item-image{
@@ -355,6 +333,7 @@ font-family: Arial, Helvetica, sans-serif;
    border-bottom-left-radius: 15px;
    border-bottom-right-radius: 15px;
    padding: 18px 15px 13px 15px;
+   transition: 0.3s;
 }
 
 .item-description p,
@@ -373,15 +352,29 @@ line-height: 12px;
     font-weight: 700;
     line-height: 18px;
 }
+.item-heading a{
+    transition: 0.3s;
+}
 
 .items-star div{
     display: inline-block;
 }
 
+.item-card:hover .item-description ,.item-card:hover{
+    background-color: #251945;
+    color: #D9D9D9;
+    box-shadow: 8px 8px 8px 8px rgb(39, 107, 138);
+}
+.item-card:hover .item-heading a{
+    color: #D9D9D9;
+}
+
+
+
 .add-to-card-button{
-font-weight: 400;
-font-size: 10px;
-line-height: 12px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
 text-align: center;
 
 width: 87px;
@@ -395,7 +388,11 @@ margin-top: 10px;
 transition: background-color 0.15s, color 0.15s;
 }
 
-.add-to-cart-button:hover{
+.item-card:hover .add-to-card-button{
+    background-color: #aaadd6;
+    color: #000;
+}
+.add-to-card-button:hover{
     background-color:  #161B6E;
     color:#D9D9D9;
 }
@@ -414,7 +411,6 @@ transition: background-color 0.15s, color 0.15s;
     display: inline-block;
     border-bottom: 2px solid white;
 }
-
 .card-badge{
     color: white;
     display: flex;
@@ -440,12 +436,11 @@ transition: background-color 0.15s, color 0.15s;
 
 }
 
-
 /* footer section */
 
 .footer-container{
    display: grid;
-   grid-template-columns: 33vw 33vw 34vw;
+   grid-template-columns: 1fr 1fr 1fr;
    background: #07081D;
    color: white;
    font-family:arial;
@@ -475,15 +470,15 @@ transition: background-color 0.15s, color 0.15s;
     display: flex;
     justify-content: left;
     text-align: center;
-    /* margin-bottom: 38px; */
-    /* padding-left: 50px; */
+    margin-bottom: 38px;
+    padding-left: 50px;
 }
 
 .contact-info img{
     margin-right: 23px;
 }
 
-.contact-location-text,.contact-email-text,.contact-ph-number-text{
+.contact-info p{
     font-size: 15px;
     padding-top: 10px;
 }
@@ -503,7 +498,6 @@ transition: background-color 0.15s, color 0.15s;
     justify-content: space-evenly;
     align-items: center;
     padding: 50px 60px 0px 60px;
-    flex-wrap: wrap;
 }
 
 .social-div img,
@@ -517,297 +511,6 @@ transition: background-color 0.15s, color 0.15s;
 
 .social-div a{
     font-size: 12px ;
-}
-
-
-
-/* Modification for shorter screens */
-@media (max-width:956px){
-
-    .brand-logo {
-        width: 10rem;
-        height: 3.3rem;
-        cursor: pointer;
-        margin-left: 25px;
-    }
-
-    .device-container-1st{
-        width: 190px;
-        z-index: 100;
-    }
-    .device-1st{
-        height: 60vh;
-        padding-top: 40px;
-    }
-    
-    .device-2nd{
-        height: 55vh;
-       padding-top: 50px;
-        left: 20vw;
-    }
-
-    .play-button{
-        width: 300px;
-        height: 89px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        .play-img-div{
-            padding-left: 14px;
-            padding-right: 15px;
-        }
-        
-        .play-img-div img{
-            width: 67px;
-            height: 67px;
-        }
-        
-        .play-text{
-            text-align: left;
-            line-height: 30px;
-        }
-        
-}
-@media ( max-width:850px){
-    .content h1{
-        font-size: 60px;
-    }
-    
-    .local{
-        margin-bottom: 100px;
-    }
-
-    .local input[type=search]{
-        padding:22px 100px;
-        border-radius: 40px;
-        font-family: sans-serif;
-        border: none;
-        background-color: #D9D9D9;
-        text-align: center;
-        font-size: 30px;
-    }
-    .local img{
-        width: 40px;
-        position: relative;
-        right: 100px;    
-    }
-
-
-    .play-button{
-        width: 270px;
-        height: 80px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        .play-img-div{
-            padding-left: 14px;
-            padding-right: 15px;
-        }
-        
-        .play-img-div img{
-            width: 60px;
-            height: 60px;
-        }
-        
-        .play-text{
-            text-align: left;
-            line-height: 27px;
-        }
-        .play-text h1{
-            font-size: 1.5em;
-        }
-        .play-text{
-            font-size: 1em;
-        }
-
-
-    .footer-title{
-        font-size: 25px;
-        margin-bottom: 20px;
-    }
-    .contact-location{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 10px;
-    }
-    .contact-location-img{
-        height: 25px;
-        width: 25px;
-    }
-    .contact-location-text{
-        padding-left: 0px;
-    }
-    /* .contact-info div{
-        padding-left: 15px;
-    } */
-    .contact-email{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 10px;
-    }
-    .contact-email a{
-        padding-left: 0px;
-        font-size: 10px;
-    }
-    .contact-ph-number{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 10px;
-    }
-    .quick-links-info div{
-        text-align: center;
-        margin-bottom: 20px;
-    }.social-div{
-        padding-top: 0px;
-    }
-
-}
-@media (max-width:625px){
-    .brand-logo {
-        width: 8rem;
-        height: 2.7rem;
-        cursor: pointer;
-        margin-left: 23px;
-    }
-    .content h1{
-        font-size: 50px;
-    }
-    .top-side-img{
-        width: 25vw;
-    }
-
-    .local input[type=search]{
-        padding: 19px 60px;
-        border-radius: 40px;
-        font-family: sans-serif;
-        border: none;
-        background-color: #D9D9D9;
-        text-align: center;
-        font-size: 22px;
-    }
-
-    .device-container-1st{
-        width: 170px;
-        z-index: 100;
-    }
-    .device-1st{
-        height: 55vh;
-        padding-top: 40px;
-    }
-    
-    .device-2nd{
-        height: 51vh;
-       padding-top: 50px;
-        left: 20vw;
-    }
-}
-
-@media (max-width:470px){
-    .local input[type=search]{
-        padding: 16px 40px;
-        border-radius: 40px;
-        font-family: sans-serif;
-        border: none;
-        background-color: #D9D9D9;
-        text-align: center;
-        font-size: 18px;
-    }
-    .local img{
-        width: 40px;
-        position: relative;
-        right: 65px;    
-    }
-
-    .google-play-button{
-        margin-left: 0px;
-    }
-    .play-button{
-        width: 240px;
-        height: 70px;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        color: white;
-        font-family: Arial, Helvetica, sans-serif;
-        }
-        
-        .play-img-div{
-            padding-left: 14px;
-            padding-right: 15px;
-        }
-        
-        .play-img-div img{
-            width: 44px;
-            height: 44px;
-        }
-        
-        .play-text{
-            text-align: left;
-            line-height: 23px;
-        }
-        .play-text h1{
-            font-size: 1.2em;
-        }
-        .play-text{
-            font-size: 0.8em;
-        }
-
-
-}
-
-@media (max-width:400px){
-    .brand-logo {
-        width: 6rem;
-        height: 2rem;
-        cursor: pointer;
-        margin-left: 19px;
-    }
-    .content h1 {
-        font-size: 40px;
-    }
-    .item-cards-div{
-        padding-left: 20px;
-    }
-    .device-container-1st{
-        width: 150px;
-        z-index: 100;
-    }
-    .device-1st{
-        height: 50vh;
-        padding-top: 40px;
-    }
-    
-    .device-2nd{
-        height: 46vh;
-       padding-top: 50px;
-        left: 20vw;
-    }
-
-    .footer-title{
-        font-size: 15px;
-    }
-    .contact-location-img{
-        height: 15px;
-        width: 15px;
-    }
-    .contact-email-img{
-        height: 15px;
-        width: 15px;
-    }.contact-ph-number-img{
-        height: 15px;
-        width: 15px;
-    }
 }
 .social-div img:hover {
     transition: 0.5s ease-in-out;
@@ -835,5 +538,10 @@ transition: background-color 0.15s, color 0.15s;
   }
   
 
+  
+  
+  
+  
+  
   
  
