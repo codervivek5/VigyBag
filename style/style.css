@@ -326,7 +326,7 @@ header button:hover {
 
 .item-carts-div {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-flow: wrap;
     align-items: flex-start;
 }
@@ -347,7 +347,7 @@ header button:hover {
     width: 300px;
     height: 423px;
     border-radius: 15px;
-    margin-top: 10px;
+    margin: 16px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.20);
 }
 
