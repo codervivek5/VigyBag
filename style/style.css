@@ -269,15 +269,13 @@ font-family: Arial, Helvetica, sans-serif;
 /* items section */   
 .item-row{
     background-image:linear-gradient(to right,#0f0c29,#302b63,#24243e,rgb(71, 71, 107),rgb(102, 114, 159));
-
 border-bottom:20px solid rgb(2, 2, 2) ;
 border-left:10px solid rgb(2, 2, 2) ;
-padding-bottom: 20px;
+padding-bottom: 30px;
 }
 .items-container{
-    height: 1290px;
-    /* background-color:linear-gradient(rgb(121, 121, 154),white,rgb(140, 139, 139)); */
-    font-family: Arial, Helvetica, sans-serif;
+    height: 1305px;
+     font-family: Arial, Helvetica, sans-serif;
     color: #161B6E;;
 }
 
@@ -362,7 +360,7 @@ padding-bottom: 20px;
   }
   
   .add-to-card-button {
-    margin-top: 5px;
+    margin-top: 10px;
     color: #fff;
     padding: 10px 20px;
     border-radius: 100px;
@@ -388,7 +386,7 @@ padding-bottom: 20px;
   }
   /* add buy now button */
  .buy-now-button {
-    margin-top: 5px;
+    margin-top: 10px;
       color: #fff;
       padding: 10px 20px;
       border-radius: 100px;
@@ -419,10 +417,11 @@ padding-bottom: 20px;
     padding-right: 42px;
     margin-bottom: 10px;
     margin-right: 25px;
-}
+ }
 
 .see-more-text a{
     color: white;
+    font-size: 14px;
 }
 
 .see-more-text div{
@@ -431,7 +430,7 @@ padding-bottom: 20px;
 }
 
 .see-more-text div:hover {
-        color: rgb(154, 154, 159);
+        color: rgb(173, 173, 174);
   }
 /* footer section */
 
