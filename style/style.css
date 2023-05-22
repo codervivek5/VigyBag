@@ -494,7 +494,32 @@ transition: background-color 0.15s, color 0.15s;
     background: linear-gradient(#161B6E , #ff00ff);
   }
   
-
+/* Hover effect on DOWNLOAD VIGYBAG TODAY! */
+ #down {
+   display: inline-block;
+   position: relative;
+   font-size: 30px;
+   color: 
+ #c9ef0c;
+ }
+ #down:after {
+   content: '';
+   position: absolute;
+   width: 100%;
+   transform: scaleX(0);
+   height: 2px;
+   bottom: 0;
+   left: 0;
+   background-color: 
+ #c9ef0c;
+   transform-origin: bottom right;
+   transition: transform 0.25s ease-out;
+ }
+ 
+ #down:hover:after {
+   transform: scaleX(1);
+   transform-origin: bottom left;
+ }
   
   
   
