@@ -27,10 +27,27 @@
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Contact us</a></li>
+                <a href="login.html"><button>Login</button></a>
             </ul>
         </nav>
-        <a href="login.html"><button>Login</button></a>
+        
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <ul class="nav_link mobile-menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li id="login"><a href="#" >Login</a></li>
+            </ul>
+          </div>
+
+
     </header>
+
+
 
     <div class="container">
         <div class="content">
@@ -455,6 +472,11 @@
     </div>
 
 
+    <script>
+             function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+    </script>
 </body>
 
 </html>
