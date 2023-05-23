@@ -38,7 +38,7 @@ li,a ,button{
 }
 
 .nav_link li{
-    padding: 5px 20px;
+    padding: 15px 20px;
     display: inline-block;
 
 }
@@ -63,6 +63,57 @@ header button{
  header button:hover{
     background-color: #575A89;
 }
+
+/* mobile menu */
+
+#hamburger-icon {
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+  }
+  
+  #hamburger-icon div {
+    width: 35px;
+    height: 3px;
+    background-color: #161B6E;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .open .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+  }
+  
+  .open .bar2 {
+    opacity: 0;
+  }
+  
+  .open .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+  }
+  
+  .open .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: calc(60vh - 50px);
+    width: 100%;
+    background-color: #D9D9D9;
+  }
+  
+  .mobile-menu li {
+    margin-bottom: 10px;
+  }
 
 /* container */
 
@@ -523,6 +574,30 @@ transition: background-color 0.15s, color 0.15s;
 
 /* Modification for shorter screens */
 @media (max-width:956px){
+    
+   
+  
+    header nav {
+        display: none;
+      }
+    
+      #hamburger-icon {
+        display: block;
+      }
+  
+ .nav_link li a:hover {
+    border: 2px solid #161B6E;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+ }
+
+ .login-btn{
+    display: none;
+}
+
+.nav_link a button {
+    margin-top: 1rem;
+}
 
     .brand-logo {
         width: 10rem;
