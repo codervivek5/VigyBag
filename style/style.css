@@ -9,7 +9,9 @@
 
 /* navigation bar */
 header {
-  padding: 5px 70px 5px 10px;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
 }
 
 .header_container {
@@ -59,6 +61,7 @@ button {
 
 .nav_link li a:hover {
   color: #575a89;
+
   text-decoration: underline 2.5px #575a89;
 }
 
@@ -169,6 +172,8 @@ button {
 .container {
   display: flex;
   font-family: sans-serif;
+
+  padding-top: 60px;
 }
 .container a {
   display: flex;
@@ -209,6 +214,9 @@ button {
 }
 
 .container img {
+  width: 30%;
+  margin: 40px 70px;
+
   width: 100%;
   margin: 40px 70px;
   margin-left: 0px;
@@ -298,7 +306,11 @@ button {
 
 .product-name {
   margin-top: 10px;
+
+  font-family: "Inter", monospace;
+
   font-family: "Inter";
+
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
