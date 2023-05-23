@@ -575,7 +575,9 @@ transition: background-color 0.15s, color 0.15s;
 /* Modification for shorter screens */
 @media (max-width:956px){
     
-   
+    .open .mobile-menu{
+        margin-top: -8px;
+    }
   
     header nav {
         display: none;
