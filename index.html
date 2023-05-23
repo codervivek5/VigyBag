@@ -12,6 +12,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+     <!-- AOS FILE LINK -->
+     <link rel="stylesheet" href="bower_components/aos/dist/aos.css">
+     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+     
+
+
     <title>VigyBag | Home</title>
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
@@ -55,7 +61,7 @@
     <!-- product container -->
     <div class="product-container">
         <!-- product-1 -->
-        <div class="Accessories-box">
+        <div class="Accessories-box" data-aos="fade-up-right"  data-aos-offset="100px">
             <div>
                 <div class="rectangle-42">
                     <img src="img/Suit.png" alt="">
@@ -67,7 +73,7 @@
         </div>
         <div>
             <!-- product-2 -->
-            <div class="Accessories-box">
+            <div class="Accessories-box"  data-aos="fade-up"  data-aos-offset="100px">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Stationery.png" alt="">
@@ -81,7 +87,7 @@
         </div>
         <div>
             <!-- product-3 -->
-            <div class="Accessories-box">
+            <div class="Accessories-box"  data-aos="fade-up"  data-aos-offset="100px">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Food Bar.png" alt="">
@@ -95,7 +101,7 @@
         </div>
         <div>
             <!-- product-4 -->
-            <div class="Accessories-box">
+            <div class="Accessories-box"  data-aos="fade-up-left"  data-aos-offset="100px">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Aroma.png" alt="">
@@ -117,8 +123,9 @@
             <div class="item-title">
                 Headphones for you!
             </div>
+
             <div class="item-carts-div">
-                <div class="item-cart">
+                <div class="item-cart"  data-aos="fade-up-right">
                     <div class="item-image">
                         <div class="card-badge card-badge-bestseller">
                             <p>BEST SELLER</p>
@@ -147,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-cart">
+                <div class="item-cart"  data-aos="fade-up">
                     <div class="item-image">
                         <img src="img/toppng.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -173,7 +180,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                
+                <div class="item-card"  data-aos="fade-up">
                     <div class="item-image">
                         <img src="img/toppng.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -199,7 +207,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+
+                <div class="item-card"  data-aos="fade-up-left">
                     <div class="item-image">
                         <img src="img/toppng.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -225,6 +234,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="see-more-text">
@@ -240,7 +250,7 @@
                 Clothes for you!
             </div>
             <div class="item-cards-div">
-                <div class="item-card">
+                <div class="item-card" data-aos="fade-up-right">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -266,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-card" data-aos="fade-up">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -292,7 +302,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-cart">
+                <div class="item-cart" data-aos="fade-up">
                     <div class="item-image">
                         <div class="card-badge card-badge-newarrived">
                             <p>NEWLY ARRIVED</p>
@@ -321,7 +331,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-cart">
+                <div class="item-cart" data-aos="fade-up-left">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -400,9 +410,9 @@
 
 
     <!-- footer section -->
-    <div class="footer-container">
+    <div class="footer-container" >
         <!-- contact-us -->
-        <div class="contact">
+        <div class="contact"  data-aos="fade-up-right">
             <div class="footer-title">
                 Contact us
             </div>
@@ -424,7 +434,7 @@
             </div>
         </div>
         <!-- Quick Links -->
-        <div class="quick-links">
+        <div class="quick-links"  data-aos="fade-up">
             <div class="footer-title">
                 Quick Links
             </div>
@@ -437,7 +447,7 @@
 
         </div>
 
-        <div class="social">
+        <div class="social"  data-aos="fade-up-left">
             <div class="footer-title">
                 Social connection
             </div>
@@ -465,7 +475,14 @@
         </div>
     </div>
 
+ <!-- AOS JS LINKS -->
+ <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+ <script src="bower_components/aos/dist/aos.js"></script>
 
+
+<script>
+ AOS.init();
+ </script>
 </body>
 
 </html>
