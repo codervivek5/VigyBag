@@ -15,37 +15,32 @@
     <title>VigyBag | Home</title>
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
-    <script defer src="script.js"></script>
+    <!-- languagesOption -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit(){
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            )
+        }
+    </script>
+
 </head>
 
 <body bgcolor="#575A89">
-
+    
     <header>
-        <div class="header_container">
-            <img src="img/logo.png" alt="brand logo">
-            <nav class="nav_menu">
-                <ul class="nav_link">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#bottom">Contact us</a></li>
-                </ul>
-            </nav>
-            <div class="nav_login">
-                <a href="login.html"><button>Login</button></a>
-                <div class="burger-icon">
-                    <i class="fa-solid fa-bars" id='icon'></i>
-                </div>
-            </div>
-        </div>
-        <nav class="nav_menu2">
-            <ul class="nav_link2">
+        <img src="img/logo.png" alt="brand logo" class="brand-logo">
+        <nav>
+            <ul class="nav_link">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
             </ul>
         </nav>
+        <a href="login.html"><button>Login</button></a>
     </header>
 
     <div class="container">
@@ -55,11 +50,11 @@
             </h1>
             <h4>Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of
                 VigyBag.
-                Get ready to shop smarter, not harder - <span><a href="#">Download VigyBag today!</span>
+                Get ready to shop smarter, not harder - <span>Download VigyBag today!</span>
             </h4>
         </div>
-
-        <img src="img/landing_svg_image.svg" alt="">
+        <div class="top-side-img-container"><img src="img/landing_svg_image.svg" alt="" class="top-side-img"></div>
+        
     </div>
 
     <div class="local">
@@ -133,8 +128,8 @@
             <div class="item-title">
                 Headphones for you!
             </div>
-            <div class="item-cards-div">
-                <div class="item-card">
+            <div class="item-carts-div">
+                <div class="item-cart">
                     <div class="item-image">
                         <div class="card-badge card-badge-bestseller">
                             <p>BEST SELLER</p>
@@ -154,8 +149,8 @@
                                 <div>(121)</div>
                             </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                            <button class="add-to-cart-button">
+                                Add to cart
                             </button>
                         </div>
                         <div class="item-heading">
@@ -163,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/toppng.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -256,7 +251,6 @@
                 Clothes for you!
             </div>
             <div class="item-cards-div">
-                
                 <div class="item-card">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
@@ -284,11 +278,36 @@
                     </div>
                 </div>
                 <div class="item-card">
+                    <div class="item-image">
+                        <img src="img/t-shirt.png" alt="">
+                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
+                    </div>
+                    <div class="item-description">
+                        <div>
+                            <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                            <p>cotton printed smooth shirt with multiple colors </p>
+                            <div class="items-star"><img src="img/Star_white.png" alt="">
+                                <img src="img/Star_white.png" alt="">
+                                <img src="img/Star_white.png" alt="">
+                                <img src="img/Star_green.png" alt="">
+                                <img src="img/Star_green.png" alt="">
+                                <div>(36)</div>
+                            </div>
+
+                            <button class="add-to-card-button">
+                                Add to card
+                            </button>
+                        </div>
+                        <div class="item-heading">
+                            <h3>&#8377; 349</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-cart">
                     <div class="item-image">
                         <div class="card-badge card-badge-newarrived">
                             <p>NEWLY ARRIVED</p>
                         </div>
-
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
                     </div>
@@ -304,8 +323,8 @@
                                 <div>(36)</div>
                             </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                            <button class="add-to-cart-button">
+                                Add to cart
                             </button>
                         </div>
                         <div class="item-heading">
@@ -313,33 +332,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
-                    <div class="item-image">
-                        <img src="img/t-shirt.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                            <p>cotton printed smooth shirt with multiple colors </p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(36)</div>
-                            </div>
-
-                            <button class="add-to-card-button">
-                                Add to card
-                            </button>
-                        </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 349</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -356,8 +349,8 @@
                                 <div>(36)</div>
                             </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                            <button class="add-to-cart-button">
+                                Add to cart
                             </button>
                         </div>
                         <div class="item-heading">
@@ -381,13 +374,16 @@
 
     <!-- app section -->
     <div class="app-container">
-        <div class="device-box">
-            <img class="device-2nd" src="img/deviceframes (1) 1.png" alt="">
-            <img class="device-1st" src="img/deviceframes 1.png" alt="">
+        <div class="device-box">  
+            <div class="device-container-1st"> <img class="device-1st" src="img/deviceframes 1(mod).png" alt="">
+            </div>
+            <div class="device-container-2nd"> <img class="device-2nd" src="img/deviceframes (1) 1(mod).png" alt="">
+            </div>
+         
         </div>
         <div class="app-info">
             <div class="app-text">
-                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="">
+                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="" class="app-text-img">
             </div>
             <div>
                 <button class="google-play-button">
@@ -423,22 +419,22 @@
             </div>
             <div class="contact-info">
                 <div class="contact-location">
-                    <img src="img/home icon.png" alt="">
-                    <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
+                    <div class="contact-location-img"><img src="img/home icon.png" alt=""></div>
+                    <div class="contact-location-text"> <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p></div>
                 </div>
                 <div class="contact-email">
-                    <img src="img/msg icon.png" alt="">
-                    <p><a href="">contact@vigybag.com</a></p>
+                    <div class="contact-email-img"><img src="img/msg icon.png" alt=""></div>
+                    <div class="contact-email-text"><p><a href="">contact@vigybag.com</a></p></div>    
                 </div>
                 <div class="contact-ph-number">
-                    <img src="img/call icon.png" alt="">
-                    <p><a href="">+91 1234567890</a></p>
+                    <div class="contact-ph-number-img"><img src="img/call icon.png" alt=""></div>
+                    <div class="contact-ph-number-text"><p><a href="">+91 1234567890</a></p></div>                   
                 </div>
             </div>
         </div>
         <!-- Quick Links -->
-        <div class="quick-links" id="bottom">
-            <div class="footer-title" >
+        <div class="quick-links">
+            <div class="footer-title">
                 Quick Links
             </div>
             <div class="quick-links-info">
@@ -457,20 +453,25 @@
             <div class="social-container">
                 <div class="social-div">
                     <div>
-                        <a href=""><img src="img/Facebook.png" alt=""></a>
+                        <a href=""><img src="img/Facebook.png" alt="https://www.facebook.com/codervivek/"></a>
                         <p><a href="">Facebook</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/Twitter (1).png" alt=""></a>
+                        <a href=""><img src="img/Twitter (1).png" alt="https://twitter.com/codervivek5/"></a>
                         <p><a href="">Twitter</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/Instagram (2).png" alt=""></a>
+                        <a href=""><img src="img/Instagram (2).png" alt="https://www.instagram.com/coder_vivek/"></a>
                         <p><a href="">Instagram</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/LinkedIn Circled.png" alt=""></a>
+                        <a href=""><img src="img/LinkedIn Circled.png" alt="https://www.linkedin.com/in/codervivek/"></a>
                         <p><a href="">Linkdedin</a></p>
+                    </div>
+                    <!-- Language Option -->
+                    <div>
+                        <img src="img/languageIcon.png" alt="Languages-Icon" style="margin-bottom: 5px;margin-top:20px;">
+                        <div id="google_translate_element"></div>
                     </div>
                 </div>
             </div>
