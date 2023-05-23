@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+.imgload{
+	height: 25%;
+	width: 15%;
+
+}
+
+.loader{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #7b378ec4;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.loader.hidden{
+    animation: fadeOut 1s forwards;
+  }
+
+  @keyframes fadeOut {
+    100%{
+      opacity: 100%;
+      visibility: hidden;
+    }
+  }
+
 *{
     box-sizing: border-box;
     margin: 0;

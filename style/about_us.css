@@ -1,0 +1,41 @@
+.about_us{
+    height:70vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    background-image: url("../img/landing_svg_image.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.details{
+    height: 50vh;
+    margin: 10vh 40vh;
+    margin-left: 80vh;
+    width: 800px;
+    text-align: center;
+    border-style: solid;
+    border-color: #161B6E;
+    border-radius: 1.303rem;
+    border-width: 2px;
+}
+
+.details .image-id{
+    height: 15vh;
+    border-bottom-style: ridge;
+    border-color: #161B6E;
+    border-top-left-radius: 1.303rem;
+    border-top-right-radius: 1.303rem;
+    background-color: #DCD6D8;
+}
+
+.details .content{
+    display: block;
+    height: 35vh;
+    font-size: 18px;
+    line-height: 2rem;
+    border-end-start-radius: 1.303rem;
+    border-end-end-radius: 1.303rem;
+}
