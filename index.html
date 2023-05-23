@@ -15,21 +15,37 @@
     <title>VigyBag | Home</title>
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
 </head>
 
 <body bgcolor="#575A89">
 
     <header>
-        <img src="img/logo.png" alt="brand logo">
-        <nav>
-            <ul class="nav_link">
+        <div class="header_container">
+            <img src="img/logo.png" alt="brand logo">
+            <nav class="nav_menu">
+                <ul class="nav_link">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="nav_login">
+                <a href="login.html"><button>Login</button></a>
+                <div class="burger-icon">
+                    <i class="fa-solid fa-bars" id='icon'></i>
+                </div>
+            </div>
+        </div>
+        <nav class="nav_menu2">
+            <ul class="nav_link2">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Contact us</a></li>
             </ul>
         </nav>
-        <a href="login.html"><button>Login</button></a>
     </header>
 
     <div class="container">
