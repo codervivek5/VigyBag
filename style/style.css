@@ -15,8 +15,9 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 70px 5px 10px ;
+    padding: 5px 70px 20px 20px ;
     box-shadow:  0px 1px 6px #4e4e4e;
+    
 }
 header img {
     width: 10rem;
@@ -69,6 +70,9 @@ header button{
 .container{
     display: flex;
     font-family: sans-serif;
+    margin-top:160px;
+    padding-bottom:60px;
+    
 }
 .content{
     display: flex;
@@ -102,19 +106,19 @@ header button{
 .local{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 100px;
     margin-bottom: 134px;
     align-items: center;
 }
 
 .local input[type=search]{
-   padding:25px 130px;
+   padding:10px 130px;
    border-radius: 40px;
    font-family: sans-serif;
    border: none;
    background-color: #D9D9D9;
    text-align: center;
-   font-size: 35px;
+   font-size: 25px;
 }
 ::placeholder{
     color: #575A89;
@@ -127,7 +131,7 @@ header button{
     text-align: center;
 }
 .local img{
-    width: 60px;
+    width: 40px;
     position: relative;
     right: 100px;    
 }
@@ -135,18 +139,23 @@ header button{
 /* product container */
 
 .product-container{
-    height: 267px;
+    height: 400px;
     background-color: #D9D9D9;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 40px;
+    margin-top: 200px;
+    margin-bottom: 150px;
 }
 
 .Accessories-box{
     border-radius: 14px;
     width: 170px;
     height: 220px;
-    margin: auto 5px;
+    margin:30px 10px 40px 10px;
+    padding:30px 0;
+
 }
 .rectangle-42{
 box-sizing: border-box;
@@ -186,13 +195,17 @@ text-align: center;
 /* app section */
 
 .app-container{
-    height: 627px;
+    height: 750px;
     background-image: url('../img/app-section.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     display: grid;
     grid-template-columns: 1fr 866px;
+    margin-top:300px;
+    padding-top: 80px;
+    
+    
 }
 
 .device-box{
@@ -204,12 +217,15 @@ text-align: center;
 }
 
 .device-1st{
-    top: 50px;
+    top: 90px;
+    height: 450px;
+    left: 30px;
 }
 
 .device-2nd{
     top: 90px;
-    left: 225px;
+    left: 200px;
+    height:400px;
 }
 
 .app-info{
@@ -226,8 +242,8 @@ text-align: center;
 }
 
 .app-text img{
-width: 803px;
-height: 174px;
+width: 650px;
+height: 125px;
 }
 
 .google-play-button{
@@ -236,7 +252,7 @@ height: 174px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    margin-left: 30px;
+    margin-left: 300px;
 }
 
 .google-play-button:hover{
@@ -244,8 +260,8 @@ height: 174px;
 }
 
 .play-button{
-width: 340px;
-height: 100px;
+width: 250px;
+height: 70px;
 display: flex;
 justify-content: left;
 align-items: center;
@@ -259,13 +275,14 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .play-img-div img{
-    width: 76px;
-    height: 76px;
+    width: 40px;
+    height: 40px;
 }
 
 .play-text{
     text-align: left;
-    line-height: 32px;
+    line-height: 25px;
+    font-size:10px;
 }
 
 /* items section */   
@@ -275,8 +292,13 @@ font-family: Arial, Helvetica, sans-serif;
     background-color: #575A89;
     font-family: Arial, Helvetica, sans-serif;
     color: #161B6E;;
+    margin-top: 120px;
+    
+    
 }
-
+.item-row{
+    margin-top: 100px;
+}
 .item-title {
     color: #E6E6E6;
     padding: 55px 0px 25px 52px;
@@ -289,8 +311,8 @@ font-family: Arial, Helvetica, sans-serif;
     justify-content: space-around; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 0;
-    padding: 0px 0px 0px 52px;
+    margin: 50px 0;
+    padding: 0px 0px 0px 10px;
 
 }
 
@@ -381,6 +403,7 @@ transition: background-color 0.15s, color 0.15s;
     text-align: right;
     margin-top: 15px;
     padding-right: 42px;
+    
 }
 
 .see-more-text a{
@@ -402,6 +425,7 @@ transition: background-color 0.15s, color 0.15s;
    color: white;
    font-family:arial;
    padding: 17px 0px;
+   
 }
 
 .footer-container a{
@@ -422,7 +446,10 @@ transition: background-color 0.15s, color 0.15s;
     margin-top: 27px;
     margin-bottom: 38px;
 }
-
+.contact,.quick-links,.social{
+    padding:60px 20px 20px 20px;
+    
+}
 .contact-info div{
     display: flex;
     justify-content: left;
