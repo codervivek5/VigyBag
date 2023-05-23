@@ -130,6 +130,7 @@ button {
     width: 40%;
   }
 }
+
 @media screen and (min-width: 576px) and (max-width: 787px) {
   .burger-icon {
     display: flex;
@@ -141,6 +142,7 @@ button {
     display: none;
   }
 }
+
 @media screen and (min-width: 767px) and (max-width: 991px) {
   .burger-icon {
     display: flex;
@@ -152,6 +154,7 @@ button {
     display: none;
   }
 }
+
 @media screen and (min-width: 992px) {
   .burger-icon {
     display: flex;
