@@ -15,20 +15,31 @@
     <title>VigyBag | Home</title>
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
-    <script defer src="script.js"></script>
+    <!-- languagesOption -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit(){
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            )
+        }
+    </script>
+
 </head>
 
 <body bgcolor="#575A89">
-
+    
     <header>
+
         <div class="header_container">
-            <img src="img/logo.png" alt="brand logo">
+            <a href="https://codervivek5.github.io/VigyBag/"><img src="img/logo.png" alt="brand logo"></a>
             <nav class="nav_menu">
                 <ul class="nav_link">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">About us</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#bottom">Contact us</a></li>
                 </ul>
             </nav>
             <div class="nav_login">
@@ -36,7 +47,16 @@
                
             </div>
         </div>
-        
+
+
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </nav>
+        <a href="login.html"><button>Login</button></a>
+
     </header>
 
     <div class="container">
@@ -49,8 +69,8 @@
                 Get ready to shop smarter, not harder - <span>Download VigyBag today!</span>
             </h4>
         </div>
-
-        <img src="img/landing_svg_image.svg" alt="">
+        <div class="top-side-img-container"><img src="img/landing_svg_image.svg" alt="" class="top-side-img"></div>
+        
     </div>
 
     <div class="local">
@@ -95,7 +115,7 @@
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Food &
+                    <a href=""> Food & <br>
                         Beverages</a>
                 </div>
             </div>
@@ -109,7 +129,7 @@
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Beauty &
+                    <a href=""> Beauty & <br>
                         Wellness</a>
                 </div>
             </div>
@@ -124,8 +144,8 @@
             <div class="item-title">
                 Headphones for you!
             </div>
-            <div class="item-cards-div">
-                <div class="item-card">
+            <div class="item-carts-div">
+                <div class="item-cart">
                     <div class="item-image">
                         <div class="card-badge card-badge-bestseller">
                             <p>BEST SELLER</p>
@@ -145,8 +165,8 @@
                                 <div>(121)</div>
                             </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                            <button class="add-to-cart-button">
+                                Add to cart
                             </button>
                         </div>
                         <div class="item-heading">
@@ -154,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/toppng.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -247,7 +267,6 @@
                 Clothes for you!
             </div>
             <div class="item-cards-div">
-                
                 <div class="item-card">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
@@ -276,6 +295,7 @@
                 </div>
                 <div class="item-card">
                     <div class="item-image">
+
                         <div class="card-badge card-badge-newarrived">
                            
                         </div>
@@ -304,8 +324,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
+                        <div class="card-badge card-badge-newarrived">
+                            <p>NEWLY ARRIVED</p>
+                        </div>
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
                     </div>
@@ -321,8 +344,8 @@
                                 <div>(36)</div>
                             </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                            <button class="add-to-cart-button">
+                                Add to cart
                             </button>
                         </div>
                         <div class="item-heading">
@@ -330,7 +353,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-card">
+                <div class="item-cart">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -347,8 +370,8 @@
                                 <div>(36)</div>
                             </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                            <button class="add-to-cart-button">
+                                Add to cart
                             </button>
                         </div>
                         <div class="item-heading">
@@ -372,13 +395,16 @@
 
     <!-- app section -->
     <div class="app-container">
-        <div class="device-box">
-            <img class="device-2nd" src="img/deviceframes (1) 1.png" alt="">
-            <img class="device-1st" src="img/deviceframes 1.png" alt="">
+        <div class="device-box">  
+            <div class="device-container-1st"> <img class="device-1st" src="img/deviceframes 1(mod).png" alt="">
+            </div>
+            <div class="device-container-2nd"> <img class="device-2nd" src="img/deviceframes (1) 1(mod).png" alt="">
+            </div>
+         
         </div>
         <div class="app-info">
             <div class="app-text">
-                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="">
+                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="" class="app-text-img">
             </div>
             <div>
                 <button class="google-play-button">
@@ -414,16 +440,16 @@
             </div>
             <div class="contact-info">
                 <div class="contact-location">
-                    <img src="img/home icon.png" alt="">
-                    <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
+                    <div class="contact-location-img"><img src="img/home icon.png" alt=""></div>
+                    <div class="contact-location-text"> <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p></div>
                 </div>
                 <div class="contact-email">
-                    <img src="img/msg icon.png" alt="">
-                    <p><a href="">contact@vigybag.com</a></p>
+                    <div class="contact-email-img"><img src="img/msg icon.png" alt=""></div>
+                    <div class="contact-email-text"><p><a href="">contact@vigybag.com</a></p></div>    
                 </div>
                 <div class="contact-ph-number">
-                    <img src="img/call icon.png" alt="">
-                    <p><a href="">+91 1234567890</a></p>
+                    <div class="contact-ph-number-img"><img src="img/call icon.png" alt=""></div>
+                    <div class="contact-ph-number-text"><p><a href="">+91 1234567890</a></p></div>                   
                 </div>
             </div>
         </div>
@@ -438,38 +464,36 @@
                 <div><a href="">Order</a></div>
                 <div><a href="">help</a></div>
             </div>
-
         </div>
-
         <div class="social">
             <div class="footer-title">
                 Social connection
             </div>
             <div class="social-container">
-                <div class="social-div">
+                <div class="social-div">                   
                     <div>
-                        <a href=""><img src="img/Facebook.png" alt=""></a>
-                        <p><a href="">Facebook</a></p>
-                    </div>
-                    <div>
-                        <a href=""><img src="img/Twitter (1).png" alt=""></a>
+
+                        <a href="https://twitter.com/codervivek5"><img src="img/Twitter (1).png" alt=""></a>
                         <p><a href="">Twitter</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/Instagram (2).png" alt=""></a>
+                        <a href="https://www.instagram.com/coder_vivek/"><img src="img/Instagram (2).png" alt=""></a>
                         <p><a href="">Instagram</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/LinkedIn Circled.png" alt=""></a>
+                        <a href="https://www.linkedin.com/in/codervivek/"><img src="img/LinkedIn Circled.png" alt=""></a>
                         <p><a href="">Linkdedin</a></p>
+                    </div>
+                    <div>
+                        <a href=""><img src="img/Facebook.png" alt=""></a>
+                        <p><a href="">Facebook</a></p>
+
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-
 </body>
 
 </html>
