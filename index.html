@@ -15,21 +15,37 @@
     <title>VigyBag | Home</title>
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
 </head>
 
 <body bgcolor="#575A89">
 
     <header>
-        <img src="img/logo.png" alt="brand logo">
-        <nav>
-            <ul class="nav_link">
+        <div class="header_container">
+            <a href="https://codervivek5.github.io/VigyBag/"><img src="img/logo.png" alt="brand logo"></a>
+            <nav class="nav_menu">
+                <ul class="nav_link">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#bottom">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="nav_login">
+                <a href="login.html"><button>Login</button></a>
+                <div class="burger-icon">
+                    <i class="fa-solid fa-bars" id='icon'></i>
+                </div>
+            </div>
+        </div>
+        <nav class="nav_menu2">
+            <ul class="nav_link2">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact us</a></li>
             </ul>
         </nav>
-        <a href="login.html"><button>Login</button></a>
     </header>
 
     <div class="container">
@@ -39,7 +55,7 @@
             </h1>
             <h4>Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of
                 VigyBag.
-                Get ready to shop smarter, not harder - <span>Download VigyBag today!</span>
+                Get ready to shop smarter, not harder - <span><a href="#">Download VigyBag today!</span>
             </h4>
         </div>
 
@@ -88,7 +104,7 @@
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Food &
+                    <a href=""> Food & <br>
                         Beverages</a>
                 </div>
             </div>
@@ -102,7 +118,7 @@
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Beauty &
+                    <a href=""> Beauty & <br>
                         Wellness</a>
                 </div>
             </div>
@@ -462,8 +478,8 @@
             </div>
         </div>
         <!-- Quick Links -->
-        <div class="quick-links">
-            <div class="footer-title">
+        <div class="quick-links" id="bottom">
+            <div class="footer-title" >
                 Quick Links
             </div>
             <div class="quick-links-info">
@@ -472,38 +488,34 @@
                 <div><a href="">Order</a></div>
                 <div><a href="">help</a></div>
             </div>
-
         </div>
-
         <div class="social">
             <div class="footer-title">
                 Social connection
             </div>
             <div class="social-container">
-                <div class="social-div">
+                <div class="social-div">                   
                     <div>
-                        <a href=""><img src="img/Facebook.png" alt=""></a>
-                        <p><a href="">Facebook</a></p>
-                    </div>
-                    <div>
-                        <a href=""><img src="img/Twitter (1).png" alt=""></a>
+                        <a href="https://twitter.com/codervivek5"><img src="img/Twitter (1).png" alt=""></a>
                         <p><a href="">Twitter</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/Instagram (2).png" alt=""></a>
+                        <a href="https://www.instagram.com/coder_vivek/"><img src="img/Instagram (2).png" alt=""></a>
                         <p><a href="">Instagram</a></p>
                     </div>
                     <div>
-                        <a href=""><img src="img/LinkedIn Circled.png" alt=""></a>
+                        <a href="https://www.linkedin.com/in/codervivek/"><img src="img/LinkedIn Circled.png" alt=""></a>
                         <p><a href="">Linkdedin</a></p>
+                    </div>
+                    <div>
+                        <a href=""><img src="img/Facebook.png" alt=""></a>
+                        <p><a href="">Facebook</a></p>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-
 </body>
 
 </html>
