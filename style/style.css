@@ -610,7 +610,6 @@ button {
 
 /* ====================== SCROLL BAR ===================== */
 
-<<<<<<< Updated upstream
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -627,7 +626,6 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(#161b6e, #ff00ff);
 }
-=======
 ::-webkit-scrollbar{
     width: 12px;
   }
@@ -652,7 +650,8 @@ button {
  
     display: flex;
     justify-content: center;
-    
+    position: relative;
+    top: 150px;
 
   }
   .cart-table{
@@ -736,9 +735,10 @@ button {
     justify-content: center;
     align-items: center;
     font-size: larger;
+    position: relative;
+    top: 110px;
   }
   .cart-header img{
     height: 100px;
     margin: 10px;
   }
->>>>>>> Stashed changes

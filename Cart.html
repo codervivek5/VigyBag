@@ -16,25 +16,40 @@
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
 </head>
 <body bgcolor="#575A89">
-    <header>
-        <img src="img/logo.png" alt="brand logo">
-        <nav>
+  <header>
+    <div class="header_container">
+        <a href="https://codervivek5.github.io/VigyBag/"><img src="img/logo.png" alt="brand logo"></a>
+        <nav class="nav_menu">
             <ul class="nav_link">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Contact us</a></li>
             </ul>
         </nav>
-        <a href="login.html"><button>Login</button></a>
-      </header>
+        <div class="nav_login">
+            <a href="login.html"><button>Login</button></a>
+            <div class="burger-icon">
+                <i class="fa-solid fa-bars" id='icon'></i>
+            </div>
+        </div>
+    </div>
+    <nav class="nav_menu2">
+        <ul class="nav_link2">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#contact">Contact us</a></li>
+        </ul>
+    </nav>
+</header>
       <div class="cart-header">
 
         <img src="img/shopping-cart.png" alt="">
         <h3 >
           MY CART
-        </div>
-      </h3>
+        </h3>
+      </div>
     <div class="cart">
       <table class="cart-table">
             <tr class="cart-row">
