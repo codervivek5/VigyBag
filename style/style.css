@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -431,10 +431,19 @@ button {
 .item-card {
   display: inline-block;
   width: 300px;
-  height: 423px;
+  /* height: 423px; */
   border-radius: 15px;
-
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
+  -webkit-transition: 0.3s ease-in-out;
+  -webkit-transform: 0.3s ease-in-out;
+   -moz-transition: 0.3s ease-in-out;
+  -moz-transform: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  transform: 0.3s ease-in-out;
+}
+.item-card:hover {
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+  transform: scale(1.05);
 }
 
 .item-image {
@@ -467,12 +476,47 @@ button {
   border-bottom-right-radius: 15px;
   padding: 18px 15px 13px 15px;
 }
+.Lbtn {
+  border: none;
+  font-size: 30px;
+  background-color: #d9d9d9;
+  color: gray;
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 15px;
+  right: 13px;
+}
+.Lbtn i:hover {
+  cursor: pointer;
+}
+
+
+
+.item-description {
+  display: flex;
+  justify-content: space-between;
+  background-color: #9fa1c1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 18px 15px 13px 15px;
+}
 
 .item-description p,
 .items-star div {
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+.items-star i{
+  color: #e6e6e6;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.items-star i.active{
+  color: green;
 }
 
 .item-description p {
@@ -483,11 +527,32 @@ button {
   font-size: 15px;
   font-weight: 700;
   line-height: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+.item-paise{
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #161b6e;
 }
 
 .items-star div {
   display: inline-block;
 }
+.addbtn{
+  border: none;
+  font-size: 18px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  color: gray;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  left: 0px;
+}
+
 
 .add-to-card-button {
   font-weight: 400;
