@@ -15,21 +15,11 @@
     <title>VigyBag | Home</title>
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
-    <!-- languagesOption -->
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
-        function googleTranslateElementInit(){
-            new google.translate.TranslateElement(
-                {pageLanguage: 'en'},
-                'google_translate_element'
-            )
-        }
-    </script>
-
+    <script defer src="script.js"></script>
 </head>
 
 <body bgcolor="#575A89">
-    
+
     <header>
 
         <div class="header_container">
@@ -49,14 +39,6 @@
         </div>
 
 
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-            </ul>
-        </nav>
-        <a href="login.html"><button>Login</button></a>
-
     </header>
 
     <div class="container">
@@ -66,11 +48,11 @@
             </h1>
             <h4>Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of
                 VigyBag.
-                Get ready to shop smarter, not harder - <span>Download VigyBag today!</span>
+                Get ready to shop smarter, not harder - <span><a href="#">Download VigyBag today!</span>
             </h4>
         </div>
-        <div class="top-side-img-container"><img src="img/landing_svg_image.svg" alt="" class="top-side-img"></div>
-        
+
+        <img src="img/landing_svg_image.svg" alt="">
     </div>
 
     <div class="local">
@@ -144,8 +126,8 @@
             <div class="item-title">
                 Headphones for you!
             </div>
-            <div class="item-carts-div">
-                <div class="item-cart">
+            <div class="item-cards-div">
+                <div class="item-card">
                     <div class="item-image">
                         <div class="card-badge card-badge-bestseller">
                             <p>BEST SELLER</p>
@@ -165,8 +147,8 @@
                                 <div>(121)</div>
                             </div>
 
-                            <button class="add-to-cart-button">
-                                Add to cart
+                            <button class="add-to-card-button">
+                                Add to card
                             </button>
                         </div>
                         <div class="item-heading">
@@ -174,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-cart">
+                <div class="item-card">
                     <div class="item-image">
                         <img src="img/toppng.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -267,6 +249,7 @@
                 Clothes for you!
             </div>
             <div class="item-cards-div">
+                
                 <div class="item-card">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
@@ -295,10 +278,11 @@
                 </div>
                 <div class="item-card">
                     <div class="item-image">
+
 
                         <div class="card-badge card-badge-newarrived">
                            
-                        </div>
+          </div>
 
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -324,11 +308,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-cart">
+                <div class="item-card">
                     <div class="item-image">
-                        <div class="card-badge card-badge-newarrived">
-                            <p>NEWLY ARRIVED</p>
-                        </div>
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
                     </div>
@@ -344,8 +325,8 @@
                                 <div>(36)</div>
                             </div>
 
-                            <button class="add-to-cart-button">
-                                Add to cart
+                            <button class="add-to-card-button">
+                                Add to card
                             </button>
                         </div>
                         <div class="item-heading">
@@ -353,7 +334,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="item-cart">
+                <div class="item-card">
                     <div class="item-image">
                         <img src="img/t-shirt.png" alt="">
                         <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
@@ -370,8 +351,8 @@
                                 <div>(36)</div>
                             </div>
 
-                            <button class="add-to-cart-button">
-                                Add to cart
+                            <button class="add-to-card-button">
+                                Add to card
                             </button>
                         </div>
                         <div class="item-heading">
@@ -395,16 +376,13 @@
 
     <!-- app section -->
     <div class="app-container">
-        <div class="device-box">  
-            <div class="device-container-1st"> <img class="device-1st" src="img/deviceframes 1(mod).png" alt="">
-            </div>
-            <div class="device-container-2nd"> <img class="device-2nd" src="img/deviceframes (1) 1(mod).png" alt="">
-            </div>
-         
+        <div class="device-box">
+            <img class="device-2nd" src="img/deviceframes (1) 1.png" alt="">
+            <img class="device-1st" src="img/deviceframes 1.png" alt="">
         </div>
         <div class="app-info">
             <div class="app-text">
-                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="" class="app-text-img">
+                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="">
             </div>
             <div>
                 <button class="google-play-button">
@@ -440,22 +418,22 @@
             </div>
             <div class="contact-info">
                 <div class="contact-location">
-                    <div class="contact-location-img"><img src="img/home icon.png" alt=""></div>
-                    <div class="contact-location-text"> <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p></div>
+                    <img src="img/home icon.png" alt="">
+                    <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
                 </div>
                 <div class="contact-email">
-                    <div class="contact-email-img"><img src="img/msg icon.png" alt=""></div>
-                    <div class="contact-email-text"><p><a href="">contact@vigybag.com</a></p></div>    
+                    <img src="img/msg icon.png" alt="">
+                    <p><a href="">contact@vigybag.com</a></p>
                 </div>
                 <div class="contact-ph-number">
-                    <div class="contact-ph-number-img"><img src="img/call icon.png" alt=""></div>
-                    <div class="contact-ph-number-text"><p><a href="">+91 1234567890</a></p></div>                   
+                    <img src="img/call icon.png" alt="">
+                    <p><a href="">+91 1234567890</a></p>
                 </div>
             </div>
         </div>
         <!-- Quick Links -->
-        <div class="quick-links">
-            <div class="footer-title">
+        <div class="quick-links" id="bottom">
+            <div class="footer-title" >
                 Quick Links
             </div>
             <div class="quick-links-info">
