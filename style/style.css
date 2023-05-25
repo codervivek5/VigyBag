@@ -435,7 +435,8 @@ button {
 /* items section */
 
 .items-container {
-  height: 1294px;
+  height: 100%;
+  width: 100%;
   background-color: #575a89;
   font-family: Arial, Helvetica, sans-serif;
   color: #161b6e;
@@ -449,17 +450,19 @@ button {
 }
 
 .item-cards-div {
-  /* display: flex;
-    justify-content: space-around; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 0;
-  padding: 0px 0px 0px 52px;
+  display: flex;
+  margin: auto;
+  width: 95%;
+}
+
+.item-card1{
+  display: flex;
+  flex-direction: row;
 }
 
 .item-card {
-  display: inline-block;
-  width: 300px;
+  padding: 2rem;
+  width: 100%;
   /* height: 423px; */
   border-radius: 15px;
   /* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
@@ -514,12 +517,24 @@ button {
 
 .item-description {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   background-color: #9fa1c1;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 18px 15px 13px 15px;
 }
+
+.item-description-2{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #9fa1c1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 18px 15px 13px 15px;
+}
+
 .Lbtn {
   border: none;
   font-size: 30px;
