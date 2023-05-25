@@ -329,83 +329,109 @@ button {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr 866px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
 }
 
 .device-box {
-  position: relative;
+  width: 40%;
 }
 
-.device-box img {
-  position: absolute;
+.device-frame {
+  width: 85%;
 }
 
-.device-1st {
-  top: 50px;
-}
-
-.device-2nd {
-  top: 90px;
-  left: 225px;
+.vigybag-image {
+  width: 100%;
 }
 
 .app-info {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-left: 20px;
-}
-
-.app-text {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 75px;
+  width: 60%;
 }
-
-.app-text img {
-  width: 803px;
-  height: 174px;
+.play-button{
+  display: flex;
+  align-items: center;
+  padding:1.5rem;
 }
-
-.google-play-button {
-  background-color: #161b6e;
-  border: none;
+.google-button{
+  background-color: #0d268c;
   border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  margin-left: 30px;
 }
-
-.google-play-button:hover {
+.google-button:hover{
   background-color: #575a89;
 }
+.play-text{
+  color:#ffffff;
+}
+@media screen and (max-width:767px) {
+  .app-container {
+      flex-direction: column;
+      align-items: center;
+      height: 50%;
+  }
 
-.play-button {
-  width: 340px;
-  height: 100px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  .device-box {
+      width: 90%;
+
+  }
+  .device-frame {
+      width: 100%;
+  }
+
+  .vigybag-image {
+      width: 100%;
+  }
+
+  .app-info {
+      width: 90%;
+  }
 }
 
-.play-img-div {
-  padding-left: 14px;
-  padding-right: 15px;
+@media screen and (min-width:768px) and (max-width:1199px) {
+  .app-container {
+      align-items: center;
+  }
+
+  .device-box {
+      width: 40%;
+  }
+
+  .device-frame {
+      width: 80%;
+  }
+
+  .vigybag-image {
+      width: 100%;
+  }
+
+  .app-info {
+      width: 60%;
+  }
 }
 
-.play-img-div img {
-  width: 76px;
-  height: 76px;
+@media screen and (min-width:1200px) {
+  .device-box {
+      width: 40%;
+  }
+
+  .app-info {
+      width: 50%;
+  }
+  .device-frame {
+    width: 80%;
+    height:100%;
 }
 
-.play-text {
-  text-align: left;
-  line-height: 32px;
+  .vigybag-image {
+    width: 100%;
 }
-
+}
 /* items section */
 
 .items-container {
