@@ -735,3 +735,7 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(#161b6e, #ff00ff);
 }
+.subs {
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+}
