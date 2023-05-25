@@ -478,7 +478,26 @@
         </div>
     </div>
 
-
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top" ><svg xmlns="http://www.w3.org/2000/svg" width="23" height="35" viewBox="0 0 23 35" fill="none">
+        <path d="M12.4141 0.962228C11.8347 0.370209 10.885 0.36005 10.2929 0.939536L0.645434 10.3828C0.0534147 10.9623 0.0432554 11.912 0.622742 12.504C1.20223 13.096 2.15192 13.1062 2.74394 12.5267L11.3195 4.13268L19.7135 12.7082C20.293 13.3003 21.2427 13.3104 21.8347 12.7309C22.4268 12.1514 22.4369 11.2018 21.8574 10.6097L12.4141 0.962228ZM12.4999 34.016L12.8421 2.02753L9.84228 1.99544L9.50009 33.984L12.4999 34.016Z" fill="black"/>
+        </svg></button>
 </body>
+<script> 
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  var backToTopBtn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
+</script>
 </html>
