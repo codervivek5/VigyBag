@@ -12,30 +12,46 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-     <!-- AOS FILE LINK -->
-     <link rel="stylesheet" href="bower_components/aos/dist/aos.css">
-     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-     
-
-
+       <!-- AOS FILE LINK -->
+       <link rel="stylesheet" href="bower_components/aos/dist/aos.css">
+       <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+       
+  
     <title>VigyBag | Home</title>
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
 </head>
 
 <body bgcolor="#575A89">
 
     <header>
-        <img src="img/logo.png" alt="brand logo" class="brand-logo">
-        <nav>
-            <ul class="nav_link">
-                <li><a href="#">Home</a></li>
+        <div class="header_container">
+            <a href="https://codervivek5.github.io/VigyBag/"><img src="img/logo.png" alt="brand logo"></a>
+            <nav class="nav_menu">
+                <ul class="nav_link">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#bottom">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="nav_login">
+                <a href="login.html"><button>Login</button></a>
+                <div class="burger-icon">
+                    <i class="fa-solid fa-bars" id='icon'></i>
+                </div>
+            </div>
+        </div>
+        <nav class="nav_menu2">
+            <ul class="nav_link2">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact us</a></li>
             </ul>
         </nav>
-        <a href="login.html"><button>Login</button></a>
     </header>
 
     <div class="container">
@@ -45,11 +61,11 @@
             </h1>
             <h4>Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of
                 VigyBag.
-                Get ready to shop smarter, not harder - <span>Download VigyBag today!</span>
+                Get ready to shop smarter, not harder - <span id="down"><a href="#">Download VigyBag today!</span>
             </h4>
         </div>
-        <div class="top-side-img-container"><img src="img/landing_svg_image.svg" alt="" class="top-side-img"></div>
-        
+
+        <img src="img/landing_svg_image.svg" alt="">
     </div>
 
     <div class="local">
@@ -61,7 +77,7 @@
     <!-- product container -->
     <div class="product-container">
         <!-- product-1 -->
-        <div class="Accessories-box" data-aos="fade-up-right"  data-aos-offset="100px">
+        <div class="Accessories-box" data-aos="fade-up-right">
             <div>
                 <div class="rectangle-42">
                     <img src="img/Suit.png" alt="">
@@ -73,7 +89,7 @@
         </div>
         <div>
             <!-- product-2 -->
-            <div class="Accessories-box"  data-aos="fade-up"  data-aos-offset="100px">
+            <div class="Accessories-box"  data-aos="fade-up">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Stationery.png" alt="">
@@ -87,35 +103,35 @@
         </div>
         <div>
             <!-- product-3 -->
-            <div class="Accessories-box"  data-aos="fade-up"  data-aos-offset="100px">
+            <div class="Accessories-box"  data-aos="fade-up">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Food Bar.png" alt="">
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Food &
+                    <a href=""> Food & <br>
                         Beverages</a>
                 </div>
             </div>
         </div>
         <div>
             <!-- product-4 -->
-            <div class="Accessories-box"  data-aos="fade-up-left"  data-aos-offset="100px">
+            <div class="Accessories-box"  data-aos="fade-up-left">
                 <div>
                     <div class="rectangle-42">
                         <img src="img/Aroma.png" alt="">
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Beauty &
+                    <a href=""> Beauty & <br>
                         Wellness</a>
                 </div>
             </div>
         </div>
     </div>
 
- <!-- items section -->
+    <!-- items section -->
 
     <!-- first row -->
     <div class="items-container">
@@ -124,358 +140,487 @@
                 Headphones for you!
             </div>
 
-            <div class="item-carts-div">
-                <div class="item-cart"  data-aos="fade-up-right">
-                    <div class="item-image">
-                        <div class="card-badge card-badge-bestseller">
-                            <p>BEST SELLER</p>
-                        </div>
-                        <img src="img/toppng.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Solo Wireless headphone</a></div>
-                            <p> Wireless stereo headphone with mic</p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(121)</div>
-                            </div>
-
-                            <button class="add-to-cart-button">
-                                Add to cart
-                            </button>
-                        </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 799</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-cart"  data-aos="fade-up">
-                    <div class="item-image">
-                        <img src="img/toppng.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Solo Wireless headphone</a></div>
-                            <p> Wireless stereo headphone with mic</p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(121)</div>
-                            </div>
-
-                            <button class="add-to-card-button">
-                                Add to card
-                            </button>
-                        </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 799</h3>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="item-card"  data-aos="fade-up">
-                    <div class="item-image">
-                        <img src="img/toppng.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Solo Wireless headphone</a></div>
-                            <p> Wireless stereo headphone with mic</p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(121)</div>
-                            </div>
-
-                            <button class="add-to-card-button">
-                                Add to card
-                            </button>
-                        </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 799</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item-card"  data-aos="fade-up-left">
-                    <div class="item-image">
-                        <img src="img/toppng.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Solo Wireless headphone</a></div>
-                            <p> Wireless stereo headphone with mic</p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(121)</div>
-                            </div>
-
-                            <button class="add-to-card-button">
-                                Add to card
-                            </button>
-                        </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 799</h3>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="see-more-text">
-            <a href="">
-                <div>
-                    <h2>See more...</h2>
-                </div>
-            </a>
-        </div>
-        <!-- secoond row -->
-        <div class="item-row">
-            <div class="item-title">
-                Clothes for you!
-            </div>
             <div class="item-cards-div">
-                <div class="item-card" data-aos="fade-up-right">
-                    <div class="item-image">
-                        <img src="img/t-shirt.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                            <p>cotton printed smooth shirt with multiple colors</p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(36)</div>
-                            </div>
 
-                            <button class="add-to-card-button">
-                                Add to card
+                <!-- card1 -->
+
+                <div class="item-card1"  data-aos="fade-up-left">
+
+                    <div class="item-card ">
+
+                        <div class="item-image">
+                            <img src="img/toppng.png" alt="">
+
+                            <!-- <img class="wishlist-icon" src="img/Love-Circled.png" alt=""> -->
+                            <button class="Lbtn" id="btn1" onclick="Toggle1()"> <i class="fa-solid fa-heart"></i>
+                            </button>
+
+                            <!--                         <button class="wishlist-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                          </svg>
+                          </button> -->
+
+                        </div>
+                        <div class="item-description">
+                            <div>
+                                <div class="item-heading"><a href="">Solo Wireless HeadPhone</a></div>
+                                <p> Wireless Stereo Headphone with mic</p>
+                                <div class="items-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <div>(121)</div>
+                                </div>
+                                <div class="item-paise">
+                                    <h3>&#8377; 799</h3>
+                                </div>
+                            </div>
+                            <button class="addbtn" id="addBtn1" onclick="tog1()"><i
+                                    class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <!-- card4 -->
+                    <div class="item-card"  data-aos="fade-up">
+                        <div class="item-image">
+                            <img src="img/toppng.png" alt="">
+
+                            <!-- <img class="wishlist-icon" src="img/Love-Circled.png" alt=""> -->
+                            <button class="Lbtn" id="btn4" onclick="Toggle4()"> <i class="fa-solid fa-heart"></i>
+                            </button>
+
+                            <!--                         <button class="wishlist-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                          </svg>
+                          </button> -->
+
+                        </div>
+                        <div class="item-description">
+                            <div>
+                                <div class="item-heading"><a href="">Solo Wireless HeadPhone</a></div>
+                                <p> Wireless Stereo Headphone with mic</p>
+                                <div class="items-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <div>(121)</div>
+                                </div>
+                                <div class="item-paise">
+                                    <h3>&#8377; 799</h3>
+                                </div>
+                            </div>
+                            <button class="addbtn" id="addBtn4" onclick="tog4()"><i
+                                    class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <div class="item-card "  data-aos="fade-up">
+
+                        <div class="item-image">
+                            <img src="img/toppng.png" alt="">
+
+                            <!-- <img class="wishlist-icon" src="img/Love-Circled.png" alt=""> -->
+                            <button class="Lbtn" id="btn1" onclick="Toggle1()"> <i class="fa-solid fa-heart"></i>
+                            </button>
+
+                            <!--                         <button class="wishlist-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                          </svg>
+                          </button> -->
+
+                        </div>
+                        <div class="item-description">
+                            <div>
+                                <div class="item-heading"><a href="">Solo Wireless HeadPhone</a></div>
+                                <p> Wireless Stereo Headphone with mic</p>
+                                <div class="items-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <div>(121)</div>
+                                </div>
+                                <div class="item-paise">
+                                    <h3>&#8377; 799</h3>
+                                </div>
+                            </div>
+                            <button class="addbtn" id="addBtn1" onclick="tog1()"><i
+                                    class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <!-- card4 -->
+                    <div class="item-card"  data-aos="fade-up-left">
+                        <div class="item-image">
+                            <img src="img/toppng.png" alt="">
+
+                            <!-- <img class="wishlist-icon" src="img/Love-Circled.png" alt=""> -->
+                            <button class="Lbtn" id="btn4" onclick="Toggle4()"> <i class="fa-solid fa-heart"></i>
+                            </button>
+
+                            <!--                         <button class="wishlist-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                          </svg>
+                          </button> -->
+
+                        </div>
+                        <div class="item-description">
+                            <div>
+                                <div class="item-heading"><a href="">Solo Wireless HeadPhone</a></div>
+                                <p> Wireless Stereo Headphone with mic</p>
+                                <div class="items-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <div>(121)</div>
+                                </div>
+                                <div class="item-paise">
+                                    <h3>&#8377; 799</h3>
+                                </div>
+                            </div>
+                            <button class="addbtn" id="addBtn4" onclick="tog4()"><i
+                                    class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+                    <div class="item-card "  data-aos="fade-up-right">
+
+                        <div class="item-image">
+                            <img src="img/toppng.png" alt="">
+
+                            <!-- <img class="wishlist-icon" src="img/Love-Circled.png" alt=""> -->
+                            <button class="Lbtn" id="btn1" onclick="Toggle1()"> <i class="fa-solid fa-heart"></i>
+                            </button>
+
+                            <!--                         <button class="wishlist-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                          </svg>
+                          </button> -->
+
+                        </div>
+                        <div class="item-description">
+                            <div>
+                                <div class="item-heading"><a href="">Solo Wireless HeadPhone</a></div>
+                                <p> Wireless Stereo Headphone with mic</p>
+                                <div class="items-star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+
+                                    <div>(121)</div>
+                                </div>
+                                <div class="item-paise">
+                                    <h3>&#8377; 799</h3>
+                                </div>
+                            </div>
+                            <button class="addbtn" id="addBtn1" onclick="tog1()"><i
+                                    class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="see-more-text">
+                <a href="">
+                    <div>
+                        <h2>See more...</h2>
+                    </div>
+                </a>
+            </div>
+            <!-- secoond row -->
+            <div class="item-row">
+                <div class="item-title">
+                    Clothes for you!
+                </div>
+                <div class="item-cards-div">
+
+                    <div class="item-card"  data-aos="fade-up-right">
+                        <div class="item-image">
+                            <img src="img/t-shirt.png" alt="">
+                            <button class="wishlist-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
                             </button>
                         </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 349</h3>
+                        <div class="item-description-2">
+                            <div>
+                                <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                                <p>cotton printed smooth shirt with multiple colors</p>
+                                <div class="items-star"><img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <div>(36)</div>
+                                </div>
+
+                                <button class="add-to-card-button">
+                                    Add to card
+                                </button>
+                            </div>
+                            <div class="item-heading">
+                                <h3>&#8377; 349</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item-card" data-aos="fade-up">
-                    <div class="item-image">
-                        <img src="img/t-shirt.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                            <p>cotton printed smooth shirt with multiple colors </p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(36)</div>
-                            </div>
-
-                            <button class="add-to-card-button">
-                                Add to card
+                    <div class="item-card"  data-aos="fade-up">
+                        <div class="item-image">
+                            <img src="img/t-shirt.png" alt="">
+                            <button class="wishlist-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
                             </button>
                         </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 349</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-cart" data-aos="fade-up">
-                    <div class="item-image">
-                        <div class="card-badge card-badge-newarrived">
-                            <p>NEWLY ARRIVED</p>
-                        </div>
-                        <img src="img/t-shirt.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                            <p>cotton printed smooth shirt with multiple colors </p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(36)</div>
-                            </div>
+                        <div class="item-description-2">
+                            <div>
+                                <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                                <p>cotton printed smooth shirt with multiple colors </p>
+                                <div class="items-star"><img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <div>(36)</div>
+                                </div>
 
-                            <button class="add-to-cart-button">
-                                Add to cart
+                                <button class="add-to-card-button">
+                                    Add to card
+                                </button>
+                            </div>
+                            <div class="item-heading">
+                                <h3>&#8377; 349</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-card"  data-aos="fade-up">
+                        <div class="item-image">
+                            <img src="img/t-shirt.png" alt="">
+                            <button class="wishlist-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
                             </button>
                         </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 349</h3>
+                        <div class="item-description-2">
+                            <div>
+                                <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                                <p>cotton printed smooth shirt with multiple colors </p>
+                                <div class="items-star"><img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <div>(36)</div>
+                                </div>
+
+                                <button class="add-to-card-button">
+                                    Add to card
+                                </button>
+                            </div>
+                            <div class="item-heading">
+                                <h3>&#8377; 349</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item-cart" data-aos="fade-up-left">
-                    <div class="item-image">
-                        <img src="img/t-shirt.png" alt="">
-                        <img class="wishlist-icon" src="img/Love-Circled.png" alt="">
-                    </div>
-                    <div class="item-description">
-                        <div>
-                            <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                            <p>cotton printed smooth shirt with multiple colors</p>
-                            <div class="items-star"><img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_white.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <img src="img/Star_green.png" alt="">
-                                <div>(36)</div>
-                            </div>
-
-                            <button class="add-to-cart-button">
-                                Add to cart
+                    <div class="item-card"  data-aos="fade-up">
+                        <div class="item-image">
+                            <img src="img/t-shirt.png" alt="">
+                            <button class="wishlist-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
                             </button>
                         </div>
-                        <div class="item-heading">
-                            <h3>&#8377; 349</h3>
+                        <div class="item-description-2">
+                            <div>
+                                <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                                <p>cotton printed smooth shirt with multiple colors </p>
+                                <div class="items-star"><img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <div>(36)</div>
+                                </div>
+
+                                <button class="add-to-card-button">
+                                    Add to card
+                                </button>
+                            </div>
+                            <div class="item-heading">
+                                <h3>&#8377; 349</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-card"  data-aos="fade-up-left">
+                        <div class="item-image">
+                            <img src="img/t-shirt.png" alt="">
+                            <button class="wishlist-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="item-description-2">
+                            <div>
+                                <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                                <p>cotton printed smooth shirt with multiple colors</p>
+                                <div class="items-star"><img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_white.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <img src="img/Star_green.png" alt="">
+                                    <div>(36)</div>
+                                </div>
+
+                                <button class="add-to-card-button">
+                                    Add to card
+                                </button>
+                            </div>
+                            <div class="item-heading">
+                                <h3>&#8377; 349</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="see-more-text">
+                <a href="">
+                    <div>
+                        <h2>See more...</h2>
+                    </div>
+                </a>
+            </div>
+
         </div>
-        <div class="see-more-text">
-            <a href="">
-                <div>
-                    <h2>See more...</h2>
+
+        <br><br>
+
+
+        <!-- app section -->
+        <div class="app-container">
+            <div class="device-box">
+                <img class="device-frame" src="img/combined-frames.png" alt="">
+            </div>
+            <div class="app-info">
+                <div class="vigybag-text">
+                    <img src="img/VigyBag is ready for your favorite shopping@2x.png" class="vigybag-image" alt="" />
                 </div>
-            </a>
-        </div>
-
-    </div>
-
-    
-
-    <!-- app section -->
-    <div class="app-container">
-        <div class="device-box">  
-            <div class="device-container-1st"> <img class="device-1st" src="img/deviceframes 1(mod).png" alt="">
-            </div>
-            <div class="device-container-2nd"> <img class="device-2nd" src="img/deviceframes (1) 1(mod).png" alt="">
-            </div>
-         
-        </div>
-        <div class="app-info">
-            <div class="app-text">
-                <img src="img/VigyBag is ready for your favorite shopping@2x.png" alt="" class="app-text-img">
-            </div>
-            <div>
-                <button class="google-play-button">
-                    <div class="play-button">
-                        <div class="play-img-div">
-                            <img src="img/google-play.png" alt="">
+                <div class="google-play-button">
+                    <button class="google-button">
+                        <div class="play-button">
+                            <div class="play-img-div">
+                                <img src="img/google-play.png" alt="">
+                            </div>
+                            <div class="play-text">
+                                <p>
+                                <h4>GET IT ON</h4>
+                                </p>
+                                <p>
+                                <h1>Google Play</h1>
+                                </p>
+                            </div>
                         </div>
-                        <div class="play-text">
-                            <p>
-                            <h4>GET IT ON</h4>
-                            </p>
-                            <p>
-                            <h1>Google Play</h1>
-                            </p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- footer section -->
+        <div class="footer-container">
+            <!-- contact-us -->
+            <div class="contact"  data-aos="fade-up-right">
+                <div class="footer-title">
+                    Contact us
+                </div>
+                <div class="contact-info">
+                    <div class="contact-location">
+                        <img src="img/home icon.png" alt="">
+                        <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
+                    </div>
+                    <div class="contact-email">
+                        <img src="img/msg icon.png" alt="">
+                        <p><a href="">contact@vigybag.com</a></p>
+                    </div>
+                    <div class="contact-ph-number">
+                        <img src="img/call icon.png" alt="">
+                        <p><a href="">+91 1234567890</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Quick Links -->
+            <div class="quick-links" id="bottom"  data-aos="fade-up">
+                <div class="footer-title">
+                    Quick Links
+                </div>
+                <div class="quick-links-info">
+                    <div><a href="">About us</a></div>
+                    <div><a href="">Contact us</a></div>
+                    <div><a href="">Order</a></div>
+                    <div><a href="">help</a></div>
+                </div>
+            </div>
+            <div class="social"  data-aos="fade-up-left">
+                <div class="footer-title">
+                    Social connection
+                </div>
+                <div class="social-container">
+                    <div class="social-div">
+                        <div>
+                            <a href="https://twitter.com/codervivek5"><img src="img/Twitter (1).png" alt=""></a>
+                            <p><a href="">Twitter</a></p>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/coder_vivek/"><img src="img/Instagram (2).png"
+                                    alt=""></a>
+                            <p><a href="">Instagram</a></p>
+                        </div>
+                        <div>
+
+                            <a href=""><img src="img/LinkedIn Circled.png" alt=""></a>
+                            <p><a href="">LinkedIn</a></p>
+
+                        </div>
+                        <div>
+                            <a href=""><img src="img/Facebook.png" alt=""></a>
+                            <p><a href="">Facebook</a></p>
                         </div>
                     </div>
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- footer section -->
-    <div class="footer-container" >
-        <!-- contact-us -->
-        <div class="contact"  data-aos="fade-up-right">
-            <div class="footer-title">
-                Contact us
-            </div>
-            <div class="contact-info">
-                <div class="contact-location">
-                    <div class="contact-location-img"><img src="img/home icon.png" alt=""></div>
-                    <div class="contact-location-text"> <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
-                    </div>
-                   
                 </div>
-                <div class="contact-email">
-                    <div class="contact-email-img"><img src="img/msg icon.png" alt=""></div>
-                    <div class="contact-email-text"><p><a href="">contact@vigybag.com</a></p></div>    
-                </div>
-                <div class="contact-ph-number">
-                    <div class="contact-ph-number-img"><img src="img/call icon.png" alt=""></div>
-                    <div class="contact-ph-number-text"><p><a href="">+91 1234567890</a></p></div>                   
-                </div>
+
             </div>
         </div>
-        <!-- Quick Links -->
-        <div class="quick-links"  data-aos="fade-up">
-            <div class="footer-title">
-                Quick Links
-            </div>
-            <div class="quick-links-info">
-                <div><a href="">About us</a></div>
-                <div><a href="">Contact us</a></div>
-                <div><a href="">Order</a></div>
-                <div><a href="">help</a></div>
-            </div>
-
-        </div>
-
-        <div class="social"  data-aos="fade-up-left">
-            <div class="footer-title">
-                Social connection
-            </div>
-            <div class="social-container">
-                <div class="social-div">
-                    <div>
-                        <a href=""><img src="img/Facebook.png" alt="https://www.facebook.com/codervivek/"></a>
-                        <p><a href="">Facebook</a></p>
-                    </div>
-                    <div>
-                        <a href=""><img src="img/Twitter (1).png" alt="https://twitter.com/codervivek5/"></a>
-                        <p><a href="">Twitter</a></p>
-                    </div>
-                    <div>
-                        <a href=""><img src="img/Instagram (2).png" alt="https://www.instagram.com/coder_vivek/"></a>
-                        <p><a href="">Instagram</a></p>
-                    </div>
-                    <div>
-                        <a href=""><img src="img/LinkedIn Circled.png" alt="https://www.linkedin.com/in/codervivek/"></a>
-                        <p><a href="">Linkdedin</a></p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
- <!-- AOS JS LINKS -->
+        <!-- AOS JS LINKS -->
  <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
  <script src="bower_components/aos/dist/aos.js"></script>
 
