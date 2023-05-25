@@ -254,12 +254,17 @@ form select {
 }
 
 form button[type="submit"] {
-    background-color: #333;
+    background-color: blue;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 80%;
+    margin-left: 10vw;
+    margin-top: 2vw;
+    height: 30%;
+
 }
 
 /* Footer Styles */
