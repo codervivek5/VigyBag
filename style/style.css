@@ -750,3 +750,21 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(#161b6e, #ff00ff);
 }
+
+/* ====================== Copyright ===================== */
+#copyright{
+  background-color: #07081d;
+  width: 100vw;
+  height: 3em;
+}
+
+#copyright p{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+#copyright p span{
+  cursor: pointer;
+  color: orange;
+}

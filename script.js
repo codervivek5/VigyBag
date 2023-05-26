@@ -11,7 +11,7 @@ const addbtn3 = document.getElementById('addBtn3');
 const btnvar4 = document.getElementById('btn4');
 const addbtn4 = document.getElementById('addBtn4');
 const stars = document.querySelectorAll('.items-star i');
-
+const copyright = document.querySelector('#copyright p span');
 
 
 burgerIcon.addEventListener('click', () => {
@@ -107,6 +107,11 @@ stars.forEach((star , index1) => {
     });
 });
 
+
+// Copyright link {clickable}
+copyright.addEventListener("click", function(){
+    window.open("https://codervivek.live/", "_blank");
+});
 
 
 // Path: VigyBag/script.js
