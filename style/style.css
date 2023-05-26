@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +9,9 @@
 
 /* navigation bar */
 header {
-  padding: 5px 70px 5px 10px;
+  width: 100vw;
+  position: fixed;
+  z-index: 100;
 }
 
 .header_container {
@@ -59,6 +61,7 @@ button {
 
 .nav_link li a:hover {
   color: #575a89;
+
   text-decoration: underline 2.5px #575a89;
 }
 
@@ -131,6 +134,7 @@ button {
     width: 40%;
   }
 }
+
 @media screen and (min-width: 576px) and (max-width: 787px) {
   .burger-icon {
     display: flex;
@@ -142,6 +146,7 @@ button {
     display: none;
   }
 }
+
 @media screen and (min-width: 767px) and (max-width: 991px) {
   .burger-icon {
     display: flex;
@@ -153,6 +158,7 @@ button {
     display: none;
   }
 }
+
 @media screen and (min-width: 992px) {
   .burger-icon {
     display: flex;
@@ -169,6 +175,8 @@ button {
 .container {
   display: flex;
   font-family: sans-serif;
+
+  padding-top: 60px;
 }
 .container a {
   display: flex;
@@ -209,6 +217,9 @@ button {
 }
 
 .container img {
+  width: 30%;
+  margin: 40px 70px;
+
   width: 100%;
   margin: 40px 70px;
   margin-left: 0px;
@@ -298,7 +309,11 @@ button {
 
 .product-name {
   margin-top: 10px;
+
+  font-family: "Inter", monospace;
+
   font-family: "Inter";
+
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -314,87 +329,114 @@ button {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr 866px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
 }
 
 .device-box {
-  position: relative;
+  width: 40%;
 }
 
-.device-box img {
-  position: absolute;
+.device-frame {
+  width: 85%;
 }
 
-.device-1st {
-  top: 50px;
-}
-
-.device-2nd {
-  top: 90px;
-  left: 225px;
+.vigybag-image {
+  width: 100%;
 }
 
 .app-info {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-left: 20px;
-}
-
-.app-text {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 75px;
+  width: 60%;
 }
-
-.app-text img {
-  width: 803px;
-  height: 174px;
+.play-button{
+  display: flex;
+  align-items: center;
+  padding:1.5rem;
 }
-
-.google-play-button {
-  background-color: #161b6e;
-  border: none;
+.google-button{
+  background-color: #0d268c;
   border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  margin-left: 30px;
 }
-
-.google-play-button:hover {
+.google-button:hover{
   background-color: #575a89;
 }
+.play-text{
+  color:#ffffff;
+}
+@media screen and (max-width:767px) {
+  .app-container {
+      flex-direction: column;
+      align-items: center;
+      height: 50%;
+  }
 
-.play-button {
-  width: 340px;
-  height: 100px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  .device-box {
+      width: 90%;
+
+  }
+  .device-frame {
+      width: 100%;
+  }
+
+  .vigybag-image {
+      width: 100%;
+  }
+
+  .app-info {
+      width: 90%;
+  }
 }
 
-.play-img-div {
-  padding-left: 14px;
-  padding-right: 15px;
+@media screen and (min-width:768px) and (max-width:1199px) {
+  .app-container {
+      align-items: center;
+  }
+
+  .device-box {
+      width: 40%;
+  }
+
+  .device-frame {
+      width: 80%;
+  }
+
+  .vigybag-image {
+      width: 100%;
+  }
+
+  .app-info {
+      width: 60%;
+  }
 }
 
-.play-img-div img {
-  width: 76px;
-  height: 76px;
+@media screen and (min-width:1200px) {
+  .device-box {
+      width: 40%;
+  }
+
+  .app-info {
+      width: 50%;
+  }
+  .device-frame {
+    width: 80%;
+    height:100%;
 }
 
-.play-text {
-  text-align: left;
-  line-height: 32px;
+  .vigybag-image {
+    width: 100%;
 }
-
+}
 /* items section */
 
 .items-container {
-  height: 1294px;
+  height: 100%;
+  width: 100%;
   background-color: #575a89;
   font-family: Arial, Helvetica, sans-serif;
   color: #161b6e;
@@ -408,21 +450,32 @@ button {
 }
 
 .item-cards-div {
-  /* display: flex;
-    justify-content: space-around; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 0;
-  padding: 0px 0px 0px 52px;
+  display: flex;
+  margin: auto;
+  width: 95%;
+}
+
+.item-card1{
+  display: flex;
+  flex-direction: row;
 }
 
 .item-card {
-  display: inline-block;
-  width: 300px;
-  height: 423px;
+  padding: 2rem;
+  width: 100%;
+  /* height: 423px; */
   border-radius: 15px;
-
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
+  -webkit-transition: 0.3s ease-in-out;
+  -webkit-transform: 0.3s ease-in-out;
+   -moz-transition: 0.3s ease-in-out;
+  -moz-transform: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  transform: 0.3s ease-in-out;
+}
+.item-card:hover {
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+  transform: scale(1.05);
 }
 
 .item-image {
@@ -438,14 +491,67 @@ button {
   cursor: pointer;
 }
 
+/* Added some Border to Wishlist SVG */
 .item-image .wishlist-icon {
+  position: absolute;
+  background-color: #d9d9d9;
+  width: 50px;
+  height: 50px;
+  top: 15px;
+  right: 13px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border: 2px solid #9fa1c1;
+  padding: 5px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+/* Added Hover effect to Wishlist SVG */
+.item-image .wishlist-icon:hover {
+  background-color: #9fa1c1;
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.item-description {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #9fa1c1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 18px 15px 13px 15px;
+}
+
+.item-description-2{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #9fa1c1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 18px 15px 13px 15px;
+}
+
+.Lbtn {
+  border: none;
+  font-size: 30px;
+  background-color: #d9d9d9;
+  color: gray;
+  transition: all 0.3s ease 0s;
   position: absolute;
   width: 50px;
   height: 50px;
   top: 15px;
   right: 13px;
+}
+.Lbtn i:hover {
   cursor: pointer;
 }
+
+
 
 .item-description {
   display: flex;
@@ -459,8 +565,17 @@ button {
 .item-description p,
 .items-star div {
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+.items-star i{
+  color: #e6e6e6;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.items-star i.active{
+  color: green;
 }
 
 .item-description p {
@@ -471,11 +586,32 @@ button {
   font-size: 15px;
   font-weight: 700;
   line-height: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+.item-paise{
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #161b6e;
 }
 
 .items-star div {
   display: inline-block;
 }
+.addbtn{
+  border: none;
+  font-size: 18px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  color: gray;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  left: 0px;
+}
+
 
 .add-to-card-button {
   font-weight: 400;
