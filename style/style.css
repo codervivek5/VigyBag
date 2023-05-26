@@ -264,10 +264,11 @@ button {
 /* product container */
 
 .product-container {
-  height: 267px;
+  height: 30vh;
+  width: 100vw;
   background-color: #d9d9d9;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -275,7 +276,8 @@ button {
   border-radius: 14px;
   width: 170px;
   height: 220px;
-  margin: auto 5px;
+  margin: 0 8em;
+  align-items: center;
 }
 
 .rectangle-42 {
@@ -304,7 +306,7 @@ button {
 
 .Accessories-box:hover .product-name {
   transform: scale(1.1);
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .product-name {
@@ -439,6 +441,7 @@ border-left:10px solid rgb(2, 2, 2) ;
 padding-bottom: 30px;
 }
 
+
 .items-container{
     height: 1305px;
 
@@ -446,10 +449,6 @@ padding-bottom: 30px;
 
     color: #161B6E;
   }
-  .vigybag-image {
-    width: 100%;
-}
-
 .item-title {
   color: #e6e6e6;
   padding: 55px 0px 25px 52px;
@@ -457,10 +456,8 @@ padding-bottom: 30px;
   font-weight: 700;
 }
 
-
-
-.
 .item-cards-div {
+
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -470,23 +467,13 @@ padding-bottom: 30px;
 }
 
 
-
 .item-card {
-
-
-    display: inline-block;
+   display: inline-block;
     width: 300px;
     height: 423px;
     border-radius: 15px;
-
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
      
-
-  
-}
-.item-card:hover {
-  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
-/*   transform: scale(1.05); */
 
 }
 
@@ -509,7 +496,15 @@ padding-bottom: 30px;
 
   }
   
-
+.item-image .wishlist-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 15px;
+    right: 13px;
+    cursor: pointer;
+  }
+  
 
   .item-description {
     display: flex;
@@ -607,58 +602,6 @@ padding-bottom: 30px;
 
 }
 
-/* Added some Border to Wishlist SVG */
-.item-image .wishlist-icon {
-  position: absolute;
-  background-color: #d9d9d9;
-  width: 50px;
-  height: 50px;
-  top: 15px;
-  right: 13px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  border: 2px solid #9fa1c1;
-  padding: 5px;
-  transition: all 0.5s ease;
-  cursor: pointer;
-}
-
-/* Added Hover effect to Wishlist SVG */
-.item-image .wishlist-icon:hover {
-  background-color: #9fa1c1;
-  color: white;
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-
-.Lbtn {
-  border: none;
-  font-size: 30px;
-  background-color: #d9d9d9;
-  color: gray;
-  transition: all 0.3s ease 0s;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 15px;
-  right: 13px;
-}
-.Lbtn i:hover {
-  cursor: pointer;
-}
-
-.items-star i{
-  color: #e6e6e6;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.items-star i.active{
-  color: green;
-}
-
-
-
 
 .see-more-text {
     text-align: right;
@@ -683,37 +626,6 @@ padding-bottom: 30px;
         color: rgb(173, 173, 174);
   }
 
-.card-badge{
-    color: white;
-    display: flex;
-    position: absolute;
-    left: 0;
-    padding: 3px;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    writing-mode: vertical-rl;
-    background-color: #000;
-  text-orientation: upright;
-  box-shadow: 10px 0 5px -2px #888;
-}
-
-.card-badge-bestseller{
-    background-color: rgb(31, 116, 31);
-
-}
-
-.card-badge-newarrived{
-    background-color: rgb(31, 59, 216);
-
-  text-align: right;
-  margin-top: 15px;
-  padding-right: 42px;
-}
-
-
-
-  
 
 /* footer section */
 
@@ -797,28 +709,4 @@ padding-bottom: 30px;
   transform: scale(1.1);
 }
 
-/* ====================== SCROLL BAR ===================== */
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgb(7, 31, 48);
-}
-
-::-webkit-scrollbar-thumb {
-
-    background: linear-gradient(#161B6E, #09a0f1);
-    border-radius: 6px;
-
-  
-  }
-  
-  ::-webkit-scrollbar-thumb:hover{
-    background: linear-gradient(#161B6E , #ff00ff);
-  }
-  
-
- 
 
