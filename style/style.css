@@ -264,10 +264,11 @@ button {
 /* product container */
 
 .product-container {
-  height: 267px;
+  height: 30vh;
+  width: 100vw;
   background-color: #d9d9d9;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -275,7 +276,8 @@ button {
   border-radius: 14px;
   width: 170px;
   height: 220px;
-  margin: auto 5px;
+  margin: 0 8em;
+  align-items: center;
 }
 
 .rectangle-42 {
@@ -304,7 +306,7 @@ button {
 
 .Accessories-box:hover .product-name {
   transform: scale(1.1);
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .product-name {
@@ -329,87 +331,114 @@ button {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  display: grid;
-  grid-template-columns: 1fr 866px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
 }
 
 .device-box {
-  position: relative;
+  width: 40%;
 }
 
-.device-box img {
-  position: absolute;
+.device-frame {
+  width: 85%;
 }
 
-.device-1st {
-  top: 50px;
-}
-
-.device-2nd {
-  top: 90px;
-  left: 225px;
+.vigybag-image {
+  width: 100%;
 }
 
 .app-info {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding-left: 20px;
-}
-
-.app-text {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 75px;
+  width: 60%;
 }
-
-.app-text img {
-  width: 803px;
-  height: 174px;
+.play-button{
+  display: flex;
+  align-items: center;
+  padding:1.5rem;
 }
-
-.google-play-button {
-  background-color: #161b6e;
-  border: none;
+.google-button{
+  background-color: #0d268c;
   border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  margin-left: 30px;
 }
-
-.google-play-button:hover {
+.google-button:hover{
   background-color: #575a89;
 }
+.play-text{
+  color:#ffffff;
+}
+@media screen and (max-width:767px) {
+  .app-container {
+      flex-direction: column;
+      align-items: center;
+      height: 50%;
+  }
 
-.play-button {
-  width: 340px;
-  height: 100px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  .device-box {
+      width: 90%;
+
+  }
+  .device-frame {
+      width: 100%;
+  }
+
+  .vigybag-image {
+      width: 100%;
+  }
+
+  .app-info {
+      width: 90%;
+  }
 }
 
-.play-img-div {
-  padding-left: 14px;
-  padding-right: 15px;
+@media screen and (min-width:768px) and (max-width:1199px) {
+  .app-container {
+      align-items: center;
+  }
+
+  .device-box {
+      width: 40%;
+  }
+
+  .device-frame {
+      width: 80%;
+  }
+
+  .vigybag-image {
+      width: 100%;
+  }
+
+  .app-info {
+      width: 60%;
+  }
 }
 
-.play-img-div img {
-  width: 76px;
-  height: 76px;
+@media screen and (min-width:1200px) {
+  .device-box {
+      width: 40%;
+  }
+
+  .app-info {
+      width: 50%;
+  }
+  .device-frame {
+    width: 80%;
+    height:100%;
 }
 
-.play-text {
-  text-align: left;
-  line-height: 32px;
+  .vigybag-image {
+    width: 100%;
 }
-
+}
 /* items section */
 
 .items-container {
-  height: 1294px;
+  height: 100%;
+  width: 100%;
   background-color: #575a89;
   font-family: Arial, Helvetica, sans-serif;
   color: #161b6e;
@@ -423,17 +452,19 @@ button {
 }
 
 .item-cards-div {
-  /* display: flex;
-    justify-content: space-around; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 0;
-  padding: 0px 0px 0px 52px;
+  display: flex;
+  margin: auto;
+  width: 95%;
+}
+
+.item-card1{
+  display: flex;
+  flex-direction: row;
 }
 
 .item-card {
-  display: inline-block;
-  width: 300px;
+  padding: 2rem;
+  width: 100%;
   /* height: 423px; */
   border-radius: 15px;
   /* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
@@ -488,12 +519,24 @@ button {
 
 .item-description {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   background-color: #9fa1c1;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 18px 15px 13px 15px;
 }
+
+.item-description-2{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #9fa1c1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 18px 15px 13px 15px;
+}
+
 .Lbtn {
   border: none;
   font-size: 30px;
@@ -708,4 +751,22 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(#161b6e, #ff00ff);
+}
+
+/* ====================== Copyright ===================== */
+#copyright{
+  background-color: #07081d;
+  width: 100vw;
+  height: 3em;
+}
+
+#copyright p{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+#copyright p span{
+  cursor: pointer;
+  color: orange;
 }
