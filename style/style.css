@@ -432,20 +432,25 @@ button {
     height:100%;
 }
 
-  .vigybag-image {
-    width: 100%;
-}
-}
-/* items section */
 
-.items-container {
-  height: 100%;
-  width: 100%;
-  background-color: #575a89;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #161b6e;
+
+
+/* items section */   
+.item-row{
+    background-image:linear-gradient(to right,#0f0c29,#302b63,#24243e,rgb(71, 71, 107),rgb(102, 114, 159));
+border-bottom:20px solid rgb(2, 2, 2) ;
+border-left:10px solid rgb(2, 2, 2) ;
+padding-bottom: 30px;
 }
 
+
+.items-container{
+    height: 1305px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #161B6E;
+  }
 .item-title {
   color: #e6e6e6;
   padding: 55px 0px 25px 52px;
@@ -454,205 +459,175 @@ button {
 }
 
 .item-cards-div {
-  display: flex;
-  margin: auto;
-  width: 95%;
+
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0;
+  padding: 0px 0px 0px 52px;
+
 }
 
-.item-card1{
-  display: flex;
-  flex-direction: row;
-}
 
 .item-card {
-  padding: 2rem;
-  width: 100%;
-  /* height: 423px; */
-  border-radius: 15px;
-  /* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
-  -webkit-transition: 0.3s ease-in-out;
-  -webkit-transform: 0.3s ease-in-out;
-   -moz-transition: 0.3s ease-in-out;
-  -moz-transform: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  transform: 0.3s ease-in-out;
+   display: inline-block;
+    width: 300px;
+    height: 423px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+     
+
 }
-.item-card:hover {
-  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
-  transform: scale(1.05);
-}
+
+
 
 .item-image {
-  width: 300px;
-  height: 300px;
-  background-color: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  position: relative;
-  cursor: pointer;
-}
 
-/* Added some Border to Wishlist SVG */
+    width: 300px;
+    height: 300px;
+    background-color: #D9D9D9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    cursor: pointer;
+
+  }
+  
 .item-image .wishlist-icon {
-  position: absolute;
-  background-color: #d9d9d9;
-  width: 50px;
-  height: 50px;
-  top: 15px;
-  right: 13px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  border: 2px solid #9fa1c1;
-  padding: 5px;
-  transition: all 0.5s ease;
-  cursor: pointer;
-}
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 15px;
+    right: 13px;
+    cursor: pointer;
+  }
+  
 
-/* Added Hover effect to Wishlist SVG */
-.item-image .wishlist-icon:hover {
-  background-color: #9fa1c1;
-  color: white;
-  transform: scale(1.1);
-  cursor: pointer;
-}
+  .item-description {
+    display: flex;
+    justify-content: space-between;
+    background-color: #9fa1c1;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px 15px 13px 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .item-description p,
+  .items-star div {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  
 
-.item-description {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  background-color: #9fa1c1;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 18px 15px 13px 15px;
-}
 
-.item-description-2{
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  background-color: #9fa1c1;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 18px 15px 13px 15px;
-}
+.item-description p{
 
-.Lbtn {
-  border: none;
-  font-size: 30px;
-  background-color: #d9d9d9;
-  color: gray;
-  transition: all 0.3s ease 0s;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 15px;
-  right: 13px;
-}
-.Lbtn i:hover {
-  cursor: pointer;
-}
+    margin: 6px 0px;
+  }
+  
+  .item-heading {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+
+  }
+  
 
 
 
-.item-description {
-  display: flex;
-  justify-content: space-between;
-  background-color: #9fa1c1;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 18px 15px 13px 15px;
-}
+.items-star div{
 
-.item-description p,
-.items-star div {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
-  font-family: 'Roboto', sans-serif;
-}
-.items-star i{
-  color: #e6e6e6;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.items-star i.active{
-  color: green;
-}
-
-.item-description p {
-  margin: 6px 0px;
-}
-
-.item-heading {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
-  font-family: 'Roboto', sans-serif;
-}
-.item-paise{
-  margin-top: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 14px;
-  color: #161b6e;
-}
-
-.items-star div {
-  display: inline-block;
-}
-.addbtn{
-  border: none;
-  font-size: 18px;
-  border-radius: 50%;
-  background-color: #d9d9d9;
-  color: gray;
-  transition: all 0.3s ease 0s;
-  position: relative;
-  width: 45px;
-  height: 45px;
-  left: 0px;
-}
+    display: inline-block;
+  }
+  
+  .add-to-card-button {
+    margin-top: 10px;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background-color: #4C43CD;
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 12px;
+      border: 0;
+      user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  margin-right: 9px;
+  margin-left: 10px;
+    cursor: pointer;
+   
+  }
+  
+  .add-to-card-button:hover {
+   
+    background-color: #161b6e;
+    color: #d9d9d9;
+  }
+  /* add buy now button */
+ .buy-now-button {
+    margin-top: 10px;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 100px;
+      background-color: #4C43CD;
+      background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+      box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      font-size: 12px;
+    width: 100px;
+      border: 0;
+    
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    float: right;
+  
+      cursor: pointer;
+    }
 
 
-.add-to-card-button {
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  text-align: center;
 
-  width: 87px;
-  height: 23px;
-  border: 1px solid #161b6e;
-  border-radius: 12.5px;
-  background: transparent;
-  cursor: pointer;
-  margin-top: 10px;
 
-  transition: background-color 0.15s, color 0.15s;
+.buy-now-button:hover {
+    background-color: #161b6e;
+    color: #d9d9d9;
+
+
 }
 
-.add-to-card-button:hover {
-  background-color: #161b6e;
-  color: #d9d9d9;
-}
 
 .see-more-text {
-  text-align: right;
-  margin-top: 15px;
-  padding-right: 42px;
-}
+    text-align: right;
+
+    margin-top: 15px;
+    padding-right: 42px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+ }
 
 .see-more-text a {
-  color: white;
+    color: white;
+    font-size: 14px;
 }
 
 .see-more-text div {
-  display: inline-block;
-  border-bottom: 2px solid white;
+    display: inline-block;
+   
 }
+
+.see-more-text div:hover {
+        color: rgb(173, 173, 174);
+  }
+
 
 /* footer section */
 
@@ -749,39 +724,4 @@ button {
   transform: scale(1.1);
 }
 
-/* ====================== SCROLL BAR ===================== */
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgb(7, 31, 48);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#161b6e, #09a0f1);
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(#161b6e, #ff00ff);
-}
-
-/* ====================== Copyright ===================== */
-#copyright{
-  background-color: #07081d;
-  width: 100vw;
-  height: 3em;
-}
-
-#copyright p{
-  display: flex;
-  justify-content: center;
-  color: #fff;
-}
-
-#copyright p span{
-  cursor: pointer;
-  color: orange;
-}
