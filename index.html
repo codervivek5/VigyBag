@@ -17,6 +17,10 @@
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
     <script defer src="script.js"></script>
+    <!-- chatbot -->
+    <link rel="stylesheet" href="./chatBot/style.css">
+      <!-- icon pack -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body bgcolor="#575A89">
@@ -72,7 +76,7 @@
     <!-- product container -->
     <div class="product-container">
         <!-- product-1 -->
-        
+
         <div class="Accessories-box">
             <div>
                 <div class="rectangle-42">
@@ -622,6 +626,43 @@
             <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
             <p> Designed by Vivek Prajapati </p>
         </div>
+
+        <!--   Chat bot   -->
+        <div class="chatbox-wrapper">
+            <div class="chatbox-toggle">
+                <i class='bx bx-message-dots'></i>
+            </div>
+            <div class="chatbox-message-wrapper">
+                <div class="chatbox-message-header">
+                    <div class="chatbox-message-profile">
+                        <img src="./img/pngegg(2).png" alt="" class="chatbox-message-image">
+                        <div>
+                            <h4 class="chatbox-message-name">Vigybag</h4>
+                            <p class="chatbox-message-status">online</p>
+                        </div>
+                    </div>
+                    <div class="chatbox-message-dropdown">
+                        <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle' id="dots-nav"></i>
+                        <ul class="chatbox-message-dropdown-menu">
+                            <li>
+                                <a href="#">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chatbox-message-content">
+                    <h4 class="chatbox-message-no-message">Ask me anything !</h4>
+                </div>
+                <div class="chatbox-message-bottom">
+                    <form action="#" class="chatbox-message-form">
+                        <textarea rows="1" placeholder="Enter your message..." class="chatbox-message-input"></textarea>
+                        <button type="submit" class="chatbox-message-submit"><i class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--  chat bot finish  -->
+        <script src="./chatBot/script.js"></script>
 </body>
 
 </html>

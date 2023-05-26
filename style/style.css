@@ -600,8 +600,8 @@ button {
   color: #161b6e;
 }
 
-.items-star div {
-  display: inline-block;
+.items-star {
+  display: flex;
 }
 .addbtn{
   border: none;
