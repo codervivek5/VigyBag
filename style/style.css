@@ -264,10 +264,11 @@ button {
 /* product container */
 
 .product-container {
-  height: 267px;
+  height: 30vh;
+  width: 100vw;
   background-color: #d9d9d9;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -275,7 +276,8 @@ button {
   border-radius: 14px;
   width: 170px;
   height: 220px;
-  margin: auto 5px;
+  margin: 0 8em;
+  align-items: center;
 }
 
 .rectangle-42 {
@@ -304,7 +306,7 @@ button {
 
 .Accessories-box:hover .product-name {
   transform: scale(1.1);
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .product-name {
@@ -749,4 +751,22 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(#161b6e, #ff00ff);
+}
+
+/* ====================== Copyright ===================== */
+#copyright{
+  background-color: #07081d;
+  width: 100vw;
+  height: 3em;
+}
+
+#copyright p{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+#copyright p span{
+  cursor: pointer;
+  color: orange;
 }
