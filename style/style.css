@@ -656,11 +656,11 @@ button {
 
 .footer-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   background: #07081d;
   color: white;
   font-family: arial;
-  padding: 17px 0px;
+  padding: 20px 0px;
 }
 
 .footer-container a {
@@ -673,47 +673,54 @@ button {
 }
 
 .footer-title {
-  text-align: center;
   font-weight: 700;
-  font-size: 35px;
+  font-size: 32px;
   line-height: 42px;
-
+  padding-left: 54px;
   margin-top: 27px;
-  margin-bottom: 38px;
+  margin-bottom: 32px;
 }
 
 .contact-info div {
   display: flex;
   justify-content: left;
   text-align: center;
-  margin-bottom: 38px;
+  margin-bottom: 10px;
   padding-left: 50px;
 }
 
 .contact-info img {
+  width: 30px;
+  height: 30px;
   margin-right: 23px;
 }
 
 .contact-info p {
   font-size: 15px;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
-.quick-links {
+/* .quick-links {
   border-right: 1px solid #e6e6e6;
   border-left: 1px solid #e6e6e6;
-}
+} */
 
 .quick-links-info div {
-  text-align: center;
-  margin-bottom: 40px;
+  padding-left: 60px;
+  margin-bottom: 10px;
 }
 
 .social-div {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  /* justify-content: space-evenly;
   align-items: center;
-  padding: 50px 60px 0px 60px;
+  padding: 50px 60px 0px 60px; */
+}
+
+.flex{
+  display: flex;
+  align-items: center;
 }
 
 .social-div img,
@@ -722,11 +729,17 @@ button {
 }
 
 .social-div div {
-  text-align: center;
+  padding-left: 50px;
+}
+
+.social-div img{
+  width: 25px;
+  height: 25px;
 }
 
 .social-div a {
-  font-size: 12px;
+  font-size: 15px;
+  padding-left: 10px;
 }
 
 .social-div img:hover {
