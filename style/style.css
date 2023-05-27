@@ -6,7 +6,9 @@
   padding: 0;
   /* background color added in HTML */
 }
-
+body{
+  overflow-x: hidden;
+}
 /* navigation bar */
 header {
   width: 100vw;
@@ -267,22 +269,29 @@ button {
   height: 30vh;
   width: 100vw;
   background-color: #d9d9d9;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
-
+/* .boxouter{
+  margin:auto auto;
+  width:77.8vw;
+  align-items: center;
+} */
 .Accessories-box {
+  display: flex;
   border-radius: 14px;
-  width: 170px;
+  width: 210px;
+  
   height: 220px;
-  margin: 0 8em;
+  margin: 0 4rem;
   align-items: center;
 }
 
 .rectangle-42 {
   box-sizing: border-box;
   height: 138px;
+  margin: 0 1rem;
   background: #d9d9d9;
   border: 3px solid #161b6e;
   border-radius: 15px;
