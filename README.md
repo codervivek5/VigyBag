@@ -102,12 +102,29 @@ git push
 
 **8.** Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository.
 
-## 🦄 Django Admin Authentificaion 
+## 🦄 Django Project Setup 
+
+**1.** Navigate to the project directory Backend Code .
+
 ```bash
-Update it later
+cd Backend Code
 ```
 
+**2.** Navigate to the project directory VigyBag .
 
+```bash
+cd VigyBag
+```
+**3.** If you get manage.py in file structure then run this command.
+
+```bash
+python manage.py runserver
+```
+
+## 🦄 Django Admin Authentificaion 
+```bash
+later on...
+```
 
 ## ⚙️ Things to Note
 - Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
