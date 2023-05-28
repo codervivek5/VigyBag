@@ -27,7 +27,7 @@
 <body bgcolor="#575A89">
 
     <header>
-        <div class="header_container">
+        <!-- <div class="header_container">
             <a href="https://codervivek5.github.io/VigyBag/"><img src="img/logo.png" alt="brand logo"></a>
             <nav class="nav_menu">
                 <ul class="nav_link">
@@ -51,7 +51,21 @@
                 <li><a href="#about">About us</a></li>
                 <li><a href="#contact">Contact us</a></li>
             </ul>
-        </nav>
+        </nav> -->
+        <div><a class="logo" href="/index.html"><img class="bimg" src="img/logo.png" alt="brand logo"></a></div>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="#prcon">Services</a></li>
+          <li><a href="#foocr" target="_blank">About us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="./login/index.html">Login</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="container">
@@ -75,7 +89,7 @@
 
 
     <!-- product container -->
-    <div class="product-container">
+    <div id="prcon" class="product-container">
         <!-- product-1 -->
 
          <div class="Accessories-box">             
@@ -447,7 +461,7 @@
 
 
         <!-- footer section -->
-        <div class="footer-container">
+        <div id="foocr" class="footer-container">
             <!-- contact-us -->
             <div class="contact"  data-aos="fade-up-right">
                 <div class="footer-title">
@@ -524,6 +538,13 @@
 <script>
  AOS.init();
  </script>
+ <script>
+    hamburger = document.querySelector(".hamburger");
+    hamburger.onclick = function() {
+      navBar = document.querySelector(".nav-bar");
+      navBar.classList.toggle("active");
+    }
+  </script>
 </body>
 
 </html>

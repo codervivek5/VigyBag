@@ -6,8 +6,12 @@
   padding: 0;
   /* background color added in HTML */
 }
+html{
+  scroll-behavior: smooth;
+}
 
 /* navigation bar */
+/*
 header {
   width: 100vw;
   position: fixed;
@@ -47,7 +51,7 @@ button {
 
 .nav_link {
   list-style: none;
-  /* border: 2px solid rebeccapurple;   */
+  
 }
 
 .nav_link li {
@@ -79,7 +83,7 @@ button {
   background-color: #575a89;
 }
 
-/* Added Code */
+
 .nav_menu2 {
   display: none;
   height: 10rem;
@@ -171,6 +175,113 @@ button {
   }
 }
 /* container */
+
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+header{
+  z-index: 1;
+  font-family: "Poppins";
+  overflow-x: hidden;
+  width: 100%;
+  height: 80px;
+  background-color: #575A89;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+.logo{
+  font-size: 28px;
+  font-weight: bold;
+  transition: 0.1s;
+  color: #134D58;
+}
+.logo:hover{
+  color: #fefefe;
+}
+.hamburger{
+  display: none;
+  
+}
+.nav-bar ul{
+  display: flex;
+}
+.nav-bar ul li a {
+  display: block;
+  color: #f9a826;
+  font-size: 20px;
+
+  padding: 10px 15px;
+  margin: 0 5px;
+  transition: 0.2s;
+}
+.nav-bar ul li a:hover{
+  color: #fefefe;
+}
+.nav-bar ul li a.active{
+  color: #fefefe; 
+}
+
+@media only screen and (max-width: 1320px){
+  header{
+    padding: 0 50px;
+  }
+}
+@media only screen and (max-width: 1100px){
+  header{
+    padding: 0 30px;
+  }
+}
+@media only screen and (max-width: 900px){
+  .hamburger{
+    display: block;
+    cursor: pointer;
+  }
+  .hamburger .line{
+    width: 30px;
+    height: 3px;
+    background: #fefefe;
+    margin: 6px 0;
+  }
+  .nav-bar{
+    height: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    /* width: 100vw; */
+    /* background: #134D58; */
+    background-color: #575A89;
+    overflow: hidden;
+  }
+  .nav-bar ul{
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+    color: #fefefe;
+  }
+  .nav-bar.active{
+    height: 610px;
+  }
+  .nav-bar.active ul{
+    opacity: 1;
+  }
+  .nav-bar ul li a{
+    margin-bottom: 12px;
+    font-size: 28px;
+  }
+}
+.bimg{
+  width: 180px;
+  height: auto;
+}
 
 .container {
   display: flex;
