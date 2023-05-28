@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart Page</title>
+
+</head>
+<body>
+  <div class="container">
+    <div class="cart-header">
+
+      <h1>My Cart</h1>
+      <img src="img/shopping-cart.png" class="cart-icon" alt="" srcset="">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img class="product-image" src="img/toppng.png" alt="Product 1"></td>
+          <td>Solo Wireless headphone</td>
+          <td>
+            <div class="quantity-input">
+              <button class="quantity-btn">-</button>
+              <input type="number" min="1" value="2">
+              <button class="quantity-btn">+</button>
+            </div>
+          </td>
+          <td>&#8377; 799</td>
+        </tr>
+        <tr>
+          <td><img class="product-image" src="img/t-shirt.png" alt="Product 2"></td>
+          <td>Printed Cotton Shirt</td>
+          <td>
+            <div class="quantity-input">
+              <button class="quantity-btn">-</button>
+              <input type="number" min="1" value="1">
+              <button class="quantity-btn">+</button>
+            </div>
+          </td>
+          <td>&#8377; 349</td>
+        </tr>
+        <!-- Add more product rows as needed -->
+      </tbody>
+    </table>
+    
+    <div class="coupon">
+      <input type="text" placeholder="Enter coupon code">
+      <input type="submit" value="Apply Coupon">
+    </div>
+    
+    <div class="total-amount">
+      <span>Total Amount: &#8377; 1148</span>
+      <button class="proceed-btn">Proceed to Pay</button>
+    </div>
+  </div>
+  <link rel="stylesheet" href="style/cart.css">
+</body>
+</html>
