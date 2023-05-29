@@ -5,6 +5,8 @@
   margin: 0;
   padding: 0;
   /* background color added in HTML */
+  scroll-behavior: smooth;
+  transition: 0.5s;
 }
 
 /* navigation bar */
@@ -598,8 +600,8 @@ button {
   color: #161b6e;
 }
 
-.items-star div {
-  display: inline-block;
+.items-star {
+  display: flex;
 }
 .addbtn{
   border: none;
