@@ -11,7 +11,8 @@
 }
 
 html {
-    background-image: url('../img/pexels-tim-douglas-6567607.jpg');
+    /* background-image: url('../img/shopping-cart-with-wooden-elements.jpg'); */
+    background-color: #b67cecaf;
     background-size: cover;
     overflow: hidden;
 }
