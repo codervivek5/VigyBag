@@ -26,7 +26,9 @@ This website is a location-based platform that allows users to search for produc
 
 <h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
     
-  
+## 🖌️Design Preview
+![VigyBag Application Preview](graphics/vigybag_application_preview/vigybag_app_preview.png)
+
 ## 📌Repository
 
 Are you tired of scrolling through endless online stores, only to find that they don't ship to your area? Look no further than VigyBag - the ultimate online shopping destination for those looking to shop local! With our location-based platform, you can easily find and buy products from your favorite nearby shops. Whether you're a city slicker or living off the beaten path, VigyBag makes shopping a breeze. Say goodbye to long drives to the mall and hello to stress-free, convenient shopping with VigyBag!
