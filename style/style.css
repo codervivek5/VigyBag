@@ -51,7 +51,6 @@ button {
 
 .nav_link {
   list-style: none;
-  /* border: 2px solid rebeccapurple;   */
 }
 
 .nav_link li {
@@ -65,8 +64,7 @@ button {
 
 .nav_link li a:hover {
   color: #575a89;
-
-  text-decoration: underline 2.5px #575a89;
+  text-decoration: none;
 }
 
 .header_container button {
@@ -283,10 +281,16 @@ button {
 .Accessories-box {
   display: flex;
   border-radius: 14px;
+
   width: 210px;
   
   height: 220px;
   margin: 0 4rem;
+
+  width: 150px;
+  height: 220px;
+  margin: 0 6em;
+
   align-items: center;
 }
 
@@ -471,6 +475,17 @@ button {
 .item-card1{
   display: flex;
   flex-direction: row;
+}
+
+.item-card1 .item-card .item-image .fa-heart:hover{
+  color: rgb(193, 57, 57);
+}
+
+.item-description .fa-cart-shopping{
+  cursor: pointer;
+}
+.item-description .fa-cart-shopping:hover{
+  color: rgb(0, 0, 0);
 }
 
 .item-card {
@@ -671,7 +686,7 @@ button {
   background: #07081d;
   color: white;
   font-family: arial;
-  padding: 17px 0px;
+  
 }
 
 .footer-container a {
@@ -695,10 +710,10 @@ button {
 
 .contact-info div {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   text-align: center;
   margin-bottom: 38px;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 .contact-info img {
@@ -717,12 +732,12 @@ button {
 
 .quick-links-info div {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .social-div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   padding: 50px 60px 0px 60px;
 }
