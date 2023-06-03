@@ -2,7 +2,7 @@
     
     
     body {
-        background-color: #6e7ca8;
+        background-color: #182348;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -12,9 +12,9 @@
       .container {
         max-width: 800px;
         margin: 20px auto;
-        background-color: #fff;
+        background-color: #c5c2c2;
         padding: 20px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 5px rgba(18, 1, 1, 0.2);
         
       }
   
@@ -120,14 +120,15 @@
       
       .proceed-btn {
         padding: 10px 20px;
-        background-color: #555;
-        color: #fff;
+        background-color: hwb(0 98% 0%);
+        color: #050000;
         border: none;
         cursor: pointer;
         transition: background-color 0.3s;
+        border-radius: 10px;
       }
       
       .proceed-btn:hover {
-        background-color: #333;
+        background-color: #555a88;
       }
     
