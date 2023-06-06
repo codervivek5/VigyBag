@@ -219,3 +219,7 @@
     height: 1.5rem;
     background-color: #fff;
   }
+  .contact-info i {
+    padding: 10px; /* Adjust the value as per your preference */
+    font-size: larger;
+  }

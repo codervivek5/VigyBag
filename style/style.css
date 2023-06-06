@@ -668,7 +668,7 @@ button {
 .footer-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background: #07081d;
+  background: #161b6e;
   color: white;
   font-family: arial;
   
@@ -680,15 +680,16 @@ button {
 
 .footer-container a:hover {
   transition: 0.7s ease;
-  color: #8f79b9;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .footer-title {
   text-align: center;
   font-weight: 700;
-  font-size: 35px;
+  font-size: 25px;
   line-height: 42px;
-
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 27px;
   margin-bottom: 38px;
 }
@@ -766,7 +767,7 @@ button {
 
 /* ====================== Copyright ===================== */
 #copyright{
-  background-color: #07081d;
+  background-color: #161b6e;
   width: 100vw;
   height: 3em;
 }
@@ -780,4 +781,10 @@ button {
 #copyright p span{
   cursor: pointer;
   color: orange;
+}
+
+
+.contact-info i {
+  padding: 10px; /* Adjust the value as per your preference */
+  font-size: larger;
 }

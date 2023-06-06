@@ -131,3 +131,7 @@
         background-color: #333;
       }
     
+      .contact-info i {
+        padding: 10px; /* Adjust the value as per your preference */
+        font-size: larger;
+      }
