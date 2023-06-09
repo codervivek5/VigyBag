@@ -8,4 +8,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['email','username','password']
 
-
+class UserSigninSerializer(serializers.Serializer):
+    email = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)

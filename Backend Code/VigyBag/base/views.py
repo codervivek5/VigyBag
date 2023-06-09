@@ -5,9 +5,11 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, authentication, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from .serializers import CreateUserSerializer
+from .serializers import CreateUserSerializer, UserSigninSerializer
 from .models import User
-
+from rest_framework.status import (
+    HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
+)
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -38,25 +40,47 @@ class Register(generics.GenericAPIView):
 
     def post(self,request,*args,**kwargs):
         res = request.data
-        check = User.objects.filter(email=res['email']).exists()
-        if check:
+        serializer = self.get_serializer(data=res)
+        if serializer.is_valid():
+            serializer.save()
+            valid_user = User.objects.get(email=res['email'])
+            access_token = MyTokenObtainPairSerializer().get_token(valid_user)
             return Response({
-                "message":"Email already registered"
+                "user":serializer.data,
+                "access_token":str(access_token.access_token),
+                "refresh_token":str(access_token),
+                "status":200
             })
         else:
-            serializer = self.get_serializer(data=res)
-            if serializer.is_valid():
-                serializer.save()
-                valid_user = User.objects.get(email=res['email'])
-                access_token = MyTokenObtainPairSerializer().get_token(valid_user)
+            return Response(serializer.errors,status=HTTP_400_BAD_REQUEST)
+    
+
+@permission_classes([AllowAny,])
+class login(generics.GenericAPIView):
+    serializer_class = UserSigninSerializer
+    def post(self,request,*args,**kwargs):
+        login_serializer = self.get_serializer(data=request.data)
+        if not login_serializer.is_valid():
+            return Response(
+                login_serializer.errors,status = HTTP_400_BAD_REQUEST
+            )
+        else:
+            check = User.objects.filter(email = login_serializer.data['email']).exists()
+            if check==False:
                 return Response({
-                    "user":serializer.data,
-                    "access_token":str(access_token.access_token),
-                    "refresh_token":str(access_token),
-                    "status":200
+                    "message":"Email is not registered"
                 })
-        
             else:
-                return Response({
-                    "message":"Invalid response"
-                })
+                user = User.objects.get(email = login_serializer.data['email'])
+                if user.password != login_serializer.data['password']:
+                    return Response({
+                        "message":"Invalid Password"
+                    })
+                else:
+                    access_token = MyTokenObtainPairSerializer().get_token(user)
+                    return Response({
+                        "user":login_serializer.data,
+                        "access_token":str(access_token.access_token),
+                        "refresh_token":str(access_token),
+                        "status":200
+                    })
