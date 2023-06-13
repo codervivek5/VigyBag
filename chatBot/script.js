@@ -5,11 +5,11 @@ const chatboxForm = document.querySelector('.chatbox-message-form')
 textarea.addEventListener('input', function () {
 	let line = textarea.value.split('\n').length
 
-	if (textarea.rows < 6 || line < 6) {
+	if(textarea.rows < 6 || line < 6) {
 		textarea.rows = line
 	}
 
-	if (textarea.rows > 1) {
+	if(textarea.rows > 1) {
 		chatboxForm.style.alignItems = 'flex-end'
 	} else {
 		chatboxForm.style.alignItems = 'center'
@@ -33,7 +33,7 @@ dropdownToggle.addEventListener('click', function () {
 })
 
 document.addEventListener('click', function (e) {
-	if (!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
+	if(!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
 		dropdownMenu.classList.remove('show')
 	}
 })
@@ -45,7 +45,7 @@ const chatboxNoMessage = document.querySelector('.chatbox-message-no-message')
 chatboxForm.addEventListener('submit', function (e) {
 	e.preventDefault()
 
-	if (isValid(textarea.value)) {
+	if(isValid(textarea.value)) {
 		writeMessage()
 		setTimeout(autoReply, 1000)
 	}
