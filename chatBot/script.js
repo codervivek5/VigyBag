@@ -5,18 +5,16 @@ const chatboxForm = document.querySelector('.chatbox-message-form')
 textarea.addEventListener('input', function () {
 	let line = textarea.value.split('\n').length
 
-	if(textarea.rows < 6 || line < 6) {
+	if (textarea.rows < 6 || line < 6) {
 		textarea.rows = line
 	}
 
-	if(textarea.rows > 1) {
+	if (textarea.rows > 1) {
 		chatboxForm.style.alignItems = 'flex-end'
 	} else {
 		chatboxForm.style.alignItems = 'center'
 	}
 })
-
-
 
 // TOGGLE CHATBOX
 const chatboxToggle = document.querySelector('.chatbox-toggle')
@@ -25,8 +23,6 @@ const chatboxMessage = document.querySelector('.chatbox-message-wrapper')
 chatboxToggle.addEventListener('click', function () {
 	chatboxMessage.classList.toggle('show')
 })
-
-
 
 // DROPDOWN TOGGLE
 const dropdownToggle = document.querySelector('.chatbox-message-dropdown-toggle')
@@ -37,16 +33,10 @@ dropdownToggle.addEventListener('click', function () {
 })
 
 document.addEventListener('click', function (e) {
-	if(!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
+	if (!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
 		dropdownMenu.classList.remove('show')
 	}
 })
-
-
-
-
-
-
 
 // CHATBOX MESSAGE
 const chatboxMessageWrapper = document.querySelector('.chatbox-message-content')
@@ -55,16 +45,14 @@ const chatboxNoMessage = document.querySelector('.chatbox-message-no-message')
 chatboxForm.addEventListener('submit', function (e) {
 	e.preventDefault()
 
-	if(isValid(textarea.value)) {
+	if (isValid(textarea.value)) {
 		writeMessage()
 		setTimeout(autoReply, 1000)
 	}
 })
 
-
-
 function addZero(num) {
-	return num < 10 ? '0'+num : num
+	return num < 10 ? '0' + num : num
 }
 
 function writeMessage() {
@@ -94,7 +82,7 @@ function autoReply() {
 				Hello,
 			</span>
 			<span class="chatbox-message-item-text">
-				so how can I help you ?
+				How can I assist you?
 			</span>
 			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
 		</div>
@@ -113,3 +101,17 @@ function isValid(value) {
 
 	return text.length > 0
 }
+
+// Additional Features:
+
+// Clear Chat History
+const clearChatButton = document.querySelector('.chatbox-clear-history')
+
+clearChatButton.addEventListener('click', function () {
+	chatboxMessageWrapper.innerHTML = ''
+	chatboxNoMessage.style.display = 'block'
+})
+
+// Dark Mode Toggle
+const darkModeToggle = document.querySelector('.chatbox-toggle-dark-mode')
+const chatbox
