@@ -1,12 +1,12 @@
 package com.vigbag.android
 
-import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.vigbag.android.databinding.FragmentSignInBinding
 
 class SignInFragment : Fragment() {
@@ -19,9 +19,9 @@ class SignInFragment : Fragment() {
 
     private fun validateCredentials() {
 
-        val sharedPreferences = requireContext().getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE)
-        val savedEmail = sharedPreferences.getString("email", "")
-        val savedPassword = sharedPreferences.getString("password", "")
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
+        val savedEmail = sharedPreferences.getString(PREF_KEY_EMAIL, "")
+        val savedPassword = sharedPreferences.getString(PREF_KEY_PASSWORD, "")
 
         binding.etxtEmail.setText(savedEmail)
         binding.etxtPassword.setText(savedPassword)
@@ -32,11 +32,9 @@ class SignInFragment : Fragment() {
 
             // Validate the credentials
             if (enteredEmail == savedEmail && enteredPassword == savedPassword) {
-                val snack = Snackbar.make(it,"Login Successful",Snackbar.LENGTH_LONG)
-                snack.show()
+                Toast.makeText(context,"Login Successful",Toast.LENGTH_LONG).show()
             } else {
-                val snack = Snackbar.make(it,"Invalid Credentials,try Again",Snackbar.LENGTH_LONG)
-                snack.show()
+                Toast.makeText(context,"Invalid Credentials,try Again",Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -50,4 +48,9 @@ class SignInFragment : Fragment() {
                 .commit()
         }
     }
+    companion object {
+        private const val PREF_KEY_EMAIL = "email"
+        private const val PREF_KEY_PASSWORD = "password"
+    }
+
 }

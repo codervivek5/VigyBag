@@ -54,6 +54,7 @@
             android:id="@+id/etxt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:required="true"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,6 +66,7 @@
         android:background="@color/white"
         android:layout_margin="25dp"
         android:hint="Password "
+        android:required="true"
         app:endIconMode="password_toggle"
         app:layout_constraintTop_toBottomOf="@+id/txt_email">
 
@@ -80,6 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:required="true"
         android:layout_margin="25dp"
         android:hint="Confirm Password "
         app:endIconMode="password_toggle"
