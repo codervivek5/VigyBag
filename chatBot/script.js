@@ -16,8 +16,6 @@ textarea.addEventListener('input', function () {
 	}
 })
 
-
-
 // TOGGLE CHATBOX
 const chatboxToggle = document.querySelector('.chatbox-toggle')
 const chatboxMessage = document.querySelector('.chatbox-message-wrapper')
@@ -25,8 +23,6 @@ const chatboxMessage = document.querySelector('.chatbox-message-wrapper')
 chatboxToggle.addEventListener('click', function () {
 	chatboxMessage.classList.toggle('show')
 })
-
-
 
 // DROPDOWN TOGGLE
 const dropdownToggle = document.querySelector('.chatbox-message-dropdown-toggle')
@@ -42,12 +38,6 @@ document.addEventListener('click', function (e) {
 	}
 })
 
-
-
-
-
-
-
 // CHATBOX MESSAGE
 const chatboxMessageWrapper = document.querySelector('.chatbox-message-content')
 const chatboxNoMessage = document.querySelector('.chatbox-message-no-message')
@@ -61,10 +51,8 @@ chatboxForm.addEventListener('submit', function (e) {
 	}
 })
 
-
-
 function addZero(num) {
-	return num < 10 ? '0'+num : num
+	return num < 10 ? '0' + num : num
 }
 
 function writeMessage() {
@@ -94,7 +82,7 @@ function autoReply() {
 				Hello,
 			</span>
 			<span class="chatbox-message-item-text">
-				so how can I help you ?
+				How can I assist you?
 			</span>
 			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
 		</div>
@@ -113,3 +101,17 @@ function isValid(value) {
 
 	return text.length > 0
 }
+
+// Additional Features:
+
+// Clear Chat History
+const clearChatButton = document.querySelector('.chatbox-clear-history')
+
+clearChatButton.addEventListener('click', function () {
+	chatboxMessageWrapper.innerHTML = ''
+	chatboxNoMessage.style.display = 'block'
+})
+
+// Dark Mode Toggle
+const darkModeToggle = document.querySelector('.chatbox-toggle-dark-mode')
+const chatbox
