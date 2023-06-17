@@ -16,7 +16,7 @@ class SignInFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
         validateCredentials()
-        return binding.root
+        return _binding.root
     }
 
     private fun validateCredentials() {
