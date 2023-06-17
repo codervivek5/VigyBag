@@ -10,11 +10,13 @@ import androidx.fragment.app.Fragment
 import com.vigbag.android.databinding.FragmentSignInBinding
 
 class SignInFragment : Fragment() {
-    private lateinit var binding: FragmentSignInBinding
+    private var _binding: FragmentSignInBinding? = null
+
+    private val binding get() = _binding!!
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentSignInBinding.inflate(inflater, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         validateCredentials()
-        return binding.root
+        return _binding.root
     }
 
     private fun validateCredentials() {
@@ -52,5 +54,8 @@ class SignInFragment : Fragment() {
         private const val PREF_KEY_EMAIL = "email"
         private const val PREF_KEY_PASSWORD = "password"
     }
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
