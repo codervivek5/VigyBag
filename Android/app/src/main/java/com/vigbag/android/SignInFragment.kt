@@ -1,29 +1,23 @@
 package com.vigbag.android
 
 import android.os.Bundle
-import android.preference.PreferenceManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.vigbag.android.databinding.FragmentSignInBinding
+import com.vigbag.android.util.Constants.preferences
 
-class SignInFragment : Fragment() {
+class SignInFragment : Fragment(R.layout.fragment_sign_in) {
+    
     private var _binding: FragmentSignInBinding? = null
-
     private val binding get() = _binding!!
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentSignInBinding.inflate(inflater, container, false)
-        validateCredentials()
-        return binding.root
-    }
 
     private fun validateCredentials() {
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
-        val savedEmail = sharedPreferences.getString(PREF_KEY_EMAIL, "")
-        val savedPassword = sharedPreferences.getString(PREF_KEY_PASSWORD, "")
+        val savedEmail = sharedPreferences.getString(preferences.EMAIL, "")
+        val savedPassword = sharedPreferences.getString(preferences.PASSWORD, "")
 
         binding.etxtEmail.setText(savedEmail)
         binding.etxtPassword.setText(savedPassword)
@@ -43,17 +37,20 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        _binding = FragmentSignInBinding.bind(view)
+        
         binding.txtSignup.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, SignUpFragment())
                 .commit()
         }
+        
+        binding.btnLogin.setOnClickListener {
+            validateCredentials()
+        }
+        
     }
-    companion object {
-        private const val PREF_KEY_EMAIL = "email"
-        private const val PREF_KEY_PASSWORD = "password"
-    }
+    
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
