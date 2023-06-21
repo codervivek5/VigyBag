@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VigyBag</string>
+    <string name="email_key">email</string>
+    <string name="password_key">password</string>
+</resources>
