@@ -95,7 +95,8 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-    min-height: 100vh;
+    
+    min-height: 125vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: var(--ff-primary);
@@ -150,7 +151,7 @@ body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 1rem 0;
+    margin-top: -70px;
 }
 
 
