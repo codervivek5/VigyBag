@@ -759,16 +759,23 @@ button {
 #copyright{
   background-color: #07081d;
   width: 100vw;
-  height: 3em;
+  /* height: 3em; */
 }
 
 #copyright p{
   display: flex;
   justify-content: center;
   color: #fff;
+  padding: 0 0 1vh 0;
 }
 
 #copyright p span{
   cursor: pointer;
   color: orange;
+}
+
+.pay{
+  display: flex;
+  justify-content: center;
+  padding: 1vh 0;
 }
