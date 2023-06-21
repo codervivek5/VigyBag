@@ -781,4 +781,74 @@ button {
   padding: 1vh 0;
 }
 
-/*  */
+
+
+/* FAQ section css */
+.faq {
+  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  height: 600px;
+}
+.title {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
+div.c {
+  position: relative;
+  margin: 2em;
+}
+div.c input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 70%;
+  width: 70%;
+  opacity: 0;
+  visibility: 0;
+}
+div.c h1 {
+  font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background-image: linear-gradient(to right, #575a89, #4b4e75, #8d8fa5);
+  color: white;
+  padding: 0.8em;
+  position: relative;
+}
+div.c label::before {
+  content: "";
+  display: inline-block;
+  border: 15px solid transparent;
+  border-left: 20px solid white;
+}
+div.c label {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+div.c div.p {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+div.c div.p p {
+  padding: 2em;
+}
+div.c input:checked ~ h1 label::before {
+  border-left: 15px solid transparent;
+  border-top: 20px solid white;
+  margin-top: 12px;
+  margin-right: 10px;
+}
+div.c input:checked ~ h1 ~ div.p {
+  max-height: 100px;
+}
+div.c a {
+  color: steelblue;
+}
