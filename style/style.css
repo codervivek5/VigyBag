@@ -718,9 +718,10 @@ button {
   padding: 50px 60px 0px 60px;
 }
 
-.social-div img,
-.social-div p {
+.social-div img{
   cursor: pointer;
+  display: flex;
+  margin: auto;
 }
 
 .social-div div {
