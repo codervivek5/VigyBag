@@ -22,7 +22,7 @@
  </div>
 
 ## 👋 Welcome
-This website is a location-based platform that allows users to search for products and services based on their geographical location. The website uses GPS technology to pinpoint the user's location and then displays nearby stores or businesses that offer the products or services they are searching for.
+This website is a location-based platform that allows users to search for products and services based on their geographical location. The website uses GPS technology to pinpoint the user's location and then displays nearby stores or businesses that offer the products or services they are searching for. It allows users to compare prices and make purchases directly through the site, making it convenient for local shopping and finding location-specific items.
 
 <h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
     
@@ -102,12 +102,29 @@ git push
 
 **8.** Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository.
 
-## 🦄 Django Admin Authentificaion 
+## 🦄 Django Project Setup 
+
+**1.** Navigate to the project directory Backend Code .
+
 ```bash
-Update it later
+cd Backend Code
 ```
 
+**2.** Navigate to the project directory VigyBag .
 
+```bash
+cd VigyBag
+```
+**3.** If you get manage.py in file structure then run this command.
+
+```bash
+python manage.py runserver
+```
+
+## 🦄 Django Admin Authentificaion 
+```bash
+later on...
+```
 
 ## ⚙️ Things to Note
 - Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
@@ -149,6 +166,8 @@ If you want to contact me, you can reach me through below handles.
 
 
 <br>
+
+Thank you for considering contributing to VigyBag. We look forward to your valuable contributions!
 
 <div align="center">
 <h3>© 2022 Coder Vivek</h3>
