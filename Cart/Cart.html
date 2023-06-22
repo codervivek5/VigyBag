@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart Page</title>
+
+</head>
+<body>
+  <div class="container">
+    <div class="cart-header">
+
+      <h1>My Cart</h1>
+      <img src="../img/shopping-cart-png" class="cart-icon" alt="" srcset="">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img class="product-image" src="../img/toppng.png" alt="Product 1"></td>
+          <td>Solo Wireless headphone</td>
+          <td>
+            <div class="quantity-input" prdNum = "1">
+              <button class="quantity-btn" onclick ="ChangeQnt(this)" id="Sub">-</button>
+              <input id="quantity"  type="number" min="1" value= "1" >
+              <button class="quantity-btn" onclick= "ChangeQnt(this)" id="Add">+</button>
+            </div>
+          </td>
+          <td> <span>&#8377;</span> <div id="product1Price">799</div> </td>
+        </tr>
+        <tr>
+          <td><img class="product-image" src="../img/t-shirt.png" alt="Product 2"></td>
+          <td>Printed Cotton Shirt</td>
+          <td>
+            <div class="quantity-input" prdNum ="2">
+              <button class="quantity-btn" onclick ="ChangeQnt(this)" id="Sub">-</button>
+              <input id="quantity" type="number" min="1" value="1">
+              <button class="quantity-btn" onclick ="ChangeQnt(this)" id="Add">+</button>
+            </div>
+          </td>
+          <td> <span>&#8377;</span> <div id="product2Price">349</div> </td>
+        </tr>
+        <!-- Add more product rows as needed -->
+      </tbody>
+    </table>
+    
+    <div class="coupon">
+      <input type="text" placeholder="Enter coupon code">
+      <input type="submit" value="Apply Coupon">
+    </div>
+    
+    <div class="total-amount">
+      <div>
+        <span>Total Amount: &#8377;</span> <span  id="Amount">1148</span>
+      </div>
+      <button class="proceed-btn">Proceed to Pay</button>
+    </div>
+  </div>
+  <link rel="stylesheet" href="cart.css">
+  <script src="./script.js"></script>
+</body>
+</html>
