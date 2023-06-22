@@ -23,7 +23,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 110px 5px 10px;
+  width: 100vw;
   box-shadow: 0px 1px 6px #4e4e4e;
   border: 2px solid #575a89;
   border-top: none;
@@ -147,8 +147,9 @@ body.dark {
   position: relative;
   height: 32px;
   width: 62px;
-  margin-left: 38px;
+  /* margin-left: 38px; */
   padding: 3px;
+  margin-right: 1em;
   display: flex;
   transition: 0.3s;
   align-items: center;
