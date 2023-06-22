@@ -13,7 +13,11 @@ const addbtn4 = document.getElementById('addBtn4');
 const stars = document.querySelectorAll('.items-star i');
 const copyright = document.querySelector('#copyright p span');
 
-
+// Dark Mode button Function
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener('change', ()=>{
+    document.body.classList.toggle('dark')
+})
 burgerIcon.addEventListener('click', () => {
     console.log("Hello")
     burgerIcon.classList.toggle('fa-bars')
