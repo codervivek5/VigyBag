@@ -174,7 +174,7 @@ img {
 .about-me-flex-container .about-me-content .text {
   color: #000000;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 22px;
 }
 @media (max-width: 500px) {
   .about-me-flex-container .about-me-content .text {
