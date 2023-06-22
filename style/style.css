@@ -135,9 +135,10 @@ body {
   transition: 0.5s linear;
 }
 body.dark {
-  background-color: #050505;
+  background-color: #141414;
   color: white;
 }
+
 .label {
   /* background-color:brown; */
   background: #181717;
@@ -506,7 +507,7 @@ body.dark {
 .items-container {
   height: 100%;
   width: 100%;
-  background-color: #575a89;
+  /* background-color: #575a89; */
   font-family: Arial, Helvetica, sans-serif;
   color: #161b6e;
 }
@@ -850,7 +851,7 @@ body.dark {
 
 /* FAQ section css */
 .faq {
-  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
   height: 600px;
 }
 .title {
@@ -951,7 +952,7 @@ div.c a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 30px;
-  background: rgba(91, 95, 177, 0.38);
+  /* background: rgba(91, 95, 177, 0.38); */
   margin-bottom: 5vh ;
 }
 
