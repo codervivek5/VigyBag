@@ -918,3 +918,71 @@ div.c a {
   color: steelblue;
 }
 
+/* seervice */
+
+.services {
+  width: 100vw;
+  height: 100%;
+  padding: 0px 8%;
+  background: blue;
+}
+
+#h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  padding: 0.4em;
+  font-weight: 600;
+}
+
+.services h1::after {
+  content: '';
+  background: #303ef7;
+  width: 100px;
+  height: 5px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+  background: rgba(91, 95, 177, 0.38);
+  margin-bottom: 5vh ;
+}
+
+.service {
+  text-align: center;
+  padding: 25px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: white;
+  transition: transform 0.5s, background 0.5s;
+  margin: 2em;
+}
+
+.service i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.service h2 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.service:hover {
+  background: #303ef7;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.service:hover i {
+  color: #fff;
+}
