@@ -859,9 +859,7 @@ div.c a {
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
     border: 5px solid black;
-  background-image: linear-gradient(to right, #0f0c29, #302b63, #3b3b65);
- 
-  /* height: 1200px; */
+    background:#a9a9d5;
 }
 .reviewer_content{
   text-align: center;
@@ -883,7 +881,7 @@ div.c a {
   margin-left: 250px;
 }
 .stars_inner_first{
-    background-color: #8d8fa5;
+    background-color: #5e617c;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     height: 120px;
     padding: 10px;
@@ -947,11 +945,11 @@ div.c a {
 }
 
 /* Individual bars */
-.bar-5 {width: 60%; height: 18px; background-color: #8d8fa5; border-radius: 15px;}
-.bar-4 {width: 30%; height: 18px; background-color: #8d8fa5; border-radius: 15px;}
-.bar-3 {width: 15%; height: 18px; background-color: #8d8fa5; border-radius: 15px;}
-.bar-2 {width: 6%; height: 18px; background-color: #8d8fa5; border-radius: 15px;}
-.bar-1 {width: 2%; height: 18px; background-color: #8d8fa5; border-radius: 15px;}
+.bar-5 {width: 60%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-4 {width: 30%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-3 {width: 15%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-2 {width: 6%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-1 {width: 2%; height: 18px; background-color: #5e617c; border-radius: 15px;}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 400px) {
@@ -968,7 +966,7 @@ div.c a {
   border-radius: 1rem;
   color: #FFFFFF;box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   border: 2px solid #8d8fa5;
-  background-color: #8d8fa5;
+  background-color: #5e617c;
   cursor: pointer;
   font-family: Inter,sans-serif;
   padding: .5rem 1rem;
