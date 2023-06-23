@@ -8,6 +8,7 @@
   scroll-behavior: smooth;
   transition: 0.5s;
   overflow-x: hidden;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* navigation bar */
@@ -23,7 +24,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 110px 5px 10px;
+  width: 100vw;
   box-shadow: 0px 1px 6px #4e4e4e;
   border: 2px solid #575a89;
   border-top: none;
@@ -135,9 +136,10 @@ body {
   transition: 0.5s linear;
 }
 body.dark {
-  background-color: #050505;
+  background-color: #141414;
   color: white;
 }
+
 .label {
   /* background-color:brown; */
   background: #181717;
@@ -147,8 +149,9 @@ body.dark {
   position: relative;
   height: 32px;
   width: 62px;
-  margin-left: 38px;
+  /* margin-left: 38px; */
   padding: 3px;
+  margin-right: 1em;
   display: flex;
   transition: 0.3s;
   align-items: center;
@@ -505,7 +508,7 @@ body.dark {
 .items-container {
   height: 100%;
   width: 100%;
-  background-color: #575a89;
+  /* background-color: #575a89; */
   font-family: Arial, Helvetica, sans-serif;
   color: #161b6e;
 }
@@ -596,11 +599,10 @@ body.dark {
 .item-description-2{
   display: flex;
   width: 100%;
-  justify-content: space-between;
   background-color: #9fa1c1;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 18px 15px 13px 15px;
+  padding: 18px 15px;
 }
 
 .Lbtn {
@@ -652,10 +654,20 @@ body.dark {
 
 .item-heading {
   font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
+  font-weight: 600;
   font-family: 'Roboto', sans-serif;
+  width: auto;
+  display: flex;
 }
+
+p{
+  font-size: 12px;
+}
+
+.item-heading h3{
+  font-size: 15px;
+} 
+
 .item-paise{
   margin-top: 8px;
   font-size: 12px;
@@ -849,7 +861,7 @@ body.dark {
 
 /* FAQ section css */
 .faq {
-  background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
   height: 600px;
 }
 .title {
@@ -917,3 +929,71 @@ div.c a {
   color: steelblue;
 }
 
+/* seervice */
+
+.services {
+  width: 100vw;
+  height: 100%;
+  padding: 0px 8%;
+  background: blue;
+}
+
+#h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  padding: 0.4em;
+  font-weight: 600;
+}
+
+.services h1::after {
+  content: '';
+  background: #303ef7;
+  width: 100px;
+  height: 5px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+  /* background: rgba(91, 95, 177, 0.38); */
+  margin-bottom: 5vh ;
+}
+
+.service {
+  text-align: center;
+  padding: 25px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: white;
+  transition: transform 0.5s, background 0.5s;
+  margin: 2em;
+}
+
+.service i {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.service h2 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.service:hover {
+  background: #303ef7;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.service:hover i {
+  color: #fff;
+}

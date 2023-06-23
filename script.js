@@ -119,3 +119,4 @@ copyright.addEventListener("click", function(){
 
 
 // Path: VigyBag/script.js
+
