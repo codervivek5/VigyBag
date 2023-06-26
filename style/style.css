@@ -862,7 +862,8 @@ p{
 /* FAQ section css */
 .faq {
   /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
-  height: 600px;
+  height: auto;
+  margin: 3vh 0;
 }
 .title {
   text-align: center;
