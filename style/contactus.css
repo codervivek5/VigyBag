@@ -12,12 +12,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #575A89
+    background: #575A89;
 }
 
 .container form{
-    width: 784px;
-    height: 672px;
+    width: 670px;
+    height: 400px;
     display: flex;
     justify-content: center;
     box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
@@ -36,7 +36,6 @@
 }
 
 .container form input{
-    color: #fff;
     width: 290px;
     height: 40px;
     padding-left: 10px;
@@ -94,7 +93,7 @@ textarea::-webkit-scrollbar-thumb{
     margin-top: 20px;
     font-weight: 600;
     font-size: 20px;
-    color: #000;
+    color: #333;
     width: 100px;
     padding: 0;
     margin-right: 500px;
