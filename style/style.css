@@ -550,7 +550,7 @@ body.dark {
 }
 
 .item-image {
-  width: 300px;
+  width: 260px;
   height: 300px;
   background-color: #d9d9d9;
   display: flex;
@@ -566,7 +566,7 @@ body.dark {
 .item-image .wishlist-icon {
   position: absolute;
   background-color: #d9d9d9;
-  width: 30px;
+  width: 26px;
   height: 30px;
   top: 15px;
   right: 13px;
@@ -597,8 +597,8 @@ body.dark {
 }
 
 .item-description-2{
+  width: 230px;
   display: flex;
-  width: fit-content;
   background-color: #9fa1c1;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -665,6 +665,7 @@ p{
 }
 
 .item-heading h3{
+  margin-left: -20px;
   font-size: 15px;
 } 
 
