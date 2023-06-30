@@ -29,7 +29,7 @@ async function SignUp(e) {
     const username = document.getElementById("new_user_name");
     const password = document.getElementById("new_user_password");
 
-    let response = await fetch("http://127.0.0.1:8000/auth/register/", {
+    let response = await fetch("http://barianishit.pythonanywhere.com/auth/register/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ async function SignUp(e) {
       }),
     });
 
-    if (response.status !== 200 && response.status !== 400) {
+    if (response.status !== 201 && response.status !== 400) {
       alert("Error: Connection Failed");
       console.log("Could not send data");
       throw new Error("Something went wrong");
@@ -83,7 +83,7 @@ async function Login(e) {
     const email = document.getElementById("user_email");
     const password = document.getElementById("user_password");
 
-    const response = await axios.post("http://127.0.0.1:8000/auth/login/", {
+    const response = await axios.post("http://barianishit.pythonanywhere.com/auth/login/", {
       email: email.value,
       password: password.value,
     });
