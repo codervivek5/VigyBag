@@ -436,7 +436,7 @@ a.social.codepen::before {
 }
 
 a.social.google::before {
-    background: #0F9D58;
+    background: #DB4437
 }
 
 a.social.instagram::before {
@@ -527,17 +527,17 @@ a.login-link:hover {
 
 input:focus,
 input:not(:placeholder-shown) {
-    background-color: var(--color-background);
-    border-color: var(--color-border-focus);
+    /* background-color: var(--color-background);
+    border-color: var(--color-border-focus); */
 }
 
 input:focus,
 input:placeholder-shown {
-    box-shadow: 0 0 0 2px var(--color-border-focus);
+    box-shadow: 0 0 0 1.5px var(--color-border-focus);
 }
 
 input:focus:valid {
-    box-shadow: 0 0 0 2px var(--color-success);
+    box-shadow: 0 0 0 0.5px var(--color-success);
 }
 
 input:valid:not(:placeholder-shown) {
@@ -545,7 +545,7 @@ input:valid:not(:placeholder-shown) {
 }
 
 input:focus:invalid {
-    box-shadow: 0 0 0 2px var(--color-error);
+    box-shadow: 0 0 0 1px var(--color-error);
 }
 
 input:invalid:not(:placeholder-shown) {
@@ -569,14 +569,17 @@ button {
     cursor: pointer;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
+    border:1px var(--color-primary) solid;
 }
 
 .group button:hover {
-    background-color: var(--color-secondary);
+    background-color:transparent;
+    color:var(--color-primary);
+    border:1px var(--color-primary) solid;
 }
 
 .group button:hover {
-    background: var(--color-secondary);
+    /* background: var(--color-secondary); */
 }
 
 .group button:active {
