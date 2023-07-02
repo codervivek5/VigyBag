@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.vigbag.android.databinding.FragmentSignInBinding
 
 class SignInFragment : Fragment() {
@@ -45,9 +46,7 @@ class SignInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.txtSignup.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, SignUpFragment())
-                .commit()
+           findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
     }
     companion object {
