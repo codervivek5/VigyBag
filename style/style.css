@@ -190,13 +190,14 @@ button {
 }
 
 .content {
+  margin-top: 45px;
   display: flex;
   flex-direction: column;
   padding: 40px 50px 0px 50px;
 }
 
 .content h1 {
-  font-size: 80px;
+  font-size: 74px;
   color: #d9d9d9;
 }
 
@@ -207,9 +208,10 @@ button {
 .content h4 {
   font-size: 20px;
   margin-top: 30px;
-  padding-right: 40px;
+  padding-right: 338px;
   line-height: 1.5;
   color: #d9d9d9;
+  text-align: justify;
 }
 
 .content h4 span {
@@ -231,13 +233,16 @@ button {
   margin-top: 10px;
   margin-bottom: 134px;
   align-items: center;
+  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .local input[type="search"] {
   padding: 25px 130px;
   border-radius: 40px;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   border: none;
+  color: #42468a;
   background-color: #d9d9d9;
   text-align: center;
   font-size: 35px;
@@ -245,6 +250,7 @@ button {
 
 ::placeholder {
   color: #575a89;
+  font-family: 'Roboto', sans-serif;
 }
 
 ::-webkit-input-placeholder {

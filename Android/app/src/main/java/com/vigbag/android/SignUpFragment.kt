@@ -10,12 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.vigbag.android.databinding.FragmentSignUpBinding
 
-class SignUpFragment : Fragment() {
-    private lateinit var binding: FragmentSignUpBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
+    
+    private var _binding: FragmentSignUpBinding? = null
+    private val binding get() = _binding!!
+    
     private fun storeCredentials() {
         val sharedPreferences =
             requireContext().getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE)
@@ -24,14 +23,22 @@ class SignUpFragment : Fragment() {
                   editor.putString("password", binding.etxtPassword.text.toString())
                   editor.apply()
                   Toast.makeText(context, "Account registered successfully", Toast.LENGTH_SHORT).show()
-              }
+    }
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentSignUpBinding.bind(view)
+        
         binding.txtLogin.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
         }
         binding.btnSignup.setOnClickListener {
             storeCredentials()
         }
+    }
+    
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
