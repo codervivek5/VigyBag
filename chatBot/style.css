@@ -41,6 +41,8 @@
   pointer-events: none;
 }
 .show-chatbot .chatbot {
+  height: 70vh;
+  width: auto;
   opacity: 1;
   pointer-events: auto;
   transform: scale(1);
