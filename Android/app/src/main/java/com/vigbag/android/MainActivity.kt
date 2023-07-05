@@ -12,13 +12,13 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_VigyBag)
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(SignInFragment())
+//        replaceFragment(SignInFragment())
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, fragment)
-            .commit()
-    }
+//    private fun replaceFragment(fragment: Fragment) {
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.frameLayout, fragment)
+//            .commit()
+//    }
 }
 
