@@ -767,7 +767,7 @@ ul > li { line-height: 1.5em; }
   width: 100%;
   position: relative;
   background: #150c21;
-  padding: 15px 25px 10px 25px;
+  padding: 70px 25px 50px 25px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
@@ -911,23 +911,6 @@ a.button {
   }
 }
 
-.column.is-nav {
-  text-align: center;
-}
-
-.column.is-nav ul {
-  display: inline-block;
-  text-align: left;
-}
-
-.column.is-nav ul li {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.column.is-nav ul li:last-child {
-  margin-bottom: 0;
-}
 
 
 
