@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_VigyBag)
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }
 
