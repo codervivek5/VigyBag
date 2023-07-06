@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.vigbag.android.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -29,9 +30,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         _binding = FragmentSignUpBinding.bind(view)
         
         binding.txtLogin.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, SignInFragment())
-                .commit()
+            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+
         }
         binding.btnSignup.setOnClickListener {
             storeCredentials()

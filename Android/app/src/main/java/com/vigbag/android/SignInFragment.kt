@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.preference.PreferenceManager
 import com.vigbag.android.databinding.FragmentSignInBinding
 import com.vigbag.android.util.Constants.preferences
@@ -40,9 +41,9 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         _binding = FragmentSignInBinding.bind(view)
         
         binding.txtSignup.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, SignUpFragment())
-                .commit()
+            findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
+
+
         }
         
         binding.btnLogin.setOnClickListener {
