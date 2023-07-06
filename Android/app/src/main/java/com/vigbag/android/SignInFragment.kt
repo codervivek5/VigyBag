@@ -41,8 +41,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         _binding = FragmentSignInBinding.bind(view)
         
         binding.txtSignup.setOnClickListener {
-            val navController=Navigation.findNavController(requireView())
-            navController.navigate(R.id.action_signInFragment_to_signUpFragment)
+            findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
 
 
         }

@@ -30,8 +30,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         _binding = FragmentSignUpBinding.bind(view)
         
         binding.txtLogin.setOnClickListener {
-            val navController= Navigation.findNavController(requireView())
-            navController.navigate(R.id.action_signUpFragment_to_signInFragment)
+            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
 
         }
         binding.btnSignup.setOnClickListener {
