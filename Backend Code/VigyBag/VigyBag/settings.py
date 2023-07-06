@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google', 
 ]
 
 REST_FRAMEWORK = {
@@ -222,9 +223,22 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False,
         'VERSION': 'v13.0',
         # 'GRAPH_API_URL': 'https://graph.facebook.com/v13.0',
+    },
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
     }
 }
 
 LOGIN_REDIRECT_URL="home"
 
 ACCOUNT_LOGOUT_REDIRECT_URL="account_login"
+
+# 745860153851-7vtkhqm65f8qcf29vha3lpg3fp65hjdj.apps.googleusercontent.com
+# secret-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
