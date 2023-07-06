@@ -3,16 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreenFragment">
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.vigbag.android.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_signUpFragment2"
-            app:destination="@id/signUpFragment" />
-    </fragment>
+    app:startDestination="@id/signInFragment">
+
 
 
     <fragment
