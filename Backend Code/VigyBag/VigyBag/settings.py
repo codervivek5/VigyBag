@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-%pk#=5-x=102)&ke95j5^42jhvuztle#y_tx=g2=hej@f)8!*g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["e02a-43-242-231-8.ngrok-free.app","localhost","127.0.0.1"]
+# CSRF_COOKIE_DOMAIN = 'e02a-43-242-231-8.ngrok-free.app'
 
 AUTH_USER_MODEL='base.User'
 # Application definition
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter_oauth2',
 ]
 
 REST_FRAMEWORK = {
@@ -187,7 +190,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CORS_ALLOW_ALL_ORIGINS: True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5500",   
+    "http://localhost:5500",
+    # "https://e02a-43-242-231-8.ngrok-free.app ", 
 ]
 import os
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -222,6 +226,22 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False,
         'VERSION': 'v13.0',
         # 'GRAPH_API_URL': 'https://graph.facebook.com/v13.0',
+    },
+     'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    },
+    'twitter': {
+    'SCOPE': [
+        'email',
+        'profile',
+    ],
     }
 }
 

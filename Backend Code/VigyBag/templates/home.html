@@ -4,7 +4,10 @@
     <div class="text-center">
         <h2>Home</h2>
         <p>Hello {{ user.first_name }}!</p>
-        <p>Your Username : {{ user }}</p>
-        <a class="btn btn-dark" href="{% url 'socialaccount_connections' %}">Settings</a>
+        <p>Your Username: {{ user }}</p>
+        <form method="post" action="{% url 'socialaccount_connections' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-dark">Settings</button>
+        </form>
     </div>
 {% endblock %}
