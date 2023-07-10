@@ -7,14 +7,10 @@ import androidx.fragment.app.Fragment
 import com.vigbag.android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContentView(R.layout.activity_main)
-
     }
-
-
 }
 
