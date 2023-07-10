@@ -1,11 +1,12 @@
 from rest_framework.response import Response
-from rest_framework.decorators import api_view,permission_classes, APIView
+from rest_framework.decorators import api_view,permission_classes, APIView,authentication_classes
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import generics, authentication, permissions
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from .serializers import CreateUserSerializer, UserSigninSerializer
+from rest_framework.permissions import AllowAny, IsAuthenticated,IsAdminUser
+from rest_framework.authentication import BaseAuthentication
+from .serializers import CreateUserSerializer, UserSigninSerializer,CategorySerializer,ProductSerializer
 from .models import User
 from rest_framework.status import (
     HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
@@ -84,3 +85,32 @@ class login(generics.GenericAPIView):
                         "refresh_token":str(access_token),
                         "status":200
                     })
+# @authentication_classes([BaseAuthentication])
+# @permission_classes([IsAdminUser,])
+class category(generics.GenericAPIView):
+    serializer_class = CategorySerializer
+    def post(self,request,*args,**kwargs):
+        res = request.data
+        serializer = self.get_serializer(data=res)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status":200})
+        else:
+            return Response(serializer.errors)
+
+
+# @authentication_classes([BaseAuthentication])
+# @permission_classes([IsAuthenticated,])
+class product(generics.GenericAPIView):
+    serializer_class = ProductSerializer
+    def post(self,request,*args,**kwargs):
+        res = request.data
+        serializer = self.get_serializer(data=res)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({
+                
+                "status":200
+            })
+        else:
+            return Response(serializer.errors)
