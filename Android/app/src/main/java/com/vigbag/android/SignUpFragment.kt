@@ -33,6 +33,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         }
         binding.btnSignup.setOnClickListener {
             storeCredentials()
+            findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
         }
     }
     

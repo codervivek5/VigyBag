@@ -48,6 +48,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         
         binding.btnLogin.setOnClickListener {
             validateCredentials()
+            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
         }
         
     }

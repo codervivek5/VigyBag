@@ -59,6 +59,7 @@ dependencies {
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+    implementation 'androidx.cardview:cardview:1.0.0'
     // Testing Navigation
     androidTestImplementation("androidx.navigation:navigation-testing:2.5.3")
 
@@ -76,4 +77,6 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
     implementation("androidx.preference:preference-ktx:1.2.0")
+    //RatingBar
+    implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
 }
