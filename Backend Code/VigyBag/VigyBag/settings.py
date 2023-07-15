@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter_oauth2',
-    "Contact",
 ]
 
 REST_FRAMEWORK = {
@@ -238,8 +237,8 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         'OAUTH_PKCE_ENABLED': True,
     },
-    'twitter': {
-    'SCOPE': [
+     'twitter': {
+       'SCOPE': [
         'email',
         'profile',
     ],

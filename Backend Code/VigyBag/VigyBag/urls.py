@@ -24,7 +24,6 @@ urlpatterns = [
     path('api/',include('base.urls')),
     path('accounts/',include("allauth.urls")),
     path('home/',TemplateView.as_view(template_name="home.html"),name="home"),
-    path('ContactUs/',include("Contact.urls")),
 ]
 
 # Serving media files
