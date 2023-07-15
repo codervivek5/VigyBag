@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.vigbag.android.SignInFragment"
+        android:name="com.vigbag.android.ui.login.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.vigbag.android.SignUpFragment"
+        android:name="com.vigbag.android.ui.login.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.vigbag.android.HomeFragment"
+        android:name="com.vigbag.android.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 </navigation>
