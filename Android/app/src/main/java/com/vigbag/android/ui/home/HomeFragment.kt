@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.vigbag.android.ui.home.adapters.ParentItemAdapter
+import com.vigbag.android.ui.home.adapters.ParentAdapter
 import com.vigbag.android.model.ParentItemDataClass
 import com.vigbag.android.R
 import com.vigbag.android.databinding.FragmentHomeBinding
@@ -15,7 +15,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var parentAdapter: ParentItemAdapter
+    private lateinit var parentAdapter: ParentAdapter
     private lateinit var parentItemList:ArrayList<ParentItemDataClass>
 
     private lateinit var headphoneList:ArrayList<ChildItemDataClass>
@@ -58,7 +58,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         phoneList.add(ChildItemDataClass(R.drawable.iphone,"Mobile with top features","think different",5.0,"(16)"))
         parentItemList.add(ParentItemDataClass("Mobiles for you!",phoneList))
 
-        parentAdapter= ParentItemAdapter(parentItemList,requireContext())
+        parentAdapter= ParentAdapter(parentItemList,requireContext())
         binding.recyclerView.layoutManager= LinearLayoutManager(requireContext())
         binding.recyclerView.adapter=parentAdapter
         parentAdapter.notifyDataSetChanged()

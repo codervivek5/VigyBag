@@ -14,7 +14,11 @@ import com.vigbag.android.model.ChildItemDataClass
 class ChildAdapter(private val childItemList:List<ChildItemDataClass>, val context: Context): RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view= LayoutInflater.from(context).inflate(R.layout.each_item,null,false)
+        val view= LayoutInflater.from(context).inflate(
+            R.layout.each_item,
+            parent,
+            false
+        )
         return ViewHolder(view)
     }
 

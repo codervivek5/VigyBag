@@ -8,13 +8,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vigbag.android.R
+import com.vigbag.android.databinding.FragmentHomeBinding
 import com.vigbag.android.model.ParentItemDataClass
 
-class ParentItemAdapter(private val parentItemList:List<ParentItemDataClass>, val context: Context): RecyclerView.Adapter<ParentItemAdapter.ViewHolder>() {
+class ParentAdapter(private val parentItemList:List<ParentItemDataClass>, val context: Context): RecyclerView.Adapter<ParentAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.parent_item, null, false)
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.parent_item,
+            parent,
+            false
+        )
         return ViewHolder(view)
+        
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
