@@ -5,6 +5,8 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/signInFragment">
 
+
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.vigbag.android.SignInFragment"
