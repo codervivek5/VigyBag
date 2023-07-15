@@ -12,17 +12,17 @@ import androidx.recyclerview.widget.RecyclerView
 class ChildAdapter(private val childItemList:List<ChildItemDataClass>, val context: Context): RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view= LayoutInflater.from(context).inflate(R.layout.each_item,null,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.each_item,null,false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item=childItemList[position]
         holder.childItemImage.setImageResource(item.itemImage)
-        holder.childItemName.text=item.itemName
-        holder.childItemSpecs.text=item.itemSpecs
-        holder.childItemReviews.text=item.itemReviews
-        holder.childItemRating.rating=item.itemRating.toFloat()
+        holder.childItemName.text = item.itemName
+        holder.childItemSpecs.text = item.itemSpecs
+        holder.childItemReviews.text = item.itemReviews
+        holder.childItemRating.rating = item.itemRating.toFloat()
     }
 
     override fun getItemCount(): Int {
@@ -30,10 +30,10 @@ class ChildAdapter(private val childItemList:List<ChildItemDataClass>, val conte
     }
 
     class ViewHolder(ItemView: View):RecyclerView.ViewHolder(ItemView){
-        val childItemImage: ImageView =ItemView.findViewById(R.id.itemImage)
-        val childItemName: TextView =ItemView.findViewById(R.id.itemName)
-        val childItemSpecs: TextView =ItemView.findViewById(R.id.itemSpecs)
-        val childItemReviews: TextView =ItemView.findViewById(R.id.itemReviews)
-        val childItemRating: RatingBar =ItemView.findViewById(R.id.itemRating)
+        val childItemImage: ImageView = ItemView.findViewById(R.id.itemImage)
+        val childItemName: TextView = ItemView.findViewById(R.id.itemName)
+        val childItemSpecs: TextView = ItemView.findViewById(R.id.itemSpecs)
+        val childItemReviews: TextView = ItemView.findViewById(R.id.itemReviews)
+        val childItemRating: RatingBar = ItemView.findViewById(R.id.itemRating)
     }
 }
