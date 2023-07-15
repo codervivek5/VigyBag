@@ -47,6 +47,7 @@ button {
   font-size: 16px;
   color: #161b6e;
   text-decoration: none;
+  margin-right: 4px;
 }
 
 .nav_link {
@@ -70,10 +71,11 @@ button {
 }
 
 .header_container button {
-  padding: 9px 25px;
+  
   background-color: #161b6e;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px;
+  padding: 9px 12px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   color: #d9d9d9;
@@ -118,6 +120,7 @@ button {
 
 .burger-icon {
   display: none;
+  padding-left: 5px;
 }
 
 .nav_login {
@@ -125,8 +128,12 @@ button {
   align-items: center;
   width: 30%;
   justify-content: space-between;
+  padding-right: 24px;
 }
 
+.toggle-button{
+  margin-inline-end: -16px;
+}
 /* Css for dark mode button */
 * {
   box-sizing: border-box;
@@ -998,4 +1005,68 @@ div.c a {
 
 .service:hover i {
   color: #fff;
+}
+
+/* pop up */
+
+/* The Modal (background) */
+.ebcf_modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.ebcf_modal-content {
+  background-color: #8d90de;
+  display: flex;
+  margin: auto;
+  width: 50%;
+  height: 50vh;
+}
+
+/* The Close Button */
+.ebcf_close {
+  color: #08032f;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 17.5em;
+}
+
+.ebcf_close:hover,
+.ebcf_close:focus {
+  color: #0b2845;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modalImage{
+  height: 50vh;
+  align-items: center;
+  width: fit-content;
+  display: flex;
+}
+
+#modalImage img{
+  width: 50em;
+}
+
+.popup-details{
+  margin: auto 0;
+  padding: 1.5em;
+  font-size: 1.5em;
+}
+
+.popup-details p{
+  font-size: .6em;
 }
