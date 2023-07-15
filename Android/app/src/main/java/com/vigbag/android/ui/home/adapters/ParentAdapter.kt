@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vigbag.android.R
-import com.vigbag.android.databinding.FragmentHomeBinding
 import com.vigbag.android.model.ParentItemDataClass
 
 class ParentAdapter(private val parentItemList:List<ParentItemDataClass>, val context: Context): RecyclerView.Adapter<ParentAdapter.ViewHolder>() {
