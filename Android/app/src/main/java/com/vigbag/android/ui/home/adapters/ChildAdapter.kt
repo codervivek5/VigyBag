@@ -1,4 +1,4 @@
-package com.vigbag.android
+package com.vigbag.android.ui.home.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.vigbag.android.R
+import com.vigbag.android.model.ChildItemDataClass
 
 class ChildAdapter(private val childItemList:List<ChildItemDataClass>, val context: Context): RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
 

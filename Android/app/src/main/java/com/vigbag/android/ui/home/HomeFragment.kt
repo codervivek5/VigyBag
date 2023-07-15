@@ -1,17 +1,21 @@
-package com.vigbag.android
+package com.vigbag.android.ui.home
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.vigbag.android.ui.home.adapters.ParentItemAdapter
+import com.vigbag.android.model.ParentItemDataClass
+import com.vigbag.android.R
 import com.vigbag.android.databinding.FragmentHomeBinding
+import com.vigbag.android.model.ChildItemDataClass
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var parentAdapter:ParentItemAdapter
+    private lateinit var parentAdapter: ParentItemAdapter
     private lateinit var parentItemList:ArrayList<ParentItemDataClass>
 
     private lateinit var headphoneList:ArrayList<ChildItemDataClass>
