@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">VigyBag</string>
+    <string name="email_key">email</string>
+    <string name="password_key">password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
