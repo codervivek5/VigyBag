@@ -7,7 +7,7 @@
   /* background color added in HTML */
   scroll-behavior: smooth;
   transition: 0.5s;
-  overflow-x: hidden;
+  /* overflow-x:hidden; */
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -1069,4 +1069,32 @@ div.c a {
 
 .popup-details p{
   font-size: .6em;
+}
+
+/* go to top */
+.go-top {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  /* color: #2a2a72; */
+  background: linear-gradient(315deg, #227ebb 100%, #0a1458 20%, #243fe9 60%);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  bottom:10px;
+  right: 45px;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+}
+@media (max-width: 769px) {
+  .gotop{
+    right: 1.5rem;
+  }
+}
+@media (max-width: 426px) {
+  .gotop{
+    right: 1rem;
+  }
 }
