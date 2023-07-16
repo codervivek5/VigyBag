@@ -47,7 +47,6 @@ button {
   font-size: 16px;
   color: #161b6e;
   text-decoration: none;
-  margin-right: 4px;
 }
 
 .nav_link {
@@ -71,11 +70,10 @@ button {
 }
 
 .header_container button {
-  
+  padding: 9px 25px;
   background-color: #161b6e;
   border: none;
-  border-radius: 30px;
-  padding: 9px 12px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   color: #d9d9d9;
@@ -120,7 +118,6 @@ button {
 
 .burger-icon {
   display: none;
-  padding-left: 5px;
 }
 
 .nav_login {
@@ -128,12 +125,8 @@ button {
   align-items: center;
   width: 30%;
   justify-content: space-between;
-  padding-right: 24px;
 }
 
-.toggle-button{
-  margin-inline-end: -16px;
-}
 /* Css for dark mode button */
 * {
   box-sizing: border-box;
@@ -922,6 +915,11 @@ div.c div.p {
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
+
+.c p{
+  color: #000000;
+}
+
 div.c div.p p {
   padding: 2em;
 }
