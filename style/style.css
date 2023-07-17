@@ -333,8 +333,9 @@ body.dark {
 /* product container */
 
 .product-container {
-  height: 30vh;
+  height: 32vh;
   width: 100vw;
+  padding-top: 20px;
   background-color: #d9d9d9;
   display: flex;
   justify-content: center;
