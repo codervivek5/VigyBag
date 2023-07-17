@@ -42,8 +42,10 @@ main {
 }
 
 .contact-sec-2 h1{
+    margin-top: -20px;
+    margin-bottom: 20px;
     font-size: 4em;
-    margin: 2vh 0;
+    /* margin: 2vh 0; */
     color: white;
 }
 
