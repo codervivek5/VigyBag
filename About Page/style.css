@@ -22,12 +22,11 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-img {
+.about-me-flex-container img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 .container {
   max-width: 1300px;
   margin: 0px auto 0px auto;
