@@ -215,6 +215,33 @@ margin-top: 20px;
   line-height: 1.5;
 }
 
+@media(max-width:780px){
+  .about-wrapper{
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .image{
+    width: 70%;
+    height: 65%;
+  }
+  .image-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .description-wrapper{
+    padding: 2%;
+    width: 100%;
+  }
+  .header{
+    font-size: 32px;
+  }
+  .footer-conatiner{
+  flex-direction: column;
+  }
+}
+
 
 .mail-button {
   display: flex;
@@ -272,3 +299,4 @@ margin-top: 20px;
 .portfolio-link a:hover{
     text-decoration: underline;
 }
+
