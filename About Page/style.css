@@ -4,14 +4,17 @@
   margin: 0px;
   padding: 0px;
   font-family: "Nunito", sans-serif;
+ 
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
     background: linear-gradient(to right, #77c8e6 25%, #b6ccea 100%);
+    
 }
 
 .orange {
