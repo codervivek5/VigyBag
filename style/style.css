@@ -49,6 +49,7 @@ button {
   text-decoration: none;
 }
 
+
 .nav_link {
   list-style: none;
   /* border: 2px solid rebeccapurple;   */
@@ -86,8 +87,8 @@ button {
 /* Added Code */
 .nav_menu2 {
   display: none;
-  height: 10rem;
-  padding: 2%;
+  height: 35vh;
+  padding: 2% 0;
   background-color: #d9d9d9;
 }
 
@@ -101,25 +102,24 @@ button {
 }
 
 .nav_link2 li {
-  padding: 0.5rem;
-  margin-left: auto;
-  padding-right: 2rem;
-  border: 2px solid #575a89;
-  display: block;
-  border-top: none;
-  border-left: none;
-  border-right: none;
   width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .nav_menu2.show {
   display: block;
+
 }
 
 .burger-icon {
   display: none;
 }
 
+.burger-icon .fa-solid{
+  font-size: 2rem;
+  color: #0d268c;
+}
 .nav_login {
   display: flex;
   align-items: center;
@@ -238,6 +238,31 @@ body.dark {
   .burger-icon {
     display: none;
   }
+  
+}
+
+@media screen and (max-width:992px) {
+  .nav_link2 li{
+    text-align: center;
+
+  }
+  .header_container button{
+    display: none;
+  }
+
+  .nav_link2 li a button{
+
+    padding: 9px 25px;
+    background-color: #161b6e;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: #d9d9d9;
+  }
+
+ 
+  
 }
 /* container */
 
