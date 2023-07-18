@@ -18,6 +18,14 @@ header {
   z-index: 100;
 }
 
+.container {
+  width: calc(100% - 1.25em);
+  width: calc(100% - 2*var(--component-padding));
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rem;
+}
+
 .header_container {
   background-color: #d9d9d9;
   display: flex;
@@ -322,9 +330,8 @@ body.dark {
 .local {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 134px;
   align-items: center;
+  padding-top: 7rem;
 }
 
 .local input[type="search"] {
