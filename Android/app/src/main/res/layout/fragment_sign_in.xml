@@ -144,64 +144,69 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:layout_constraintVertical_bias="0.26" />
 
-    <ImageView
-        android:id="@+id/googleImageView"
-        android:layout_width="67dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="140dp"
-        android:src="@drawable/google"
-        app:layout_constraintEnd_toStartOf="@+id/facebookImageView5"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-
-    <ImageView
-        android:id="@+id/facebookImageView5"
-        android:layout_width="67dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="48dp"
-        android:src="@drawable/facebook_icon_social_media"
-        app:layout_constraintEnd_toStartOf="@+id/twitterImageView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <ImageView
-        android:id="@+id/twitterImageView6"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="48dp"
-        android:src="@drawable/twitter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="262dp"
         android:layout_height="45dp"
         android:layout_marginTop="26dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/googleImageView">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSocialMedia">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account,"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:text="Don't have an account," />
 
         <TextView
             android:id="@+id/txtSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="Sign Up"
-            android:textColor="#161B6E"
-            android:layout_marginTop="20dp"/>
+            android:textColor="#161B6E" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayoutSocialMedia"
+        android:layout_width="374dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="26dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
+        <ImageView
+            android:id="@+id/googleImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/google" />
+
+        <ImageView
+            android:id="@+id/facebookImageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/facebook_icon_social_media" />
+
+        <ImageView
+            android:id="@+id/twitterImageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/twitter" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
