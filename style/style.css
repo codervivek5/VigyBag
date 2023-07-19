@@ -125,7 +125,9 @@ button {
   align-items: center;
   width: 30%;
   justify-content: space-between;
+  margin-right: 60px;
 }
+
 
 /* Css for dark mode button */
 * {
@@ -155,6 +157,7 @@ body.dark {
   display: flex;
   transition: 0.3s;
   align-items: center;
+  margin-left: 5px;
 }
 .moon {
   color: yellow;
@@ -760,8 +763,8 @@ p{
 /* footer section */
 
 .footer-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
   background: #07081d;
   color: white;
   font-family: arial;
@@ -804,10 +807,10 @@ p{
   padding-top: 10px;
 }
 
-.quick-links {
+/* .quick-links {
   border-right: 1px solid #e6e6e6;
   border-left: 1px solid #e6e6e6;
-}
+} */
 
 .quick-links-info div {
   text-align: center;
@@ -1120,6 +1123,11 @@ div.c a {
 @media (max-width: 426px) {
   .gotop{
     right: 1rem;
+  }
+}
+@media (max-width:780px){
+  .footer-container{
+    flex-direction: column;
   }
 }
 
