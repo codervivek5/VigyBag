@@ -198,6 +198,13 @@ body {
   border-radius: 50%;
 }
 
+.image-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .about-wrapper{
 display: flex;
@@ -237,21 +244,34 @@ margin-top: 10px;
   .image{
     width: 70%;
     height: 65%;
+    text-align: center;
   }
   .image-wrapper{
-    display: flex;
-    justify-content: center;
+    
     margin-bottom: 20px;
   }
   .description-wrapper{
     padding: 2%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
   }
+
+  .description{
+    font-size: 20px;
+  }
+  
   .header{
     font-size: 32px;
   }
   .footer-conatiner{
   flex-direction: column;
+  }
+
+  .read-more-btn{
+    font-size: 20px;
   }
 }
 
