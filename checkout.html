@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/checkout.css">
+    <title>VigyBag | Checkout</title>
+</head>
+
+<body>
+    <header>
+        <div class="header_container">
+            <a href="https://codervivek5.github.io/VigyBag/"><img src="img/logo.png" alt="brand logo"></a>
+            <nav class="nav_menu">
+                <ul class="nav_link">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#bottom">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="nav_login">
+                <a href="login.html"><button>Login</button></a>
+                <div class="burger-icon">
+                    <i class="fa-solid fa-bars" id='icon'></i>
+                </div>
+            </div>
+        </div>
+        <nav class="nav_menu2">
+            <ul class="nav_link2">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="order-items">
+                <div class="item">
+                    <img src="img/toppng.png" alt="">
+                    <div class="item-details">
+                        <h4>Solo Wireless headphone</h4>
+                        <p>Wireless stereo headphone with mic</p>
+                        <p>Price: &#8377; 799</p>
+                        <p>Quantity: 1</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/toppng.png" alt="">
+                    <div class="item-details">
+                        <h4>Solo Wireless headphone</h4>
+                        <p>Wireless stereo headphone with mic</p>
+                        <p>Price: &#8377; 799</p>
+                        <p>Quantity: 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="order-total">
+                <h4>Total: &#8377; 2397</h4>
+            </div>
+        </div>
+        <div class="customer-details">
+            <h3>Customer Details</h3>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="">Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <!-- contact-us -->
+        <div class="contact">
+            <div class="footer-title">
+                Contact us
+            </div>
+            <div class="contact-info">
+                <div class="contact-location">
+                    <img src="img/home icon.png" alt="">
+                    <p><a href="">Aung fatehpur uttar pradesh india-212665</a></p>
+                </div>
+                <div class="contact-email">
+                    <img src="img/msg icon.png" alt="">
+                    <p><a href="">contact@vigybag.com</a></p>
+                </div>
+                <div class="contact-ph-number">
+                    <img src="img/call icon.png" alt="">
+                    <p><a href="">+91 1234567890</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Quick Links -->
+        <div class="quick-links" id="bottom">
+            <div class="footer-title" >
+                Quick Links
+            </div>
+            <div class="quick-links-info">
+                <div><a href="">About us</a></div>
+                <div><a href="">Contact us</a></div>
+                <div><a href="">Order</a></div>
+                <div><a href="">help</a></div>
+            </div>
+        </div>
+        <div class="social">
+            <div class="footer-title">
+                Social connection
+            </div>
+            <div class="social-container">
+                <div class="social-div">                   
+                    <div>
+                        <a href="https://twitter.com/codervivek5"><img src="img/Twitter (1).png" alt=""></a>
+                        <p><a href="">Twitter</a></p>
+                    </div>
+                    <div>
+                        <a href="https://www.instagram.com/coder_vivek/"><img src="img/Instagram (2).png" alt=""></a>
+                        <p><a href="">Instagram</a></p>
+                    </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/codervivek/"><img src="img/LinkedIn Circled.png" alt=""></a>
+                        <p><a href="">Linkdedin</a></p>
+                    </div>
+                    <div>
+                        <a href=""><img src="img/Facebook.png" alt=""></a>
+                        <p><a href="">Facebook</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>
