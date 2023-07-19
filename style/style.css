@@ -125,7 +125,9 @@ button {
   align-items: center;
   width: 30%;
   justify-content: space-between;
+  margin-right: 60px;
 }
+
 
 /* Css for dark mode button */
 * {
@@ -155,6 +157,7 @@ body.dark {
   display: flex;
   transition: 0.3s;
   align-items: center;
+  margin-left: 5px;
 }
 .moon {
   color: yellow;
