@@ -64,7 +64,8 @@ body {
     padding-bottom: 100px;
   }
 }
-.about-me .about-me-container .about-me-title {
+
+/*.about-me .about-me-container .about-me-title {
   font-size: 55px;
   color: #000000;
   font-weight: 700;
@@ -182,6 +183,57 @@ body {
   .about-me-flex-container .about-me-content .text {
     font-size: 16px;
   }
+} */
+
+.header{
+  text-align: center;
+  font-size: 52px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.image{
+  width: 550px;
+  height: 500px;
+  border-radius: 50%;
+}
+
+.image-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.about-wrapper{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+margin-top: 50px;
+}
+
+.description-wrapper{
+  width: 650px;
+  text-align: left;
+}
+
+.description{
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.read-more-btn{
+  margin-top: 30px;
+  border: none;
+  outline: none;
+  padding: 15px;
+  background-color: #001925;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .read-more-btn-dark{
