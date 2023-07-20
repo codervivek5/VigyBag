@@ -26,7 +26,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:iconifiedByDefault="false"
-          android:queryBackground="@color/black"
+          app:queryBackground="@android:color/transparent"
           android:queryHint="Search the product" />
    </com.google.android.material.card.MaterialCardView>
    <androidx.recyclerview.widget.RecyclerView

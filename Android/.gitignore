@@ -4,7 +4,7 @@
 /local.properties
 
 # IntelliJ
-.idea/
+.idea
 .DS_Store
 /captures
 .externalNativeBuild
