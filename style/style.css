@@ -7,7 +7,6 @@
   /* background color added in HTML */
   scroll-behavior: smooth;
   transition: 0.5s;
-  overflow-x:hidden;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -361,7 +360,7 @@ body.dark {
 
 .product-container {
   height: 32vh;
-  width: 100vw;
+  width: 99vw;
   padding-top: 20px;
   background-color: #d9d9d9;
   display: flex;
@@ -371,7 +370,7 @@ body.dark {
 
 .Accessories-box {
   border-radius: 14px;
-  width: 170px;
+  width: 120px;
   height: 220px;
   margin: 0 8em;
   align-items: center;
@@ -826,7 +825,7 @@ p{
 .social-div img{
   cursor: pointer;
   display: flex;
-  margin: auto;
+  margin: 10px;
 }
 
 .social-div div {
@@ -853,19 +852,18 @@ p{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#161b6e, #09a0f1);
+  background: linear-gradient(#161b6e, #8f79b9);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(#161b6e, #ff00ff);
+  background: linear-gradient(#161b6e, #09a0f1);
 }
 
 /* ====================== Copyright ===================== */
 #copyright{
   background-color: #07081d;
-  width: 100vw;
-  /* height: 3em; */
+  width: 100%;
 }
 
 #copyright p{
@@ -1129,4 +1127,3 @@ div.c a {
     flex-direction: column;
   }
 }
-
