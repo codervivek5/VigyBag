@@ -44,7 +44,7 @@ a,
 button {
   font-family: sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   color: #575a89;
   text-decoration: none;
 }
@@ -124,7 +124,7 @@ button {
   align-items: center;
   width: 20%;
   justify-content: space-evenly;
-  margin-right: 60px;
+  margin-right: 20px;
 }
 
 
@@ -157,7 +157,6 @@ body.dark {
   justify-content: space-evenly;
   transition: 0.3s;
   align-items: center;
-  margin-left: 5px;
 }
 .moon {
   color: rgb(239, 239, 239);
