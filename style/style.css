@@ -7,7 +7,7 @@
   /* background color added in HTML */
   scroll-behavior: smooth;
   transition: 0.5s;
-  /* overflow-x:hidden; */
+  overflow-x:hidden;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -44,8 +44,8 @@ a,
 button {
   font-family: sans-serif;
   font-weight: 700;
-  font-size: 16px;
-  color: #161b6e;
+  font-size: 18px;
+  color: #575a89;
   text-decoration: none;
 }
 
@@ -61,23 +61,22 @@ button {
 }
 
 .nav_link li a {
-  transition: all 0.3s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .nav_link li a:hover {
-  color: #575a89;
-
-  text-decoration: underline 2.5px #575a89;
+  color: #161b6e;
+  text-decoration: underline 2.5px #161b6e;
 }
 
 .header_container button {
-  padding: 9px 25px;
+  color: #d9d9d9;
   background-color: #161b6e;
   border: none;
   border-radius: 8px;
+  padding: 10px 25px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
-  color: #d9d9d9;
 }
 
 .header_container button:hover {
@@ -123,8 +122,8 @@ button {
 .nav_login {
   display: flex;
   align-items: center;
-  width: 30%;
-  justify-content: space-between;
+  width: 20%;
+  justify-content: space-evenly;
   margin-right: 60px;
 }
 
@@ -146,7 +145,7 @@ body.dark {
   /* background-color:brown; */
   background: #181717;
   box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  inset 0px -5px 15px rgba(255, 255, 255, 0.4);
   border-radius: 30px;
   position: relative;
   height: 32px;
@@ -155,18 +154,20 @@ body.dark {
   padding: 3px;
   margin-right: 1em;
   display: flex;
+  justify-content: space-evenly;
   transition: 0.3s;
   align-items: center;
   margin-left: 5px;
 }
 .moon {
-  color: yellow;
+  color: rgb(239, 239, 239);
   transition: 0.3s;
+  overflow-y: hidden;
 }
 .sun {
   color: yellow;
-  margin-left: 10px;
   transition: 0.3s;
+  overflow-y: hidden;
 }
 .ball {
   color: white;
@@ -236,7 +237,7 @@ body.dark {
     display: flex;
   }
   .nav_login {
-    width: 10%;
+    width: 15%;
   }
   .burger-icon {
     display: none;
