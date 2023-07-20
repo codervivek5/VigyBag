@@ -451,6 +451,17 @@ a.social.instagram::before {
     background-size: cover;
 }
 
+a.social.facebook::before {
+    background-color: #3b5998;
+    background: -moz-linear-gradient(45deg, #3b5998 0%, #4c70ba 25%, #5d8eda 50%, #6f9efb 75%, #81b5ff 100%);
+    background: -webkit-linear-gradient(45deg, #3b5998 0%, #4c70ba 25%, #5d8eda 50%, #6f9efb 75%, #81b5ff 100%);
+    background: linear-gradient(45deg, #3b5998 0%, #4c70ba 25%, #5d8eda 50%, #6f9efb 75%, #81b5ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b5998', endColorstr='#81b5ff', GradientType=1);
+    background-position: center;
+    background-size: cover;
+}
+
+
 /* -----------------The end of Social media Design* ----------------- */
 
 
