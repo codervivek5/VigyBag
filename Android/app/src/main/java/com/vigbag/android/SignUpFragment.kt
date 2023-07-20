@@ -2,12 +2,8 @@ package com.vigbag.android
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MotionEvent
-
 import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.vigbag.android.databinding.FragmentSignUpBinding
@@ -30,7 +26,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSignUpBinding.bind(view)
-
         binding.txtLogin.setOnClickListener {
             findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
 
@@ -40,8 +35,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         }
     }
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
