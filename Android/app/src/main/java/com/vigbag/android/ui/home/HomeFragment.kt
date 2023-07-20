@@ -2,13 +2,18 @@ package com.vigbag.android.ui.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.vigbag.android.viewmodel.ProductViewModel
 import com.vigbag.android.R
 import com.vigbag.android.databinding.FragmentHomeBinding
 import com.vigbag.android.model.ChildItemDataClass
 import com.vigbag.android.model.ParentItemDataClass
+import com.vigbag.android.model.Product
 import com.vigbag.android.ui.home.adapters.ParentAdapter
+import com.vigbag.android.ui.home.adapters.ProductAdapter
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -16,17 +21,48 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding get() = _binding!!
 
     private lateinit var parentAdapter : ParentAdapter
+    private lateinit var productAdapter : ProductAdapter
+    private lateinit var productViewModel: ProductViewModel
     private lateinit var parentItemList : ArrayList<ParentItemDataClass>
 
     private lateinit var headphoneList : ArrayList<ChildItemDataClass>
     private lateinit var tshirtList : ArrayList<ChildItemDataClass>
     private lateinit var phoneList : ArrayList<ChildItemDataClass>
+    private val filteredItems = mutableListOf<Product>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
         onaddAllData()
+        // Initialize ViewModel
+        productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
+
+        // Initialize RecyclerView and Adapter
+        productAdapter = ProductAdapter()
+        binding.productRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.productRv.adapter = productAdapter
+
+        binding.searchView.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+               filteredItems.clear()
+                if(!newText.isNullOrEmpty()){
+                    binding.childLayout.visibility=View.INVISIBLE
+                    filteredItems.addAll(productViewModel.searchItems(newText))
+                }
+                else {
+                    binding.childLayout.visibility=View.VISIBLE
+                }
+              productAdapter.setProducts(filteredItems)
+                return true
+            }
+        })
+
     }
+
 
     private fun onaddAllData() {
         headphoneList = ArrayList()
