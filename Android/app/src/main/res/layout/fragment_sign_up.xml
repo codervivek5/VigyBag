@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/ColorPrimary"
     android:backgroundTint="#F9A826"
-    tools:context=".SignUpFragment">
+    tools:context=".ui.login.SignUpFragment">
 
     <TextView
         android:id="@+id/textView"

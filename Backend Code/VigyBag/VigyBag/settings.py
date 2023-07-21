@@ -43,11 +43,14 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     "corsheaders",
     "Product",
+    "Contact",
     "django.contrib.sites",
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter_oauth2', 
 ]
 
 REST_FRAMEWORK = {
@@ -222,9 +225,27 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False,
         'VERSION': 'v13.0',
         # 'GRAPH_API_URL': 'https://graph.facebook.com/v13.0',
+    },
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    },
+    'twitter': {
+      'SCOPE': [
+            'profile',
+            'email',
+        ],
     }
 }
 
 LOGIN_REDIRECT_URL="home"
 
 ACCOUNT_LOGOUT_REDIRECT_URL="account_login"
+
+

@@ -1,10 +1,9 @@
-package com.vigbag.android
+package com.vigbag.android.application
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.fragment.app.Fragment
-import com.vigbag.android.databinding.ActivityMainBinding
+import com.vigbag.android.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
