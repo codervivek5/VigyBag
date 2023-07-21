@@ -186,6 +186,12 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .controls i:hover {
+    color: rgb(200, 200, 200);
+    opacity: 0.8;
   }
   
   .controls i:nth-child(1) {
