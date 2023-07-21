@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vigbag.android.R
 import com.vigbag.android.model.Product
 
-class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
-    private var product:List<Product> = emptyList()
+class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+    private var product: List<Product> = emptyList()
 
     fun setProducts(newProducts: List<Product>) {
         product = newProducts
         notifyDataSetChanged()
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.each_product,
@@ -30,7 +31,7 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
         val item = product[position]
         holder.img.setImageResource(item.image)
         holder.title.text = item.name
-        holder.desc.text=item.desc
+        holder.desc.text = item.desc
     }
 
     override fun getItemCount(): Int {

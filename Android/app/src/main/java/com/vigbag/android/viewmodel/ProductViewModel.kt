@@ -9,7 +9,7 @@ class ProductViewModel : ViewModel() {
     private val allItems = productRepository.getAllProducts()
 
     // Function to search for items based on the provided query
-    fun searchItems(query: String):List<Product> {
+    fun searchItems(query: String): List<Product> {
         return allItems.filter {
             it.name.contains(query, true) || it.desc.contains(query, true)
         }
