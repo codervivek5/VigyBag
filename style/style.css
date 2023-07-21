@@ -362,7 +362,7 @@ body.dark {
 
 .product-container {
   height: 32vh;
-  width: 100vw;
+  /* width: 100vw; */
   padding-top: 20px;
   background-color: #d9d9d9;
   display: flex;
@@ -372,9 +372,9 @@ body.dark {
 
 .Accessories-box {
   border-radius: 14px;
-  width: 170px;
+  /* width: 170px; */
   height: 220px;
-  margin: 0 8em;
+  margin: 0 5em;
   align-items: center;
 }
 
@@ -383,7 +383,7 @@ body.dark {
   height: 138px;
   background: #d9d9d9;
   border: 3px solid #161b6e;
-  border-radius: 15px;
+  border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -865,8 +865,6 @@ p{
 /* ====================== Copyright ===================== */
 #copyright{
   background-color: #07081d;
-  width: 100vw;
-  /* height: 3em; */
 }
 
 #copyright p{
