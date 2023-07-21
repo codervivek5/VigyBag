@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ColorPrimary"
-    tools:context=".SignUpFragment">
+    tools:context=".ui.login.SignUpFragment">
 
     <TextView
         android:id="@+id/txt_create_account"
@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:required="true"
+
         android:layout_margin="25dp"
         android:hint="Confirm Password "
         app:endIconMode="password_toggle"
