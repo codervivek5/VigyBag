@@ -115,6 +115,7 @@
             </div>
         </div>
     </div>
+    <div class="alan-btn"></div>
     <!-- Quick Links -->
     <div class="quick-links" id="bottom">
         <div class="footer-title">
@@ -156,6 +157,7 @@
     </div>
 
 </div>
+
 <!-- footer section -->
 <!-- Copyright -->
 <div id="copyright">
@@ -166,12 +168,31 @@
     <p> Designed by Vivek Prajapati </p>
 </div>
 
+
   <!-- <br><br>
   <div class="portfolio-link">
     <a href="../index.html" target="_blank"> Home </a>
     <a href="../contact/index.html" target="_blank"> Contact Us </a>
   </div> -->
-
+  <script type="text/javascript"
+ src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+  var alanBtnInstance = alanBtn({
+    key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+    onCommand: function (commandData) {
+      if (commandData && commandData.command === 'openURL') {
+                    if (commandData.target === '_blank'){
+                      window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+                    } else {
+                      window.location.href = commandData.url;
+                    }
+                  }
+                
+            },
+            
+    rootEl: document.getElementById("alan-btn"),
+  });
+</script>
 </body>
 
 </html>

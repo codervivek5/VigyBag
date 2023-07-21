@@ -2,8 +2,9 @@
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
+
 
 main {
     width: 100vw;
@@ -111,6 +112,10 @@ main {
 
 /* responsive */
 @media only screen and (max-width:600px){
+    section{
+        width: 100%;
+        height:100%; 
+    }
     body{
         width: 100%;
         height: auto;
