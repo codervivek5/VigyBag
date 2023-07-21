@@ -14,7 +14,10 @@
 </head>
 
 <body>
+  
+
     <header>
+       
         <div class="header_container">
             <a href="https://codervivek5.github.io/VigyBag/"><img src="../img/logo.png" alt="brand logo"></a>
             <nav class="nav_menu">
@@ -130,6 +133,13 @@
     </div>
     <!-- footer section -->
     <!-- Copyright -->
+
+        <div class="alan-btn">
+       
+
+        </div>
+   
+  
     <div id="copyright">
         <div class="pay">
             <img src="../img/payment.png" alt="">
@@ -137,6 +147,26 @@
         <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
         <p> Designed by Vivek Prajapati </p>
     </div>
+    <script type="text/javascript"
+    src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+   <script>
+     var alanBtnInstance = alanBtn({
+       key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+    
+       onCommand: function (commandData) {
+         if (commandData && commandData.command === 'openURL') {
+                       if (commandData.target === '_blank'){
+                         window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+                       } else {
+                         window.location.href = commandData.url;
+                       }
+                     }
+                   
+               },
+               
+       rootEl: document.getElementById("alan-btn"),
+     });
+   </script>
 </body>
 
 </html>

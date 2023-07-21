@@ -23,7 +23,7 @@ header {
   background-color: #d9d9d9;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100vw;
   box-shadow: 0px 1px 6px #4e4e4e;
@@ -128,7 +128,9 @@ button {
   align-items: center;
   width: 30%;
   justify-content: space-between;
+  margin-right: 60px;
 }
+
 
 /* Css for dark mode button */
 * {
@@ -141,22 +143,20 @@ body {
 }
 
 body.dark {
-  background-color: #141414;
+  background-color:black;
   color: white;
 }
 
 .label {
-  /* background-color:brown; */
+  margin-left: 27px;
   background: #181717;
   box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
     inset 0px -5px 15px rgba(255, 255, 255, 0.4);
   border-radius: 30px;
   position: relative;
   height: 32px;
-  width: 62px;
-  /* margin-left: 38px; */
+  width: 73px;
   padding: 3px;
-  margin-right: 1em;
   display: flex;
   transition: 0.3s;
   align-items: center;
@@ -169,7 +169,7 @@ body.dark {
 
 .sun {
   color: yellow;
-  margin-left: 10px;
+  margin-left: 16px;
   transition: 0.3s;
 }
 
@@ -186,8 +186,9 @@ body.dark {
 }
 
 .checkbox:checked+.label .ball {
-  transform: translate(32px);
+  transform: translate(38px);
 }
+
 
 @media screen and (max-width: 575px) {
   .burger-icon {
@@ -383,7 +384,7 @@ body.dark {
 
 .product-container {
   height: 32vh;
-  width: 100vw;
+  /* width: 100vw; */
   padding-top: 20px;
   background-color: #d9d9d9;
   display: flex;
@@ -393,9 +394,9 @@ body.dark {
 
 .Accessories-box {
   border-radius: 14px;
-  width: 170px;
+  /* width: 170px; */
   height: 220px;
-  margin: 0 8em;
+  margin: 0 5em;
   align-items: center;
 }
 
@@ -404,7 +405,7 @@ body.dark {
   height: 138px;
   background: #d9d9d9;
   border: 3px solid #161b6e;
-  border-radius: 15px;
+  border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -802,8 +803,8 @@ p {
 /* footer section */
 
 .footer-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
   background: #07081d;
   color: white;
   font-family: arial;
@@ -846,10 +847,10 @@ p {
   padding-top: 10px;
 }
 
-.quick-links {
+/* .quick-links {
   border-right: 1px solid #e6e6e6;
   border-left: 1px solid #e6e6e6;
-}
+} */
 
 .quick-links-info div {
   text-align: center;
@@ -904,8 +905,6 @@ p {
 /* ====================== Copyright ===================== */
 #copyright {
   background-color: #07081d;
-  width: 100vw;
-  /* height: 3em; */
 }
 
 #copyright p {
@@ -1183,5 +1182,10 @@ div.c a {
 @media (max-width: 426px) {
   .gotop {
     right: 1rem;
+  }
+}
+@media (max-width:780px){
+  .footer-container{
+    flex-direction: column;
   }
 }
