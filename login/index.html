@@ -149,6 +149,26 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
         </div>
       </div>
     </div>
+    <div class="alan-btn"></div>
+    <script type="text/javascript"
+    src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+   <script>
+     var alanBtnInstance = alanBtn({
+       key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+       onCommand: function (commandData) {
+         if (commandData && commandData.command === 'openURL') {
+                       if (commandData.target === '_blank'){
+                         window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+                       } else {
+                         window.location.href = commandData.url;
+                       }
+                     }
+                   
+               },
+               
+       rootEl: document.getElementById("alan-btn"),
+     });
+   </script>
     <script src="script.js"></script>
   </body>
 </html>
