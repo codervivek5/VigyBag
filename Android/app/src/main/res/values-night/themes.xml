@@ -20,7 +20,7 @@
         <item name="android:minHeight">16dp</item>
         <item name="android:maxHeight">16dp</item>
     </style>
-    <style name="Theme.VigyBag" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.VigyBag" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Your application's Primary brand color. -->
         <item name="colorPrimary">@color/ColorPrimary</item>
         <item name="colorPrimaryVariant">@color/ColorPrimaryVariant</item>

@@ -103,7 +103,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="36dp"
-        android:background="@color/ColorSecondary"
+        android:backgroundTint="@color/ColorSecondary"
         android:fontFamily="sans-serif"
         android:text="SignUp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
