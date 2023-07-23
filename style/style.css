@@ -52,6 +52,7 @@ button {
 
 .nav_link {
   list-style: none;
+  /* border: 2px solid rebeccapurple;   */
 }
 
 .nav_link li {
@@ -65,7 +66,8 @@ button {
 
 .nav_link li a:hover {
   color: #575a89;
-  text-decoration: none;
+
+  text-decoration: underline 2.5px #575a89;
 }
 
 .header_container button {
@@ -375,9 +377,6 @@ body.dark {
 
 .Accessories-box {
   border-radius: 14px;
-  width: 150px;
-  height: 220px;
-  margin: 0 6em;
   /* width: 170px; */
   height: 220px;
   margin: 0 5em;
@@ -563,18 +562,7 @@ body.dark {
 
 .item-card1{
   display: flex;
-  /* flex-direction: row; */
-}
-
-.item-card1 .item-card .item-image .fa-heart:hover{
-  color: rgb(193, 57, 57);
-}
-
-.item-description .fa-cart-shopping{
-  cursor: pointer;
-}
-.item-description .fa-cart-shopping:hover{
-  color: rgb(0, 0, 0);
+  flex-direction: row;
 }
 
 .item-card {
@@ -785,7 +773,7 @@ p{
   background: #07081d;
   color: white;
   font-family: arial;
-  
+  padding: 17px 0px;
 }
 
 .footer-container a {
@@ -809,10 +797,10 @@ p{
 
 .contact-info div {
   display: flex;
-  justify-content: flex-start;
+  justify-content: left;
   text-align: center;
   margin-bottom: 38px;
-  padding-left: 40px;
+  padding-left: 50px;
 }
 
 .contact-info img {
@@ -831,19 +819,20 @@ p{
 
 .quick-links-info div {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .social-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 50px 60px 0px 60px;
 }
 
-.social-div img,
-.social-div p {
+.social-div img{
   cursor: pointer;
+  display: flex;
+  margin: auto;
 }
 
 .social-div div {
@@ -881,14 +870,13 @@ p{
 /* ====================== Copyright ===================== */
 #copyright{
   background-color: #07081d;
-  width: 100vw;
-  height: 3em;
 }
 
 #copyright p{
   display: flex;
   justify-content: center;
   color: #fff;
+  padding: 0 0 1vh 0;
 }
 
 #copyright p span{
@@ -896,33 +884,14 @@ p{
   color: orange;
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1400px){
-  .item-image{
-    width: 220px;
-    height: 250px;
-  }
-
-  .item-card{
-    padding: 20px;
-  }
-  body{
-    overflow-x: hidden;
-  }
-  .Accessories-box:nth-child(1){
-    padding: 4px;
-    padding-bottom: 0;
-    padding-top: 12px;
-  }
-  .rectangle-42{
-    height: 130px;
-  }
-  .fixed{
-    padding-top: 12px;
-  }
-
-
+.pay{
+  display: flex;
+  justify-content: center;
+  padding: 1vh 0;
 }
-=======
+
+
+
 /* FAQ section css */
 .faq {
   /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
@@ -1164,5 +1133,3 @@ div.c a {
     flex-direction: column;
   }
 }
-
-
