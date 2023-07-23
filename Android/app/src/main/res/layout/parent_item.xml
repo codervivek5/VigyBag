@@ -18,7 +18,7 @@
             android:padding="10dp"
             android:text="@string/title"
             android:textSize="22sp"
-            android:textColor="@color/ColorPrimary"
+            android:textColor="@color/white"
             android:textStyle="bold" />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

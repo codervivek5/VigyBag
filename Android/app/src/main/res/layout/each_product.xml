@@ -30,7 +30,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/product_name"
             android:textAlignment="center"
-            android:textColor="@color/ColorPrimaryVariant"
+            android:textColor="@color/ColorPrimarySecondaryVariant"
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
