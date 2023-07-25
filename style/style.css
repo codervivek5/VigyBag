@@ -6,9 +6,16 @@
   padding: 0;
   /* background color added in HTML */
   scroll-behavior: smooth;
-  transition: 0.5s;
-  /* overflow-x:hidden; */
+ 
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ 
+}
+body{
+  overflow-x: hidden;
+}
+
+body{
+  overflow-x: hidden;
 }
 
 /* navigation bar */
@@ -769,7 +776,8 @@ p{
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   background: #07081d;
   color: white;
   font-family: arial;
@@ -824,6 +832,7 @@ p{
 
 .social-div {
   display: flex;
+   
   justify-content: space-evenly;
   align-items: center;
   padding: 50px 60px 0px 60px;
