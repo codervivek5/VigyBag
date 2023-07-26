@@ -1,4 +1,4 @@
-package com.vigbag.android
+package com.vigbag.android.ui.login
 
 import android.content.Context
 import android.graphics.Paint
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.vigbag.android.R
 import com.vigbag.android.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -36,6 +37,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         binding.btnSignup.setOnClickListener {
             storeCredentials()
+            findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
         }
     }
     
