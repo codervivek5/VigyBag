@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.vigbag.android.model.Product
 import com.vigbag.android.repository.ProductRepository
 
-class ProductViewModel : ViewModel() {
-    private val productRepository = ProductRepository()
+class ProductViewModel(private val productRepository : ProductRepository) : ViewModel() {
+
     private val allItems = productRepository.getAllProducts()
 
     // Function to search for items based on the provided query

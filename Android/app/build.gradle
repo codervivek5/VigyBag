@@ -82,4 +82,7 @@ dependencies {
     implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
     //Circular ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Koin
+    implementation 'io.insert-koin:koin-android:3.4.2'
 }

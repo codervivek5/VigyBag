@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.vigbag.android.viewmodel.ProductViewModel
 import com.vigbag.android.R
 import com.vigbag.android.databinding.FragmentHomeBinding
 import com.vigbag.android.model.ChildItemDataClass
@@ -14,6 +12,8 @@ import com.vigbag.android.model.ParentItemDataClass
 import com.vigbag.android.model.Product
 import com.vigbag.android.ui.home.adapters.ParentAdapter
 import com.vigbag.android.ui.home.adapters.ProductAdapter
+import com.vigbag.android.viewmodel.ProductViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -22,7 +22,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var parentAdapter: ParentAdapter
     private lateinit var productAdapter: ProductAdapter
-    private lateinit var productViewModel: ProductViewModel
+    private val productViewModel by viewModel<ProductViewModel>()
     private lateinit var parentItemList: ArrayList<ParentItemDataClass>
 
     private lateinit var headphoneList: ArrayList<ChildItemDataClass>
@@ -34,8 +34,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
         onaddAllData()
-        // Initialize ViewModel
-        productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
 
         // Initialize RecyclerView and Adapter
         productAdapter = ProductAdapter()
