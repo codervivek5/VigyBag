@@ -977,6 +977,133 @@ div.c a {
   color: steelblue;
 }
 
+/* ...................................reviewer section css starts.................................................................. */
+.reviewer_main_body{
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border: 5px solid black;
+    background:#a9a9d5;
+}
+.reviewer_content{
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+ padding-top: 20px;
+}
+.reviewer_content  h1{
+ letter-spacing: 1px;
+  font-size: 45px;
+}
+.reviewer_inner{
+  display: flex;
+}
+.stars{
+  display: flex;
+  margin-top: 100px;
+  margin-left: 250px;
+}
+.stars_inner_first{
+    background-color: #5e617c;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    height: 120px;
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+}
+.stars_inner_first p{
+  text-align: center;
+  margin-top: 10px;
+}
+.stars_inner_second{
+  display: flex;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 18px;
+}
+.row_ratingbar{
+  margin-left: 110px;
+  margin-top: 50px;
+}
+.fa {
+  font-size: 25px;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 15px;
+  
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row_ratingbar:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+  margin-left: 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-4 {width: 30%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-3 {width: 15%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-2 {width: 6%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+.bar-1 {width: 2%; height: 18px; background-color: #5e617c; border-radius: 15px;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  /* Hide the right column on small screens */
+  .right {
+    display: none;
+  }
+}
+.button-reviewer {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  border-radius: 1rem;
+  color: #FFFFFF;box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  border: 2px solid #8d8fa5;
+  background-color: #5e617c;
+  cursor: pointer;
+  font-family: Inter,sans-serif;
+  padding: .5rem 1rem;
+  margin-bottom: 50px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  margin-top: 60px;
+}
+.button-reviewer:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  background-color: #808292;
+  border-color: #8d8fa5;
+}
+
 /* seervice */
 
 .services {
