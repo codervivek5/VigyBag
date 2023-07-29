@@ -1,1199 +1,1094 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  /* background color added in HTML */
-  scroll-behavior: smooth;
-  transition: 0.5s;
-  overflow-x: hidden;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-/* navigation bar */
-header {
-  width: 100vw;
-  position: fixed;
-  z-index: 100;
-}
-
-.header_container {
-  background-color: #d9d9d9;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  box-shadow: 0px 1px 6px #4e4e4e;
-  border: 2px solid #575a89;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-
-.header_container img {
-  width: 10rem;
-  height: 3.3rem;
-  cursor: pointer;
-  margin-left: 50px;
-}
-
-li,
-a,
-button {
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: #161b6e;
-  text-decoration: none;
-  margin-right: 4px;
-}
-
-.nav_link {
-  list-style: none;
-  /* border: 2px solid rebeccapurple;   */
-}
-
-.nav_link li {
-  padding: 5px 20px;
-  display: inline-block;
-}
-
-.nav_link li a {
-  transition: all 0.3s ease 0s;
-}
-
-.nav_link li a:hover {
-  color: #575a89;
-
-  text-decoration: underline 2.5px #575a89;
-}
-
-.header_container button {
-  
-  background-color: #161b6e;
-  border: none;
-  border-radius: 30px;
-  padding: 9px 12px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  color: #d9d9d9;
-}
-
-.header_container button:hover {
-  background-color: #575a89;
-}
-
-/* Added Code */
-.nav_menu2 {
-  display: none;
-  height: 10rem;
-  padding: 2%;
-  background-color: #d9d9d9;
-}
-
-.nav_link2 {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-}
-
-.nav_link2 li {
-  padding: 0.5rem;
-  margin-left: auto;
-  padding-right: 2rem;
-  border: 2px solid #575a89;
-  display: block;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  width: 100%;
-}
-
-.nav_menu2.show {
-  display: block;
-}
-
-.burger-icon {
-  display: none;
-  padding-left: 5px;
-}
-
-.nav_login {
-  display: flex;
-  align-items: center;
-  width: 30%;
-  justify-content: space-between;
-  padding-right: 24px;
-}
-
-.toggle-button{
-  margin-inline-end: -16px;
-}
-/* Css for dark mode button */
-* {
-  box-sizing: border-box;
-  padding: 0;
-}
-body {
-  transition: 0.5s linear;
-}
-body.dark {
-  background-color: #141414;
-  color: white;
-}
-
-.label {
-  /* background-color:brown; */
-  background: #181717;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
-  border-radius: 30px;
-  position: relative;
-  height: 32px;
-  width: 62px;
-  /* margin-left: 38px; */
-  padding: 3px;
-  margin-right: 1em;
-  display: flex;
-  transition: 0.3s;
-  align-items: center;
-}
-.moon {
-  color: yellow;
-  transition: 0.3s;
-}
-.sun {
-  color: yellow;
-  margin-left: 10px;
-  transition: 0.3s;
-}
-.ball {
-  color: white;
-  position: absolute;
-  transition: transform 0.3s linear;
-}
-.checkbox {
-  opacity: 0;
-  position: absolute;
-
-}
-.checkbox:checked+.label .ball {
-  transform: translate(32px);
-}
-
-@media screen and (max-width: 575px) {
-  .burger-icon {
-    display: flex;
-    margin-left: 20px;
-  }
-
-  nav {
-    display: none;
-  }
-  .nav_login {
-    width: 40%;
-  }
-  .label{
-    margin-left: 40px;
-  }
-}
-
-@media screen and (min-width: 576px) and (max-width: 787px) {
-  .burger-icon {
-    display: flex;
-    margin-left: 6px;
-  }
-  .nav_login {
-    width: 20%;
-  }
-  nav {
-    display: none;
-  }
-  .label{
-    margin-left: 30px;
-  }
-}
-
-@media screen and (min-width: 767px) and (max-width: 991px) {
-  .burger-icon {
-    display: flex;
-    margin-left: 11px;
-  }
-  .nav_login {
-    width: 20%;
-  }
-  nav {
-    display: none;
-  }
-  .label{
-    margin-left: 52px;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .burger-icon {
-    display: flex;
-  }
-  .nav_login {
-    width: 10%;
-  }
-  .burger-icon {
-    display: none;
-  }
-}
-/* container */
-
-.container {
-  display: flex;
-  font-family: sans-serif;
-
-  padding-top: 60px;
-}
-.container a {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  color: #f9a826;
-  font-size: 20px;
-}
-.container a:hover {
-  text-decoration: underline 2px;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  padding: 40px 50px 0px 50px;
-}
-
-.content h1 {
-  font-size: 80px;
-  color: #d9d9d9;
-}
-
-.content h1 span {
-  color: #f9a826;
-}
-
-.content h4 {
-  font-size: 20px;
-  margin-top: 30px;
-  padding-right: 40px;
-  line-height: 1.5;
-  color: #d9d9d9;
-}
-
-.content h4 span {
-  color: #f9a826;
-}
-
-.container img {
-  width: 30%;
-  margin: 40px 70px;
-
-  width: 100%;
-  margin: 40px 70px;
-  margin-left: 0px;
-}
-
-.local {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 134px;
-  align-items: center;
-}
-
-.local input[type="search"] {
-  padding: 25px 130px;
-  border-radius: 40px;
-  font-family: sans-serif;
-  border: none;
-  background-color: #d9d9d9;
-  text-align: center;
-  font-size: 35px;
-}
-
-::placeholder {
-  color: #575a89;
-}
-
-::-webkit-input-placeholder {
-  text-align: center;
-}
-
-:-moz-placeholder {
-  text-align: center;
-}
-
-.local img {
-  width: 60px;
-  position: relative;
-  right: 100px;
-}
-
-/* product container */
-
-.product-container {
-  height: 30vh;
-  width: 100vw;
-  background-color: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Accessories-box {
-  border-radius: 14px;
-  width: 170px;
-  height: 220px;
-  margin: 0 8em;
-  align-items: center;
-}
-
-.rectangle-42 {
-  box-sizing: border-box;
-  height: 138px;
-  background: #d9d9d9;
-  border: 3px solid #161b6e;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.5s border-color 0.8s;
-}
-
-.rectangle-42:active {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
-  border-color: #d9d9d9;
-}
-
-.Accessories-box:hover .rectangle-42 {
-  box-shadow: 1px 1px 5px 3px #575a89;
-  transition: 0.5s ease-in-out;
-}
-
-.Accessories-box:hover .product-name {
-  transform: scale(1.1);
-  transition: 0.3s ease-in-out;
-}
-
-.product-name {
-  margin-top: 10px;
-
-  font-family: "Inter", monospace;
-
-  font-family: "Inter";
-
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: center;
-}
-
-/* app section */
-
-.app-container {
-  height: 627px;
-  background-image: url("../img/app-section.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2%;
-}
-
-.device-box {
-  width: 40%;
-}
-
-.device-frame {
-  width: 85%;
-}
-
-.vigybag-image {
-  width: 100%;
-}
-
-.app-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 60%;
-}
-.play-button{
-  display: flex;
-  align-items: center;
-  padding:1.5rem;
-}
-.google-button{
-  background-color: #0d268c;
-  border-radius: 20px;
-}
-.google-button:hover{
-  background-color: #575a89;
-}
-.play-text{
-  color:#ffffff;
-}
-@media screen and (max-width:767px) {
-  .app-container {
-      flex-direction: column;
-      align-items: center;
-      height: 50%;
-  }
-
-  .device-box {
-      width: 90%;
-
-  }
-  .device-frame {
-      width: 100%;
-  }
-
-  .vigybag-image {
-      width: 100%;
-  }
-
-  .app-info {
-      width: 90%;
-  }
-}
-
-@media screen and (min-width:768px) and (max-width:1199px) {
-  .app-container {
-      align-items: center;
-  }
-
-  .device-box {
-      width: 40%;
-  }
-
-  .device-frame {
-      width: 80%;
-  }
-
-  .vigybag-image {
-      width: 100%;
-  }
-
-  .app-info {
-      width: 60%;
-  }
-}
-
-@media screen and (min-width:1200px) {
-  .device-box {
-      width: 40%;
-  }
-
-  .app-info {
-      width: 50%;
-  }
-  .device-frame {
-    width: 80%;
-    height:100%;
-}
-
-  .vigybag-image {
-    width: 100%;
-}
-}
-/* items section */
-
-.items-container {
-  height: 100%;
-  width: 100%;
-  /* background-color: #575a89; */
-  font-family: Arial, Helvetica, sans-serif;
-  color: #161b6e;
-}
-
-.item-title {
-  color: #e6e6e6;
-  padding: 55px 0px 25px 52px;
-  font-size: 49px;
-  font-weight: 700;
-}
-
-.item-cards-div {
-  display: flex;
-  margin: auto;
-  width: 95%;
-}
-
-.item-card1{
-  display: flex;
-  flex-direction: row;
-}
-
-.item-card {
-  padding: 2rem;
-  width: 100%;
-  /* height: 423px; */
-  border-radius: 15px;
-  /* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
-  -webkit-transition: 0.3s ease-in-out;
-  -webkit-transform: 0.3s ease-in-out;
-   -moz-transition: 0.3s ease-in-out;
-  -moz-transform: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  transform: 0.3s ease-in-out;
-}
-.item-card:hover {
-  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
-  transform: scale(1.05);
-}
-
-.item-image {
-  width: 260px;
-  height: 300px;
-  background-color: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  position: relative;
-  cursor: pointer;
-}
-
-/* Added some Border to Wishlist SVG */
-.item-image .wishlist-icon {
-  position: absolute;
-  background-color: #d9d9d9;
-  width: 26px;
-  height: 30px;
-  top: 15px;
-  right: 13px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  border: 2px solid #9fa1c1;
-  padding: 5px;
-  transition: all 0.5s ease;
-  cursor: pointer;
-}
-
-/* Added Hover effect to Wishlist SVG */
-.item-image .wishlist-icon:hover {
-  background-color: #9fa1c1;
-  color: white;
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.item-description {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  background-color: #9fa1c1;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 18px 15px 13px 15px;
-}
-
-.item-description-2{
-  width: 230px;
-  display: flex;
-  background-color: #9fa1c1;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 18px 15px;
-}
-
-.Lbtn {
-  border: none;
-  font-size: 30px;
-  background-color: #d9d9d9;
-  color: gray;
-  transition: all 0.3s ease 0s;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  top: 15px;
-  right: 13px;
-}
-.Lbtn i:hover {
-  cursor: pointer;
-}
-
-
-
-.item-description {
-  display: flex;
-  justify-content: space-between;
-  background-color: #9fa1c1;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 18px 15px 13px 15px;
-}
-
-.item-description p,
-.items-star div {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
-  font-family: 'Roboto', sans-serif;
-}
-.items-star i{
-  color: #e6e6e6;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.items-star i.active{
-  color: green;
-}
-
-.item-description p {
-  margin: 6px 0px;
-}
-
-.item-heading {
-  font-size: 15px;
-  font-weight: 600;
-  font-family: 'Roboto', sans-serif;
-  width: auto;
-  display: flex;
-}
-
-p{
-  font-size: 12px;
-}
-
-.item-heading h3{
-  margin-left: -20px;
-  font-size: 15px;
-} 
-
-.item-paise{
-  margin-top: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 14px;
-  color: #161b6e;
-}
-
-.items-star {
-  display: flex;
-}
-.addbtn{
-  border: none;
-  font-size: 18px;
-  border-radius: 50%;
-  background-color: #d9d9d9;
-  color: gray;
-  transition: all 0.3s ease 0s;
-  position: relative;
-  width: 45px;
-  height: 45px;
-  left: 0px;
-}
-
-
-.add-to-card-button {
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 12px;
-  text-align: center;
-
-  width: 87px;
-  height: 23px;
-  border: 1px solid #161b6e;
-  border-radius: 12.5px;
-  background: transparent;
-  cursor: pointer;
-  margin-top: 10px;
-
-  transition: background-color 0.15s, color 0.15s;
-}
-
-.add-to-card-button:hover {
-  background-color: #161b6e;
-  color: #d9d9d9;
-}
-
-.see-more-text {
-  text-align: right;
-  margin-top: 15px;
-  padding-right: 42px;
-}
-
-.see-more-text a {
-  color: white;
-}
-
-.see-more-text div {
-  display: inline-block;
-  border-bottom: 2px solid white;
-}
-
-/* footer section */
-
-.footer-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background: #07081d;
-  color: white;
-  font-family: arial;
-  padding: 17px 0px;
-}
-
-.footer-container a {
-  color: white;
-}
-
-.footer-container a:hover {
-  transition: 0.7s ease;
-  color: #8f79b9;
-}
-
-.footer-title {
-  text-align: center;
-  font-weight: 700;
-  font-size: 35px;
-  line-height: 42px;
-
-  margin-top: 27px;
-  margin-bottom: 38px;
-}
-
-.contact-info div {
-  display: flex;
-  justify-content: left;
-  text-align: center;
-  margin-bottom: 38px;
-  padding-left: 50px;
-}
-
-.contact-info img {
-  margin-right: 23px;
-}
-
-.contact-info p {
-  font-size: 15px;
-  padding-top: 10px;
-}
-
-.quick-links {
-  border-right: 1px solid #e6e6e6;
-  border-left: 1px solid #e6e6e6;
-}
-
-.quick-links-info div {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.social-div {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 50px 60px 0px 60px;
-}
-
-.social-div img{
-  cursor: pointer;
-  display: flex;
-  margin: auto;
-}
-
-.social-div div {
-  text-align: center;
-}
-
-.social-div a {
-  font-size: 12px;
-}
-
-.social-div img:hover {
-  transition: 0.5s ease-in-out;
-  transform: scale(1.1);
-}
-
-/* ====================== SCROLL BAR ===================== */
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgb(7, 31, 48);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#161b6e, #09a0f1);
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(#161b6e, #ff00ff);
-}
-
-/* ====================== Copyright ===================== */
-#copyright{
-  background-color: #07081d;
-  width: 100vw;
-  /* height: 3em; */
-}
-
-#copyright p{
-  display: flex;
-  justify-content: center;
-  color: #fff;
-  padding: 0 0 1vh 0;
-}
-
-#copyright p span{
-  cursor: pointer;
-  color: orange;
-}
-
-.pay{
-  display: flex;
-  justify-content: center;
-  padding: 1vh 0;
-}
-
-
-
-/* FAQ section css */
-.faq {
-  /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
-  height: auto;
-  margin: 3vh 0;
-}
-.title {
-  text-align: center;
-  font-size: 40px;
-  padding-top: 30px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: white;
-}
-div.c {
-  position: relative;
-  margin: 2em;
-}
-div.c input {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 70%;
-  width: 70%;
-  opacity: 0;
-  visibility: 0;
-}
-div.c h1 {
-  font-size: 20px;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  background-image: linear-gradient(to right, #575a89, #4b4e75, #8d8fa5);
-  color: white;
-  padding: 0.8em;
-  position: relative;
-}
-div.c label::before {
-  content: "";
-  display: inline-block;
-  border: 15px solid transparent;
-  border-left: 20px solid white;
-}
-div.c label {
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-div.c div.p {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height 0.5s;
-  background-color: white;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
-div.c div.p p {
-  padding: 2em;
-}
-div.c input:checked ~ h1 label::before {
-  border-left: 15px solid transparent;
-  border-top: 20px solid white;
-  margin-top: 12px;
-  margin-right: 10px;
-}
-div.c input:checked ~ h1 ~ div.p {
-  max-height: 100px;
-}
-div.c a {
-  color: steelblue;
-}
-
-/* ...................................reviewer section css starts.................................................................. */
-.reviewer_main_body{
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    border: 5px solid black;
-    background:#a9a9d5;
-}
-.reviewer_content{
-  text-align: center;
-  color: white;
-  font-size: 25px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
- padding-top: 20px;
-}
-.reviewer_content  h1{
- letter-spacing: 1px;
-  font-size: 45px;
-}
-.reviewer_inner{
-  display: flex;
-}
-.stars{
-  display: flex;
-  margin-top: 100px;
-  margin-left: 250px;
-}
-.stars_inner_first{
-    background-color: #5e617c;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-    height: 100px;
-    padding: 10px;
-    text-align: center;
-    width: 100px;
-}
-.stars_inner_first p{
-  text-align: center;
-  margin-top: 10px;
-}
-.stars_inner_second{
-  display: flex;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 18px;
-}
-.row_ratingbar{
-  margin-left: 110px;
-  margin-top: 50px;
-}
-.fa {
-  font-size: 25px;
-}
-
-/* Three column layout */
-.side {
-  float: left;
-  width: 15%;
-  margin-top: 10px;
-}
-.middle {
-  float: left;
-  width: 70%;
-  margin-top: 10px;
-  border-radius: 15px;
-  
-}
-
-/* Place text to the right */
-.right {
-  text-align: right;
-}
-
-/* Clear floats after the columns */
-.row_ratingbar:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The bar container */
-.bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-  margin-left: 30px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-  margin-top: 10px;
-  border-radius: 15px;
-}
-
-/* Individual bars */
-.bar-5 {width: 60%; height: 18px; background-color: #5e617c; border-radius: 15px;}
-.bar-4 {width: 30%; height: 18px; background-color: #5e617c; border-radius: 15px;}
-.bar-3 {width: 15%; height: 18px; background-color: #5e617c; border-radius: 15px;}
-.bar-2 {width: 6%; height: 18px; background-color: #5e617c; border-radius: 15px;}
-.bar-1 {width: 2%; height: 18px; background-color: #5e617c; border-radius: 15px;}
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-  .side, .middle {
-    width: 100%;
-  }
-  /* Hide the right column on small screens */
-  .right {
-    display: none;
-  }
-}
-.button-reviewer {
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
-  border-radius: 1rem;
-  color: #FFFFFF;box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-  border: 2px solid #8d8fa5;
-  background-color: #5e617c;
-  cursor: pointer;
-  font-family: Inter,sans-serif;
-  padding: .5rem 1rem;
-  margin-bottom: 50px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  margin-top: 60px;
-}
-.button-reviewer:hover {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-  background-color: #808292;
-  border-color: #8d8fa5;
-}
-
-/* seervice */
-
-.services {
-  width: 100vw;
-  height: 100%;
-  padding: 0px 8%;
-  background: blue;
-}
-
-#h1 {
-  display: flex;
-  justify-content: center;
-  color: white;
-  font-size: 35px;
-  padding: 0.4em;
-  font-weight: 600;
-}
-
-.services h1::after {
-  content: '';
-  background: #303ef7;
-  width: 100px;
-  height: 5px;
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 30px;
-  /* background: rgba(91, 95, 177, 0.38); */
-  margin-bottom: 5vh ;
-}
-
-.service {
-  text-align: center;
-  padding: 25px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  background: white;
-  transition: transform 0.5s, background 0.5s;
-  margin: 2em;
-}
-
-.service i {
-  font-size: 40px;
-  margin-bottom: 10px;
-  color: #000000;
-}
-
-.service h2 {
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.service:hover {
-  background: #303ef7;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-.service:hover i {
-  color: #fff;
-}
-
-/* pop up */
-
-/* The Modal (background) */
-.ebcf_modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 200px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.ebcf_modal-content {
-  background-color: #8d90de;
-  display: flex;
-  margin: auto;
-  width: 50%;
-  height: 50vh;
-}
-
-/* The Close Button */
-.ebcf_close {
-  color: #08032f;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  position: absolute;
-  right: 17.5em;
-}
-
-.ebcf_close:hover,
-.ebcf_close:focus {
-  color: #0b2845;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#modalImage{
-  height: 50vh;
-  align-items: center;
-  width: fit-content;
-  display: flex;
-}
-
-#modalImage img{
-  width: 50em;
-}
-
-.popup-details{
-  margin: auto 0;
-  padding: 1.5em;
-  font-size: 1.5em;
-}
-
-.popup-details p{
-  font-size: .6em;
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- custome css links -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/review.css">
+    <link rel="stylesheet" href="./cart/css/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <!--  Google icons for dark mode button  -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,1,-25" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>VigyBag | Home</title>
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <!-- fontAwsome -->
+    <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
+    <script defer src="script.js"></script>
+    <!-- icon pack -->
+    <!-- chatbot -->
+    <link rel="stylesheet" href="./chatBot/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Primary Meta Tags -->
+    <title>VigyBag</title>
+    <meta name="title" content="VigyBag" />
+    <meta name="description"
+        content="Don't leave home without VigyBag! Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of VigyBag. Get ready to shop smarter, not harder" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codervivek5.github.io/VigyBag/" />
+    <meta property="og:title" content="VigyBag" />
+    <meta property="og:description"
+        content="Don't leave home without VigyBag! Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of VigyBag. Get ready to shop smarter, not harder" />
+    <meta property="og:image" content="" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://codervivek5.github.io/VigyBag/" />
+    <meta property="twitter:title" content="VigyBag" />
+    <meta property="twitter:description"
+        content="Don't leave home without VigyBag! Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of VigyBag. Get ready to shop smarter, not harder" />
+    <meta property="twitter:image" content="" />
+
+    
+</head>
+
+
+<body bgcolor="#575A89">
+
+    <header>
+        <div class="header_container">
+            <a href="index.html"><img src="img/logo.png" alt="brand logo"></a>
+            <nav class="nav_menu">
+                <ul class="nav_link">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="./About Page/index.html">About us</a></li>
+                    <li><a href="./contact/index.html">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="nav_login">
+                <a href="./login/index.html"><button>Login</button></a>
+                <div class="burger-icon">
+                    <i class="fa-solid fa-bars" id='icon'></i>
+                </div>
+                <!-- Dark Mode Theme Code  -->
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox" />
+                    <label for="checkbox" class="label">
+                        <i class="material-symbols-outlined moon">dark_mode</i>
+                        <i class="material-symbols-outlined sun"> clear_day</i>
+                        <div class="material-symbols-outlined  ball" style="font-size:32px;">circle</div>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <nav class="nav_menu2">
+            <ul class="nav_link2">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact us</a></li>
+                <li><a href="./login/index.html"><button>Login</button></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h1>Don't leave home <br>without
+                <span>VigyBag</span>
+            </h1>
+            <h4>Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of
+                VigyBag.
+                Get ready to shop smarter, not harder - <span id="down"><a href="#">Download VigyBag today!</span>
+            </h4>
+        </div>
+
+        <img src="img/landing_svg_image.svg" alt="">
+    </div>
+
+    <div class="local">
+        <input type="search" name="search" id="search" placeholder="Search your location">
+        <img src="img/search_icon.png" alt="search_icon">
+    </div>
+
+
+    <!-- product container -->
+    <div class="product-container">
+        <!-- product-1 -->
+
+        <div class="Accessories-box">
+            <div>
+                <div class="rectangle-42">
+                    <img src="img/Suit.png" alt="">
+                </div>
+            </div>
+            <div class="product-name">
+                <a href="#">Fashion & Accessories</a>
+            </div>
+        </div>
+        <div>
+            <!-- product-2 -->
+            <div class="Accessories-box">
+                <div>
+                    <div class="rectangle-42">
+                        <img src="img/Stationery.png" alt="">
+                    </div>
+                </div>
+                <div class="product-name">
+                    <a href=""> Printing &
+                        Stationaries</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- product-3 -->
+            <div class="Accessories-box">
+                <div>
+                    <div class="rectangle-42">
+                        <img src="img/Food Bar.png" alt="">
+                    </div>
+                </div>
+                <div class="product-name">
+                    <a href=""> Food & 
+                        Beverages</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- product-4 -->
+            <div class="Accessories-box">
+                <div>
+                    <div class="rectangle-42">
+                        <img src="img/Aroma.png" alt="">
+                    </div>
+                </div>
+                <div class="product-name">
+                    <a href=""> Beauty & 
+                        Wellness</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- items section -->
+
+    <!-- first row -->
+    <div class="item-row">
+        <div class="item-title">
+            Headphones for you!
+        </div>
+        <div class="item-cards-div">
+
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/toppng.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors</p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/toppng.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/toppng.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/toppng.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="see-more-text">
+        <a href="see_more/see_more.html">
+            <div>
+                <h2>See more...</h2>
+            </div>
+        </a>
+    </div>
+
+    </div>
+    <!-- secoond row -->
+    <div class="item-row">
+        <div class="item-title">
+            T-shirts for you!
+        </div>
+        <div class="item-cards-div">
+
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="img/t-shirt.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors</p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="img/t-shirt.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="img/t-shirt.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="img/t-shirt.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="see-more-text">
+        <a href="see_more/see_more.html">
+            <div>
+                <h2>See more...</h2>
+            </div>
+        </a>
+    </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="item-row">
+        <div class="item-title">
+            Mobiles for you!
+        </div>
+        <div class="item-cards-div">
+
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/iphone.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors</p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/iphone.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/iphone.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-image" onclick="ebBtn()">
+                    <img src="./img/iphone.png" alt="">
+                    <button class="wishlist-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="item-description-2">
+                    <div>
+                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <p>cotton printed smooth shirt with multiple colors </p>
+                        <div class="items-star"><img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_white.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <img src="img/Star_green.png" alt="">
+                            <div>(36)</div>
+                        </div>
+
+                        <button class="add-to-card-button js-cd-add-to-cart">
+                            Add to card
+                        </button>
+                    </div>
+                    <div class="item-heading">
+                        <h3>&#8377;349</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="see-more-text">
+        <a href="see_more/see_more.html">
+            <div>
+                <h2>See more...</h2>
+            </div>
+        </a>
+    </div>
+
+    <!-- service section  -->
+    <div>
+        <br><br>
+        <div class="serives" id="service">
+            <h1 id="h1">Our Services</h1>
+            <div class="row">
+                <div class="service">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <h2>EasyBuy</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+                        quae?
+                    </p>
+                </div>
+                <div class="service">
+                    <i class="fa-solid fa-child"></i>
+                    <h2>Clothing</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+                        quae?
+                    </p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h2>Mobile Phones</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+                        quae?
+                    </p>
+                </div>
+                <div class="service">
+                    <!-- -->
+                    <i class="fa-solid fa-child"></i>
+                    <h2>Kids Wear</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+                        quae?
+                    </p>
+                </div>
+                <div class="service">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <h2>Shoes</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+                        quae?
+                    </p>
+                </div>
+                <div class="service">
+                    <i class="fa-solid fa-laptop"></i>
+                    <h2>Laptops</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
+                        quae?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br><br>
+    </div>
+
+    <!-- pop up -->
+
+    <a href="#" id="mySizeChart"></a>
+
+
+    <div id="mySizeChartModal" class="ebcf_modal">
+
+        <div class="ebcf_modal-content">
+            <span class="ebcf_close">&times;</span>
+            <div id="modalImage">
+                <img src="./img/iphone.png" alt="">
+            </div>
+            <div class="popup-details">
+                <h2>Iphone 11 128GB</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime aliquid commodi vitae quisquam
+                    dolorem accusantium ullam labore aperiam iusto dignissimos. Veniam a ullam nesciunt aut, laborum
+                    excepturi reiciendis. Dignissimos, quaerat?</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- pop up ends -->
+
+    <!-- ---------------------review section -------------------- -->
+    <div class="review-container">
+        <div class="testimonials-wrapper">
+            <div class="testimonials-header">
+                <h3>Our Customers</h3>
+                <h1>Testimonial</h1>
+            </div>
+            <div class="testimonials">
+                <div class="slider">
+                    <div class="slide">
+                        <div class="slide-bg"></div>
+                        <div class="slide-content">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <i class="fa-solid fa-quote-right"></i>
+                            <div class="slide-img">
+                                <img src="img/client1.jpg" />
+                            </div>
+                            <div class="slide-text">
+                                <h3>Wonderful Product</h3>
+                                <p>
+                                    The quality is good.
+                                    Value for money.
+                                </p>
+                                <p class="client">- Bob Smith</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-bg"></div>
+                        <div class="slide-content">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <i class="fa-solid fa-quote-right"></i>
+                            <div class="slide-img">
+                                <img src="img/client2.jpg" />
+                            </div>
+                            <div class="slide-text">
+                                <h3>Awesome Product</h3>
+                                <p>
+                                    Good quality, little bigger the end of the neck band because of a bigger
+                                    battery. Sound and noise cancelation better than previous model. Ear
+                                    tips smaller and lighter, for me hold really good even running, better
+                                    bass and treble.
+
+                                </p>
+                                <p class="client">- Mary Brown</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-bg"></div>
+                        <div class="slide-content">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <i class="fa-solid fa-quote-right"></i>
+                            <div class="slide-img">
+                                <img src="img/client3.jpg" />
+                            </div>
+                            <div class="slide-text">
+                                <h3>Very Useful Product</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Maxime praesentium sit natus reprehenderit quibusdam ut
+                                    voluptas consectetur commodi fugiat fugit.
+                                </p>
+                                <p class="client">- Nick Jones</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-bg"></div>
+                        <div class="slide-content">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <i class="fa-solid fa-quote-right"></i>
+                            <div class="slide-img">
+                                <img src="img/client4.jpg" />
+                            </div>
+                            <div class="slide-text">
+                                <h3>Wonderful Product</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Maxime praesentium sit natus reprehenderit quibusdam ut
+                                    voluptas consectetur commodi fugiat fugit.
+                                </p>
+                                <p class="client">- Ann Brown</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-bg"></div>
+                        <div class="slide-content">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <i class="fa-solid fa-quote-right"></i>
+                            <div class="slide-img">
+                                <img src="img/client4.jpg" />
+                            </div>
+                            <div class="slide-text">
+                                <h3>Wonderful Product</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Maxime praesentium sit natus reprehenderit quibusdam ut
+                                    voluptas consectetur commodi fugiat fugit.
+                                </p>
+                                <p class="client">- John Smith</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-arrow-right"></i>
+                <div class="dots">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------review end----------------------------- -->
+    <!-- app section -->
+    <div class="app-container">
+        <div class="device-box">
+            <img class="device-frame" src="img/combined-frames.png" alt="">
+        </div>
+        <div class="app-info">
+            <div class="vigybag-text">
+                <img src="img/VigyBag is ready for your favorite shopping@2x.png" class="vigybag-image" alt="" />
+            </div>
+            <div class="google-play-button">
+                <button class="google-button">
+                    <div class="play-button">
+                        <div class="play-img-div">
+                            <img src="img/google-play.png" alt="">
+                        </div>
+                        <div class="play-text">
+                            <p>
+                            <h4>GET IT ON</h4>
+                            </p>
+                            <p>
+                            <h1>Google Play</h1>
+                            </p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ SECTION STARTS -->
+
+    <div class="faq">
+        <h1 class="title">Frequently asked Questions</h1>
+
+        <div class="c">
+            <input type="checkbox" id="faq-2">
+            <h1><label for="faq-2">How Can I create Account ?</label></h1>
+            <div class="p">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quaerat quisquam, tempore
+                    illum at necessitatibus facere, fugit porro cupiditate nobis assumenda quos modi
+                    impedit, harum odit qui minus maxime commodi
+                    .</p>
+            </div>
+        </div>
+        <div class="c">
+            <input type="checkbox" id="faq-3">
+            <h1><label for="faq-3">How can I return an item ?</label></h1>
+            <div class="p">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quaerat quisquam, tempore
+                    illum at necessitatibus facere, fugit porro cupiditate nobis assumenda quos modi
+                    impedit, harum odit qui minus maxime commodi
+                    .</p>
+            </div>
+        </div>
+        <div class="c">
+            <input type="checkbox" id="faq-4">
+            <h1><label for="faq-4">How do i track my orders ?</label></h1>
+            <div class="p">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quaerat quisquam, tempore
+                    illum at necessitatibus facere, fugit porro cupiditate nobis assumenda quos modi
+                    impedit, harum odit qui minus maxime commodi
+                    .</p>
+            </div>
+        </div>
+        <div class="c">
+            <input type="checkbox" id="faq-5">
+            <h1><label for="faq-5">What is the Vigybag's customer service contact information?</label></h1>
+            <div class="p">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quaerat quisquam, tempore
+                    illum at necessitatibus facere, fugit porro cupiditate nobis assumenda quos modi
+                    impedit, harum odit qui minus maxime commodi
+                    .</p>
+            </div>
+        </div>
+        <div class="c">
+            <input type="checkbox" id="faq-6">
+            <h1><label for="faq-6">How can I cancel an order?</label></h1>
+            <div class="p">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error quaerat quisquam, tempore
+                    illum at necessitatibus facere, fugit porro cupiditate nobis assumenda quos modi
+                    impedit, harum odit qui minus maxime commodi
+                    .</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FAQ SECTION ENDS -->
+
+    <div class="footer-container">
+        <!-- contact-us -->
+        <div class="contact">
+            <div class="footer-title">
+                CONTACT US
+            </div>
+            <div class="contact-info">
+                <div class="contact-location">
+                    <img style="height: 100%;;" src="img/home icon.png" alt="">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
+                        width="100%" height="50%" style="border:0; padding-right:2em;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-email">
+                    <img src="img/msg icon.png" alt="">
+                    <p><a href="">contact@vigybag.com</a></p>
+                </div>
+                <div class="contact-ph-number">
+                    <img src="img/call icon.png" alt="">
+                    <p><a href="">+91 1234567890</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Quick Links -->
+        <div class="quick-links" id="bottom">
+            <div class="footer-title">
+                QUICK LINKS
+            </div>
+            <div class="quick-links-info">
+                <div><a href="About Page/index.html">About us</a></div>
+                <div><a href="./contact/index.html">Contact us</a></div>
+                <div><a href="">Order</a></div>
+                <div><a href="">help</a></div>
+            </div>
+        </div>
+        <div class="social">
+            <div class="footer-title">
+                SOCIAL
+            </div>
+            <div class="social-container">
+                <div class="social-div">
+
+                    <div>
+                        <a href="https://www.instagram.com/coder_vivek/" target = "_blank"><img src="../img/Instagram (2).png" alt=""></a>
+                        <p><a href="https://www.instagram.com/coder_vivek/" target="_blank">Instagram</a></p>
+                    </div>
+                    <div>
+
+                        <a href="https://www.linkedin.com/in/codervivek/" target="_blank"><img src="../img/LinkedIn Circled.png"
+                                alt=""></a>
+                        <p><a href="https://www.linkedin.com/in/codervivek/" target="_blank">LinkedIn</a></p>
+
+                    </div>
+                    <div>
+                        <a href="https://www.facebook.com/codervivek/" target="_blank"><img src="../img/Facebook.png" alt=""></a>
+                        <p><a href="https://www.facebook.com/codervivek/" target="_blank">Facebook</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- footer section -->
+    <!-- Copyright -->
+    <div id="copyright">
+        <div class="pay">
+            <img src="./img/payment.png" alt="">
+        </div>
+        <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
+        <p> Designed by Vivek Prajapati </p>
+    </div>
+
+    <!-- Cart Pop-Up -->
+    <div class="cd-cart cd-cart--empty js-cd-cart">
+        <a href="#0" class="cd-cart__trigger text-replace">
+            Cart
+            <ul class="cd-cart__count"> <!-- cart items count -->
+                <li>0</li>
+                <li>0</li>
+            </ul> <!-- .cd-cart__count -->
+        </a>
+
+        <div class="cd-cart__content">
+            <div class="cd-cart__layout">
+                <header class="cd-cart__header">
+                    <h2>Cart</h2>
+                    <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
+                </header>
+
+                <div class="cd-cart__body">
+                    <ul>
+                        <!-- products added to the cart will be inserted here using JavaScript -->
+                    </ul>
+                </div>
+
+                <footer class="cd-cart__footer">
+                    <a href="#0" class="cd-cart__checkout">
+                        <em>Checkout - $<span>0</span>
+                            <svg class="icon icon--sm" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12"
+                                        x2="21" y2="12" />
+                                    <polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        points="15,6 21,12 15,18 " />
+                                </g>
+                            </svg>
+                        </em>
+                    </a>
+                </footer>
+            </div>
+        </div> <!-- .cd-cart__content -->
+    </div> <!-- cd-cart -->
+
+    <!-- cart end -->
+
+    <!--   Chat bot   -->
+    <div class="alan-btn"></div>
+    <style>
+        .alanBtn-root{
+            /* bottom:20px !important; */
+            right:46px !important;
+            bottom:80px !important;
+        }
+</style>    
+    <!-- <button class="chatbot__button">
+        <span class="material-symbols-outlined">mode_comment</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+        <div class="chatbot__header">
+            <h3 class="chatbox__title">VigyBag 24/7</h3>
+            <span class="material-symbols-outlined">close</span>
+        </div>
+        <ul class="chatbot__box">
+            <li class="chatbot__chat incoming">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <p>Hi there. How can I help you today?</p>
+            </li>
+            <li class="chatbot__chat outgoing">
+                <p>...</p>
+            </li>
+        </ul>
+        <div class="chatbot__input-box">
+            <textarea class="chatbot__textarea" placeholder="Enter a message..." required></textarea>
+            <span id="send-btn" class="material-symbols-outlined">send</span>
+        </div>
+    </div> -->
+    <!--  chat bot finish  -->
+    <!-- go to top -->
+    <a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
+    <script type="text/javascript"
+ src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+  var alanBtnInstance = alanBtn({
+    key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+    onCommand: function (commandData) {
+      if (commandData && commandData.command === 'openURL') {
+                    if (commandData.target === '_blank'){
+                      window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+                    } else {
+                      window.location.href = commandData.url;
+                    }
+                  }
+                
+            },
+            
+    rootEl: document.getElementById("alan-btn"),
+  });
+</script>
+    <script src="./chatBot/script.js"></script>
+    <script src="./cart/js/util.js"></script>
+    <script src="./cart/js/main.js"></script>
+    <script src="./review/review.js"></script>
+</body>
+
+</html>
