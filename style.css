@@ -20,6 +20,9 @@ body{
 header {
   width: 100vw;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
 
@@ -773,6 +776,7 @@ p{
 /* footer section */
 
 .footer-container {
+ 
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
