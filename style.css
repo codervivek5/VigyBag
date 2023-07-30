@@ -26,7 +26,7 @@ header {
 
 .header_container {
   /* background-color: #d9d9d9; */
-  background-color: rgba(16, 202, 216, 0.5);
+  background-color: rgba(152, 82, 134, 0.5);
   backdrop-filter: blur(17px);
 
   display: flex;
