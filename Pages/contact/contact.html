@@ -8,16 +8,16 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./contact.css">
-    <link rel="stylesheet" href="../../style.css">   <!-- global css -->
+    <link rel="stylesheet" href="../../style.css"> <!-- global css -->
     <!-- <link rel="stylesheet" href="./style.css"> -->
     <title>Contact</title>
 </head>
 
 <body>
-  
+
 
     <header>
-       
+
         <div class="header_container">
             <a href="https://codervivek5.github.io/VigyBag/"><img src="../../img/logo.png" alt="brand logo"></a>
             <nav class="nav_menu">
@@ -76,14 +76,14 @@
                         width="100%" height="50%" style="border:0; padding-right:2em;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-            
+
                 <div class="contact-email" style="display: flex; align-items: center;">
                     <a href="mailto:contact@vigybag.com" style="display: flex; align-items: center;">
                         <img src="../../img/msg icon.png" alt="" style="margin-right: 10px;">
                         contact@vigybag.com
                     </a>
                 </div>
-                
+
                 <div class="contact-ph-number">
                     <img src="../../img/call icon.png" alt="">
                     <p><a href="">+91 1234567890</a></p>
@@ -110,7 +110,8 @@
                 <div class="social-div">
 
                     <div>
-                        <a href="https://www.instagram.com/coder_vivek/"><img src="../../img/Instagram (2).png" alt=""></a>
+                        <a href="https://www.instagram.com/coder_vivek/"><img src="../../img/Instagram (2).png"
+                                alt=""></a>
                         <p><a href="https://www.instagram.com/coder_vivek/">Instagram</a></p>
                     </div>
                     <div>
@@ -126,20 +127,20 @@
                     </div>
                 </div>
             </div>
-            </div>
-
         </div>
+
+    </div>
 
     </div>
     <!-- footer section -->
     <!-- Copyright -->
 
-        <div class="alan-btn">
-       
+    <div class="alan-btn">
 
-        </div>
-   
-  
+
+    </div>
+
+
     <div id="copyright">
         <div class="pay">
             <img src="../../img/payment.png" alt="">
@@ -147,26 +148,34 @@
         <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
         <p> Designed by Vivek Prajapati </p>
     </div>
-    <script type="text/javascript"
-    src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
-   <script>
-     var alanBtnInstance = alanBtn({
-       key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
-    
-       onCommand: function (commandData) {
-         if (commandData && commandData.command === 'openURL') {
-                       if (commandData.target === '_blank'){
-                         window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
-                       } else {
-                         window.location.href = commandData.url;
-                       }
-                     }
-                   
-               },
-               
-       rootEl: document.getElementById("alan-btn"),
-     });
-   </script>
+    <style>
+        .alanBtn-root{
+            /* bottom:20px !important; */
+            right:46px !important;
+            bottom:80px !important;
+        }
+      </style>    
+    <!-- go to top -->
+    <a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
+    <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+    <script>
+        var alanBtnInstance = alanBtn({
+            key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+
+            onCommand: function (commandData) {
+                if (commandData && commandData.command === 'openURL') {
+                    if (commandData.target === '_blank') {
+                        window.open(commandData.url, '_newtab' + Math.floor(Math.random() * 999999));
+                    } else {
+                        window.location.href = commandData.url;
+                    }
+                }
+
+            },
+
+            rootEl: document.getElementById("alan-btn"),
+        });
+    </script>
 </body>
 
 </html>
