@@ -341,7 +341,7 @@ body.dark {
 }
 
 .local input[type="search"] {
-  padding: 25px 130px;
+  padding: 22px 100px;
   border-radius: 40px;
   font-family: sans-serif;
   border: none;
@@ -349,7 +349,10 @@ body.dark {
   text-align: center;
   font-size: 35px;
 }
-
+input:focus{
+  outline:none;
+  border: none;
+}
 ::placeholder {
   color: #575a89;
 }
@@ -366,6 +369,7 @@ body.dark {
   width: 60px;
   position: relative;
   right: 100px;
+
 }
 
 /* product container */
