@@ -41,10 +41,6 @@ main {
 }
 
 .contact-sec-2-dark {
-  /* display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-  /* align-items: center; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +55,6 @@ main {
 .contact-sec-2 h1 {
 }
 .heading {
-  margin-top: -70px;
   margin-bottom: 40px;
   font-size: 2.4em;
   text-shadow: 3px 4px 4px gray;
