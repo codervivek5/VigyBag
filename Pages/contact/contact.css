@@ -2,11 +2,14 @@
   padding: 0;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 main {
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  background: linear-gradient(to left top, rgb(4, 18, 46), rgb(105, 163, 201));
+  padding-bottom: 30px;
 }
 
 .contact-box {
