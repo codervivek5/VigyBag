@@ -119,7 +119,7 @@
       // you should also check if the product was already in the cart -> if it is, just update the quantity
       productId = productId + 1;
       var productAdded =
-        '<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="./cart/img/product-preview.png" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">Product Name</a></h3><span class="cd-cart__price">$25.99</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-' +
+        '<li class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img src="./cart/img/product-preview.webp" alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">Product Name</a></h3><span class="cd-cart__price">$25.99</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-' +
         productId +
         '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' +
         productId +
