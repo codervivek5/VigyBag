@@ -439,7 +439,7 @@ input:focus{
 
 .app-container {
   height: 627px;
-  background-image: url("../img/app-section.png");
+  background-image: url("../img/app-section.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

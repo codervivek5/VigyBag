@@ -1,6 +1,7 @@
 package com.vigbag.android.ui.login
 
 import android.content.Context
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -32,6 +33,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
 
         }
+        binding.txtLogin.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+
         binding.btnSignup.setOnClickListener {
             storeCredentials()
             findNavController().navigate(R.id.action_signUpFragment_to_homeFragment)
