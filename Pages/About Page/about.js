@@ -11,18 +11,15 @@ const btnvar4 = document.getElementById("btn4");
 const addbtn4 = document.getElementById("addBtn4");
 const stars = document.querySelectorAll(".items-star i");
 const copyright = document.querySelector("#copyright p span");
-const contactBox = document.getElementById("contact-box");
-const contactHeader = document.getElementById("contact-header");
-const submitBtn = document.getElementById("submit-btn");
-const contactSection2 = document.getElementById("contact-sec-2");
+const about = document.getElementById("about-header");
+const readMore = document.getElementById("read-more-btn");
 
 // Dark Mode button Function
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {
-  contactBox.classList.toggle("contact-box-dark");
-  contactHeader.classList.toggle("contact-header-dark");
-  submitBtn.classList.toggle("submit-btn-dark");
-  contactSection2.classList.toggle("contact-sec-2-dark")
+  document.body.classList.toggle("dark");
+  about.classList.toggle("about-header-dark");
+  readMore.classList.toggle("read-more-btn-dark");
 });
 burgerIcon.addEventListener("click", () => {
   console.log("Hello");
