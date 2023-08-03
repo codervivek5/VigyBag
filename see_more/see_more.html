@@ -35,7 +35,7 @@
 <body bgcolor="#575A89">
 
     <header>
-        <div class="header_container">
+        <div class="header_container" style="margin-top: -149px;">
             <a href="../index.html"><img src="../img/logo.webp" alt="brand logo"></a>
             <nav class="nav_menu">
                 <ul class="nav_link">
@@ -96,7 +96,7 @@
     <!-- items section -->
 
     <!-- first row -->
-    <div class="item-row">
+    <div class="item-row" style="margin-top: -100px;">
         <div class="item-title">
             Headphones
         </div>
@@ -1189,7 +1189,72 @@
         <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
         <p> Designed by Vivek Prajapati </p>
     </div>
+   <!-- Cart Pop-Up -->
+   <div class="cd-cart cd-cart--empty js-cd-cart">
+    <a href="#0" class="cd-cart__trigger text-replace">
+        Cart
+        <ul class="cd-cart__count"> <!-- cart items count -->
+            <li>0</li>
+            <li>0</li>
+        </ul> <!-- .cd-cart__count -->
+    </a>
 
+    <div class="cd-cart__content">
+        <div class="cd-cart__layout">
+            <header class="cd-cart__header">
+                <h2>Cart</h2>
+                <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
+            </header>
+
+            <div class="cd-cart__body">
+                <ul>
+                    <!-- products added to the cart will be inserted here using JavaScript -->
+                </ul>
+            </div>
+
+            <footer class="cd-cart__footer">
+                <a href="#0" class="cd-cart__checkout">
+                    <em>Checkout - $<span>0</span>
+                        <svg class="icon icon--sm" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor">
+                                <line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12"
+                                    x2="21" y2="12" />
+                                <polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    points="15,6 21,12 15,18 " />
+                            </g>
+                        </svg>
+                    </em>
+                </a>
+            </footer>
+        </div>
+    </div> <!-- .cd-cart__content -->
+</div> <!-- cd-cart -->
+
+<!-- cart end -->
+<a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
+<script type="text/javascript"
+src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+var alanBtnInstance = alanBtn({
+key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+onCommand: function (commandData) {
+  if (commandData && commandData.command === 'openURL') {
+                if (commandData.target === '_blank'){
+                  window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+                } else {
+                  window.location.href = commandData.url;
+                }
+              }
+            
+        },
+        
+rootEl: document.getElementById("alan-btn"),
+});
+</script>
+<script src="./chatBot/script.js"></script>
+<script src="./cart/js/util.js"></script>
+<script src="./cart/js/main.js"></script>
+<script src="./Pages/review/review.js"></script>
 
 </body>
 
