@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">  <!-- global css -->
     <link rel="stylesheet" href="./Pages/review/review.css">
     <link rel="stylesheet" href="./cart/css/style.css">
+    <link rel="stylesheet" href="./Pages/login/login.css">
     
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -21,9 +22,9 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,1,-25" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.webp" type="image/x-icon">
     <title>VigyBag | Home</title>
-    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <link rel="icon" type="image/x-icon" href="/img/logo.webp">
     <!-- fontAwsome -->
     <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
     <script defer src="script.js"></script>
@@ -63,7 +64,7 @@
 
     <header>
         <div class="header_container">
-            <a href="index.html"><img src="img/logo.png" alt="brand logo"></a>
+            <a href="index.html"><img src="img/logo.webp" alt="brand logo"></a>
             <nav class="nav_menu">
                 <ul class="nav_link">
                     <li><a href="index.html">Home</a></li>
@@ -81,133 +82,59 @@
                 <div class="modal" id="myModal">
                     <div class="modal-content">
                         <span class="close-btn" id="closeModalBtn">&times;</span>
-                        <div class="container" id="container">
-                            <div class="form-container sign-up-container">
-                              <form action="" id="signup_form">
-                                <div class="header">Sign Up</div>
-                                <div class="social__media__container">
-                                  <a href="#" target="_blank" class="social codepen">
-                                    <i class="fa-brands fa-codepen"></i>
-                                  </a>
-                                  <a href="#" class="social google">
-                                    <i class="fa-brands fa-google"></i>
-                                  </a>
-                                  <a href="#" target="_blank" class="social instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                  </a>
-                                </div>
-                                <span class="under__social">
-                                  <a href="#" class="link signin-link"
-                                    >or use your email for registration
-                                  </a>
-                                </span>
-                      
-                                <div class="button-input-group">
-                                  <div class="group input-group">
-                                    <input
-                                      type="text"
-                                      placeholder="Name"
-                                      id="new_user_name"
-                                      required
-                                    />
-                                  </div>
-                                  <div class="group input-group">
-                                    <input
-                                      type="email"
-                                      id="new_user_email"
-                                      placeholder="Email"
-                                      required
-                                    />
-                                  </div>
-                                  <div class="group input-group">
-                                    <input
-                                      type="password"
-                                      id="new_user_password"
-                                      placeholder="Password"
-                                      required
-                                      pattern=".{8,}"
-                                    />
-                                  </div>
-                                  <div class="alert-text signup__alert">
-                                    <span class="help__text">At least 8 character</span>
-                                  </div>
-                                  <div class="group button-group">
-                                    <button class="signup-btn" type="submit">Sign Up</button>
-                                  </div>
-                                </div>
-                              </form>
+                        <form action="" id="signup_form">
+                            <div class="header">Sign Up</div>
+                            <div class="social__media__container">
+                              <a href="#" target="_blank" class="social codepen">
+                                <i class="fa-brands fa-codepen"></i>
+                              </a>
+                              <a href="#" class="social google">
+                                <i class="fa-brands fa-google"></i>
+                              </a>
+                              <a href="#" target="_blank" class="social instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                              </a>
                             </div>
-                      
-                            <div class="form-container sign-in-container">
-                              <form action="" id="signin_form">
-                                <div class="header">Sign In</div>
-                                <div class="social__media__container">
-                                  <a href="#" target="_blank" class="social codepen">
-                                    <i class="fa-brands fa-codepen"></i>
-                                  </a>
-                                  <a href="#" class="social google">
-                                    <i class="fa-brands fa-google"></i>
-                                  </a>
-                                  <a href="#" target="_blank" class="social instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                  </a>
-                                </div>
-                                <span class="under__social">
-                                  <a href="#" class="link signup-link">or use your account</a>
-                                </span>
-                      
-                                <div class="button-input-group">
-                                  <div class="group input-group">
-                                    <input
-                                      type="email"
-                                      id="user_email"
-                                      placeholder="Email"
-                                      required
-                                    />
-                                  </div>
-                                  <div class="group input-group">
-                                    <input
-                                      type="password"
-                                      id="user_password"
-                                      placeholder="Password"
-                                      required
-                                      pattern=".{8,}"
-                                    />
-                                  </div>
-                                  <div class="alert-text signup__alert">
-                                    <span class="help__text">At least 8 character</span>
-                                  </div>
-                                  <div class="form-link forgot">
-                                    <a href="#" class="login-link">Forgot your password?</a>
-                                  </div>
-                                  <div class="group button-group">
-                                    <button class="signin-btn" type="submit">Sign in</button>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                            <div class="overlay-container">
-                              <div class="overlay">
-                                <div class="overlay-panel overlay-left">
-                                  <h1>Welcome Back!</h1>
-                                  <p>Please login your personal info</p>
-                      
-                                  <div class="group button-group">
-                                    <button class="ghost" id="signIn">Sign in</button>
-                                  </div>
-                                </div>
-                      
-                                <div class="overlay-panel overlay-right">
-                                  <h1>Hello, Friend!</h1>
-                                  <p>Enter your personal details and start your journey with us</p>
-                      
-                                  <div class="group button-group">
-                                    <button class="ghost" id="signUp">Sign up</button>
-                                  </div>
-                                </div>
+                            <span class="under__social">
+                              <a href="#" class="link signin-link"
+                                >or use your email for registration
+                              </a>
+                            </span>
+                  
+                            <div class="button-input-group">
+                              <div class="group input-group">
+                                <input
+                                  type="text"
+                                  placeholder="Name"
+                                  id="new_user_name"
+                                  required
+                                />
+                              </div>
+                              <div class="group input-group">
+                                <input
+                                  type="email"
+                                  id="new_user_email"
+                                  placeholder="Email"
+                                  required
+                                />
+                              </div>
+                              <div class="group input-group">
+                                <input
+                                  type="password"
+                                  id="new_user_password"
+                                  placeholder="Password"
+                                  required
+                                  pattern=".{8,}"
+                                />
+                              </div>
+                              <div class="alert-text signup__alert">
+                                <span class="help__text">At least 8 character</span>
+                              </div>
+                              <div class="group button-group">
+                                <button class="signup-btn" type="submit">Sign Up</button>
                               </div>
                             </div>
-                          </div>
+                          </form>
                       
                     </div>
                 </div>
@@ -254,7 +181,7 @@
 
     <div class="local">
         <input type="search" name="search" id="search" placeholder="Search your location">
-        <img src="img/search_icon.png" alt="search_icon">
+        <img src="img/search_icon.webp" alt="search_icon">
     </div>
 
 
@@ -265,7 +192,7 @@
         <div class="Accessories-box">
             <div>
                 <div class="rectangle-42">
-                    <img src="img/Suit.png" alt="">
+                    <img src="img/Suit.webp" alt="">
                 </div>
             </div>
             <div class="product-name">
@@ -277,7 +204,7 @@
             <div class="Accessories-box">
                 <div>
                     <div class="rectangle-42">
-                        <img src="img/Stationery.png" alt="">
+                        <img src="img/Stationery.webp" alt="">
                     </div>
                 </div>
                 <div class="product-name">
@@ -291,7 +218,7 @@
             <div class="Accessories-box">
                 <div>
                     <div class="rectangle-42">
-                        <img src="img/Food Bar.png" alt="">
+                        <img src="img/Food Bar.webp" alt="">
                     </div>
                 </div>
                 <div class="product-name">
@@ -305,7 +232,7 @@
             <div class="Accessories-box">
                 <div>
                     <div class="rectangle-42">
-                        <img src="img/Aroma.png" alt="">
+                        <img src="img/Aroma.webp" alt="">
                     </div>
                 </div>
                 <div class="product-name">
@@ -327,7 +254,7 @@
 
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/toppng.png" alt="">
+                    <img src="./img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -340,11 +267,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -359,7 +286,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/toppng.png" alt="">
+                    <img src="./img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -372,11 +299,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -391,7 +318,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/toppng.png" alt="">
+                    <img src="./img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -404,11 +331,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -423,7 +350,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/toppng.png" alt="">
+                    <img src="./img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -436,11 +363,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -473,7 +400,7 @@
 
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="img/t-shirt.png" alt="">
+                    <img src="img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -486,11 +413,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -505,7 +432,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="img/t-shirt.png" alt="">
+                    <img src="img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -518,11 +445,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -537,7 +464,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="img/t-shirt.png" alt="">
+                    <img src="img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -550,11 +477,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -569,7 +496,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="img/t-shirt.png" alt="">
+                    <img src="img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -582,11 +509,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -621,7 +548,7 @@
 
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/iphone.png" alt="">
+                    <img src="./img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -634,11 +561,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -653,7 +580,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/iphone.png" alt="">
+                    <img src="./img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -666,11 +593,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -685,7 +612,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/iphone.png" alt="">
+                    <img src="./img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -698,11 +625,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -717,7 +644,7 @@
             </div>
             <div class="item-card">
                 <div class="item-image" onclick="ebBtn()">
-                    <img src="./img/iphone.png" alt="">
+                    <img src="./img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
@@ -730,11 +657,11 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_white.png" alt="">
-                            <img src="img/Star_green.png" alt="">
-                            <img src="img/Star_green.png" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
@@ -831,7 +758,7 @@
         <div class="ebcf_modal-content">
             <span class="ebcf_close">&times;</span>
             <div id="modalImage">
-                <img src="./img/iphone.png" alt="">
+                <img src="./img/iphone.webp" alt="">
             </div>
             <div class="popup-details">
                 <h2>Iphone 11 128GB</h2>
@@ -859,7 +786,7 @@
                             <i class="fa-solid fa-quote-left"></i>
                             <i class="fa-solid fa-quote-right"></i>
                             <div class="slide-img">
-                                <img src="img/client1.jpg" />
+                                <img src="img/client1.webp" />
                             </div>
                             <div class="slide-text">
                                 <h3>Wonderful Product</h3>
@@ -877,7 +804,7 @@
                             <i class="fa-solid fa-quote-left"></i>
                             <i class="fa-solid fa-quote-right"></i>
                             <div class="slide-img">
-                                <img src="img/client2.jpg" />
+                                <img src="img/client2.webp" />
                             </div>
                             <div class="slide-text">
                                 <h3>Awesome Product</h3>
@@ -898,7 +825,7 @@
                             <i class="fa-solid fa-quote-left"></i>
                             <i class="fa-solid fa-quote-right"></i>
                             <div class="slide-img">
-                                <img src="img/client3.jpg" />
+                                <img src="img/client3.webp" />
                             </div>
                             <div class="slide-text">
                                 <h3>Very Useful Product</h3>
@@ -917,7 +844,7 @@
                             <i class="fa-solid fa-quote-left"></i>
                             <i class="fa-solid fa-quote-right"></i>
                             <div class="slide-img">
-                                <img src="img/client4.jpg" />
+                                <img src="img/client4.webp" />
                             </div>
                             <div class="slide-text">
                                 <h3>Wonderful Product</h3>
@@ -936,7 +863,7 @@
                             <i class="fa-solid fa-quote-left"></i>
                             <i class="fa-solid fa-quote-right"></i>
                             <div class="slide-img">
-                                <img src="img/client4.jpg" />
+                                <img src="img/client4.webp" />
                             </div>
                             <div class="slide-text">
                                 <h3>Wonderful Product</h3>
@@ -968,17 +895,17 @@
     <!-- app section -->
     <div class="app-container">
         <div class="device-box">
-            <img class="device-frame" src="img/combined-frames.png" alt="">
+            <img class="device-frame" src="img/combined-frames.webp" alt="">
         </div>
         <div class="app-info">
             <div class="vigybag-text">
-                <img src="img/VigyBag is ready for your favorite shopping@2x.png" class="vigybag-image" alt="" />
+                <img src="img/VigyBag is ready for your favorite shopping@2x.webp" class="vigybag-image" alt="" />
             </div>
             <div class="google-play-button">
                 <button class="google-button">
                     <div class="play-button">
                         <div class="play-img-div">
-                            <img src="img/google-play.png" alt="">
+                            <img src="img/google-play.webp" alt="">
                         </div>
                         <div class="play-text">
                             <p>
@@ -1062,18 +989,18 @@
             </div>
             <div class="contact-info">
                 <div class="contact-location">
-                    <img style="height: 100%;;" src="img/home icon.png" alt="">
+                    <img style="height: 100%;;" src="img/home icon.webp" alt="">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
                         width="100%" height="50%" style="border:0; padding-right:2em;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="contact-email">
-                    <img src="img/msg icon.png" alt="">
+                    <img src="img/msg icon.webp" alt="">
                     <p><a href="">contact@vigybag.com</a></p>
                 </div>
                 <div class="contact-ph-number">
-                    <img src="img/call icon.png" alt="">
+                    <img src="img/call icon.webp" alt="">
                     <p><a href="">+91 1234567890</a></p>
                 </div>
             </div>
@@ -1098,18 +1025,18 @@
                 <div class="social-div">
 
                     <div>
-                        <a href="https://www.instagram.com/coder_vivek/"><img src="./img/Instagram (2).png" alt=""></a>
+                        <a href="https://www.instagram.com/coder_vivek/"><img src="./img/Instagram (2).webp" alt=""></a>
                         <p><a href="https://www.instagram.com/coder_vivek/">Instagram</a></p>
                     </div>
                     <div>
 
-                        <a href="https://www.linkedin.com/in/codervivek/"><img src="./img/LinkedIn Circled.png"
+                        <a href="https://www.linkedin.com/in/codervivek/"><img src="./img/LinkedIn Circled.webp"
                                 alt=""></a>
                         <p><a href="https://www.linkedin.com/in/codervivek/" target="_blank">LinkedIn</a></p>
 
                     </div>
                     <div>
-                        <a href="https://www.facebook.com/codervivek/"><img src="./img/Facebook.png" alt=""></a>
+                        <a href="https://www.facebook.com/codervivek/"><img src="./img/Facebook.webp" alt=""></a>
                         <p><a href="https://www.facebook.com/codervivek/">Facebook</a></p>
                     </div>
                 </div>
@@ -1122,7 +1049,7 @@
     <!-- Copyright -->
     <div id="copyright">
         <div class="pay">
-            <img src="./img/payment.png" alt="">
+            <img src="./img/payment.webp" alt="">
         </div>
         <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
         <p> Designed by Vivek Prajapati </p>

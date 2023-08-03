@@ -93,8 +93,11 @@ button {
 }
 
 .modal-content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%);
   background-color: #fefefe;
-  
   margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -795,7 +798,7 @@ body.dark {
 }
 
 .local input[type="search"] {
-  padding: 25px 130px;
+  padding: 22px 100px;
   border-radius: 40px;
   font-family: sans-serif;
   border: none;
@@ -803,7 +806,10 @@ body.dark {
   text-align: center;
   font-size: 35px;
 }
-
+input:focus{
+  outline:none;
+  border: none;
+}
 ::placeholder {
   color: #575a89;
 }
@@ -820,6 +826,7 @@ body.dark {
   width: 60px;
   position: relative;
   right: 100px;
+
 }
 
 /* product container */
@@ -889,7 +896,7 @@ body.dark {
 
 .app-container {
   height: 627px;
-  background-image: url("../img/app-section.png");
+  background-image: url("../img/app-section.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
