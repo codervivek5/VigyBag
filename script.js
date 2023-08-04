@@ -15,6 +15,24 @@ const copyright = document.querySelector("#copyright p span");
 const openModalBtn = document.getElementById('openModalBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const modal = document.getElementById('myModal');
+const signup_form = document.getElementById('signup_form');
+const signup_toggle = document.getElementById("signup_toggle");
+const signin_form = document.getElementById("signin_form");
+const signin_toggle = document.getElementById("signin_toggle");
+
+signin_toggle.addEventListener("click",() => {
+  modal.style.display = 'block';
+  signup_form.style.display="none";
+  signin_form.style.display="block";
+  
+})
+
+signup_toggle.addEventListener("click" , () => {
+  modal.style.display = 'block';
+  signin_form.style.display="none";
+  signup_form.style.display="block";
+})
+
 
 
 
