@@ -3443,7 +3443,7 @@ mark {
 .cd-cart__content {
     position: fixed;
     bottom: 10px;
-    right: 6%;
+    right: 9%;
     transition: -webkit-transform .2s;
     transition: transform .2s;
     transition: transform .2s, -webkit-transform .2s;
@@ -3473,7 +3473,7 @@ mark {
     z-index: 3;
     height: 72px;
     width: 72px;
-    overflow: visible
+    overflow: visible;
 }
 
 .cd-cart__trigger::after,
