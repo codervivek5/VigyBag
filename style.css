@@ -1078,11 +1078,13 @@ div.c a {
 /* The Close Button */
 .ebcf_close {
   color: #08032f;
-  float: right;
+  position: sticky;
+  left: 50.2em;
+  margin: 0 .5em;
   font-size: 28px;
   font-weight: bold;
-  position: absolute;
-  right: 17.5em;
+  display: inline-block;
+  
 }
 
 .ebcf_close:hover,
@@ -1177,4 +1179,3 @@ div.c a {
     flex-direction: column;
   }
 }
-
