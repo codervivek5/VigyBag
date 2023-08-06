@@ -85,7 +85,7 @@
     </div> -->
 
     <div class="local" style="margin-top: 150px;">
-        <input type="search" name="search" id="search" placeholder="Search product">
+        <input type="search" name="search" id="search" onkeyup="searchProduct()" placeholder="Search product">
         <img src="../img/search_icon.webp" alt="search_icon">
     </div>
 
@@ -98,9 +98,9 @@
         <div class="item-title">
             Headphones for you!
         </div>
-        <div class="item-cards-div">
+        <div class="item-cards-div" id="item-box">
 
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
@@ -132,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
@@ -164,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
@@ -196,7 +196,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
@@ -242,9 +242,9 @@
         <div class="item-title">
             T-shirts for you!
         </div>
-        <div class="item-cards-div">
+        <div class="item-cards-div" id="item-box">
 
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
@@ -257,7 +257,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -276,7 +276,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
@@ -289,7 +289,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -308,7 +308,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
@@ -321,7 +321,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -340,7 +340,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
@@ -353,7 +353,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -388,9 +388,9 @@
         <div class="item-title">
             Mobiles for you!
         </div>
-        <div class="item-cards-div">
+        <div class="item-cards-div" id="item-box">
 
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
@@ -403,7 +403,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -422,7 +422,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
@@ -435,7 +435,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -454,7 +454,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
@@ -467,7 +467,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
@@ -486,7 +486,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
+            <div class="item-card" id="item-list">
                 <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
@@ -499,7 +499,7 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
                             <img src="img/Star_white.webp" alt="">
