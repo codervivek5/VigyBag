@@ -146,25 +146,87 @@ copyright.addEventListener("click", function () {
 
 // Path: VigyBag/script.js
 
-
 // Show Pop-Up
 // Get the modal
-var ebModal = document.getElementById('mySizeChartModal');
+var ebModal = document.getElementById("mySizeChartModal");
 var ebBtn = document.getElementById("mySizeChart");
 var ebSpan = document.getElementsByClassName("ebcf_close")[0];
 var modalImg = document.getElementById("modalImage");
 
-ebBtn = function() {
-    ebModal.style.display = "block";
-}
+ebBtn = function () {
+  ebModal.style.display = "block";
+};
 
-ebSpan.onclick = function() {
+ebSpan.onclick = function () {
+  ebModal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == ebModal) {
     ebModal.style.display = "none";
-}
+  }
+};
 
-window.onclick = function(event) {
-    if (event.target == ebModal) {
-        ebModal.style.display = "none";
+// Search functionality -\
+function searchProduct() {
+  const searchInput = document.getElementById("search");
+  const itemCards = document.querySelectorAll(".item-card");
+  const itemSections = document.querySelectorAll(".item-row");
+  const seeMoreLinks = document.querySelectorAll(".see-more-text");
+
+  const searchQuery = searchInput.value.trim().toLowerCase();
+
+  itemCards.forEach((item) => {
+    const itemTitle = item
+      .querySelector(".item-heading a")
+      .innerText.toLowerCase();
+    if (itemTitle.includes(searchQuery)) {
+      item.style.display = "block";
+      item.closest(".item-row").style.display = "block";
+    } else {
+      item.style.display = "none";
     }
-}
+  });
 
+  // Show the item sections if at least one item is visible in them
+  itemSections.forEach((section) => {
+    const visibleItems = section.querySelectorAll(
+      '.item-card[style="display: block;"]'
+    );
+    if (visibleItems.length > 0) {
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  });
+
+     // Hide the "See more..." links if the corresponding section has no visible items
+    seeMoreLinks.forEach((link) => {
+      const section = link.previousElementSibling;
+      const visibleItems = section.querySelectorAll('.item-card[style="display: block;"]');
+      if (visibleItems.length > 0) {
+        link.style.display = 'block';
+      } else {
+        link.style.display = 'none';
+      }
+    });
+  }
+
+  // Function to show all items and "See more..." links when clearing the search
+  function clearSearch() {
+    const itemCards = document.querySelectorAll(".item-card");
+    const itemSections = document.querySelectorAll(".item-row");
+    const seeMoreLinks = document.querySelectorAll(".see-more-text");
+
+    itemCards.forEach((item) => {
+      item.style.display = "block";
+    });
+
+    itemSections.forEach((section) => {
+      section.style.display = "block";
+    });
+
+    seeMoreLinks.forEach((link) => {
+      link.style.display = "block";
+    });
+  }
