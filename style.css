@@ -22,21 +22,20 @@ body{
 header {
   width: 100vw;
   position: fixed;
+  top: 0px;
   z-index: 100;
 }
 
 .header_container {
-  background-color: #d9d9d9;
+  /* background-color: #d9d9d9; */
+  background-color: rgba(138, 138, 188, 0.2);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 100vw;
-  box-shadow: 0px 1px 6px #4e4e4e;
-  border: 2px solid #575a89;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  height: 80px;
+  margin: auto;
 }
 
 .header_container img {
@@ -52,14 +51,13 @@ button {
   font-family: sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: #161b6e;
+  color: navy;
   text-decoration: none;
 }
 
 
 .nav_link {
   list-style: none;
-  /* border: 2px solid rebeccapurple;   */
 }
 
 .nav_link li {
@@ -72,9 +70,9 @@ button {
 }
 
 .nav_link li a:hover {
-  color: #575a89;
+  color: #f7fdf8;
 
-  text-decoration: underline 2.5px #575a89;
+  text-decoration: underline 2.5px #f7fdf8;
 }
 
 .header_container button {
@@ -88,7 +86,8 @@ button {
 }
 
 .header_container button:hover {
-  background-color: #575a89;
+  background-color: #f1f4f6;
+  color: black;
 }
 
 /* Added Code */
@@ -437,7 +436,7 @@ body.dark {
 
 .app-container {
   height: 627px;
-  background-image: url("../img/app-section.png");
+  background-image: url("./img/app-section.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -481,6 +480,7 @@ body.dark {
 }
 .play-text{
   color:#ffffff;
+  z-index: 999;
 }
 @media screen and (max-width:767px) {
   .app-container {
@@ -574,7 +574,8 @@ body.dark {
 }
 
 .item-card {
-  padding: 2rem;
+  padding: 1rem;
+  margin-left: 3em;
   width: 100%;
   /* height: 423px; */
   border-radius: 15px;
@@ -1077,11 +1078,13 @@ div.c a {
 /* The Close Button */
 .ebcf_close {
   color: #08032f;
-  float: right;
+  position: sticky;
+  left: 50.2em;
+  margin: 0 .5em;
   font-size: 28px;
   font-weight: bold;
-  position: absolute;
-  right: 17.5em;
+  display: inline-block;
+  
 }
 
 .ebcf_close:hover,
@@ -1176,7 +1179,6 @@ div.c a {
     flex-direction: column;
   }
 }
-
 /* cart */
 
 .cd-cart__product {
@@ -1237,3 +1239,4 @@ div.c a {
   border-radius: 5px;
   background-color: #f9f9f9;
 }
+
