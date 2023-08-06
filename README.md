@@ -27,7 +27,7 @@ This website is a location-based platform that allows users to search for produc
 <h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
     
 ## 🖌️Design Preview
-![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.png)
+![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.webp)
 
 ## 📌Repository
 
