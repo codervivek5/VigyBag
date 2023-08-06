@@ -27,7 +27,7 @@ This website is a location-based platform that allows users to search for produc
 <h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
     
 ## 🖌️Design Preview
-![VigyBag Application Preview](graphics/vigybag_application_preview/vigybag_app_preview.png)
+![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.webp)
 
 ## 📌Repository
 
@@ -72,7 +72,7 @@ If you want to work on this unique project and share it with the world, you can 
 **We're accepting PRs for our open and unassigned [issues](https://github.com/codervivek5/VigyBag/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md). We'd love your contributions! **Kindly follow the steps below to get started:** 
 
 
-**1.** Fork [this](https://github.com/codervivek5/VigyBag) repository.
+**1.** Fork [the](https://github.com/codervivek5/VigyBag) repository.
 
 **2.** Clone the forked repository.
 
@@ -86,23 +86,60 @@ git clone https://github.com/codervivek5/VigyBag.git
 cd VigyBag
 ```
 
+**4.** Add a reference(remote) to the original repository.
+```
+git remote add upstream https://github.com/codervivek5/VigyBag.git
+```
 
-**5.** Make changes in source code.
+**5.** Check the remotes for this repository.
+```
+git remote -v
+```
 
-**6.** Stage your changes and commit
+**6.** Always take a pull from the upstream repository to your main branch to keep it updated as per the main project repository.
+```
+git pull upstream main
+```
+
+**7.** Create a new branch.
+```
+git checkout -b <YOUR_BRANCH_NAME>
+```
+
+**8.** Make changes in source code.
+
+**9.** Check your changes.
+```
+git status
+```
+```
+git diff
+```
+
+**10.** Stage your changes.
 
 ```bash
 git add .
+```
+
+**11.** Commit your changes.
+```
 git commit -m "<your_commit_message>"
 ```
 
-**7.** Push your local commits to the remote repo.
+**12.** Push your local commits to the remote repo.
 
 ```bash
-git push 
+git push -u origin <your_branch_name>
 ```
 
-**8.** Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository.
+**13.** To Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository, click on `compare and pull request`.
+
+**14.** Add an appropriate title and description to your PR explaining your changes.
+
+**15.** Click on `Create pull request`
+
+Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission to be accepted and your PR to be merged by a maintainer.
 
 ## 🦄 Django Project Setup 
 

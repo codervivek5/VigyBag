@@ -896,6 +896,7 @@ body.dark {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  margin-top: 160px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
