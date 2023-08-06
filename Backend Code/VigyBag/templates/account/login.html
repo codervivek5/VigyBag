@@ -22,16 +22,11 @@
               <label for="{{ form.password.id_for_label }}"></label>
               <input type="password" name="{{ form.password.name }}" class="form-control" id="{{ form.password.auto_id }}" placeholder="{{ form.password.label }}">
             </div>
-            {% comment %} {{ form }} {% endcomment %}
-             {% comment %} {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" style="padding: 5px;">
-            {% endif %}  {% endcomment %}
             <div class="d-grid"> 
               <button class="primaryAction mt-3 btn btn-dark" style="padding:12px; width:9cm; margin-left:180px;" type="submit">{% trans "Sign In" %}</button><br>
               {% comment %} <a class="button secondaryAction text-dark text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> {% endcomment %}
-              <p style=" width:9cm; margin-left:180px;">Don't have an account? <a href="#" style="text-decoration:none;color:green;">Sign Up</a>
+              <p style=" width:9cm; margin-left:180px;">Don't have an account? <a href="{{ signup_url }}" style="text-decoration:none;color:green;">Sign Up</a>
                </p>
-               {% comment %} <a href="{{ signup_url }}"> {% endcomment %}
             </div>
           </form>
       </div>  
