@@ -441,6 +441,7 @@ body.dark {
   background-attachment: fixed;
   background-size: cover;
   display: flex;
+  margin-top: 160px;
   flex-direction: row;
   justify-content: space-between;
   padding: 2%;
