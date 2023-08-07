@@ -34,6 +34,42 @@
           {% endif %}
       </div>
     </div> {% endcomment %}
+    {% block navbar %}
+    <div class="header_container">
+      <a href="index.html"><img src="img/logo.png" alt="brand logo"></a>
+      <nav class="nav_menu">
+          <ul class="nav_link">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="./About Page/index.html">About us</a></li>
+              <li><a href="./contact/index.html">Contact us</a></li>
+          </ul>
+      </nav>
+      <div class="nav_login">
+          <a href="./login/index.html"><button>Login</button></a>
+          <div class="burger-icon">
+              <i class="fa-solid fa-bars" id='icon'></i>
+          </div>
+          <!-- Dark Mode Button -->
+          <div class="toggle-button">
+              <input type="checkbox" class="checkbox" id="checkbox">
+              <label for="checkbox" class="label">
+                  <i class="material-symbols-outlined moon">dark_mode</i>
+                  <i class="material-symbols-outlined sun" style="font-size:21px;"> clear_day</i>
+                  <!-- <div class="material-symbols-outlined  ball" style="font-size:25px;">circle</div> -->
+              </label>
+          </div>
+      </div>
+  </div>
+  <nav class="nav_menu2">
+    <ul class="nav_link2">
+        <li><a href="http://127.0.0.1:5502/index.html">Home</a></li>
+        <li><a href="http://127.0.0.1:5502/index.html#">Services</a></li>
+        <li><a href="http://127.0.0.1:5502/About%20Page/index.html">About us</a></li>
+        <li><a href="http://127.0.0.1:5502/contact/index.html">Contact us</a></li>
+    </ul>
+  </nav>
+{% endblock navbar %}
     {% block content %}
     {% endblock %}
     {% endblock %}
