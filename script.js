@@ -177,6 +177,8 @@ window.onclick = function (event) {
   }
 };
 
+
+
 // Search functionality -\
 function searchProduct() {
   const searchInput = document.getElementById("search");
