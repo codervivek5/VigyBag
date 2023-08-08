@@ -1214,14 +1214,10 @@
     <div class="alan-btn"></div>
     <style>
         .alanBtn-root {
-        .alanBtn-root {
             /* bottom:20px !important; */
             right: 46px !important;
             bottom: 80px !important;
-            right: 46px !important;
-            bottom: 80px !important;
         }
-    </style>
     </style>
     <!-- <button class="chatbot__button">
         <span class="material-symbols-outlined">mode_comment</span>
@@ -1248,29 +1244,22 @@
     </div> -->
     <!--  chat bot finish  -->
     <!-- go to top -->
-    <a id="backToTopBtn" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
-
-    <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
-    <script>
-        var alanBtnInstance = alanBtn({
-            key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
-            onCommand: function (commandData) {
-                if (commandData && commandData.command === 'openURL') {
-                    if (commandData.target === '_blank') {
-                        window.open(commandData.url, '_newtab' + Math.floor(Math.random() * 999999));
+    <a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
+    <script type="text/javascript"
+ src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+  var alanBtnInstance = alanBtn({
+    key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+    onCommand: function (commandData) {
+      if (commandData && commandData.command === 'openURL') {
+                    if (commandData.target === '_blank'){
+                      window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
                     } else {
-                        window.location.href = commandData.url;
                         window.location.href = commandData.url;
                     }
                 }
 
-                }
-
             },
-
-            rootEl: document.getElementById("alan-btn"),
-        });
-    </script>
 
             rootEl: document.getElementById("alan-btn"),
         });
@@ -1280,12 +1269,6 @@
     <script src="./cart/js/main.js"></script>
     <script src="./Pages/review/review.js"></script>
 
-    <!-- script for Testimonials slider -->
-    <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery-2.2.4.min.js"></script>
-    <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery.magnific-popup.js"></script>
-    <script src="https://htmlcss3tutorials.com/demo/testimonials/js/wow.min.js"></script>
-    <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery.cssslider.min.js"></script>
-    <script src="https://htmlcss3tutorials.com/demo/testimonials/js/main.js"></script>
     <!-- script for Testimonials slider -->
     <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery-2.2.4.min.js"></script>
     <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery.magnific-popup.js"></script>
