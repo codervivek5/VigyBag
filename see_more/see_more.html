@@ -33,7 +33,6 @@
 </head>
 
 <body bgcolor="#575A89">
-
     <header>
         <div class="header_container">
             <a href="../index.html"><img src="../img/logo.webp" alt="brand logo"></a>
@@ -53,7 +52,7 @@
                 <!-- Dark Mode Button -->
                 <div>
                     <input type="checkbox" class="checkbox" id="checkbox">
-                    <label for="checkbox" class="label">
+                    <label for="checkbox" class="label" style="cursor: pointer;">
                         <i class="material-symbols-outlined moon">dark_mode</i>
                         <i class="material-symbols-outlined sun" style="font-size:21px;"> clear_day</i>
                         <div class="material-symbols-outlined  ball" style="font-size:25px;">circle</div>
@@ -86,24 +85,23 @@
     </div> -->
 
     <div class="local" style="margin-top: 150px;">
-        <input type="search" name="search" id="search" placeholder="Search product">
+        <input type="search" name="search" id="search" onkeyup="searchProduct()" placeholder="Search product">
         <img src="../img/search_icon.webp" alt="search_icon">
     </div>
 
 
-    
+
 
     <!-- items section -->
-
     <!-- first row -->
     <div class="item-row">
         <div class="item-title">
-            Headphones
+            Headphones for you!
         </div>
-        <div class="item-cards-div">
+        <div class="item-cards-div" id="item-box">
 
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -117,11 +115,12 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+
                             <div>(36)</div>
                         </div>
 
@@ -134,8 +133,10 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
+
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -150,15 +151,15 @@
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
                         <div class="items-star"><img src="img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -166,8 +167,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -181,16 +182,16 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -198,8 +199,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/toppng.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -213,16 +214,18 @@
                     <div>
                         <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -230,219 +233,24 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-        
     </div>
-    <div class="item-row">
-        
-        <div class="item-cards-div">
+    <div class="see-more-text">
+        <a href="see_more/see_more.html">
 
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/toppng.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to cart
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/toppng.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/toppng.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/toppng.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
 
     </div>
     <!-- secoond row -->
     <div class="item-row">
         <div class="item-title">
-            T-shirts
+            T-shirts for you!
         </div>
-        <div class="item-cards-div">
+        <div class="item-cards-div" id="item-box">
 
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -454,18 +262,18 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -473,8 +281,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -486,18 +294,18 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -505,8 +313,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -518,18 +326,18 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -537,8 +345,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/t-shirt.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -550,50 +358,20 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">T-Shirts</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -603,174 +381,11 @@
             </div>
         </div>
     </div>
+    <div class="see-more-text">
+        <a href="see_more/see_more.html">
+        </a>
 
-    <div class="item-row">
-        
-        <div class="item-cards-div">
-
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/t-shirt.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    
 
     </div>
 
@@ -778,12 +393,12 @@
 
     <div class="item-row">
         <div class="item-title">
-            Mobiles
+            Mobiles for you!
         </div>
-        <div class="item-cards-div">
+        <div class="item-cards-div" id="item-box">
 
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -795,18 +410,18 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -814,8 +429,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -827,18 +442,18 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -846,8 +461,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -859,18 +474,18 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -878,8 +493,8 @@
                     </div>
                 </div>
             </div>
-            <div class="item-card">
-                <div class="item-image">
+            <div class="item-card" id="item-list">
+                <div class="item-image" onclick="ebBtn()">
                     <img src="../img/iphone.webp" alt="">
                     <button class="wishlist-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -891,50 +506,20 @@
                 </div>
                 <div class="item-description-2">
                     <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
+                        <div class="item-heading"><a href="">Iphone 11</a></div>
                         <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
+
+                        <div class="items-star"><img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_white.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+                            <img src="img/Star_green.webp" alt="">
+
                             <div>(36)</div>
                         </div>
 
                         <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/iphone.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
+                            Add to cart
                         </button>
                     </div>
                     <div class="item-heading">
@@ -943,178 +528,53 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <div class="item-row">
-        
-        <div class="item-cards-div">
+    <div class="see-more-text">
+        <a href="see_more/see_more.html">
 
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/iphone.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
+        </a>
+    </div>
 
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
+
+    <br><br>
+
+
+    <!-- pop up -->
+
+    <a href="#" id="mySizeChart"></a>
+
+
+    <div id="mySizeChartModal" class="ebcf_modal">
+
+        <div class="ebcf_modal-content">
+            <span class="ebcf_close">&times;</span>
+            <div id="modalImage">
+                <img src="../img/iphone.webp" alt="">
+
             </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/iphone.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
+            <div class="popup-details">
+                <h2>Iphone 11 128GB</h2>
+                <li class="specs-brief pattern" style="list-style: none; color: rgb(22, 21, 21);">
+                    <span class="specs-brief-accent">Released 2019, September 20</span></span><br>
+                    <span class="specs-brief-accent">128GB</span></span>
+                    <span class="help help-quickfacts"></span>
+                </li>
+                <h5><span>₹ </span>40,000</h5>
+                <small style="font-size: .6em;">M.R.P <s>₹25,999</s></small>
+                <div class="btn-product">
+                    <button>Buy</button>
+                    <button class="js-cd-add-to-cart">Add to cart</button>
+                    <p style="font-size: .7em">Get 70% OFF by using coupan <span
+                            style="font-family: monospace; font-family: 600;">CODERVIVEK</span></p>
 
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
                 </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/iphone.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
 
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/iphone.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors </p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="../img/iphone.webp" alt="">
-                    <button class="wishlist-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="item-description-2">
-                    <div>
-                        <div class="item-heading"><a href="">Printed Cotton Shirt</a></div>
-                        <p>cotton printed smooth shirt with multiple colors</p>
-                        <div class="items-star"><img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_white.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <img src="../img/Star_green.webp" alt="">
-                            <div>(36)</div>
-                        </div>
-
-                        <button class="add-to-card-button js-cd-add-to-cart">
-                            Add to card
-                        </button>
-                    </div>
-                    <div class="item-heading">
-                        <h3>&#8377;349</h3>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
 
     </div>
-    
-
-    
+    <!-- pop up ends -->
 
     <div class="footer-container">
         <!-- contact-us -->
@@ -1160,7 +620,8 @@
                 <div class="social-div">
 
                     <div>
-                        <a href="https://www.instagram.com/coder_vivek/"><img src="../img/Instagram (2).webp" alt=""></a>
+                        <a href="https://www.instagram.com/coder_vivek/"><img src="../img/Instagram (2).webp"
+                                alt=""></a>
                         <p><a href="">Instagram</a></p>
                     </div>
                     <div>
@@ -1180,6 +641,52 @@
         </div>
 
     </div>
+
+
+    <!-- Cart Pop-Up -->
+    <div class="cd-cart cd-cart--empty js-cd-cart">
+        <a href="#0" class="cd-cart__trigger text-replace">
+            Cart
+            <ul class="cd-cart__count"> <!-- cart items count -->
+                <li>0</li>
+                <li>0</li>
+            </ul> <!-- .cd-cart__count -->
+        </a>
+
+        <div class="cd-cart__content">
+            <div class="cd-cart__layout">
+                <header class="cd-cart__header">
+                    <h2>Cart</h2>
+                    <span class="cd-cart__undo">Item removed. <a href="#">Undo</a></span>
+                </header>
+
+                <div class="cd-cart__body">
+                    <ul>
+                        <!-- products added to the cart will be inserted here using JavaScript -->
+                    </ul>
+                </div>
+
+                <footer class="cd-cart__footer">
+                    <a href="#0" class="cd-cart__checkout">
+                        <em>Checkout - $<span>0</span>
+                            <svg class="icon icon--sm" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12"
+                                        x2="21" y2="12" />
+                                    <polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        points="15,6 21,12 15,18 " />
+                                </g>
+                            </svg>
+                        </em>
+                    </a>
+                </footer>
+            </div>
+        </div> <!-- .cd-cart__content -->
+    </div> <!-- cd-cart -->
+
+    <!-- cart end -->
+
+
     <!-- footer section -->
     <!-- Copyright -->
     <div id="copyright">
@@ -1190,6 +697,11 @@
         <p> Designed by Vivek Prajapati </p>
     </div>
 
+    <!-- script start -->
+    <script src="./script.js"></script>
+    <script src="./cart/util.js"></script>
+    <script src="./cart/main.js"></script>
+    <!-- script end -->
 
 </body>
 
