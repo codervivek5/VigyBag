@@ -248,10 +248,4 @@ LOGIN_REDIRECT_URL="home"
 
 ACCOUNT_LOGOUT_REDIRECT_URL="account_login"
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
-
 
