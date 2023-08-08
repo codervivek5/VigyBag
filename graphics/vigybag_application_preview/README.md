@@ -14,5 +14,5 @@
 - Here is the [project](https://www.canva.com/design/DAFkf15xwDY/gZRL8cmHCp7iapZSu6kqRg/edit?utm_content=DAFkf15xwDY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ## Application Preview
-![VigyBag Application Preview](vigybag_app_preview.png)
+![VigyBag Application Preview](vigybag_app_preview.webp)
 

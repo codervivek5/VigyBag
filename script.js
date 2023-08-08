@@ -12,6 +12,43 @@ const btnvar4 = document.getElementById("btn4");
 const addbtn4 = document.getElementById("addBtn4");
 const stars = document.querySelectorAll(".items-star i");
 const copyright = document.querySelector("#copyright p span");
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const modal = document.getElementById('myModal');
+const signup_form = document.getElementById('signup_form');
+const signup_toggle = document.getElementById("signup_toggle");
+const signin_form = document.getElementById("signin_form");
+const signin_toggle = document.getElementById("signin_toggle");
+
+signin_toggle.addEventListener("click",() => {
+  modal.style.display = 'block';
+  signup_form.style.display="none";
+  signin_form.style.display="block";
+  
+})
+
+signup_toggle.addEventListener("click" , () => {
+  modal.style.display = 'block';
+  signin_form.style.display="none";
+  signup_form.style.display="block";
+})
+
+
+
+
+openModalBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+closeModalBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+      modal.style.display = 'none';
+  }
+});
 
 // Dark Mode button Function
 const checkbox = document.getElementById("checkbox");
@@ -119,25 +156,109 @@ copyright.addEventListener("click", function () {
 
 // Path: VigyBag/script.js
 
-
 // Show Pop-Up
 // Get the modal
-var ebModal = document.getElementById('mySizeChartModal');
+var ebModal = document.getElementById("mySizeChartModal");
 var ebBtn = document.getElementById("mySizeChart");
 var ebSpan = document.getElementsByClassName("ebcf_close")[0];
 var modalImg = document.getElementById("modalImage");
 
-ebBtn = function() {
-    ebModal.style.display = "block";
-}
+ebBtn = function () {
+  ebModal.style.display = "block";
+};
 
-ebSpan.onclick = function() {
+ebSpan.onclick = function () {
+  ebModal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == ebModal) {
     ebModal.style.display = "none";
-}
+  }
+};
 
-window.onclick = function(event) {
-    if (event.target == ebModal) {
-        ebModal.style.display = "none";
+
+
+// Search functionality -\
+function searchProduct() {
+  const searchInput = document.getElementById("search");
+  const itemCards = document.querySelectorAll(".item-card");
+  const itemSections = document.querySelectorAll(".item-row");
+  const seeMoreLinks = document.querySelectorAll(".see-more-text");
+
+  const searchQuery = searchInput.value.trim().toLowerCase();
+
+  itemCards.forEach((item) => {
+    const itemTitle = item
+      .querySelector(".item-heading a")
+      .innerText.toLowerCase();
+    if (itemTitle.includes(searchQuery)) {
+      item.style.display = "block";
+      item.closest(".item-row").style.display = "block";
+    } else {
+      item.style.display = "none";
     }
+  });
+
+  // Show the item sections if at least one item is visible in them
+  itemSections.forEach((section) => {
+    const visibleItems = section.querySelectorAll(
+      '.item-card[style="display: block;"]'
+    );
+    if (visibleItems.length > 0) {
+      section.style.display = "block";
+    } else {
+      section.style.display = "none";
+    }
+  });
+
+  // Hide the "See more..." links if the corresponding section has no visible items
+  seeMoreLinks.forEach((link) => {
+    const section = link.previousElementSibling;
+    const visibleItems = section.querySelectorAll('.item-card[style="display: block;"]');
+    if (visibleItems.length > 0) {
+      link.style.display = 'block';
+    } else {
+      link.style.display = 'none';
+    }
+  });
 }
 
+// Function to show all items and "See more..." links when clearing the search
+function clearSearch() {
+  const itemCards = document.querySelectorAll(".item-card");
+  const itemSections = document.querySelectorAll(".item-row");
+  const seeMoreLinks = document.querySelectorAll(".see-more-text");
+
+  itemCards.forEach((item) => {
+    item.style.display = "block";
+  });
+
+  itemSections.forEach((section) => {
+    section.style.display = "block";
+  });
+
+  seeMoreLinks.forEach((link) => {
+    link.style.display = "block";
+  });
+}
+
+// Scroll to top button JS
+
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+function toggleBackToTopButton() {
+  if (document.documentElement.scrollTop > 0) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+}
+function scrollToTop() {
+  document.documentElement.scrollTop = 0;
+}
+
+window.addEventListener('scroll', toggleBackToTopButton);
+
+// Initially, call the toggle function to set the initial state of the button
+toggleBackToTopButton();
