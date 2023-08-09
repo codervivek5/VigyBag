@@ -175,53 +175,33 @@ function searchProduct() {
     }
   });
 
-  // Hide the "See more..." links if the corresponding section has no visible items
-  seeMoreLinks.forEach((link) => {
-    const section = link.previousElementSibling;
-    const visibleItems = section.querySelectorAll('.item-card[style="display: block;"]');
-    if (visibleItems.length > 0) {
-      link.style.display = 'block';
-    } else {
-      link.style.display = 'none';
-    }
-  });
-}
-
-// Function to show all items and "See more..." links when clearing the search
-function clearSearch() {
-  const itemCards = document.querySelectorAll(".item-card");
-  const itemSections = document.querySelectorAll(".item-row");
-  const seeMoreLinks = document.querySelectorAll(".see-more-text");
-
-  itemCards.forEach((item) => {
-    item.style.display = "block";
-  });
-
-  itemSections.forEach((section) => {
-    section.style.display = "block";
-  });
-
-  seeMoreLinks.forEach((link) => {
-    link.style.display = "block";
-  });
-}
-
-// Scroll to top button JS
-
-const backToTopBtn = document.getElementById('backToTopBtn');
-
-function toggleBackToTopButton() {
-  if (document.documentElement.scrollTop > 0) {
-    backToTopBtn.style.display = 'block';
-  } else {
-    backToTopBtn.style.display = 'none';
+     // Hide the "See more..." links if the corresponding section has no visible items
+    seeMoreLinks.forEach((link) => {
+      const section = link.previousElementSibling;
+      const visibleItems = section.querySelectorAll('.item-card[style="display: block;"]');
+      if (visibleItems.length > 0) {
+        link.style.display = 'block';
+      } else {
+        link.style.display = 'none';
+      }
+    });
   }
-}
-function scrollToTop() {
-  document.documentElement.scrollTop = 0;
-}
 
-window.addEventListener('scroll', toggleBackToTopButton);
+  // Function to show all items and "See more..." links when clearing the search
+  function clearSearch() {
+    const itemCards = document.querySelectorAll(".item-card");
+    const itemSections = document.querySelectorAll(".item-row");
+    const seeMoreLinks = document.querySelectorAll(".see-more-text");
 
-// Initially, call the toggle function to set the initial state of the button
-toggleBackToTopButton();
+    itemCards.forEach((item) => {
+      item.style.display = "block";
+    });
+
+    itemSections.forEach((section) => {
+      section.style.display = "block";
+    });
+
+    seeMoreLinks.forEach((link) => {
+      link.style.display = "block";
+    });
+  }
