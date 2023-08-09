@@ -11,31 +11,47 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vigbag.android.R
 import com.vigbag.android.model.ChildItemDataClass
 
-class ChildAdapter(private val childItemList:List<ChildItemDataClass>, val context: Context): RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
+class ChildAdapter( val childItemList: List<ChildItemDataClass>, val context: Context) :
+    RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
+    lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.each_item,null,false)
-        return ViewHolder(view)
+        val view = LayoutInflater.from(context).inflate(R.layout.each_item, null, false)
+        return ViewHolder(view,mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item=childItemList[position]
+        val item = childItemList[position]
         holder.childItemImage.setImageResource(item.itemImage)
         holder.childItemName.text = item.itemName
         holder.childItemSpecs.text = item.itemSpecs
         holder.childItemReviews.text = item.itemReviews
         holder.childItemRating.rating = item.itemRating.toFloat()
+
     }
 
     override fun getItemCount(): Int {
         return childItemList.size
     }
 
-    class ViewHolder(ItemView: View):RecyclerView.ViewHolder(ItemView){
+    class ViewHolder(ItemView: View,listener: onItemClickListener) : RecyclerView.ViewHolder(ItemView) {
         val childItemImage: ImageView = ItemView.findViewById(R.id.itemImage)
         val childItemName: TextView = ItemView.findViewById(R.id.itemName)
         val childItemSpecs: TextView = ItemView.findViewById(R.id.itemSpecs)
         val childItemReviews: TextView = ItemView.findViewById(R.id.itemReviews)
         val childItemRating: RatingBar = ItemView.findViewById(R.id.itemRating)
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 }
