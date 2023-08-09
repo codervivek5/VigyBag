@@ -4,19 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./about.css">  <!-- about page css -->
+  <link rel="stylesheet" href="team.css">
+  <!-- <link rel="stylesheet" href="../About Page/about.css">  about page css -->
   <link rel="stylesheet" href="../../style.css">   <!-- global css -->
   <link rel="stylesheet" href="../contact/contact.css">   <!-- contact page css -->
   <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,1,-25" />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="shortcut icon" href="../../img/favicon.webp" type="image/x-icon">
-<script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
   
-  <script defer src="about.js"></script>      <!-- about js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="../../img/favicon.webp" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
+  
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <script defer src="../../script.js"></script>   <!-- global js -->
-  <title>About | VigyBag</title>
+  <script src="team.js"></script>
+  <title>Team</title>
   
 </head>
 
@@ -39,76 +41,27 @@
           <i class="fa-solid fa-bars" id='icon'></i>
         </div>
         <div class="toggle-button">
-          <input type="checkbox" class="checkbox" id="checkbox">
-          <label for="checkbox" class="label">
-              <i class="material-symbols-outlined moon">dark_mode</i>
-              <i class="material-symbols-outlined sun" style="font-size:21px;"> clear_day</i>
-              <div class="material-symbols-outlined  ball" style="font-size:25px;">circle</div>
-          </label>
-      </div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="label">
+                <i class="material-symbols-outlined moon">dark_mode</i>
+                <i class="material-symbols-outlined sun" style="font-size:21px;">clear_day</i>
+                <div class="material-symbols-outlined  ball" style="font-size:25px;">circle</div>
+            </label>
+          </div>
+          
     </div>
     </div>
   </header>
-
-  <!-- <section class="about-me" id="about-me">
-    <div class="container">
-      <div class="about-me-container">
-        <div class="about-me-title">
-          About <br> VigyBag
-        </div>
-
-        <div class="about-me-flex-container">
-          <div class="about-me-image">
-            <div class="back-div"></div>
-            <div class="black-image"><img src="" alt=""></div>
-            <div class="main-image"><img src="../img/pngwing.com(7).webp" alt="smit"></div>
-          </div>
-          <div class="about-me-content">
-
-            <div class="logo"><img
-                src="https://raw.githubusercontent.com/Smit-Prajapati/prajapatismit/20391be8bf1ed24ef0e5da066bf68a5f6ee78fa1/images/logo.svg"
-                alt="smit"></div>
-
-            <div class="text">
-              VigyBag comes up under the GSSOC-2023 and the project manager is <a href="https://github.com/codervivek5"
-                style="color: black;"><span>@codevivek</span></a> VigyBag is a E-Commerce website for all needs.
-
-              <br><br>
-
-              Launched in 2023.
+    <br>
+    <section class="about-me" id="about-me">
+            <div class="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+              <div class="lg:text-center">
+                <h1 class="font-bold text-4xl">Meet Our Contributors💙</h1>
+                <div class="contributors-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="mail-button mail-button2">
-          <a href="mailto:"><img
-              src="https://raw.githubusercontent.com/Smit-Prajapati/prajapatismit/20391be8bf1ed24ef0e5da066bf68a5f6ee78fa1/images/mail.svg"
-              alt="mail"></a>
-        </div>
-
-      </div>
-    </div>
-  </section>  -->
-
-  <section class="about-me" id="about-me">
-
-    <div class="about-wrapper">
-      <div class="image-wrapper">
-        <img class="image"
-          src="https://media.istockphoto.com/id/1086341762/vector/about-us-flat-design-style-colorful-illustration.webp?s=612x612&w=0&k=20&c=jeUDlovR0TRmuSb6lp19P7ijHx8UNtZzZhHJZVmoWJc="
-          alt="">
-      </div>
-      <div class="description-wrapper">
-        <h2 id="about-header"><i>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you!</i></h2>
-        <br>
-        <p class="description"> This website is a location-based platform that allows users to search for products and services based on their geographical location. The website uses GPS technology to pinpoint the user's location and then displays nearby stores or businesses that offer the products or services they are searching for. It allows users to compare prices and make purchases directly through the site, making it convenient for local shopping and finding location-specific items.</p>
-          <button id="read-more-btn" class="read-more-btn">Read More</button>
-      </div>
-    </div>
-  </section>
-
-
-
+      </section>
 
   <div class="footer-container">
     <!-- about-us -->
@@ -195,34 +148,30 @@
     <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
     <p> Designed by Vivek Prajapati </p>
 </div>
-<style>
-  .alanBtn-root{
-      /* bottom:20px !important; */
-      right:46px !important;
-      bottom:80px !important;
-  }
-</style>    
-<!-- go to top -->
-<a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
-<script type="text/javascript"
-src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
 <script>
-var alanBtnInstance = alanBtn({
-key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
-onCommand: function (commandData) {
-if (commandData && commandData.command === 'openURL') {
-              if (commandData.target === '_blank'){
-                window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
-              } else {
-                window.location.href = commandData.url;
-              }
-            }
-          
-      },
+    const checkbox = document.getElementById('checkbox');
+    const body = document.body;
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedPreference = localStorage.getItem('dark-mode-preference');
+    
+      if (savedPreference === 'dark' || (savedPreference === null && prefersDarkMode)) {
+        body.classList.add('dark-mode');
+        checkbox.checked = true;
+      }
       
-rootEl: document.getElementById("alan-btn"),
-});
-</script>
+      checkbox.addEventListener('change', function () {
+        if (this.checked) {
+          body.classList.add('dark-mode');
+          localStorage.setItem('dark-mode-preference', 'dark');
+        } else {
+          body.classList.remove('dark-mode');
+          localStorage.setItem('dark-mode-preference', 'light');
+        }
+      });
+    });
+    </script>
 <script src="./chatBot/script.js"></script>
   <!-- <br><br>
   <div class="portfolio-link">
