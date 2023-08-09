@@ -1,18 +1,30 @@
-const owner = 'codervivek5'; // Replace with the owner's GitHub username
-const repo = 'VigyBag';  // Replace with the repository name
+const owner = 'codervivek5';
+const repo = 'VigyBag';
 
-async function fetchContributors() {
+async function fetchAllContributors() {
   try {
-    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors`);
-    const contributors = await response.json();
+    let allContributors = [];
+    let page = 1;
+
+    while (true) {
+      const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contributors?page=${page}&per_page=100`);
+      const contributors = await response.json();
+
+      if (contributors.length === 0) {
+        break; // No more contributors
+      }
+
+      allContributors = allContributors.concat(contributors);
+      page++;
+    }
 
     const contributorsList = document.querySelector('.contributors-list');
 
-    contributors.sort((a, b) => b.contributions - a.contributions); // Sort contributors in descending order of contributions
+    allContributors.sort((a, b) => b.contributions - a.contributions);
 
-    contributors.forEach(contributor => {
+    allContributors.forEach(contributor => {
       const contributorElement = document.createElement('div');
-      contributorElement.classList.add('contributor-element', 'text-center', 'text-gray-300', 'bg-gray-800', 'py-8', 'px-4', 'mx-auto', 'max-w-screen-sm', 'rounded-lg', 'border', 'border-gray-600', 'transition', 'transform', 'hover:scale-105', 'hover:bg-gray-700', 'hover:shadow-md'); // Apply dark theme styles
+      contributorElement.classList.add('contributor-element', 'text-center', 'text-gray-300', 'bg-gray-800', 'py-8', 'px-4', 'mx-auto', 'max-w-screen-sm', 'rounded-lg', 'border', 'border-gray-600', 'transition', 'transform', 'hover:scale-105', 'hover:bg-gray-700', 'hover:shadow-md');
 
       const profileImage = document.createElement('a');
       profileImage.href = `https://github.com/${contributor.login}`;
@@ -42,10 +54,15 @@ async function fetchContributors() {
       contributorElement.appendChild(role);
 
       const commitsCount = document.createElement('p');
-      commitsCount.textContent = `No. of Commits: ${contributor.contributions}`;
       commitsCount.classList.add('text-gray-500', 'dark:text-gray-300', 'text-sm');
-      contributorElement.appendChild(commitsCount);
 
+      if (contributor.contributions >= 3) {
+        commitsCount.textContent = `No. of Commits: ${contributor.contributions}`;
+      } else {
+        commitsCount.textContent = `No. of Commits: ${contributor.contributions}`;
+      }
+
+      contributorElement.appendChild(commitsCount);
       contributorsList.appendChild(contributorElement);
     });
   } catch (error) {
@@ -53,4 +70,4 @@ async function fetchContributors() {
   }
 }
 
-fetchContributors();
+fetchAllContributors();
