@@ -1237,38 +1237,28 @@ div.c a {
 
 
 /* go to top */
-.go-top {
+#backToTopBtn {
+  display: none;
   position: fixed;
-  width: 50px;
-  height: 50px;
-  /* color: #2a2a72; */
-  background: linear-gradient(315deg, #227ebb 100%, #0a1458 20%, #243fe9 60%);
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  bottom: 10px;
-  right: 45px;
-  border-radius: 50%;
-  text-decoration: none;
-  text-align: center;
-  line-height: 50px;
-  color: white;
+  z-index: 100;
+  bottom: 20px;
+  right: 42px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 769px) {
-  .gotop {
-    right: 1.5rem;
-  }
+#backToTopBtn:hover {
+  background-color: #0056b3;
 }
 
 @media (max-width: 426px) {
-  .gotop {
+  #backToTopBtn{
     right: 1rem;
-  }
-}
-
-@media (max-width:780px) {
-  .footer-container {
-    flex-direction: column;
   }
 }
 
