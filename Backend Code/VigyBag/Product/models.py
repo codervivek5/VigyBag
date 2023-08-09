@@ -17,8 +17,10 @@ class Product(models.Model):
     MRP=models.DecimalField(max_digits=8,decimal_places=2)
     location = models.CharField(max_length=100)
     stars = models.DecimalField(max_digits=5,decimal_places=1)
-    rating=models.DecimalField(max_digits=8, decimal_places=2)
+    rating = models.CharField(max_length=255)
     image = models.ImageField(upload_to='products/')
+    info=models.CharField(max_length=2000)
+    seller=models.CharField(max_length=100)
     sizes = models.ManyToManyField(Size)
     colors = models.ManyToManyField(Color)
     

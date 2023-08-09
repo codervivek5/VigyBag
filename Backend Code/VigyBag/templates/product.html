@@ -6,23 +6,24 @@
 <div class="container">
     <div class="text-center mt-5 d-flex">
           <div  style="position: relative; display: inline-block; margin-right:1.8cm;">
-            <img style="width:70%;" src="{% static 'products/Headphones-VigyBag.webp' %}" alt="Example Image">
+            <img style="width:70%;" src="{{ product.image.url }}" alt="Product Image">
             <button style="position: absolute; top: 10px; right: 10px;"><i class="fas fa-share-square"></i></button>
            </div>
           <div>
-            <h2 style="text-align: left;margin-left:5px;">Headphones</h2>
-            <p style="text-align: left;font-size:17px;margin-left:5px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi quos porro dolor sit amet consectetur error ad, ea at ipsum eveniet consequuntur</p>
-            <div style="border: 1px solid black; display: flex; align-items: center; padding: 10px; width:5cm;">
-                <span style="margin-right: 10px;">4.5 &#9733;</span>
+            <h2 style="text-align: left;margin-left:5px;">{{product.name}}</h2>
+            <p style="text-align: left;font-size:17px;margin-left:5px;">{{product.info}}</p>
+             <div style="border: 1px solid black; display: flex; align-items: center; padding: 20px; width:6cm;">
+                <span style="margin-right: 10px;">{{product.stars}} &#9733;</span>
                 <div style="border-left: 1px solid black; padding-left: 10px;margin-bottom:5px">
-                   800  Ratings
-                </div>
+                   {{product.rating}}  Ratings
+                </div> 
+                
             </div>
             <hr style="border-color: black;margin-top:20px;">
             <div>
                 <div style="display: flex; align-items: baseline;">
-                    <h4 style="margin-right: 10px;">Rs. 1500</h4>
-                    <span style="font-size: 18px;">MRP <del>Rs. 2000</del> (Rs. 500 OFF)</span>
+                    <h4 style="margin-right: 10px;">Rs. {{product.sellingprice}}</h4>
+                    <span style="font-size: 18px;">MRP <del>Rs. {{product.MRP}}</del> (Rs. {{discount}} OFF)</span>
                 </div>
                 <div style="text-align: left;" >
                     <span style="font-size:15px; color:green;">inclusive of all taxes</span>
@@ -31,13 +32,24 @@
                     <h6 style="margin-bottom:11px;">COLOR OPTIONS</h6>
                     <button type="button" style="margin-right: 10px;width:2cm">White</button>
                     <button type="button" style="width:2cm">Blue</button>
-                </div>
-                <div style="text-align: left;margin-top:24px;margin-bottom:20px">
-                    <h6 style="margin-bottom:11px;">SELECT SIZE</h6>
-                    <button type="button" style="border: 2px solid black; border-radius: 10px; width: 110px; height:45px;padding:8px;">
-                        One Size 
-                    </button>
                 </div> 
+                {% comment %} {% if colors %}
+                <div style="text-align: left;margin-top:24px;margin-bottom:20px">
+                <h6 style="margin-bottom:11px;">COLOR OPTIONS</h6>
+                    {% for color in colors %}
+                    <button class="text-center" type="button" style="border: 2px solid black; border-radius: 10px; width: 90px; height:38px;padding:8px;">{{ color }} </button>
+                    {% endfor %}
+                </div>
+                {% endif %} {% endcomment %}
+            
+                <div style="text-align: left;margin-top:24px;margin-bottom:20px">
+                    {% if sizes %}
+                    <h6 style="margin-bottom:11px;">SELECT SIZE</h6>
+                        {% for size in sizes %}
+                        <button class="text-center" type="button" style="border: 2px solid black; border-radius: 10px; width: 90px;padding:8px;">{{ size }} </button>
+                        {% endfor %}
+                    {% endif %}
+                </div>
                 <div class="d-flex" style="margin-top:40px;">
                     <button type="button" class="btn btn-dark p-3" style="margin-right:0.5cm;width:6.3cm;" >🛍️ Add to Bag</button>
                     <button type="button" class="btn ml-2 border-dark p-3" style="width:6.3cm" >💗 Wishlist</button><br>  
@@ -47,10 +59,10 @@
             </div>
             <hr style="border-color: black;">
             <div style="text-align:left;">
-              <h6 style="display: inline;">Seller: </h6>abc
+              <h6 style="display: inline;">Seller: </h6>{{product.seller}}
             </div>
             <div style="text-align:left;">
-               <h6 style="display: inline;">Location: </h6>xyz
+               <h6 style="display: inline;">Location: </h6>{{product.location}}
             </div>
             <hr style="border-color: black;">   
           </div>
