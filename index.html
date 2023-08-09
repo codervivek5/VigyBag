@@ -1254,6 +1254,18 @@
       if (commandData && commandData.command === 'openURL') {
                     if (commandData.target === '_blank'){
                       window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+    <!-- <a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a> -->
+
+    <a id="backToTopBtn" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
+
+    <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+    <script>
+        var alanBtnInstance = alanBtn({
+            key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+            onCommand: function (commandData) {
+                if (commandData && commandData.command === 'openURL') {
+                    if (commandData.target === '_blank') {
+                        window.open(commandData.url, '_newtab' + Math.floor(Math.random() * 999999));
                     } else {
                         window.location.href = commandData.url;
                     }
