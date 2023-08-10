@@ -87,9 +87,9 @@
                 <div style="text-align:left;">
                     <h6 style="display: inline;margin-right:7px;">PRODUCT DETAILS</h6><i class="fas fa-info-circle"></i>
                     <h6 style="margin-top:13px;">Features:</h6>
-                    <p style="word-break: break-all; width:13cm;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum recusandae, rem repellendus dolores eum totam temporibus vel esse aliquam id odio consectetur deserunt sunt, adipisci veniam ab doloremque. Officiis sapiente ipsam facilis accusantium porro nihil dolorum, sed animi, impedit veniam rem asperiores deserunt error repellendus temporibus. Beatae eaque cum necessitatibus fuga, totam sed perferendis, aut provident id, quasi ea hic nam adipisci sequi laborum quam dolore cupiditate ut facilis? Illum quod repellendus hic ipsa iste?
-                    <h6 style="margin-top:12px;">Speciality:</h6>
-                    <p style="word-break: break-all; width:13cm;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed aut, explicabo cupiditate ipsa totam fuga rerum ut sit maiores nulla placeat, magnam, veniam odio non?</p>
+                    <p style="word-break: break-all; width:13cm;">{{product.features|safe}}</p>
+                    <h6 style="margin-top:12px;">Specifiactions:</h6>
+                    <p style="word-break: break-all; width:13cm;">{{product.specifiactions|safe}}</p>
                     </p>
                 </div> 
                 <hr style="border-color:black;"> 
@@ -101,7 +101,7 @@
                     <div style="display: flex; align-items: stretch;">
                         <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; width: 40%;">
                             <div style="display: flex; align-items: center;">
-                                <p style="font-size: 50px; font-weight: 500; margin-right: 8px; margin-bottom: 0;">4.5</p>
+                                <p style="font-size: 50px; font-weight: 500; margin-right: 8px; margin-bottom: 0;">{{product.stars}}</p>
                                 <p style="font-size: 30px; font-weight: 500; color: green; margin: 0;">&#9733;</p>
                             </div>
                             <p style="font-size: 15px; color: green; margin-top:0px;margin-left:0px;">Verified Buyers</p>
