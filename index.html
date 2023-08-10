@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- custome css links -->
-    <link rel="stylesheet" href="style.css">  <!-- global css -->
+    <link rel="stylesheet" href="style.css"> <!-- global css -->
     <link rel="stylesheet" href="./Pages/review/review.css">
     <link rel="stylesheet" href="./cart/css/style.css">
     <link rel="stylesheet"
@@ -61,7 +61,7 @@
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    
+
 </head>
 
 
@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Food & 
+                    <a href=""> Food &
                         Beverages</a>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 <div class="product-name">
-                    <a href=""> Beauty & 
+                    <a href=""> Beauty &
                         Wellness</a>
                 </div>
             </div>
@@ -617,7 +617,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
     <div class="see-more-text">
         <a href="see_more/see_more.html">
@@ -714,8 +714,9 @@
                 <div class="btn-product">
                     <button>Buy</button>
                     <button class="js-cd-add-to-cart">Add to cart</button>
-                    <p style="font-size: .7em">Get 70% OFF by using coupan <span style="font-family: monospace; font-family: 600;">CODERVIVEK</span></p>
-                   
+                    <p style="font-size: .7em">Get 70% OFF by using coupan <span
+                            style="font-family: monospace; font-family: 600;">CODERVIVEK</span></p>
+
                 </div>
 
             </div>
@@ -724,7 +725,7 @@
     </div>
     <!-- pop up ends -->
 
-   
+
     <!-- ---------------------review section -------------------- -->
     <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120">
         <div class="container" id="testimonial-container" style="margin-bottom: 15vh;">
@@ -1057,12 +1058,12 @@
     <!--   Chat bot   -->
     <div class="alan-btn"></div>
     <style>
-        .alanBtn-root{
+        .alanBtn-root {
             /* bottom:20px !important; */
-            right:46px !important;
-            bottom:80px !important;
+            right: 46px !important;
+            bottom: 80px !important;
         }
-</style>    
+    </style>
     <!-- <button class="chatbot__button">
         <span class="material-symbols-outlined">mode_comment</span>
         <span class="material-symbols-outlined">close</span>
@@ -1089,31 +1090,47 @@
     <!--  chat bot finish  -->
     <!-- go to top -->
     <a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
-    <script type="text/javascript"
- src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
-<script>
-  var alanBtnInstance = alanBtn({
-    key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
-    onCommand: function (commandData) {
-      if (commandData && commandData.command === 'openURL') {
-                    if (commandData.target === '_blank'){
-                      window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
+    <style>
+        .hide-scroll-button .go-top {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+    <script>
+        var alanBtnInstance = alanBtn({
+            key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+            onCommand: function (commandData) {
+                if (commandData && commandData.command === 'openURL') {
+                    if (commandData.target === '_blank') {
+                        window.open(commandData.url, '_newtab' + Math.floor(Math.random() * 999999));
                     } else {
-                      window.location.href = commandData.url;
+                        window.location.href = commandData.url;
                     }
-                  }
-                
+                }
+
             },
-            
-    rootEl: document.getElementById("alan-btn"),
-  });
-</script>
+
+            rootEl: document.getElementById("alan-btn"),
+        });
+    </script>
+    <script>
+        const scrollButton = document.querySelector(".go-top");
+
+        // Show the button when the user scrolls
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollButton.style.display = "block";
+            } else {
+                scrollButton.style.display = "none";
+            }
+        });
+    </script>
     <script src="./chatBot/script.js"></script>
     <script src="./cart/js/util.js"></script>
     <script src="./cart/js/main.js"></script>
     <script src="./Pages/review/review.js"></script>
 
-     <!-- script for Testimonials slider -->
+    <!-- script for Testimonials slider -->
     <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery-2.2.4.min.js"></script>
     <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery.magnific-popup.js"></script>
     <script src="https://htmlcss3tutorials.com/demo/testimonials/js/wow.min.js"></script>
