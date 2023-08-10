@@ -14,37 +14,10 @@ const stars = document.querySelectorAll(".items-star i");
 const copyright = document.querySelector("#copyright p span");
 
 // Dark Mode button Function
-// const checkbox = document.getElementById("checkbox");
-// //const darkmode= localStorage.getItem("change");
-// checkbox.addEventListener("change", () =>{
-//   document.body.classList.toggle("dark");
-
-// });
-//adding dark mode to local storage for saving it so it will not reset
 const checkbox = document.getElementById("checkbox");
-const storedValue = localStorage.getItem("darkmode"); // Get the stored value from local storage (if any)
-
-// If the storedValue is not null, set the initial state of the checkbox
-if (storedValue !== null) {
-  checkbox.checked = storedValue === "true"; // Convert the stored value back to a boolean
-}
-
-// Function to toggle dark mode class
-function toggleDarkMode() {
-  const isDarkMode = checkbox.checked;
-  document.body.classList.toggle("dark", isDarkMode);
-  // Store the current state in local storage
-  localStorage.setItem("darkmode", isDarkMode);
-}
-
-// Apply the initial state of dark mode
-toggleDarkMode();
-
-// Add event listener to handle changes in the checkbox
-checkbox.addEventListener("change", toggleDarkMode);
-
-
-
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});
 burgerIcon.addEventListener("click", () => {
   console.log("Hello");
   burgerIcon.classList.toggle("fa-bars");
@@ -167,8 +140,6 @@ window.onclick = function (event) {
   }
 };
 
-
-
 // Search functionality -\
 function searchProduct() {
   const searchInput = document.getElementById("search");
@@ -232,24 +203,3 @@ function searchProduct() {
       link.style.display = "block";
     });
   }
-
-
-  // Scroll to top button JS
-
-  const backToTopBtn = document.getElementById('backToTopBtn');
-
-  function toggleBackToTopButton() {
-    if (document.documentElement.scrollTop > 0) {
-      backToTopBtn.style.display = 'block';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
-  }
-  function scrollToTop() {
-    document.documentElement.scrollTop = 0;
-  }
-  
-  window.addEventListener('scroll', toggleBackToTopButton);
-  
-  // Initially, call the toggle function to set the initial state of the button
-  toggleBackToTopButton();
