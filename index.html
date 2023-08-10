@@ -53,6 +53,14 @@
         content="Don't leave home without VigyBag! Say goodbye to the stress and hassle of shopping, and hello to the convenience and excitement of VigyBag. Get ready to shop smarter, not harder" />
     <meta property="twitter:image" content="" />
 
+    <!-- CSS for Testimonials slider -->
+    <link rel="stylesheet" href="https://htmlcss3tutorials.com/demo/testimonials/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://htmlcss3tutorials.com/demo/testimonials/css/slick.css">
+    <link rel="stylesheet" href="https://htmlcss3tutorials.com/demo/testimonials/css/animated-slider.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     
 </head>
 
@@ -716,122 +724,125 @@
     </div>
     <!-- pop up ends -->
 
+   
     <!-- ---------------------review section -------------------- -->
-    <div class="review-container">
-        <div class="testimonials-wrapper">
-            <div class="testimonials-header">
-                <h3>Our Customers</h3>
-                <h1>Testimonial</h1>
-            </div>
-            <div class="testimonials">
-                <div class="slider">
-                    <div class="slide">
-                        <div class="slide-bg"></div>
-                        <div class="slide-content">
-                            <i class="fa-solid fa-quote-left"></i>
-                            <i class="fa-solid fa-quote-right"></i>
-                            <div class="slide-img">
-                                <img src="img/client1.webp" />
-                            </div>
-                            <div class="slide-text">
-                                <h3>Wonderful Product</h3>
-                                <p>
-                                    The quality is good.
-                                    Value for money.
-                                </p>
-                                <p class="client">- Bob Smith</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-bg"></div>
-                        <div class="slide-content">
-                            <i class="fa-solid fa-quote-left"></i>
-                            <i class="fa-solid fa-quote-right"></i>
-                            <div class="slide-img">
-                                <img src="img/client2.webp" />
-                            </div>
-                            <div class="slide-text">
-                                <h3>Awesome Product</h3>
-                                <p>
-                                    Good quality, little bigger the end of the neck band because of a bigger
-                                    battery. Sound and noise cancelation better than previous model. Ear
-                                    tips smaller and lighter, for me hold really good even running, better
-                                    bass and treble.
-
-                                </p>
-                                <p class="client">- Mary Brown</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-bg"></div>
-                        <div class="slide-content">
-                            <i class="fa-solid fa-quote-left"></i>
-                            <i class="fa-solid fa-quote-right"></i>
-                            <div class="slide-img">
-                                <img src="img/client3.webp" />
-                            </div>
-                            <div class="slide-text">
-                                <h3>Very Useful Product</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                    Maxime praesentium sit natus reprehenderit quibusdam ut
-                                    voluptas consectetur commodi fugiat fugit.
-                                </p>
-                                <p class="client">- Nick Jones</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-bg"></div>
-                        <div class="slide-content">
-                            <i class="fa-solid fa-quote-left"></i>
-                            <i class="fa-solid fa-quote-right"></i>
-                            <div class="slide-img">
-                                <img src="img/client4.webp" />
-                            </div>
-                            <div class="slide-text">
-                                <h3>Wonderful Product</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                    Maxime praesentium sit natus reprehenderit quibusdam ut
-                                    voluptas consectetur commodi fugiat fugit.
-                                </p>
-                                <p class="client">- Ann Brown</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-bg"></div>
-                        <div class="slide-content">
-                            <i class="fa-solid fa-quote-left"></i>
-                            <i class="fa-solid fa-quote-right"></i>
-                            <div class="slide-img">
-                                <img src="img/client4.webp" />
-                            </div>
-                            <div class="slide-text">
-                                <h3>Wonderful Product</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                    Maxime praesentium sit natus reprehenderit quibusdam ut
-                                    voluptas consectetur commodi fugiat fugit.
-                                </p>
-                                <p class="client">- John Smith</p>
-                            </div>
-                        </div>
+    <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120">
+        <div class="container" id="testimonial-container" style="margin-bottom: 15vh;">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-6 pd-xl-5 order-lg-12 align-self-center ">
+                    <div class="section-title style-two mb-0">
+                        <h2 class="title" style="color: azure;">What Our <span>Customers Say?</span></h2>
                     </div>
                 </div>
-            </div>
-            <div class="controls">
-                <i class="fa-solid fa-arrow-left"></i>
-                <i class="fa-solid fa-arrow-right"></i>
-                <div class="dots">
-                    <span class="active"></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="sbs-testimonial-slider">
+                        <div class="choose_slider">
+                            <div class="choose_slider_items">
+                                <ul id="testimonial-slider">
+                                    <li class="current_item"
+                                        style="border-radius: 15px;  background:linear-gradient(135deg, #feffff ,#395c98 );">
+                                        <div class="media">
+                                            <img class="media-left" src="img/client1.webp" alt="client">
+                                            <div class="media-body">
+                                                <h6 style="color:blue;">Aryan Singh</h6>
+                                                <p class="designation" style="color: #700000;">Wonderful Product</p>
+                                                <div style="color:green;"> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            Maxime praesentium sit natus reprehenderit quibusdam ut
+                                            voluptas consectetur commodi fugiat fugit.</p>
+                                    </li>
+                                    <li class="current_item"
+                                        style="border-radius: 15px; background:linear-gradient(135deg, #feffff ,#395c98 );">
+                                        <div class="media">
+                                            <img class="media-left" src="img/client2.webp" alt="client">
+                                            <div class="media-body">
+                                                <h6 style="color:blue;">Ramjee Bharti</h6>
+                                                <p class="designation" style="color: #700000;">Wonderful Product</p>
+                                                <div style="color:green;"> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            Maxime praesentium sit natus reprehenderit quibusdam ut
+                                            voluptas consectetur commodi fugiat fugit.</p>
+                                    </li>
+                                    <li class="current_item"
+                                        style="border-radius: 15px;  background:linear-gradient(135deg, #feffff ,#395c98 );">
+                                        <div class="media">
+                                            <img class="media-left" src="img/client3.webp" alt="client">
+                                            <div class="media-body">
+                                                <h6 style="color:blue;">Satish Kumar</h6>
+                                                <p class="designation" style="color: #700000;">Wonderful Product</p>
+                                                <div style="color:green;"> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            Maxime praesentium sit natus reprehenderit quibusdam ut
+                                            voluptas consectetur commodi fugiat fugit.</p>
+                                    </li>
+                                    <li class="current_item"
+                                        style="border-radius: 15px;  background:linear-gradient(135deg, #feffff ,#395c98 );">
+                                        <div class="media">
+                                            <img class="media-left" src="img/client4.webp" alt="client">
+                                            <div class="media-body">
+                                                <h6 style="color:blue;">Rahul Singh</h6>
+                                                <p class="designation" style="color: #700000;">Wonderful Product</p>
+                                                <div style="color:green;"> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            Maxime praesentium sit natus reprehenderit quibusdam ut
+                                            voluptas consectetur commodi fugiat fugit.</p>
+                                    </li>
+                                    <li class="current_item"
+                                        style="border-radius: 15px;  background:linear-gradient(135deg, #feffff ,#395c98 );">
+                                        <div class="media">
+                                            <img class="media-left" src="img/client4.webp" alt="client">
+                                            <div class="media-body">
+                                                <h6 style="color:blue;"> Neha Singh</h6>
+                                                <p class="designation" style="color: #700000;">Wonderful Product</p>
+                                                <div style="color:green;"> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            Maxime praesentium sit natus reprehenderit quibusdam ut
+                                            voluptas consectetur commodi fugiat fugit.</p>
+                                    </li>
+                                    <li class="current_item"
+                                        style="border-radius: 15px; background:linear-gradient(135deg, #feffff ,#395c98 );">
+                                        <div class="media">
+                                            <img class="media-left" src="img/client4.webp" alt="client">
+                                            <div class="media-body">
+                                                <h6 style="color:blue;">Sneha Singh</h6>
+                                                <p class="designation" style="color: #700000;">Wonderful Product</p>
+                                                <div style="color:green;"> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                            Maxime praesentium sit natus reprehenderit quibusdam ut
+                                            voluptas consectetur commodi fugiat fugit.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sbs-arrowleft"><a id="btn_next" href="#"><i class="fa fa-long-arrow-left"></i></a>
+                        </div>
+                        <div class="sbs-arrowright"><a id="btn_prev" href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

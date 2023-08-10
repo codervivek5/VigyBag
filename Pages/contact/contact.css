@@ -176,3 +176,29 @@ body{
       padding: 10px;
   }
 }
+
+ /* go to top  */
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  bottom: 20px;
+  right: 42px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#backToTopBtn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 426px) {
+  #backToTopBtn{
+    right: 1rem;
+  }
+}
