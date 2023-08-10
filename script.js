@@ -155,7 +155,25 @@ var modalImg = document.getElementById("modalImage");
 
 ebBtn = function () {
   ebModal.style.display = "block";
+  const svgElement = icon.querySelector("#wishlist-svg");
+  svgElement.setAttribute("stroke", "red");
 };
+const wishlistStatus = {};
+
+function changeColor(event, itemId) {
+    event.stopPropagation();
+    wishlistStatus[itemId] = !wishlistStatus[itemId];
+    const wishlistButton = document.querySelector(`.wishlist-icon[data-item-id="${itemId}"]`);
+    if (wishlistButton) {
+        if (wishlistStatus[itemId]) {
+            wishlistButton.style.color = "red";
+            wishlistButton.querySelector("svg path").setAttribute("fill", "red");
+        } else {
+            wishlistButton.style.color = ""; 
+            wishlistButton.querySelector("svg path").removeAttribute("fill");
+        }
+    }
+}
 
 ebSpan.onclick = function () {
   ebModal.style.display = "none";
