@@ -6,7 +6,10 @@
 <div class="container">
     <div class="text-center mt-5 d-flex">
           <div  style="position: relative; display: inline-block; margin-right:1.8cm;">
-            <img style="width:70%;" src="{{ product.image.url }}" alt="Product Image">
+            <img style="width:70%;" src="{{ default_image }}" alt="Product Image">
+
+            {% comment %} <img style="width:70%;" src="{{ product.image.url }}" alt="Product Image">  {% endcomment %}
+            {% comment %} <img style="width:70%;" src="{{ default_image }}" alt="Product Image"> {% endcomment %}
             <button style="position: absolute; top: 10px; right: 10px;"><i class="fas fa-share-square"></i></button>
            </div>
           <div>
@@ -28,19 +31,19 @@
                 <div style="text-align: left;" >
                     <span style="font-size:15px; color:green;">inclusive of all taxes</span>
                 </div>
-                <div style="text-align: left;margin-top:24px;margin-bottom:20px">
+                {% comment %} <div style="text-align: left;margin-top:24px;margin-bottom:20px">
                     <h6 style="margin-bottom:11px;">COLOR OPTIONS</h6>
                     <button type="button" style="margin-right: 10px;width:2cm">White</button>
                     <button type="button" style="width:2cm">Blue</button>
-                </div> 
-                {% comment %} {% if colors %}
+                </div>  {% endcomment %}
+                 {% if colors %}
                 <div style="text-align: left;margin-top:24px;margin-bottom:20px">
                 <h6 style="margin-bottom:11px;">COLOR OPTIONS</h6>
                     {% for color in colors %}
-                    <button class="text-center" type="button" style="border: 2px solid black; border-radius: 10px; width: 90px; height:38px;padding:8px;">{{ color }} </button>
+                    <a href="#"><button class="text-center" type="button" style="border: 2px solid black; border-radius: 10px; width: 90px; height:38px;padding:8px;">{{ color }} </button><a>
                     {% endfor %}
                 </div>
-                {% endif %} {% endcomment %}
+                {% endif %} 
             
                 <div style="text-align: left;margin-top:24px;margin-bottom:20px">
                     {% if sizes %}
