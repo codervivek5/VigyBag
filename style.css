@@ -919,6 +919,7 @@ p {
   justify-content: center;
   color: #fff;
   padding: 0 0 1vh 0;
+  font-size: 15px;
 }
 
 #copyright p span {
@@ -931,7 +932,11 @@ p {
   justify-content: center;
   padding: 1vh 0;
 }
-
+/* Added Hovering Effect along with Transformation */
+.pay:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
 
 
 /* FAQ section css */
