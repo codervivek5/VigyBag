@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Color(models.Model):
@@ -24,6 +25,8 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/')
     info=models.CharField(max_length=2000)
     seller=models.CharField(max_length=100)
+    features=RichTextField(blank=True)
+    specifiactions=RichTextField(blank=True)
     sizes = models.ManyToManyField(Size)
     colors = models.ManyToManyField(Color)
     
