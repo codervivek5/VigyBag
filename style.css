@@ -53,7 +53,7 @@ button {
   font-family: sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: navy;
+  color: rgb(199, 215, 255);
   text-decoration: none;
 }
 
@@ -1077,6 +1077,11 @@ div.c a {
 .service h2 {
   font-weight: 600;
   margin-bottom: 8px;
+  color: #000000;
+}
+
+.service p{
+  color: #000000;
 }
 
 .service:hover {
