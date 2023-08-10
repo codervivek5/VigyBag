@@ -6,12 +6,12 @@
 <div class="container">
     <div class="text-center mt-5 d-flex">
           <div  style="position: relative; display: inline-block; margin-right:1.8cm;">
+            <div style="position: -webkit-sticky;position: sticky; top: 2.5cm;">
             <img style="width:70%;" src="{{ default_image }}" alt="Product Image">
-
-            {% comment %} <img style="width:70%;" src="{{ product.image.url }}" alt="Product Image">  {% endcomment %}
-            {% comment %} <img style="width:70%;" src="{{ default_image }}" alt="Product Image"> {% endcomment %}
-            <button style="position: absolute; top: 10px; right: 10px;"><i class="fas fa-share-square"></i></button>
-           </div>
+            {% comment %} <img id="productImg" style="width:70%;" src="{{ default_image }}" alt="Product Image"> {% endcomment %}
+           <button style="position: absolute; top: 10px; right: 10px;"><i class="fas fa-share-square"></i></button>
+            </div>
+           </div>  
           <div>
             <h2 style="text-align: left;margin-left:5px;">{{product.name}}</h2>
             <p style="text-align: left;font-size:17px;margin-left:5px;">{{product.info}}</p>
@@ -31,16 +31,20 @@
                 <div style="text-align: left;" >
                     <span style="font-size:15px; color:green;">inclusive of all taxes</span>
                 </div>
-                {% comment %} <div style="text-align: left;margin-top:24px;margin-bottom:20px">
+                {% comment %} {% if colors %}
+                <div style="text-align: left;margin-top:24px;margin-bottom:20px">
                     <h6 style="margin-bottom:11px;">COLOR OPTIONS</h6>
-                    <button type="button" style="margin-right: 10px;width:2cm">White</button>
-                    <button type="button" style="width:2cm">Blue</button>
-                </div>  {% endcomment %}
+                    {% for color in colors %}
+                    <button class="text-center" type="button" onclick="changeImage(this);" data-img-url="{{ color.image.url }}" style="border: 2px solid black; border-radius: 10px; width: 90px; height:38px;padding:8px;">{{ color.name }} </button>
+                    {% endfor %}
+                </div>
+                {% endif %} {% endcomment %}
+                
                  {% if colors %}
                 <div style="text-align: left;margin-top:24px;margin-bottom:20px">
                 <h6 style="margin-bottom:11px;">COLOR OPTIONS</h6>
                     {% for color in colors %}
-                    <a href="#"><button class="text-center" type="button" style="border: 2px solid black; border-radius: 10px; width: 90px; height:38px;padding:8px;">{{ color }} </button><a>
+                    <button class="text-center" type="button" style="border: 2px solid black; border-radius: 10px; width: 90px; height:38px;padding:8px;">{{ color }} </button>
                     {% endfor %}
                 </div>
                 {% endif %} 
@@ -67,8 +71,100 @@
             <div style="text-align:left;">
                <h6 style="display: inline;">Location: </h6>{{product.location}}
             </div>
-            <hr style="border-color: black;">   
-          </div>
-    </div>
+            <hr style="border-color: black;"> 
+                <div style="text-align:left;">
+                    <h6 style="display: inline;margin-right:7px;">DELIVERY OPTIONS</h6>
+                    <i class="fas fa-shipping-fast"></i>
+                    <br>
+                    <input style="border: 2px solid black;margin-top:17px;padding:8px;" type="text" placeholder="Enter Pincode"/>
+                    <p style="font-size:13px;margin-top:3px;">Please enter PIN code to check delivery time & Pay on Delivery Availability</p>
+                    <p style="margin-bottom:2px;">100% Original Products</p>
+                    <p style="margin-bottom:2px;">Pay on delivery might be available</p>
+                    <p style="margin-bottom:2px;">Easy 7 days exchanges</p>
+                    <p style="margin-bottom:10px;">This item is only exchangeable for the same or a different size, if available, and cannot be returned</p>
+                </div>
+                <hr style="border-color:black;"> 
+                <div style="text-align:left;">
+                    <h6 style="display: inline;margin-right:7px;">PRODUCT DETAILS</h6><i class="fas fa-info-circle"></i>
+                    <h6 style="margin-top:13px;">Features:</h6>
+                    <p style="word-break: break-all; width:13cm;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum recusandae, rem repellendus dolores eum totam temporibus vel esse aliquam id odio consectetur deserunt sunt, adipisci veniam ab doloremque. Officiis sapiente ipsam facilis accusantium porro nihil dolorum, sed animi, impedit veniam rem asperiores deserunt error repellendus temporibus. Beatae eaque cum necessitatibus fuga, totam sed perferendis, aut provident id, quasi ea hic nam adipisci sequi laborum quam dolore cupiditate ut facilis? Illum quod repellendus hic ipsa iste?
+                    <h6 style="margin-top:12px;">Speciality:</h6>
+                    <p style="word-break: break-all; width:13cm;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed aut, explicabo cupiditate ipsa totam fuga rerum ut sit maiores nulla placeat, magnam, veniam odio non?</p>
+                    </p>
+                </div> 
+                <hr style="border-color:black;"> 
+                <div style="text-align:left;">
+                    <i class="fas fa-star p-1" style="margin-right: 3px; position: relative; color: yellow; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+                        <i class="fas fa-star" style="position: absolute; left: -3px; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"></i>
+                    </i>
+                    <h6 style="display: inline;margin-right:7px;">RATINGS</h6>
+                    <div style="display: flex; align-items: stretch;">
+                        <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; width: 40%;">
+                            <div style="display: flex; align-items: center;">
+                                <p style="font-size: 50px; font-weight: 500; margin-right: 8px; margin-bottom: 0;">4.5</p>
+                                <p style="font-size: 30px; font-weight: 500; color: green; margin: 0;">&#9733;</p>
+                            </div>
+                            <p style="font-size: 15px; color: green; margin-top:0px;margin-left:0px;">Verified Buyers</p>
+                        </div>
+                        
+                        
+                        <div class="ratings-container" style="width: 250px; font-family: Arial, sans-serif;">
+                            <div class="rating-item" style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span>5 stars</span>
+                                <div class="rating-bar" style="flex-grow: 1; height: 10px; background-color: #e0e0e0; margin: 0 10px; position: relative;">
+                                    <div class="rating-fill" style="position: absolute; top: 0; left: 0; bottom: 0; background-color: #ff9900; width:80%;"></div>
+                                </div>
+                                <span>80%</span>
+                            </div>
+                            <div class="rating-item" style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span>4 stars</span>
+                                <div class="rating-bar" style="flex-grow: 1; height: 10px; background-color: #e0e0e0; margin: 0 10px; position: relative;">
+                                    <div class="rating-fill" style="position: absolute; top: 0; left: 0; bottom: 0; background-color: #ff9900; width:10%;"></div>
+                                </div>
+                                <span>10%</span>
+                            </div>
+                            <div class="rating-item" style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span>3 stars</span>
+                                <div class="rating-bar" style="flex-grow: 1; height: 10px; background-color: #e0e0e0; margin: 0 10px; position: relative;">
+                                    <div class="rating-fill" style="position: absolute; top: 0; left: 0; bottom: 0; background-color: #ff9900; width:5%;"></div>
+                                </div>
+                                <span>5%</span>
+                            </div>
+                            <div class="rating-item" style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span>2 stars</span>
+                                <div class="rating-bar" style="flex-grow: 1; height: 10px; background-color: #e0e0e0; margin: 0 10px; position: relative;">
+                                    <div class="rating-fill" style="position: absolute; top: 0; left: 0; bottom: 0; background-color: #ff9900; width:3%;"></div>
+                                </div>
+                                <span>3%</span>
+                            </div>
+                            <div class="rating-item" style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span>1 star</span>
+                                <div class="rating-bar" style="flex-grow: 1; height: 10px; background-color: #e0e0e0; margin: 0 10px; position: relative;">
+                                    <div class="rating-fill" style="position: absolute; top: 0; left: 0; bottom: 0; background-color: #ff9900; width:2%;"></div>
+                                </div>
+                                <span>2%</span>
+                            </div>
+                        </div>                        
+                    </div>   
+                </div> 
+                <hr style="border-color:black;">    
+                <div style="text-align:left;">
+                    <h6 style="display: inline;margin-right:7px;">CUSTOMER REVIEWS</h6>
+                    <h6 style="margin-top:13px;">Customer 1:</h6>
+                    <p style="word-break: break-all; width:13cm;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quae neque vero magnam reprehenderit totam necessitatibus illum minima, voluptate obcaecati est porro ipsam modi quos!</p>
+                    <h6 style="margin-top:13px;">Customer 2:</h6>
+                    <p style="word-break: break-all; width:13cm;">Lorem ipsum dolor sit amet consectetur adipisicing elitvoluptate obcaecati minus, sapiente.</p>
+                    <h6 style="margin-top:18px;color:green;">View all comments</h6>
+                </div>
+                <hr style="border-color:black;">
+            </div>      
+        </div>
+    </div> 
+   <script>
+        function changeImage(buttonElement) {
+        const imageUrl = buttonElement.getAttribute("data-img-url");
+        document.getElementById('productImg').src = imageUrl;
+        }
+    </script>
 </div>    
 {% endblock %}
