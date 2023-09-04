@@ -1,63 +1,65 @@
-body{
+body {
   background-color: rgba(79, 77, 77, 0.4);
- }
+}
 
- 
- .background{
+
+.background {
   width: 100%;
   height: 110vh;
-  background:url('https://res.cloudinary.com/dxxeks4o5/image/upload/v1691512117/viggo-danielsen-YhKi49Laoss-unsplash_txmr2h.jpg') no-repeat;
+  background: url('https://res.cloudinary.com/dxxeks4o5/image/upload/v1691512117/viggo-danielsen-YhKi49Laoss-unsplash_txmr2h.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   /* backdrop-filter: blur(20px); */
- }
- 
-.container-form{
+}
+
+.container-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 79%;
-  height: 520px;
-  background:url('https://res.cloudinary.com/dxxeks4o5/image/upload/v1691512117/viggo-danielsen-YhKi49Laoss-unsplash_txmr2h.jpg') no-repeat;
+  width: 100%;
+  background: url('https://res.cloudinary.com/dxxeks4o5/image/upload/v1691512117/viggo-danielsen-YhKi49Laoss-unsplash_txmr2h.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
   margin-top: 40px;
 }
 
-.container-form .content{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 58%;
+.container-form .content {
+  margin-top: 300px;
+  width: 50%;
   height: 100%;
   background: transparent;
   backdrop-filter: blur(2px);
-  padding: 80px;
+  padding: 40px;
   color: #e4e4ee;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  justify-content: center;
 }
 
-.content .logo img{
+.content .logo img {
   height: 40px;
   width: 120px;
   background: rgba(243, 241, 241, 0.3);
   backdrop-filter: blur(10px);
 }
 
-.text-sci h2{
+.text-sci h2 {
   font-size: 40px;
   line-height: 1;
 }
 
-.text-sci h2 span{
+.text-sci h2 span {
   font-size: 25px;
 }
 
-.text-sci p{
+.text-sci p {
   font-size: 16px;
   margin: 20px 0;
 }
@@ -69,19 +71,16 @@ body{
   transition: .5s ease;
 }
 
-.social-icons a:hover i{
+.social-icons a:hover i {
   transform: scale(1.2);
 }
 
-.container-form .logreg-box{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(100% - 58%);
+.container-form .logreg-box {
+  width: 50%;
   height: 100%;
 }
 
-.logreg-box .form-box{
+.logreg-box .form-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,12 +93,12 @@ body{
   color: #e4e4e4;
 }
 
-.form-box h2{
+.form-box h2 {
   font-size: 32px;
   text-align: center;
 }
 
-.form-box .input-box{
+.form-box .input-box {
   position: relative;
   width: 340px;
   height: 50px;
@@ -107,7 +106,7 @@ body{
   margin: 30px 0;
 }
 
-.input-box input{
+.input-box input {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -116,27 +115,27 @@ body{
   font-size: 16px;
   color: #e4e4e4;
   font-weight: 500;
-  padding-right:28px;
+  padding-right: 28px;
 }
 
 .input-box:nth-last-child(2) {
-  border-bottom: none; 
+  border-bottom: none;
 }
 
-.input-box textarea{
+.input-box textarea {
   width: 100%;
-  height:100px;
+  height: 100px;
   background: rgba(216, 206, 206, 0.3);
   border: none;
-  outline: none; 
-  border-bottom:none;
+  outline: none;
+  border-bottom: none;
   font-size: 16px;
   margin-top: 3px;
   padding: 6px;
   color: #e4e4e4;
 }
 
-.input-box label{
+.input-box label {
   position: absolute;
   top: 50%;
   left: 0;
@@ -148,11 +147,11 @@ body{
 }
 
 .input-box input:focus~label,
-.input-box input:valid~label{
-   top: -6px;
+.input-box input:valid~label {
+  top: -6px;
 }
 
-.btn{
+.btn {
   width: 100%;
   height: 45px;
   margin-top: 60px;
@@ -168,16 +167,16 @@ body{
 
 @media (max-width: 768px) {
   .container-form {
-      flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .content,
   .logreg-box {
-      padding: 10px;
+    padding: 10px;
   }
 }
 
- /* go to top  */
+/* go to top  */
 #backToTopBtn {
   display: none;
   position: fixed;
@@ -198,7 +197,7 @@ body{
 }
 
 @media (max-width: 426px) {
-  #backToTopBtn{
+  #backToTopBtn {
     right: 1rem;
   }
 }
