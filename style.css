@@ -341,10 +341,6 @@ body.dark {
 	font-size: 35px;
 }
 
-input#search{
-	height: 10px;
-}
-
 ::placeholder {
 	color: #575a89;
 }
