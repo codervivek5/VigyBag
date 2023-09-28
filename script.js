@@ -203,3 +203,12 @@ function searchProduct() {
       link.style.display = "block";
     });
   }
+
+  //left and right scroll on item cards div
+  function itemCardsLeftScroll(id) {
+    document.getElementsByClassName("item-cards-div")[id].scrollLeft -= 80;
+  }
+
+  function itemCardsRightScroll(id) {
+    document.getElementsByClassName("item-cards-div")[id].scrollLeft += 80;
+  }

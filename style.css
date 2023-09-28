@@ -550,10 +550,41 @@ body.dark {
 	font-weight: 700;
 }
 
+.item-row {
+	position: relative;
+}
+
 .item-cards-div {
 	display: flex;
-	margin: auto;
+	margin: auto 2.5rem;
 	width: 95%;
+	overflow: hidden;
+}
+
+.item-cards-scroll-btn {
+	position: absolute;
+	top: 60%;
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 24px;
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+}
+
+.item-cards-scroll-btn:hover{
+	opacity: 1;
+}
+
+.prev-btn {
+	left: 4rem;
+	z-index: 1;
+}
+
+.next-btn {
+	right: 4rem;
 }
 
 .item-card1 {
@@ -563,7 +594,7 @@ body.dark {
 
 .item-card {
 	padding: 1rem;
-	margin-left: 3em;
+	/* margin-left: 3em; */
 	width: 100%;
 	/* height: 423px; */
 	border-radius: 15px;
