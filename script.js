@@ -206,9 +206,11 @@ function searchProduct() {
 
   //left and right scroll on item cards div
   function itemCardsLeftScroll(id) {
-    document.getElementsByClassName("item-cards-div")[id].scrollLeft -= 80;
+    const cardWidth = document.getElementsByClassName("item-cards-div")[id].children[0].offsetWidth;
+    document.getElementsByClassName("item-cards-div")[id].scrollLeft -= 4 * cardWidth;
   }
 
   function itemCardsRightScroll(id) {
-    document.getElementsByClassName("item-cards-div")[id].scrollLeft += 80;
+    const cardWidth = document.getElementsByClassName("item-cards-div")[id].children[0].offsetWidth;
+    document.getElementsByClassName("item-cards-div")[id].scrollLeft += 4 * cardWidth;
   }
