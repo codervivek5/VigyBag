@@ -1029,11 +1029,25 @@ div.c a {
 }
 
 .row {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-gap: 30px;
-	/* background: rgba(91, 95, 177, 0.38); */
+	display: flex;
 	margin-bottom: 5vh;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.first-row{
+	display: flex;
+}
+
+.second-row{
+	display: flex;
+}
+
+@media screen and (max-width: 900px){
+	.row{
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .service {
@@ -1044,8 +1058,22 @@ div.c a {
 	cursor: pointer;
 	background: white;
 	transition: transform 0.5s, background 0.5s;
-	margin: 2em;
+	margin: 0.5rem;
 }
+
+@media screen and (max-width:380px){
+	.first-row{
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.second-row{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
 
 .service i {
 	font-size: 40px;
