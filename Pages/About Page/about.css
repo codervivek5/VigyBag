@@ -453,3 +453,291 @@ margin-top: 50px;
 }
 
 
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.about-us-web-8p9 {
+  box-sizing: border-box;
+  padding: 8rem 8rem 4rem 8rem;
+  width: 100%;
+  height: 244.6rem;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+}
+.about-us-web-8p9 .content-j3F {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.about-us-web-8p9 .content-j3F .heading-and-subheading-XtD {
+  margin: 0rem 28.45rem 10.4rem 28.45rem;
+  width: calc(100% - 56.9rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .heading-and-subheading-XtD .heading-pcR {
+  margin-bottom: 0.8rem;
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 600;
+  line-height: 1.375;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .heading-and-subheading-XtD .rectangle-45-tcH {
+  width: 100%;
+  height: 0.7rem;
+  background-color: #cfd4dc;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .content-pF3 {
+  width: 100%;
+  height: 66.8rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .content-pF3 .frame-828-xs3 {
+  box-sizing: border-box;
+  padding: 4.8rem 8.5rem 4.8rem 7.7rem;
+  width: 128rem;
+  height: 40.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./assets/rectangle-68.png');
+}
+.about-us-web-8p9 .content-j3F .content-pF3 .frame-828-xs3 .note-2M7 {
+  max-width: 111.8rem;
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1.0666666667;
+  color: #130606;
+  font-family: Inter, 'Source Sans Pro';
+}
+.about-us-web-8p9 .content-j3F .content-pF3 .item-52420220903-1-iDw {
+  width: 52.7rem;
+  height: 40.3rem;
+  position: absolute;
+  left: 37.6rem;
+  top: 26.5rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy {
+  box-sizing: border-box;
+  padding-top: 15.7rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .heading-and-subheading-Guf {
+  margin: 0rem 28.45rem 10.5rem 28.45rem;
+  width: calc(100% - 56.9rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .heading-and-subheading-Guf .heading-Nho {
+  margin-bottom: 0.8rem;
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 600;
+  line-height: 1.375;
+  color: #262626;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .heading-and-subheading-Guf .rectangle-45-gTb {
+  width: 100%;
+  height: 0.7rem;
+  background-color: #cfd4dc;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .worldmap-QuP {
+  margin: 0rem 0rem 16.401rem 0.059rem;
+  width: 102.4587rem;
+  height: 48.2987rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV {
+  margin-right: 0.4rem;
+  width: 127.6rem;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM {
+  margin-bottom: 3.2rem;
+  width: 88.7rem;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .heading-QY1 {
+  margin-bottom: 0.8rem;
+  font-size: 6.4rem;
+  font-weight: 600;
+  line-height: 1.375;
+  color: #262626;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .heading-QY1 .heading-QY1-sub-0 {
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .heading-QY1 .heading-QY1-sub-1 {
+  font-size: 6.4rem;
+  font-weight: 600;
+  line-height: 1.375;
+  color: #3ab7fd;
+  font-family: Inter, 'Source Sans Pro';
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .rectangle-45-gvm {
+  width: 100%;
+  height: 0.7rem;
+  background-color: #cfd4dc;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R {
+  box-sizing: border-box;
+  padding-bottom: 1.6rem;
+  width: 100%;
+  row-gap: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1336-7mB {
+  margin-right: 1.2rem;
+  width: calc(100% - 1.2rem);
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1336-7mB .quality-assurance-TKF {
+  margin-right: 16.3rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3333333333;
+  color: #262626;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1336-7mB .text-n6d {
+  max-width: 88.8rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  color: #5d5f61;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1337-6d7 {
+  margin-right: 6rem;
+  width: calc(100% - 6rem);
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1337-6d7 .trendsetting-collections-dsw {
+  margin-right: 9rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3333333333;
+  color: #262626;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1337-6d7 .text-yS1 {
+  max-width: 84rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  color: #5d5f61;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1339-6Fj {
+  margin-right: 2.1rem;
+  width: calc(100% - 2.1rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1339-6Fj .customer-centric-approach-pxR {
+  margin-right: 16.5rem;
+  max-width: 21.1rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3333333333;
+  color: #262626;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1339-6Fj .text-MBf {
+  max-width: 87.9rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  color: #5d5f61;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .frame-1338-UXB {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .frame-1338-UXB .secure-shopping--RhK {
+  margin-right: 17rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.3333333333;
+  color: #262626;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .frame-1338-UXB .text-A97 {
+  max-width: 90rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  color: #5d5f61;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
