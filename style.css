@@ -551,10 +551,41 @@ body.dark {
 	font-weight: 700;
 }
 
+.item-row {
+	position: relative;
+}
+
 .item-cards-div {
 	display: flex;
-	margin: auto;
+	margin: auto 2.5rem;
 	width: 95%;
+	overflow: hidden;
+}
+
+.item-cards-scroll-btn {
+	position: absolute;
+	top: 60%;
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 24px;
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+}
+
+.item-cards-scroll-btn:hover{
+	opacity: 1;
+}
+
+.prev-btn {
+	left: 4rem;
+	z-index: 1;
+}
+
+.next-btn {
+	right: 4rem;
 }
 
 .item-card1 {
@@ -564,8 +595,8 @@ body.dark {
 
 .item-card {
 	padding: 1rem;
-	margin-left: 3em;
-	width: 100%;
+	/* margin-left: 3em; */
+	min-width: 260px;
 	/* height: 423px; */
 	border-radius: 15px;
 	/* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
@@ -582,9 +613,9 @@ body.dark {
 }
 
 .item-image {
-	width: 260px;
-	height: 300px;
+	height: 230px;
 	background-color: #d9d9d9;
+	padding: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -592,6 +623,12 @@ body.dark {
 	border-top-right-radius: 15px;
 	position: relative;
 	cursor: pointer;
+}
+
+.item-image > img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 /* Added some Border to Wishlist SVG */
@@ -629,7 +666,6 @@ body.dark {
 }
 
 .item-description-2 {
-	width: 230px;
 	display: flex;
 	background-color: #9fa1c1;
 	border-bottom-left-radius: 15px;
