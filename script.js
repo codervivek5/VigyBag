@@ -203,3 +203,14 @@ function searchProduct() {
       link.style.display = "block";
     });
   }
+
+  //left and right scroll on item cards div
+  function itemCardsLeftScroll(id) {
+    const cardWidth = document.getElementsByClassName("item-cards-div")[id].children[0].offsetWidth;
+    document.getElementsByClassName("item-cards-div")[id].scrollLeft -= 4 * cardWidth;
+  }
+
+  function itemCardsRightScroll(id) {
+    const cardWidth = document.getElementsByClassName("item-cards-div")[id].children[0].offsetWidth;
+    document.getElementsByClassName("item-cards-div")[id].scrollLeft += 4 * cardWidth;
+  }
