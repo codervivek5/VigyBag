@@ -307,8 +307,9 @@ body.dark {
 .content {
 	display: flex;
 	flex-direction: column;
-	padding: 40px 50px 0px 50px;
-}
+	justify-content: center;
+	align-items: center;
+  }
 
 .content h1 {
 	font-size: 80px;
@@ -835,7 +836,6 @@ footer {
 	width: 100%;
 	background: linear-gradient(to right, #00093c, #2d0b00);
 	color: #ffff;
-	border-top-left-radius: 125px;
 	line-height: 20px;
 }
 
@@ -952,8 +952,10 @@ footer {
 	transform: scale(1.1);
 }
 
-#col2 p a:hover{
-	color: #46464a;
+/* ====================== SCROLL BAR ===================== */
+
+::-webkit-scrollbar {
+	width: 12px;
 }
 
 .quick-links-info div a:hover{
@@ -983,10 +985,6 @@ footer {
 	}
 
 }
-
-
-
-
 
 
 /* ====================== Copyright ===================== */
