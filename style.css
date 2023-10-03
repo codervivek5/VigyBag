@@ -290,8 +290,9 @@ body.dark {
 .content {
 	display: flex;
 	flex-direction: column;
-	padding: 40px 50px 0px 50px;
-}
+	justify-content: center;
+	align-items: center;
+  }
 
 .content h1 {
 	font-size: 80px;
@@ -879,6 +880,38 @@ p {
 .social-div img:hover {
 	transition: 0.5s ease-in-out;
 	transform: scale(1.1);
+}
+
+
+/** =================FOOTER RESPONSIVE ===================**/
+@media screen and (min-width: 320px) and (max-width: 768px){
+	.footer-container{
+		padding: 0;
+	}
+	.footer-container .footer-title{
+		margin-left: -5rem;
+	}
+	.footer-container .contact-info{
+		margin-left: -2rem;
+	}
+	.footer-container #frame{ 
+		width: 62%
+	}
+	.quick-links .footer-title{
+		margin-left: -6rem;
+		margin-top: -1rem;
+	}
+    .quick-links .quick-links-info{
+	   margin: 0 6rem 0 0;
+	   padding-bottom: -2rem; 
+	}
+	.social .footer-title{
+		margin-top: -1rem;
+	}
+	.social-container .social-div{
+		margin-top: -5rem;
+		margin-left: -3rem;
+	}
 }
 
 /* ====================== SCROLL BAR ===================== */
