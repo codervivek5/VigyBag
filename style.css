@@ -290,8 +290,9 @@ body.dark {
 .content {
 	display: flex;
 	flex-direction: column;
-	padding: 40px 50px 0px 50px;
-}
+	justify-content: center;
+	align-items: center;
+  }
 
 .content h1 {
 	font-size: 80px;
