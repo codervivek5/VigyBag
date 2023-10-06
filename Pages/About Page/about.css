@@ -499,7 +499,7 @@ body {
   font-size: 6.4rem;
   font-weight: 600;
   line-height: 1.375;
-  color: #000000;
+  color: rgb(241, 167, 30);
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
@@ -551,7 +551,7 @@ body {
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy {
   box-sizing: border-box;
-  padding-top: 15.7rem;
+  padding-top: 10.7rem;
   width: 100%;
   align-items: center;
   display: flex;
@@ -572,7 +572,7 @@ body {
   font-size: 6.4rem;
   font-weight: 600;
   line-height: 1.375;
-  color: #262626;
+  color:rgb(241, 167, 30);
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
@@ -612,6 +612,7 @@ body {
   align-items: baseline;
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .heading-QY1 .heading-QY1-sub-0 {
+  color:rgb(241, 167, 30);
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .heading-QY1 .heading-QY1-sub-1 {
   font-size: 6.4rem;
