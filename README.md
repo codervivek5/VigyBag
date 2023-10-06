@@ -1,6 +1,5 @@
-![logo (1)](https://res.cloudinary.com/dxxeks4o5/image/upload/v1696573304/logo_mklszb.png)
-
 <div align="center">
+![logo (1)](https://res.cloudinary.com/dxxeks4o5/image/upload/v1696576943/logo_mklszb_zzxb64.png)
 <h1>VigyBag</h1>
 </div>
 
@@ -26,13 +25,12 @@
 
  ## Table of Contents 📒
 
-- [Introduction](#introduction)
-- [Repository](#repo)
-- [Features](#features)
-- [TechStacks](#tech)
-- [Installation](#quickstart)
+- [Introduction 👋](#introduction)
+- [Repository 📒](#repo)
+- [Features ⭐](#features)
+- [TechStacks ⚙️](#tech)
 - [Contributing🤝](#contributing)
-- [Our Contributors](#contributors)
+- [Our Contributors ❤️](#contributors)
 <br>
 
 
@@ -226,3 +224,5 @@ Thank you for considering contributing to VigyBag. We look forward to your valua
 <div align="center">
 <h3>© 2022 Coder Vivek</h3>
 </div>
+
+<p align="right">(<a href="#top">Back to top</a>)</p>
