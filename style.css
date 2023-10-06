@@ -329,6 +329,7 @@ body.dark {
 	margin-top: 10px;
 	margin-bottom: 134px;
 	align-items: center;
+	height: auto;
 }
 
 .local input[type="search"] {
@@ -339,6 +340,10 @@ body.dark {
 	background-color: #d9d9d9;
 	text-align: center;
 	font-size: 35px;
+}
+
+input#search{
+	height: 10px;
 }
 
 ::placeholder {
