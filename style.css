@@ -290,8 +290,9 @@ body.dark {
 .content {
 	display: flex;
 	flex-direction: column;
-	padding: 40px 50px 0px 50px;
-}
+	justify-content: center;
+	align-items: center;
+  }
 
 .content h1 {
 	font-size: 80px;
@@ -551,10 +552,41 @@ body.dark {
 	font-weight: 700;
 }
 
+.item-row {
+	position: relative;
+}
+
 .item-cards-div {
 	display: flex;
-	margin: auto;
+	margin: auto 2.5rem;
 	width: 95%;
+	overflow: hidden;
+}
+
+.item-cards-scroll-btn {
+	position: absolute;
+	top: 60%;
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 24px;
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+}
+
+.item-cards-scroll-btn:hover{
+	opacity: 1;
+}
+
+.prev-btn {
+	left: 4rem;
+	z-index: 1;
+}
+
+.next-btn {
+	right: 4rem;
 }
 
 .item-card1 {
@@ -564,8 +596,8 @@ body.dark {
 
 .item-card {
 	padding: 1rem;
-	margin-left: 3em;
-	width: 100%;
+	/* margin-left: 3em; */
+	min-width: 260px;
 	/* height: 423px; */
 	border-radius: 15px;
 	/* box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02); */
@@ -582,9 +614,14 @@ body.dark {
 }
 
 .item-image {
+
 	width: 270px;
 	height: 300px;
+
+
+
 	background-color: #d9d9d9;
+	padding: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -592,6 +629,12 @@ body.dark {
 	border-top-right-radius: 15px;
 	position: relative;
 	cursor: pointer;
+}
+
+.item-image > img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 /* Added some Border to Wishlist SVG */
@@ -629,7 +672,10 @@ body.dark {
 }
 
 .item-description-2 {
+
 	width: 240px;
+
+
 	display: flex;
 	background-color: #9fa1c1;
 	border-bottom-left-radius: 15px;
@@ -846,6 +892,38 @@ p {
 	transform: scale(1.1);
 }
 
+
+/** =================FOOTER RESPONSIVE ===================**/
+@media screen and (min-width: 320px) and (max-width: 768px){
+	.footer-container{
+		padding: 0;
+	}
+	.footer-container .footer-title{
+		margin-left: -5rem;
+	}
+	.footer-container .contact-info{
+		margin-left: -2rem;
+	}
+	.footer-container #frame{ 
+		width: 62%
+	}
+	.quick-links .footer-title{
+		margin-left: -6rem;
+		margin-top: -1rem;
+	}
+    .quick-links .quick-links-info{
+	   margin: 0 6rem 0 0;
+	   padding-bottom: -2rem; 
+	}
+	.social .footer-title{
+		margin-top: -1rem;
+	}
+	.social-container .social-div{
+		margin-top: -5rem;
+		margin-left: -3rem;
+	}
+}
+
 /* ====================== SCROLL BAR ===================== */
 
 ::-webkit-scrollbar {
@@ -994,11 +1072,33 @@ div.c a {
 }
 
 .row {
+
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-gap: 30px;
 	/* background: rgba(91, 95, 177, 0.38); */
 	margin-bottom: 1vh;
+=======
+	display: flex;
+	margin-bottom: 5vh;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.first-row{
+	display: flex;
+}
+
+.second-row{
+	display: flex;
+}
+
+@media screen and (max-width: 900px){
+	.row{
+		display: flex;
+		flex-direction: column;
+	}
+
 }
 
 .service {
@@ -1009,8 +1109,22 @@ div.c a {
 	cursor: pointer;
 	background: white;
 	transition: transform 0.5s, background 0.5s;
-	margin: 2em;
+	margin: 0.5rem;
 }
+
+@media screen and (max-width:380px){
+	.first-row{
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.second-row{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
 
 .service i {
 	font-size: 40px;
