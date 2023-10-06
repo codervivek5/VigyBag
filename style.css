@@ -345,7 +345,6 @@ body.dark {
 	display: flex;
 	justify-content: center;
 	margin-top: 10px;
-	margin-bottom: 134px;
 	align-items: center;
 }
 
@@ -574,6 +573,8 @@ body.dark {
 	padding: 55px 0px 25px 52px;
 	font-size: 49px;
 	font-weight: 700;
+	position: relative;
+	top: -10%;
 }
 
 .item-row {
