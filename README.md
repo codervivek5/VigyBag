@@ -1,5 +1,7 @@
+<p align="center">
+  <img src="https://res.cloudinary.com/dxxeks4o5/image/upload/v1696576943/logo_mklszb_zzxb64.png" width="200" alt="Logo">
+</p>
 <div align="center">
-![logo (1)](https://res.cloudinary.com/dxxeks4o5/image/upload/v1696576943/logo_mklszb_zzxb64.png)
 <h1>VigyBag</h1>
 </div>
 
