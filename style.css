@@ -363,7 +363,7 @@ body.dark {
 /* product container */
 
 .product-container {
-	height: 32vh;
+	height: 27vh;
 	/* width: 100vw; */
 	padding-top: 20px;
 	background-color: #d9d9d9;
@@ -374,15 +374,15 @@ body.dark {
 
 .Accessories-box {
 	border-radius: 14px;
-	/* width: 170px; */
+	width: 130px;
 	height: 220px;
-	margin: 0 5em;
+	margin: 2em 5em 0 5em;
 	align-items: center;
 }
 
 .rectangle-42 {
 	box-sizing: border-box;
-	height: 138px;
+	height: 108px;
 	background: #d9d9d9;
 	border: 3px solid #161b6e;
 	border-radius: 25px;
