@@ -1,3 +1,5 @@
+![logo (1)](https://res.cloudinary.com/dxxeks4o5/image/upload/v1696573304/logo_mklszb.png)
+
 <div align="center">
 <h1>VigyBag</h1>
 </div>
@@ -21,7 +23,20 @@
  </p>
  </div>
 
-## 👋 Welcome
+
+ ## Table of Contents 📒
+
+- [Introduction](#introduction)
+- [Repository](#repo)
+- [Features](#features)
+- [TechStacks](#tech)
+- [Installation](#quickstart)
+- [Contributing🤝](#contributing)
+- [Our Contributors](#contributors)
+<br>
+
+
+## 👋 Welcome  <a name="introduction"></a>
 This website is a location-based platform that allows users to search for products and services based on their geographical location. The website uses GPS technology to pinpoint the user's location and then displays nearby stores or businesses that offer the products or services they are searching for. It allows users to compare prices and make purchases directly through the site, making it convenient for local shopping and finding location-specific items.
 
 <h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
@@ -29,18 +44,18 @@ This website is a location-based platform that allows users to search for produc
 ## 🖌️Design Preview
 ![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.webp)
 
-## 📌Repository
+## 📌Repository <a name="repo"></a>
 
 Are you tired of scrolling through endless online stores, only to find that they don't ship to your area? Look no further than VigyBag - the ultimate online shopping destination for those looking to shop local! With our location-based platform, you can easily find and buy products from your favorite nearby shops. Whether you're a city slicker or living off the beaten path, VigyBag makes shopping a breeze. Say goodbye to long drives to the mall and hello to stress-free, convenient shopping with VigyBag!
 
-## ✔Feature
+## ✔Feature  <a name="features"></a>
 - Search for products and services based on location
 - GPS technology to locate user's position
 - Displays nearby stores and businesses
 - Compare prices and make purchases directly through the website
 
 
-## 🔑Tech Stacks
+## 🔑Tech Stacks <a name="tech"></a>
 <!-- Skills : Python, HTML, CSS, JS, Java, Bootstrap, Android, Django, GPS technology -->
 Technologies Used :
 
@@ -64,7 +79,7 @@ Technologies Used :
 If you want to work on this unique project and share it with the world, you can do that here. Go through the contributing guidelines here.
 
     
-## :handshake: Contributing 
+## :handshake: Contributing  <a name="contributing"></a>
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&logo=git&logoColor=white)](https://github.com/hound77/jwoc-archive/pulls)  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/hound77/jwoc-archive)
 
@@ -179,7 +194,7 @@ later on...
 ## 🙂 Project Admin:
 ![62784060](https://user-images.githubusercontent.com/62784060/154093320-99598cbd-cce0-4dda-a9e5-38c947f088d5.jpg)
 
-## 😍 Our Contributors :
+## 😍 Our Contributors :  <a name="contributors"></a>
 
 <a href="https://github.com/codervivek5/VigyBag/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=codervivek5/VigyBag" />
