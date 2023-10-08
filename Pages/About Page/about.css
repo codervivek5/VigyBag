@@ -3,7 +3,8 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-family: "Nunito", sans-serif;
+  font-family:"Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
  
 }
 
@@ -456,10 +457,14 @@ margin-top: 50px;
 
 html {
 	font-size:62.5%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
 }
 * {
 	margin: 0;
 	padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
 }
 ul, li {
 	list-style: none;
@@ -500,7 +505,6 @@ body {
   font-weight: 600;
   line-height: 1.375;
   color: rgb(241, 167, 30);
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -572,8 +576,7 @@ body {
   font-size: 6.4rem;
   font-weight: 600;
   line-height: 1.375;
-  color:rgb(241, 167, 30);
-  font-family: Inter, 'Source Sans Pro';
+  color:white;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -619,7 +622,6 @@ body {
   font-weight: 600;
   line-height: 1.375;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1333-UeM .rectangle-45-gvm {
   width: 100%;
@@ -654,7 +656,6 @@ body {
   font-weight: 600;
   line-height: 1.3333333333;
   color: #262626;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -664,7 +665,6 @@ body {
   font-weight: 400;
   line-height: 1.3333333333;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1337-6d7 {
@@ -680,7 +680,6 @@ body {
   font-weight: 600;
   line-height: 1.3333333333;
   color: #262626;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -707,7 +706,6 @@ body {
   font-weight: 600;
   line-height: 1.3333333333;
   color: #262626;
-  font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .auto-group-xk47-C8R .frame-1339-6Fj .text-MBf {
@@ -716,7 +714,6 @@ body {
   font-weight: 400;
   line-height: 1.3333333333;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
 .about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .frame-1338-UXB {
@@ -731,7 +728,6 @@ body {
   font-weight: 600;
   line-height: 1.3333333333;
   color: #262626;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -741,6 +737,13 @@ body {
   font-weight: 400;
   line-height: 1.3333333333;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.about-us-web-8p9 .content-j3F .auto-group-rtqt-YCy .visionmission-8aV .frame-1332-EhP .frame-1338-UXB .text-A987 {
+  max-width: 801rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3333333333;
+  color: #ffffff;
   flex-shrink: 0;
 }
