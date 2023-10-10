@@ -1,6 +1,6 @@
 <html lang="en">
   <head>
-    <title style="color: brown">Log in | Sign up</title>
+    <title style="color: blue">Log in | Sign up</title>
     <meta name="author" content="imtiyaz" />
     <meta descryption content="Presentation of website" />
     <meta name="keywords" content="technology, cyber security, software" />
@@ -25,21 +25,39 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
   </head>
 
   <body>
+    <header>
+        <div class="header_container">
+            <a href="../../index.html"><img src="../../img/logo.webp" alt="brand logo"></a>
+            <nav class="nav_menu">
+                <ul class="nav_link">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../index.html">Services</a></li>
+                    <li><a href="../About Page/about.html">About us</a></li>
+                    <li><a href="../Team/team.html">Team</a></li>
+                    <li><a href="../contact/contact.html">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="nav_login">
+                <a href=""><button>Login</button></a>
+                <div class="burger-icon">ht
+                    <i class="fa-solid fa-bars" id='icon'></i>
+                </div>
+            </div>
+        </div>
+        <nav class="nav_menu2">
+            <ul class="nav_link2">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container" id="container">
       <div class="form-container sign-up-container">
         <form action="" id="signup_form">
           <div class="header">Sign Up</div>
-          <div class="social__media__container">
-            <a href="#" target="_blank" class="social codepen">
-              <i class="fa-brands fa-codepen"></i>
-            </a>
-            <a href="#" class="social google">
-              <i class="fa-brands fa-google"></i>
-            </a>
-            <a href="#" target="_blank" class="social instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-          </div>
+          
           <span class="under__social">
             <a href="#" class="link signin-link"
               >or use your email for registration
@@ -92,28 +110,17 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
 
       <div class="form-container sign-in-container">
         <form action="" id="signin_form">
-          <div class="header">Sign In</div>
-          <div class="social__media__container">
-            <a href="#" target="_blank" class="social codepen">
-              <i class="fa-brands fa-codepen"></i>
-            </a>
-            <a href="#" class="social google">
-              <i class="fa-brands fa-google"></i>
-            </a>
-            <a href="#" target="_blank" class="social instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
+          <h3 class="logo"><img src="../../img/login_logo.png" alt="brand logo"></h3>
+          <div class="text-sci">
+            <p>Enter mobile number</p>
           </div>
-          <span class="under__social">
-            <a href="#" class="link signup-link">or use your account</a>
-          </span>
-
+          
           <div class="button-input-group">
             <div class="group input-group">
               <input
                 type="email"
                 id="user_email"
-                placeholder="Email"
+                placeholder="+91 1234567890"
                 required
               />
             </div>
@@ -141,18 +148,13 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
       <div class="overlay-container">
         <div class="overlay">
           <div class="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>Please login your personal info</p>
-
+            <img src="svg-1.png" alt="svg" width="583" height="200">        
             <div class="group button-group">
               <button class="ghost" id="signIn">Sign in</button>
             </div>
           </div>
-
           <div class="overlay-panel overlay-right">
-            <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start your journey with us</p>
-
+            <img src="svg-1.png" alt="svg" width="583" height="200">       
             <div class="group button-group">
               <button class="ghost" id="signUp">Sign up</button>
             </div>
