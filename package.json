@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nishitbaria/VigyBag.git"
@@ -21,6 +21,26 @@
     "axios": "^1.5.1"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "eslint": "^8.51.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{html,css,less,ejs}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
