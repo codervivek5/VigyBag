@@ -1,5 +1,5 @@
 (function () {
-  // Add to Cart Interaction - by CodyHouse.co
+  // Add To Cart Interaction - by CodyHouse.co
   var cart = document.getElementsByClassName('js-cd-cart');
   if (cart.length > 0) {
     var cartAddBtns = document.getElementsByClassName('js-cd-add-to-cart'),
