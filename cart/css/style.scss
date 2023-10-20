@@ -3,104 +3,115 @@
 
 // --------------------------------
 
-// Add to Cart Interaction - by CodyHouse.co
+// Add To Cart Interaction - by CodyHouse.co
 
 // --------------------------------
 
 :root {
   // colors
-  @include defineColorHSL(--cd-color-1, 210, 31%, 24%);   // Pickled Bluewood
-  @include defineColorHSL(--cd-color-2, 204, 73%, 52%);   // Curious Blue
-  @include defineColorHSL(--cd-color-3, 0, 0%, 100%);     // White
-  @include defineColorHSL(--cd-color-4, 192, 15%, 94%);   // Porcelain
-  @include defineColorHSL(--cd-color-5, 7, 80%, 56%);     // Cinnabar
+  @include defineColorHSL(--cd-color-1, 210, 31%, 24%); // Pickled Bluewood
+  @include defineColorHSL(--cd-color-2, 204, 73%, 52%); // Curious Blue
+  @include defineColorHSL(--cd-color-3, 0, 0%, 100%); // White
+  @include defineColorHSL(--cd-color-4, 192, 15%, 94%); // Porcelain
+  @include defineColorHSL(--cd-color-5, 7, 80%, 56%); // Cinnabar
 
   // font
   --font-primary: 'Source Sans Pro', sans-serif;
 }
 
-.cd-cart::before { // dark bg layer visible when the cart is open
-	content: '';
-	position: fixed;
-	z-index: 1;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(#000, .5);
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity .4s, visibility .4s;
+.cd-cart::before {
+  // dark bg layer visible when the cart is open
+  content: '';
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(#000, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s,
+    visibility 0.4s;
 }
 
 .cd-cart--open::before {
-	opacity: 1;
-	visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .cd-cart__trigger,
 .cd-cart__content {
-	position: fixed;
-	bottom: 20px;
-	right: 5%;
-	transition: transform .2s;
-	// Force Hardware Acceleration in WebKit
-	transform: translateZ(0);
-	will-change: transform;
-	backface-visibility: hidden;
+  position: fixed;
+  bottom: 20px;
+  right: 5%;
+  transition: transform 0.2s;
+  // Force Hardware Acceleration in WebKit
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 
-	.cd-cart--empty & { // hide cart
-		transform: translateY(150px);
-	}
+  .cd-cart--empty & {
+    // hide cart
+    transform: translateY(150px);
+  }
 
-	@include breakpoint(lg) {
-		bottom: 40px;
-	}
+  @include breakpoint(lg) {
+    bottom: 40px;
+  }
 }
 
-.cd-cart__trigger { // button that triggers the cart content
-	z-index: 3;
-	height: 72px;
-	width: 72px;
+.cd-cart__trigger {
+  // button that triggers the cart content
+  z-index: 3;
+  height: 72px;
+  width: 72px;
   overflow: visible;
 
-	&::after, &::before { // used to create the cart/'X' icon
-		content: '';
-		position: absolute;
-		top: 50%;
+  &::after,
+  &::before {
+    // used to create the cart/'X' icon
+    content: '';
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
-		height: 100%;
-		width: 100%;
-		background: url(../img/cd-icons-cart-close.svg) no-repeat 0 0;
-		transition: opacity .2s, transform .2s;
-	}
+    height: 100%;
+    width: 100%;
+    background: url(../img/cd-icons-cart-close.svg) no-repeat 0 0;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
+  }
 
-	&::after { // 'X' icon
-		background-position: -72px 0;
-		opacity: 0;
-		transform: translateX(-50%) translateY(-50%) rotate(90deg);
-	}
+  &::after {
+    // 'X' icon
+    background-position: -72px 0;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  }
 
-	.cd-cart--open &::before {
-		opacity: 0;
-	}
+  .cd-cart--open &::before {
+    opacity: 0;
+  }
 
-	.cd-cart--open &::after {
-		opacity: 1;
-		transform: translateX(-50%) translateY(-50%);
-	}
+  .cd-cart--open &::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+  }
 
-	&:hover + .cd-cart__content .cd-cart__layout {
-		box-shadow: 0 6px 40px rgba(#000, .3);
-	}
+  &:hover + .cd-cart__content .cd-cart__layout {
+    box-shadow: 0 6px 40px rgba(#000, 0.3);
+  }
 
-	.cd-cart--open &:hover + .cd-cart__content .cd-cart__layout {
-		box-shadow: 0 4px 30px rgba(#000, .17);
-	}
+  .cd-cart--open &:hover + .cd-cart__content .cd-cart__layout {
+    box-shadow: 0 4px 30px rgba(#000, 0.17);
+  }
 }
 
-.cd-cart__count { // number of items indicator
+.cd-cart__count {
+  // number of items indicator
   position: absolute;
   top: -10px;
   right: -10px;
@@ -112,17 +123,18 @@
   font-weight: bold;
   border-radius: 50%;
   text-indent: 0;
-  transition: transform .2s .5s;
+  transition: transform 0.2s 0.5s;
   @include fontSmooth;
 
-  li { // this is the number of items in the cart
+  li {
+    // this is the number of items in the cart
     position: absolute;
     transform: translateZ(0);
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     animation-fill-mode: forwards;
-    animation-duration: .15s;
+    animation-duration: 0.15s;
 
     &:last-of-type {
       visibility: hidden;
@@ -139,21 +151,23 @@
 }
 
 .cd-cart--open .cd-cart__count {
-  transition: transform .2s 0s;
+  transition: transform 0.2s 0s;
   transform: scale(0);
 }
 
-.cd-cart--empty .cd-cart__count { // fix bug - when cart is empty, do not animate count
+.cd-cart--empty .cd-cart__count {
+  // fix bug - when cart is empty, do not animate count
   transform: scale(1);
 }
 
-.cd-cart__content { // cart content
-	z-index: 2;
-	width: 90%;
-	max-width: 440px;
-	height: 400px;
-	max-height: 90%;
-	pointer-events: none;
+.cd-cart__content {
+  // cart content
+  z-index: 2;
+  width: 90%;
+  max-width: 440px;
+  height: 400px;
+  max-height: 90%;
+  pointer-events: none;
 }
 
 .cd-cart__layout {
@@ -165,10 +179,13 @@
   height: 72px;
   width: 72px;
   border-radius: var(--radius);
-  transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
-  transition-timing-function: cubic-bezier(.67,.17,.32,.95);
+  transition:
+    height 0.4s 0.1s,
+    width 0.4s 0.1s,
+    box-shadow 0.3s;
+  transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
   background: var(--cd-color-3);
-  box-shadow: 0 4px 30px rgba(#000, .17);
+  box-shadow: 0 4px 30px rgba(#000, 0.17);
   pointer-events: auto;
   // children alignment
   display: flex;
@@ -181,13 +198,14 @@
   transition-delay: 0s;
 }
 
-.cd-cart__header, .cd-cart__body {
+.cd-cart__header,
+.cd-cart__body {
   opacity: 0;
-  padding-left: calc(var(--space-sm) *1.1);
-  padding-right: calc(var(--space-sm) *1.1);
+  padding-left: calc(var(--space-sm) * 1.1);
+  padding-right: calc(var(--space-sm) * 1.1);
 }
 
-.cd-cart--open .cd-cart__header, 
+.cd-cart--open .cd-cart__header,
 .cd-cart--open .cd-cart__body {
   opacity: 1;
 }
@@ -203,26 +221,28 @@
   height: 40px;
   line-height: 40px;
   background-color: var(--cd-color-3);
-  transition: opacity .2s 0s;
+  transition: opacity 0.2s 0s;
   border-bottom: 1px solid lightness(var(--cd-color-3), 0.9);
 
   h2 {
     text-transform: uppercase;
     display: inline-block;
-    font-size: calc(var(--text-xs)*1.1);
+    font-size: calc(var(--text-xs) * 1.1);
     font-weight: 700;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 }
 
 .cd-cart--open .cd-cart__header {
-  transition: opacity .2s .2s;
+  transition: opacity 0.2s 0.2s;
 }
 
 .cd-cart__undo {
   opacity: 0;
   visibility: hidden;
-  transition: opacity .2s, visibility .2s;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
   color: lightness(var(--cd-color-1), 1.2);
   font-size: var(--text-xs);
 
@@ -247,10 +267,10 @@
   padding-bottom: var(--space-sm);
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 
   ul {
-    position: relative; 
+    position: relative;
     padding-bottom: 60px; // make sure animation of last item is visible when it is removed from the cart
   }
 
@@ -263,23 +283,25 @@
 
 .cd-cart--open .cd-cart__body {
   transition: opacity 0s;
-  
+
   li {
-    transition: transform .3s .2s, opacity .3s .2s;
+    transition:
+      transform 0.3s 0.2s,
+      opacity 0.3s 0.2s;
     opacity: 1;
     transform: translateX(0);
 
     &:nth-of-type(2) {
-      transition-duration: .4s;
+      transition-duration: 0.4s;
     }
 
     &:nth-of-type(3) {
-      transition-duration: .5s;
+      transition-duration: 0.5s;
     }
 
     &:nth-of-type(4),
     &:nth-of-type(5) {
-      transition-duration: .55s;
+      transition-duration: 0.55s;
     }
   }
 }
@@ -288,7 +310,9 @@
   position: relative;
   opacity: 0;
   transform: translateX(80px);
-  transition: opacity 0s .2s, transform 0s .2s;
+  transition:
+    opacity 0s 0.2s,
+    transform 0s 0.2s;
   display: flex;
 
   &:not(:last-of-type) {
@@ -300,33 +324,35 @@
   }
 }
 
-.cd-cart__product--deleted { // this class is added to an item when it is removed form the cart
+.cd-cart__product--deleted {
+  // this class is added to an item when it is removed form the cart
   position: absolute;
   left: 0;
-  width: 100%; 
+  width: 100%;
   opacity: 0;
-  animation: cd-item-slide-out .3s forwards;
+  animation: cd-item-slide-out 0.3s forwards;
 }
 
-.cd-cart__product--deleted.cd-cart__product--undo { // used to reinsert an item deleted from the cart when user clicks 'Undo'
-  animation: cd-item-slide-in .3s forwards;
+.cd-cart__product--deleted.cd-cart__product--undo {
+  // used to reinsert an item deleted from the cart when user clicks 'Undo'
+  animation: cd-item-slide-in 0.3s forwards;
 }
 
 .cd-cart__product--deleted + .cd-cart__product {
-  animation: cd-item-move-up-mobile .3s;
+  animation: cd-item-move-up-mobile 0.3s;
   animation-fill-mode: forwards;
 
   @include breakpoint(md) {
-    animation: cd-item-move-up .3s;
+    animation: cd-item-move-up 0.3s;
   }
 }
 
 .cd-cart__product--undo + .cd-cart__product {
-  animation: cd-item-move-down-mobile .3s;
+  animation: cd-item-move-down-mobile 0.3s;
   animation-fill-mode: forwards;
 
   @include breakpoint(md) {
-    animation: cd-item-move-down .3s;
+    animation: cd-item-move-down 0.3s;
   }
 }
 
@@ -357,7 +383,7 @@
   h3 {
     font-weight: bold;
     width: 70%;
-    font-size: calc(var(--text-sm)*1.15);
+    font-size: calc(var(--text-sm) * 1.15);
 
     a {
       color: var(--cd-color-1);
@@ -372,19 +398,20 @@
 .cd-cart__price {
   width: 30%;
   text-align: right;
-  font-size: calc(var(--text-sm)*1.1);
+  font-size: calc(var(--text-sm) * 1.1);
   font-weight: bold;
 }
 
 .cd-cart__actions {
   display: flex;
-  font-size: calc(var(--text-xs)*1.1);
+  font-size: calc(var(--text-xs) * 1.1);
 }
 
-.cd-cart__delete-item, .cd-cart__quantity {
+.cd-cart__delete-item,
+.cd-cart__quantity {
   color: lightness(var(--cd-color-1), 1.2);
   backface-visibility: hidden;
-} 
+}
 
 .cd-cart__delete-item {
   margin-right: var(--space-sm);
@@ -418,11 +445,13 @@
     }
   }
 
-  select::-ms-expand { // hide default select arrow on IE
+  select::-ms-expand {
+    // hide default select arrow on IE
     display: none;
   }
 
-  .icon { // switcher arrow
+  .icon {
+    // switcher arrow
     position: absolute;
     z-index: 1;
     right: 0;
@@ -447,9 +476,9 @@
   bottom: 0;
   width: 100%;
   border-radius: 0 0 var(--radius) var(--radius);
-  box-shadow: 0 -2px 20px rgba(#000, .15);
+  box-shadow: 0 -2px 20px rgba(#000, 0.15);
   background: var(--cd-color-3);
-} 
+}
 
 .cd-cart__checkout {
   display: block;
@@ -462,7 +491,7 @@
   text-align: center;
   font-size: var(--text-md);
   font-weight: 600;
-  transition: all .2s 0s;
+  transition: all 0.2s 0s;
 
   &:hover {
     background: lightness(var(--cd-color-2), 1.08);
@@ -472,27 +501,30 @@
     position: relative;
     display: inline-block;
     transform: translateX(40px);
-    transition: transform 0s .2s;
+    transition: transform 0s 0.2s;
   }
 
-  .icon { // arrow icon
+  .icon {
+    // arrow icon
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
     opacity: 0;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
     color: currentColor;
   }
 }
 
 .cd-cart--open .cd-cart__checkout {
   color: var(--cd-color-3);
-  transition: color .2s .3s;
+  transition: color 0.2s 0.3s;
 
   em {
     transform: translateX(0);
-    transition: transform .2s .3s, padding .2s 0s;
+    transition:
+      transform 0.2s 0.3s,
+      padding 0.2s 0s;
   }
 
   &:hover em {
@@ -604,16 +636,16 @@ body {
   border-radius: 50em;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   text-decoration: none;
   font-size: var(--text-sm);
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .cd-add-to-cart {
   background: var(--cd-color-2);
   color: var(--cd-color-3);
-  box-shadow: 0 2px 10px rgba(#000, .2);
+  box-shadow: 0 2px 10px rgba(#000, 0.2);
   @include fontSmooth;
 
   &:hover {
@@ -621,7 +653,7 @@ body {
   }
 
   &:active {
-    transform: scale(.9);
+    transform: scale(0.9);
   }
 }
 
