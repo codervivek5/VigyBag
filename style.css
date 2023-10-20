@@ -479,6 +479,10 @@ body.dark {
 	padding: 1.5rem;
 }
 
+.play-button:hover{
+	cursor: pointer;
+}
+
 .google-button {
 	background-color: #0d268c;
 	border-radius: 20px;
