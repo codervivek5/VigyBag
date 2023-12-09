@@ -453,3 +453,32 @@ margin-top: 50px;
 }
 
 
+/* about us  section */
+.footer-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.contact-ph-number{
+  display: flex;
+}
+.contact-ph-number p{
+  align-items: center;
+  display:flex;
+}
+.contact img{
+  margin: 15px;
+}
+.footer-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.social-div{
+  display: flex;
+}
+.social-div div{
+  margin: 15px;
+}
