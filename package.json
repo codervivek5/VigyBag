@@ -2,7 +2,7 @@
   "name": "vigybag",
   "version": "1.0.0",
   "description": "<div align=\"center\">\r <h1>VigyBag</h1>\r </div>",
-  "main": "script.js",
+  "main": "./script/script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
