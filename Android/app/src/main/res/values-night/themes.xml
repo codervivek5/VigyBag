@@ -20,7 +20,7 @@
         <item name="android:minHeight">16dp</item>
         <item name="android:maxHeight">16dp</item>
     </style>
-    <style name="Theme.VigyBag" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="Theme.VigyBag" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Your application's Primary brand color. -->
         <item name="colorPrimary">@color/ColorPrimary</item>
         <item name="colorPrimaryVariant">@color/ColorPrimaryVariant</item>
@@ -31,8 +31,16 @@
         <item name="colorSecondaryVariant">@color/ColorPrimarySecondaryVariant</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <!--StatusBar Color and NavigationBar Color -->
-        <item name="android:statusBarColor">@color/ColorPrimary</item>
-        <item name="android:navigationBarColor">@color/ColorPrimary</item>
+        <!--StatusBar Color, NavigationBar and window Color -->
+        <item name="android:statusBarColor">@color/windowBackground</item>
+        <item name="android:navigationBarColor">@color/windowBackground</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+
+        <!-- Button Theme -->
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="materialIconButtonOutlinedStyle">@style/Widget.App.Button.OutlinedButton.Icon</item>
+
+        <!-- Card Theme -->
+        <item name="materialCardViewElevatedStyle">@style/Widget.App.CardView</item>
     </style>
 </resources>
