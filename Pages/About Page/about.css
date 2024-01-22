@@ -17,6 +17,10 @@ body {
     /* overflow-x: hidden; */
 }
 
+span{
+  color: #0382b0;
+}
+
 .orange {
   color: #FF7A01;
 }
