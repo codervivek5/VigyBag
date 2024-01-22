@@ -561,6 +561,7 @@ body.dark {
 
   .vigybag-image {
     width: 100%;
+    height: 100vh;
   }
 }
 
@@ -582,7 +583,7 @@ body.dark {
   font-size: 49px;
   font-weight: 700;
   position: relative;
-  top: -10%;
+  top: 10%;
 }
 
 .item-row {
@@ -649,7 +650,7 @@ body.dark {
 }
 
 .item-image {
-  height: 230px;
+  height: 150px;
   background-color: #d9d9d9;
   padding: 20px;
   display: flex;
@@ -694,6 +695,7 @@ body.dark {
 .item-description {
   display: flex;
   width: 100%;
+  height:90px ;
   justify-content: space-between;
   background-color: #9fa1c1;
   border-bottom-left-radius: 15px;
@@ -707,6 +709,8 @@ body.dark {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 18px 15px;
+  height:90px ;
+
 }
 
 .Lbtn {
@@ -764,6 +768,7 @@ body.dark {
   width: auto;
   display: flex;
 }
+
 
 p {
   font-size: 12px;
