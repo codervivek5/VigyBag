@@ -346,12 +346,12 @@ body.dark {
 .local {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: -20px;
   align-items: center;
 }
 
 .local input[type='search'] {
-  padding: 25px 130px;
+  padding: 15px 60px;
   border-radius: 40px;
   font-family: sans-serif;
   border: none;
@@ -384,7 +384,7 @@ body.dark {
   height: 27vh;
   /* width: 100vw; */
   padding-top: 20px;
-  background-color: #d9d9d9;
+  background-color: #575a89;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -402,8 +402,8 @@ body.dark {
   box-sizing: border-box;
   height: 108px;
   background: #d9d9d9;
-  border: 3px solid #161b6e;
-  border-radius: 25px;
+  border: 1px solid #8c8c8c;
+  border-radius:25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -561,6 +561,7 @@ body.dark {
 
   .vigybag-image {
     width: 100%;
+    height: 100vh;
   }
 }
 
@@ -569,16 +570,16 @@ body.dark {
 .items-container {
   height: 100%;
   width: 100%;
-  /* background-color: #575a89; */
+  background-color: #1284a7;
   font-family: Arial, Helvetica, sans-serif;
-  color: #161b6e;
+  color: #01212f;
 }
 
 .item-title {
   display: flex;
   justify-content: center;
   color: #e6e6e6;
-  padding: 55px 0px 25px 52px;
+  padding: 25px 20px;
   font-size: 49px;
   font-weight: 700;
   position: relative;
@@ -649,7 +650,7 @@ body.dark {
 }
 
 .item-image {
-  height: 230px;
+  height: 150px;
   background-color: #d9d9d9;
   padding: 20px;
   display: flex;
@@ -694,6 +695,7 @@ body.dark {
 .item-description {
   display: flex;
   width: 100%;
+  height:90px ;
   justify-content: space-between;
   background-color: #9fa1c1;
   border-bottom-left-radius: 15px;
@@ -707,6 +709,8 @@ body.dark {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 18px 15px;
+  height:90px ;
+
 }
 
 .Lbtn {
@@ -764,6 +768,7 @@ body.dark {
   width: auto;
   display: flex;
 }
+
 
 p {
   font-size: 12px;
