@@ -214,6 +214,7 @@ body {
 
 /* go to top  */
 #backToTopBtn {
+  border-radius: 1000% !important;
   display: none;
   position: fixed;
   z-index: 100;
