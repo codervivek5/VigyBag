@@ -120,7 +120,7 @@ copyright.addEventListener("click", function () {
   window.open("https://codervivek.live/", "_blank");
 });
 
-// Path: VigyBag/script.js
+// Path: VigyBag/script/script.js
 
 // Show Pop-Up
 // Get the modal

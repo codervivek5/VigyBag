@@ -2,10 +2,9 @@
   "name": "vigybag",
   "version": "1.0.0",
   "description": "<div align=\"center\">\r <h1>VigyBag</h1>\r </div>",
-  "main": "script.js",
+  "main": "./script/script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,10 +18,13 @@
   },
   "homepage": "https://github.com/Nishitbaria/VigyBag#readme",
   "dependencies": {
-    "axios": "^1.4.0"
+    "axios": "^1.6.7"
   },
   "devDependencies": {
-    "jest": "^29.6.2",
-    "prettier": "^3.0.1"
+    "eslint": "^8.56.0",
+    "husky": "^9.0.7",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4"
   }
 }
