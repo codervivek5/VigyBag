@@ -290,7 +290,7 @@ body.dark {
 .container {
   display: flex;
   font-family: sans-serif;
-
+  justify-content: space-around;
   padding-top: 60px;
 }
 
@@ -311,6 +311,7 @@ body.dark {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 40%;
 }
 
 .content h1 {
@@ -499,7 +500,7 @@ body.dark {
   z-index: 999;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px){
   .app-container {
     flex-direction: column;
     align-items: center;
@@ -521,6 +522,63 @@ body.dark {
   .app-info {
     width: 90%;
   }
+  
+  .content h1 {
+    font-size: 2.5rem;
+    color: #d9d9d9;
+  } 
+  .content{
+    width: auto;
+    padding-top: 120px;
+  }
+  .container {
+    display: flex;
+    font-family: sans-serif;
+    justify-content: space-around;
+    padding-top: 120px;
+    flex-wrap: wrap;
+  }
+
+.local input[type='search'] {
+  padding: 1.5rem 4rem;
+  border-radius: 40px;
+  font-family: sans-serif;
+  border: none;
+  background-color: #d9d9d9;
+  text-align: center;
+  font-size: 35px;
+}
+
+.product-container {
+  height: 50vh;
+  /* width: 100vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+}
+
+@media screen and (max-width: 1226px){
+  .container {
+    font-family: sans-serif;
+    padding-top: 120px;
+    flex-wrap: wrap;
+  }
+
+  .content{
+    width: auto;
+    padding-top: 120px;
+  }
+
+  .content h1 {
+    font-size: 5.5rem;
+    color: #d9d9d9;
+    width: auto;
+  } 
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -543,7 +601,21 @@ body.dark {
   .app-info {
     width: 60%;
   }
+
+  .product-container {
+    height: 50vh;
+    /* width: 100vw; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+
+
 }
+
+
 
 @media screen and (min-width: 1200px) {
   .device-box {
