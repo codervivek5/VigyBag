@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Nishitbaria/VigyBag#readme",
   "dependencies": {
-    "axios": "^1.6.7"
+    "axios": "^1.6.8"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
