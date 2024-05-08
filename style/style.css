@@ -291,7 +291,7 @@ body.dark {
   display: flex;
   font-family: sans-serif;
 
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 .container a {
@@ -309,8 +309,9 @@ body.dark {
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-left: 20px;
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .content h1 {
@@ -330,7 +331,8 @@ body.dark {
   color: #d9d9d9;
 }
 
-.content h4 span {
+.content h4 a {
+  display: inline;
   color: #f9a826;
 }
 
@@ -338,7 +340,7 @@ body.dark {
   width: 30%;
   margin: 40px 70px;
 
-  width: 100%;
+  width: 85%;
   margin: 40px 70px;
   margin-left: 0px;
 }
@@ -351,7 +353,7 @@ body.dark {
 }
 
 .local input[type='search'] {
-  padding: 25px 130px;
+  padding: 1rem 2rem;
   border-radius: 40px;
   font-family: sans-serif;
   border: none;
