@@ -383,9 +383,7 @@ body.dark {
 /* product container */
 
 .product-container {
-  height: 27vh;
-  /* width: 100vw; */
-  padding-top: 20px;
+ 
   background-color: #d9d9d9;
   display: flex;
   justify-content: center;
@@ -960,6 +958,16 @@ footer {
 .social-icons img:hover {
   transition: 0.5s ease-in-out;
   transform: scale(1.1);
+}
+
+.social a{
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: white;
+
 }
 
 /* ====================== SCROLL BAR ===================== */
