@@ -667,8 +667,109 @@ body.dark {
   object-fit: contain;
 }
 
+/* Media queries for small devices */
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .container img {
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+    margin: 2px 40px;
+  }
+ 
+  .container a {
+    font-size: 16px;
+  }
+
+  .content {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .content h1 {
+    font-size: 40px;
+  }
+
+  .content h4 {
+    font-size: 16px;
+    margin-top: 20px;
+    padding-right: 20px;
+  }
+
+ 
+
+  .local input[type='search'] {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  .Accessories-box {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .rectangle-42 {
+    height: 150px;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+  .container .sec-img{
+    max-width: 1000px;
+    }
+}
+
+/* Media queries for larger mobile devices and tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .content h1 {
+    font-size: 60px;
+  }
+
+  .content h4 {
+    font-size: 18px;
+  }
+  .container img {
+    width: 100%;
+    max-width: 70px;
+    height: auto;
+    margin: 20px 0;
+  }
+ .container .sec-img{
+  max-width: 1000px;
+  }
+  
+}
+
+
+
+/* Media queries for tablets and smaller laptops */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .content h1 {
+    font-size: 70px;
+  }
+
+  .content h4 {
+    font-size: 20px;
+  }
+  .container img {
+    width: 100%; 
+    max-width: 70px; 
+    height: auto; 
+    margin: 20px 0; 
+  }
+  .container .sec-img{
+    max-width: 1000px;
+  }
+}
+
 /* Added some Border to Wishlist SVG */
 .item-image .wishlist-icon {
+
   position: absolute;
   background-color: #d9d9d9;
   width: 26px;
