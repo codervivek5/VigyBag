@@ -46,8 +46,8 @@
 }
 
 .testimonial img{
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
 }
 
@@ -60,4 +60,11 @@
 .stars{
     color: #6ab04c;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width:800px) {
+    .col{
+        flex: 100%;
+        max-width: 80%;
+    }
 }
