@@ -40,6 +40,12 @@
     padding: 15px;
 }
 
+.col:hover {
+    transform: translateY(-5px); /* Move the element up by 5 pixels on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+}
+
+
 .testimonial{
     background-color: #fff;
     padding: 30px;
@@ -52,7 +58,7 @@
 }
 
 .name{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
     margin: 20px 0;
@@ -61,6 +67,9 @@
     color: #6ab04c;
     margin-bottom: 20px;
 }
+
+
+
 
 @media screen and (max-width:800px) {
     .col{
