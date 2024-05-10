@@ -35,33 +35,3 @@
 
 // JavaScript (script.js)
 
-// Function to toggle dark mode
-function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle("dark-mode");
-
-    // Toggle text content of the button
-    const darkModeToggleBtn = document.getElementById("darkModeToggle");
-    const isDarkMode = body.classList.contains("dark-mode");
-    darkModeToggleBtn.textContent = isDarkMode ? "Light Mode" : "Dark Mode";
-
-    // Save user preference to local storage
-    localStorage.setItem("darkMode", isDarkMode);
-}
-
-// Function to apply saved dark mode preference
-function applyDarkModePreference() {
-    const isDarkMode = localStorage.getItem("darkMode") === "true";
-    const body = document.body;
-    if (isDarkMode) {
-        body.classList.add("dark-mode");
-    } else {
-        body.classList.remove("dark-mode");
-    }
-}
-
-// Event listener for dark mode toggle button
-document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
-
-// Apply saved dark mode preference on page load
-document.addEventListener("DOMContentLoaded", applyDarkModePreference);

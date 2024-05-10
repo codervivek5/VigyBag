@@ -226,31 +226,4 @@
     height: 1.5rem;
     background-color: #fff;
   }*/
-  /* CSS (styles.css) */
-  /* Dark mode styles */
-  .dark-mode {
-      background-color: #333;
-      color: #fff;
-  }
-  
-  .dark-mode .testimonial {
-      background-color: #444;
-      border: 1px solid #666;
-  }
-  
-  .dark-mode .testimonial .name {
-      color: #ff7f50; /* Change color for name in dark mode */
-  }
-  
-  .dark-mode .testimonial .stars .fas {
-      color: #ff7f50; /* Change color of filled stars in dark mode */
-  }
-  
-  .dark-mode .testimonial .stars .far {
-      color: #ccc; /* Change color of empty stars in dark mode */
-  }
-  
-  .dark-mode .testimonial p {
-      opacity: 0.8; /* Reduce opacity of text in dark mode */
-  }
   
