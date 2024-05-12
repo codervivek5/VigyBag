@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:"Montserrat";
+}
+
+.testimonials{
+    padding: 40px 0;
+    background: #f1f1f1;
+    color: #434343;
+    text-align: center;
+}
+
+.inner{
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+
+}
+
+.border{
+    width: 160px;
+    height: 5px;
+    background:#6ab04c ;
+    margin: 26px auto;
+    border-radius: 100px;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.col{
+    flex: 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    padding: 25px;
+   
+    
+}
+
+
+
+.testimonial{
+    background-color: #c0c0d2;
+    padding: 20px;
+    
+    border-radius: 20px;
+    transition: transform 0.3s ease; box-shadow: 0.3s ease;
+    -webkit-box-shadow: 7px -2px 24.5px 0 #8a8afb;
+-moz-box-shadow: 7px -2px 24.5px 0 #8a8afb;
+box-shadow: 7px -2px 24.5px 0 #8a8afb;
+}
+
+.testimonial:hover{
+    transform: translateY(-10px); 
+-webkit-box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
+-moz-box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
+box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
+}
+.testimonial img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+
+.name{
+    font-size: 25px;
+    font-weight: 650;
+    text-transform: uppercase;
+    margin: 20px 0;
+    color: rgb(21, 21, 21);
+
+}
+.stars{
+    color: #6ab04c;
+    margin-bottom: 20px;
+}
+
+
+
+
+@media screen and (max-width:800px) {
+    .col{
+        flex: 100%;
+        max-width: 80%;
+    }
+}

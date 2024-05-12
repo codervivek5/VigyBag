@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="./Pages/review/review.css">
   <link rel="stylesheet" href="./cart/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
   <link rel="stylesheet"
@@ -25,7 +30,8 @@
   <link rel="stylesheet" href="./chatBot/style.css">
   <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+  <link rel="stylesheet" href="index.css">
+  
   <style>
     .alanBtn-root {
       /* bottom:20px !important; */
@@ -1113,27 +1119,27 @@
   <!-- pop up ends -->
 
   <!-- ---------------------review section -------------------- -->
-  <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120">
+ <!-- <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120"  >
     <div class="container" id="testimonial-container" style="margin-bottom: 15vh">
-      <div class="row justify-content-center">
-        <div class="col-xl-5 col-lg-6 pd-xl-5 order-lg-12 align-self-center">
+      <div class="row justify-content-center" >
+        <div class="col-xl-5 col-lg-6 pd-xl-5 order-lg-12 align-self-center" >
           <div class="section-title style-two mb-0">
             <h2 class="title" style="color: azure">
               What Our <span>Customers Say?</span>
             </h2>
           </div>
         </div>
-        <div class="col-lg-6 order-lg-1">
-          <div class="sbs-testimonial-slider">
-            <div class="choose_slider">
-              <div class="choose_slider_items">
-                <ul id="testimonial-slider">
+        <div class="col-lg-12">
+          <div class="sbs-testimonial-slider" >
+            <div class="choose_slider" >
+              <div class="choose_slider_items" >
+                <ul id="testimonial-slider" class="testimonial-horizontal-slider" >
                   <li class="current_item" style="
                         border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);
+                        background: linear-gradient(135deg, #feffff, #395c98);list-style: none;
                       ">
-                    <div class="media">
-                      <img class="media-left" src="img/client1.webp" alt="client" />
+                    <div class="media" style="height: 600px; width: 600px">
+                      <img class="media-left" src="img/client1.webp" alt="client" style="height: 400px; width:400px" />
                       <div class="media-body">
                         <h6 style="color: blue">Aryan Singh</h6>
                         <p class="designation" style="color: #700000">
@@ -1297,9 +1303,133 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- ----------------------review end----------------------------- -->
 
+
+  <!--NEW REVIEW SEC-->
+  
+   <div class="testimonials">
+    <div class="inner">
+      <h1 style="font-size: 45px;">What Do Our<span> Customers Say?</span></h1>
+      <div class="border"></div>
+
+      <div class="row">
+        <div class="col">
+          <div class="testimonial">
+            <img src="img/client1.webp" alt="client"/>
+            <div class="name">Aryan Singh</div>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur, 
+                adipisicing elit. Dolorum ducimus, a sequi 
+                possimus quae, recusandae sint ipsum odio aliquam.
+                adipisicing elit. Dolorum ducimus, a sequi 
+                possimus quae, recusandae sint ipsum odio aliquam.
+              </p>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="testimonial">
+              <img src="img/client2.webp" alt="client"/>
+              <div class="name">Ramjee Bharti</div>
+              <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+  
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, 
+                  adipisicing elit. Dolorum ducimus, a sequi 
+                  possimus quae, recusandae sint ipsum odio aliquam.
+                  adipisicing elit. Dolorum ducimus, a sequi 
+                  possimus quae, recusandae sint ipsum odio aliquam.
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="testimonial">
+                <img src="img/client3.webp" alt="client"/>
+                <div class="name">Rahul Singh</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+    
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, 
+                    adipisicing elit. Dolorum ducimus, a sequi 
+                    possimus quae, recusandae sint ipsum odio aliquam.
+                    adipisicing elit. Dolorum ducimus, a sequi 
+                    possimus quae, recusandae sint ipsum odio aliquam.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="testimonial">
+                  <img src="img/client4.webp" alt="client"/>
+                  <div class="name">Neha Singh</div>
+                  <div class="stars">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+      
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, 
+                      adipisicing elit. Dolorum ducimus, a sequi 
+                      possimus quae, recusandae sint ipsum odio aliquam.
+                      adipisicing elit. Dolorum ducimus, a sequi 
+                      possimus quae, recusandae sint ipsum odio aliquam.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="testimonial">
+                    <img src="img/client4.webp" alt="client"/>
+                    <div class="name">Sneha Singh</div>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+        
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur, 
+                        adipisicing elit. Dolorum ducimus, a sequi 
+                        possimus quae, recusandae sint ipsum odio aliquam.
+                        adipisicing elit. Dolorum ducimus, a sequi 
+                        possimus quae, recusandae sint ipsum odio aliquam.
+                      </p>
+                    </div>
+                  </div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+<!--REVIEW END-->
 
   <!-- app section -->
   <div class="app-container">
@@ -1547,7 +1677,7 @@
       display: none;
     }
   </style>
-  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></scrip>
   <script>
     var alanBtnInstance = alanBtn({
       key: '574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage',

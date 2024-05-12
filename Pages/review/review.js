@@ -32,3 +32,6 @@
 //   setIndex();
 //   dotsWrapper.children[slideIndex].classList.add("active");
 // });
+
+// JavaScript (script.js)
+
