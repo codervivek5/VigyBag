@@ -353,13 +353,19 @@ body.dark {
 }
 
 .local input[type='search'] {
-  padding: 1rem 2rem;
+  padding: 1rem 5rem 1rem 2rem;
   border-radius: 40px;
   font-family: sans-serif;
   border: none;
   background-color: #d9d9d9;
   text-align: center;
-  font-size: 35px;
+  font-size: 20px;
+}
+
+.local img {
+  width: 50px;
+  position: relative;
+  right: 80px;
 }
 
 ::placeholder {
@@ -374,11 +380,6 @@ body.dark {
   text-align: center;
 }
 
-.local img {
-  width: 60px;
-  position: relative;
-  right: 100px;
-}
 
 /* product container */
 
@@ -735,7 +736,7 @@ body.dark {
   }
   .container img {
     width: 100%;
-    max-width: 70px;
+    max-width: 40px;
     height: auto;
     margin: 20px 0;
   }
@@ -758,7 +759,7 @@ body.dark {
   }
   .container img {
     width: 100%; 
-    max-width: 70px; 
+    max-width: 45px; 
     height: auto; 
     margin: 20px 0; 
   }
