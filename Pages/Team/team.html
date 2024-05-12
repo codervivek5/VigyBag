@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="team.css">
   <!-- <link rel="stylesheet" href="../About Page/about.css">  about page css -->
-  <link rel="stylesheet" href="../../style/style.css"> <!-- global css -->
-  <link rel="stylesheet" href="../contact/contact.css"> <!-- contact page css -->
+  <link rel="stylesheet" href="/style/style.css"> <!-- global css -->
+  <link rel="stylesheet" href="/contact/contact.css"> <!-- contact page css -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,1,-25" />
-
+  <link rel="stylesheet" href="/style/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="shortcut icon" href="../../img/favicon.webp" type="image/x-icon">
+  <link rel="shortcut icon" href="/img/favicon.webp" type="image/x-icon">
   <script src="https://kit.fontawesome.com/4d742f1520.js" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="index.css">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <script defer src="../../script/script.js"></script> <!-- global js -->
+  <script defer src="/script/script.js"></script> <!-- global js -->
   <script src="team.js"></script>
   <title>Team</title>
 
@@ -40,12 +40,12 @@
         <div class="burger-icon">
           <i class="fa-solid fa-bars" id='icon'></i>
         </div>
-        <div class="toggle-button">
+        <div>
           <input type="checkbox" class="checkbox" id="checkbox">
-          <label for="checkbox" class="label">
+          <label for="checkbox" class="label" style="cursor: pointer;">
             <i class="material-symbols-outlined moon">dark_mode</i>
-            <i class="material-symbols-outlined sun" style="font-size:21px;">clear_day</i>
-            <div class="material-symbols-outlined  ball" style="font-size:25px;">circle</div>
+            <i class="material-symbols-outlined sun"> clear_day</i>
+            <div class="material-symbols-outlined  ball" style="font-size:32px;">circle</div>
           </label>
         </div>
 
@@ -72,91 +72,92 @@
    }
  </style>
 
-  <div class="footer-container">
-    <!-- about-us -->
-    <div class="contact">
-      <div class="footer-title">
-        ABOUT US
+ <footer>
+  <div class="row">
+    <!-- map -->
+    <div class="col" id="col1">
+      <div class="contact-location">
+        <!-- <img style="height: 100%;;" src="img/home icon.webp" alt="" class="logo"> -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
+          width="100%" height="200px" style="border: 0; padding: 2rem 2em 0 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div class="contact-info">
-        <div class="contact-location">
-          <img style="height: 100%;" src="../../img/home icon.webp" alt="">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
-            width="100%" height="50%" style="border:0; padding-right:2em;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+    </div>
+    <!-- map -->
 
-        <div class="contact-email" style="display: flex; align-items: center;">
-          <a href="mailto:contact@vigybag.com" style="display: flex; align-items: center;">
-            <img src="../../img/msg icon.webp" alt="" style="margin-right: 10px;">
-            contact@vigybag.com
-          </a>
-        </div>
+    <!-- contact -->
+    <div class="col" id="col2">
+      <h3>
+        Contact
+        <div class="underline"><span></span></div>
+      </h3>
 
-        <div class="contact-ph-number">
-          <img src="../../img/call icon.webp" alt="">
-          <p><a href="">+91 1234567890</a></p>
+      <p><a href="">contact@vigybag.com</a></p>
+      <p><a href="">+91 1234567890</a></p>
+    </div>
+    <!-- contact -->
+
+    <!-- Links -->
+    <div class="col" id="col3">
+      <h3>
+        Quick Links
+        <div class="underline"><span></span></div>
+      </h3>
+      <div class="quick-links" id="bottom">
+        <!-- <div class="footer-title">
+                      QUICK LINKS
+                  </div> -->
+        <div class="quick-links-info">
+          <div><a href="./Pages/About Page/about.html">About us</a></div>
+          <div><a href="./Pages/contact/contact.html">Contact us</a></div>
+          <div><a href="">Order</a></div>
+          <div><a href="">help</a></div>
         </div>
       </div>
     </div>
-    <!-- Quick Links -->
-    <div class="quick-links" id="bottom">
-      <div class="footer-title">
-        QUICK LINKS
-      </div>
-      <div class="quick-links-info">
-        <div><a href="../About Page/about.html">About us</a></div>
-        <div><a href="../contact/contact.html">Contact us</a></div>
-        <div><a href="">Order</a></div>
-        <div><a href="">help</a></div>
-      </div>
-    </div>
-    <div class="social">
-      <div class="footer-title">
-        SOCIAL
-      </div>
-      <div class="social-container">
-        <div class="social-div">
+    <!-- links -->
 
-          <div>
-            <a href="https://www.instagram.com/coder_vivek/"><img src="../../img/Instagram (2).webp" alt=""></a>
-            <p><a href="https://www.instagram.com/coder_vivek/">Instagram</a></p>
-          </div>
-          <div>
-
-            <a href="https://www.linkedin.com/in/codervivek/"><img src="../../img/LinkedIn Circled.webp" alt=""></a>
-            <p><a href="https://www.linkedin.com/in/codervivek/">LinkedIn</a></p>
+    <div class="col" id="col4" >
+      <h3>
+          SOCIAL
+          <div class="underline"><span></span></div>
+      </h3>
+      <div class="social-icons" style="    display: flex;
+      flex-direction: column;
+      align-items: flex-start;">
+          
+          <div class="social">
+              <a href="https://www.instagram.com/coder_vivek/" target="_blank"><img
+                      src="/img/Instagram (2).webp" alt="">Instagram</a>
 
           </div>
-          <div>
-            <a href="https://www.facebook.com/codervivek/"><img src="../../img/Facebook.webp" alt=""></a>
-            <p><a href="https://www.facebook.com/codervivek/">Facebook</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+          <div class="social" >
+              <a href="https://www.linkedin.com/in/codervivek/" target="_blank"><img
+                      src="/img/LinkedIn Circled.webp" alt="">LinkedIn</a>
 
+          </div>
+          <div class="social">
+              <a href="https://www.facebook.com/codervivek/"><img src="/img/Facebook.webp" alt=""> Facebook</a>
+
+          </div>
+      </div>
+  </div>
   </div>
 
-  </div>
-  <!-- footer section -->
   <!-- Copyright -->
-
-  <div class="alan-btn">
-
-
-  </div>
-
-
   <div id="copyright">
     <div class="pay">
-      <img src="../../img/payment.webp" alt="">
+      <img src="/img/payment.webp" alt="" />
     </div>
-    <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
-    <p> Designed by Vivek Prajapati </p>
+    <p>
+      © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights
+      Reserved
+    </p>
+    <p>Designed by Vivek Prajapati</p>
   </div>
-  <script>
+</footer>
+  <!-- <script>
     const checkbox = document.getElementById('checkbox');
     const body = document.body;
 
@@ -179,14 +180,16 @@
         }
       });
     });
-  </script>
+  </script> -->
   <script src="./chatBot/script.js"></script>
   <!-- <br><br>
   <div class="portfolio-link">
     <a href="../index.html" target="_blank"> Home </a>
     <a href="../contact/index.html" target="_blank"> Contact Us </a>
   </div> -->
-  <script src="../../script/script.js"></script>
+  <script src="/script/script.js"></script>
+  <script src="/cart/js/main.js"></script>
+  <script src="/Pages/review/review.js"></script>
 </body>
 
 </html>
