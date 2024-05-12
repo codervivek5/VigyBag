@@ -420,6 +420,7 @@ body.dark {
 .Accessories-box:hover .rectangle-42 {
   box-shadow: 1px 1px 5px 3px #575a89;
   transition: 0.5s ease-in-out;
+
 }
 
 .Accessories-box:hover .product-name {
@@ -1327,7 +1328,7 @@ div.c a {
 }
 
 .service:hover {
-  background: #303ef7;
+  background: #9fa1c1;
   color: #fff;
   transform: scale(1.03);
 }
