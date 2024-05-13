@@ -4,6 +4,16 @@
   gap: 20px;
 }
 
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+
+body.dark-mode a {
+  color: #fff;
+}
+
+
 .contributor {
   display: flex;
   flex-direction: column;
