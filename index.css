@@ -58,22 +58,28 @@ box-shadow: 7px -2px 24.5px 0 #8a8afb;
 
 .testimonial:hover{
     transform: translateY(-10px); 
--webkit-box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
--moz-box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
-box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
+-webkit-box-shadow: 16.5px 17.5px 32px -4.5px rgb(206, 227, 249);
+-moz-box-shadow: 16.5px 17.5px 32px -4.5px rgb(206, 227, 249);
+box-shadow: 16.5px 17.5px 32px -4.5px rgb(206, 227, 249);
 }
 .testimonial img{
-    width: 180px;
-    height: 180px;
+    width: 145px;
+    height: 160px;
     border-radius: 50%;
 }
 
+.testimonial p{
+    color: rgb(0, 15, 66);
+    font-size: 11px;
+    font-style: italic;
+}
+
 .name{
-    font-size: 25px;
-    font-weight: 650;
+    font-size: 22px;
+    font-weight: 500;
     text-transform: uppercase;
     margin: 20px 0;
-    color: rgb(21, 21, 21);
+    color: rgb(15, 23, 49);
 
 }
 .stars{
@@ -84,9 +90,9 @@ box-shadow: 16.5px 17.5px 32px -4.5px #8a8afb;
 
 
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:400px) {
     .col{
-        flex: 100%;
-        max-width: 80%;
+        flex: 70%;
+        max-width: 50%;
     }
 }
