@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security Settings
 SECRET_KEY = config("SECRET_KEY", default=get_random_secret_key())
-DEBUG = config("DEBUG", default=True, cast=bool)
+DEBUG = config("DEBUG", default=False, cast=bool)
 # ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="").split(",")
 ALLOWED_HOSTS = ['*']
 # Application definition
