@@ -222,7 +222,7 @@ If you want to contact me, you can reach me through below handles.
 Thank you for considering contributing to VigyBag. We look forward to your valuable contributions!
 
 <div align="center">
-<h3>© 2022 Coder Vivek</h3>
+<h3>© 2022-2024 Coder Vivek</h3>
 </div>
 
 <p align="right">(<a href="#top">Back to top</a>)</p>
