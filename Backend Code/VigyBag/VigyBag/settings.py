@@ -20,9 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security Settings
 SECRET_KEY = config("SECRET_KEY", default=get_random_secret_key())
-DEBUG = config("DEBUG", default=False, cast=bool)
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="").split(",")
-
+DEBUG = config("DEBUG", default=True, cast=bool)
+# ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="").split(",")
+ALLOWED_HOSTS = ['*']
 # Application definition
 # Application definition
 INSTALLED_APPS = [
@@ -82,7 +82,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'base', 'templates')],  # Corrected DIRS setting
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Corrected DIRS setting
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,6 +105,7 @@ DATABASES = {
 }
 
 # Static Files Settings
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Media Settings
