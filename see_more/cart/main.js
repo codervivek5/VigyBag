@@ -113,13 +113,21 @@
     }
 
     function addProduct(target) {
+      var productContainer = target.closest('.item-description-2');
+      var productName = productContainer.querySelector('.item-heading a').innerText;
+      var productPrice = productContainer.querySelector('.item-heading h3').innerText;
+      
       // this is just a product placeholder
       // you should insert an item with the selected product info
       // replace productId, productName, price and url with your real product info
       // you should also check if the product was already in the cart -> if it is, just update the quantity
       productId = productId + 1;
       var productAdded =
-        '<li class="cd-cart__product"><div class="cd-cart__image trolley"><a href="#0"><img src="../see_more/trolley.png" alt="placeholder" style="width:80%;"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">Product Name</a></h3><span class="cd-cart__price">$25.99</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-' +
+        '<li class="cd-cart__product"><div class="cd-cart__image trolley"><a href="#0"><img src="../see_more/trolley.png" alt="placeholder" style="width:80%;"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">' +
+        productName +
+        '</a></h3><span class="cd-cart__price">' +
+        productPrice +
+        '</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-' +
         productId +
         '">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-' +
         productId +
@@ -139,7 +147,7 @@
           Number(
             product
               .getElementsByClassName('cd-cart__price')[0]
-              .innerText.replace('$', ''),
+              .innerText.replace('₹', ''),
           ) * productQuantity;
 
       product.style.top = topPosition + 'px';
@@ -222,7 +230,7 @@
               Number(
                 cartListItems[i]
                   .getElementsByClassName('cd-cart__price')[0]
-                  .innerText.replace('$', ''),
+                  .innerText.replace('₹', ''),
               );
         }
       }
