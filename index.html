@@ -1677,7 +1677,7 @@
       display: none;
     }
   </style>
-  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></scrip>
+  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
   <script>
     var alanBtnInstance = alanBtn({
       key: '574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage',
@@ -1700,9 +1700,8 @@
     function playButton() {
       alert("App development is in progress!");
     }
+   </script>
 
-
-  </script>
   <script>
     const scrollButton = document.querySelector('.go-top');
 
@@ -1710,7 +1709,8 @@
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         scrollButton.style.display = 'block';
-      } else {
+      } 
+      else {
         scrollButton.style.display = 'none';
       }
     });
