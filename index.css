@@ -4,6 +4,45 @@
     font-family:"Montserrat";
 }
 
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .local {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 20px; /* Adjust as needed for spacing */
+  }
+  
+  input[type="search"] {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+  }
+  
+  input[type="search"]:focus {
+    width: 300px;
+    outline: none;
+  }
+  
+  img {
+    width: 24px;
+    height: 24px;
+    margin-left: -30px; /* Adjust this value based on the width of your search icon */
+  }
+  
+  .sec-img {
+    display: block;
+    margin-top: 20px; /* Adjust as needed for spacing */
+    max-width: 100%;
+    height: auto;
+  }
+  
+
+
 .testimonials{
     padding: 40px 0;
     background: #f1f1f1;
