@@ -190,7 +190,7 @@ body.dark {
   position: absolute;
 }
 
-.checkbox:checked + .label .ball {
+.checkbox:checked+.label .ball {
   transform: translate(38px);
 }
 
@@ -668,6 +668,10 @@ p {
 /* product container */
 
 .product-container {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ac82336c5f5c8de1ca3557391891af8b55910530
   background-color: #d9d9d9;
   display: flex;
   justify-content: center;
@@ -945,7 +949,7 @@ p {
   cursor: pointer;
 }
 
-.item-image > img {
+.item-image>img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -958,6 +962,7 @@ p {
     align-items: center;
     padding-top: 20px;
   }
+
   .container img {
     width: 100%;
     max-width: 40px;
@@ -984,6 +989,11 @@ p {
     padding-right: 20px;
   }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ac82336c5f5c8de1ca3557391891af8b55910530
   .local input[type='search'] {
     padding: 10px 20px;
     font-size: 18px;
@@ -1001,6 +1011,10 @@ p {
   .product-name {
     font-size: 18px;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ac82336c5f5c8de1ca3557391891af8b55910530
   .container .sec-img {
     max-width: 1000px;
   }
@@ -1015,15 +1029,24 @@ p {
   .content h4 {
     font-size: 18px;
   }
+
   .container img {
     width: 100%;
     max-width: 40px;
     height: auto;
     margin: 20px 0;
   }
+<<<<<<< HEAD
   .container .sec-img {
     max-width: 1000px;
   }
+=======
+
+  .container .sec-img {
+    max-width: 1000px;
+  }
+
+>>>>>>> ac82336c5f5c8de1ca3557391891af8b55910530
 }
 
 /* Media queries for tablets and smaller laptops */
@@ -1035,12 +1058,17 @@ p {
   .content h4 {
     font-size: 20px;
   }
+
   .container img {
     width: 100%;
     max-width: 45px;
     height: auto;
     margin: 20px 0;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ac82336c5f5c8de1ca3557391891af8b55910530
   .container .sec-img {
     max-width: 1000px;
   }
@@ -1179,6 +1207,9 @@ p {
 }
 
 .add-to-card-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
@@ -1198,8 +1229,9 @@ p {
 }
 
 .add-to-card-button:hover {
-  background-color: #161b6e;
-  color: #d9d9d9;
+  background-color: #bbbdf0;
+  color: #0a0a0a;
+
 }
 
 .see-more-text {
@@ -1363,6 +1395,7 @@ footer {
   footer {
     bottom: unset;
   }
+
   .row {
     width: 100%;
     margin: auto;
@@ -1370,6 +1403,7 @@ footer {
     flex-wrap: wrap;
     align-items: flex-start;
   }
+
   .col {
     flex-basis: 100%;
   }
@@ -1492,14 +1526,14 @@ div.c div.p p {
   padding: 2em;
 }
 
-div.c input:checked ~ h1 label::before {
+div.c input:checked~h1 label::before {
   border-left: 15px solid transparent;
   border-top: 20px solid white;
   margin-top: 12px;
   margin-right: 10px;
 }
 
-div.c input:checked ~ h1 ~ div.p {
+div.c input:checked~h1~div.p {
   max-height: 100px;
 }
 
