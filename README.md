@@ -79,7 +79,7 @@ Technologies Used :
 If you want to work on this unique project and share it with the world, you can do that here. Go through the contributing guidelines here.
 
     
-## :handshake: Contributing - Backend Setup   <a name="contributing"></a>
+## :handshake: Contributing <a name="contributing"></a>
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&logo=git&logoColor=white)](https://github.com/hound77/jwoc-archive/pulls)  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/hound77/jwoc-archive)
 
@@ -121,7 +121,7 @@ git pull upstream main
 git checkout -b <YOUR_BRANCH_NAME>
 ```
 
-**8.** Make changes in source code.
+**8.** Make changes in the source code.
 
 **9.** Check your changes.
 ```
@@ -158,26 +158,50 @@ Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission
 
 ## 🦄 Django Project Setup 
 
-**1.** Navigate to the project directory Backend Code .
+**1.** Navigate to the project directory Backend Code.
 
 ```bash
 cd Backend Code
 ```
 
-**2.** Navigate to the project directory VigyBag .
+**2.** Navigate to the project directory VigyBag.
 
 ```bash
 cd VigyBag
 ```
-**3.** If you get manage.py in file structure then run this command.
+**3.** If you get manage.py in the file structure then run this command.
 
 ```bash
 python manage.py runserver
 ```
 
-## 🦄 Django Admin Authentificaion 
+### 🦄 Django Admin Authentificaion 
 ```bash
 later on...
+```
+
+## ⚛️ React Project Setup 
+
+**1.** Navigate to the project directory Backend Code.
+
+```bash
+cd front-with-code
+```
+
+**2.** Navigate to the project directory VigyBag.
+
+```bash
+cd VigyBag
+```
+**3.** Run this command to install node packages.
+
+```bash
+npm install
+```
+
+## ⚛️ Start project
+```bash
+npm run dev
 ```
 
 ## ⚙️ Things to Note
