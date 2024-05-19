@@ -72,7 +72,7 @@ Technologies Used :
 - [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
 <!-- - We can take reference of this website [Click Here](http://yellowpages.in/) -->
 
-## Figma New Design
+#### Figma New Design
 - [Figma Design](https://www.figma.com/design/O0UOQfpC6u7wiQ9EeLnhGx/VigyBag-Redesign?node-id=0-1&t=sAeZiavEp8vPg1ss-0)
 
 
