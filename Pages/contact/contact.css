@@ -203,7 +203,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
-  @media (max-width: 940px) {
+  @media (max-width: 941px) {
   .container-form {
     margin-top: 20%;
   flex-direction: column;
