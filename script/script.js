@@ -13,6 +13,14 @@ const addbtn4 = document.getElementById('addBtn4');
 const stars = document.querySelectorAll('.items-star i');
 const copyright = document.querySelector('#copyright p span');
 
+const searchInput = document.getElementById('search');
+const searchIcon = document.querySelector('.search-icon');
+
+searchIcon.addEventListener('click', () => {
+  searchInput.classList.toggle('active');
+});
+
+
 // Dark Mode button Function
 const checkbox = document.getElementById('checkbox');
 checkbox.addEventListener('change', () => {

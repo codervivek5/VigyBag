@@ -120,25 +120,21 @@
   
       <!-- Search bar -->
       <div class="local">
-        <input type="search" name="search" id="search" onkeyup="searchProduct()" placeholder="SEARCH HERE" />
-        <!-- <img src="img/search_icon.webp" alt="search_icon" /> -->
-        <lord-icon
-            src="https://cdn.lordicon.com/fkdzyfle.json"
-            trigger="hover"
-            colors="primary:#1b1091"
-            style="width:50px;height:50px;    width: 50px;
-    position: relative;
-    right: 80px;">
-        </lord-icon>
+        <input type="search" name="search" id="search" onkeyup="searchProduct()" placeholder="Search Product" />
+        <img src="img/search_icon.webp" alt="search_icon" class="search-icon" />
       </div>
     </div>
-    
-    <img class="sec-img" src="img/landing_svg_image.svg" alt="" />
-    
-  </div>
-  
 
- 
+  <img class="sec-img" src="img/landing_svg_image.svg" alt="" />
+</div>
+
+<script>
+  const img = document.querySelector('.img');
+  const img = document.querySelector('.img');
+  img.onclick= function(){
+    search.classlist.toggle('active')
+  }
+</script>
 
   <!-- product container -->
   <div class="item-title">Categories</div>
