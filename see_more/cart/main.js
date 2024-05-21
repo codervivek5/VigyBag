@@ -116,7 +116,7 @@
       var productContainer = target.closest('.item-description-2');
       var productName = productContainer.querySelector('.item-heading a').innerText;
       var productPrice = productContainer.querySelector('.item-heading h3').innerText;
-      
+            
       // this is just a product placeholder
       // you should insert an item with the selected product info
       // replace productId, productName, price and url with your real product info
