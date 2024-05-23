@@ -362,14 +362,14 @@ body.dark {
   font-size: 33px;
 }
 
-#search::-webkit-search-cancel-button{
-  position:relative;
+#search::-webkit-search-cancel-button {
+  position: relative;
   margin-left: 10px;
 }
 
 .local img {
   width: 52px;
-  position:relative;
+  position: relative;
   right: 75px;
 }
 
@@ -917,7 +917,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 10px;
   line-height: 12px;
   text-align: center;
@@ -1295,6 +1295,11 @@ div.c a {
 .second-row {
   display: flex;
   margin: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 900px) {
