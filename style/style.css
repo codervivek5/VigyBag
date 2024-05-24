@@ -22,7 +22,7 @@ body {
 }
 
 /* navigation bar */
-header {
+.nav {
   width: 100vw;
   position: fixed;
   top: 0px;
@@ -1009,11 +1009,13 @@ footer {
 .logo {
   margin-bottom: 30px;
 }
-@media (max-width:941px){
-  .logo{
-    text-align:center
+
+@media (max-width:941px) {
+  .logo {
+    text-align: center
   }
 }
+
 .col h3 {
   width: fit-content;
   margin-bottom: 40px;
