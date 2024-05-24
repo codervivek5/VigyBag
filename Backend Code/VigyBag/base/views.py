@@ -7,6 +7,8 @@ from rest_framework import generics, authentication, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import CreateUserSerializer, UserSigninSerializer
 from .models import User
+from django.http import JsonResponse
+import requests
 from rest_framework.status import (
     HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 )
@@ -39,6 +41,9 @@ class Register(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
 
     def post(self,request,*args,**kwargs):
+        recaptcha_response = request.data.get('g-recaptcha-response')
+        if not verify_recaptcha(recaptcha_response):
+            return JsonResponse({'error': 'Failed reCAPTCHA verification'}, status=400)
         res = request.data
         serializer = self.get_serializer(data=res)
         if serializer.is_valid():
@@ -54,6 +59,17 @@ class Register(generics.GenericAPIView):
         else:
             return Response(serializer.errors,status=HTTP_400_BAD_REQUEST)
     
+
+def verify_recaptcha(response_token):
+    secret_key = "6Lfu79wpAAAAAL7yAG2GApC7sQYTHyPJ9mjrWqg0"
+    recaptcha_url = "https://www.google.com/recaptcha/api/siteverify"
+    data = {
+        'secret': secret_key,
+        'response': response_token
+    }
+    res = requests.post(recaptcha_url, data=data)
+    result = res.json()
+    return result.get('success', False)
 
 @permission_classes([AllowAny,])
 class login(generics.GenericAPIView):

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="./Pages/review/review.css">
   <link rel="stylesheet" href="./cart/css/style.css">
+  <!-- aos.js  -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +95,7 @@
     </div>
   </header>
 
-  <nav class="nav_menu2">
+  <nav class="nav_menu2" data-aos="fade-down">
     <ul class="nav_link2">
       <li><a href="index.html">Home</a></li>
       <li><a href="#">Services</a></li>
@@ -108,18 +110,18 @@
   <!-- landing page -->
   <div class="container">
     <div class="content">
-      <h1>
+      <h1 data-aos="fade-down">
         Don't leave home <br />without
         <span>VigyBag</span>
       </h1>
-      <h4>
+      <h4 data-aos="fade-right">
         Say goodbye to the stress and hassle of shopping, and hello to the
         convenience and excitement of VigyBag. Get ready to shop smarter, not
         harder - <a href="#">Download VigyBag</a>
       </h4>
   
       <!-- Search bar -->
-      <div class="local">
+      <div class="local" data-aos="fade-up">
         <input type="search" name="search" id="search" onkeyup="searchProduct()" placeholder="SEARCH HERE" />
         <!-- <img src="img/search_icon.webp" alt="search_icon" /> -->
         <lord-icon
@@ -133,7 +135,7 @@
       </div>
     </div>
     
-    <img class="sec-img" src="img/landing_svg_image.svg" alt="" />
+    <img class="sec-img" src="img/landing_svg_image.svg" alt=""  data-aos="fade-right"/>
     
   </div>
   
@@ -141,11 +143,11 @@
  
 
   <!-- product container -->
-  <div class="item-title">Categories</div>
+  <div class="item-title" data-aos="fade-up">Categories</div>
   <div class="product-container">
     <!-- product-1 -->
 
-    <div class="Accessories-box">
+    <div class="Accessories-box"  data-aos-duration="1000" data-aos="fade-up">
       <div>
         <div class="rectangle-42">
           <img src="img/Suit.webp" alt="" />
@@ -157,7 +159,7 @@
     </div>
     <div>
       <!-- product-2 -->
-      <div class="Accessories-box">
+      <div class="Accessories-box"  data-aos-duration="1200" data-aos="fade-up">
         <div>
           <div class="rectangle-42">
             <img src="img/Stationery.webp" alt="" />
@@ -170,7 +172,7 @@
     </div>
     <div>
       <!-- product-3 -->
-      <div class="Accessories-box">
+      <div class="Accessories-box"  data-aos-duration="1400" data-aos="fade-up">
         <div>
           <div class="rectangle-42">
             <img src="img/Food Bar.webp" alt="" />
@@ -183,7 +185,7 @@
     </div>
     <div>
       <!-- product-4 -->
-      <div class="Accessories-box">
+      <div class="Accessories-box"  data-aos-duration="1600" data-aos="fade-up">
         <div>
           <div class="rectangle-42">
             <img src="img/Aroma.webp" alt="" />
@@ -200,11 +202,11 @@
 
   <!-- first row -->
   <div class="item-row">
-    <div class="item-title">Headphones for you!</div>
+    <div class="item-title" data-aos="fade-up">Headphones for you!</div>
     <button class="item-cards-scroll-btn prev-btn" onclick="itemCardsLeftScroll(0)">
       <i class="fa fa-arrow-left"></i>
     </button>
-    <div class="item-cards-div">
+    <div class="item-cards-div" data-aos="fade-up" data-aos-duration="1300">
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
           <img src="./img/toppng.webp" alt="" />
@@ -216,10 +218,10 @@
             </svg>
           </button>
         </div>
-        <div class="item-description-2">
+        <div class="item-description-2" >
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Boat Headphones</a></div>
+            <p>cotton printed smooth headphone with green color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -229,14 +231,26 @@
               <div>(36)</div>
             </div>
 
+           <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -245,7 +259,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item2" onclick="changeColor(event, 'item2')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -256,8 +270,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Boat Headphones</a></div>
+            <p>cotton printed smooth headphone with green color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -267,14 +281,28 @@
               <div>(36)</div>
             </div>
 
+           <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
+
+             
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -283,7 +311,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head2.jpeg" alt="" />
           <button class="wishlist-icon" data-item-id="item3" onclick="changeColor(event, 'item3')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -294,34 +322,45 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+           <div class="item-heading"><a href="">boAt Rockerz 550</a></div>
+            <p>cotton soft and smooth headphone with green color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(50)</div>
             </div>
-
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;1,110</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head3.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item4" onclick="changeColor(event, 'item4')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -332,34 +371,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Boat Headphones</a></div>
+            <p>cotton soft and smooth headphone with white in color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(100)</div>
             </div>
 
+         <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;2,999</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head4.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item5" onclick="changeColor(event, 'item5')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -370,8 +421,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">soundcore H30i</a></div>
+            <p>Lightweight and Comfortable, App Connectivity</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -381,23 +432,35 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;2,999</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head5.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item6" onclick="changeColor(event, 'item6')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -408,34 +471,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">boAt Rockerz 450</a></div>
+            <p>Cushions, Integrated Controls and Dual Modes(Luscious Black)</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(60)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;1,999</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head6.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item7" onclick="changeColor(event, 'item7')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -446,28 +521,40 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Noise Wireless-On-Ear</a></div>
+            <p>40mm Driver, Low Latency(up to 45ms),Dual Pairing</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <div>(568)</div>
             </div>
 
+         <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;1,999</h3>
           </div>
         </div>
       </div>
@@ -484,8 +571,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">soundcore Anker Q10 </a></div>
+            <p> Dynamic Drivers with Deep Bass, Bluetooth 5.0 Dual Connectivity</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -495,17 +582,29 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;3,449</h3>
           </div>
         </div>
       </div>
@@ -517,18 +616,18 @@
   <div class="see-more-text">
     <a href="see_more/see_more.html">
       <div>
-        <h2>See more...</h2>
+        <h2 data-aos-duration="1000" data-aos="fade-up">See more...</h2>
       </div>
     </a>
   </div>
 
   <!-- secoond row -->
   <div class="item-row">
-    <div class="item-title">T-shirts for you!</div>
+    <div class="item-title" data-aos-duration="1300" data-aos="fade-up">T-shirts for you!</div>
     <button class="item-cards-scroll-btn prev-btn" onclick="itemCardsLeftScroll(1)">
       <i class="fa fa-arrow-left"></i>
     </button>
-    <div class="item-cards-div">
+    <div class="item-cards-div" data-aos-duration="1300" data-aos="fade-up">
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
           <img src="img/t-shirt.webp" alt="" />
@@ -553,14 +652,26 @@
               <div>(36)</div>
             </div>
 
+           <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -569,7 +680,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item10" onclick="changeColor(event, 'item10')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -591,14 +702,26 @@
               <div>(36)</div>
             </div>
 
+           <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -607,7 +730,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item11" onclick="changeColor(event, 'item11')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -629,14 +752,26 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -667,14 +802,26 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -683,7 +830,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item13" onclick="changeColor(event, 'item13')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -694,34 +841,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Tom T-Shirt</a></div>
+            <p>cotton printed smooth shirt with sea green colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(50)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;450</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt2.jpeg" alt="" />
           <button class="wishlist-icon" data-item-id="item14" onclick="changeColor(event, 'item14')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -732,8 +891,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Just keep moving tShirt</a></div>
+            <p>cotton printed smooth shirt with black in colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -743,23 +902,35 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;449</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt3.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item15" onclick="changeColor(event, 'item15')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -770,34 +941,47 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">RRR T-Shirt</a></div>
+            <p>cotton printed smooth shirt with yellow in colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(66)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
+
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;549</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt4.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item16" onclick="changeColor(event, 'item16')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -808,34 +992,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Tensor Flow T-Shirt</a></div>
+            <p>cotton printed smooth shirt with black in color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(69)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;659</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt5.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item17" onclick="changeColor(event, 'item17')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -846,34 +1042,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">be yourself T-Shirt</a></div>
+            <p>cotton printed smooth shirt with white colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <div>(136)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;249</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt6.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item18" onclick="changeColor(event, 'item18')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -884,34 +1092,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Mister fab T-Shirt</a></div>
+            <p>cotton printed smooth shirt with yellow in color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(106)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;449</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt7.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item19" onclick="changeColor(event, 'item19')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -922,28 +1142,40 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">THE BOYS T-Shirt</a></div>
+            <p>cotton printed smooth shirt with white in colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(326)</div>
             </div>
 
+           <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;399</h3>
           </div>
         </div>
       </div>
@@ -971,14 +1203,26 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -993,7 +1237,7 @@
   <div class="see-more-text">
     <a href="see_more/see_more.html">
       <div>
-        <h2>See more...</h2>
+        <h2 data-aos-duration="1200" data-aos="fade-up">See more...</h2>
       </div>
     </a>
   </div>
@@ -1001,11 +1245,11 @@
   <br /><br />
 
   <div class="item-row">
-    <div class="item-title">Mobiles for you!</div>
+    <div class="item-title" data-aos-duration="1300" data-aos="fade-up">Mobiles for you!</div>
     <button class="item-cards-scroll-btn prev-btn" onclick="itemCardsLeftScroll(2)">
       <i class="fa fa-arrow-left"></i>
     </button>
-    <div class="item-cards-div">
+    <div class="item-cards-div" data-aos-duration="1700" data-aos="zoom-in">
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
           <img src="./img/iphone.webp" alt="" />
@@ -1030,14 +1274,26 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -1068,14 +1324,26 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -1106,14 +1374,26 @@
               <div>(36)</div>
             </div>
 
+          <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -1144,14 +1424,26 @@
               <div>(36)</div>
             </div>
 
+            <div class="flex"> 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
-              <lord-icon
-                  src="https://cdn.lordicon.com/pbrgppbb.json"
-                  trigger="hover"
-                  style="width:20px;height:20px">
-              </lord-icon>
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -1166,7 +1458,7 @@
   <div class="see-more-text">
     <a href="see_more/see_more.html">
       <div>
-        <h2>See more...</h2>
+        <h2 data-aos-duration="1400" data-aos="fade-up">See more...</h2>
       </div>
     </a>
   </div>
@@ -1175,9 +1467,9 @@
   <div>
     <br /><br />
     <div class="serives" id="service">
-      <h1 id="h1">Our Services</h1>
+      <h1 id="h1" data-aos-duration="1000" data-aos="fade-up">Our Services</h1>
       <div class="row">
-        <div class="first-row">
+        <div class="first-row" data-aos-duration="1800" data-aos="fade-right">
           <div class="service">
             <i class="fa-solid fa-cart-shopping"></i>
             <h2>EasyBuy</h2>
@@ -1203,7 +1495,7 @@
             </p>
           </div>
         </div>
-        <div class="second-row">
+        <div class="second-row" data-aos-duration="1800" data-aos="fade-left">
           <div class="service">
             <i class="fa-solid fa-child"></i>
             <h2>Kids Wear</h2>
@@ -1460,11 +1752,11 @@
   
    <div class="testimonials">
     <div class="inner">
-      <h1 style="font-size: 45px;">What Do Our<span> Customers Say?</span></h1>
-      <div class="border"></div>
+      <h1 style="font-size: 45px;" data-aos-duration="1400" data-aos="fade-up">What Do Our<span> Customers Say?</span></h1>
+      <div class="border" data-aos-duration="1400" data-aos="fade-up"></div>
 
       <div class="row">
-        <div class="col">
+        <div class="col" data-aos-duration="1800" data-aos="fade-right">
           <div class="testimonial">
             <img src="img/client1.webp" alt="client"/>
             <div class="name">Aryan Singh</div>
@@ -1486,7 +1778,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col" data-aos-duration="1800" data-aos="fade-up">
             <div class="testimonial">
               <img src="img/client2.webp" alt="client"/>
               <div class="name">Ramjee Bharti</div>
@@ -1508,7 +1800,7 @@
               </div>
             </div>
 
-            <div class="col">
+            <div class="col" data-aos-duration="1800" data-aos="fade-left">
               <div class="testimonial">
                 <img src="img/client3.webp" alt="client"/>
                 <div class="name">Rahul Singh</div>
@@ -1530,7 +1822,7 @@
                 </div>
               </div>
 
-              <div class="col">
+              <div class="col" data-aos-duration="1800" data-aos="fade-right">
                 <div class="testimonial">
                   <img src="img/client4.webp" alt="client"/>
                   <div class="name">Neha Singh</div>
@@ -1552,7 +1844,7 @@
                   </div>
                 </div>
 
-                <div class="col">
+                <div class="col" data-aos-duration="1800" data-aos="fade-left">
                   <div class="testimonial">
                     <img src="img/client4.webp" alt="client"/>
                     <div class="name">Sneha Singh</div>
@@ -1582,7 +1874,7 @@
 
   <!-- app section -->
   <div class="app-container">
-    <div class="device-box">
+    <div class="device-box" data-aos-duration="1800" data-aos="fade-right">
       <img class="device-frame" src="img/combined-frames.webp" alt="" />
     </div>
     <div class="app-info">
@@ -1593,7 +1885,7 @@
         <div class="vigybag-text">
           <img src="img/VigyBag is ready for your favorite shopping@2x.webp" class="vigybag-image" alt="" />
         </div>
-        <div class="google-play-button" onclick="playButton()">
+        <div class="google-play-button" onclick="playButton()" data-aos-duration="1800" data-aos="fade-left">
           <button class="google-button">
             <div class="play-button">
               <div class="play-img-div">
@@ -1617,67 +1909,177 @@
   <!-- FAQ SECTION STARTS -->
 
   <div class="faq">
-    <h1 class="title">Frequently asked Questions</h1>
+    <h1 class="title" data-aos-duration="1800" data-aos="fade-up">Frequently asked Questions</h1>
 
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-2" />
       <h1><label for="faq-2">How Can I create Account ?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+           1. Download the App:
+            <br>
+            2. Install the shopping app from the App Store or Google Play Store.
+            Open the App:
+            <br>
+            3. Tap the app icon to launch it.
+            Sign Up:
+            <br>
+
+            4. Tap "Sign Up" or "Create Account."
+            Enter Details:
+            <br>
+
+            5. Fill in your name, email, and password.
+            Optionally, add your phone number.
+            Verify Information:
+            <br>
+
+            6. Confirm your email via a verification link or enter the code sent to your phone.
+            Agree to Terms:
+            <br>
+
+            7. Accept the terms and conditions.
+            Complete Setup:
+            <br>
+
+            8. Finalize your profile with additional info like your shipping address and payment details.
+            Your account is now ready to use!
+            <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-3" />
       <h1><label for="faq-3">How can I return an item ?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+         1. Open the App:
+         <br>
+        2. Tap the app icon to launch it.
+          Go to Your Orders:
+          <br>
+
+        3. Navigate to the "Orders" or "My Orders" section, usually found in your account/profile menu.
+          Select the Item:
+          <br>
+
+        4. Find the item you want to return and select it.
+          Initiate Return:
+          <br>
+
+        5. Tap on "Return" or "Return Item."
+          Choose Return Reason:
+          <br>
+
+        6. Select a reason for the return from the provided options.
+          Confirm Return:
+          <br>
+
+        7. Follow the prompts to confirm the return request.
+          Prepare the Item:
+          <br>
+
+        8. Pack the item securely in its original packaging.
+          Return Shipping:
+          <br>
+
+          Follow the app's instructions for return shipping. This may include printing a return label and scheduling a pickup or dropping it off at a designated location.
+          Once the return is processed, you’ll typically receive a refund according to the app’s policy.
+
+          <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-4" />
       <h1><label for="faq-4">How do i track my orders ?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+        1. Open the App:
+        <br>
+
+        2. Tap the app icon to launch it.
+        Go to Your Orders:
+        <br>
+
+        3. Navigate to the "Orders" or "My Orders" section, usually found in your account/profile menu.
+        Select the Order:
+        <br>
+
+        4. Find and select the order you want to track.
+        View Tracking Details:
+        <br>
+
+        5. Tap on "Track Order" or "Track Shipment" to see the current status and location of your package.
+        This will show you real-time updates on your order's delivery status.
+        <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-5" />
       <h1>
         <label for="faq-5">What is the Vigybag's customer service contact information?</label>
       </h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+         1. Open the App:
+         <br>
+
+         2. Tap the Vigybag app icon to launch it.
+          Navigate to Help or Support:
+          <br>
+
+         3. Go to the "Help" or "Support" section, usually found in the app's menu or under "Account" or "Profile."
+          Customer Service Contact:
+          <br>
+
+        4. Look for contact options like "Contact Us," "Customer Service," or "Support."
+          Common contact methods include:
+          <br>
+          <br>
+
+          Phone Number: A customer service phone number.
+          <br>
+          Email Address: A customer service email address.
+          <br>
+          Live Chat: An option to chat with a representative.
+          <br>
+          Help Center: Access to FAQs and support articles.
+          <br>
+          If you cannot find the information in the app, you can also visit the Vigybag website and check the "Contact Us" page for customer service details.
+          <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-6" />
       <h1><label for="faq-6">How can I cancel an order?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+      1. Open the App:
+      <br>
+
+      2. Tap the app icon to launch it.
+        Go to Your Orders:
+      <br>  
+
+      3. Navigate to the "Orders" or "My Orders" section, usually found in your account/profile menu.
+        Select the Order:
+      <br>  
+
+      4. Find and select the order you want to cancel.
+        Cancel the Order:
+      <br>  
+
+      5. Tap on "Cancel Order" or a similar option.
+        Follow any additional prompts to confirm the cancellation.
+        Confirmation:
+      <br>  
+
+      6. You should receive a confirmation message or email once the order is successfully canceled.
+        Note: Orders can typically only be canceled if they haven't been processed or shipped. If the option to cancel is unavailable, you may need to contact customer service for further assistance.
+        <br>
         </p>
       </div>
     </div>
@@ -1690,7 +2092,7 @@
     <div class="row">
       <!-- map -->
       <div class="col" id="col1">
-        <div class="contact-location">
+        <div class="contact-location" data-aos-duration="1800" data-aos="fade-right">
           <!-- <img style="height: 100%;;" src="img/home icon.webp" alt="" class="logo"> -->
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
@@ -1701,7 +2103,7 @@
       <!-- map -->
 
       <!-- contact -->
-      <div class="col" id="col2">
+      <div class="col" id="col2" data-aos-duration="1800" data-aos="fade-up">
         <h3>
           Contact
           <div class="underline"><span></span></div>
@@ -1724,7 +2126,7 @@
       <!-- contact -->
 
       <!-- Links -->
-      <div class="col" id="col3">
+      <div class="col" id="col3" data-aos-duration="1800" data-aos="fade-up">
         <h3>
           Quick Links
           <div class="underline"><span></span></div>
@@ -1734,26 +2136,28 @@
                         QUICK LINKS
                     </div> -->
           <div class="quick-links-info">
-            <div><a href="./Pages/About Page/about.html"><i class="fa-solid fa-address-card" style="color: #ffffff;"></i>  About us</a></div>
-            <div><a href="./Pages/contact/contact.html"><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i>   Contact us</a></div>
-            <div><a href=""><lord-icon
+            <div><a href="./Pages/About Page/about.html" target="_blank"><i class="fa-solid fa-address-card" style="color: #ffffff;"></i>  About us</a></div>
+            <div><a href="./Pages/contact/contact.html" target="_blank"><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i>   Contact us</a></div>
+            <div><a href="" target="_blank"><lord-icon
                         src="https://cdn.lordicon.com/mqdkoaef.json"
                         trigger="hover"
                         colors="primary:#ffffff"
                         style="width:20px;height:20px;padding-top:4px">
                     </lord-icon>  Order</a></div>
-            <div><a href=""><lord-icon
+            <div><a href="" target="_blank"><lord-icon
                         src="https://cdn.lordicon.com/pyoiumqr.json"
                         trigger="hover"
                         colors="primary:#ffffff"
                         style="width:20px;height:20px;padding-top:5px">
                     </lord-icon>   Help</a></div>
+
+              <div><a href="./Pages/privacypolicy/privacy.html" target="_blank"><i class="fa-solid fa-shield-halved"></i>  Privacy Policy</a></div>      
           </div>
         </div>
       </div>
       <!-- links -->
 
-      <div class="col" id="col4">
+      <div class="col" id="col4" data-aos-duration="1800" data-aos="fade-up">
         <h3>
             SOCIAL
             <div class="underline"><span></span></div>
@@ -1847,7 +2251,7 @@
       display: none;
     }
   </style>
-  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></scrip>
+  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
   <script>
     var alanBtnInstance = alanBtn({
       key: '574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage',
@@ -1870,9 +2274,8 @@
     function playButton() {
       alert("App development is in progress!");
     }
+   </script>
 
-
-  </script>
   <script>
     const scrollButton = document.querySelector('.go-top');
 
@@ -1880,7 +2283,8 @@
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         scrollButton.style.display = 'block';
-      } else {
+      } 
+      else {
         scrollButton.style.display = 'none';
       }
     });
@@ -1896,6 +2300,12 @@
   <script src="https://htmlcss3tutorials.com/demo/testimonials/js/wow.min.js"></script>
   <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery.cssslider.min.js"></script>
   <script src="https://htmlcss3tutorials.com/demo/testimonials/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration:1200
+    });
+  </script>
 </body>
 
 </html>

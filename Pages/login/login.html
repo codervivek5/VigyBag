@@ -117,7 +117,7 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
                 <span class="help__text">At least 8 character</span>
               </div>
               <div class="group button-group">
-                <button class="signup-btn" type="submit">Sign Up</button>
+                <button class="signup-btn g-recaptcha"  data-sitekey="6Lfu79wpAAAAAHUMLm7052jPGvLS7KeLfvihnmF9" data-callback='onSubmit' data-action='submit'>Sign Up</button>
               </div>
             </div>
           </form>
@@ -163,7 +163,7 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
                  <hr class="line">
                 </div>
               </div>
-              <div style="padding: 4px;"></div>
+              <div style="padding: 10px;"></div>
               <button class="group input-group glg">
                 <div class="glg-outline">
                   <div class="">Sign In with Google
@@ -173,6 +173,7 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
                         alt="Icon"
                         width="30"
                         height="30"
+                        
                       />
                     </span>
                   </div>
@@ -208,6 +209,7 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
       type="text/javascript"
       src="https://studio.alan.app/web/lib/alan_lib.min.js"
     ></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script>
       var alanBtnInstance = alanBtn({
         key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
@@ -226,6 +228,12 @@ https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js
 
         rootEl: document.getElementById("alan-btn"),
       });
+    </script>
+
+    <script>
+      function onSubmit(token) {
+        document.querySelector("#signup_form").submit();
+      }
     </script>
 
     <script src="login.js"></script>
