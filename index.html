@@ -2188,7 +2188,7 @@
         <img src="./img/payment.webp" alt="" />
       </div>
       <p>
-        © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights
+        © <span id="copyright-year"></span> Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights
         Reserved
       </p>
       <p>Designed by Vivek Prajapati</p>
@@ -2289,6 +2289,7 @@
       }
     });
   </script>
+  <script>document.getElementById("copyright-year").textContent = new Date().getFullYear();</script>
   <script src="./chatBot/script.js"></script>
   <script src="./cart/js/util.js"></script>
   <script src="./cart/js/main.js"></script>
