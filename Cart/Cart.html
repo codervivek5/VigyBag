@@ -2,48 +2,46 @@
 <html>
 <head>
   <title>Cart Page</title>
-
+  <link rel="stylesheet" href="./cart.css">
 </head>
 <body>
   <div class="container">
     <div class="cart-header">
-
       <h1>My Cart</h1>
-      <img src="../img/shopping-cart-webp" class="cart-icon" alt="" srcset="">
+      <img src="../img/shopping-cart.webp" class="cart-icon" alt="">
     </div>
     <table>
       <thead>
         <tr>
           <th colspan="2">Product</th>
-          
           <th>Quantity</th>
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="cartTable">
         <tr>
           <td><img class="product-image" src="../img/toppng.webp" alt="Product 1"></td>
           <td>Solo Wireless headphone</td>
           <td>
-            <div class="quantity-input" prdNum = "1">
-              <button class="quantity-btn" onclick ="ChangeQnt(this)" id="Sub">-</button>
-              <input id="quantity"  type="number" min="1" value= "1" >
-              <button class="quantity-btn" onclick= "ChangeQnt(this)" id="Add">+</button>
+            <div class="quantity-input" data-prdnum="1">
+              <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+              <input class="quantity" type="number" min="1" value="1" onchange="updateQuantity(this)">
+              <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
             </div>
           </td>
-          <td> <span>&#8377;</span> <div id="product1Price">799</div> </td>
+          <td><span>&#8377;</span><span class="product-price">799</span></td>
         </tr>
         <tr>
           <td><img class="product-image" src="../img/t-shirt.webp" alt="Product 2"></td>
-          <td>Printed Cotton Shirt</td>
+          <td class="truncate">Printed Cotton Shirt</td>
           <td>
-            <div class="quantity-input" prdNum ="2">
-              <button class="quantity-btn" onclick ="ChangeQnt(this)" id="Sub">-</button>
-              <input id="quantity" type="number" min="1" value="1">
-              <button class="quantity-btn" onclick ="ChangeQnt(this)" id="Add">+</button>
+            <div class="quantity-input" data-prdnum="2">
+              <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+              <input class="quantity" type="number" min="1" value="1" onchange="updateQuantity(this)">
+              <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
             </div>
           </td>
-          <td> <span>&#8377;</span> <div id="product2Price">349</div> </td>
+          <td><span>&#8377;</span><span class="product-price">349</span></td>
         </tr>
         <!-- Add more product rows as needed -->
       </tbody>
@@ -56,32 +54,66 @@
     
     <div class="total-amount">
       <div>
-        <span>Total Amount: &#8377;</span> <span  id="Amount">1148</span>
+        <span>Total Amount: &#8377;</span> <span id="totalAmount">1148</span>
       </div>
       <button class="proceed-btn">Proceed to Pay</button>
     </div>
   </div>
   <div class="alan-btn"></div>
-  <script type="text/javascript"
-  src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
- <script>
-   var alanBtnInstance = alanBtn({
-     key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
-     onCommand: function (commandData) {
-       if (commandData && commandData.command === 'openURL') {
-                     if (commandData.target === '_blank'){
-                       window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
-                     } else {
-                       window.location.href = commandData.url;
-                     }
-                   }
-                 
-             },
-             
-     rootEl: document.getElementById("alan-btn"),
-   });
- </script>
-  <link rel="stylesheet" href="./cart.css">
+  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+  <script>
+    var alanBtnInstance = alanBtn({
+      key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: function (commandData) {
+        if (commandData && commandData.command === 'openURL') {
+          if (commandData.target === '_blank') {
+            window.open(commandData.url, 'newtab' + Math.floor(Math.random() * 999999));
+          } else {
+            window.location.href = commandData.url;
+          }
+        }
+      },
+      rootEl: document.getElementById("alan-btn"),
+    });
+  </script>
   <script src="../script/script.js"></script>
+  <script src="../cart/js/main.js"></script>
+  <script>
+    function updateTotalAmount() {
+      const cartTable = document.getElementById('cartTable');
+      const rows = cartTable.getElementsByTagName('tr');
+      let totalAmount = 0;
+
+      for (let row of rows) {
+        const priceElement = row.querySelector('.product-price');
+        const quantityElement = row.querySelector('.quantity');
+        const price = parseFloat(priceElement.textContent);
+        const quantity = parseInt(quantityElement.value);
+        totalAmount += price * quantity;
+      }
+
+      document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+    }
+
+    function changeQuantity(button, delta) {
+      const quantityInput = button.parentNode.querySelector('.quantity');
+      const newQuantity = parseInt(quantityInput.value) + delta;
+      if (newQuantity >= 1) {
+        quantityInput.value = newQuantity;
+        updateTotalAmount();
+      }
+    }
+
+    function updateQuantity(input) {
+      if (input.value < 1) {
+        input.value = 1;
+      }
+      updateTotalAmount();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      updateTotalAmount();
+    });
+  </script>
 </body>
 </html>

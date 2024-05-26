@@ -123,7 +123,7 @@
       // Create the product card to be added to the cart
       var productAdded =
         '<li class="cd-cart__product">' +
-        '<div class="cd-cart__image"><a href="#0"><img src="./cart/img/product-preview.png" alt="placeholder"></a></div>' +
+        '<div class="cd-cart__image"><a href="#0"><img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2pvYjE0MjgtZWxlbWVudC0xMDctcC5wbmc.png" alt="placeholder"></a></div>' +
         '<div class="cd-cart__details">' +
         '<h3 class="truncate"><a href="#0">' +
         productName +
@@ -264,4 +264,40 @@
       cartCountItems[1].innerText = quantity + 1;
     }
   }
+
 })();
+
+function addToCart(productId) {
+    const product = document.getElementById(productId);
+    const imgSrc = product.querySelector('.item-image img').src;
+    const name = product.querySelector('.item-heading a').textContent;
+    const price = parseFloat(product.querySelector('.product-price').textContent);
+  
+    // Construct the product object
+    const productObj = {
+      imgSrc: imgSrc,
+      name: name,
+      price: price,
+      quantity: 1 // Initial quantity
+    };
+  
+    // Get the existing cart items from localStorage or initialize an empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+    // Check if the product is already in the cart
+    const existingProductIndex = cart.findIndex(item => item.name === name);
+    if (existingProductIndex !== -1) {
+      // If the product is already in the cart, increase its quantity
+      cart[existingProductIndex].quantity += 1;
+    } else {
+      // If the product is not in the cart, add it to the cart
+      cart.push(productObj);
+    }
+  
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+  
+    // Optionally, provide visual feedback to the user (e.g., a message or animation)
+  }
+
+
