@@ -15,6 +15,7 @@ html {
 body {
     background: linear-gradient(to right, #77c8e6 25%, #b6ccea 100%);
     /* overflow-x: hidden; */
+    user-select: none;
 }
 
 .orange {
@@ -279,12 +280,14 @@ margin-top: 50px;
   border: none;
   outline: none;
   padding: 15px;
-  background-color: #001925;
+  background-color: #09374d;
   color: white;
   border-radius: 20px;
   cursor: pointer;
 }
-
+.read-more-btn:hover{
+  background:#3a63e4;
+}
 .read-more-btn-dark{
   margin-top: 30px;
   border: none;
@@ -451,5 +454,9 @@ margin-top: 50px;
 .checkbox:checked+.label .ball {
   transform: translate(32px);
 }
-
+.pay {
+  display: flex;
+  justify-content: center;
+  padding: 1vh 0;
+}
 
