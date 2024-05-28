@@ -3,7 +3,6 @@
 
 const btnAdd = document.getElementById("Add")
 const btnSub = document.getElementById("Sub")
-// const quantity = document.getElementById("quantity")
 
 
 
