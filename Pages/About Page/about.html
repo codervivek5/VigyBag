@@ -73,7 +73,12 @@
           and then displays nearby stores or businesses that offer the products or services they are searching for. It
           allows users to compare prices and make purchases directly through the site, making it convenient for local
           shopping and finding location-specific items.</p>
-        <button id="read-more-btn" class="read-more-btn">Read More</button>
+        <button id="read-more-btn" class="read-more-btn" onclick="toggleReadMore()">Read More</button>
+        <div id="read-more-wrapper">
+          <div id="info1" class="info">Shops<br></div>
+          <div id="info2" class="info">Cities<br></div>
+          <div id="info3" class="info">Countries<br></div>
+          <div id="info4" class="info">Every Second<br></div>
       </div>
     </div>
   </section>
@@ -195,5 +200,17 @@
   <script src="../../chatBot/script.js"></script>
   <script src="../../script/script.js"></script>
 </body>
+<script>
+ function toggleReadMore() {
+  var displayValue = document.getElementById("read-more-wrapper").style.display;
+  if (displayValue == "none") {
+    document.getElementById("read-more-wrapper").style.display = "flex";
+    
+  } else {
+    document.getElementById("read-more-wrapper").style.display = "none";
+  }
+}
+
+</script>
 
 </html>
