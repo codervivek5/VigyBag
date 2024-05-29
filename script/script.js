@@ -232,7 +232,7 @@ function itemCardsLeftScroll(id) {
     document.getElementsByClassName('item-cards-div')[id].children[0]
       .offsetWidth;
   document.getElementsByClassName('item-cards-div')[id].scrollLeft -=
-    4 * cardWidth;
+    1 * cardWidth;
 }
 
 function itemCardsRightScroll(id) {
@@ -240,5 +240,5 @@ function itemCardsRightScroll(id) {
     document.getElementsByClassName('item-cards-div')[id].children[0]
       .offsetWidth;
   document.getElementsByClassName('item-cards-div')[id].scrollLeft +=
-    4 * cardWidth;
+    1 * cardWidth;
 }
