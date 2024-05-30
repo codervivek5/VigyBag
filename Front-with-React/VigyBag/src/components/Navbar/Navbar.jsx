@@ -1,5 +1,13 @@
 import React from 'react';
 import { FaSearch, FaShoppingCart, FaBell, FaUserCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+// ...
+
+<Link to="/dashboard">
+  <FaUserCircle className="mx-2 text-black cursor-pointer size-10" />
+  <span className="mx-2 text-black font-semibold text-2xl">Hi, Vivek</span>
+</Link>
 
 const Navbar = () => {
   return (
@@ -35,8 +43,12 @@ const Navbar = () => {
       <div className="flex gap-2 items-center">
         <FaShoppingCart className="mx-2 text-black cursor-pointer size-10" />
         <FaBell className="mx-2 text-black cursor-pointer size-10" />
-        <FaUserCircle className="mx-2 text-black cursor-pointer size-10" />
-        <span className="mx-2 text-black font-semibold text-2xl">Hi, Vivek</span>
+        <Link to="/dashboard">
+            <div className='flex'>
+              <FaUserCircle className="mx-2 text-black cursor-pointer size-10" />
+              <span className="mx-2 text-black font-semibold text-2xl">Hi, Vivek</span>
+            </div>
+        </Link>
       </div>
     </nav>
   );
