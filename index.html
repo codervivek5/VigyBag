@@ -5,9 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <!-- Google search console varifiction tag -->
+  <meta name="google-site-verification" content="myHB3nZSccOhcOuNvDXjupYJW1bmTNrfsA_VD63t1Mc" />
+
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="./Pages/review/review.css">
   <link rel="stylesheet" href="./cart/css/style.css">
+  <!-- aos.js  -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +37,7 @@
   <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
   
   <style>
     .alanBtn-root {
@@ -48,11 +55,31 @@
       <a href="index.html"><img src="img/logo.webp" alt="brand logo"></a>
       <nav class="nav_menu">
         <ul class="nav_link">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#service">Services</a></li>
-          <li><a href="./Pages/About Page/about.html">About us</a></li>
-          <li><a href="./Pages/Team/team.html">Team</a></li>
-          <li><a href="./Pages/contact/contact.html">Contact us</a></li>
+          <li><a href="index.html"><lord-icon
+                  src="https://cdn.lordicon.com/wmwqvixz.json"
+                  trigger="hover"
+                  colors="primary:#7166ee"
+                  style="width:20px;height:20px;padding-top:5px">
+              </lord-icon> Home</a></li>
+          <li><a href="#service"><lord-icon
+                src="https://cdn.lordicon.com/ojnjgkun.json"
+                trigger="hover"
+                colors="primary:#7166ee"
+                style="width:20px;height:20px ; padding-top:5px">
+            </lord-icon>  Services</a></li>
+          <li><a href="./Pages/About Page/about.html"><lord-icon
+                src="https://cdn.lordicon.com/jnzhohhs.json"
+                trigger="hover"
+                colors="primary:#7166ee"
+                style="width:20px;height:20px ;padding-top:5px">
+            </lord-icon>  About us</a></li>
+          <li><a href="./Pages/Team/team.html"><i class="fa-solid fa-people-group" style="color: #7166ee;"></i>  Team</a></li>
+          <li><a href="./Pages/contact/contact.html"><lord-icon
+                src="https://cdn.lordicon.com/srsgifqc.json"
+                trigger="hover"
+                colors="primary:#7166ee"
+                style="width:20px;height:20px;padding-top:5px">
+            </lord-icon> Contact us</a></li>
         </ul>
       </nav>
       <div class="nav_login">
@@ -72,39 +99,47 @@
     </div>
   </header>
 
-  <nav class="nav_menu2">
+  <nav class="nav_menu2" data-aos="fade-down">
     <ul class="nav_link2">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#about">About us</a></li>
-      <li><a href="#contact">Contact us</a></li>
-      <li><a href="./login/index.html"><button>Login</button></a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#service">Services</a></li>
+      <li><a href="./Pages/About Page/about.html">About us</a></li>
+      <li><a href="./Pages/contact/contact.html">Contact us</a></li>
+      <li><a href="./Pages/login/login.html"><button>Login</button></a></li>
     </ul>
   </nav>
 
   <!-- Header Section end -->
 
   <!-- landing page -->
-  <div class="container">
+  <div class="container" id="home">
     <div class="content">
-      <h1>
+      <h1 data-aos="fade-down">
         Don't leave home <br />without
         <span>VigyBag</span>
       </h1>
-      <h4>
+      <h4 data-aos="fade-right">
         Say goodbye to the stress and hassle of shopping, and hello to the
         convenience and excitement of VigyBag. Get ready to shop smarter, not
-        harder - <a href="#">Download VigyBag</a>
+        harder &minus;<a href="#">Download&nbsp;VigyBag</a>
       </h4>
   
       <!-- Search bar -->
-      <div class="local">
+      <div class="local" data-aos="fade-up">
         <input type="search" name="search" id="search" onkeyup="searchProduct()" placeholder="SEARCH HERE" />
-        <img src="img/search_icon.webp" alt="search_icon" />
+        <!-- <img src="img/search_icon.webp" alt="search_icon" /> -->
+        <lord-icon
+            src="https://cdn.lordicon.com/fkdzyfle.json"
+            trigger="hover"
+            colors="primary:#1b1091"
+            style="width:50px;height:50px;    width: 50px;
+    position: relative;
+    right: 80px;">
+        </lord-icon>
       </div>
     </div>
     
-    <img class="sec-img" src="img/landing_svg_image.svg" alt="" />
+    <img class="sec-img" src="img/landing_svg_image.svg" alt=""  data-aos="fade-right"/>
     
   </div>
   
@@ -112,12 +147,11 @@
  
 
   <!-- product container -->
-  <div class="item-title">Our Services</div>
+  <div class="item-title" data-aos="fade-up">Categories</div>
   <div class="product-container">
     <!-- product-1 -->
-
-    <div class="Accessories-box">
-      <div>
+    <div class="Accessories-box" data-aos-duration="1200" data-aos="fade-up">
+        <div class="box-center">
         <div class="rectangle-42">
           <img src="img/Suit.webp" alt="" />
         </div>
@@ -126,10 +160,9 @@
         <a href="#">Fashion & Accessories</a>
       </div>
     </div>
-    <div>
-      <!-- product-2 -->
-      <div class="Accessories-box">
-        <div>
+    <!-- product-2 -->
+    <div class="Accessories-box" data-aos-duration="1200" data-aos="fade-up">
+        <div class="box-center">
           <div class="rectangle-42">
             <img src="img/Stationery.webp" alt="" />
           </div>
@@ -137,12 +170,10 @@
         <div class="product-name">
           <a href=""> Printing & Stationaries</a>
         </div>
-      </div>
     </div>
-    <div>
-      <!-- product-3 -->
-      <div class="Accessories-box">
-        <div>
+    <!-- product-3 -->
+    <div class="Accessories-box" data-aos-duration="1200" data-aos="fade-up">
+        <div class="box-center">
           <div class="rectangle-42">
             <img src="img/Food Bar.webp" alt="" />
           </div>
@@ -150,12 +181,10 @@
         <div class="product-name">
           <a href=""> Food & Beverages</a>
         </div>
-      </div>
     </div>
-    <div>
-      <!-- product-4 -->
-      <div class="Accessories-box">
-        <div>
+    <!-- product-4 -->
+    <div class="Accessories-box" data-aos-duration="1200" data-aos="fade-up">
+        <div class="box-center">
           <div class="rectangle-42">
             <img src="img/Aroma.webp" alt="" />
           </div>
@@ -163,7 +192,6 @@
         <div class="product-name">
           <a href=""> Beauty & Wellness</a>
         </div>
-      </div>
     </div>
   </div>
 
@@ -171,11 +199,11 @@
 
   <!-- first row -->
   <div class="item-row">
-    <div class="item-title">Headphones for you!</div>
+    <div class="item-title" data-aos="fade-up">Headphones for you!</div>
     <button class="item-cards-scroll-btn prev-btn" onclick="itemCardsLeftScroll(0)">
       <i class="fa fa-arrow-left"></i>
     </button>
-    <div class="item-cards-div">
+    <div class="item-cards-div" data-aos="fade-up" data-aos-duration="1300">
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
           <img src="./img/toppng.webp" alt="" />
@@ -187,10 +215,10 @@
             </svg>
           </button>
         </div>
-        <div class="item-description-2">
+        <div class="item-description-2" >
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Boat Headphones</a></div>
+            <p>cotton printed smooth headphone with green color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -200,9 +228,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+           <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -211,7 +256,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item2" onclick="changeColor(event, 'item2')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -222,8 +267,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Boat Headphones</a></div>
+            <p>cotton printed smooth headphone with green color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -233,9 +278,28 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+           <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
+
+             
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -244,7 +308,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head2.jpeg" alt="" />
           <button class="wishlist-icon" data-item-id="item3" onclick="changeColor(event, 'item3')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -255,29 +319,45 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+           <div class="item-heading"><a href="">boAt Rockerz 550</a></div>
+            <p>cotton soft and smooth headphone with green color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(50)</div>
             </div>
-
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;1,110</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head3.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item4" onclick="changeColor(event, 'item4')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -288,29 +368,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Boat Headphones</a></div>
+            <p>cotton soft and smooth headphone with white in color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(100)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+         <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;2,999</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head4.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item5" onclick="changeColor(event, 'item5')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -321,8 +418,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">soundcore H30i</a></div>
+            <p>Lightweight and Comfortable, App Connectivity</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -332,18 +429,35 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;2,999</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head5.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item6" onclick="changeColor(event, 'item6')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -354,29 +468,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">boAt Rockerz 450</a></div>
+            <p>Cushions, Integrated Controls and Dual Modes(Luscious Black)</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(60)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;1,999</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/toppng.webp" alt="" />
+          <img src="./img/head6.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item7" onclick="changeColor(event, 'item7')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -387,23 +518,40 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Noise Wireless-On-Ear</a></div>
+            <p>40mm Driver, Low Latency(up to 45ms),Dual Pairing</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <div>(568)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+         <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;1,999</h3>
           </div>
         </div>
       </div>
@@ -420,8 +568,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">Headphones</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">soundcore Anker Q10 </a></div>
+            <p> Dynamic Drivers with Deep Bass, Bluetooth 5.0 Dual Connectivity</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -431,12 +579,29 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;3,449</h3>
           </div>
         </div>
       </div>
@@ -448,18 +613,18 @@
   <div class="see-more-text">
     <a href="see_more/see_more.html">
       <div>
-        <h2>See more...</h2>
+        <h2 data-aos-duration="1000" data-aos="fade-up">See more...</h2>
       </div>
     </a>
   </div>
 
   <!-- secoond row -->
   <div class="item-row">
-    <div class="item-title">T-shirts for you!</div>
+    <div class="item-title" data-aos-duration="1300" data-aos="fade-up">T-shirts for you!</div>
     <button class="item-cards-scroll-btn prev-btn" onclick="itemCardsLeftScroll(1)">
       <i class="fa fa-arrow-left"></i>
     </button>
-    <div class="item-cards-div">
+    <div class="item-cards-div" data-aos-duration="1300" data-aos="fade-up">
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
           <img src="img/t-shirt.webp" alt="" />
@@ -484,9 +649,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+           <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -495,7 +677,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item10" onclick="changeColor(event, 'item10')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -517,9 +699,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+           <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -528,7 +727,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item11" onclick="changeColor(event, 'item11')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -550,9 +749,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -583,9 +799,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -594,7 +827,7 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt1.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item13" onclick="changeColor(event, 'item13')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -605,29 +838,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Tom T-Shirt</a></div>
+            <p>cotton printed smooth shirt with sea green colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(50)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;450</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt2.jpeg" alt="" />
           <button class="wishlist-icon" data-item-id="item14" onclick="changeColor(event, 'item14')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -638,8 +888,8 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Just keep moving tShirt</a></div>
+            <p>cotton printed smooth shirt with black in colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
@@ -649,18 +899,35 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;449</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt3.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item15" onclick="changeColor(event, 'item15')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -671,29 +938,47 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">RRR T-Shirt</a></div>
+            <p>cotton printed smooth shirt with yellow in colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(66)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
+
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;549</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt4.jpg" alt="" />
           <button class="wishlist-icon" data-item-id="item16" onclick="changeColor(event, 'item16')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -704,29 +989,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Tensor Flow T-Shirt</a></div>
+            <p>cotton printed smooth shirt with black in color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(69)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;659</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt5.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item17" onclick="changeColor(event, 'item17')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -737,29 +1039,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">be yourself T-Shirt</a></div>
+            <p>cotton printed smooth shirt with white colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <div>(136)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;249</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt6.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item18" onclick="changeColor(event, 'item18')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -770,29 +1089,46 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">Mister fab T-Shirt</a></div>
+            <p>cotton printed smooth shirt with yellow in color</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(106)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;449</h3>
           </div>
         </div>
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="img/t-shirt.webp" alt="" />
+          <img src="img/t-shirt7.webp" alt="" />
           <button class="wishlist-icon" data-item-id="item19" onclick="changeColor(event, 'item19')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -803,23 +1139,40 @@
         </div>
         <div class="item-description-2">
           <div>
-            <div class="item-heading"><a href="">T-Shirt</a></div>
-            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="item-heading"><a href="">THE BOYS T-Shirt</a></div>
+            <p>cotton printed smooth shirt with white in colors</p>
             <div class="items-star">
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
               <img src="img/Star_green.webp" alt="" />
-              <img src="img/Star_green.webp" alt="" />
-              <div>(36)</div>
+              <div>(326)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+           <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
-            <h3>&#8377;349</h3>
+            <h3>&#8377;399</h3>
           </div>
         </div>
       </div>
@@ -847,9 +1200,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -864,7 +1234,7 @@
   <div class="see-more-text">
     <a href="see_more/see_more.html">
       <div>
-        <h2>See more...</h2>
+        <h2 data-aos-duration="1200" data-aos="fade-up">See more...</h2>
       </div>
     </a>
   </div>
@@ -872,14 +1242,14 @@
   <br /><br />
 
   <div class="item-row">
-    <div class="item-title">Mobiles for you!</div>
+    <div class="item-title" data-aos-duration="1300" data-aos="fade-up">Mobiles for you!</div>
     <button class="item-cards-scroll-btn prev-btn" onclick="itemCardsLeftScroll(2)">
       <i class="fa fa-arrow-left"></i>
     </button>
-    <div class="item-cards-div">
+    <div class="item-cards-div" data-aos-duration="1700" data-aos="zoom-in">
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/iphone.webp" alt="" />
+          <img src="./img/mo1.png" alt="" />
           <button class="wishlist-icon" data-item-id="item21" onclick="changeColor(event, 'item21')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -901,9 +1271,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -934,9 +1321,26 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <div class="flex"> 
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
             </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
           </div>
           <div class="item-heading">
             <h3>&#8377;349</h3>
@@ -946,7 +1350,7 @@
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
           <img src="./img/iphone.webp" alt="" />
-          <button class="wishlist-icon" data-item-id="item23" onclick="changeColor(event, 'item23')">
+          <button class="wishlist-icon" data-item-id="item22" onclick="changeColor(event, 'item22')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -967,8 +1371,13 @@
               <div>(36)</div>
             </div>
 
-            <button class="add-to-card-button js-cd-add-to-cart">
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
               Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
             </button>
           </div>
           <div class="item-heading">
@@ -978,7 +1387,232 @@
       </div>
       <div class="item-card">
         <div class="item-image" onclick="ebBtn()">
-          <img src="./img/iphone.webp" alt="" />
+          <img src="./img/mo2.avif" alt="" />
+          <button class="wishlist-icon" data-item-id="item22" onclick="changeColor(event, 'item22')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
+            </button>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div><div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+
+          <img src="./img/mo3.avif" alt="" />
+          <button class="wishlist-icon" data-item-id="item23" onclick="changeColor(event, 'item23')">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
+            </button>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+
+          <img src="./img/mo4.webp" alt="" />
+
+          <button class="wishlist-icon" data-item-id="item24" onclick="changeColor(event, 'item24')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+
+            <div class="flex"> 
+            <button class="add-to-card-button js-cd-add-to-cart">
+
+              Add to cart
+            <lord-icon
+                src="https://cdn.lordicon.com/cosvjkbu.json"
+                trigger="hover"
+                colors="primary:#c67d53,secondary:#646e78,tertiary:#3a3347"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+
+            <button class="cartbtn add-to-card-button js-cd-add-to-cart">
+              Buy Now
+             <lord-icon
+                src="https://cdn.lordicon.com/lwumwgrp.json"
+                trigger="hover"
+                style="width:20px;height:20px">
+            </lord-icon>
+            </button>
+            </div>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+          <img src="./img/mo5.png" alt="" />
+          <button class="wishlist-icon" data-item-id="item24" onclick="changeColor(event, 'item24')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+
+              Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
+            </button>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+          <img src="./img/mo6.png" alt="" />
+          <button class="wishlist-icon" data-item-id="item24" onclick="changeColor(event, 'item24')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
+
+            </button>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+          <img src="./img/mo8.png" alt="" />
           <button class="wishlist-icon" data-item-id="item24" onclick="changeColor(event, 'item24')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -1002,6 +1636,11 @@
 
             <button class="add-to-card-button js-cd-add-to-cart">
               Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
             </button>
           </div>
           <div class="item-heading">
@@ -1009,6 +1648,93 @@
           </div>
         </div>
       </div>
+
+
+
+
+
+      <div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+          <img src="./img/mo9.png" alt="" />
+          <button class="wishlist-icon" data-item-id="item24" onclick="changeColor(event, 'item24')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
+            </button>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="item-card">
+        <div class="item-image" onclick="ebBtn()">
+          <img src="./img/mo10.png" alt="" />
+          <button class="wishlist-icon" data-item-id="item24" onclick="changeColor(event, 'item24')">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+        </div>
+        <div class="item-description-2">
+          <div>
+            <div class="item-heading"><a href="">Iphone 11</a></div>
+            <p>cotton printed smooth shirt with multiple colors</p>
+            <div class="items-star">
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_white.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <img src="img/Star_green.webp" alt="" />
+              <div>(36)</div>
+            </div>
+
+            <button class="add-to-card-button js-cd-add-to-cart">
+              Add to cart
+              <lord-icon
+                  src="https://cdn.lordicon.com/pbrgppbb.json"
+                  trigger="hover"
+                  style="width:20px;height:20px">
+              </lord-icon>
+            </button>
+          </div>
+          <div class="item-heading">
+            <h3>&#8377;349</h3>
+          </div>
+        </div>
+      </div>
+
+
     </div>
     <button class="item-cards-scroll-btn next-btn" onclick="itemCardsRightScroll(2)">
       <i class="fa fa-arrow-right"></i>
@@ -1017,7 +1743,7 @@
   <div class="see-more-text">
     <a href="see_more/see_more.html">
       <div>
-        <h2>See more...</h2>
+        <h2 data-aos-duration="1400" data-aos="fade-up">See more...</h2>
       </div>
     </a>
   </div>
@@ -1026,57 +1752,51 @@
   <div>
     <br /><br />
     <div class="serives" id="service">
-      <h1 id="h1">Our Services</h1>
+      <h1 id="h1" data-aos-duration="1000" data-aos="fade-up">Our Services</h1>
       <div class="row">
-        <div class="first-row">
+        <div class="first-row" data-aos-duration="1800" data-aos="fade-right">
           <div class="service">
             <i class="fa-solid fa-cart-shopping"></i>
             <h2>EasyBuy</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, quae?
+              Effortless shopping experience with quick and secure checkout process
             </p>
           </div>
           <div class="service">
             <i class="fa-solid fa-child"></i>
             <h2>Clothing</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, quae?
+              Trendy and stylish apparel for men, women, and children
             </p>
           </div>
           <div class="service">
             <i class="fas fa-mobile-alt"></i>
             <h2>Mobile Phones</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, quae?
+              Latest smartphones with advanced features at competitive prices
             </p>
           </div>
         </div>
-        <div class="second-row">
+        <div class="second-row" data-aos-duration="1800" data-aos="fade-left">
           <div class="service">
             <i class="fa-solid fa-child"></i>
             <h2>Kids Wear</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, quae?
+              Comfortable and adorable outfits perfect for your little ones
             </p>
           </div>
           <div class="service">
             <i class="fa-solid fa-shoe-prints"></i>
             <h2>Shoes</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, quae?
+              Wide range of footwear for every occasion and style
             </p>
           </div>
           <div class="service">
             <i class="fa-solid fa-laptop"></i>
             <h2>Laptops</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, quae?
+              High-performance laptops for work, gaming, and everyday use.
             </p>
           </div>
         </div>
@@ -1118,322 +1838,110 @@
   </div>
   <!-- pop up ends -->
 
-  <!-- ---------------------review section -------------------- -->
- <!-- <div class="testimonial-section sbs-testimonial-section pd-top-105 pd-bottom-120"  >
-    <div class="container" id="testimonial-container" style="margin-bottom: 15vh">
-      <div class="row justify-content-center" >
-        <div class="col-xl-5 col-lg-6 pd-xl-5 order-lg-12 align-self-center" >
-          <div class="section-title style-two mb-0">
-            <h2 class="title" style="color: azure">
-              What Our <span>Customers Say?</span>
-            </h2>
-          </div>
+ 
+
+
+ <!-- =====================New Customer Review Sectionn BY Dhaval============== -->
+
+
+
+
+ 
+ <div class="outerdiv">
+  <div>  <h1 style="font-size: 45px;">What Do Our<span> Customers Say?</span></h1></div>
+
+  <div class="innerdiv">
+    <!-- div1 -->
+    <div class="div1 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-daniel.jpg" alt="">
         </div>
-        <div class="col-lg-12">
-          <div class="sbs-testimonial-slider" >
-            <div class="choose_slider" >
-              <div class="choose_slider_items" >
-                <ul id="testimonial-slider" class="testimonial-horizontal-slider" >
-                  <li class="current_item" style="
-                        border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);list-style: none;
-                      ">
-                    <div class="media" style="height: 600px; width: 600px">
-                      <img class="media-left" src="img/client1.webp" alt="client" style="height: 400px; width:400px" />
-                      <div class="media-body">
-                        <h6 style="color: blue">Aryan Singh</h6>
-                        <p class="designation" style="color: #700000">
-                          Wonderful Product
-                        </p>
-                        <div style="color: green">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Maxime praesentium sit natus reprehenderit
-                      quibusdam ut voluptas consectetur commodi fugiat fugit.
-                    </p>
-                  </li>
-                  <li class="current_item" style="
-                        border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);
-                      ">
-                    <div class="media">
-                      <img class="media-left" src="img/client2.webp" alt="client" />
-                      <div class="media-body">
-                        <h6 style="color: blue">Ramjee Bharti</h6>
-                        <p class="designation" style="color: #700000">
-                          Wonderful Product
-                        </p>
-                        <div style="color: green">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Maxime praesentium sit natus reprehenderit
-                      quibusdam ut voluptas consectetur commodi fugiat fugit.
-                    </p>
-                  </li>
-                  <li class="current_item" style="
-                        border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);
-                      ">
-                    <div class="media">
-                      <img class="media-left" src="img/client3.webp" alt="client" />
-                      <div class="media-body">
-                        <h6 style="color: blue">Satish Kumar</h6>
-                        <p class="designation" style="color: #700000">
-                          Wonderful Product
-                        </p>
-                        <div style="color: green">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Maxime praesentium sit natus reprehenderit
-                      quibusdam ut voluptas consectetur commodi fugiat fugit.
-                    </p>
-                  </li>
-                  <li class="current_item" style="
-                        border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);
-                      ">
-                    <div class="media">
-                      <img class="media-left" src="img/client4.webp" alt="client" />
-                      <div class="media-body">
-                        <h6 style="color: blue">Rahul Singh</h6>
-                        <p class="designation" style="color: #700000">
-                          Wonderful Product
-                        </p>
-                        <div style="color: green">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Maxime praesentium sit natus reprehenderit
-                      quibusdam ut voluptas consectetur commodi fugiat fugit.
-                    </p>
-                  </li>
-                  <li class="current_item" style="
-                        border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);
-                      ">
-                    <div class="media">
-                      <img class="media-left" src="img/client4.webp" alt="client" />
-                      <div class="media-body">
-                        <h6 style="color: blue">Neha Singh</h6>
-                        <p class="designation" style="color: #700000">
-                          Wonderful Product
-                        </p>
-                        <div style="color: green">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Maxime praesentium sit natus reprehenderit
-                      quibusdam ut voluptas consectetur commodi fugiat fugit.
-                    </p>
-                  </li>
-                  <li class="current_item" style="
-                        border-radius: 15px;
-                        background: linear-gradient(135deg, #feffff, #395c98);
-                      ">
-                    <div class="media">
-                      <img class="media-left" src="img/client4.webp" alt="client" />
-                      <div class="media-body">
-                        <h6 style="color: blue">Sneha Singh</h6>
-                        <p class="designation" style="color: #700000">
-                          Wonderful Product
-                        </p>
-                        <div style="color: green">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing
-                      elit. Maxime praesentium sit natus reprehenderit
-                      quibusdam ut voluptas consectetur commodi fugiat fugit.
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="sbs-arrowleft">
-              <a id="btn_next" href="#"><i class="fa fa-long-arrow-left"></i></a>
-            </div>
-            <div class="sbs-arrowright">
-              <a id="btn_prev" href="#"><i class="fa fa-long-arrow-right"></i></a>
-            </div>
-          </div>
+        <div class="detbox">
+          <p class="name">Daniel Clifford</p>
+          <p class="designation">Verified Graduate</p>
         </div>
       </div>
-    </div>
-  </div>-->
-  <!-- ----------------------review end----------------------------- -->
-
-
-  <!--NEW REVIEW SEC-->
-  
-   <div class="testimonials">
-    <div class="inner">
-      <h1 style="font-size: 45px;">What Do Our<span> Customers Say?</span></h1>
-      <div class="border"></div>
-
-      <div class="row">
-        <div class="col">
-          <div class="testimonial">
-            <img src="img/client1.webp" alt="client"/>
-            <div class="name">Aryan Singh</div>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur, 
-                adipisicing elit. Dolorum ducimus, a sequi 
-                possimus quae, recusandae sint ipsum odio aliquam.
-                adipisicing elit. Dolorum ducimus, a sequi 
-                possimus quae, recusandae sint ipsum odio aliquam.
-              </p>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="testimonial">
-              <img src="img/client2.webp" alt="client"/>
-              <div class="name">Ramjee Bharti</div>
-              <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </div>
-  
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, 
-                  adipisicing elit. Dolorum ducimus, a sequi 
-                  possimus quae, recusandae sint ipsum odio aliquam.
-                  adipisicing elit. Dolorum ducimus, a sequi 
-                  possimus quae, recusandae sint ipsum odio aliquam.
-                </p>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="testimonial">
-                <img src="img/client3.webp" alt="client"/>
-                <div class="name">Rahul Singh</div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-    
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, 
-                    adipisicing elit. Dolorum ducimus, a sequi 
-                    possimus quae, recusandae sint ipsum odio aliquam.
-                    adipisicing elit. Dolorum ducimus, a sequi 
-                    possimus quae, recusandae sint ipsum odio aliquam.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="testimonial">
-                  <img src="img/client4.webp" alt="client"/>
-                  <div class="name">Neha Singh</div>
-                  <div class="stars">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-      
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, 
-                      adipisicing elit. Dolorum ducimus, a sequi 
-                      possimus quae, recusandae sint ipsum odio aliquam.
-                      adipisicing elit. Dolorum ducimus, a sequi 
-                      possimus quae, recusandae sint ipsum odio aliquam.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="testimonial">
-                    <img src="img/client4.webp" alt="client"/>
-                    <div class="name">Sneha Singh</div>
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-        
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur, 
-                        adipisicing elit. Dolorum ducimus, a sequi 
-                        possimus quae, recusandae sint ipsum odio aliquam.
-                        adipisicing elit. Dolorum ducimus, a sequi 
-                        possimus quae, recusandae sint ipsum odio aliquam.
-                      </p>
-                    </div>
-                  </div>
-        </div>
+      <div class="review">
+        <h4>Review of Mobile</h4>
+        <p>“ The latest mobile I purchased exceeded my expectations. Its performance, camera quality, and battery life are top-notch. Highly recommend it to anyone looking for a reliable smartphone. ”</p>
       </div>
     </div>
-   </div>
+    <!-- div2 -->
+    <div class="div2 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jonathan.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name">Jonathan Walters</p>
+          <p class="designation">Verified Graduate</p>
+        </div>
+      </div>
+      <div class="review">
+        <h4>Review of T-shirt</h4>
+        <p>“ The quality of the T-shirt is outstanding. The fabric is soft and comfortable, and it fits perfectly. I love the design and the color options available. Will definitely buy more in the future. ”</p>
+      </div>
+    </div>
+    <!-- div3 -->
+    <div class="div3 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-kira.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name dark">Kira Whittle</p>
+          <p class="designation dark">Verified Graduate</p>
+        </div>
+      </div>
+      <div class="review dark">
+        <h4>Review of Headphones</h4>
+        <p>“ These headphones have an amazing sound quality with deep bass and clear treble. They are very comfortable to wear for long periods and the noise-canceling feature is excellent. Highly recommend for music lovers. ”</p>
+      </div>
+    </div>
+    <!-- div4 -->
+    <div class="div4 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name dark">Jeanette Harmon</p>
+          <p class="designation dark">Verified Graduate</p>
+        </div>
+      </div>
+      <div class="review dark">
+        <h4>Review of Website Functionality Services</h4>
+        <p>“ The website functionality services provided were top-notch. The team was very professional and ensured that all my requirements were met. The end product was a fast, responsive, and user-friendly website. Very pleased with the service. ”</p>
+      </div>
+    </div>
+    <!-- div5 -->
+    <div class="div5 eachdiv">
+      <div class="userdetails">
+        <div class="imgbox">
+          <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg" alt="">
+        </div>
+        <div class="detbox">
+          <p class="name">Patrick Abrams</p>
+          <p class="designation">Verified Graduate</p>
 
-<!--REVIEW END-->
+        </div>
+      </div>
+      <div class="review">
+        <h4>Review of Mobile</h4>
+        <p>“ This mobile phone has an incredible battery life and the camera quality is superb. It handles all my apps smoothly and the display is vibrant and sharp. Totally worth the investment. ”</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ===========================END REVIEW ======================= -->
 
   <!-- app section -->
   <div class="app-container">
-    <div class="device-box">
+    <div class="device-box" data-aos-duration="1800" data-aos="fade-right">
       <img class="device-frame" src="img/combined-frames.webp" alt="" />
     </div>
     <div class="app-info">
@@ -1444,7 +1952,7 @@
         <div class="vigybag-text">
           <img src="img/VigyBag is ready for your favorite shopping@2x.webp" class="vigybag-image" alt="" />
         </div>
-        <div class="google-play-button" onclick="playButton()">
+        <div class="google-play-button" onclick="playButton()" data-aos-duration="1800" data-aos="fade-left">
           <button class="google-button">
             <div class="play-button">
               <div class="play-img-div">
@@ -1468,67 +1976,177 @@
   <!-- FAQ SECTION STARTS -->
 
   <div class="faq">
-    <h1 class="title">Frequently asked Questions</h1>
+    <h1 class="title" data-aos-duration="1800" data-aos="fade-up">Frequently asked Questions</h1>
 
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-2" />
       <h1><label for="faq-2">How Can I create Account ?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+           1. Download the App:
+            <br>
+            2. Install the shopping app from the App Store or Google Play Store.
+            Open the App:
+            <br>
+            3. Tap the app icon to launch it.
+            Sign Up:
+            <br>
+
+            4. Tap "Sign Up" or "Create Account."
+            Enter Details:
+            <br>
+
+            5. Fill in your name, email, and password.
+            Optionally, add your phone number.
+            Verify Information:
+            <br>
+
+            6. Confirm your email via a verification link or enter the code sent to your phone.
+            Agree to Terms:
+            <br>
+
+            7. Accept the terms and conditions.
+            Complete Setup:
+            <br>
+
+            8. Finalize your profile with additional info like your shipping address and payment details.
+            Your account is now ready to use!
+            <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-3" />
       <h1><label for="faq-3">How can I return an item ?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+         1. Open the App:
+         <br>
+        2. Tap the app icon to launch it.
+          Go to Your Orders:
+          <br>
+
+        3. Navigate to the "Orders" or "My Orders" section, usually found in your account/profile menu.
+          Select the Item:
+          <br>
+
+        4. Find the item you want to return and select it.
+          Initiate Return:
+          <br>
+
+        5. Tap on "Return" or "Return Item."
+          Choose Return Reason:
+          <br>
+
+        6. Select a reason for the return from the provided options.
+          Confirm Return:
+          <br>
+
+        7. Follow the prompts to confirm the return request.
+          Prepare the Item:
+          <br>
+
+        8. Pack the item securely in its original packaging.
+          Return Shipping:
+          <br>
+
+          Follow the app's instructions for return shipping. This may include printing a return label and scheduling a pickup or dropping it off at a designated location.
+          Once the return is processed, you’ll typically receive a refund according to the app’s policy.
+
+          <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-4" />
       <h1><label for="faq-4">How do i track my orders ?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+        1. Open the App:
+        <br>
+
+        2. Tap the app icon to launch it.
+        Go to Your Orders:
+        <br>
+
+        3. Navigate to the "Orders" or "My Orders" section, usually found in your account/profile menu.
+        Select the Order:
+        <br>
+
+        4. Find and select the order you want to track.
+        View Tracking Details:
+        <br>
+
+        5. Tap on "Track Order" or "Track Shipment" to see the current status and location of your package.
+        This will show you real-time updates on your order's delivery status.
+        <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-5" />
       <h1>
         <label for="faq-5">What is the Vigybag's customer service contact information?</label>
       </h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+         1. Open the App:
+         <br>
+
+         2. Tap the Vigybag app icon to launch it.
+          Navigate to Help or Support:
+          <br>
+
+         3. Go to the "Help" or "Support" section, usually found in the app's menu or under "Account" or "Profile."
+          Customer Service Contact:
+          <br>
+
+        4. Look for contact options like "Contact Us," "Customer Service," or "Support."
+          Common contact methods include:
+          <br>
+          <br>
+
+          Phone Number: A customer service phone number.
+          <br>
+          Email Address: A customer service email address.
+          <br>
+          Live Chat: An option to chat with a representative.
+          <br>
+          Help Center: Access to FAQs and support articles.
+          <br>
+          If you cannot find the information in the app, you can also visit the Vigybag website and check the "Contact Us" page for customer service details.
+          <br>
         </p>
       </div>
     </div>
-    <div class="c">
+    <div class="c" data-aos-duration="1800" data-aos="fade-up">
       <input type="checkbox" id="faq-6" />
       <h1><label for="faq-6">How can I cancel an order?</label></h1>
       <div class="p">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error
-          quaerat quisquam, tempore illum at necessitatibus facere, fugit
-          porro cupiditate nobis assumenda quos modi impedit, harum odit qui
-          minus maxime commodi .
+      1. Open the App:
+      <br>
+
+      2. Tap the app icon to launch it.
+        Go to Your Orders:
+      <br>  
+
+      3. Navigate to the "Orders" or "My Orders" section, usually found in your account/profile menu.
+        Select the Order:
+      <br>  
+
+      4. Find and select the order you want to cancel.
+        Cancel the Order:
+      <br>  
+
+      5. Tap on "Cancel Order" or a similar option.
+        Follow any additional prompts to confirm the cancellation.
+        Confirmation:
+      <br>  
+
+      6. You should receive a confirmation message or email once the order is successfully canceled.
+        Note: Orders can typically only be canceled if they haven't been processed or shipped. If the option to cancel is unavailable, you may need to contact customer service for further assistance.
+        <br>
         </p>
       </div>
     </div>
@@ -1541,7 +2159,7 @@
     <div class="row">
       <!-- map -->
       <div class="col" id="col1">
-        <div class="contact-location">
+        <div class="contact-location" data-aos-duration="1800" data-aos="fade-right">
           <!-- <img style="height: 100%;;" src="img/home icon.webp" alt="" class="logo"> -->
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
@@ -1552,38 +2170,62 @@
       <!-- map -->
 
       <!-- contact -->
-      <div class="col" id="col2">
+      <div class="col" id="col2" data-aos-duration="1800" data-aos="fade-up">
         <h3>
           Contact
           <div class="underline"><span></span></div>
         </h3>
 
-        <p><a href="">contact@vigybag.com</a></p>
-        <p><a href="">+91 1234567890</a></p>
+        <p><a href="">
+          <lord-icon
+              src="https://cdn.lordicon.com/xtzvywzp.json"
+              trigger="hover"
+              colors="primary:#ffffff"
+              style="width:20px;height:20px;padding-top:5px;">
+          </lord-icon>  contact@vigybag.com</a></p>
+        <p><a href=""><lord-icon
+                src="https://cdn.lordicon.com/srsgifqc.json"
+                trigger="hover"
+                colors="primary:#ffffff"
+                style="width:20px;height:20px;padding-top:5px">
+            </lord-icon>  +91 1234567890</a></p>
       </div>
       <!-- contact -->
 
       <!-- Links -->
-      <div class="col" id="col3">
+      <div class="col" id="col3" data-aos-duration="1800" data-aos="fade-up">
         <h3>
           Quick Links
           <div class="underline"><span></span></div>
         </h3>
         <div class="quick-links" id="bottom">
+          
           <!-- <div class="footer-title">
                         QUICK LINKS
                     </div> -->
           <div class="quick-links-info">
-            <div><a href="./Pages/About Page/about.html">About us</a></div>
-            <div><a href="./Pages/contact/contact.html">Contact us</a></div>
-            <div><a href="">Order</a></div>
-            <div><a href="">help</a></div>
+            <div><a href="./Pages/About Page/about.html" target="_blank"><i class="fa-solid fa-address-card" style="color: #ffffff;"></i>  About us</a></div>
+            <div><a href="./Pages/contact/contact.html" target="_blank"><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i>   Contact us</a></div>
+            <div><a href="" target="_blank"><lord-icon
+                        src="https://cdn.lordicon.com/mqdkoaef.json"
+                        trigger="hover"
+                        colors="primary:#ffffff"
+                        style="width:20px;height:20px;padding-top:4px">
+                    </lord-icon>  Order</a></div>
+            <div><a href="" target="_blank"><lord-icon
+                        src="https://cdn.lordicon.com/pyoiumqr.json"
+                        trigger="hover"
+                        colors="primary:#ffffff"
+                        style="width:20px;height:20px;padding-top:5px">
+                    </lord-icon>   Help</a></div>
+
+              <div><a href="./Pages/privacypolicy/privacy.html" target="_blank"><i class="fa-solid fa-shield-halved"></i>  Privacy Policy</a></div>      
           </div>
         </div>
       </div>
       <!-- links -->
 
-      <div class="col" id="col4">
+      <div class="col" id="col4" data-aos-duration="1800" data-aos="fade-up">
         <h3>
             SOCIAL
             <div class="underline"><span></span></div>
@@ -1614,7 +2256,7 @@
         <img src="./img/payment.webp" alt="" />
       </div>
       <p>
-        © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights
+        © <span id="copyright-year"></span> Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights
         Reserved
       </p>
       <p>Designed by Vivek Prajapati</p>
@@ -1677,7 +2319,7 @@
       display: none;
     }
   </style>
-  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></scrip>
+  <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
   <script>
     var alanBtnInstance = alanBtn({
       key: '574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage',
@@ -1700,9 +2342,8 @@
     function playButton() {
       alert("App development is in progress!");
     }
+   </script>
 
-
-  </script>
   <script>
     const scrollButton = document.querySelector('.go-top');
 
@@ -1710,14 +2351,16 @@
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         scrollButton.style.display = 'block';
-      } else {
+      } 
+      else {
         scrollButton.style.display = 'none';
       }
     });
   </script>
+  <script>document.getElementById("copyright-year").textContent = new Date().getFullYear();</script>
   <script src="./chatBot/script.js"></script>
-  <script src="./cart/js/util.js"></script>
-  <script src="./cart/js/main.js"></script>
+  <script src="./Cart/script.js"></script>
+
   <script src="./Pages/review/review.js"></script>
 
   <!-- script for Testimonials slider -->
@@ -1726,6 +2369,24 @@
   <script src="https://htmlcss3tutorials.com/demo/testimonials/js/wow.min.js"></script>
   <script src="https://htmlcss3tutorials.com/demo/testimonials/js/jquery.cssslider.min.js"></script>
   <script src="https://htmlcss3tutorials.com/demo/testimonials/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration:1200
+    });
+  </script>
+  <script>
+    const buyNowBtn = document.querySelectorAll(".cartbtn");
+    function openCart() {
+      window.open("./Cart/Cart.html");
+    }
+
+    buyNowBtn.forEach(box => {
+      box.addEventListener("click", openCart, false);
+    });
+  
+    
+  </script>
 </body>
 
 </html>

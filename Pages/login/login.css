@@ -609,9 +609,9 @@ footer a:hover {
 }
 .icon-1 {
   position: absolute;
-  top: 68.5%;
+  top: 69.8%;
   opacity: 300%;
-  left: 90px; /* Adjust the right position as needed */
+  left: 100px; /* Adjust the right position as needed */
 }
 .group input::placeholder {
   opacity: 80%;
@@ -725,12 +725,15 @@ input:invalid:not(:placeholder-shown) {
   color:#ffffff;
   
 }
+
 .line{
+ 
   width: 45%;
   height: 2px;
   background-color: black;
   opacity: 100%;
 }
+
 .forgot{
   color: #161B6E;
   font-size: 16px;
