@@ -684,6 +684,7 @@ body.dark {
   border-top-right-radius: 15px;
   position: relative;
   cursor: pointer;
+  
 }
 
 .item-image>img {
@@ -876,6 +877,7 @@ body.dark {
   line-height: 12px;
   font-family: 'Roboto', sans-serif;
 }
+
 
 .items-star i {
   color: #e6e6e6;
