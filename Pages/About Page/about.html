@@ -33,7 +33,7 @@
         <ul class="nav_link">
           <li><a href="../../index.html">Home</a></li>
           <li><a href="../../index.html">Services</a></li>
-          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html" class="active">About us</a></li>
           <li><a href="../Team/team.html">Team</a></li>
           <li><a href="../contact/contact.html">Contact us</a></li>
         </ul>
@@ -61,18 +61,18 @@
     <div class="about-wrapper">
       <div class="image-wrapper">
         <img class="image"
-          src="https://media.istockphoto.com/id/1086341762/vector/about-us-flat-design-style-colorful-illustration.webp?s=612x612&w=0&k=20&c=jeUDlovR0TRmuSb6lp19P7ijHx8UNtZzZhHJZVmoWJc="
+          src="https://www.careercomputerit.com/assets/img/about-us.png"
           alt="">
       </div>
       <div class="description-wrapper">
-        <h2 id="about-header"><i>So, if you're looking for a complete solution for Shopping near you with pin point
-            location then, this site is the right choice for you!</i></h2>
+        <h2 id="about-header">The Ultimate Solution for Shopping Near You with Pinpoint Location Accuracy
+        </h2>
         <br>
-        <p class="description"> This website is a location-based platform that allows users to search for products and
-          services based on their geographical location. The website uses GPS technology to pinpoint the user's location
-          and then displays nearby stores or businesses that offer the products or services they are searching for. It
-          allows users to compare prices and make purchases directly through the site, making it convenient for local
-          shopping and finding location-specific items.</p>
+        <p class="description"> This website is a location-based platform designed to help users find 
+          products and services based on their geographical location. Utilizing GPS technology, we 
+          pinpoint your location and display nearby stores and businesses that offer what you're
+           looking for. Our platform allows you to compare prices and make purchases directly through
+            the site, making local shopping convenient and helping you find location-specific items with ease.</p>
         <button id="read-more-btn" class="read-more-btn">Read More</button>
       </div>
     </div>
@@ -81,74 +81,113 @@
 
 
 
-  <div class="footer-container">
-    <!-- about-us -->
-    <div class="contact">
-      <div class="footer-title">
-        ABOUT US
-      </div>
-      <div class="contact-info">
-        <div class="contact-location">
-          <img style="height: 100%;" src="../../img/home icon.webp" alt="">
+  <footer>
+    <div class="row">
+      <!-- map -->
+      <div class="col" id="col1">
+        <div class="contact-location" data-aos-duration="1800" data-aos="fade-right">
+          <!-- <img style="height: 100%;;" src="img/home icon.webp" alt="" class="logo"> -->
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14325.273525218998!2d80.55109109948474!3d26.153758639272436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e826599%3A0xe913221a3b05dacb!2sAung%2C%20Uttar%20Pradesh%20212665!5e0!3m2!1sen!2sin!4v1687351423843!5m2!1sen!2sin"
-            width="100%" height="50%" style="border:0; padding-right:2em;" allowfullscreen="" loading="lazy"
+            width="100%" height="200px" style="border: 0; padding: 2rem 2em 0 0" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+      </div>
+      <!-- map -->
 
-        <div class="contact-email" style="display: flex; align-items: center;">
-          <a href="mailto:contact@vigybag.com" style="display: flex; align-items: center;">
-            <img src="../../img/msg icon.webp" alt="" style="margin-right: 10px;">
-            contact@vigybag.com
-          </a>
-        </div>
+      <!-- contact -->
+      <div class="col" id="col2" data-aos-duration="1800" data-aos="fade-up">
+        <h3>
+          Contact
+          <div class="underline"><span></span></div>
+        </h3>
 
-        <div class="contact-ph-number">
-          <img src="../../img/call icon.webp" alt="">
-          <p><a href="">+91 1234567890</a></p>
-        </div>
+        <p><a href="">
+          <lord-icon
+              src="https://cdn.lordicon.com/xtzvywzp.json"
+              trigger="hover"
+              colors="primary:#ffffff"
+              style="width:20px;height:20px;padding-top:5px;">
+          </lord-icon>  contact@vigybag.com</a></p>
+        <p><a href=""><lord-icon
+                src="https://cdn.lordicon.com/srsgifqc.json"
+                trigger="hover"
+                colors="primary:#ffffff"
+                style="width:20px;height:20px;padding-top:5px">
+            </lord-icon>  +91 1234567890</a></p>
       </div>
-    </div>
-    <!-- Quick Links -->
-    <div class="quick-links" id="bottom">
-      <div class="footer-title">
-        QUICK LINKS
-      </div>
-      <div class="quick-links-info">
-        <div><a href="../About Page/about.html">About us</a></div>
-        <div><a href="../contact/contact.html">Contact us</a></div>
-        <div><a href="">Order</a></div>
-        <div><a href="">help</a></div>
-      </div>
-    </div>
-    <div class="social">
-      <div class="footer-title">
-        SOCIAL
-      </div>
-      <div class="social-container">
-        <div class="social-div">
+      <!-- contact -->
 
-          <div>
-            <a href="https://www.instagram.com/coder_vivek/"><img src="../../img/Instagram (2).webp" alt=""></a>
-            <p><a href="https://www.instagram.com/coder_vivek/">Instagram</a></p>
+      <!-- Links -->
+      <div class="col" id="col3" data-aos-duration="1800" data-aos="fade-up">
+        <h3>
+          Quick Links
+          <div class="underline"><span></span></div>
+        </h3>
+        <div class="quick-links" id="bottom">
+          <!-- <div class="footer-title">
+                        QUICK LINKS
+                    </div> -->
+          <div class="quick-links-info">
+            <div><a href="./Pages/About Page/about.html" target="_blank"><i class="fa-solid fa-address-card" style="color: #ffffff;"></i>  About us</a></div>
+            <div><a href="./Pages/contact/contact.html" target="_blank"><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i>   Contact us</a></div>
+            <div><a href="" target="_blank"><lord-icon
+              src="https://cdn.lordicon.com/mqdkoaef.json"
+              trigger="hover"
+              colors="primary:#ffffff"
+              style="width:20px;height:20px;padding-top:4px">
+          </lord-icon>  Order</a></div>
+            <div><a href="" target="_blank"><lord-icon
+              src="https://cdn.lordicon.com/pyoiumqr.json"
+              trigger="hover"
+              colors="primary:#ffffff"
+              style="width:20px;height:20px;padding-top:5px">
+          </lord-icon>   Help</a></div>
+
+              <div><a href="./Pages/privacypolicy/privacy.html" target="_blank"><i class="fa-solid fa-shield-halved"></i>  Privacy Policy</a></div>      
           </div>
-          <div>
-
-            <a href="https://www.linkedin.com/in/codervivek/"><img src="../../img/LinkedIn Circled.webp" alt=""></a>
-            <p><a href="https://www.linkedin.com/in/codervivek/">LinkedIn</a></p>
-
-          </div>
-          <div>
-            <a href="https://www.facebook.com/codervivek/"><img src="../../img/Facebook.webp" alt=""></a>
-            <p><a href="https://www.facebook.com/codervivek/">Facebook</a></p>
-          </div>
         </div>
       </div>
+      <!-- links -->
+
+      <div class="col" id="col4" data-aos-duration="1800" data-aos="fade-up">
+        <h3>
+            SOCIAL
+            <div class="underline"><span></span></div>
+        </h3>
+        <div class="social-icons">
+            
+            <div class="social">
+                <a href="https://www.instagram.com/coder_vivek/" target="_blank"><img
+                        src="./../../img/Instagram (2).webp" alt="">Instagram</a>
+
+            </div>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/codervivek/" target="_blank"><img
+                        src="./../../img/LinkedIn Circled.webp" alt="">LinkedIn</a>
+
+            </div>
+            <div class="social">
+                <a href="https://www.facebook.com/codervivek/"><img src="./../../img/Facebook.webp" alt=""> Facebook</a>
+
+            </div>
+        </div>
+    </div>
     </div>
 
-  </div>
+    <!-- Copyright -->
+    <div id="copyright">
+      <div class="pay">
+        <img src="./../../img/payment.webp" alt="" />
+      </div>
+      <p>
+        © <span id="copyright-year"></span> Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights
+        Reserved
+      </p>
+      <p>Designed by Vivek Prajapati</p>
+    </div>
+  </footer>
 
-  </div>
   <!-- footer section -->
   <!-- Copyright -->
 
@@ -158,13 +197,6 @@
   </div>
 
 
-  <div id="copyright">
-    <div class="pay">
-      <img src="../../img/payment.webp" alt="">
-    </div>
-    <p> © Copyright &nbsp; <span> Coder_Vivek </span> &nbsp; | All Rights Reserved </p>
-    <p> Designed by Vivek Prajapati </p>
-  </div>
   <style>
     .alanBtn-root {
       /* bottom:20px !important; */
