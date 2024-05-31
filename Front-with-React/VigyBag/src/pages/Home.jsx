@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from "../components/Navbar/Navbar";
 import background from "../assets/images/background.png";
 
-function LandingPage() {
+function Home() {
     return (
         <div style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', height: '100vh', position: 'relative' }}>
-            <Navbar />
+            
             <h1>Welcome to Vigy Bag</h1>
             <h1>Your Eco-Friendly</h1>
             <h1>Shopping Heaven</h1>
@@ -14,4 +14,4 @@ function LandingPage() {
     );
 }
 
-export default LandingPage;
+export default Home;

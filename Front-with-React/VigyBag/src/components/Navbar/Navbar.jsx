@@ -2,6 +2,8 @@ import React from 'react';
 import { FaSearch, FaShoppingCart, FaBell, FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+
+
 // ...
 
 <Link to="/dashboard">
@@ -12,6 +14,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <nav className="flex  items-center justify-between bg-[#fdf1e8] p-4">
+
       {/* Logo and Navigation Links */}
       <div className="flex  gap-10 items-center">
         <img src="" alt="Logo" className="h-10" />
