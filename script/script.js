@@ -226,19 +226,26 @@ function clearSearch() {
   });
 }
 
-//left and right scroll on item cards div
-function itemCardsLeftScroll(id) {
-  const cardWidth =
-    document.getElementsByClassName('item-cards-div')[id].children[0]
-      .offsetWidth;
-  document.getElementsByClassName('item-cards-div')[id].scrollLeft -=
-    4 * cardWidth;
+function itemCardsRightScroll(id) {
+  const container = document.getElementsByClassName('item-cards-div')[id];
+  const cardWidth = container.children[id].offsetWidth;
+  const cardMarginRight = parseInt(window.getComputedStyle(document.querySelector('.item-card')).marginRight);
+
+  // Calculate the scroll distance as the card width plus its margin
+  const scrollDistance = cardWidth + cardMarginRight;
+
+  // Scroll by the calculated distance
+  container.scrollBy({ left: scrollDistance, behavior: 'smooth' });
 }
 
-function itemCardsRightScroll(id) {
-  const cardWidth =
-    document.getElementsByClassName('item-cards-div')[id].children[0]
-      .offsetWidth;
-  document.getElementsByClassName('item-cards-div')[id].scrollLeft +=
-    4 * cardWidth;
+function itemCardsLeftScroll(id) {
+  const container = document.getElementsByClassName('item-cards-div')[id];
+  const cardWidth = container.children[id].offsetWidth;
+  const cardMarginRight = parseInt(window.getComputedStyle(document.querySelector('.item-card')).marginRight);
+
+  // Calculate the scroll distance as the card width plus its margin
+  const scrollDistance = cardWidth + cardMarginRight;
+
+  // Scroll by the calculated distance
+  container.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
 }
