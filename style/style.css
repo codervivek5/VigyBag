@@ -842,6 +842,7 @@ body.dark {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 18px 15px;
+  position: relative;
 }
 
 .Lbtn {
@@ -900,13 +901,18 @@ body.dark {
   width: auto;
   display: flex;
 }
+.item-heading a{
+  width: 80%;
+}
 
 p {
   font-size: 12px;
 }
 
 .item-heading h3 {
-  margin-left: -20px;
+  position: absolute;
+  top:20;
+  right: 10px;
   font-size: 15px;
 }
 
