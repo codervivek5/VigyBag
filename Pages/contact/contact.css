@@ -150,7 +150,7 @@ body {
   border-radius: 5px;
   outline: none;
   font-size: 16px;
-  color: #e4e4ee;
+  color: black
   font-weight: 500;
   padding-right: 28px;
   text-align: left;
@@ -170,7 +170,7 @@ body {
   font-size: 16px;
   margin-top: 3px;
   padding: 6px;
-  color: #e4e4ee;
+  color: black;
   }
   
   .input-box label {
@@ -203,13 +203,13 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
-  @media (max-width: 941px) {
+  /* /* @media (max-width: 941px) {
   .container-form {
     margin-top: 20%;
   flex-direction: column;
   width: 100%;
   /* height: 90%; */
-  flex-wrap: nowrap;
+  /*flex-wrap: nowrap;
   overflow-y: auto;
 
   }
@@ -218,7 +218,7 @@ body {
   }
   .container-form .content{
     /* padding: 0px; */
-    width: auto;
+   /* width: auto;
     height: auto;
   }
   .container-form .logreg-box {
@@ -232,7 +232,7 @@ body {
     text-align: center;
   }
 
-}
+} */
   /* @media (min-width:320px) and (max-width:481px){
       .container-form {
       flex-direction: column;
@@ -285,7 +285,7 @@ body {
     text-align: center;
   }
 } */
-  .content,
+  /*.content,
   .logreg-box {
   padding: 10px;
   }
@@ -311,8 +311,82 @@ body {
   background-color: #0056b3;
   }
   
-  @media (max-width: 426px) {
+/*@media (max-width: 426px) {
   #backToTopBtn {
   right: 1rem;
   }
+  }*/
+  @media (max-width: 941px) {
+    .container-form {
+      margin-top: 20%;
+      flex-direction: column;
+      width: 100%;
+      flex-wrap: nowrap;
+      overflow-y: auto;
+    }
+    .social-icons {
+      justify-content: center;
+    }
+    .container-form .content {
+      width: auto;
+      height: auto;
+    }
+    .container-form .logreg-box {
+      width: auto;
+    }
+    .text-sci h2 {
+      text-align: center;
+    }
+    .content .logo img {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 426px) {
+    .container-form {
+      margin-top: 20%;
+      flex-direction: column;
+      width: 90%;
+      flex-wrap: nowrap;
+      overflow-y: auto;
+    }
+    .container-form .content,
+    .container-form .logreg-box {
+      width: 100%;
+    }
+    .content .logo img,
+    .text-sci h2 {
+      text-align: center;
+    }
+    .input-box {
+      width: 100%;
+    }
+    .social-icons {
+      justify-content: center;
+    }
+  }
+  
+  #backToTopBtn {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    bottom: 20px;
+    right: 42px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  #backToTopBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 426px) {
+    #backToTopBtn {
+      right: 1rem;
+    }
   }
