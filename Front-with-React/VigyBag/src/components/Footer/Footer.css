@@ -1,0 +1,100 @@
+.footer {
+    background-color: #2e2e2e;
+    color: #fff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .logo img {
+    width: 50px; /* Adjust the size as needed */
+  }
+  
+  .social-media {
+    text-align: left;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+  }
+  
+  .social-icons img {
+    width: 30px; /* Adjust the size as needed */
+  }
+  
+  .contact-info,
+.address {
+  text-align: center;
+}
+
+.contact-info p,
+.address {
+  text-align: center;
+}
+
+.contact-info p,
+.address p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start (left) */
+  margin: 5px 0;
+  gap: 10px; /* Space between image and text */
+}
+
+.address img {
+  width: 24px; /* Adjust the size as needed */
+  height: 24px; /* Ensure the icons have a uniform size */
+
+}
+
+  
+  .footer-bottom {
+    border-top: 1px solid #666;
+    padding-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    color: #fff;
+    flex: 1;
+    text-align: left;
+  }
+  
+  .footer-bottom nav {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .footer-bottom nav a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-bottom nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-bottom nav a img {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Ensure the icons have a uniform size */
+    margin-right: 5px;
+  }
+  
+  .footer-bottom nav a {
+    display: inline-flex;
+    align-items: center;
+  }
+  
