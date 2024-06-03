@@ -4,7 +4,7 @@ import Logo from '../../assets/offical_logo.png';
 
 const Aside = () => {
   return (
-    <aside className="w-64 bg-[#393d3cff] text-white flex flex-col sticky top-0">
+    <aside className="w-64 bg-[#393d3cff] text-white flex flex-col sticky top-0 " style={{position:'sticky'}}>
       <div className="flex items-center justify-center h-20  ">
         <img className='mt-10' src={Logo} alt="Logo" style={{ width: '50px', height: '50px' }} />
       </div>
