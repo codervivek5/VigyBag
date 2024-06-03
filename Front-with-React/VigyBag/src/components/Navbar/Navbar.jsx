@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="flex  gap-5 items-center">
 
       <NavLink to="/">
-        <img src={logo} alt="Logo" className="  h-10" />
+        <img src={logo} alt="Logo" className="ml-4 h-10" />
       </NavLink>
 
         <div className="ml-4">
@@ -38,7 +38,13 @@ const Navbar = () => {
           </div>
 
           {/* About Us Link */}
-          <NavLink to="/about" className="mx-2 text-xl text-black  ">About Us</NavLink>
+          <NavLink to="/about" className="mx-2 text-xl text-black   ">About Us</NavLink>
+
+          
+          {/* Categories Dropdown */}
+          <div className="inline-block relative">
+            <NavLink to="/team" className="mx-2 text-xl text-black ">Team</NavLink>
+          </div>
         </div>
       </div>
 
