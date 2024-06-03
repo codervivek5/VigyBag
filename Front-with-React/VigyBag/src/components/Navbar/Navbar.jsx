@@ -25,20 +25,20 @@ const Navbar = () => {
 
         <div className="ml-4">
           {/* Home Link */}
-          <NavLink to="/" className="mx-2 text-black text-2xl font-bold ">Home</NavLink>
+          <NavLink to="/" className="mx-2 text-black text-xl   ">Home</NavLink>
 
           {/* Gifts Dropdown */}
           <div className="inline-block relative">
-            <NavLink to="/gifts" className="mx-2 text-2xl text-black font-bold">Gifts</NavLink>
+            <NavLink to="/gifts" className="mx-2 text-xl text-black  ">Gifts</NavLink>
           </div>
 
           {/* Categories Dropdown */}
           <div className="inline-block relative">
-            <NavLink to="/categories" className="mx-2 text-2xl text-black font-bold">Categories</NavLink>
+            <NavLink to="/categories" className="mx-2 text-xl text-black  ">Categories</NavLink>
           </div>
 
           {/* About Us Link */}
-          <NavLink to="/about" className="mx-2 text-2xl text-black font-bold">About Us</NavLink>
+          <NavLink to="/about" className="mx-2 text-xl text-black  ">About Us</NavLink>
         </div>
       </div>
 
@@ -50,12 +50,12 @@ const Navbar = () => {
 
       {/* User Actions */}
       <div className="flex gap-2 items-center">
-        <FaShoppingCart className="mx-2 text-black cursor-pointer size-10" />
-        <FaBell className="mx-2 text-black cursor-pointer size-10" />
+        <FaShoppingCart className="mx-2 text-black cursor-pointer size-6" />
+        <FaBell className="mx-2 text-black cursor-pointer size-6" />
         <Link to="/dashboard">
             <div className='flex'>
-              <FaUserCircle className="mx-2 text-black cursor-pointer size-10" />
-              <span className="mx-2 text-black font-semibold text-2xl">Hi, Vivek</span>
+              <FaUserCircle className="mx-2 text-black cursor-pointer size-6" />
+              <span className="mx-2 text-black font-bold text-xl">Hi, Vivek</span>
             </div>
         </Link>
       </div>
