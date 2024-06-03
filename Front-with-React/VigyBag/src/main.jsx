@@ -12,6 +12,7 @@ import Gifts from './pages/gifts/Gifts';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Layout from './Layout'
+import Dashboard from './pages/Dashboard';
 
 
 
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<AboutUs/>}/>
       <Route path="contact" element={<Contact/>}/>
       <Route path="login" element={<Login/>}/>
+      <Route path="dashboard" element={<Dashboard/>}/>
     </Route>
   )
 )
