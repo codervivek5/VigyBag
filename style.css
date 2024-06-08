@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#cursor{
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    background-color: #ffffff7f;
+    position: fixed;
+    font-size: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9;
+}
+.poetsen-one-regular {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.main {
+    height: auto;
+    width: 100%;
+
+}
+
+/*#main-logo{
+    height: 10vh;
+    margin-left: 5vw;
+
+}*/
+h2 {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 5vw;
+}
+
+button {
+    background-color:rgb(255, 100, 77);
+    padding: 13px 25px;
+    color: white;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin-right: 5vw;
+    border-radius: 15px;
+}
+
+nav {
+    height: 15vh;
+    width: 100%;
+    /*background-color: #944343;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.landing-page {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+
+.page-content-landing-page {
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    height: 60vh;
+    width: 40vw;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    /*background-color: #7c3737;*/
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+
+
+}
+
+h1 {
+    font-size: 6vh;
+    margin-left: 5vw;
+    position: relative;
+    top: 5vh;
+}
+
+h4 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 5vw;
+    font-size: 19px;
+}
+
+span {
+    color: rgb(250, 168, 37);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+section {
+    height: auto;
+    width: auto;
+    /*background-color: #fff;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    top: -6vh;
+    right: 10px;
+}
+
+#active {
+    background-color: black;
+    border: .3px white solid;
+}
+
+button {
+    border: .3px white solid;
+}
+
+.counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 35vw;
+    height: 20vh;
+    /* background-color: #9b4e4e;*/
+    font-size: 23px;
+    padding: 10px;
+    gap: 23px;
+    position: relative;
+    top: -10vh;
+    left: 3vw;
+}
+
+.counter div {
+    border-right: 0.1px solid rgba(255, 255, 255, 0.414);
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#target {
+    border-right: 0.1px solid rgba(14, 13, 13, 0.101);
+}
+.landing-page-image img{
+    position: absolute;
+    top:25vh;
+    left:62vw;
+    height: 60vh;
+    width:auto;
+}
