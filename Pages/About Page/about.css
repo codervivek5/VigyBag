@@ -85,6 +85,7 @@ body.dark {
   transform: translate(38px);
 }
 
+
 @media (min-width: 1200px) and (max-width: 1441px) {
   .container {
     max-width: 1250px;
@@ -464,4 +465,55 @@ margin-top: 50px;
   justify-content: center;
   padding: 1vh 0;
 }
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+#read-more-wrapper
+{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  display: none;
+}
+.info {
+  transition: --num 5s;
+  counter-set: num var(--num);
+  font: 800 40px system-ui;
+  width: 40%;
+}
+#info1::after {
+  content: counter(num);
+}
+#info2::after {
+  content: counter(num);
+}
+#info3::after {
+  content: counter(num);
+}
+#info4::after {
+  content: counter(num);
+}
+#info1:hover {
+  --num: 1600000;
+}
+#info2:hover {
+  --num: 1600;
+}
+#info3:hover {
+  --num: 102;
+}
+#info4:hover {
+  --num: 10;
+}
+
+
+.info {
+  margin: 2rem;
+}
+
 
