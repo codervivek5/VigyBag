@@ -12,8 +12,7 @@ function Login() {
         <>
             <div className="flex justify-center items-center h-screen bg-[#fff0e3ff]">
                 <div className="flex">
-                    <div className="bg-[#393d3cff] rounded-lg p-20 mr-20 relative " style={{ borderRadius: '20px', 
-                    paddingRight: '9vw', left: '-13vw', width: '35vw', height: '80vh',top:'-2.5vh' }}>
+                    <div className="bg-[#393d3cff] rounded-lg p-20 mr-20 relative" style={{ borderRadius: '20px', paddingRight: '9vw', left: '-13vw', width: '35vw', height: '80vh' }}>
                         <div className=" flex items-center mb-6 " style={{ flexDirection: 'column', gap: '5%' }} >
                             <div className=" absolute flex items-center justify-center " style={{
                                 top: '-5vh', height: '15vh', width: '7vw',
@@ -94,10 +93,8 @@ function Login() {
                             </div>
                         </form>
                     </div>
-                    <div className="absolute bg-[#c1cfabff] rounded-ml" style={{ borderRadius: '20px', right: '17%',
-                     width: '35vw', height: '80vh',top:'17vh' }}>
-                        <img src={signUp} alt="Illustration" className="relative max-w-xl mx-auto my-10 rounded-ml" style={{ scale: '1.3', 
-                        width: '31vw', height: '68vh' }} />
+                    <div className="absolute bg-[#c1cfabff] rounded-ml" style={{ borderRadius: '20px', right: '17%', width: '35vw', height: '80vh' }}>
+                        <img src={signUp} alt="Illustration" className="relative max-w-xl mx-auto my-10 rounded-ml" style={{ scale: '1.3', width: '31vw', height: '68vh' }} />
                     </div>
                 </div>
             </div>
