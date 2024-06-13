@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
-import Categories from './pages/Categories';
+import Categories from './pages/Categories/Categories';
 import Login from './pages/Login/Login';
 import Toys from './pages/gifts/Toys';
 import DecorativeItems from './pages/Category/DecorativeItems';
-import AboutUs from './pages/AboutUs';
+import AboutUs from './pages/About/AboutUs';
 import Gifts from './pages/gifts/Gifts';
-import Contact from './pages/Contact';
-import Home from './pages/Home';
+import Contact from './pages/Contacts/Contact';
+import Home from './pages/Home/Home';
 import Layout from './Layout'
 import Team from './components/Team/Team';
+
 
 
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact/>}/>
       <Route path="team" element={<Team/>}/>
       <Route path="login" element={<Login/>}/>
+      {/* <Route path="cart" element={<Cart/>}/> */}
     </Route>
   )
 )
