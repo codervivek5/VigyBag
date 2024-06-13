@@ -16,7 +16,7 @@ jobs:
         run: |
           COMMENT=$(cat <<EOF
           {
-            "body": "Thank you for creating this issue! We'll look into it as soon as possible. Your contributions are highly appreciated! 😊"
+            "body": "Thank you for creating this issue! We'll look into it as soon as possible. Your contributions are highly appreciated! 😊\n\nFor more information, join the official [Discord](https://discord.com/invite/xujgQevyZ4)."
           }
           EOF
           )
@@ -26,9 +26,10 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
             -d "$COMMENT")
-          cat response.json
-          if [ "$RESPONSE" -ne 201 ]; then
+          HTTP_CODE=$(tail -n1 response.json)
+          if [ "$HTTP_CODE" -ne 201 ]; then
             echo "Failed to add comment"
+            cat response.json
             exit 1
           fi
         env:
