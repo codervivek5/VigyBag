@@ -6,7 +6,7 @@
 
 
 <div align="center">
-[![codervivek's GitHub | Stats](https://stats.quine.sh/codervivek/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=codervivek)
+  
  <p>
  
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
