@@ -3,9 +3,12 @@
 <h1>VigyBag</h1>
 </div>
 
-<div align="center">
- <p>
 
+
+<div align="center">
+[![codervivek's GitHub | Stats](https://stats.quine.sh/codervivek/github?theme=dark)](https://quine.sh?utm_source=widgets&utm_campaign=codervivek)
+ <p>
+ 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=codervivek5/VigyBag%20&countColor=%2523263759&style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/codervivek5/VigyBag?style=for-the-badge)
