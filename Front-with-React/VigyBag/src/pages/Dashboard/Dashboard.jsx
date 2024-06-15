@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import granola from '../assets/granola.jpg';
-import cuttery from '../assets/cuttery-set.jpg';
-import basket from '../assets/basket.png';
-import shawls from '../assets/shawals.jpg';
-import notebooks from '../assets/eco-friendly-notebooks.jpeg';
-import toothbrushes from '../assets/Bamboo-Toothbrush-Set.jpeg';
-import towels from '../assets/Organic Cotton Towels.jpg';
-import shoppingBags from '../assets/Reusable-Shopping-Bags.jpeg';
-import phoneCase from '../assets/Biodegradable-Phone-Case.jpeg';
-import journals from '../assets/Recycled-Paper-Journals.webp';
-import waterBottle from '../assets/Glass-Water-Bottle.webp';
-import teaSet from '../assets/Organic-Tea-Set.webp';
+import granola from '../../assets/granola.jpg';
+import cuttery from '../../assets/cuttery-set.jpg';
+import basket from '../../assets/basket.png';
+import shawls from '../../assets/shawals.jpg';
+import notebooks from '../../assets/eco-friendly-notebooks.jpeg';
+import toothbrushes from '../../assets/Bamboo-Toothbrush-Set.jpeg';
+import towels from '../../assets/Organic Cotton Towels.jpg';
+import shoppingBags from '../../assets/Reusable-Shopping-Bags.jpeg';
+import phoneCase from '../../assets/Biodegradable-Phone-Case.jpeg';
+import journals from '../../assets/Recycled-Paper-Journals.webp';
+import waterBottle from '../../assets/Glass-Water-Bottle.webp';
+import teaSet from '../../assets/Organic-Tea-Set.webp';
 import { FaSearch } from 'react-icons/fa';
-import carryBag from '../assets/vigybag-carry-bag.png';
-import profile from '../assets/profile.png';
-import ProductCard from '../components/ProductCard/ProductCard';
-import Aside from '../components/Aside/Aside';
+import carryBag from '../../assets/vigybag-carry-bag.png';
+import profile from '../../assets/profile.png';
+import ProductCard from '../../components/ProductCard/ProductCard';
+import Aside from '../../components/Aside/Aside';
 
 const Dashboard = () => {
     

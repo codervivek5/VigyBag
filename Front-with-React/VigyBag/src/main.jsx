@@ -8,14 +8,14 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import Categories from './pages/Categories';
+import Categories from './pages/Categories/Categories';
 import Login from './pages/Login/Login';
 import Toys from './pages/gifts/Toys';
 import DecorativeItems from './pages/Category/DecorativeItems';
 import AboutUs from './pages/About/AboutUs';
 import Gifts from './pages/gifts/Gifts';
-import Contact from './pages/Contact';
-import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contacts/Contact';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home';
 import Layout from './Layout';
 import Team from './components/Team/Team';
