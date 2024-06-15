@@ -9,6 +9,8 @@ export default {
       fontFamily:{
         'league': ['League Spartan'],
         'pop': ['Poppins'],
+        'baloo': ["Baloo 2", 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
       }
     },
   },
