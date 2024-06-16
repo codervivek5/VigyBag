@@ -8,17 +8,22 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import Categories from './pages/Categories';
+import Categories from './pages/Categories/Categories';
 import Login from './pages/Login/Login';
 import Toys from './pages/gifts/Toys';
 import DecorativeItems from './pages/Category/DecorativeItems';
 import AboutUs from './pages/About/AboutUs';
 import Gifts from './pages/gifts/Gifts';
-import Contact from './pages/Contact';
-import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contacts/Contact';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home';
 import Layout from './Layout';
 import Team from './components/Team/Team';
+import Confirmation from './pages/Confirmation/Confirmation'
+import Cancellation from './pages/Cancellation/Cancellation'
+import OrderDetails from './pages/Order/Orderdetails';
+import MyOrders from './pages/Order/MyOrders';
+import BambooProducts from './pages/ProductsPage/BambooProducts';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,6 +47,11 @@ const router = createBrowserRouter(
       <Route path="team" element={<Team />} />
       <Route path="login" element={<Login />} />
       <Route path="dashboard" element={<Dashboard />} />
+      <Route path="confirm" element={<Confirmation />} />
+      <Route path="cancel" element={<Cancellation />} />
+      <Route path="orderDetails" element={<OrderDetails/>} />
+      <Route path="myOrders" element={<MyOrders/>} />
+      <Route path="bambooProducts" element={<BambooProducts/>} />
     </Route>,
   ),
 );
