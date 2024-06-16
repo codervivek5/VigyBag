@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSearch, FaShoppingCart, FaBell, FaUserCircle } from 'react-icons/fa';
-import { Link , NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../assets/images/Logo.svg'
 
@@ -19,9 +19,9 @@ const Navbar = () => {
       {/* Logo and Navigation Links */}
       <div className="flex  gap-5 items-center">
 
-      <NavLink to="/">
-        <img src={logo} alt="Logo" className="ml-4 h-10" />
-      </NavLink>
+        <NavLink to="/">
+          <img src={logo} alt="Logo" className="ml-4 h-10" />
+        </NavLink>
 
         <div className="ml-4">
           {/* Home Link */}
@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* About Us Link */}
           <NavLink to="/about" className="mx-2 text-xl text-black   ">About Us</NavLink>
 
-          
+
           {/* Categories Dropdown */}
           <div className="inline-block relative">
             <NavLink to="/team" className="mx-2 text-xl text-black ">Team</NavLink>
@@ -56,13 +56,17 @@ const Navbar = () => {
 
       {/* User Actions */}
       <div className="flex gap-2 items-center">
-        <FaShoppingCart className="mx-2 text-black cursor-pointer size-6" />
+        <Link to="/cart">
+          <FaShoppingCart className="mx-2 text-black cursor-pointer size-6" />
+        </Link>
+
         <FaBell className="mx-2 text-black cursor-pointer size-6" />
+
         <Link to="/dashboard">
-            <div className='flex'>
-              <FaUserCircle className="mx-2 text-black cursor-pointer size-6" />
-              <span className="mx-2 text-black font-bold text-xl">Hi, Vivek</span>
-            </div>
+          <div className='flex'>
+            <FaUserCircle className="mx-2 text-black cursor-pointer size-6" />
+            <span className="mx-2 text-black font-bold text-xl">Hi, Vivek</span>
+          </div>
         </Link>
       </div>
     </nav>
