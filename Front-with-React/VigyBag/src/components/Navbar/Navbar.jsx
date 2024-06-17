@@ -14,7 +14,7 @@ import logo from '../../assets/images/Logo.svg'
 
 const Navbar = () => {
   return (
-    <nav className="flex  items-center justify-between bg-[#fdf1e8] p-3">
+    <nav className="flex  items-center justify-between bg-[#ecd5c5] p-3">
 
       {/* Logo and Navigation Links */}
       <div className="flex  gap-5 items-center">

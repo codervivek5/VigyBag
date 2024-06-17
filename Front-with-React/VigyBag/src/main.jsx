@@ -24,6 +24,9 @@ import Cancellation from './pages/Cancellation/Cancellation'
 import OrderDetails from './pages/Order/Orderdetails';
 import MyOrders from './pages/Order/MyOrders';
 import BambooProducts from './pages/ProductsPage/BambooProducts';
+import Checkout from './pages/Order/Checkout';
+import Cart from './pages/Order/Cart';
+import Error from './pages/404-Page/Error';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -52,6 +55,9 @@ const router = createBrowserRouter(
       <Route path="orderDetails" element={<OrderDetails/>} />
       <Route path="myOrders" element={<MyOrders/>} />
       <Route path="bambooProducts" element={<BambooProducts/>} />
+      <Route path="checkout" element={<Checkout/>} />
+      <Route path="cart" element={<Cart/>} />
+      <Route path="error" element={<Error/>} />
     </Route>,
   ),
 );
