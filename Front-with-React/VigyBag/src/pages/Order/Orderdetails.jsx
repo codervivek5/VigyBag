@@ -4,7 +4,7 @@ import tick from '../../assets/tick.png'
 import {Link} from 'react-router-dom';
 
 const OrderDetails = () => (
-  <div className="bg-[#fff0e3ff] p-6">
+  <div className="bg-[#fff0e3ff] p-6 mt-1">
     <Breadcrumbs />
     <h1 className="text-2xl font-bold mb-4">Order Details</h1>
     <OrderInfo />
@@ -22,11 +22,14 @@ const OrderDetails = () => (
 );
 
 const Breadcrumbs = () => (
-  <div className="text-sm text-zinc-500 mb-2 ">
+  <div className="text-sm text-zinc-500 mb-2 absolute"style={{left:'1.5vw',top:'10.5vh'}}>
     <Link to="/dashboard" className="hover:underline">Dashboard</Link> &gt;
-     <Link to="/myOrders" className="hover:underline">My Orders</Link> &gt; Order Details
+    <Link to="/cart" className='hover:underline'>Cart</Link> &gt;
+     <Link to="/myOrders" className="hover:underline">My Orders</Link> &gt; 
+     <Link to="/orderDetails" className='hover:underline'>Order Details</Link>
   </div>
 );
+
 
 const OrderInfo = () => (
   <p className="text-sm text-zinc-600 mb-4">Ordered on 8 June 2024 | ORDER #123-456789-0987654</p>
