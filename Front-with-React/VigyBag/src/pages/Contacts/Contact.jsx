@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
-import Logo from '../assets/offical_logo.png';
+import Logo from '../../assets/images/Logo.svg';
+
 
 const ContactForm = () => {
   return (
