@@ -2,6 +2,7 @@ import React from 'react';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import Logo from '../../assets/images/Logo.svg';
 
+
 const ContactForm = () => {
   return (
     <div className="bg-[#fff0e3ff] min-h-screen flex items-center justify-center mt-1">
