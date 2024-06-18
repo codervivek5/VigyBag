@@ -1,11 +1,9 @@
 import React from 'react';
 import { FaSearch, FaShoppingCart, FaBell, FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
-
+import DropDown from '../DropDown/DropDown';
 import logo from '../../assets/images/Logo.svg'
 
-
-// ...
 
 <Link to="/dashboard">
   <FaUserCircle className="mx-2 text-black cursor-pointer size-10" />
@@ -27,21 +25,20 @@ const Navbar = () => {
           {/* Home Link */}
           <NavLink to="/" className="mx-2 text-black text-xl   ">Home</NavLink>
 
-          {/* Gifts Dropdown */}
-          <div className="inline-block relative">
-            <NavLink to="/gifts" className="mx-2 text-xl text-black  ">Gifts</NavLink>
-          </div>
-
           {/* Categories Dropdown */}
-          <div className="inline-block relative">
+          {/* <div className="inline-block relative">
             <NavLink to="/categories" className="mx-2 text-xl text-black  ">Categories</NavLink>
-          </div>
+          </div> */}
+
+          <DropDown />
 
           {/* About Us Link */}
           <NavLink to="/about" className="mx-2 text-xl text-black   ">About Us</NavLink>
 
+          {/* Contact Link */}
+          <NavLink to="/contact" className="mx-2 text-xl text-black   ">Contact</NavLink>
 
-          {/* Categories Dropdown */}
+          {/* Team Link */}
           <div className="inline-block relative">
             <NavLink to="/team" className="mx-2 text-xl text-black ">Team</NavLink>
           </div>
