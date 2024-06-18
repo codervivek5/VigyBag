@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Page404 = () => {
   return (
@@ -13,7 +13,7 @@ const Page404 = () => {
         <div className="text-center mt-[-2.5rem]">
           <h3 className="text-4xl font-semibold">Look like you're lost</h3>
           <p className="text-lg mt-4">The page you are looking for is not available!</p>
-          <Link to="/" className="inline-block mt-5 px-6 py-2 text-white bg-green-600 rounded">Go to Home</Link>
+          <NavLink to="/" className="inline-block mt-5 px-6 py-2 text-white bg-green-600 rounded">Go to Home</NavLink>
         </div>
       </div>
     </section>
