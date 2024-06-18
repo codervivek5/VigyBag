@@ -5,7 +5,6 @@ import DoorMat from '../../assets/Handwoven-Doormat.jpeg';
 import TUMBLER from '../../assets/TUMBLER.png';
 import { Link } from 'react-router-dom';
 
-
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white dark:bg-neutral-700 rounded-lg shadow-md";
 const textClass = "text-zinc-500 dark:text-zinc-400";
@@ -62,9 +61,15 @@ const Cart = () => {
     { id: 3, name: "Bamboo Insulated Tumbler", seller: "XYZ", size: "One Size", price: 175, discount: 299, quantity: 2, image: TUMBLER },
     { id: 4, name: "Storage basket and container", seller: "XYZ", size: "One Size", price: 175, discount: 299, quantity: 1, image: Container },
   ]);
+  
+  const [showCouponInput, setShowCouponInput] = useState(false);
 
   const removeItem = (id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
+  const toggleCouponInput = () => {
+    setShowCouponInput(!showCouponInput);
   };
 
   return (
@@ -87,9 +92,21 @@ const Cart = () => {
           <div className="w-full md:w-1/3 p-4 mt-8 md:mt-0">
             <h2 className="text-2xl font-bold mb-6">Subtotal</h2>
             <Subtotal items={cartItems} />
-            <div className="flex justify-between mt-6">
-              <button className={buttonBgClass}>Redeem</button>
-              <button className={buttonBgClass}>Check Out</button>
+            <div className="mt-6">
+              <div className="flex justify-between">
+                <button className={buttonBgClass} onClick={toggleCouponInput}>Redeem</button>
+                <button className={buttonBgClass}>Check Out</button>
+              </div>
+              {showCouponInput && (
+                <div className="mt-4">
+                  <input
+                    type="text"
+                    placeholder="Enter coupon code"
+                    className="p-2 border border-gray-300 rounded-md w-full"
+                  />
+                  <button className={buttonBgClass + " mt-2 w-full"}>Apply Coupon</button>
+                </div>
+              )}
             </div>
           </div>
         </div>
