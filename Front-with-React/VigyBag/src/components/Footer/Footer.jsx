@@ -18,6 +18,7 @@ import logo from './image/logo.png';
 import home from './image/hi.png';
 import message from './image/msg.png';
 import call from './image/ci.png';
+import {Link} from 'react-router-dom';
 
 
 const Footer = () => {
@@ -44,11 +45,11 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="contact-info">
-          <p>About us</p>
-          <p>Contact us</p>
-          <p>Order</p>
-          <p>Help</p>
+        <div className="contact-info flex "style={{flexDirection:'column',gap:'5px'}}>
+          <Link to="/about">About us</Link>
+          <Link to="/contact">Contact us</Link>
+          <Link to="/myOrders">Order</Link>
+          <Link className="mb-4" to="/help">Help</Link>
         </div>
         <div className="address">
         <p>
@@ -65,10 +66,10 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2024 VigyBag. All rights reserved</p>
         <nav>
-          <a href="/home">Home</a>
-          <a href="/our-services">Our Services</a>
-          <a href="/terms-and-conditions">Terms & Conditions</a>
-          <a href="/faq">FAQ</a>
+          <Link to="/">Home</Link>
+          <Link to="/our-services">Our Services</Link>
+          <Link to="/terms-and-conditions">Terms & Conditions</Link>
+          <Link to="/faq">FAQ</Link>
         </nav>
       </div>
     </footer>
