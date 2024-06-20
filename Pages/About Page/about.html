@@ -20,8 +20,20 @@
   <link rel="stylesheet" href="../../style/style.css">
   <script src="../../script/script.js"></script>
   <link rel="stylesheet" href="./about.css">
-  <script src="./about.js"></script>
   
+  <script src="./about.js"></script>
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@bufferhead/nightowl@0.0.14/dist/nightowl.js"
+></script>
+<script type="module">
+  import { createNightowl } from '@bufferhead/nightowl'
+
+  createNightowl({
+      defaultMode: 'dark',
+      toggleButtonMode: 'newState'
+  })
+</script>
 
 </head>
 
@@ -43,16 +55,19 @@
         <div class="burger-icon">
           <i class="fa-solid fa-bars" id='icon'></i>
         </div>
-        <div class="toggle-button">
+        <!-- <div class="toggle-button">
           <input type="checkbox" class="checkbox" id="checkbox">
           <label for="checkbox" class="label">
             <i class="material-symbols-outlined moon">dark_mode</i>
             <i class="material-symbols-outlined sun" style="font-size:21px;"> clear_day</i>
             <div class="material-symbols-outlined  ball" style="font-size:25px;">circle</div>
           </label>
-        </div>
+         
+        </div> -->
       </div>
     </div>
+
+    
   </header>
 
 
@@ -79,7 +94,7 @@
   </section>
 
 
-
+  
 
   <footer>
     <div class="row">
@@ -207,6 +222,7 @@
   <!-- go to top -->
   <a class="go-top" href="#"><i class="fa-solid fa-arrow-up fa-lg"></i></a>
   <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+  
   <script>
     var alanBtnInstance = alanBtn({
       key: "574e6cb0247244fa64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
@@ -224,8 +240,31 @@
       rootEl: document.getElementById("alan-btn"),
     });
   </script>
+  <!--  <script> 
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//         const checkbox = document.getElementById('checkbox');
+
+//         // Load the saved theme from localStorage
+//         if (localStorage.getItem('theme') === 'dark') {
+//             document.body.classList.add('dark-mode');
+//             checkbox.checked = true;
+//         }
+
+//         checkbox.addEventListener('change', () => {
+//             if (checkbox.checked) {
+//                 document.body.classList.add('dark-mode');
+//                 localStorage.setItem('theme', 'dark');
+//             } else {
+//                 document.body.classList.remove('dark-mode');
+//                 localStorage.setItem('theme', 'light');
+//             }
+//         });
+//     });
+  </script> -->
   <script src="../../chatBot/script.js"></script>
   <script src="../../script/script.js"></script>
+  
 </body>
 
 </html>
