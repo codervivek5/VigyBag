@@ -15,7 +15,7 @@ const buttonBgClass = "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-gre
 const CartItem = ({ name, seller, size, price, discount, quantity, image, onRemove }) => (
   <div className={`${cardClass} flex items-center justify-between mb-4`} style={{ border: '1px solid black' }}>
     <div className="flex items-center">
-      <img src={image} alt={name} style={{ width: '8vw', height: '15vh', borderRadius: '20px', marginRight: '20px' }} />
+      <img src={image} alt={name} className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4" />
       <div>
         <h3 className="text-lg font-semibold">{name}</h3>
         <p className={textClass}>Sold by: {seller}</p>
@@ -61,7 +61,7 @@ const Cart = () => {
     { id: 3, name: "Bamboo Insulated Tumbler", seller: "XYZ", size: "One Size", price: 175, discount: 299, quantity: 2, image: TUMBLER },
     { id: 4, name: "Storage basket and container", seller: "XYZ", size: "One Size", price: 175, discount: 299, quantity: 1, image: Container },
   ]);
-  
+
   const [showCouponInput, setShowCouponInput] = useState(false);
 
   const removeItem = (id) => {
