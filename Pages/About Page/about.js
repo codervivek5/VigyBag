@@ -14,6 +14,9 @@ const copyright = document.querySelector("#copyright p span");
 const about = document.getElementById("about-header");
 const readMore = document.getElementById("read-more-btn");
 
+
+
+
 // Dark Mode button Function
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("change", () => {

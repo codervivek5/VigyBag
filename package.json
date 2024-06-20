@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Nishitbaria/VigyBag#readme",
   "dependencies": {
+    "@bufferhead/nightowl": "^0.0.14",
     "axios": "^1.7.2"
   },
   "devDependencies": {
