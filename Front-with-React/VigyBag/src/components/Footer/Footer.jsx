@@ -1,15 +1,5 @@
-//import React from 'react'
-
-//function Footer() {
-  //return (
-    //<div>This is footer section</div>
-  //)
-//}
-
-//export default Footer
 import React from 'react';
-import './Footer.css';  // Make sure to create this CSS file with the styles
-//import { FaInstagram } from "react-icons/fa";
+import './Footer.css';  // Ensure this CSS file exists with the provided styles
 import instagramIcon from './image/in.png';
 import xIcon from './image/tw.png';
 import linkedinIcon from './image/li.png';
@@ -18,8 +8,7 @@ import logo from './image/logo.png';
 import home from './image/hi.png';
 import message from './image/msg.png';
 import call from './image/ci.png';
-import {Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -38,29 +27,29 @@ const Footer = () => {
               <img src={xIcon} alt="X" />
             </a>
             <a href="https://www.linkedin.com">
-              <img src= {linkedinIcon} alt="LinkedIn" />
+              <img src={linkedinIcon} alt="LinkedIn" />
             </a>
             <a href="https://www.facebook.com">
               <img src={facebookIcon} alt="Facebook" />
             </a>
           </div>
         </div>
-        <div className="contact-info flex "style={{flexDirection:'column',gap:'5px'}}>
+        <div className="contact-info">
           <Link to="/about">About us</Link>
           <Link to="/contact">Contact us</Link>
           <Link to="/myOrders">Order</Link>
-          <Link className="mb-4" to="/help">Help</Link>
+          <Link to="/help">Help</Link>
         </div>
         <div className="address">
-        <p>
-        <img src={home} alt="Address" /> Aung Fatehpur, Uttar Pradesh India-212665
-      </p>
-      <p>
-        <img src={message} alt="Email" /> contact@vigybag.com
-      </p>
-      <p>
-        <img src={call} alt="Phone" /> +91 1234567890
-      </p>
+          <p>
+            <img src={home} alt="Address" /> Aung Fatehpur, Uttar Pradesh India-212665
+          </p>
+          <p>
+            <img src={message} alt="Email" /> contact@vigybag.com
+          </p>
+          <p>
+            <img src={call} alt="Phone" /> +91 1234567890
+          </p>
         </div>
       </div>
       <div className="footer-bottom">
