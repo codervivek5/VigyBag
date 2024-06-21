@@ -18,6 +18,63 @@ body {
     user-select: none;
 }
 
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.toggle-button {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-button .checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-button .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    cursor: pointer;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.toggle-button .label .moon, 
+.toggle-button .label .sun, 
+.toggle-button .label .ball {
+    transition: 0.4s;
+}
+
+.toggle-button .label .ball {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+}
+
+.toggle-button .checkbox:checked + .label {
+    background-color: #2196F3;
+}
+
+.toggle-button .checkbox:checked + .label .ball {
+    transform: translateX(26px);
+}
+
+
 .orange {
   color: #FF7A01;
 }

@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
 });
 
+// mobile with otp, login with google , login with fb
+
 const User = mongoose.model('User',userSchema);
 
 module.exports = User;

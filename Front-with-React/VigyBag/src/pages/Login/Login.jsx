@@ -7,102 +7,63 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 
-function Login() {
-    return (
-        <>
-            <div className="flex justify-center items-center h-screen bg-[#fff0e3ff]">
-                <div className="flex">
-                    <div className="bg-[#393d3cff] rounded-lg p-20 mr-20 relative " style={{ borderRadius: '20px', 
-                    paddingRight: '9vw', left: '-13vw', width: '35vw', height: '80vh',top:'-2.5vh' }}>
-                        <div className=" flex items-center mb-6 " style={{ flexDirection: 'column', gap: '5%' }} >
-                            <div className=" absolute flex items-center justify-center " style={{
-                                top: '-5vh', height: '15vh', width: '7vw',
-                                borderRadius: '50%', backgroundColor: '#393d3cff',
-                                zIndex: '100', boxShadow: '0px 0px 10px 0px black'
-                            }}>
-                                <img src={Logo} alt="Logo" className="w-10 h-10" />
-                            </div>
-                            <h1 className="text-white text-3xl font-bold mt-6 mb-5" style={{ fontFamily: 'League Spartan' }}>Log in</h1>
-                        </div>
-                        <form>
-                            <div className="mb-5">
-                                <div className="relative flex items-center mb-2">
-                                    <IoCall className="absolute left-3 text-white pointer-events-none bg-[#393d3cff] rounded-full" style={{
-                                        scale: '1.5', padding: '1'
-                                    }} />
-                                    <input
-                                        type="text"
-                                        id="phoneNumber"
-                                        className="pl-10 w-[22vw] px-3 py-3 rounded-md bg-[#e1e8d5ff] focus:outline-none focus:ring-2 focus:ring-[#6AB04C] text-[#393d3cff]"
-                                        placeholder="+91 1234567890" style={{ fontFamily: 'League Spartan' }}
-                                    />
-                                </div>
-                            </div>
-                            <div className="mb-5">
-                                <div className="relative flex items-center mb-2">
-                                    <CgProfile className="absolute left-3 text-white pointer-events-none bg-[#595959ff] rounded-full" style={{
-                                        scale: '1.5', padding: '1'
-                                    }} />
-                                    <input
-                                        type="text"
-                                        id="fullName"
-                                        className="pl-10 w-[22vw] px-3 py-3 rounded-md bg-[#e1e8d5ff] focus:outline-none focus:ring-2 focus:ring-[#6AB04C]"
-                                        placeholder="Full Name" style={{ fontFamily: 'League Spartan' }}
-                                    />
-                                </div>
-                            </div>
-                            <div className="mb-2">
-                                <div className="relative flex items-center mb-2">
-                                    <RiLockPasswordLine className="absolute left-3 text-white pointer-events-none bg-[#595959ff] rounded-full" style={{
-                                        scale: '1.5', padding: '1'
-                                    }} />
-                                    <input
-                                        type="text"
-                                        id="otp"
-                                        className="pl-10 w-[22vw] px-3 py-3 rounded-md bg-[#e1e8d5ff] focus:outline-none focus:ring-2 focus:ring-[#6AB04C]"
-                                        placeholder="OTP" style={{ fontFamily: 'League Spartan' }}
-                                    />
-                                </div>
-                            </div>
+const containerClasses = "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
+const inputClasses = "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none rounded-xl";
+const formContainerClasses = "min-h-screen flex flex-col items-center justify-center bg-[#fff0e3ff] p-4";
+const cardClasses = "w-full max-w-4xl bg-[#fff0e3ff] dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row";
+const formSectionClasses = "relative rounded-lg w-full md:w-1/2 bg-zinc-800 text-zinc-200 p-6 flex flex-col justify-center";
+const illustrationSectionClasses = "rounded-lg hidden md:flex w-full md:w-1/2 p-8 items-center justify-center bg-[#c1cfabff] overflow-hidden";
 
-                            <div className="flex items-center mb-4">
-                                <input
-                                    type="checkbox"
-                                    id="rememberMe"
-                                    className="h-4 w-4 text-[#6AB04C] border-gray-300 rounded focus:ring-2 focus:ring-[#6AB04C]"
-                                />
-                                <label htmlFor="rememberMe" className="ml-2 text-sm text-[#e8efee]" style={{ fontFamily: 'League Spartan' }}>
-                                    Remember Me
-                                </label>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="flex justify-center align-center py-3 rounded-md bg-[#165424ff] text-white font-semibold mb-4 hover:bg-[#5A9C3E] transition-colors duration-300"
-                                style={{ width: '10vw', marginLeft: '5vw', borderColor: 'white',fontFamily: 'League Spartan' }}>
-                                Log in
-                            </button>
-
-                            <p className="text-white text-center" style={{ fontFamily: 'League Spartan' }}>or Continue Log in using</p>
-                            <div className="flex justify-center items-center gap-10">
-                                <FcGoogle style={{
-                                    scale: '2', padding: '1', marginTop: '5%'
-                                }} />
-                                <FaFacebookSquare className='text-white pointer-events-none bg-[#1877f2ff]' style={{
-                                    scale: '1.7', padding: '', marginTop: '5%'
-                                }} />
-                            </div>
-                        </form>
-                    </div>
-                    <div className="absolute bg-[#c1cfabff] rounded-ml" style={{ borderRadius: '20px', right: '17%',
-                     width: '35vw', height: '80vh',top:'17vh' }}>
-                        <img src={signUp} alt="Illustration" className="relative max-w-xl mx-auto my-10 rounded-ml" style={{ scale: '1.3', 
-                        width: '31vw', height: '68vh' }} />
-                    </div>
-                </div>
+const LoginForm = () => {
+  return (
+    <div className={formContainerClasses}>
+      <div className={cardClasses}>
+        <div className={formSectionClasses}>
+          <div className="flex justify-center mb-3">
+            <img src={Logo} alt="Logo" className="h-12 md:h-16" style={{ width: 'auto' }} />
+          </div>
+          <h2 className="text-3xl font-semibold text-center mb-6">Log in</h2>
+          <form className="space-y-4">
+            <FormInput icon={<CgProfile />} placeholder="Full Name" />
+            <FormInput icon={<IoCall />} placeholder="+91 1234567890" />
+            <FormInput icon={<RiLockPasswordLine />} placeholder="OTP" />
+            <div className="flex items-center">
+              <input type="checkbox" id="remember" className="mr-2" />
+              <label htmlFor="remember" className="text-zinc-400">Remember Me</label>
             </div>
-        </>
-    )
-}
+            <button className="w-full bg-green-700 text-white py-2 rounded-xl">Log in</button>
+          </form>
+          <div className="text-center mt-4">
+            <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+              <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
+                <FcGoogle className="text-black p-1" style={{ fontSize: '2rem' }} />
+                <span className="ml-2 text-sm">Continue with Google</span>
+              </button>
+              <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
+                <FaFacebookSquare className="text-black p-1" style={{ fontSize: '2rem' }} />
+                <span className="ml-2 text-sm">Continue with Facebook</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className={illustrationSectionClasses}>
+          <img src={signUp} alt="Illustration"
+           className="w-full h-full object-contain rounded" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Login;
+const FormInput = ({ icon, placeholder }) => {
+  return (
+    <div className={containerClasses}>
+      <span className="text-black bg-[#fff0e3ff] p-2 rounded-xl">
+        {icon}
+      </span>
+      <input type="text" placeholder={placeholder} className={inputClasses} />
+    </div>
+  );
+};
+
+export default LoginForm;

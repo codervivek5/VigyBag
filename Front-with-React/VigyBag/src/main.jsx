@@ -28,6 +28,13 @@ import BodyCare from './pages/Categories/BodyCare';
 import Furniture from './pages/Categories/Furniture';
 import Stationary from './pages/Categories/Stationary';
 import Gifts from './pages/Categories/Gifts';
+import Checkout from './pages/Order/Checkout';
+import Cart from './pages/Order/Cart';
+import Error from './pages/404-Page/Error';
+import ProductDetails from './components/Products/ProductDetails';
+import Help from './pages/Help/Help';
+import Privacy from './pages/Privacy-Policy/Privacy';
+import Payment from './pages/Payment/Payment';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +52,8 @@ const router = createBrowserRouter(
       
 
       <Route path="about" element={<AboutUs />} />
+      <Route path="help" element={<Help />} />
+      <Route path="privacy" element={<Privacy />} />
       <Route path="contact" element={<Contact />} />
       <Route path="team" element={<Team />} />
       <Route path="login" element={<Login />} />
@@ -54,6 +63,11 @@ const router = createBrowserRouter(
       <Route path="orderDetails" element={<OrderDetails/>} />
       <Route path="myOrders" element={<MyOrders/>} />
       <Route path="bambooProducts" element={<BambooProducts/>} />
+      <Route path="checkout" element={<Checkout/>} />
+      <Route path="cart" element={<Cart/>} />
+      <Route path="error" element={<Error/>} />
+      <Route path="productDetails" element={<ProductDetails/>} />
+      <Route path="Payment" element={<Payment/>} />
     </Route>,
   ),
 );

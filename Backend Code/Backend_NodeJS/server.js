@@ -7,6 +7,9 @@ const routes = require("./routes");
 
 const app = express();
 
+// cross origin connection
+app.use(cors());
+
 // Middleware
 app.use(express.json());
 
