@@ -7,17 +7,18 @@
 
 ::-webkit-scrollbar {
   width: 8px;
-  }
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
   background: #000;
-  }
-  ::-webkit-scrollbar-thumb {
-  background: #edd6c5ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(rgb(20, 83, 45), #d6a075);
   border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-  background: #edd6c5ff;
-  }
+}
+
+
 
 
 /* :root {
