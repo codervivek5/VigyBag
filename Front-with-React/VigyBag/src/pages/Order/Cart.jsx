@@ -6,10 +6,10 @@ import TUMBLER from '../../assets/TUMBLER.png';
 import { Link } from 'react-router-dom';
 
 // Define the CSS classes for the components
-const cardClass = "p-4 bg-white dark:bg-neutral-700 rounded-lg shadow-md";
-const textClass = "text-zinc-500 dark:text-zinc-400";
-const greenTextClass = "text-green-600 dark:text-green-400";
-const buttonClass = "text-zinc-500 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-400";
+const cardClass = "p-4 bg-white rounded-lg shadow-md";
+const textClass = "text-zinc-500";
+const greenTextClass = "text-green-600";
+const buttonClass = "text-zinc-500 hover:text-red-600";
 const buttonBgClass = "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
 
 const CartItem = ({ name, seller, size, price, discount, quantity, image, onRemove }) => (
@@ -17,7 +17,7 @@ const CartItem = ({ name, seller, size, price, discount, quantity, image, onRemo
     <div className="flex items-center">
       <img src={image} alt={name} className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4" />
       <div>
-        <h3 className="text-lg font-semibold">{name}</h3>
+        <h3 className="text-lg font-semibold text-zinc-800">{name}</h3>
         <p className={textClass}>Sold by: {seller}</p>
         <p className={textClass}>Size: {size}</p>
         <p className={textClass}>₹{price} <span className="line-through">₹{discount}</span> (70% OFF)</p>
@@ -42,14 +42,14 @@ const Subtotal = ({ items }) => {
 
   return (
     <div className={`${cardClass} space-y-2`} style={{ border: '1px solid black' }}>
-      <p className="text-lg font-semibold">Order Summary</p>
-      <ul className="list-disc list-inside text-zinc-700 dark:text-zinc-300 space-y-1">
+      <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
+      <ul className="list-disc list-inside text-zinc-700 space-y-1">
         {items.map((item, index) => (
           <li key={index}>{item.name} ₹{item.price * item.quantity}</li>
         ))}
       </ul>
-      <p className="text-lg">Shipping Charges: <span className={greenTextClass}>Free</span></p>
-      <p className="text-lg font-bold">Total: ₹{total}</p>
+      <p className="text-lg text-zinc-800">Shipping Charges: <span className={greenTextClass}>Free</span></p>
+      <p className="text-lg font-bold text-zinc-800">Total: ₹{total}</p>
     </div>
   );
 };
@@ -78,7 +78,7 @@ const Cart = () => {
       <div className="container mx-auto p-4 w-full md:max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="w-full md:w-2/3 p-4">
-            <h2 className="text-2xl font-bold mb-6">Your Cart</h2>
+            <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
             <div className="space-y-6">
               {cartItems.map(item => (
                 <CartItem
@@ -90,7 +90,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="w-full md:w-1/3 p-4 mt-8 md:mt-0">
-            <h2 className="text-2xl font-bold mb-6">Subtotal</h2>
+            <h2 className="text-2xl font-bold mb-6 text-zinc-800">Subtotal</h2>
             <Subtotal items={cartItems} />
             <div className="mt-6">
               <div className="flex justify-between">
