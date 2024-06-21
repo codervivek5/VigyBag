@@ -14,9 +14,26 @@ const OrderInfo = ({ label, value }) => (
   </div>
 );
 
+const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Order ID copied to clipboard!');
+  }).catch((err) => {
+    console.error('Failed to copy: ', err);
+  });
+};
+
 const OrderDetails = ({ orderNumber }) => (
   <div className="flex flex-col md:flex-row justify-between items-center mb-6 -mt-7 p-4" style={{ backgroundColor: '#d8e6d3ff', borderBottomLeftRadius: "20px", borderBottomRightRadius: '20px' }}>
-    <p className={subTextColor}>ORDER #{orderNumber}</p>
+    <div className="flex items-center">
+      <p className={subTextColor}>ORDER #{orderNumber}</p>
+      <button
+        onClick={() => copyToClipboard(orderNumber)}
+        className="ml-2 p-1 bg-zinc-200 hover:bg-zinc-300 rounded"
+        aria-label="Copy order ID"
+      >
+        📋
+      </button>
+    </div>
     <Link to="/orderDetails" className="text-blue-600 mt-2 md:mt-0">View order details</Link>
   </div>
 );
