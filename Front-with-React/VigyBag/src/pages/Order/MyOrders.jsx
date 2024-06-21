@@ -15,9 +15,9 @@ const OrderInfo = ({ label, value }) => (
 );
 
 const OrderDetails = ({ orderNumber }) => (
-  <div className="flex justify-between items-center mb-6 -mt-7 p-4" style={{ backgroundColor: '#d8e6d3ff', borderBottomLeftRadius: "20px", borderBottomRightRadius: '20px' }}>
+  <div className="flex flex-col md:flex-row justify-between items-center mb-6 -mt-7 p-4" style={{ backgroundColor: '#d8e6d3ff', borderBottomLeftRadius: "20px", borderBottomRightRadius: '20px' }}>
     <p className={subTextColor}>ORDER #{orderNumber}</p>
-    <Link to="/orderDetails" className="text-blue-600">View order details</Link>
+    <Link to="/orderDetails" className="text-blue-600 mt-2 md:mt-0">View order details</Link>
   </div>
 );
 
@@ -46,8 +46,6 @@ const Breadcrumbs = () => (
     <Link to="/orderDetails" className="hover:underline">Order Details</Link>
   </div>
 );
-
-
 
 const Orders = () => {
   return (
