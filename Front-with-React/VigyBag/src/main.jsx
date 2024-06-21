@@ -11,9 +11,8 @@ import {
 import Categories from './pages/Categories/Categories';
 import Login from './pages/Login/Login';
 import Toys from './pages/gifts/Toys';
-import DecorativeItems from './pages/Category/DecorativeItems';
 import AboutUs from './pages/About/AboutUs';
-import Gifts from './pages/gifts/Gifts';
+// import Gifts from './pages/gifts/Gifts';
 import Contact from './pages/Contacts/Contact';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Home from './pages/Home/Home';
@@ -24,6 +23,11 @@ import Cancellation from './pages/Cancellation/Cancellation'
 import OrderDetails from './pages/Order/Orderdetails';
 import MyOrders from './pages/Order/MyOrders';
 import BambooProducts from './pages/ProductsPage/BambooProducts';
+import Fashion from './pages/Categories/Fashion';
+import BodyCare from './pages/Categories/BodyCare';
+import Furniture from './pages/Categories/Furniture';
+import Stationary from './pages/Categories/Stationary';
+import Gifts from './pages/Categories/Gifts';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,15 +36,13 @@ const router = createBrowserRouter(
 
       {/* Drop down of categories */}
 
-      <Route path="categories" element={<Categories />}>
-        <Route path="decorativeItems" element={<DecorativeItems />} />
-      </Route>
-
-      {/* Drop down of Gifts */}
-
-      <Route path="gifts" element={<Gifts />}>
-        <Route path="toys" element={<Toys />} />
-      </Route>
+      <Route path="/categories" element={<Categories />}/>
+      <Route path="/categories/fashion" element={<Fashion />} />
+      <Route path="/categories/bodycare" element={<BodyCare />} />
+      <Route path="/categories/furniture" element={<Furniture />} />
+      <Route path="/categories/stationary" element={<Stationary />} />
+      <Route path="/categories/gifts" element={<Gifts />} />
+      
 
       <Route path="about" element={<AboutUs />} />
       <Route path="contact" element={<Contact />} />
