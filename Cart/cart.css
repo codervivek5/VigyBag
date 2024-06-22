@@ -1,133 +1,145 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
 
-    
-    
-    body {
-        background-color: #6e7ca8;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-  
-      }
-      
-      .container {
-        max-width: 800px;
-        margin: 20px auto;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        
-      }
-  
-      .cart-header{
-          display: flex;
-          justify-content: center;
-  
-      }
-      
-      .cart-icon{
-          height: 40px;
-          padding-top:0px ;
-          margin-left: 6px;
-      }
-      
-      h1 {
-        text-align: center;
-        margin-top: 0;
-      }
-      
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
-      
-      table th, table td {
-        padding: 10px;
-        border: 1px solid #ccc;
-        text-align: center;
-      }
-      
-      table th {
-        background-color: #555a88;
-        color: whitesmoke;
-      }
-      
-      .product-image {
-        max-width: 100px;
-        max-height: 100px;
-      }
-      
-      .quantity-input {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      
-      .quantity-input input[type="number"] {
-        width: 40px;
-        padding: 5px;
-        text-align: center;
-      }
-      
-      .quantity-input button {
-        padding: 5px 10px;
-        margin: 0 5px;
-        background-color: #23095a;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      
-      .quantity-input button:hover {
-        background-color: #333;
-      }
-      
-      .coupon {
-        display: flex;
-        align-items: center;
-        margin-top: 20px;
-      }
-      
-      .coupon input[type="text"] {
-        padding: 5px;
-        width: 200px;
-      }
-      
-      .coupon input[type="submit"] {
-        padding: 5px 10px;
-        margin-left: 10px;
-        background-color: #555;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      
-      .coupon input[type="submit"]:hover {
-        background-color: #333;
-      }
-      
-      .total-amount {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 18px;
-        margin-top: 20px;
-        padding-top: 10px;
-        border-top: 1px solid #ccc;
-      }
-      
-      .proceed-btn {
-        padding: 10px 20px;
-        background-color: #555;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      
-      .proceed-btn:hover {
-        background-color: #333;
-      }
-    
+body {
+  background: #575A89;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container styles */
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Header styles */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.cart-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.quantity-input {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.quantity-btn:hover {
+  background-color: #e4e4e4;
+}
+
+/* Coupon section */
+.coupon {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.coupon input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.coupon input[type="submit"] {
+  padding: 10px 24px;
+  background-color: #4e54c8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.coupon input[type="submit"]:hover {
+  background-color: #3e44b8;
+}
+
+/* Total amount section */
+.total-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.total-amount div {
+  font-size: 1.5rem;
+}
+
+.proceed-btn {
+  background-color: #4e54c8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.proceed-btn:hover {
+  background-color: #3e44b8;
+}
+
+/* Alan button */
+.alan-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
