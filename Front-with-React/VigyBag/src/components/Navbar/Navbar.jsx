@@ -1,10 +1,3 @@
-import React from 'react';
-import { FaSearch, FaShoppingCart, FaBell, FaUserCircle } from 'react-icons/fa';
-import { Link, NavLink } from 'react-router-dom';
-import DropDown from '../DropDown/DropDown';
-import logo from '../../assets/images/Logo.svg'
-import Nav from '../Products/Navbar';
-import { GoTriangleDown } from "react-icons/go";
 import React, { useState } from 'react';
 import { FaHome, FaGift, FaList, FaInfoCircle, FaSearch, FaShoppingCart, FaUserCircle, FaChevronDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -33,29 +26,6 @@ const Navbar = () => {
     // Add your search functionality here
   };
 
-
-          <div className="inline-block font-baloo  relative group"> {/* Add the group class here */}
-            <NavLink to="/categories" className="mx-2 text-xl text-black flex hover:bg-gray-100 p-2 rounded">Categories <GoTriangleDown className='mt-1 size-6' /></NavLink>
-                <div className="absolute hidden group-hover:block bg-white shadow-md rounded ml-2"> {/* This div will now show on hover */}
-                  <NavLink to="/categories/fashion" className="block  px-10 py-2 text-black hover:bg-gray-100">Fashion</NavLink>
-                  <NavLink to="/categories/bodycare" className="block px-10 py-2 text-black hover:bg-gray-100">Bodycare</NavLink>
-                  <NavLink to="/categories/furniture" className="block px-10 py-2 text-black hover:bg-gray-100">Furniture</NavLink>
-                  <NavLink to="/categories/stationary" className="block px-10 py-2 text-black hover:bg-gray-100">Stationary</NavLink>
-                  <NavLink to="/categories/gifts" className="block px-10 py-2 text-black hover:bg-gray-100">Gifts</NavLink>
-                </div>
-                
-          </div>
-
-          {/* About Us Link */}
-          <NavLink to="/about" className="mx-2 text-xl text-black">About Us</NavLink>
-
-          {/* Contact Link */}
-          <NavLink to="/contact" className="mx-2 text-xl text-black">Contact</NavLink>
-
-          {/* Team Link */}
-          <div className="inline-block relative">
-            <NavLink to="/team" className="mx-2 text-xl text-black ">Team</NavLink>
-=======
   return (
     <nav className="bg-[#ecd5c5] shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -161,7 +131,6 @@ const Navbar = () => {
                 )}
               </button>
             </div>
-
           </div>
         </div>
       </div>
