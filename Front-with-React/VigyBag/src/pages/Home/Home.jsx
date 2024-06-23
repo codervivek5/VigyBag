@@ -1,165 +1,133 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import background from '../../assets/images/background.png';
-import './typewriter.css';
 import CategoryCard from '../../components/HomPageCard/CategoryCard';
-import Footer from '../../components/Footer/Footer';
-import customisedGiftsImg from '../../assets/images/CustomisedGifts.svg'
-import HealthSupplementsImg from '../../assets/images/HealthSupplements.svg'
-import PrintingAndStationary from '../../assets/images/PrintingAndStationary.svg'
-import BodyCare from '../../assets/images/BodyCare.svg'
-import FurnitureAndDecor from '../../assets/images/FurnitureAndDecor.png'
-import BeautyAndWellness from '../../assets/images/BeautyAndWellness.svg'
-import FoodAndBeverages from '../../assets/images/FoodAndBeverages.svg'
-import fashionAndAccessories from '../../assets/images/FashionAndAccessories.svg'
 import LatestInMarketCard from '../../components/HomPageCard/LatestInMarketCard';
+import background from '../../assets/background.png';
+import app from '../../assets/app.png';
+import googlePlay from '../../assets/google-play.png';
+import mobile from '../../assets/mobile.png';
 
 
+// Import category images
+import customisedGiftsImg from '../../assets/Customized-Gifts.png';
+import HealthSupplementsImg from '../../assets/Health-supplements.png';
+import PrintingAndStationary from '../../assets/Printing-Stationary.png';
+import BodyCare from '../../assets/Body-Care.png';
+import FurnitureAndDecor from '../../assets/Furniture-Decor.jpeg';
+import BeautyAndWellness from '../../assets/Beauty-Wellness.png';
+import FoodAndBeverages from '../../assets/Food-Beverages.png';
+import fashionAndAccessories from '../../assets/Fashion-Accessories.png';
 
-const products = [
-  {
-    imageUrl: BodyCare,
-    title: 'Handmade Soaps',
-    description: 'A vibrant collection of artisan soaps that are 100% natural and trustworthy.',
-    discount: '10% Off',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Art Supplies',
-    description: 'Natural and cruelty-free collection of art supplies.',
-    discount: 'Up to 50% Off',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Ceramic Dinnerware',
-    description: 'Long lasting and sturdy ceramic plates that are eco friendly and safe.',
-    discount: 'Buy 1 Get 1',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Bamboo Products',
-    description: 'Natural, non-toxic, biodegradable, handcrafted and help reduce plastic waste and carbon.',
-    discount: '20% Off',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Storage Baskets',
-    description: 'Natural basket collection, featuring wide range of handmade, eco-friendly baskets made from sustainable materials.',
-    discount: '20% Off',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Bamboo Products',
-    description: 'Natural, non-toxic, biodegradable, handcrafted and help reduce plastic waste and carbon.',
-    discount: '20% Off',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Storage Baskets',
-    description: 'Natural basket collection, featuring wide range of handmade, eco-friendly baskets made from sustainable materials.',
-    discount: '20% Off',
-  },
-  {
-    imageUrl: BodyCare,
-    title: 'Bamboo Products',
-    description: 'Natural, non-toxic, biodegradable, handcrafted and help reduce plastic waste and carbon.',
-    discount: '20% Off',
-  },
+// Import LatestProducts in markets image
+import HandmadeSoapsImg from '../../assets/Handmade-Soaps.png';
+import ArtSuppliesImg from '../../assets/Art-Supplies.png';
+import CeramicDinnerwareImg from '../../assets/Ceramic-Dinnerware.png';
+import BambooProductsImg from '../../assets/Bamboo-Products.png';
+import StorageBasketsImg from '../../assets/Storage-Baskets.png';
+
+const popularCategories = [
+  { name: 'Fashion & Accessories', image: fashionAndAccessories },
+  { name: 'Printing & Stationery', image: PrintingAndStationary },
+  { name: 'Food & Beverages', image: FoodAndBeverages },
+  { name: 'Beauty & Wellness', image: BeautyAndWellness },
+  { name: 'Furniture & Decor', image: FurnitureAndDecor },
+  { name: 'Body Care', image: BodyCare },
+  { name: 'Health Supplements', image: HealthSupplementsImg },
+  { name: 'Customized Gifts', image: customisedGiftsImg },
 ];
 
+const latestProducts = [
+  { img: HandmadeSoapsImg, name: 'Handmade Soaps', description: 'A vibrant collection of artisan soaps that are 100% natural and biodegradable.', discount: '15% Off' },
+  { img: ArtSuppliesImg, name: 'Art Supplies', description: 'Natural and cruelty-free selection of art supplies.', discount: 'Upto 50% Off' },
+  { img: CeramicDinnerwareImg, name: 'Ceramic Dinnerware', description: 'Long-lasting and durable eco-friendly dinnerware.', discount: 'Buy 1 Get 1' },
+  { img: BambooProductsImg, name: 'Bamboo Products', description: 'Natural, non-toxic, biodegradable household and bath products.', discount: '20% Off' },
+  { img: StorageBasketsImg, name: 'Storage Baskets', description: 'Natural basket collection featuring hand-woven sustainable materials.', discount: '20% Off' },
+];
 
-function Home() {
+const Home = () => {
   return (
-    <div 
-      style={{
-        backgroundColor: '#FCEFE3',
-        backgroundImage: `url(${background})`,
-        backgroundSize: 'auto',
-        backgroundRepeat: 'no-repeat',
-        
-      }}>
-      <div className="container  font-baloo mx-auto my-auto sm:py-24 leading-snug ">
-        <div className="text-left">
-            <div className="typewriter">
-                <h1 className="text-4xl font-baloo sm:text-6xl font-bold tracking-widest">
-                Welcome to <span className="text-green-900 ">VigyBag!</span>
-                </h1>
-            </div>
-          <h2 className="text-3xl sm:text-6xl  font-baloo tracking-widest font-bold mt-5 mb-4">Your Eco-Friendly</h2>
-          <h2 className="text-3xl sm:text-6xl font-bold mb-8 tracking-widest">Shopping Heaven</h2>
-          <p className=" text-lg sm:text-3xl font-baloo mb-8 leadinh-snug tracking-widest">
-            At VigyBag, we curate the finest earth-friendly <br></br>
-            essentials to help you reduce your environmental <br></br>
-            footprint without compromising on quality or style.<br></br> 
-            Shop smart, live green, and embrace a sustainable <br></br>
-            future with VigyBag.
-          </p>
-          <button className="bg-green-900  font-baloo text-2xl tracking-widest text-white px-6 py-3 mt-10 rounded-md hover:bg-green-800 transition-colors duration-300">
-            Shop Now
-          </button>
-        </div>
-      </div>
-
-
-      {/* Popular categories */}
-        <div className='mt-24 py-10'>
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-widest mt-10 mx-20 font-baloo ">Popular Categories</h1>
-            <div className="mt-12 mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <CategoryCard
-                imageUrl={BodyCare}
-                categoryName="Fashion & Accessories"
-                />
-                <CategoryCard
-                imageUrl={BodyCare}
-                categoryName="Printing & Stationary"
-                />
-                <CategoryCard
-                imageUrl={BodyCare}
-                categoryName="Food & Beverages"
-                />  
-                {/* Render other category cards here */}
-                <CategoryCard
-                imageUrl={BodyCare}
-                categoryName="Beauty And Wellness"
-                />  
-                <CategoryCard
-                imageUrl={FurnitureAndDecor}
-                categoryName="Furniture & Decor"
-                />  
-                <CategoryCard
-                imageUrl={BodyCare}
-                categoryName="Body Care"
-                />  
-                <CategoryCard
-                imageUrl={HealthSupplementsImg}
-                categoryName="Health Supplements"
-                />  
-                <CategoryCard
-                imageUrl={customisedGiftsImg}
-                categoryName="Customised Gifts"
-                />  
-            </div>
-        </div>
+    <div className="bg-[#fff0e3ff]">
+      <main className="mt-1">
+        {/* Hero Section */}
       
-      {/* Lastest in Market */}
-      <div className='mt-24 py-10'>
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-widest mt-10 mx-20 font-baloo">Latest in the Market</h1>
-        <div className="mt-12 mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
-            <LatestInMarketCard
-              key={index}
-              imageUrl={product.imageUrl}
-              title={product.title}
-              description={product.description}
-              discount={product.discount}
-            />
-          ))}
+<section className="bg-[#FFF5EA] py-16"style={{backgroundImage: `url(${background})`
+,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'80vh'}}>  
+  <div className="container mx-auto px-4 flex items-center">
+    <div className="w-1/2 pr-8">
+      <h1 className="text-5xl font-bold mb-4 mt-[13vh]">
+        Welcome to <span className="text-green-700">VigyBag!</span>
+      </h1>
+      <h2 className="text-3xl font-semibold mb-6">
+        Your Eco-Friendly Shopping Heaven
+      </h2>
+      <p className="mb-6 text-gray-700">
+        At VigyBag, we curate the finest earth-friendly essentials to help you reduce your environmental footprint without compromising on quality or style. Shop smart, live green, and embrace a sustainable future with VigyBag.
+      </p>
+      <button className="bg-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition duration-300">
+        Shop Now
+      </button>
+    </div>
+   
+  </div>
+</section>
+
+        {/* Popular Categories */}
+        <section className="py-16 bg-[#fff0e3ff]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-8">Popular Categories</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {popularCategories.map((category, index) => (
+                <CategoryCard key={index} name={category.name} image={category.image} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Latest in the Market */}
+        <section className="bg-[#fff0e3ff] py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold mb-8">Latest in the Market</h2>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {latestProducts.map((product, index) => (
+                <LatestInMarketCard key={index} product={product} />
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">See More</button>
+            </div>
+          </div>
+        </section>
+
+        {/* App Download Section */}
+       {/* App Download Section */}
+<section className="py-16 relative" style={{ backgroundImage: `url(${app})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="bg-[#393d3cff] rounded-lg p-8 max-w-3xl mx-auto" style={{ backdropFilter: 'blur(10px)',height:'40vh' }}>
+      <div className="flex items-center justify-center mb-4" >
+        <div className="text-center ">
+          <h2 className="text-2xl font-bold mb-4 text-white relative"style={{right:'10vw',marginTop:'7vh'}}>Download the App NOW</h2>
+          <a 
+            href="https://play.google.com/store/apps/details?id=com.vigybag" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="bg-[#1a73e8] text-white px-6 py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300 relative"
+style={{right:'10vw'}}          >
+            <img src={googlePlay} alt="Google Play" className="w-8 h-8 mr-3" />
+            <span>
+              <div className="text-xs">GET IT ON</div>
+              <div className="text-xl font-semibold">Google Play</div>
+            </span>
+          </a>
         </div>
+        <img src={mobile} alt="VigyBag App" style={{width: '20vw', height: '37vh'}} className="absolute bottom-[20px] right-0 " />
+       
       </div>
-    
-    
+    </div>
+  </div>
+  <div className="absolute inset-0 bg-black opacity-30"></div>
+</section>
+      </main>
     </div>
   );
-}
+};
 
 export default Home;
