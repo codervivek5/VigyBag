@@ -7,8 +7,8 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { auth, RecaptchaVerifier } from '../../Configs/FirebaseConfig';
-
 import { signInWithPhoneNumber, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'firebase/auth';
+
 
 const containerClasses = "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
 const inputClasses = "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none rounded-xl";
@@ -26,7 +26,6 @@ const LoginForm = () => {
     window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
       'size': 'invisible',
       'callback': (response) => {
-        // reCAPTCHA solved, allow signInWithPhoneNumber.
         handleSendOtp();
       }
     }, auth);

@@ -1,15 +1,16 @@
+// firebaseConfig.js
 import { initializeApp } from "firebase/app";
 import { getAuth, RecaptchaVerifier } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDpAp-SEIBKxIJ3n7nYEfKSTv6L1fh6_Hk",
-  authDomain: "vigybag-backend.firebaseapp.com",
-  projectId: "vigybag-backend",
-  storageBucket: "vigybag-backend.appspot.com",
-  messagingSenderId: "793535972885",
-  appId: "1:793535972885:web:a68f3b898a63449ec1b01c",
-  measurementId: "G-PJY8103TFS"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
