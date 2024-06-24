@@ -65,7 +65,7 @@ const router = createBrowserRouter(
       <Route path="bambooProducts" element={<BambooProducts/>} />
       <Route path="checkout" element={<Checkout/>} />
       <Route path="cart" element={<Cart/>} />
-      <Route path="error" element={<Error/>} />
+      <Route path="*" element={<Error/>} />
       <Route path="productDetails" element={<ProductDetails/>} />
       <Route path="Payment" element={<Payment/>} />
     </Route>,
