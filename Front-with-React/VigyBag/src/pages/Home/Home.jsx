@@ -6,7 +6,6 @@ import app from '../../assets/app.png';
 import googlePlay from '../../assets/google-play.png';
 import mobile from '../../assets/mobile.png';
 
-
 // Import category images
 import customisedGiftsImg from '../../assets/Customized-Gifts.png';
 import HealthSupplementsImg from '../../assets/Health-supplements.png';
@@ -41,6 +40,10 @@ const latestProducts = [
   { img: CeramicDinnerwareImg, name: 'Ceramic Dinnerware', description: 'Long-lasting and durable eco-friendly dinnerware.', discount: 'Buy 1 Get 1' },
   { img: BambooProductsImg, name: 'Bamboo Products', description: 'Natural, non-toxic, biodegradable household and bath products.', discount: '20% Off' },
   { img: StorageBasketsImg, name: 'Storage Baskets', description: 'Natural basket collection featuring hand-woven sustainable materials.', discount: '20% Off' },
+  { img: HandmadeSoapsImg, name: 'Organic Soaps', description: 'Handcrafted organic soaps made with natural ingredients.', discount: '10% Off' },
+  { img: FoodAndBeverages, name: 'Organic Tea', description: 'A selection of premium organic teas from sustainable sources.', discount: '25% Off' },
+  { img: BeautyAndWellness, name: 'Natural Cosmetics', description: 'Eco-friendly makeup and skincare products made from natural ingredients.', discount: 'Buy 2 Get 1' },
+
 ];
 
 const Home = () => {
@@ -48,33 +51,37 @@ const Home = () => {
     <div className="bg-[#fff0e3ff]">
       <main className="mt-1">
         {/* Hero Section */}
-      
-<section className="bg-[#FFF5EA] py-16"style={{backgroundImage: `url(${background})`
-,backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',height:'80vh'}}>  
-  <div className="container mx-auto px-4 flex items-center">
-    <div className="w-1/2 pr-8">
-      <h1 className="text-5xl font-bold mb-4 mt-[13vh]">
-        Welcome to <span className="text-green-700">VigyBag!</span>
-      </h1>
-      <h2 className="text-3xl font-semibold mb-6">
-        Your Eco-Friendly Shopping Heaven
-      </h2>
-      <p className="mb-6 text-gray-700">
-        At VigyBag, we curate the finest earth-friendly essentials to help you reduce your environmental footprint without compromising on quality or style. Shop smart, live green, and embrace a sustainable future with VigyBag.
-      </p>
-      <button className="bg-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition duration-300">
-        Shop Now
-      </button>
-    </div>
-   
-  </div>
-</section>
+        <section className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center" style={{
+          backgroundImage: `url(${background})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '80vh',
+          height: 'auto',
+        }}>  
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                Welcome to <span className="text-green-700">VigyBag!</span>
+              </h1>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">
+                Your Eco-Friendly Shopping Heaven
+              </h2>
+              <p className="mb-6 text-gray-700 text-sm sm:text-base">
+                At VigyBag, we curate the finest earth-friendly essentials to help you reduce your environmental footprint without compromising on quality or style. Shop smart, live green, and embrace a sustainable future with VigyBag.
+              </p>
+              <button className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
+                Shop Now
+              </button>
+            </div>
+          </div>
+        </section>
 
         {/* Popular Categories */}
-        <section className="py-16 bg-[#fff0e3ff]">
+        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-8">Popular Categories</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8">Popular Categories</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {popularCategories.map((category, index) => (
                 <CategoryCard key={index} name={category.name} image={category.image} />
               ))}
@@ -83,48 +90,50 @@ const Home = () => {
         </section>
 
         {/* Latest in the Market */}
-        <section className="bg-[#fff0e3ff] py-16">
+        <section className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold mb-8">Latest in the Market</h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8">Latest in the Market</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
               {latestProducts.map((product, index) => (
-                <LatestInMarketCard key={index} product={product} />
+                <div key={index} className="flex justify-center">
+                  <div className="w-full max-w-[220px]">
+                    <LatestInMarketCard product={product} />
+                  </div>
+                </div>
               ))}
             </div>
-            <div className="text-center mt-8">
+            <div className="text-center mt-6 md:mt-8">
               <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">See More</button>
             </div>
           </div>
         </section>
 
         {/* App Download Section */}
-       {/* App Download Section */}
-<section className="py-16 relative" style={{ backgroundImage: `url(${app})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-  <div className="container mx-auto px-4 relative z-10">
-    <div className="bg-[#393d3cff] rounded-lg p-8 max-w-3xl mx-auto" style={{ backdropFilter: 'blur(10px)',height:'40vh' }}>
-      <div className="flex items-center justify-center mb-4" >
-        <div className="text-center ">
-          <h2 className="text-2xl font-bold mb-4 text-white relative"style={{right:'10vw',marginTop:'7vh'}}>Download the App NOW</h2>
-          <a 
-            href="https://play.google.com/store/apps/details?id=com.vigybag" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="bg-[#1a73e8] text-white px-6 py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300 relative"
-style={{right:'10vw'}}          >
-            <img src={googlePlay} alt="Google Play" className="w-8 h-8 mr-3" />
-            <span>
-              <div className="text-xs">GET IT ON</div>
-              <div className="text-xl font-semibold">Google Play</div>
-            </span>
-          </a>
-        </div>
-        <img src={mobile} alt="VigyBag App" style={{width: '20vw', height: '37vh'}} className="absolute bottom-[20px] right-0 " />
-       
-      </div>
-    </div>
-  </div>
-  <div className="absolute inset-0 bg-black opacity-30"></div>
-</section>
+        <section className="py-8 sm:py-12 md:py-16 relative" style={{ backgroundImage: `url(${app})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="bg-[#393d3cff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg" style={{ minHeight: '30vh', height: 'auto' }}>
+              <div className="flex flex-col md:flex-row items-center justify-center mb-4">
+                <div className="text-center md:text-left mb-4 md:mb-0 md:mr-8">
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">Download the App NOW</h2>
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=com.vigybag" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300"
+                  >
+                    <img src={googlePlay} alt="Google Play" className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3" />
+                    <span>
+                      <div className="text-xs">GET IT ON</div>
+                      <div className="text-base sm:text-lg md:text-xl font-semibold">Google Play</div>
+                    </span>
+                  </a>
+                </div>
+                <img src={mobile} alt="VigyBag App" className="w-32 sm:w-40 md:w-60 mt-4 md:mt-0" />
+              </div>
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+        </section>
       </main>
     </div>
   );
