@@ -1,47 +1,33 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.js-cd-add-to-cart');
 
-//*******************quantity buttons logic**********************
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        const button = event.currentTarget; // Use event.currentTarget to get the button itself
+        const itemID = button.getAttribute('data-item-id');
+        const itemName = button.getAttribute('data-item-name');
+        const itemPrice = parseFloat(button.getAttribute('data-item-price')); // Parse price as float
+        const itemImage = button.getAttribute('data-item-image');
 
-const btnAdd = document.getElementById("Add")
-const btnSub = document.getElementById("Sub")
+        const cartItem = {
+          id: itemID,
+          name: itemName,
+          price: itemPrice,
+          image: itemImage,
+          quantity: 1
+        };
 
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingItemIndex = cart.findIndex(item => item.id === cartItem.id);
 
-
-
-
-function ChangeQnt(e){
-    
-    const quantity = e.parentElement.querySelector("#quantity")
- 
-    
-    if (e.getAttribute("id") == "Add") {
-        
-        quantity.setAttribute("value" ,`${quantity.value = Number(quantity.value) + 1 }` )
-        updateTotalPrice(e.parentElement.getAttribute("prdNum") , Number(quantity.value ) , "ADD")
-
-    }
-    else{
-        if(quantity.value != 0)
-        {
-        quantity.setAttribute("value" ,`${quantity.value = Number(quantity.value) - 1 }` )
-        updateTotalPrice(e.parentElement.getAttribute("prdNum") , Number(quantity.value ) , "SUB")
+        if (existingItemIndex >= 0) {
+          cart[existingItemIndex].quantity += 1;
+        } else {
+          cart.push(cartItem);
         }
-    }
 
-}
-
-function updateTotalPrice(productNum , qnt , OperationType){
-    const totalAmountelm = document.getElementById("Amount")
-    const price = Number(document.getElementById(`product${productNum}Price`).innerText)
-    let NewAmount
-    if(OperationType == "ADD")
-    {
-        NewAmount =  ((totalAmountelm.innerText)*1 ) + (price)
-    }
-    else{
-        NewAmount =  ((totalAmountelm.innerText)*1 ) - (price)
-    }
-    totalAmountelm.innerText = NewAmount
-   
-}
-
-//******************************************************************* */
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.href = 'Cart/Cart.html';
+      });
+    });
+  });
