@@ -2,8 +2,8 @@ import React from 'react';
 
 const CategoryCard = ({ image, name }) => {
   return (
-    <div 
-      className="relative w-60 h-64 mx-auto flex items-center justify-center"
+    <div
+      className="relative w-full aspect-square max-w-[240px] mx-auto flex items-center justify-center overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
@@ -11,8 +11,9 @@ const CategoryCard = ({ image, name }) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white px-4 py-2 rounded-b-lg">
-        <h3 className="text-lg font-semibold text-center">{name}</h3>
+      <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity hover:bg-opacity-30"></div>
+      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white px-2 py-2">
+        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-center truncate">{name}</h3>
       </div>
     </div>
   );
