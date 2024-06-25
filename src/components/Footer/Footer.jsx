@@ -1,14 +1,14 @@
-import React from "react";
-import "./Footer.css"; // Ensure this CSS file exists with the provided styles
-import instagramIcon from "./image/in.png";
-import xIcon from "./image/tw.png";
-import linkedinIcon from "./image/li.png";
-import facebookIcon from "./image/meta.png";
-import logo from "./image/logo.png";
-import home from "./image/hi.png";
-import message from "./image/msg.png";
-import call from "./image/ci.png";
-import { Link } from "react-router-dom";
+import React from 'react';
+import './Footer.css';  // Ensure this CSS file exists with the provided styles
+import instagramIcon from './image/in.png';
+import xIcon from './image/tw.png';
+import linkedinIcon from './image/li.png';
+import facebookIcon from './image/meta.png';
+import logo from './image/logo.png';
+import home from './image/hi.png';
+import message from './image/msg.png';
+import call from './image/ci.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -38,14 +38,11 @@ const Footer = () => {
           <Link to="/about">About us</Link>
           <Link to="/contact">Contact us</Link>
           <Link to="/myOrders">Order</Link>
-          <Link to="/Privacy">Privacy Policy</Link>
-          <Link to="/myOrders">Return and Cancellation</Link>
           <Link to="/help">Help</Link>
         </div>
         <div className="address">
           <p>
-            <img src={home} alt="Address" /> Aung Fatehpur, Uttar Pradesh
-            India-212665
+            <img src={home} alt="Address" /> Aung Fatehpur, Uttar Pradesh India-212665
           </p>
           <p>
             <img src={message} alt="Email" /> contact@vigybag.com
