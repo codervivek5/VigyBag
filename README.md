@@ -1,63 +1,61 @@
 <div align="center">
   <img src="https://res.cloudinary.com/dxxeks4o5/image/upload/v1696576943/logo_mklszb_zzxb64.png" width="200" alt="Logo">
-<h1>VigyBag</h1>
+  <h1>VigyBag</h1>
 </div>
 
-
-
 <div align="center">
-  
- <p>
- 
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
-![Visitors](https://api.visitorbadge.io/api/visitors?path=codervivek5/VigyBag%20&countColor=%2523263759&style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/codervivek5/VigyBag?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/codervivek5/VigyBag?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/codervivek5/VigyBag?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/codervivek5/VigyBag?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/codervivek5/VigyBag?style=for-the-badge)
-![Github](https://img.shields.io/github/license/codervivek5/VigyBag?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/codervivek5/VigyBag?style=for-the-badge)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/codervivek5/VigyBag?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/codervivek5/VigyBag?style=for-the-badge)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/codervivek5/VigyBag?style=for-the-badge)
-  
- </p>
- </div>
+  <p>
+    ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
+    ![Visitors](https://api.visitorbadge.io/api/visitors?path=codervivek5/VigyBag%20&countColor=%2523263759&style=for-the-badge)
+    ![GitHub forks](https://img.shields.io/github/forks/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub Repo stars](https://img.shields.io/github/stars/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub contributors](https://img.shields.io/github/contributors/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub last commit](https://img.shields.io/github/last-commit/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub repo size](https://img.shields.io/github/repo-size/codervivek5/VigyBag?style=for-the-badge)
+    ![Github](https://img.shields.io/github/license/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub issues](https://img.shields.io/github/issues/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub pull requests](https://img.shields.io/github/issues-pr/codervivek5/VigyBag?style=for-the-badge)
+    ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/codervivek5/VigyBag?style=for-the-badge)
+  </p>
+</div>
 
-
- ## Table of Contents 📒
+## Table of Contents 📒
 
 - [Introduction 👋](#introduction)
 - [Repository 📒](#repo)
 - [Features ⭐](#features)
 - [TechStacks ⚙️](#tech)
-- [Contributing🤝](#contributing)
+- [Contributing 🤝](#contributing)
 - [Our Contributors ❤️](#contributors)
+
 <br>
 
-
 ## 👋 Welcome  <a name="introduction"></a>
+
 VigyBag is an e-commerce platform designed to empower villagers by providing them with a nationwide marketplace to sell their eco-friendly products across India. This platform bridges the gap between rural artisans and urban consumers, ensuring that their sustainable creations reach a wider audience.
 
-<h3><em>So, if you're looking for a complete solution for Shopping near you with a pinpoint location then, this site is the right choice for you! </em></h3>
-    
-## 🖌️Design Preview
+**So, if you're looking for a complete solution for shopping near you with a pinpoint location, then this site is the right choice for you!**
+
+## 🖌️ Design Preview
+
 ![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.webp)
 
-## 📌Repository <a name="repo"></a>
+## 📌 Repository <a name="repo"></a>
 
 Are you tired of scrolling through endless online stores, only to find that they don't ship to your area? Look no further than VigyBag - the ultimate online shopping destination for those looking to shop local! With our location-based platform, you can easily find and buy products from your favorite nearby shops. Whether you're a city slicker or living off the beaten path, VigyBag makes shopping a breeze. Say goodbye to long drives to the mall and hello to stress-free, convenient shopping with VigyBag!
 
-## ✔Feature  <a name="features"></a>
+## ✔ Features  <a name="features"></a>
+
 - Search for products and services based on location
-- GPS technology to locate user's position
+- GPS technology to locate the user's position
 - Displays nearby stores and businesses
 - Compare prices and make purchases directly through the website
 
+## 🔑 Tech Stacks <a name="tech"></a>
 
-## 🔑Tech Stacks <a name="tech"></a>
 <!-- Skills : Python, HTML, CSS, JS, Java, Bootstrap, Android, Django, GPS technology -->
+
 Technologies Used :
 
 - ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
@@ -70,25 +68,24 @@ Technologies Used :
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
 - ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
 
-## ⌛Links for the Website
+## ⌛ Links for the Website
+
 - [Live Website](https://codervivek5.github.io/VigyBag/)
 - [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
 <!-- - We can take reference of this website [Click Here](http://yellowpages.in/) -->
 
 #### Figma New Design
+
 - [Figma Design](https://www.figma.com/design/O0UOQfpC6u7wiQ9EeLnhGx/VigyBag-Redesign?node-id=0-1&t=sAeZiavEp8vPg1ss-0)
 
+If you want to work on this unique project and share it with the world, you can do that here. Go through the contributing guidelines [here](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md).
 
-If you want to work on this unique project and share it with the world, you can do that here. Go through the contributing guidelines here.
+## 🤝 Contributing <a name="contributing"></a>
 
-    
-## :handshake: Contributing <a name="contributing"></a>
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&logo=git&logoColor=white)](https://github.com/codervivek5/VigyBag/pulls)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/codervivek5/VigyBag)
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&logo=git&logoColor=white)](https://github.com/hound77/jwoc-archive/pulls)  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/hound77/jwoc-archive)
-
-> Please read our [Code of Conduct](https://github.com/codervivek5/VigyBag/blob/main/CODE_OF_CONDUCT.md).
-**We're accepting PRs for our open and unassigned [issues](https://github.com/codervivek5/VigyBag/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md). We'd love your contributions! **Kindly follow the steps below to get started:** 
-
+> Please read our [Code of Conduct](https://github.com/codervivek5/VigyBag/blob/main/CODE_OF_CONDUCT.md). **We're accepting PRs for our open and unassigned [issues](https://github.com/codervivek5/VigyBag/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md). We'd love your contributions! **Kindly follow the steps below to get started:**
 
 **1.** Fork [the](https://github.com/codervivek5/VigyBag) repository.
 
@@ -96,7 +93,6 @@ If you want to work on this unique project and share it with the world, you can 
 
 ```bash
 git clone https://github.com/codervivek5/VigyBag.git
-```
 
 **3.** Navigate to the project directory.
 
