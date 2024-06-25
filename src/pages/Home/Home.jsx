@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-
-import React from 'react';
-import CategoryCard from '../../components/HomPageCard/CategoryCard';
-import LatestInMarketCard from '../../components/HomPageCard/LatestInMarketCard';
-import background from '../../assets/background.png';
-import app from '../../assets/app.png';
-import googlePlay from '../../assets/google-play.png';
-import mobile from '../../assets/mobile.png';
-=======
 import React, { useEffect } from "react";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
@@ -15,7 +5,6 @@ import background from "../../assets/background.png";
 import app from "../../assets/app.png";
 import googlePlay from "../../assets/google-play.png";
 import mobile from "../../assets/mobile.png";
->>>>>>> Stashed changes
 
 // Import category images
 import customisedGiftsImg from "../../assets/Customized-Gifts.png";
@@ -105,20 +94,11 @@ const Home = () => {
   useEffect(() => {
     document.title = "VigyBag | Home";
   }, []);
+
   return (
     <div className="bg-[#fff0e3ff]">
       <main className="mt-1">
         {/* Hero Section */}
-<<<<<<< Updated upstream
-        <section className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center" style={{
-          backgroundImage: `url(${background})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          minHeight: '95vh',
-          height: 'auto',
-        }}>  
-=======
         <section
           className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
           style={{
@@ -129,7 +109,6 @@ const Home = () => {
             minHeight: "80vh",
             height: "auto",
           }}>
->>>>>>> Stashed changes
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
@@ -144,7 +123,9 @@ const Home = () => {
                 compromising on quality or style. Shop smart, live green, and
                 embrace a sustainable future with VigyBag.
               </p>
-              <button type="button" className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
+              <button
+                type="button"
+                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
                 Shop Now
               </button>
             </div>

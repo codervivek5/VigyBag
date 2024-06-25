@@ -38,13 +38,8 @@ const Footer = () => {
           <Link to="/about">About us</Link>
           <Link to="/contact">Contact us</Link>
           <Link to="/myOrders">Order</Link>
-<<<<<<< Updated upstream
           <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/myOrders">Return and Cancellation</Link>
-=======
-          <Link to="/Privacy">Privacy Policy</Link>
           <Link to="/returnAndCancellation">Return and Cancellation</Link>
->>>>>>> Stashed changes
           <Link to="/help">Help</Link>
         </div>
         <div className="address">

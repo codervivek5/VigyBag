@@ -106,7 +106,7 @@ const Breadcrumbs = () => (
 
 const Orders = () => {
   useEffect(() => {
-    document.title = "VigyBag | MyOrders";
+    document.title = "VigyBag | My Orders";
   }, []);
   return (
     <div className="bg-[#fff0e3ff] flex justify-center mt-1 px-4 sm:px-6 lg:px-8">
