@@ -166,7 +166,9 @@ const Home = () => {
               ))}
             </div>
             <div className="text-center mt-6 md:mt-8">
-              <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">
+              <button
+                type="button"
+                className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">
                 See More
               </button>
             </div>

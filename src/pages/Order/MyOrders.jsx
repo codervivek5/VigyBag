@@ -21,7 +21,7 @@ const copyToClipboard = (text) => {
       alert("Order ID copied to clipboard!");
     })
     .catch((err) => {
-      console.error("Failed to copy: ", err);
+      alert("Failed to copy. Please try again!", err);
     });
 };
 
@@ -37,6 +37,7 @@ const OrderDetails = ({ orderNumber }) => (
       <p className={subTextColor}>ORDER #{orderNumber}</p>
       <button
         onClick={() => copyToClipboard(orderNumber)}
+        type="button"
         className="ml-2 p-1 bg-zinc-200 hover:bg-zinc-300 rounded"
         aria-label="Copy order ID">
         📋
@@ -69,7 +70,9 @@ const ProductCard = ({
         <p className={subTextColor}>{productDescription}</p>
       </div>
       <div className="flex flex-col space-y-2">
-        <button className={`bg-green-600 text-white ${buttonBase}`}>
+        <button
+          type="button"
+          className={`bg-green-600 text-white ${buttonBase}`}>
           Track Package
         </button>
         <button
