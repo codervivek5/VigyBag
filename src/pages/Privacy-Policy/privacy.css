@@ -11,7 +11,7 @@ body {
     cursor: pointer;
 }
 
-.container {
+.containerprivacy {
     max-width: 80%;
     margin: 30px auto;
     padding: 20px;
@@ -20,19 +20,19 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.container .head {
+.containerprivacy .head {
     text-align: center;
     margin-bottom: 20px;
 }
 
 
 
-.container main {
+.containerprivacy main {
     margin-top: 110px;
 }
 
 
-.container .head h1 {
+.containerprivacy .head h1 {
     font-size: x-large;
     font-weight: bolder;
     margin-top: -90px;

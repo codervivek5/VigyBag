@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./privacy.css";
-import "./style.css";
 
 const Privacy = () => {
   return (
@@ -10,7 +9,7 @@ const Privacy = () => {
         <title>VigyBag | Privacy Policy</title>
         <link rel="icon" type="image/x-icon" href="./logo.webp" />
       </head>
-      <div className="container">
+      <div className="containerprivacy">
         <main>
           <div className="head">
             <h1>VigyBag Privacy Policy</h1>
@@ -21,7 +20,7 @@ const Privacy = () => {
               secure transactions and information privacy. This Privacy Policy
               describes how VigyBag E-Commerce Pvt. Ltd. and its affiliates
               (collectively “VigyBag, we, our, us”) collect, use, share, or
-              otherwise process your personal data through the VigyBag website
+              otherwise process your personal data through the VigyBag website{" "}
               <a className="a" href="https://www.vigybag.com/" target="_blank">
                 https://www.vigybag.com/
               </a>
@@ -307,7 +306,7 @@ const Privacy = () => {
             <p>
               If you have a question, issue, complaint, or feedback in relation
               to the processing of your personal data or this Privacy Policy,
-              you may reach out to our data protection officer at
+              you may reach out to our data protection officer at{" "}
               <a
                 className="a"
                 href="mailto:grievanceofficer@vigybag.com"
