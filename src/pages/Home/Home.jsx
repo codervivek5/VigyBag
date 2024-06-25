@@ -1,3 +1,4 @@
+
 import React from 'react';
 import CategoryCard from '../../components/HomPageCard/CategoryCard';
 import LatestInMarketCard from '../../components/HomPageCard/LatestInMarketCard';
@@ -56,7 +57,7 @@ const Home = () => {
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          minHeight: '80vh',
+          minHeight: '95vh',
           height: 'auto',
         }}>  
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -78,7 +79,7 @@ const Home = () => {
         </section>
 
         {/* Popular Categories */}
-        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
+        <section className="py-8 sm:py-12 md:py-8 bg-[#fff0e3ff]">
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8">Popular Categories</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
@@ -90,7 +91,7 @@ const Home = () => {
         </section>
 
         {/* Latest in the Market */}
-        <section className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16">
+        <section className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-8">
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8">Latest in the Market</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
