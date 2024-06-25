@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./privacy.css";
-import "./style.css";
+
 
 const Privacy = () => {
   return (
