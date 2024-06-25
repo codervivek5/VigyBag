@@ -32,7 +32,7 @@ const Privacy = () => {
               secure transactions and information privacy. This Privacy Policy
               describes how VigyBag E-Commerce Pvt. Ltd. and its affiliates
               (collectively “VigyBag, we, our, us”) collect, use, share, or
-              otherwise process your personal data through the VigyBag website{" "}
+              otherwise process your personal data through the VigyBag website
               <a className="a">https://www.vigybag.com/</a>, its mobile
               application, and m-site (hereinafter referred to as the
               “Platform”). While you can browse sections of the Platform without
@@ -212,7 +212,7 @@ const Privacy = () => {
               for the purpose of conducting the required checks, namely for the
               purpose of credit underwriting, providing you their products and
               services, and may market to you as a result of such sharing unless
-              you explicitly opt out.{" "}
+              you explicitly opt out.
             </p>
             <p>
               We may disclose your personal data to third parties, such as
@@ -254,7 +254,7 @@ const Privacy = () => {
               by their privacy policies. VigyBag shall not be responsible for
               the privacy practices or the content of their privacy policies,
               and we request you to read their privacy policies prior to
-              disclosing any information.{" "}
+              disclosing any information.
             </p>
           </section>
           <section>
@@ -310,7 +310,7 @@ const Privacy = () => {
               f you have a question, issue, complaint, or feedback in relation
               to the processing of your personal data or this Privacy Policy,
               you may reach out to our data protection officer at
-              <a className="a">grievanceofficer@vigybag.com.</a>{" "}
+              <a className="a">grievanceofficer@vigybag.com.</a>
             </p>
           </section>
         </main>
