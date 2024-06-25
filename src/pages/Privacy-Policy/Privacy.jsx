@@ -3,18 +3,7 @@ import { Link } from "react-router-dom";
 import "./privacy.css";
 import "./style.css";
 
-const loadLordIconScript = () => {
-  const script = document.createElement("script");
-  script.src = "https://cdn.lordicon.com/lordicon.js";
-  script.async = true;
-  document.body.appendChild(script);
-};
-
 const Privacy = () => {
-  useEffect(() => {
-    loadLordIconScript();
-  }, []);
-
   return (
     <div className="privacy-policy">
       <head>
