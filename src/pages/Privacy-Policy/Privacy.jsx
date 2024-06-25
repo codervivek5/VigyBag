@@ -33,19 +33,22 @@ const Privacy = () => {
               describes how VigyBag E-Commerce Pvt. Ltd. and its affiliates
               (collectively “VigyBag, we, our, us”) collect, use, share, or
               otherwise process your personal data through the VigyBag website
-              <a className="a">https://www.vigybag.com/</a>, its mobile
-              application, and m-site (hereinafter referred to as the
-              “Platform”). While you can browse sections of the Platform without
-              sharing any information with us, please note that we do not offer
-              any product or service under this Platform outside <b>India</b>{" "}
-              and your personal data will primarily be stored and processed in
-              India. By visiting this Platform, providing your information, or
-              availing of our product/service, you expressly agree to be bound
-              by the terms and conditions of this Privacy Policy, the Terms of
-              Use, and the applicable service/product terms and conditions, and
-              agree to be governed by the laws of <b>India</b>, including but
-              not limited to the laws applicable to data protection and privacy.
-              If you do not agree, please do not use or access our Platform.
+              <a className="a" href="https://www.vigybag.com/" target="_blank">
+                https://www.vigybag.com/
+              </a>
+              , its mobile application, and m-site (hereinafter referred to as
+              the “Platform”). While you can browse sections of the Platform
+              without sharing any information with us, please note that we do
+              not offer any product or service under this Platform outside{" "}
+              <b>India</b> and your personal data will primarily be stored and
+              processed in India. By visiting this Platform, providing your
+              information, or availing of our product/service, you expressly
+              agree to be bound by the terms and conditions of this Privacy
+              Policy, the Terms of Use, and the applicable service/product terms
+              and conditions, and agree to be governed by the laws of{" "}
+              <b>India</b>, including but not limited to the laws applicable to
+              data protection and privacy. If you do not agree, please do not
+              use or access our Platform.
             </p>
           </section>
           <section>
@@ -294,7 +297,13 @@ const Privacy = () => {
                 <b>Name:</b> Vivek Prajapati
               </p>
               <p>
-                <b>Email:</b> <a className="a">grievanceofficer@vigybag.com</a>{" "}
+                <b>Email:</b>{" "}
+                <a
+                  className="a"
+                  href="mailto:grievanceofficer@vigybag.com"
+                  target="_blank">
+                  grievanceofficer@vigybag.com
+                </a>
               </p>
               <p>
                 <b>Time:</b> Mon - Fri (9:00 - 18:00)
@@ -307,10 +316,15 @@ const Privacy = () => {
           <section>
             <h2>Queries</h2>
             <p>
-              f you have a question, issue, complaint, or feedback in relation
+              If you have a question, issue, complaint, or feedback in relation
               to the processing of your personal data or this Privacy Policy,
               you may reach out to our data protection officer at
-              <a className="a">grievanceofficer@vigybag.com.</a>
+              <a
+                className="a"
+                href="mailto:grievanceofficer@vigybag.com"
+                target="_blank">
+                grievanceofficer@vigybag.com.
+              </a>
             </p>
           </section>
         </main>
