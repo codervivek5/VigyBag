@@ -21,7 +21,8 @@ const copyToClipboard = (text) => {
       alert("Order ID copied to clipboard!");
     })
     .catch((err) => {
-      alert("Failed to copy. Please try again!", err);
+      alert("Failed to copy. Please try again!");
+      console.error("Clipboard copy failed:", err);
     });
 };
 
@@ -76,6 +77,7 @@ const ProductCard = ({
           Track Package
         </button>
         <button
+          type="button"
           className={`bg-zinc-200 text-zinc-700 ${buttonBase}`}
           style={{ border: "1px solid black" }}>
           View or edit order
