@@ -116,7 +116,7 @@ const EPR_Page = () => {
               non-functional/un-repairable to prevent its accidental breakage.
             </li>
             <li>
-              - Please call our toll-free number <b>1800-123-8783</b> for the
+              - Please call our toll-free number 1800-123-8783 for the
               collection of E-Waste.
             </li>
           </ul>
@@ -198,11 +198,15 @@ const EPR_Page = () => {
           <br />
           <h2>Collection Points</h2>
           <br />
-          <h3>
+          <h4>
             You can also deposit your E-Waste directly at the collection points.
             For information on collection points please see the list below.
-          </h3>
-          <table className="table">
+          </h4>
+          <br />
+          <table className="table" aria-label="E-Waste Collection Points">
+            <caption>
+              Collection points for E-Waste across various locations.
+            </caption>
             <thead>
               <tr className="tr">
                 <th className="th">Sr. No.</th>
@@ -228,7 +232,7 @@ const EPR_Page = () => {
                 <td className="td">Uttar Pradesh</td>
                 <td className="td">Kanpur</td>
                 <td className="td">
-                  S 317, Transport Nagar, Near RTO Office, Lucknow, UP - 226012
+                  S 317, Transport Nagar, Near RTO Office, Kanpur, UP - 226012
                 </td>
                 <td className="td">1800-123-8783 / 9321743538</td>
               </tr>
