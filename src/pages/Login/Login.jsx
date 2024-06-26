@@ -16,13 +16,13 @@ const formSectionClasses = "relative rounded-lg w-full md:w-1/2 bg-zinc-800 text
 const illustrationSectionClasses = "rounded-lg hidden md:flex w-full md:w-1/2 p-8 items-center justify-center bg-[#c1cfabff] overflow-hidden";
 
 // FormInput component to create input fields with icons
-const FormInput = ({ icon, placeholder }) => {
+const FormInput = ({ icon, placeholder, type = "text" }) => {
   return (
     <div className={containerClasses}>
       <span className="text-black bg-[#fff0e3ff] p-2 rounded-xl">
         {icon}
       </span>
-      <input type="text" placeholder={placeholder} className={inputClasses} />
+      <input type={type} placeholder={placeholder} className={inputClasses} />
     </div>
   );
 };
@@ -42,8 +42,8 @@ const LoginForm = () => {
           {/* Login form */}
           <form className="space-y-4">
             <FormInput icon={<CgProfile />} placeholder="Full Name" />
-            <FormInput icon={<IoCall />} placeholder="Email" />
-            <FormInput icon={<RiLockPasswordLine />} placeholder="Password" />
+            <FormInput icon={<IoCall />} type="email" placeholder="Email" />
+            <FormInput icon={<RiLockPasswordLine />} type="password" placeholder="Password" />
             <div className="flex items-center">
               <input type="checkbox" id="remember" className="mr-2" />
               <label htmlFor="remember" className="text-zinc-400">Remember Me</label>
