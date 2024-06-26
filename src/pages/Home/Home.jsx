@@ -92,7 +92,7 @@ const latestProducts = [
 
 const Home = () => {
   useEffect(() => {
-    document.title = "VigyBag | Home";
+    document.title = "VigyBag | Eco friendly store";
   }, []);
 
   return (
