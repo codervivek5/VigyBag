@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import "./privacy.css";
 
 const Privacy = () => {
+  useEffect(() => {
+    document.title = "VigyBag | Privacy Policy";
+  }, []);
+
   return (
     <div className="privacy-policy">
-      <head>
-        <title>VigyBag | Privacy Policy</title>
-        <link rel="icon" type="image/x-icon" href="./logo.webp" />
-      </head>
       <div className="containerprivacy">
         <main>
           <div className="head">

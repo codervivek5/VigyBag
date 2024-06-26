@@ -15,7 +15,7 @@ body {
     max-width: 80%;
     margin: 30px auto;
     padding: 20px;
-    background: #f6ebe4;
+    /* background: #f6ebe4; */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -52,6 +52,20 @@ h2 {
     font-size: x-large;
     font-weight: bold;
     color: #555;
-    /* border-bottom: 2px solid #007BFF; */
     padding-bottom: 5px;
+}
+
+h3 {
+    font-size: x-large;
+    font-weight: bold;
+    color: #555;
+    padding-bottom: 5px;
+}
+
+.table,
+.tr,
+.td,
+.th {
+    padding: 13px;
+    border: 2px solid black;
 }
