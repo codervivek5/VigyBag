@@ -27,7 +27,7 @@ const ProductImage = () => (
 
 const ProductDetails = () => (
   <div className="w-full lg:w-1/2 lg:pl-6">
-    <h2 className="text-2xl font-bold mb-2">Bamboo India</h2>
+    <h2 className="text-2xl font-bold mb-2  sm:text-2xl md:text-3xl  md:mb-8 text-black">Bamboo India</h2>
     <p className={`${sharedClasses.textGray} ${sharedClasses.mb4}`}>Eco-friendly Handmade Bamboo Comb | Reduce Breakage and Hairfall</p>
     <p className="text-xl font-semibold mb-2">₹175 <span className="line-through text-zinc-500">₹249</span> (30% OFF)</p>
     <p className="text-zinc-500 dark:white mb-4">Inclusive of taxes</p>

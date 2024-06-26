@@ -62,7 +62,7 @@ const SimilarProductCard = () => (
     <p className="text-gray-600 dark:black text-sm mb-1">
       ₹175 <span className="line-through text-gray-500 dark:text-gray-400">₹249</span>
     </p>
-    <p className="text-green-600 dark:text-green-600 text-sm">30% OFF</p>
+    <p className="text-green-600 dark:text-green-700 text-sm font-bold">30% OFF</p>
   </div>
 );
 
