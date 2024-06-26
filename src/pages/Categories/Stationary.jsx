@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Stationary = () => {
-  return (
-    <div>Stationary</div>
-  )
-}
+  return <div>Stationary</div>;
+};
 
-export default Stationary
+export default Stationary;
