@@ -41,6 +41,7 @@ const Footer = () => {
           <Link to="/privacy">Privacy Policy</Link>
           <Link to="/returnAndCancellation">Return and Cancellation</Link>
           <Link to="/help">Help</Link>
+          <Link to="/EPR_Page">EPR Compliance</Link>
         </div>
         <div className="address">
           <p>
