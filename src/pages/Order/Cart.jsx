@@ -29,11 +29,14 @@ const CartItem = ({ name, seller, size, price, discount, quantity, image, onRemo
 );
 
 const Breadcrumbs = () => (
-  <div className="text-sm text-zinc-500 mb-2 absolute" style={{ left: '8.5vw', top: '15vh' }}>
-    <Link to="/dashboard" className="hover:underline">Dashboard</Link> &gt;
-    <Link to="/cart" className='hover:underline'>Cart</Link> &gt;
-    <Link to="/myOrders" className="hover:underline">My Orders</Link> &gt;
-    <Link to="/orderDetails" className='hover:underline'>Order Details</Link>
+  <div className="text-sm text-zinc-500 mb-4 flex items-center ">
+    <Link to="/dashboard" className="hover:underline">Dashboard</Link>
+    <span>&gt;</span>
+    <Link to="/cart" className="hover:underline">Cart</Link>
+    <span>&gt;</span>
+    <Link to="/myOrders" className="hover:underline">My Orders</Link>
+    <span>&gt;</span>
+    <Link to="/orderDetails" className="hover:underline">Order Details</Link>
   </div>
 );
 
@@ -73,11 +76,11 @@ const Cart = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-[#fff0e3ff] py-10 mt-1">
-      <Breadcrumbs />
-      <div className="container mx-auto p-4 w-full md:max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between">
-          <div className="w-full md:w-2/3 p-4">
+    <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
+      <div className="container mx-auto p-4 w-full max-w-7xl">
+        <div className="flex flex-col lg:flex-row lg:space-x-8">
+          <div className="w-full lg:w-2/3">
+            <Breadcrumbs />
             <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
             <div className="space-y-6">
               {cartItems.map(item => (
@@ -89,13 +92,13 @@ const Cart = () => {
               ))}
             </div>
           </div>
-          <div className="w-full md:w-1/3 p-4 mt-8 md:mt-0">
+          <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
             <h2 className="text-2xl font-bold mb-6 text-zinc-800">Subtotal</h2>
             <Subtotal items={cartItems} />
             <div className="mt-6">
-              <div className="flex justify-between">
-                <button className={buttonBgClass} onClick={toggleCouponInput}>Redeem</button>
-                <button className={buttonBgClass}>Check Out</button>
+              <div className="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+                <button className={`${buttonBgClass} w-full sm:w-auto`} onClick={toggleCouponInput}>Redeem</button>
+                <button className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
               </div>
               {showCouponInput && (
                 <div className="mt-4">
@@ -104,7 +107,7 @@ const Cart = () => {
                     placeholder="Enter coupon code"
                     className="p-2 border border-gray-300 rounded-md w-full"
                   />
-                  <button className={buttonBgClass + " mt-2 w-full"}>Apply Coupon</button>
+                  <button className={`${buttonBgClass} mt-2 w-full`}>Apply Coupon</button>
                 </div>
               )}
             </div>
