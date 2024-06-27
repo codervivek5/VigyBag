@@ -1,21 +1,54 @@
-<<<<<<< HEAD
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules
+.env
+env/
+dist
+dist-ssr
+
+# System files
+.DS_Store
+
+# IDEs and editors
 *.iml
 .gradle
 /local.properties
+/.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Android/IntelliJ related
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+.gradle
+/local.properties
+
+# macOS specific
 .DS_Store
+
+# Other build and output directories
 /build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
-=======
-env/
+
+# Python specific
 *.pyc
-node_modules
->>>>>>> edaa4e819b84ae9911826ac64e0b82493d43512b
