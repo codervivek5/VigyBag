@@ -93,7 +93,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
-            <h2 className="text-2xl font-bold mb-6 text-zinc-800">Subtotal</h2>
+            <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
             <Subtotal items={cartItems} />
             <div className="mt-6">
               <div className="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
