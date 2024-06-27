@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-} from 'react-router-dom';
-import Categories from './pages/Categories/Categories';
-import Login from './pages/Login/Login';
-import Toys from './pages/gifts/Toys';
-import AboutUs from './pages/About/AboutUs';
+} from "react-router-dom";
+import Categories from "./pages/Categories/Categories";
+import Login from "./pages/Login/Login";
+import Toys from "./pages/gifts/Toys";
+import AboutUs from "./pages/About/AboutUs";
 // import Gifts from './pages/gifts/Gifts';
 import Contact from "./pages/Contacts/Contact";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -45,13 +45,12 @@ const router = createBrowserRouter(
 
       {/* Drop down of categories */}
 
-      <Route path="/categories" element={<Categories />}/>
+      <Route path="/categories" element={<Categories />} />
       <Route path="/categories/fashion" element={<Fashion />} />
       <Route path="/categories/bodycare" element={<BodyCare />} />
       <Route path="/categories/furniture" element={<Furniture />} />
       <Route path="/categories/stationary" element={<Stationary />} />
       <Route path="/categories/gifts" element={<Gifts />} />
-      
 
       <Route path="about" element={<AboutUs />} />
       <Route path="help" element={<Help />} />
@@ -76,8 +75,8 @@ const router = createBrowserRouter(
   )
 );
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <RouterProvider router={router} />
-  </>,
+  </>
 );
