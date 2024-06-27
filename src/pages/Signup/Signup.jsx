@@ -7,6 +7,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 // Define CSS class names for reuse
 const containerClasses = "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
@@ -28,8 +29,8 @@ const FormInput = ({ icon, placeholder, type = "text" }) => {
   );
 };
 
-// LoginForm component to create the login form UI
-const LoginForm = () => {
+// SignUpForm component to create the signup form UI
+const SignUpForm = () => {
   return (
     <div className={formContainerClasses}>
       <div className={cardClasses}>
@@ -38,33 +39,40 @@ const LoginForm = () => {
           <div className="flex justify-center mb-3">
             <img src={Logo} alt="Logo" className="h-12 md:h-16" style={{ width: 'auto' }} />
           </div>
-          <h2 className="text-3xl font-semibold text-center mb-6">Log in</h2>
+          <h2 className="text-3xl font-semibold text-center mb-6">Sign Up</h2>
 
-          {/* Login form */}
+          {/* Signup form */}
           <form className="space-y-4">
             <FormInput icon={<CgProfile />} placeholder="Full Name" />
             <FormInput icon={<MdEmail />} type="email" placeholder="Email" />
+            {/*<FormInput icon={<IoCall />} type="tel" placeholder="Phone Number" />*/}
             <FormInput icon={<RiLockPasswordLine />} type="password" placeholder="Password" />
+            <FormInput icon={<RiLockPasswordLine />} type="password" placeholder="Confirm Password" />
             <div className="flex items-center">
-              <input type="checkbox" id="remember" className="mr-2" />
-              <label htmlFor="remember" className="text-zinc-400">Remember Me</label>
+              <input type="checkbox" id="terms" className="mr-2" />
+              <label htmlFor="terms" className="text-zinc-400">I agree to the Terms and Conditions</label>
             </div>
-            <button className="w-full bg-green-700 text-white py-2 rounded-xl">Log in</button>
+            <button className="w-full bg-green-700 text-white py-2 rounded-xl">Sign Up</button>
           </form>
 
-          {/* Social login buttons */}
+          {/* Social signup buttons */}
           <div className="text-center mt-4">
+            <p className="text-zinc-400 mb-2">Or sign up with:</p>
             <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
               <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
                 <FcGoogle className="text-black p-1" style={{ fontSize: '2rem' }} />
-                <span className="ml-2 text-sm">Continue with Google</span>
+                <span className="ml-2 text-sm">Sign up with Google</span>
               </button>
               <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
                 <FaFacebookSquare className="text-black p-1" style={{ fontSize: '2rem' }} />
-                <span className="ml-2 text-sm">Continue with Facebook</span>
+                <span className="ml-2 text-sm">Sign up with Facebook</span>
               </button>
             </div>
           </div>
+
+          <p className="text-zinc-400 text-center mt-4">
+            Already have an account? <Link  to="/login" className="text-green-500">Log in</Link>
+          </p>
         </div>
 
         {/* Illustration section */}
@@ -76,4 +84,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;
