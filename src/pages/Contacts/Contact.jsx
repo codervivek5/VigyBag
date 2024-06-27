@@ -14,7 +14,7 @@ const ContactForm = () => {
             <img src={Logo} alt="Logo" width={"50px"} height={"50px"} />
           </div>
         </div>
-        <h2 className="text-3xl font-semibold text-center mb-4 mt-10">Contact Us</h2>
+        <h2 className="text-3xl font-semibold text-center mb-4 mt-10 text-white">Contact Us</h2>
         <p className="text-gray-400 text-center text-lg mb-8">Got something to say? Let us know!</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
