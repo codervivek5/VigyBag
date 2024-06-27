@@ -13,29 +13,30 @@ import Login from './pages/Login/Login';
 import Toys from './pages/gifts/Toys';
 import AboutUs from './pages/About/AboutUs';
 // import Gifts from './pages/gifts/Gifts';
-import Contact from './pages/Contacts/Contact';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Home from './pages/Home/Home';
-import Layout from './Layout';
-import Team from './components/Team/Team';
-import Confirmation from './pages/Confirmation/Confirmation'
-import Cancellation from './pages/Cancellation/Cancellation'
-import OrderDetails from './pages/Order/Orderdetails';
-import MyOrders from './pages/Order/MyOrders';
-import BambooProducts from './pages/ProductsPage/BambooProducts';
-import Fashion from './pages/Categories/Fashion';
-import BodyCare from './pages/Categories/BodyCare';
-import Furniture from './pages/Categories/Furniture';
-import Stationary from './pages/Categories/Stationary';
-import Gifts from './pages/Categories/Gifts';
-import Checkout from './pages/Order/Checkout';
-import Cart from './pages/Order/Cart';
-import Error from './pages/404-Page/Error';
-import ProductDetails from './components/Products/ProductDetails';
-import Help from './pages/Help/Help';
-import Privacy from './pages/Privacy-Policy/Privacy';
-import Payment from './pages/Payment/Payment';
-import Faq from './pages/FAQ/Faq';
+import Contact from "./pages/Contacts/Contact";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Home from "./pages/Home/Home";
+import Layout from "./Layout";
+import Team from "./components/Team/Team";
+import Confirmation from "./pages/Confirmation/Confirmation";
+import Cancellation from "./pages/Cancellation/Cancellation";
+import OrderDetails from "./pages/Order/Orderdetails";
+import MyOrders from "./pages/Order/MyOrders";
+import BambooProducts from "./pages/ProductsPage/BambooProducts";
+import Fashion from "./pages/Categories/Fashion";
+import BodyCare from "./pages/Categories/BodyCare";
+import Furniture from "./pages/Categories/Furniture";
+import Stationary from "./pages/Categories/Stationary";
+import Gifts from "./pages/Categories/Gifts";
+import Checkout from "./pages/Order/Checkout";
+import Cart from "./pages/Order/Cart";
+import Error from "./pages/404-Page/Error";
+import ProductDetails from "./components/Products/ProductDetails";
+import Help from "./pages/Help/Help";
+import Privacy from "./pages/Privacy-Policy/Privacy";
+import Payment from "./pages/Payment/Payment";
+import ReturnAndCancellation from "./pages/ReturnAndCancellation/returnAndCancellation";
+import EPRPage from "./pages/EPRPage/EPR_Page";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -61,17 +62,18 @@ const router = createBrowserRouter(
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="confirm" element={<Confirmation />} />
       <Route path="cancel" element={<Cancellation />} />
-      <Route path="orderDetails" element={<OrderDetails/>} />
-      <Route path="myOrders" element={<MyOrders/>} />
-      <Route path="bambooProducts" element={<BambooProducts/>} />
-      <Route path="checkout" element={<Checkout/>} />
-      <Route path="cart" element={<Cart/>} />
-      <Route path="*" element={<Error/>} />
-      <Route path="productDetails" element={<ProductDetails/>} />
-      <Route path="Payment" element={<Payment/>} />
-      <Route path="faq" element={<Faq/>} />
-    </Route>,
-  ),
+      <Route path="orderDetails" element={<OrderDetails />} />
+      <Route path="myOrders" element={<MyOrders />} />
+      <Route path="bambooProducts" element={<BambooProducts />} />
+      <Route path="checkout" element={<Checkout />} />
+      <Route path="cart" element={<Cart />} />
+      <Route path="*" element={<Error />} />
+      <Route path="productDetails" element={<ProductDetails />} />
+      <Route path="Payment" element={<Payment />} />
+      <Route path="returnAndCancellation" element={<ReturnAndCancellation />} />
+      <Route path="EPR_Page" element={<EPRPage />} />
+    </Route>
+  )
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
