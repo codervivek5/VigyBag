@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   bottom: 45px;
   right: 15px;
   color: white;
-  background-color: rgb(22 163 74);
+  background-color: #16a34a;
   width: 40px;
   height: 40px;
   border-radius: 50%;
