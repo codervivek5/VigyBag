@@ -12,8 +12,10 @@ const CategoryCard = ({ image, name }) => {
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity hover:bg-opacity-30"></div>
-      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white px-2 py-2">
-        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-center truncate">{name}</h3>
+      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 px-2 py-2">
+        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-center truncate text-white">
+          {name}
+        </h3>
       </div>
     </div>
   );
