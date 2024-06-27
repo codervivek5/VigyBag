@@ -37,6 +37,7 @@ import Privacy from "./pages/Privacy-Policy/Privacy";
 import Payment from "./pages/Payment/Payment";
 import ReturnAndCancellation from "./pages/ReturnAndCancellation/returnAndCancellation";
 import EPRPage from "./pages/EPRPage/EPR_Page";
+import Signup from "./pages/Signup/Signup"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -72,6 +73,7 @@ const router = createBrowserRouter(
       <Route path="Payment" element={<Payment />} />
       <Route path="returnAndCancellation" element={<ReturnAndCancellation />} />
       <Route path="EPR_Page" element={<EPRPage />} />
+      <Route path="signup" element={<Signup/>} />
     </Route>
   )
 );
