@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.iml
 .gradle
 /local.properties
@@ -13,3 +14,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+=======
+env/
+*.pyc
+node_modules
+>>>>>>> edaa4e819b84ae9911826ac64e0b82493d43512b

@@ -1,0 +1,30 @@
+{
+  "name": "vigybag",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r <h1>VigyBag</h1>\r </div>",
+  "main": "./script/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishitbaria/VigyBag.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nishitbaria/VigyBag/issues"
+  },
+  "homepage": "https://github.com/Nishitbaria/VigyBag#readme",
+  "dependencies": {
+    "axios": "^1.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.5.0",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2"
+  }
+}
