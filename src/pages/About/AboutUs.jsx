@@ -1,52 +1,30 @@
 import React from 'react';
+import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 import anuja from '../../assets/ANUJA-SINGH.png';
 import tanmay from '../../assets/tanmay.jpg';
 import archana from '../../assets/ARCHANA-KRISHNA.png';
 import yatra from '../../assets/YATRA-VISHWAKARMA.png';
 import harshita from '../../assets/HARSHITA-BHAMBHANI.png';
-import  anshuman from '../../assets/ANSHUMAN-TIWARI.png';
+import anshuman from '../../assets/ANSHUMAN-TIWARI.png';
+import ContributorCard from '../../components/ContributorCard/ContributorCard';
+import coFounder from '../../assets/co-founder.jpeg';
+import founder from '../../assets/founder.jpeg';
+import app from '../../assets/app.png';
 
-const ContributorCard = ({ name, role, image, socialLinks }) => {
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg max-w-sm transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
-      <div className="relative">
-        <img src={image} alt={name} className="w-full h-72 object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <h3 className="text-2xl font-bold text-white mb-1">{name}</h3>
-          <p className="text-sm text-gray-300 font-medium">{role}</p>
-        </div>
-      </div>
-      <div className="p-6 bg-gray-50">
-        <p className="text-sm text-gray-600 mb-3 font-medium">Let's Connect On:</p>
-        <div className="flex space-x-3">
-          {socialLinks.map((link, index) => (
-            <a 
-              key={index} 
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <img src={link.icon} alt={link.name} className="w-5 h-5" />
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const App = () => {
+const AboutUs = () => {
   const contributorsData = [
     {
       name: "ANUJA SINGH",
       role: "UI/UX DESIGNER",
       image: anuja,
       socialLinks: [
-        { name: "LinkedIn", url: "#", icon: "https://example.com/path-to-linkedin-icon.svg" },
-        { name: "Twitter", url: "#", icon: "https://example.com/path-to-twitter-icon.svg" },
-        { name: "GitHub", url: "#", icon: "https://example.com/path-to-github-icon.svg" },
+        { name: "Instagram", url: "#", icon: <FaInstagram /> },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/anuja-singh-864068250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", icon: <FaLinkedin /> },
+        { name: "Twitter", url: "https://x.com/AnujaSingh34074?t=JfS-9apI0wkVS1PbTGtFKw&s=09", icon: <BsTwitterX /> },
+        { name: "GitHub", url: "https://github.com/Anuja1227", icon: <FaGithub /> },
       ]
     },
     {
@@ -54,9 +32,10 @@ const App = () => {
       role: "FRONTEND DEVELOPER",
       image: tanmay,
       socialLinks: [
-        { name: "LinkedIn", url: "#", icon: "https://example.com/path-to-linkedin-icon.svg" },
-        { name: "Twitter", url: "#", icon: "https://example.com/path-to-twitter-icon.svg" },
-        { name: "GitHub", url: "#", icon: "https://example.com/path-to-github-icon.svg" },
+        { name: "Instagram", url: "https://www.instagram.com/https.tanmay_mirgal/", icon: <FaInstagram /> },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/tanmay-mirgal-1402792a2/", icon: <FaLinkedin /> },
+        { name: "Twitter", url: "#", icon: <BsTwitterX /> },
+        { name: "GitHub", url: "https://github.com/Tanmay-Mirgal", icon: <FaGithub /> },
       ]
     },
     {
@@ -64,9 +43,10 @@ const App = () => {
       role: "UI/UX DESIGNER",
       image: archana,
       socialLinks: [
-        { name: "LinkedIn", url: "#", icon: "https://example.com/path-to-linkedin-icon.svg" },
-        { name: "Twitter", url: "#", icon: "https://example.com/path-to-twitter-icon.svg" },
-        { name: "GitHub", url: "#", icon: "https://example.com/path-to-github-icon.svg" },
+        { name: "Instagram", url: "#", icon: <FaInstagram /> },
+        { name: "LinkedIn", url: "#", icon: <FaLinkedin /> },
+        { name: "Twitter", url: "#", icon: <BsTwitterX /> },
+        { name: "GitHub", url: "#", icon: <FaGithub /> },
       ]
     },
     {
@@ -74,9 +54,10 @@ const App = () => {
       role: "ANDROID DEVELOPER",
       image: yatra,
       socialLinks: [
-        { name: "LinkedIn", url: "#", icon: "https://example.com/path-to-linkedin-icon.svg" },
-        { name: "Twitter", url: "#", icon: "https://example.com/path-to-twitter-icon.svg" },
-        { name: "GitHub", url: "#", icon: "https://example.com/path-to-github-icon.svg" },
+        { name: "Instagram", url: "https://www.instagram.com/yatra.vishwa?igsh=MTNnc2Z5bXRpYnYxcw==", icon: <FaInstagram /> },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/yatra-vishwakarma-25905a293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", icon: <FaLinkedin /> },
+        { name: "Twitter", url: "https://x.com/YatraVishw11?s=09", icon: <BsTwitterX /> },
+        { name: "GitHub", url: "https://github.com/Yatra052", icon: <FaGithub /> },
       ]
     },
     {
@@ -84,32 +65,81 @@ const App = () => {
       role: "Full Stack Developer",
       image: harshita,
       socialLinks: [
-        { name: "LinkedIn", url: "#", icon: "https://example.com/path-to-linkedin-icon.svg" },
-        { name: "Twitter", url: "#", icon: "https://example.com/path-to-twitter-icon.svg" },
-        { name: "GitHub", url: "#", icon: "https://example.com/path-to-github-icon.svg" },
+        { name: "Instagram", url: "#", icon: <FaInstagram /> },
+        { name: "LinkedIn", url: "#", icon: <FaLinkedin /> },
+        { name: "Twitter", url: "#", icon: <BsTwitterX /> },
+        { name: "GitHub", url: "#", icon: <FaGithub /> },
       ]
     },
     {
-      name: "ANSHUMAN-TIWARI",
+      name: "ANSHUMAN TIWARI",
       role: "Backend Developer",
       image: anshuman,
       socialLinks: [
-        { name: "LinkedIn", url: "#", icon: "https://example.com/path-to-linkedin-icon.svg" },
-        { name: "Twitter", url: "#", icon: "https://example.com/path-to-twitter-icon.svg" },
-        { name: "GitHub", url: "#", icon: "https://example.com/path-to-github-icon.svg" },
+        { name: "Instagram", url: "https://www.instagram.com/ansh_.5911/", icon: <FaInstagram /> },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/anshumantiiwari/", icon: <FaLinkedin /> },
+        { name: "Twitter", url: "https://x.com/Realthugus", icon: <BsTwitterX/> },
+        { name: "GitHub", url: "https://github.com/Ansh101112", icon: <FaGithub /> },
       ]
     },
   ];
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {contributorsData.map((contributor, index) => (
-          <ContributorCard key={index} {...contributor} />
-        ))}
+    <div className="bg-[#fff0e3ff]" style={{ width: '100%' }}>
+      <div className="p-8 bg-[#fff0e3ff] text-gray-800 max-w-6xl mx-auto" >
+      <section className="bg-[#FFF5EA] py-2 md:py-2 lg:py-24 flex items-center" style={{
+          backgroundImage: `url(${app})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '4vh',
+          height: 'auto',
+          borderRadius: '20px',
+         
+        }}>  
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left">
+            <h1 className="text-4xl font-bold mb-4 px-20 text-black flex relative"
+            style={{justifyContent:'center',alignItems:'center',left:'20vw'}}>ABOUT VIGYBAG</h1>
+           
+            </div>
+          </div>
+        </section>
+        
+        <div className="flex flex-col md:flex-row items-center justify-between mb-8 mt-10">
+          <div className="w-full md:w-5/12 p-4 flex flex-col items-center text-center bg-gray-100 rounded-lg shadow-md">
+            <img src={founder} alt="Vivek Prajapati" className="rounded-full w-32 h-32 mb-4 border-4 border-green-500" />
+            <h3 className="text-2xl font-semibold text-green-700">Vivek Prajapati</h3>
+            <p className="italic mb-2 text-gray-500">Founder</p>
+            <p className="text-center text-sm">Vivek Prajapati, the visionary founder of VigyBag, is an expert in web and app development with a keen interest in Android development. His exceptional talent has been instrumental in driving...</p>
+          </div>
+          <div className="w-full md:w-5/12 p-4 flex flex-col items-center text-center bg-gray-100 rounded-lg shadow-md">
+            <img src={coFounder} alt="Gyan Sharma" className="rounded-full w-32 h-32 mb-4 border-4 border-green-500" />
+            <h3 className="text-2xl font-semibold text-green-700">Gyan Sharma</h3>
+            <p className="italic mb-2 text-gray-500">Co-Founder</p>
+            <p className="text-center text-sm">Co-founder Gyan Sharma complements Vivek's technical prowess with strategic vision and operational expertise. With a wealth of experience in sustainable business practices and a passion for innovation, Gyan plays a crucial role...</p>
+          </div>
+        </div>
+        <div className="mt-8">
+          <h3 className="text-3xl font-bold mb-2 text-black">What we aim for?</h3>
+          <p className="text-gray-700">Our mission is to create innovative and sustainable solutions that address the challenges faced by our community. By leveraging technology and creative thinking, we aim to provide...</p>
+        </div>
+        <div className="mt-8">
+          <h3 className="text-3xl font-bold mb-2 text-black ">How it started?</h3>
+          <p className="text-gray-700">The journey of VigyBag began with a simple idea to revolutionize the industry by integrating eco-friendly practices and cutting-edge technology...</p>
+        </div>
+        <div className="mt-8">
+          <h2 className="text-3xl font-bold mb-4 text-center mt-20 -mb-1">Meet Our Contributors</h2>
+          <hr className="" style={{ border: '2px solid forestgreen', width: '50%', margin: '0 auto' ,marginBottom:'30px'}} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {contributorsData.map((contributor, index) => (
+              <ContributorCard key={index} {...contributor} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default App;
+export default AboutUs;
