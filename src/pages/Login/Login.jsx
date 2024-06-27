@@ -7,6 +7,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import {Link} from 'react-router-dom';
 
 // Define CSS class names for reuse
 const containerClasses = "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
@@ -38,7 +39,7 @@ const LoginForm = () => {
           <div className="flex justify-center mb-3">
             <img src={Logo} alt="Logo" className="h-12 md:h-16" style={{ width: 'auto' }} />
           </div>
-          <h2 className="text-3xl font-semibold text-center mb-6">Log in</h2>
+          <h2 className="text-3xl font-semibold text-center mb-6 text-white">Log in</h2>
 
           {/* Login form */}
           <form className="space-y-4">
@@ -54,17 +55,22 @@ const LoginForm = () => {
 
           {/* Social login buttons */}
           <div className="text-center mt-4">
+            <p className="text-zinc-400 mb-2 ">Or Login with:</p>
             <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
               <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
                 <FcGoogle className="text-black p-1" style={{ fontSize: '2rem' }} />
-                <span className="ml-2 text-sm">Continue with Google</span>
+                <span className="ml-2 text-sm">Login with Google</span>
               </button>
               <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
                 <FaFacebookSquare className="text-black p-1" style={{ fontSize: '2rem' }} />
-                <span className="ml-2 text-sm">Continue with Facebook</span>
+                <span className="ml-2 text-sm">Login with Facebook</span>
               </button>
             </div>
           </div>
+
+          <p className="text-zinc-400 text-center mt-4">
+            Create an account? <Link  to="/signup" className="text-green-500">Sign-Up</Link>
+          </p>
         </div>
 
         {/* Illustration section */}

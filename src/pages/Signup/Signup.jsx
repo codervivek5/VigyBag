@@ -39,7 +39,7 @@ const SignUpForm = () => {
           <div className="flex justify-center mb-3">
             <img src={Logo} alt="Logo" className="h-12 md:h-16" style={{ width: 'auto' }} />
           </div>
-          <h2 className="text-3xl font-semibold text-center mb-6">Sign Up</h2>
+          <h2 className="text-3xl font-semibold text-center mb-6 text-white">Sign Up</h2>
 
           {/* Signup form */}
           <form className="space-y-4">
