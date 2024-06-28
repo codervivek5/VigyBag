@@ -61,6 +61,7 @@ const Navbar = () => {
 
                 <div className="relative group">
                   <button
+                    type="button"
                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center focus:outline-none"
                     onClick={() => handleDropdown("gifts")}>
                     <lord-icon
@@ -205,6 +206,7 @@ const Navbar = () => {
                   className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
                   <FaUserCircle className="mr-2 text-3xl" />
                   <button
+                    type="button"
                     className="text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
                     style={{ fontSize: "19px" }}>
                     Login
