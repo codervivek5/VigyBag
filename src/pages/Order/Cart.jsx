@@ -12,7 +12,7 @@ const greenTextClass = "text-green-600";
 const buttonClass = "text-zinc-500 hover:text-red-600";
 const buttonBgClass = "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
 
-const CartItem = ({ name, seller, size, price, discount, quantity, image, onRemove }) => (
+const CartItem = ({ id, name, seller, size, price, discount, quantity, image, onRemove }) => (
   <div className={`${cardClass} flex items-center justify-between mb-4`} style={{ border: '1px solid black' }}>
     <div className="flex items-center">
       <img src={image} alt={name} className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4" />
@@ -24,7 +24,7 @@ const CartItem = ({ name, seller, size, price, discount, quantity, image, onRemo
         <p className={greenTextClass}>Quantity: {quantity}</p>
       </div>
     </div>
-    <button className={buttonClass} onClick={onRemove}>&times;</button>
+    <button type="button" className={buttonClass} onClick={() => onRemove(id)}>&times;</button>
   </div>
 );
 
@@ -71,6 +71,10 @@ const Cart = () => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   const toggleCouponInput = () => {
     setShowCouponInput(!showCouponInput);
   };
@@ -87,7 +91,7 @@ const Cart = () => {
                 <CartItem
                   key={item.id}
                   {...item}
-                  onRemove={() => removeItem(item.id)}
+                  onRemove={removeItem}
                 />
               ))}
             </div>
@@ -97,8 +101,9 @@ const Cart = () => {
             <Subtotal items={cartItems} />
             <div className="mt-6">
               <div className="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className={`${buttonBgClass} w-full sm:w-auto`} onClick={toggleCouponInput}>Redeem</button>
-                <button className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`} onClick={toggleCouponInput}>Redeem</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`} onClick={clearCart}>Clear Cart</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
               </div>
               {showCouponInput && (
                 <div className="mt-4">
@@ -107,7 +112,7 @@ const Cart = () => {
                     placeholder="Enter coupon code"
                     className="p-2 border border-gray-300 rounded-md w-full"
                   />
-                  <button className={`${buttonBgClass} mt-2 w-full`}>Apply Coupon</button>
+                  <button type="button" className={`${buttonBgClass} mt-2 w-full`}>Apply Coupon</button>
                 </div>
               )}
             </div>
