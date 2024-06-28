@@ -24,7 +24,7 @@ const CartItem = ({ id, name, seller, size, price, discount, quantity, image, on
         <p className={greenTextClass}>Quantity: {quantity}</p>
       </div>
     </div>
-    <button className={buttonClass} onClick={() => onRemove(id)}>&times;</button>
+    <button type="button" className={buttonClass} onClick={() => onRemove(id)}>&times;</button>
   </div>
 );
 
@@ -101,9 +101,9 @@ const Cart = () => {
             <Subtotal items={cartItems} />
             <div className="mt-6">
               <div className="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className={`${buttonBgClass} w-full sm:w-auto`} onClick={toggleCouponInput}>Redeem</button>
-                <button className={`${buttonBgClass} w-full sm:w-auto`} onClick={clearCart}>Clear Cart</button>
-                <button className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`} onClick={toggleCouponInput}>Redeem</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`} onClick={clearCart}>Clear Cart</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
               </div>
               {showCouponInput && (
                 <div className="mt-4">
@@ -112,7 +112,7 @@ const Cart = () => {
                     placeholder="Enter coupon code"
                     className="p-2 border border-gray-300 rounded-md w-full"
                   />
-                  <button className={`${buttonBgClass} mt-2 w-full`}>Apply Coupon</button>
+                  <button type="button" className={`${buttonBgClass} mt-2 w-full`}>Apply Coupon</button>
                 </div>
               )}
             </div>
