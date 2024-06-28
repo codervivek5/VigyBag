@@ -73,7 +73,7 @@ const Navbar = () => {
                       src="https://cdn.lordicon.com/pgmktfgp.json"
                       trigger="hover"
                       colors="primary:#15803D,secondary:#15803D"></lord-icon>{" "}
-                    Gifts
+                    Products
                     <FaChevronDown className="ml-1" />
                   </button>
                   <div
@@ -84,34 +84,34 @@ const Navbar = () => {
                     <div className="py-1">
                       <Link
                         to="/categories/fashion"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
                         Fashion
                       </Link>
                       <Link
                         to="/categories/gifts"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
                         Gifts
                       </Link>
                       <Link
                         to="/categories/furniture"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
                         Furniture
                       </Link>
                       <Link
                         to="/categories/stationary"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500 block px-4 py-2 text-sm">
                         Stationary
                       </Link>
                       <Link
                         to="/categories/bodycare"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
                         Body-Care
                       </Link>
                     </div>
                   </div>
                 </div>
 
-                <div className="relative group">
+                {/* <div className="relative group">
                   <button
                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center focus:outline-none"
                     onClick={() => handleDropdown("categories")}>
@@ -161,7 +161,7 @@ const Navbar = () => {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <Link
                   to="/about"
