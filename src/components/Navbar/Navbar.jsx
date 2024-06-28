@@ -111,59 +111,6 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="relative group">
-                  <button
-                    className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center focus:outline-none"
-                    onClick={() => handleDropdown("categories")}>
-                    <lord-icon
-                      style={{
-                        width: "25px",
-                        height: "25px",
-                        paddingTop: "0px",
-                        paddingLeft: "1px",
-                      }}
-                      src="https://cdn.lordicon.com/jgnvfzqg.json"
-                      trigger="hover"
-                      colors="primary:#15803D"></lord-icon>{" "}
-                    Categories
-                    <FaChevronDown className="ml-1" />
-                  </button>
-                  <div
-                    className={`${
-                      openDropdown === "categories" ? "block" : "hidden"
-                    } absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
-                    style={{ zIndex: "5" }}>
-                    <div className="py-1">
-                      <Link
-                        to="/categories/fashion"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                        Fashion
-                      </Link>
-                      <Link
-                        to="/categories/gifts"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                        Gifts
-                      </Link>
-                      <Link
-                        to="/categories/furniture"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                        Furniture
-                      </Link>
-                      <Link
-                        to="/categories/stationary"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                        Stationary
-                      </Link>
-                      <Link
-                        to="/categories/bodycare"
-                        className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                        Body-Care
-                      </Link>
-                    </div>
-                  </div>
-                </div> */}
-
                 <Link
                   to="/about"
                   className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
