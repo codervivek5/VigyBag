@@ -73,7 +73,7 @@ const AboutUs = () => {
     },
     {
       name: "ANSHUMAN TIWARI",
-      role: "Backend Developer",
+      role: "Full Stack Developer",
       image: anshuman,
       socialLinks: [
         { name: "Instagram", url: "https://www.instagram.com/ansh_.5911/", icon: <FaInstagram /> },
