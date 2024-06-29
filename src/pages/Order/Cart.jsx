@@ -28,7 +28,8 @@ const CartItem = ({ id, name, seller, size, price, discount, quantity, image, on
     <lord-icon
       src="https://cdn.lordicon.com/skkahier.json"
       trigger="hover"
-      style={{ width: '50px', height: '50px', cursor: 'pointer' }}
+      colors="primary:#ff0000"
+      style={{ width: '30px', height: '30px', cursor: 'pointer' }}
       onClick={() => onRemove(id)}>
     </lord-icon>
   </div>
@@ -97,20 +98,22 @@ const Cart = () => {
             </div>
             <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
               <button type="button" className={`${buttonBgClass} w-full sm:w-auto`} onClick={clearCart}>Clear Cart</button>
-              <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
             </div>
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
             <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
             <Subtotal items={cartItems} />
             <div className="mt-6">
-              <div className="mt-4">
+              <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                 <input
                   type="text"
                   placeholder="Enter coupon code"
                   className="p-2 border border-gray-300 rounded-md w-full"
                 />
-                <button type="button" className={`${buttonBgClass} mt-2 w-full`}>Apply Coupon</button>
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>Redeem</button>
+              </div>
+              <div className="mt-2 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+                <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>Check Out</button>
               </div>
             </div>
           </div>
