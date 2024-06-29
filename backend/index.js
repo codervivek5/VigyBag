@@ -1,8 +1,10 @@
-// app.js
-
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
@@ -17,7 +19,6 @@ mongoose
   .connect(process.env.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
   })
   .then(() => {
     console.log("Connected to MongoDB");

@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import ProtectedRoute from "./auth/ProtectedRoute";
 import Categories from "./pages/Categories/Categories";
 import Login from "./pages/Login/Login";
 import Toys from "./pages/gifts/Toys";
@@ -44,43 +44,44 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
-
-      {/* Drop down of categories */}
-
       <Route path="/categories" element={<Categories />} />
       <Route path="/categories/fashion" element={<Fashion />} />
       <Route path="/categories/bodycare" element={<BodyCare />} />
       <Route path="/categories/furniture" element={<Furniture />} />
       <Route path="/categories/stationary" element={<Stationary />} />
       <Route path="/categories/gifts" element={<Gifts />} />
-
-      <Route path="about" element={<AboutUs />} />
-      <Route path="help" element={<Help />} />
-      <Route path="privacy" element={<Privacy />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="team" element={<Team />} />
-      <Route path="login" element={<Login />} />
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="confirm" element={<Confirmation />} />
-      <Route path="cancel" element={<Cancellation />} />
-      <Route path="orderDetails" element={<OrderDetails />} />
-      <Route path="myOrders" element={<MyOrders />} />
-      <Route path="bambooProducts" element={<BambooProducts />} />
-      <Route path="checkout" element={<Checkout />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path="*" element={<Error />} />
-      <Route path="productDetails" element={<ProductDetails />} />
-      <Route path="Payment" element={<Payment />} />
-      <Route path="returnAndCancellation" element={<ReturnAndCancellation />} />
-      <Route path="EPR_Page" element={<EPRPage />} />
-      <Route path="signup" element={<Signup/>} />
-      <Route path="faq" element={<FAQ/>} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/help" element={<Help />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/login" element={<Login />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/confirm" element={<Confirmation />} />
+        <Route path="/cancel" element={<Cancellation />} />
+        <Route path="/orderDetails" element={<OrderDetails />} />
+        <Route path="/myOrders" element={<MyOrders />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/Payment" element={<Payment />} />
+        <Route
+          path="/returnAndCancellation"
+          element={<ReturnAndCancellation />}
+        />
+      </Route>
+      <Route path="/bambooProducts" element={<BambooProducts />} />
+      <Route path="/*" element={<Error />} />
+      <Route path="/productDetails" element={<ProductDetails />} />
+      <Route path="/EPR_Page" element={<EPRPage />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/faq" element={<FAQ />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  </>
+  </React.StrictMode>
 );
