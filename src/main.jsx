@@ -10,9 +10,7 @@ import {
 } from "react-router-dom";
 import Categories from "./pages/Categories/Categories";
 import Login from "./pages/Login/Login";
-import Toys from "./pages/gifts/Toys";
 import AboutUs from "./pages/About/AboutUs";
-// import Gifts from './pages/gifts/Gifts';
 import Contact from "./pages/Contacts/Contact";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
@@ -43,16 +41,15 @@ import FAQ from "./pages/FAQ/Faq";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="" element={<Home />} />
-
+      <Route index element={<Home />} />
+      
       {/* Drop down of categories */}
-
-      <Route path="/categories" element={<Categories />} />
-      <Route path="/categories/fashion" element={<Fashion />} />
-      <Route path="/categories/bodycare" element={<BodyCare />} />
-      <Route path="/categories/furniture" element={<Furniture />} />
-      <Route path="/categories/stationary" element={<Stationary />} />
-      <Route path="/categories/gifts" element={<Gifts />} />
+      <Route path="categories" element={<Categories />} />
+      <Route path="categories/fashion" element={<Fashion />} />
+      <Route path="categories/bodycare" element={<BodyCare />} />
+      <Route path="categories/furniture" element={<Furniture />} />
+      <Route path="categories/stationary" element={<Stationary />} />
+      <Route path="categories/gifts" element={<Gifts />} />
 
       <Route path="about" element={<AboutUs />} />
       <Route path="help" element={<Help />} />
@@ -68,19 +65,18 @@ const router = createBrowserRouter(
       <Route path="bambooProducts" element={<BambooProducts />} />
       <Route path="checkout" element={<Checkout />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="*" element={<Error />} />
       <Route path="productDetails" element={<ProductDetails />} />
-      <Route path="Payment" element={<Payment />} />
+      <Route path="payment" element={<Payment />} />
       <Route path="returnAndCancellation" element={<ReturnAndCancellation />} />
       <Route path="EPR_Page" element={<EPRPage />} />
-      <Route path="signup" element={<Signup/>} />
-      <Route path="faq" element={<FAQ/>} />
+      <Route path="signup" element={<Signup />} />
+      <Route path="faq" element={<FAQ />} />
+      
+      <Route path="*" element={<Error />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
-    <RouterProvider router={router} />
-  </>
+  <RouterProvider router={router} />
 );
