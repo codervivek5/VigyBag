@@ -11,6 +11,13 @@ import call from "./image/ci.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <footer className="footer">
       <div className="footer-top">
@@ -35,13 +42,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="contact-info">
-          <Link to="/about">About us</Link>
-          <Link to="/contact">Contact us</Link>
-          <Link to="/myOrders">Order</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/returnAndCancellation">Return and Cancellation</Link>
-          <Link to="/help">Help</Link>
-          <Link to="/EPR_Page">EPR Compliance</Link>
+          <Link to="/about" onClick={scrollToTop}>About us</Link>
+          <Link to="/contact" onClick={scrollToTop}>Contact us</Link>
+          <Link to="/myOrders" onClick={scrollToTop}>Order</Link>
+          <Link to="/privacy" onClick={scrollToTop}>Privacy Policy</Link>
+          <Link to="/returnAndCancellation" onClick={scrollToTop}>Return and Cancellation</Link>
+          <Link to="/help" onClick={scrollToTop}>Help</Link>
+          <Link to="/EPR_Page" onClick={scrollToTop}>EPR Compliance</Link>
         </div>
         <div className="address">
           <p>
@@ -59,10 +66,10 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© 2024 VigyBag. All rights reserved</p>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/our-services">Our Services</Link>
-          <Link to="/terms-and-conditions">Terms & Conditions</Link>
-          <Link to="/faq">FAQ</Link>
+          <Link to="/" onClick={scrollToTop}>Home</Link>
+          <Link to="/our-services" onClick={scrollToTop}>Our Services</Link>
+          <Link to="/terms-and-conditions" onClick={scrollToTop}>Terms & Conditions</Link>
+          <Link to="/faq" onClick={scrollToTop}>FAQ</Link>
         </nav>
       </div>
     </footer>
