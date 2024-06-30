@@ -43,10 +43,11 @@ const Wrapper = styled.div`
   right: 15px;
   color: white;
   background-color: #16a34a;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 99;
   transition: background-color 0.3s ease, transform 0.3s ease;
   &:hover {
     background-color: #005a01;
