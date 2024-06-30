@@ -252,6 +252,7 @@ const Home = () => {
         <form>
         <input type="email" placeholder="Enter your email address" style={{
             width: '100%',
+            borderRadius:'10px',
             padding: '10px',
             marginBottom: '10px',
             border: '1px solid #ccc',  '@media (max-width: 780px)': {

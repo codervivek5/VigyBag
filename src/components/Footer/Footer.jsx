@@ -25,7 +25,7 @@ const Footer = () => {
           </Link>
    
           <div className="text-center  md:text-left mb-4 md:mb-0 md:mr-8"  style={{
-            marginLeft:'20px'
+            marginLeft:'20px', marginTop:'20px'
           }} >
                   
                   <a
