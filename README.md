@@ -70,6 +70,11 @@ Technologies Used :
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
 - ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
 
+  ### 🎥 Video Introduction
+
+[![Watch the video](https://img.youtube.com/vi/FeHQVTiYVxQ/0.jpg)](https://www.youtube.com/watch?v=FeHQVTiYVxQ)
+
+
 ## ⌛Links for the Website
 - [Live Website](https://codervivek5.github.io/VigyBag/)
 - [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
