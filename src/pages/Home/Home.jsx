@@ -200,7 +200,7 @@ const Home = () => {
         >
           <div className="container mx-auto px-4 relative z-10">
             <div
-              className="bg-[#393d3cff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
+              className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
               style={{ minHeight: "30vh", height: "auto" }}
             >
               <div className="flex flex-col md:flex-row items-center justify-center mb-4">
