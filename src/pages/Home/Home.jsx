@@ -203,7 +203,7 @@ const Home = () => {
               className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
               style={{ minHeight: "30vh", height: "auto" }}
             >
-              <div className="flex flex-col md:flex-row items-center justify-center mb-4">
+              {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4">
                 <div className="text-center md:text-left mb-4 md:mb-0 md:mr-8">
                   <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">
                     Download the App NOW
@@ -232,7 +232,43 @@ const Home = () => {
                   alt="VigyBag App"
                   className="w-32 sm:w-40 md:w-60 mt-4 md:mt-0"
                 />
-              </div>
+              </div> */}
+              <section className="newsletter-section" style={{  color :'white',
+      padding: '40px 0'
+               }} >
+      <div className="container" style={{    maxWidth: '600px',
+        margin: '0 auto',
+        textAlign: 'center'
+      }} >
+        <h2 style={{
+          fontSize: '24px',
+          marginBottom: '10px', color :'white'
+        }} >
+          Stay Updated with Our Latest News</h2>
+        <p style={{
+          fontSize: '16px',
+          marginBottom: '20px'
+        }} >Subscribe to our newsletter to receive exclusive updates, promotions, and tips.</p>
+        <form>
+        <input type="email" placeholder="Enter your email address" style={{
+            width: '100%',
+            borderRadius:'10px',
+            padding: '10px',
+            marginBottom: '10px',
+            border: '1px solid #ccc',  '@media (max-width: 780px)': {
+              width: '80%'
+            }
+          }} />
+          <button type="submit" style={{
+            backgroundColor: '#4CAF50',
+            color: '#fff',
+            padding: '10px 20px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}>Subscribe</button> </form>
+      </div>
+    </section>
             </div>
           </div>
           <div className="absolute inset-0 bg-black opacity-30"></div>
