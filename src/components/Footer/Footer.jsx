@@ -33,13 +33,16 @@ const Footer = () => {
           <Link to="/faq" onClick={scrollToTop}>
             FAQ
           </Link>
+          <Link to="/about" onClick={scrollToTop}>
+            About Us
+          </Link>
           <Link to="/contact" onClick={scrollToTop}>
             Contact us
           </Link>
           <Link to="/our-services" onClick={scrollToTop}>
             Our Services
           </Link>
-          <Link to="/about-us" onClick={scrollToTop}>
+          <Link to="/about" onClick={scrollToTop}>
             Meet our contributor
           </Link>
         </div>
@@ -114,7 +117,7 @@ const Footer = () => {
           </div>
           <br />
           <div className="social-media flex flex-col justify-center items-center">
-            <p className="text-sm text-center text-gray-400">SOCIALS:</p> <hr />
+            <p className="text-sm text-center text-gray-400">SOCIALS:</p>
             <div className="social-icons">
               <a href="https://www.instagram.com">
                 <img src={instagramIcon} alt="Instagram" />
