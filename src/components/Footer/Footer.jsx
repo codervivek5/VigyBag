@@ -69,8 +69,8 @@ const Footer = () => {
             Terms & Conditions
           </Link>
         </div>
-        <div className="flex flex-col justify-items-end items-start">
-          <p className="text-center text-gray-400 text-sm">
+        <div className="flex flex-col justify-items-end items-start md:justify-center">
+          <p className="text-center text-gray-400 text-sm md:justify-center underline">
             Registered Office Address:
           </p>{" "}
           <hr />
@@ -117,7 +117,9 @@ const Footer = () => {
           </div>
           <br />
           <div className="social-media flex flex-col justify-center items-center">
-            <p className="text-sm text-center text-gray-400">SOCIALS:</p>
+            <p className="text-sm text-center text-gray-400 sm:items-center underline">
+              SOCIALS:
+            </p>
             <div className="social-icons">
               <a href="https://www.instagram.com">
                 <img src={instagramIcon} alt="Instagram" />
@@ -157,18 +159,6 @@ const Footer = () => {
                     paddingLeft: "1px",
                   }}
                   src="https://cdn.lordicon.com/fjuachvi.json"
-                  trigger="hover"></lord-icon>
-              </a>
-
-              <a href="https://web.whatsapp.com/">
-                <lord-icon
-                  style={{
-                    width: "35px",
-                    height: "35px",
-                    paddingTop: "0px",
-                    paddingLeft: "1px",
-                  }}
-                  src="https://cdn.lordicon.com/gzjopzvf.json"
                   trigger="hover"></lord-icon>
               </a>
             </div>
