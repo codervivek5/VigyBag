@@ -145,13 +145,13 @@ const Navbar = () => {
                 </div>
                 <Link
                   to="/CartEmpty"
-                  className="ml-4 text-green-800 hover:text-gray-600">
+                  className="ml-10 text-green-800 hover:text-gray-600">
                   <lord-icon
                     style={{
                       width: "40px",
                       height: "40px",
                       paddingTop: "2px",
-                      paddingLeft: "1px",
+                      paddingLeft: "10px",
                     }}
                     src="https://cdn.lordicon.com/pbrgppbb.json"
                     trigger="hover"
@@ -161,11 +161,11 @@ const Navbar = () => {
                 <Link
                   to="/login"
                   className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
-                  <FaUserCircle className="mr-2 text-3xl" />
+                  <FaUserCircle className="ml-10 mr-2 text-3xl" />
                   <button
                     type="button"
-                    className="text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
-                    style={{ fontSize: "19px" }}>
+                    className="ml-10 text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
+                    style={{ fontSize: "19px"}}>
                     Login
                   </button>
                 </Link>
