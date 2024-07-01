@@ -133,6 +133,7 @@ const Home = () => {
                 embrace a sustainable future with VigyBag.
               </p>
               <button
+                type="button"
                 onClick={scrollToSection}
                 className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
                 Shop Now

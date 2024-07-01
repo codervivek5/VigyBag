@@ -1,6 +1,7 @@
 import React from "react";
 import "../../pages/Home/Home.css";
-import Arrow from "../../assets/arrow.png"; // Make sure to update the path to your actual image location
+import Arrow from "../../assets/arrow.png";
+// Make sure to update the path to your actual image location
 
 const DownArrow = () => {
   return (
