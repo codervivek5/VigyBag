@@ -37,12 +37,13 @@ import ReturnAndCancellation from "./pages/ReturnAndCancellation/returnAndCancel
 import EPRPage from "./pages/EPRPage/EPR_Page";
 import Signup from "./pages/Signup/Signup";
 import FAQ from "./pages/FAQ/Faq";
+import CartEmpty from "./pages/Order/CartEmpty";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      
+
       {/* Drop down of categories */}
       <Route path="categories" element={<Categories />} />
       <Route path="categories/fashion" element={<Fashion />} />
@@ -71,7 +72,8 @@ const router = createBrowserRouter(
       <Route path="EPR_Page" element={<EPRPage />} />
       <Route path="signup" element={<Signup />} />
       <Route path="faq" element={<FAQ />} />
-      
+      <Route path="CartEmpty" element={<CartEmpty />} />
+
       <Route path="*" element={<Error />} />
     </Route>
   )
