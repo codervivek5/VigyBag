@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import GoToTop from "./components/GoToTop/gototop";
 
-function Layout() {
+const Layout = () => {
   return (
     <>
       <Navbar />
@@ -13,6 +13,6 @@ function Layout() {
       <GoToTop />
     </>
   );
-}
+};
 
 export default Layout;
