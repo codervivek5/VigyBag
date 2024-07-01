@@ -9,8 +9,8 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { toast, ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 // Define CSS class names for reuse
 const containerClasses =
@@ -54,7 +54,9 @@ const SignUpForm = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      // toast.error("Passwords do not match");
+      alert("Passwords do not match");
+      console.log("Passwords do not match");
       return;
     }
 
@@ -68,15 +70,19 @@ const SignUpForm = () => {
           phone,
         }
       );
-      toast.success(response.data.message);
+      // toast.success(response.data.message);
+      alert(response.data.message);
+      console.log(response.data.message);
     } catch (error) {
-      toast.error(error.response.data.error || "Signup failed");
+      // toast.error(error.response.data.error || "Signup failed");
+      alert("Signup failed" || error.response.data.error);
+      console.log(error.response.data.error);
     }
   };
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className={formContainerClasses}>
         <div className={cardClasses}>
           {/* Form section */}
