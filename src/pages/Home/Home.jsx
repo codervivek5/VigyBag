@@ -266,6 +266,7 @@ const Home = () => {
                       type="email"
                       placeholder="Enter your email address"
                       style={{
+                        color: 'black',
                         width: "100%",
                         borderRadius: "10px",
                         padding: "10px",
