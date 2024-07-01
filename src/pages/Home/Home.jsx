@@ -6,6 +6,7 @@ import background from "../../assets/background.png";
 import app from "../../assets/app.png";
 import googlePlay from "../../assets/google-play.png";
 import mobile from "../../assets/mobile.png";
+import { Link } from "react-router-dom";
 
 // Import category images
 import customisedGiftsImg from "../../assets/Customized-Gifts.png";
@@ -23,6 +24,7 @@ import ArtSuppliesImg from "../../assets/Art-Supplies.png";
 import CeramicDinnerwareImg from "../../assets/Ceramic-Dinnerware.png";
 import BambooProductsImg from "../../assets/Bamboo-Products.png";
 import StorageBasketsImg from "../../assets/Storage-Baskets.png";
+import DownArrow from "../../components/DownArrow/downArrow";
 
 const popularCategories = [
   { name: "Fashion & Accessories", image: fashionAndAccessories },
@@ -111,8 +113,7 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
             minHeight: "87vh",
             height: "auto",
-          }}
-        >
+          }}>
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left">
               <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
@@ -120,29 +121,27 @@ const Home = () => {
               </h1>
               <h2
                 className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6"
-                style={{ lineHeight: "1.5" }}
-              >
+                style={{ lineHeight: "1.5" }}>
                 Your Eco-Friendly Shopping Heaven
               </h2>
               <p
                 className="mb-6 text-gray-700 text-[20px] sm:text-[23px]"
-                style={{ lineHeight: "1.5" }}
-              >
+                style={{ lineHeight: "1.5" }}>
                 At VigyBag, we curate the finest earth-friendly essentials to
                 help you reduce your environmental footprint without
                 compromising on quality or style. Shop smart, live green, and
                 embrace a sustainable future with VigyBag.
               </p>
               <button
+                type="button"
                 onClick={scrollToSection}
-                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300"
-              >
+                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
                 Shop Now
               </button>
+              <DownArrow />
             </div>
           </div>
         </section>
-
         {/* Popular Categories */}
 
         <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
@@ -166,8 +165,7 @@ const Home = () => {
         <section
           className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16"
           id="sect"
-          ref={sectionRef}
-        >
+          ref={sectionRef}>
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
               Latest in the Market
@@ -181,11 +179,17 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <div className="text-center mt-6 md:mt-8">
-              <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">
-                See More
+
+            <Link
+              to="/dashboard"
+              className="mt-10 ml-4 text-green-800 hover:text-gray-600 flex items-center justify-center">
+              <button
+                type="button"
+                className="text-lg text-white bg-[#3d784aff] px-12 py-3 rounded-2xl"
+                style={{ fontSize: "19px" }}>
+                see more
               </button>
-            </div>
+            </Link>
           </div>
         </section>
 
@@ -196,13 +200,11 @@ const Home = () => {
             backgroundImage: `url(${app})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}
-        >
+          }}>
           <div className="container mx-auto px-4 relative z-10">
             <div
               className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
-              style={{ minHeight: "30vh", height: "auto" }}
-            >
+              style={{ minHeight: "30vh", height: "auto" }}>
               {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4">
                 <div className="text-center md:text-left mb-4 md:mb-0 md:mr-8">
                   <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">
@@ -233,42 +235,62 @@ const Home = () => {
                   className="w-32 sm:w-40 md:w-60 mt-4 md:mt-0"
                 />
               </div> */}
-              <section className="newsletter-section" style={{  color :'white',
-      padding: '40px 0'
-               }} >
-      <div className="container" style={{    maxWidth: '600px',
-        margin: '0 auto',
-        textAlign: 'center'
-      }} >
-        <h2 style={{
-          fontSize: '24px',
-          marginBottom: '10px', color :'white'
-        }} >
-          Stay Updated with Our Latest News</h2>
-        <p style={{
-          fontSize: '16px',
-          marginBottom: '20px'
-        }} >Subscribe to our newsletter to receive exclusive updates, promotions, and tips.</p>
-        <form>
-        <input type="email" placeholder="Enter your email address" style={{
-            width: '100%',
-            borderRadius:'10px',
-            padding: '10px',
-            marginBottom: '10px',
-            border: '1px solid #ccc',  '@media (max-width: 780px)': {
-              width: '80%'
-            }
-          }} />
-          <button type="submit" style={{
-            backgroundColor: '#4CAF50',
-            color: '#fff',
-            padding: '10px 20px',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}>Subscribe</button> </form>
-      </div>
-    </section>
+              <section
+                className="newsletter-section"
+                style={{ color: "white", padding: "40px 0" }}>
+                <div
+                  className="container"
+                  style={{
+                    maxWidth: "600px",
+                    margin: "0 auto",
+                    textAlign: "center",
+                  }}>
+                  <h2
+                    style={{
+                      fontSize: "24px",
+                      marginBottom: "10px",
+                      color: "white",
+                    }}>
+                    Stay Updated with Our Latest News
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      marginBottom: "20px",
+                    }}>
+                    Subscribe to our newsletter to receive exclusive updates,
+                    promotions, and tips.
+                  </p>
+                  <form>
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      style={{
+                        width: "100%",
+                        borderRadius: "10px",
+                        padding: "10px",
+                        marginBottom: "10px",
+                        border: "1px solid #ccc",
+                        "@media (max-width: 780px)": {
+                          width: "80%",
+                        },
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      style={{
+                        backgroundColor: "#4CAF50",
+                        color: "#fff",
+                        padding: "10px 20px",
+                        border: "none",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                      }}>
+                      Subscribe
+                    </button>{" "}
+                  </form>
+                </div>
+              </section>
             </div>
           </div>
           <div className="absolute inset-0 bg-black opacity-30"></div>
