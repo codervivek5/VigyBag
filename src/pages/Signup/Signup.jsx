@@ -75,112 +75,114 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={formContainerClasses}>
-      <div className={cardClasses}>
-        {/* Form section */}
-        <div className={formSectionClasses}>
-          <div className="flex justify-center mb-3">
-            <img
-              src={Logo}
-              alt="Logo"
-              className="h-12 md:h-16"
-              style={{ width: "auto" }}
-            />
-          </div>
-          <h2 className="text-3xl font-semibold text-center mb-6 text-white">
-            Sign Up
-          </h2>
-
-          {/* Signup form */}
-          <form className="space-y-4" onSubmit={handleSignup}>
-            <FormInput
-              icon={<CgProfile />}
-              placeholder="Full Name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-            />
-            <FormInput
-              icon={<MdEmail />}
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <FormInput
-              icon={<IoCall />}
-              type="text" // Changed to 'text' from 'Number'
-              placeholder="Phone Number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <FormInput
-              icon={<RiLockPasswordLine />}
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <FormInput
-              icon={<RiLockPasswordLine />}
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <div className="flex items-center">
-              <input type="checkbox" id="terms" className="mr-2" required />
-              <label htmlFor="terms" className="text-zinc-400">
-                I agree to the Terms and Conditions
-              </label>
+    <>
+      <ToastContainer />
+      <div className={formContainerClasses}>
+        <div className={cardClasses}>
+          {/* Form section */}
+          <div className={formSectionClasses}>
+            <div className="flex justify-center mb-3">
+              <img
+                src={Logo}
+                alt="Logo"
+                className="h-12 md:h-16"
+                style={{ width: "auto" }}
+              />
             </div>
-            <button
-              type="submit" // Added type attribute for form submission
-              className="w-full bg-green-700 text-white py-2 rounded-xl"
-            >
+            <h2 className="text-3xl font-semibold text-center mb-6 text-white">
               Sign Up
-            </button>
-          </form>
+            </h2>
 
-          {/* Social signup buttons */}
-          <div className="text-center mt-4">
-            <p className="text-zinc-400 mb-2">Or sign up with:</p>
-            <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-              <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
-                <FcGoogle
-                  className="text-black p-1"
-                  style={{ fontSize: "2rem" }}
-                />
-                <span className="ml-2 text-sm">Sign up with Google</span>
+            {/* Signup form */}
+            <form className="space-y-4" onSubmit={handleSignup}>
+              <FormInput
+                icon={<CgProfile />}
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
+              <FormInput
+                icon={<MdEmail />}
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <FormInput
+                icon={<IoCall />}
+                type="text" // Changed to 'text' from 'Number'
+                placeholder="Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+              <FormInput
+                icon={<RiLockPasswordLine />}
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <FormInput
+                icon={<RiLockPasswordLine />}
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <div className="flex items-center">
+                <input type="checkbox" id="terms" className="mr-2" required />
+                <label htmlFor="terms" className="text-zinc-400">
+                  I agree to the Terms and Conditions
+                </label>
+              </div>
+              <button
+                type="submit" // Added type attribute for form submission
+                className="w-full bg-green-700 text-white py-2 rounded-xl"
+              >
+                Sign Up
               </button>
-              <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
-                <FaFacebookSquare
-                  className="text-black p-1"
-                  style={{ fontSize: "2rem" }}
-                />
-                <span className="ml-2 text-sm">Sign up with Facebook</span>
-              </button>
+            </form>
+
+            {/* Social signup buttons */}
+            <div className="text-center mt-4">
+              <p className="text-zinc-400 mb-2">Or sign up with:</p>
+              <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
+                  <FcGoogle
+                    className="text-black p-1"
+                    style={{ fontSize: "2rem" }}
+                  />
+                  <span className="ml-2 text-sm">Sign up with Google</span>
+                </button>
+                <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
+                  <FaFacebookSquare
+                    className="text-black p-1"
+                    style={{ fontSize: "2rem" }}
+                  />
+                  <span className="ml-2 text-sm">Sign up with Facebook</span>
+                </button>
+              </div>
             </div>
+
+            <p className="text-zinc-400 text-center mt-4">
+              Already have an account?{" "}
+              <Link to="/login" className="text-green-500">
+                Log in
+              </Link>
+            </p>
           </div>
 
-          <p className="text-zinc-400 text-center mt-4">
-            Already have an account?{" "}
-            <Link to="/login" className="text-green-500">
-              Log in
-            </Link>
-          </p>
-        </div>
-
-        {/* Illustration section */}
-        <div className={illustrationSectionClasses}>
-          <img
-            src={signUp}
-            alt="Illustration"
-            className="w-full h-full object-contain rounded"
-          />
+          {/* Illustration section */}
+          <div className={illustrationSectionClasses}>
+            <img
+              src={signUp}
+              alt="Illustration"
+              className="w-full h-full object-contain rounded"
+            />
+          </div>
         </div>
       </div>
-      <ToastContainer />
-    </div>
+    </>
   );
 };
 
