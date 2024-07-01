@@ -137,11 +137,10 @@ const Home = () => {
                 className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
                 Shop Now
               </button>
+              <DownArrow />
             </div>
           </div>
         </section>
-        <DownArrow />
-
         {/* Popular Categories */}
 
         <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">

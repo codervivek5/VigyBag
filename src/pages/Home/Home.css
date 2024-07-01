@@ -5,6 +5,7 @@
 
 #arrow {
     width: 40px;
+    margin-left: 700px;
     animation: smoothUpDown 2s infinite alternate ease-in-out;
 }
 

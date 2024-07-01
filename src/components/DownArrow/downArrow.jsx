@@ -6,7 +6,7 @@ const DownArrow = () => {
   return (
     <div className="down-arrow flex justify-center items-center">
       <img
-        className="w-12 hover:cursor-pointer"
+        className="w-12 mt-32 hover:cursor-pointer "
         src={Arrow}
         alt="Down Arrow"
         id="arrow"
