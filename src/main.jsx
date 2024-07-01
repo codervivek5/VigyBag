@@ -7,7 +7,6 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import ProtectedRoute from "./auth/ProtectedRoute";
 import Categories from "./pages/Categories/Categories";
 import Login from "./pages/Login/Login";
 import AboutUs from "./pages/About/AboutUs";
@@ -42,7 +41,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      
+
       {/* Drop down of categories */}
       <Route path="categories" element={<Categories />} />
       <Route path="categories/fashion" element={<Fashion />} />
@@ -71,18 +70,12 @@ const router = createBrowserRouter(
       <Route path="EPR_Page" element={<EPRPage />} />
       <Route path="signup" element={<Signup />} />
       <Route path="faq" element={<FAQ />} />
-      
+
       <Route path="*" element={<Error />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-<<<<<<< HEAD
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-=======
   <RouterProvider router={router} />
->>>>>>> 5cfea7fdcb475e91f0aa159fcc6a18b47b369569
 );

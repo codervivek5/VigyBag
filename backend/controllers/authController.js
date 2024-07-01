@@ -4,25 +4,31 @@ const bcrypt = require("bcrypt");
 // Signup controller
 exports.signup = async (req, res) => {
   try {
-    const { fullName, email, password, confirmPassword } = req.body;
+    const { fullname, email, password, phone } = req.body;
 
-    if (password !== confirmPassword) {
-      return res.status(400).json({ message: "Passwords do not match" });
+    // Validate if all required fields are present
+    if (!fullname || !email || !password || !phone) {
+      return res.status(400).json({ message: "All fields are required" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await User.create({
-      fullName,
+      fullname,
       email,
       password: hashedPassword,
+      phone,
     });
     res.status(201).json({ message: "User created successfully", newUser });
   } catch (error) {
+    // Handle validation errors or other errors
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.fullname) {
+      return res.status(400).json({ message: "Username already exists" });
+    }
     res.status(500).json({ error: error.message });
   }
 };
 
-// Login controller
+// Login controller remains unchanged
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
