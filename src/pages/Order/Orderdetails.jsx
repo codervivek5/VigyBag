@@ -99,7 +99,7 @@ const OrderStatus = () => (
     <div className="flex flex-col sm:flex-row items-start">
       <img
         src={TUMBLER}
-        alt="Product Image"
+        alt="Bamboo Tumbler"
         className="w-24 h-24 object-cover rounded mr-4 mb-4 sm:mb-0"
       />
       <div className="flex-1">
@@ -126,10 +126,14 @@ const OrderStatus = () => (
       </div>
     </div>
     <div className="flex flex-col sm:flex-row justify-between mt-4">
-      <button className="bg-green-600 text-white px-4 py-2 rounded mb-2 sm:mb-0">
+      <button
+        type="button"
+        className="bg-green-600 text-white px-4 py-2 rounded mb-2 sm:mb-0">
         Track Package
       </button>
-      <button className="bg-zinc-600 text-white px-4 py-2 rounded">
+      <button
+        type="button"
+        className="bg-zinc-600 text-white px-4 py-2 rounded">
         Cancel Order
       </button>
     </div>
