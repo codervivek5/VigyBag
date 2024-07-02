@@ -6,6 +6,7 @@ import background from "../../assets/background.png";
 import app from "../../assets/app.png";
 import googlePlay from "../../assets/google-play.png";
 import mobile from "../../assets/mobile.png";
+import { Link } from "react-router-dom";
 
 
 // Import category images
@@ -24,6 +25,7 @@ import ArtSuppliesImg from "../../assets/Art-Supplies.png";
 import CeramicDinnerwareImg from "../../assets/Ceramic-Dinnerware.png";
 import BambooProductsImg from "../../assets/Bamboo-Products.png";
 import StorageBasketsImg from "../../assets/Storage-Baskets.png";
+import DownArrow from "../../components/DownArrow/downArrow";
 
 //Redirectinh links --->
 
@@ -137,15 +139,16 @@ const Home = () => {
                 embrace a sustainable future with VigyBag.
               </p>
               <button
+                type="button"
                 onClick={scrollToSection}
                 className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300"
               >
                 Shop Now
               </button>
+              <DownArrow />
             </div>
           </div>
         </section>
-
         {/* Popular Categories */}
 
         <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
@@ -184,11 +187,19 @@ const Home = () => {
                 </div>
               ))}
             </div>
-            <div className="text-center mt-6 md:mt-8">
-              <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">
-                See More
+
+            <Link
+              to="/dashboard"
+              className="mt-10 ml-4 text-green-800 hover:text-gray-600 flex items-center justify-center"
+            >
+              <button
+                type="button"
+                className="text-lg text-white bg-[#3d784aff] px-12 py-3 rounded-2xl"
+                style={{ fontSize: "19px" }}
+              >
+                see more
               </button>
-            </div>
+            </Link>
           </div>
         </section>
 
@@ -206,7 +217,7 @@ const Home = () => {
               className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
               style={{ minHeight: "30vh", height: "auto" }}
             >
-              <div className="flex flex-col md:flex-row items-center justify-center mb-4">
+              {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4">
                 <div className="text-center md:text-left mb-4 md:mb-0 md:mr-8">
                   <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">
                     Download the App NOW
@@ -235,7 +246,69 @@ const Home = () => {
                   alt="VigyBag App"
                   className="w-32 sm:w-40 md:w-60 mt-4 md:mt-0"
                 />
-              </div>
+              </div> */}
+              <section
+                className="newsletter-section"
+                style={{ color: "white", padding: "40px 0" }}
+              >
+                <div
+                  className="container"
+                  style={{
+                    maxWidth: "600px",
+                    margin: "0 auto",
+                    textAlign: "center",
+                  }}
+                >
+                  <h2
+                    style={{
+                      fontSize: "24px",
+                      marginBottom: "10px",
+                      color: "white",
+                    }}
+                  >
+                    Stay Updated with Our Latest News
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      marginBottom: "20px",
+                    }}
+                  >
+                    Subscribe to our newsletter to receive exclusive updates,
+                    promotions, and tips.
+                  </p>
+                  <form>
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      style={{
+                        color: "black",
+                        width: "100%",
+                        borderRadius: "10px",
+                        padding: "10px",
+                        marginBottom: "10px",
+                        border: "1px solid #ccc",
+                        "@media (max-width: 780px)": {
+                          width: "80%",
+                        },
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      style={{
+                        backgroundColor: "#4CAF50",
+                        color: "#fff",
+                        padding: "10px 20px",
+                        border: "none",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Subscribe
+                    </button>{" "}
+                  </form>
+                </div>
+              </section>
             </div>
           </div>
           <div className="absolute inset-0 bg-black opacity-30"></div>

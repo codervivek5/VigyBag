@@ -144,9 +144,19 @@ const Navbar = () => {
                   <FaSearch className="text-green-800" />
                 </div>
                 <Link
-                  to="/cart"
+                  to="/CartEmpty"
                   className="ml-4 text-green-800 hover:text-gray-600">
-                  <FaShoppingCart className="mx-2 cursor-pointer text-3xl" />
+                  <lord-icon
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      paddingTop: "2px",
+                      paddingLeft: "1px",
+                    }}
+                    src="https://cdn.lordicon.com/pbrgppbb.json"
+                    trigger="hover"
+                    colors="primary:#15803D"></lord-icon>
+                  {/* <FaShoppingCart className="mx-2 cursor-pointer text-3xl" /> */}
                 </Link>
                 <Link
                   to="/login"
@@ -313,7 +323,6 @@ const Navbar = () => {
           <Link
             to="/cart"
             className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
-            <FaShoppingCart className="mr-2" />
             Cart
           </Link>
 
