@@ -3,7 +3,7 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function BeautyWellness() {
+function FoodBeverages() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -12,10 +12,18 @@ function BeautyWellness() {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setProducts(data);
         setFilteredProducts(data);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
       });
   }, []);
 
@@ -55,5 +63,5 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default FoodBeverages;
 

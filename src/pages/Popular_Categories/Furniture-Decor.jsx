@@ -3,7 +3,7 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function BeautyWellness() {
+function FurnitureDecor() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -12,25 +12,28 @@ function BeautyWellness() {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setProducts(data);
         setFilteredProducts(data);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
       });
   }, []);
 
   useEffect(() => {
-    let result = products;
-    if (categoryFilter) {
-      result = result.filter(product => product.category === categoryFilter);
-    }
-    if (priceFilter) {
-      result = result.filter(product => product.price <= parseInt(priceFilter));
-    }
-    if (ratingFilter) {
-      result = result.filter(product => Math.round(product.rating.rate) >= ratingFilter);
-    }
-    setFilteredProducts(result);
+    setFilteredProducts(
+         products
+           .filter(product => !categoryFilter || product.category === categoryFilter)
+           .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
+           .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
+       );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
 
   return (
@@ -55,5 +58,5 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default FurnitureDecor;
 

@@ -12,41 +12,46 @@ function BeautyWellness() {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setProducts(data);
         setFilteredProducts(data);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
       });
   }, []);
 
   useEffect(() => {
-    let result = products;
-    if (categoryFilter) {
-      result = result.filter(product => product.category === categoryFilter);
-    }
-    if (priceFilter) {
-      result = result.filter(product => product.price <= parseInt(priceFilter));
-    }
-    if (ratingFilter) {
-      result = result.filter(product => Math.round(product.rating.rate) >= ratingFilter);
-    }
-    setFilteredProducts(result);
+    setFilteredProducts(
+         products
+           .filter(product => !categoryFilter || product.category === categoryFilter)
+           .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
+           .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
+       );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
+
+    
 
   return (
     <div className="bg-[#fff5edff] min-h-screen">
-      <Header 
-        backgroundUrl="https://th.bing.com/th/id/OIP.-YQF7P7fqR3WZz6XwVIllgHaCv?w=1489&h=550&rs=1&pid=ImgDetMain" 
+      <Header
+        backgroundUrl="https://th.bing.com/th/id/OIP.-YQF7P7fqR3WZz6XwVIllgHaCv?w=1489&h=550&rs=1&pid=ImgDetMain"
         headingText="Beauty & Wellness Products"
         paragraphText="Home/Beauty & Wellness Products"
       />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8 relative">
-          <Filters 
+          <Filters
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#e5ebe4ff" 
+            backgroundColor="#e5ebe4ff"
           />
           <ProductGrid products={filteredProducts} />
         </div>

@@ -16,13 +16,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [openDropdown, setOpenDropdown] = useState(null);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const loginStatus = localStorage.getItem("isLoggedIn") === "true";
-  //   setIsLoggedIn(loginStatus);
-  // }, []);
 
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
@@ -47,9 +41,6 @@ const Navbar = () => {
     } else {
       return;
     }
-    // localStorage.removeItem("isloggedin");
-    // setIsLoggedIn(false);
-    // navigate("/login");
   };
 
   return (
@@ -87,12 +78,8 @@ const Navbar = () => {
                   <button
                     type="button"
                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center focus:outline-none"
-
                     onClick={() => handleDropdown("gifts")}
                   >
-
-                    onMouseEnter={() => handleDropdown("gifts")} onMouseLeave={() => handleDropdown("gifts")}>
-
                     <lord-icon
                       style={{
                         width: "25px",
@@ -111,33 +98,37 @@ const Navbar = () => {
                     className={`${
                       openDropdown === "gifts" ? "block" : "hidden"
                     } absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
-
-                    style={{ zIndex: "20" }}>
+                    style={{ zIndex: "20" }}
+                  >
                     <div className="py-1">
                       <Link
                         to="/popularCategories/fashionAccessories"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Fashion
                       </Link>
                       <Link
                         to="/popularCategories/customizedGifts"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Gifts
                       </Link>
                       <Link
                         to="/popularCategories/furnitureDecor"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Furniture
                       </Link>
                       <Link
                         to="/popularCategories/printingStationery"
-                        className="text-green-800 hover:text-green-500 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500 block px-4 py-2 text-sm"
+                      >
                         Stationary
                       </Link>
                       <Link
                         to="/popularCategories/bodyCare"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
-
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Body-Care
                       </Link>
                     </div>
@@ -299,14 +290,9 @@ const Navbar = () => {
               <div className="py-1">
                 <Link
                   to="/categories/fashion"
-
                   className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
                 >
                   Fashion
-
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                  Fashion 
-
                 </Link>
                 <Link
                   to="/categories/gifts"
