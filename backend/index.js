@@ -1,14 +1,17 @@
-// app.js
-
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const routes = require("./routes");
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 
 // Middleware
 app.use(express.json());
-
+app.use(cors());
 // Routes
 app.use("/api", routes);
 
@@ -17,7 +20,6 @@ mongoose
   .connect(process.env.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
   })
   .then(() => {
     console.log("Connected to MongoDB");
