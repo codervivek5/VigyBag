@@ -28,17 +28,12 @@ function FoodBeverages() {
   }, []);
 
   useEffect(() => {
-    let result = products;
-    if (categoryFilter) {
-      result = result.filter(product => product.category === categoryFilter);
-    }
-    if (priceFilter) {
-      result = result.filter(product => product.price <= parseInt(priceFilter));
-    }
-    if (ratingFilter) {
-      result = result.filter(product => Math.round(product.rating.rate) >= ratingFilter);
-    }
-    setFilteredProducts(result);
+    setFilteredProducts(
+         products
+           .filter(product => !categoryFilter || product.category === categoryFilter)
+           .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
+           .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
+       );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
 
   return (
