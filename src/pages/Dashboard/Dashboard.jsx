@@ -124,7 +124,7 @@ const Dashboard = () => {
     try {
       let confirmed = confirm("Are you sure want to logout?");
       if (confirmed) {
-        localStorage.removeItem("isloggedin");
+        localStorage.removeItem("isLoggedin");
         alert("Logout Successfully and safely.");
         navigate("/login");
       } else {
