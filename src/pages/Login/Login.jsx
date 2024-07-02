@@ -39,7 +39,6 @@ const FormInput = ({ icon, placeholder, type = "text", value, onChange }) => {
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -52,12 +51,10 @@ const LoginForm = () => {
           password,
         }
       );
-      console.log("Login response:", response);
-      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("isLoggedIn", "true");
       alert(response.data.message);
       setEmail("");
       setPassword("");
-      setUsername("");
       navigate("/");
     } catch (error) {
       if (
@@ -89,7 +86,7 @@ const LoginForm = () => {
           </h2>
 
           {/* Login form */}
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleLogin}>
             <FormInput
               icon={<MdEmail />}
               type="email"
@@ -111,8 +108,7 @@ const LoginForm = () => {
               </label>
             </div>
             <button
-              type="submit" // Ensure button type is submit
-              onClick={handleLogin}
+              type="submit"
               className="w-full bg-green-700 text-white py-2 rounded-xl"
             >
               Log in

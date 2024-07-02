@@ -16,8 +16,11 @@ import carryBag from "../../assets/vigybag-carry-bag.png";
 import profile from "../../assets/profile.png";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Aside from "../../components/Aside/Aside";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   const initialProducts = [
     {
       image: granola,
@@ -117,6 +120,21 @@ const Dashboard = () => {
     setShowViewLess(false);
   };
 
+  const handleLogout = () => {
+    try {
+      let confirmed = confirm("Are you sure want to logout?");
+      if (confirmed) {
+        localStorage.removeItem("isLoggedin");
+        alert("Logout Successfully and safely.");
+        navigate("/login");
+      } else {
+        return;
+      }
+    } catch (error) {
+      alert("Logout Failed. Try Again later");
+      console.log(error.data.message);
+    }
+  };
   return (
     <div className="flex min-h-screen bg-[#fff1e6] mt-1">
       {/* Sidebar */}
@@ -153,9 +171,11 @@ const Dashboard = () => {
             display: "flex",
             alignItems: "center",
             flexDirection: "row",
-          }}>
+          }}
+        >
           <div
-            style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+            style={{ width: "100%", display: "flex", flexDirection: "column" }}
+          >
             <h1 className="text-3xl ml-3 ">
               Welcome Back,{" "}
               <span style={{ color: "#faf48cff" }}>Vivek Prajapati</span>
@@ -200,14 +220,16 @@ const Dashboard = () => {
             {clicked < 2 && (
               <button
                 className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
-                onClick={handleSeeMore}>
+                onClick={handleSeeMore}
+              >
                 See More
               </button>
             )}
             {showViewLess && (
               <button
                 className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 ml-4"
-                onClick={handleViewLess}>
+                onClick={handleViewLess}
+              >
                 View Less
               </button>
             )}
