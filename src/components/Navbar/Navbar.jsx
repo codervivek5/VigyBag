@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaHome,
   FaGift,
@@ -9,13 +9,22 @@ import {
   FaUserCircle,
   FaChevronDown,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/Logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [openDropdown, setOpenDropdown] = useState(null);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const loginStatus = localStorage.getItem("isLoggedIn") === "true";
+  //   setIsLoggedIn(loginStatus);
+  // }, []);
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -23,11 +32,24 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    // Add your search functionality here
   };
 
   const handleDropdown = (dropdown) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
+  };
+
+  const handleLogout = () => {
+    const confirmed = window.confirm("Are you sure you want to logout?");
+    if (confirmed) {
+      localStorage.setItem("isLoggedIn", false);
+      alert("Logout Successful.");
+      navigate("/login");
+    } else {
+      return;
+    }
+    // localStorage.removeItem("isloggedin");
+    // setIsLoggedIn(false);
+    // navigate("/login");
   };
 
   return (
@@ -45,7 +67,8 @@ const Navbar = () => {
                 <Link
                   to="/"
                   className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-large flex items-center"
-                  style={{ fontSize: "20px" }}>
+                  style={{ fontSize: "20px" }}
+                >
                   <lord-icon
                     style={{
                       width: "25px",
@@ -55,7 +78,8 @@ const Navbar = () => {
                     }}
                     src="https://cdn.lordicon.com/wmwqvixz.json"
                     colors="primary:#15803D"
-                    trigger="hover"></lord-icon>{" "}
+                    trigger="hover"
+                  ></lord-icon>{" "}
                   Home
                 </Link>
 
@@ -63,7 +87,8 @@ const Navbar = () => {
                   <button
                     type="button"
                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center focus:outline-none"
-                    onClick={() => handleDropdown("gifts")}>
+                    onClick={() => handleDropdown("gifts")}
+                  >
                     <lord-icon
                       style={{
                         width: "25px",
@@ -73,7 +98,8 @@ const Navbar = () => {
                       }}
                       src="https://cdn.lordicon.com/pgmktfgp.json"
                       trigger="hover"
-                      colors="primary:#15803D,secondary:#15803D"></lord-icon>{" "}
+                      colors="primary:#15803D,secondary:#15803D"
+                    ></lord-icon>{" "}
                     Products
                     <FaChevronDown className="ml-1" />
                   </button>
@@ -81,31 +107,37 @@ const Navbar = () => {
                     className={`${
                       openDropdown === "gifts" ? "block" : "hidden"
                     } absolute mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
-                    style={{ zIndex: "5" }}>
+                    style={{ zIndex: "5" }}
+                  >
                     <div className="py-1">
                       <Link
                         to="/categories/fashion"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Fashion
                       </Link>
                       <Link
                         to="/categories/gifts"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Gifts
                       </Link>
                       <Link
                         to="/categories/furniture"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Furniture
                       </Link>
                       <Link
                         to="/categories/stationary"
-                        className="text-green-800 hover:text-green-500 block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500 block px-4 py-2 text-sm"
+                      >
                         Stationary
                       </Link>
                       <Link
                         to="/categories/bodycare"
-                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm">
+                        className="text-green-800 hover:text-green-500  block px-4 py-2 text-sm"
+                      >
                         Body-Care
                       </Link>
                     </div>
@@ -113,7 +145,8 @@ const Navbar = () => {
                 </div>
                 <Link
                   to="/about"
-                  className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
+                  className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center"
+                >
                   <lord-icon
                     style={{
                       width: "25px",
@@ -123,7 +156,8 @@ const Navbar = () => {
                     }}
                     src="https://cdn.lordicon.com/jnzhohhs.json"
                     trigger="hover"
-                    colors="primary:#15803D"></lord-icon>{" "}
+                    colors="primary:#15803D"
+                  ></lord-icon>{" "}
                   About Us
                 </Link>
               </div>
@@ -143,44 +177,62 @@ const Navbar = () => {
                   />
                   <FaSearch className="text-green-800" />
                 </div>
-                <Link
-                  to="/CartEmpty"
-                  className="ml-4 text-green-800 hover:text-gray-600">
-                  <lord-icon
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      paddingTop: "2px",
-                      paddingLeft: "1px",
-                    }}
-                    src="https://cdn.lordicon.com/pbrgppbb.json"
-                    trigger="hover"
-                    colors="primary:#15803D"></lord-icon>
-                  {/* <FaShoppingCart className="mx-2 cursor-pointer text-3xl" /> */}
-                </Link>
-                <Link
-                  to="/login"
-                  className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
-                  <FaUserCircle className="mr-2 text-3xl" />
+                {isLoggedIn ? (
+                  <Link
+                    to="/cart"
+                    className="ml-4 text-green-800 hover:text-gray-600"
+                  >
+                    <lord-icon
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        paddingTop: "2px",
+                        paddingLeft: "1px",
+                      }}
+                      src="https://cdn.lordicon.com/pbrgppbb.json"
+                      trigger="hover"
+                      colors="primary:#15803D"
+                    ></lord-icon>
+                  </Link>
+                ) : null}
+
+                {isLoggedIn ? (
                   <button
-                    type="button"
-                    className="text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
-                    style={{ fontSize: "19px" }}>
-                    Login
+                    onClick={handleLogout}
+                    className="ml-4 text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
+                    style={{ fontSize: "19px" }}
+                  >
+                    Logout
                   </button>
-                </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
+                  >
+                    <FaUserCircle className="mr-2 text-3xl" />
+                    <button
+                      type="button"
+                      className="text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
+                      style={{ fontSize: "19px" }}
+                    >
+                      Login
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+              >
                 {isOpen ? (
                   <svg
                     className="h-6 w-6"
                     stroke="#15803D"
                     fill="#15803D"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -193,7 +245,8 @@ const Navbar = () => {
                     className="h-6 w-6"
                     stroke="#15803D"
                     fill="#15803D"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -222,7 +275,8 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
+            className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center"
+          >
             <FaHome className="mr-2" />
             Home
           </Link>
@@ -230,7 +284,8 @@ const Navbar = () => {
           <div className="relative group">
             <button
               className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center w-full focus:outline-none"
-              onClick={() => handleDropdown("gifts")}>
+              onClick={() => handleDropdown("gifts")}
+            >
               <FaGift className="mr-2" />
               Gifts
               <FaChevronDown className="ml-1" />
@@ -239,31 +294,37 @@ const Navbar = () => {
               className={`${
                 openDropdown === "gifts" ? "block" : "hidden"
               } absolute mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
-              style={{ zIndex: "5" }}>
+              style={{ zIndex: "5" }}
+            >
               <div className="py-1">
                 <Link
                   to="/categories/fashion"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Fashion
                 </Link>
                 <Link
                   to="/categories/gifts"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Gifts
                 </Link>
                 <Link
                   to="/categories/furniture"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Furniture
                 </Link>
                 <Link
                   to="/categories/stationary"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Stationary
                 </Link>
                 <Link
                   to="/categories/bodycare"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Body-Care
                 </Link>
               </div>
@@ -273,7 +334,8 @@ const Navbar = () => {
           <div className="relative group">
             <button
               className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center w-full focus:outline-none"
-              onClick={() => handleDropdown("categories")}>
+              onClick={() => handleDropdown("categories")}
+            >
               <FaList className="mr-2" />
               Categories
               <FaChevronDown className="ml-1" />
@@ -282,31 +344,37 @@ const Navbar = () => {
               className={`${
                 openDropdown === "categories" ? "block" : "hidden"
               } absolute mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
-              style={{ zIndex: "5" }}>
+              style={{ zIndex: "5" }}
+            >
               <div className="py-1">
                 <Link
                   to="/categories/fashion"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Fashion
                 </Link>
                 <Link
                   to="/categories/gifts"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Gifts
                 </Link>
                 <Link
                   to="/categories/furniture"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Furniture
                 </Link>
                 <Link
                   to="/categories/stationary"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Stationary
                 </Link>
                 <Link
                   to="/categories/bodycare"
-                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
+                >
                   Body-Care
                 </Link>
               </div>
@@ -315,23 +383,36 @@ const Navbar = () => {
 
           <Link
             to="/about"
-            className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
+            className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center"
+          >
             <FaInfoCircle className="mr-2" />
             About Us
           </Link>
 
           <Link
             to="/cart"
-            className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
+            className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center"
+          >
             Cart
           </Link>
 
-          <Link
-            to="/login"
-            className="text-black hover:text-gray-600  px-3 py-2 rounded-md text-lg font-medium flex items-center">
-            <FaUserCircle className="mr-2" />
-            Login
-          </Link>
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center"
+            >
+              <FaUserCircle className="mr-2" />
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="text-black hover:text-gray-600  px-3 py-2 rounded-md text-lg font-medium flex items-center"
+            >
+              <FaUserCircle className="mr-2" />
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </nav>

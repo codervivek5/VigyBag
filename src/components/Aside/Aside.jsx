@@ -16,17 +16,18 @@ const Aside = () => {
 
   const handleLogout = () => {
     try {
-      let confirmed = confirm("Are you sure want to logout?");
+      const confirmed = window.confirm("Are you sure you want to logout?");
       if (confirmed) {
         localStorage.removeItem("isloggedin");
-        alert("Logout Successfully and safely.");
+        alert("Logout Successful.");
         navigate("/login");
       } else {
+        // User cancelled logout
         return;
       }
     } catch (error) {
-      alert("Logout Failed. Try Again later");
-      console.log(error.data.message);
+      alert("Logout failed. Please try again later.");
+      console.error("Logout error:", error);
     }
   };
 
