@@ -36,10 +36,15 @@ const FormInput = ({ icon, placeholder, type = "text", value, onChange }) => {
   );
 };
 
+const isLoggedInKey = "isLoggedIn";
+
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem(isLoggedInKey) || false
+  );
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -52,8 +57,8 @@ const LoginForm = () => {
           password,
         }
       );
-      console.log("Login response:", response);
-      localStorage.setItem("isLoggedIn", true);
+      setIsLoggedIn(true);
+      localStorage.setItem(isLoggedInKey, true);
       alert(response.data.message);
       setEmail("");
       setPassword("");

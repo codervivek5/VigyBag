@@ -8,6 +8,7 @@ import googlePlay from "../../assets/google-play.png";
 import mobile from "../../assets/mobile.png";
 import { Link } from "react-router-dom";
 
+
 // Import category images
 import customisedGiftsImg from "../../assets/Customized-Gifts.png";
 import HealthSupplementsImg from "../../assets/Health-supplements.png";
@@ -26,6 +27,9 @@ import BambooProductsImg from "../../assets/Bamboo-Products.png";
 import StorageBasketsImg from "../../assets/Storage-Baskets.png";
 import DownArrow from "../../components/DownArrow/downArrow";
 
+//Redirectinh links --->
+
+
 const popularCategories = [
   { name: "Fashion & Accessories", image: fashionAndAccessories },
   { name: "Printing & Stationery", image: PrintingAndStationary },
@@ -41,8 +45,7 @@ const latestProducts = [
   {
     img: HandmadeSoapsImg,
     name: "Handmade Soaps",
-    description:
-      "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
+    description:"A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
     discount: "15% Off",
   },
   {
@@ -60,15 +63,13 @@ const latestProducts = [
   {
     img: BambooProductsImg,
     name: "Bamboo Products",
-    description:
-      "Natural, non-toxic, biodegradable household and bath products.",
+    description:"Natural, non-toxic, biodegradable household and bath products.",
     discount: "20% Off",
   },
   {
     img: StorageBasketsImg,
     name: "Storage Baskets",
-    description:
-      "Natural basket collection featuring hand-woven sustainable materials.",
+    description:"Natural basket collection featuring hand-woven sustainable materials.",
     discount: "20% Off",
   },
   {
@@ -102,7 +103,9 @@ const Home = () => {
 
   return (
     <div className="bg-[#fff0e3ff]">
+     
       <main className="mt-1">
+      
         {/* Hero Section */}
         <section
           className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
