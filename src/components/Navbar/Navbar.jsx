@@ -87,8 +87,12 @@ const Navbar = () => {
                   <button
                     type="button"
                     className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center focus:outline-none"
+
                     onClick={() => handleDropdown("gifts")}
                   >
+
+                    onMouseEnter={() => handleDropdown("gifts")} onMouseLeave={() => handleDropdown("gifts")}>
+
                     <lord-icon
                       style={{
                         width: "25px",
@@ -299,9 +303,14 @@ const Navbar = () => {
               <div className="py-1">
                 <Link
                   to="/categories/fashion"
+
                   className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
                 >
                   Fashion
+
+                  className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
+                  Fashion 
+
                 </Link>
                 <Link
                   to="/categories/gifts"
