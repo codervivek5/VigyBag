@@ -1,18 +1,22 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer';
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router-dom";
-import GoToTop from './components/GoToTop/gototop';
+import GoToTop from "./components/GoToTop/gototop";
+import ScrollProgressBar from "./components/progressbar/ScrollProgressBar";
 
-function Layout() {
+const Layout = () => {
   return (
     <>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
-    <GoToTop />
+      <Navbar />
+      <ScrollProgressBar />
+      <Outlet />
+      <Footer />
+      <GoToTop />
+      
     </>
-  )
-}
 
-export default Layout
+  );
+};
+
+export default Layout;

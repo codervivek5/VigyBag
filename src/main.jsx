@@ -1,3 +1,7 @@
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <RouterProvider router={router} />
+// );
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -8,7 +12,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Categories from "./pages/Categories/Categories";
+
 import Login from "./pages/Login/Login";
 import AboutUs from "./pages/About/AboutUs";
 import Contact from "./pages/Contacts/Contact";
@@ -20,12 +24,6 @@ import Confirmation from "./pages/Confirmation/Confirmation";
 import Cancellation from "./pages/Cancellation/Cancellation";
 import OrderDetails from "./pages/Order/Orderdetails";
 import MyOrders from "./pages/Order/MyOrders";
-import BambooProducts from "./pages/ProductsPage/BambooProducts";
-import Fashion from "./pages/Categories/Fashion";
-import BodyCare from "./pages/Categories/BodyCare";
-import Furniture from "./pages/Categories/Furniture";
-import Stationary from "./pages/Categories/Stationary";
-import Gifts from "./pages/Categories/Gifts";
 import Checkout from "./pages/Order/Checkout";
 import Cart from "./pages/Order/Cart";
 import Error from "./pages/404-Page/Error";
@@ -37,20 +35,43 @@ import ReturnAndCancellation from "./pages/ReturnAndCancellation/returnAndCancel
 import EPRPage from "./pages/EPRPage/EPR_Page";
 import Signup from "./pages/Signup/Signup";
 import FAQ from "./pages/FAQ/Faq";
+import CartEmpty from "./pages/Order/CartEmpty";
+
+{/*Products Pages*/ }
+import BambooProducts from "./pages/Latest_in_the_Market/BambooProducts";
+
+{/*<----------------------------------------------------------------------------------->*/ }
+
+{/*Popular Categories*/ }
+import PopularCategories from "./pages/Popular_Categories/Popular_Categories";
+import BeautyWellness from './pages/Popular_Categories/Beauty-Wellness';
+import BodyCare from './pages/Popular_Categories/Body-Care';
+import CustomizedGifts from './pages/Popular_Categories/Customized-Gifts';
+import FashionAccessories from './pages/Popular_Categories/Fashion-Accessories';
+import FoodBeverages from './pages/Popular_Categories/Food-Beverages';
+import FurnitureDecor from './pages/Popular_Categories/Furniture-Decor';
+import HealthSupplements from './pages/Popular_Categories/Health-Supplements';
+import PrintingStationery from './pages/Popular_Categories/Printing-Stationery';
+
+{/*<----------------------------------------------------------------------------------->*/ }
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      
-      {/* Drop down of categories */}
-      <Route path="categories" element={<Categories />} />
-      <Route path="categories/fashion" element={<Fashion />} />
-      <Route path="categories/bodycare" element={<BodyCare />} />
-      <Route path="categories/furniture" element={<Furniture />} />
-      <Route path="categories/stationary" element={<Stationary />} />
-      <Route path="categories/gifts" element={<Gifts />} />
 
+      {/* Drop down of "popularCategoriess */}
+      
+      <Route path="popularCategories" element={<PopularCategories/>} />
+      <Route path="popularCategories/beautyWellness" element={<BeautyWellness />} />
+      <Route path="popularCategories/bodyCare" element={<BodyCare />} />
+      <Route path="popularCategories/customizedGifts" element={<CustomizedGifts />} />
+      <Route path="popularCategories/fashionAccessories" element={<FashionAccessories />} />
+      <Route path="popularCategories/foodBeverages" element={<FoodBeverages />} />
+      <Route path="popularCategories/furnitureDecor" element={<FurnitureDecor />} />
+      <Route path="popularCategories/healthSupplements" element={<HealthSupplements />} />
+      <Route path="popularCategories/printingStationery" element={<PrintingStationery />} />
+{/*<------------------------------------------------------------------------------------------------------>*/ }
       <Route path="about" element={<AboutUs />} />
       <Route path="help" element={<Help />} />
       <Route path="privacy" element={<Privacy />} />
@@ -71,12 +92,22 @@ const router = createBrowserRouter(
       <Route path="EPR_Page" element={<EPRPage />} />
       <Route path="signup" element={<Signup />} />
       <Route path="faq" element={<FAQ />} />
+      <Route path="CartEmpty" element={<CartEmpty />} />
+
       
+
       <Route path="*" element={<Error />} />
     </Route>
   )
 );
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );

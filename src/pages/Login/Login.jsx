@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import signUp from "../../assets/sign-up-img.png";
 import Logo from "../../assets/offical_logo.png";
-import { IoCall } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Login from "../../components/Buttons/Login";
 
-// Define CSS class names for reuse
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
 const inputClasses =
@@ -23,18 +22,53 @@ const formSectionClasses =
 const illustrationSectionClasses =
   "rounded-lg hidden md:flex w-full md:w-1/2 p-8 items-center justify-center bg-[#c1cfabff] overflow-hidden";
 
-// FormInput component to create input fields with icons
-const FormInput = ({ icon, placeholder, type = "text" }) => {
+const FormInput = ({ icon, placeholder, type = "text", value, onChange }) => {
   return (
     <div className={containerClasses}>
       <span className="text-black bg-[#fff0e3ff] p-2 rounded-xl">{icon}</span>
-      <input type={type} placeholder={placeholder} className={inputClasses} />
+      <input
+        type={type}
+        placeholder={placeholder}
+        className={inputClasses}
+        value={value}
+        onChange={onChange}
+      />
     </div>
   );
 };
 
-// LoginForm component to create the login form UI
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      localStorage.setItem("isLoggedIn", "true");
+      alert(response.data.message);
+      setEmail("");
+      setPassword("");
+      navigate("/");
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        alert(error.response.data.message);
+        console.log(error.response.data.message);
+      }
+    }
+  };
+
   return (
     <div className={formContainerClasses}>
       <div className={cardClasses}>
@@ -53,12 +87,20 @@ const LoginForm = () => {
           </h2>
 
           {/* Login form */}
-          <form className="space-y-4">
-            <FormInput icon={<MdEmail />} type="email" placeholder="Email" />
+          <form className="space-y-4" onSubmit={handleLogin}>
+            <FormInput
+              icon={<MdEmail />}
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <FormInput
               icon={<RiLockPasswordLine />}
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="flex items-center">
               <input type="checkbox" id="remember" className="mr-2" />
@@ -66,9 +108,7 @@ const LoginForm = () => {
                 Remember Me
               </label>
             </div>
-            <button className="w-full bg-green-700 text-white py-2 rounded-xl">
-              Log in
-            </button>
+            <Login />
           </form>
 
           {/* Social login buttons */}
