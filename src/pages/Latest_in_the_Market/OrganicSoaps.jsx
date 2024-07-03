@@ -3,7 +3,7 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function BeautyWellness() {
+function OrganicSoaps() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -39,9 +39,9 @@ function BeautyWellness() {
   return (
     <div className="bg-[#fff5edff] min-h-screen">
       <Header 
-        backgroundUrl="https://wallpaperaccess.com/full/3854171.jpg" 
-        headingText="Baamboo Products"
-        paragraphText="Home/Baamboo Products"
+        backgroundUrl="https://th.bing.com/th/id/OIP.Ss1zfHpCipHbJnHRouP-gwHaCj?w=879&h=303&rs=1&pid=ImgDetMain" 
+        headingText="Organic Soaps Products"
+        paragraphText="Home/Organic Soaps Products"
       />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8 relative">
@@ -49,7 +49,7 @@ function BeautyWellness() {
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#eef29bff" 
+            backgroundColor="#ffeda6ff" 
           />
           <ProductGrid products={filteredProducts} />
         </div>
@@ -58,4 +58,4 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default OrganicSoaps

@@ -17,10 +17,10 @@ function Header({ backgroundUrl, headingText, paragraphText }) {
         <nav className="mt-5 w-full">
           <ul className="flex justify-center space-x-[45px] text-sm md:text-base overflow-x-auto pb-1 text-black" 
           style={{ scrollbarWidth: 'none', fontWeight:'bold' }}>
-            <li><Link to="/" className="whitespace-nowrap hover:text-[green] cursor-pointer">Furniture</Link></li>
-            <li><Link to="/" className="whitespace-nowrap hover:text-[green] cursor-pointer">Kitchen & Dining</Link></li>
-            <li><Link to="/" className="whitespace-nowrap hover:text-[green] cursor-pointer">Home Decor</Link></li>
-            <li><Link to="/" className="whitespace-nowrap hover:text-[green] cursor-pointer">Garden and Outdoor</Link></li>
+            <li><Link to="/popularCategories/fashionAccessories" className="whitespace-nowrap hover:text-[green] cursor-pointer">Furniture</Link></li>
+            <li><Link to="/latestInMarket/ceramicDinnerware" className="whitespace-nowrap hover:text-[green] cursor-pointer">Kitchen & Dining</Link></li>
+            <li><Link to="/popularCategories/furnitureDecor" className="whitespace-nowrap hover:text-[green] cursor-pointer">Home Decor</Link></li>
+            <li><Link to="/latestInMarket/storageBaskets" className="whitespace-nowrap hover:text-[green] cursor-pointer">Daily Used </Link></li>
           </ul>
         </nav>
       </div>

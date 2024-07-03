@@ -3,7 +3,7 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function BeautyWellness() {
+function NaturalCosmetics() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -39,9 +39,9 @@ function BeautyWellness() {
   return (
     <div className="bg-[#fff5edff] min-h-screen">
       <Header 
-        backgroundUrl="https://wallpaperaccess.com/full/3854171.jpg" 
-        headingText="Baamboo Products"
-        paragraphText="Home/Baamboo Products"
+        backgroundUrl="https://th.bing.com/th/id/OIP.HkFr3JWrEkECj7GRbVIQJQHaCk?w=2880&h=1000&rs=1&pid=ImgDetMain" 
+        headingText="Natural Cosmetics Products"
+        paragraphText="Home/Natural Cosmetics Products"
       />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8 relative">
@@ -49,7 +49,7 @@ function BeautyWellness() {
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#eef29bff" 
+            backgroundColor="#c4b2a3ff" 
           />
           <ProductGrid products={filteredProducts} />
         </div>
@@ -58,4 +58,4 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default NaturalCosmetics

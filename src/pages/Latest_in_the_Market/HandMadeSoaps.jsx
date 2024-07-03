@@ -3,7 +3,7 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function BeautyWellness() {
+function HandMadeSoaps() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -39,9 +39,9 @@ function BeautyWellness() {
   return (
     <div className="bg-[#fff5edff] min-h-screen">
       <Header 
-        backgroundUrl="https://wallpaperaccess.com/full/3854171.jpg" 
-        headingText="Baamboo Products"
-        paragraphText="Home/Baamboo Products"
+        backgroundUrl="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/28228/images/Z9Tq7TweS5KotRGQ7uts_KendraCote_CM-34_opt.jpg" 
+        headingText="Hand Made Soaps Products"
+        paragraphText="Home/Hand Made Soaps Products"
       />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8 relative">
@@ -49,7 +49,7 @@ function BeautyWellness() {
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#eef29bff" 
+            backgroundColor="#e0bbadff" 
           />
           <ProductGrid products={filteredProducts} />
         </div>
@@ -58,4 +58,4 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default HandMadeSoaps

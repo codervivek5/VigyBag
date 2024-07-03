@@ -31,68 +31,77 @@ import DownArrow from "../../components/DownArrow/downArrow";
 
 
 const popularCategories = [
-  { name: "Fashion & Accessories", image: fashionAndAccessories },
-  { name: "Printing & Stationery", image: PrintingAndStationary },
-  { name: "Food & Beverages", image: FoodAndBeverages },
-  { name: "Beauty & Wellness", image: BeautyAndWellness },
-  { name: "Furniture & Decor", image: FurnitureAndDecor },
-  { name: "Body Care", image: BodyCare },
-  { name: "Health Supplements", image: HealthSupplementsImg },
-  { name: "Customized Gifts", image: customisedGiftsImg },
+  { name: "Fashion & Accessories", image: fashionAndAccessories, path: "/popularCategories/fashionAccessories" },
+  { name: "Printing & Stationery", image: PrintingAndStationary, path: "/popularCategories/printingStationery" },
+  { name: "Food & Beverages", image: FoodAndBeverages, path: "/popularCategories/foodBeverages" },
+  { name: "Beauty & Wellness", image: BeautyAndWellness, path: "/popularCategories/beautyWellness" },
+  { name: "Furniture & Decor", image: FurnitureAndDecor, path: "/popularCategories/furnitureDecor" },
+  { name: "Body Care", image: BodyCare, path: "/popularCategories/bodyCare" },
+  { name: "Health Supplements", image: HealthSupplementsImg, path: "/popularCategories/healthSupplements" },
+  { name: "Customized Gifts", image: customisedGiftsImg, path: "/popularCategories/customizedGifts" },
 ];
+
+
 
 const latestProducts = [
   {
     img: HandmadeSoapsImg,
     name: "Handmade Soaps",
-    description:"A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
+    description: "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
     discount: "15% Off",
+    path: "/latestInMarket/handMadeSoaps"
   },
   {
     img: ArtSuppliesImg,
     name: "Art Supplies",
     description: "Natural and cruelty-free selection of art supplies.",
     discount: "Upto 50% Off",
+    path: "/latestInMarket/artSupplies"
   },
   {
     img: CeramicDinnerwareImg,
     name: "Ceramic Dinnerware",
     description: "Long-lasting and durable eco-friendly dinnerware.",
     discount: "Buy 1 Get 1",
+    path: "/latestInMarket/ceramicDinnerware"
   },
   {
     img: BambooProductsImg,
     name: "Bamboo Products",
-    description:"Natural, non-toxic, biodegradable household and bath products.",
+    description: "Natural, non-toxic, biodegradable household and bath products.",
     discount: "20% Off",
+    path: "/latestInMarket/bambooProducts"
   },
   {
     img: StorageBasketsImg,
     name: "Storage Baskets",
-    description:"Natural basket collection featuring hand-woven sustainable materials.",
+    description: "Natural basket collection featuring hand-woven sustainable materials.",
     discount: "20% Off",
+    path: "/latestInMarket/storageBaskets"
   },
   {
     img: HandmadeSoapsImg,
     name: "Organic Soaps",
     description: "Handcrafted organic soaps made with natural ingredients.",
     discount: "10% Off",
+    path: "/latestInMarket/organicSoaps"
   },
   {
     img: FoodAndBeverages,
     name: "Organic Tea",
-    description:
-      "A selection of premium organic teas from sustainable sources.",
+    description: "A selection of premium organic teas from sustainable sources.",
     discount: "25% Off",
+    path: "/latestInMarket/organicTea"
   },
   {
     img: BeautyAndWellness,
     name: "Natural Cosmetics",
-    description:
-      "Eco-friendly makeup and skincare products made from natural ingredients.",
+    description: "Eco-friendly makeup and skincare products made from natural ingredients.",
     discount: "Buy 2 Get 1",
+    path: "/latestInMarket/naturalCosmetics"
   },
 ];
+
 
 const Home = () => {
   const sectionRef = useRef(null);
@@ -162,6 +171,7 @@ const Home = () => {
                   key={index}
                   name={category.name}
                   image={category.image}
+                  path={category.path}
                 />
               ))}
             </div>
@@ -202,6 +212,7 @@ const Home = () => {
             </Link>
           </div>
         </section>
+
 
         {/* App Download Section */}
         <section
