@@ -7,6 +7,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Login from "../../components/Buttons/Login";
 
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
@@ -107,12 +108,7 @@ const LoginForm = () => {
                 Remember Me
               </label>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-green-700 text-white py-2 rounded-xl"
-            >
-              Log in
-            </button>
+            <Login />
           </form>
 
           {/* Social login buttons */}
