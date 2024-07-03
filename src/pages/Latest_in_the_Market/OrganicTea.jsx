@@ -12,27 +12,29 @@ function OrganicTea() {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then((data) => {
         setProducts(data);
         setFilteredProducts(data);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
       });
   }, []);
 
   useEffect(() => {
-    let result = products;
-    if (categoryFilter) {
-      result = result.filter(product => product.category === categoryFilter);
-    }
-    if (priceFilter) {
-      result = result.filter(product => product.price <= parseInt(priceFilter));
-    }
-    if (ratingFilter) {
-      result = result.filter(product => Math.round(product.rating.rate) >= ratingFilter);
-    }
-    setFilteredProducts(result);
+    setFilteredProducts(
+         products
+           .filter(product => !categoryFilter || product.category === categoryFilter)
+           .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
+           .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
+       );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
-
   return (
     <div className="bg-[#fff5edff] min-h-screen">
       <Header 
