@@ -35,6 +35,7 @@ function HealthSupplements() {
            .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
        );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
+  
   return (
     <div className="bg-[#fff5edff] min-h-screen">
       <Header 
