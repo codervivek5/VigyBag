@@ -1,13 +1,13 @@
 // Navbar.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavLogo from './NavLogo';
-import NavLink from './NavLink';
-import ProductsDropdown from './ProductsDropdown';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import CartIcon from './CartIcon';
-import AuthButton from './AuthButton';
-import MobileMenu from './MobileMenu';
+import NavLogo from "./NavLogo";
+import NavLink from "./NavLink";
+import ProductsDropdown from "./ProductsDropdown";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import CartIcon from "./CartIcon";
+import AuthButton from "./AuthButton";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,21 +33,41 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#ecd5c5] shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <NavLogo />
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <NavLink to="/" icon={<lord-icon src="https://cdn.lordicon.com/wmwqvixz.json" trigger="hover" colors="primary:#15803D" style={{width: "25px", height: "25px"}}></lord-icon>}>
+              <div className="ml-0 flex items-baseline space-x-2 ">
+                <NavLink
+                  to="/"
+                  icon={
+                    <lord-icon
+                      src="https://cdn.lordicon.com/wmwqvixz.json"
+                      trigger="hover"
+                      colors="primary:#15803D"
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                  }
+                >
                   Home
                 </NavLink>
-                <ProductsDropdown 
+                <ProductsDropdown
                   isOpen={openDropdown === "products"}
                   onMouseEnter={() => handleDropdown("products")}
                   onMouseLeave={handleDropdownLeave}
                 />
-                <NavLink to="/about" icon={<lord-icon src="https://cdn.lordicon.com/jnzhohhs.json" trigger="hover" colors="primary:#15803D" style={{width: "25px", height: "25px"}}></lord-icon>}>
+                <NavLink
+                  to="/about"
+                  icon={
+                    <lord-icon
+                      src="https://cdn.lordicon.com/jnzhohhs.json"
+                      trigger="hover"
+                      colors="primary:#15803D"
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                  }
+                >
                   About Us
                 </NavLink>
               </div>
@@ -57,24 +77,50 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6">
-                <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+                <SearchBar
+                  searchTerm={searchTerm}
+                  handleSearch={handleSearch}
+                />
                 {isLoggedIn && <CartIcon />}
-                <AuthButton isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+                <AuthButton
+                  isLoggedIn={isLoggedIn}
+                  handleLogout={handleLogout}
+                />
               </div>
             </div>
-            
+
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
                 className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
               >
                 {isOpen ? (
-                  <svg className="h-6 w-6" stroke="#15803D" fill="#15803D" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="h-6 w-6"
+                    stroke="#15803D"
+                    fill="#15803D"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 ) : (
-                  <svg className="h-6 w-6" stroke="#15803D" fill="#15803D" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <svg
+                    className="h-6 w-6"
+                    stroke="#15803D"
+                    fill="#15803D"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   </svg>
                 )}
               </button>
@@ -83,7 +129,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <MobileMenu 
+      <MobileMenu
         isOpen={isOpen}
         searchTerm={searchTerm}
         handleSearch={handleSearch}
