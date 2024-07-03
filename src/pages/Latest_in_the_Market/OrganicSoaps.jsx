@@ -3,7 +3,7 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function ArtSupplies() {
+function OrganicSoaps() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -36,9 +36,9 @@ function ArtSupplies() {
   return (
     <div className="bg-[#fff5edff] min-h-screen">
       <Header 
-        backgroundUrl="https://mymodernmet.com/wp/wp-content/uploads/2018/10/cool-art-supplies-thumbnail-1.jpg" 
-        headingText="ArtSupplies Products"
-        paragraphText="Home/ArtSupplies Products"
+        backgroundUrl="https://th.bing.com/th/id/OIP.Ss1zfHpCipHbJnHRouP-gwHaCj?w=879&h=303&rs=1&pid=ImgDetMain" 
+        headingText="Organic Soaps Products"
+        paragraphText="Home/Organic Soaps Products"
       />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8 relative">
@@ -46,7 +46,7 @@ function ArtSupplies() {
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#d6b198ff" 
+            backgroundColor="#ffeda6ff" 
           />
           <ProductGrid products={filteredProducts} />
         </div>
@@ -55,4 +55,4 @@ function ArtSupplies() {
   );
 }
 
-export default ArtSupplies
+export default OrganicSoaps

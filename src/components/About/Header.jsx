@@ -7,7 +7,7 @@ function Header() {
     <header className="relative h-64 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={app}
+            src="https://www.globalteckz.com/wp-content/uploads/2017/04/ecommerce-final.png"
             alt="Background"
             className="w-full h-full object-cover filter blur-sm"
           />
