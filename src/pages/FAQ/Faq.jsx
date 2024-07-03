@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
+import ContactUs from '../../components/Buttons/ContactUs';
 
 const faqData = [
   {
@@ -53,7 +54,8 @@ function FAQItem({ question, answer }) {
   
     return (
       <div className="border-b border-gray-200 py-4">
-        <button
+        <button 
+        type='button'
           className="flex justify-between items-center w-full text-left"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -83,9 +85,7 @@ function FAQItem({ question, answer }) {
             <div className="mt-6 text-center">
             <Link to="/contact"> <p className="text-gray-600">Still need help?</p>
               
-                <button className="mt-2 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                  Contact us
-                </button>
+                <ContactUs />
               </Link>
             </div>
           </div>

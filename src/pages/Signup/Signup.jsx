@@ -9,6 +9,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SignUp from "../../components/Buttons/SignUp";
 
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
@@ -142,12 +143,7 @@ const SignUpForm = () => {
                   I agree to the Terms and Conditions
                 </label>
               </div>
-              <button
-                type="submit"
-                className="w-full bg-green-700 text-white py-2 rounded-xl"
-              >
-                Sign Up
-              </button>
+              <SignUp />
             </form>
 
             <div className="text-center mt-4">

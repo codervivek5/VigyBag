@@ -2,9 +2,14 @@ import React from 'react'
 
 function SignUp() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <button
+        type="submit"
+        className="w-full bg-green-700 text-white py-2 rounded-xl"
+      >
+        Sign Up
+      </button>
+    </>
   )
 }
 

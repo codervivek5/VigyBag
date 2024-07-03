@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import Logo from "../../assets/offical_logo.png";
 import { useNavigate } from "react-router-dom";
+import Logout from "../../components/Buttons/Logout";
 
 const Aside = () => {
   const navigate = useNavigate();
@@ -102,17 +103,7 @@ const Aside = () => {
             <span>Contact Us</span>
           </a>
           <a className="flex items-center space-x-2 p-2 relative justify-center">
-            <button
-              onClick={handleLogout}
-              className="mt-20 bg-green-500"
-              style={{
-                padding: "13px 13px",
-                borderRadius: "10px",
-                border: "1px solid #98bf8cff",
-              }}
-            >
-              Logout
-            </button>
+            <Logout />
           </a>
         </nav>
       </aside>
