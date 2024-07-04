@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Login from "../../components/Buttons/Login";
-
+import {FaEye,FaEyeSlash} from 'react-icons/fa6'
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
 const inputClasses =
@@ -41,7 +41,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const [showPassword,setShowPassword]=useState(false)
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -68,7 +68,13 @@ const LoginForm = () => {
       }
     }
   };
-
+  function handleToggle(){
+    if(showPassword){
+      setShowPassword(false)
+    }else{
+      setShowPassword(true)
+    }
+  }
   return (
     <div className={formContainerClasses}>
       <div className={cardClasses}>
@@ -95,13 +101,17 @@ const LoginForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <div className="relative">
+
             <FormInput
               icon={<RiLockPasswordLine />}
-              type="password"
+              type={`${showPassword?"text":"password"}`}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {showPassword?<FaEye className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>:<FaEyeSlash  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>}
+            </div>
             <div className="flex items-center">
               <input type="checkbox" id="remember" className="mr-2" />
               <label htmlFor="remember" className="text-zinc-400">
