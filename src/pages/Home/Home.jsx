@@ -8,7 +8,6 @@ import googlePlay from "../../assets/google-play.png";
 import mobile from "../../assets/mobile.png";
 import { Link } from "react-router-dom";
 
-
 // Import category images
 import customisedGiftsImg from "../../assets/Customized-Gifts.png";
 import HealthSupplementsImg from "../../assets/Health-supplements.png";
@@ -29,7 +28,6 @@ import DownArrow from "../../components/DownArrow/downArrow";
 
 //Redirectinh links --->
 
-
 const popularCategories = [
   { name: "Fashion & Accessories", image: fashionAndAccessories },
   { name: "Printing & Stationery", image: PrintingAndStationary },
@@ -45,7 +43,8 @@ const latestProducts = [
   {
     img: HandmadeSoapsImg,
     name: "Handmade Soaps",
-    description:"A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
+    description:
+      "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
     discount: "15% Off",
   },
   {
@@ -63,13 +62,15 @@ const latestProducts = [
   {
     img: BambooProductsImg,
     name: "Bamboo Products",
-    description:"Natural, non-toxic, biodegradable household and bath products.",
+    description:
+      "Natural, non-toxic, biodegradable household and bath products.",
     discount: "20% Off",
   },
   {
     img: StorageBasketsImg,
     name: "Storage Baskets",
-    description:"Natural basket collection featuring hand-woven sustainable materials.",
+    description:
+      "Natural basket collection featuring hand-woven sustainable materials.",
     discount: "20% Off",
   },
   {
@@ -103,9 +104,7 @@ const Home = () => {
 
   return (
     <div className="bg-[#fff0e3ff]">
-     
       <main className="mt-1">
-      
         {/* Hero Section */}
         <section
           className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
@@ -217,36 +216,6 @@ const Home = () => {
               className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
               style={{ minHeight: "30vh", height: "auto" }}
             >
-              {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4">
-                <div className="text-center md:text-left mb-4 md:mb-0 md:mr-8">
-                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">
-                    Download the App NOW
-                  </h2>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.vigybag"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300"
-                  >
-                    <img
-                      src={googlePlay}
-                      alt="Google Play"
-                      className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3"
-                    />
-                    <span>
-                      <div className="text-xs">GET IT ON</div>
-                      <div className="text-base sm:text-lg md:text-xl font-semibold">
-                        Google Play
-                      </div>
-                    </span>
-                  </a>
-                </div>
-                <img
-                  src={mobile}
-                  alt="VigyBag App"
-                  className="w-32 sm:w-40 md:w-60 mt-4 md:mt-0"
-                />
-              </div> */}
               <section
                 className="newsletter-section"
                 style={{ color: "white", padding: "40px 0" }}

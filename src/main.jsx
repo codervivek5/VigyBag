@@ -71,7 +71,7 @@ const router = createBrowserRouter(
       <Route path="popularCategories/furnitureDecor" element={<FurnitureDecor />} />
       <Route path="popularCategories/healthSupplements" element={<HealthSupplements />} />
       <Route path="popularCategories/printingStationery" element={<PrintingStationery />} />
-{/*<------------------------------------------------------------------------------------------------------>*/ }
+{/*<------------------------------------------------------------------------------------>*/ }
       <Route path="about" element={<AboutUs />} />
       <Route path="help" element={<Help />} />
       <Route path="privacy" element={<Privacy />} />
@@ -93,9 +93,6 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="faq" element={<FAQ />} />
       <Route path="CartEmpty" element={<CartEmpty />} />
-
-      
-
       <Route path="*" element={<Error />} />
     </Route>
   )
