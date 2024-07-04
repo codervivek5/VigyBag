@@ -29,92 +29,107 @@ import DownArrow from "../../components/DownArrow/downArrow";
 //Redirectinh links --->
 
 const popularCategories = [
-  { name: "Fashion & Accessories", image: fashionAndAccessories, path: "/popularCategories/fashionAccessories" },
-  { name: "Printing & Stationery", image: PrintingAndStationary, path: "/popularCategories/printingStationery" },
-  { name: "Food & Beverages", image: FoodAndBeverages, path: "/popularCategories/foodBeverages" },
-  { name: "Beauty & Wellness", image: BeautyAndWellness, path: "/popularCategories/beautyWellness" },
-  { name: "Furniture & Decor", image: FurnitureAndDecor, path: "/popularCategories/furnitureDecor" },
+  {
+    name: "Fashion & Accessories",
+    image: fashionAndAccessories,
+    path: "/popularCategories/fashionAccessories",
+  },
+  {
+    name: "Printing & Stationery",
+    image: PrintingAndStationary,
+    path: "/popularCategories/printingStationery",
+  },
+  {
+    name: "Food & Beverages",
+    image: FoodAndBeverages,
+    path: "/popularCategories/foodBeverages",
+  },
+  {
+    name: "Beauty & Wellness",
+    image: BeautyAndWellness,
+    path: "/popularCategories/beautyWellness",
+  },
+  {
+    name: "Furniture & Decor",
+    image: FurnitureAndDecor,
+    path: "/popularCategories/furnitureDecor",
+  },
   { name: "Body Care", image: BodyCare, path: "/popularCategories/bodyCare" },
-  { name: "Health Supplements", image: HealthSupplementsImg, path: "/popularCategories/healthSupplements" },
-  { name: "Customized Gifts", image: customisedGiftsImg, path: "/popularCategories/customizedGifts" },
+  {
+    name: "Health Supplements",
+    image: HealthSupplementsImg,
+    path: "/popularCategories/healthSupplements",
+  },
+  {
+    name: "Customized Gifts",
+    image: customisedGiftsImg,
+    path: "/popularCategories/customizedGifts",
+  },
 ];
-
-
 
 const latestProducts = [
   {
     img: HandmadeSoapsImg,
     name: "Handmade Soaps",
-<<<<<<< HEAD
     description:
       "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
-=======
-    description: "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
     discount: "15% Off",
-    path: "/latestInMarket/handMadeSoaps"
+    path: "/latestInMarket/handMadeSoaps",
   },
   {
     img: ArtSuppliesImg,
     name: "Art Supplies",
     description: "Natural and cruelty-free selection of art supplies.",
     discount: "Upto 50% Off",
-    path: "/latestInMarket/artSupplies"
+    path: "/latestInMarket/artSupplies",
   },
   {
     img: CeramicDinnerwareImg,
     name: "Ceramic Dinnerware",
     description: "Long-lasting and durable eco-friendly dinnerware.",
     discount: "Buy 1 Get 1",
-    path: "/latestInMarket/ceramicDinnerware"
+    path: "/latestInMarket/ceramicDinnerware",
   },
   {
     img: BambooProductsImg,
     name: "Bamboo Products",
-<<<<<<< HEAD
     description:
       "Natural, non-toxic, biodegradable household and bath products.",
-=======
-    description: "Natural, non-toxic, biodegradable household and bath products.",
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
     discount: "20% Off",
-    path: "/latestInMarket/bambooProducts"
+    path: "/latestInMarket/bambooProducts",
   },
   {
     img: StorageBasketsImg,
     name: "Storage Baskets",
-<<<<<<< HEAD
     description:
       "Natural basket collection featuring hand-woven sustainable materials.",
-=======
-    description: "Natural basket collection featuring hand-woven sustainable materials.",
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
     discount: "20% Off",
-    path: "/latestInMarket/storageBaskets"
+    path: "/latestInMarket/storageBaskets",
   },
   {
     img: HandmadeSoapsImg,
     name: "Organic Soaps",
     description: "Handcrafted organic soaps made with natural ingredients.",
     discount: "10% Off",
-    path: "/latestInMarket/organicSoaps"
+    path: "/latestInMarket/organicSoaps",
   },
   {
     img: FoodAndBeverages,
     name: "Organic Tea",
-    description: "A selection of premium organic teas from sustainable sources.",
+    description:
+      "A selection of premium organic teas from sustainable sources.",
     discount: "25% Off",
-    path: "/latestInMarket/organicTea"
+    path: "/latestInMarket/organicTea",
   },
   {
     img: BeautyAndWellness,
     name: "Natural Cosmetics",
-    description: "Eco-friendly makeup and skincare products made from natural ingredients.",
+    description:
+      "Eco-friendly makeup and skincare products made from natural ingredients.",
     discount: "Buy 2 Get 1",
-    path: "/latestInMarket/naturalCosmetics"
+    path: "/latestInMarket/naturalCosmetics",
   },
 ];
-
 
 const Home = () => {
   const sectionRef = useRef(null);
@@ -136,8 +151,7 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
             minHeight: "87vh",
             height: "auto",
-          }}
-        >
+          }}>
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left">
               <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
@@ -145,14 +159,12 @@ const Home = () => {
               </h1>
               <h2
                 className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6"
-                style={{ lineHeight: "1.5" }}
-              >
+                style={{ lineHeight: "1.5" }}>
                 Your Eco-Friendly Shopping Heaven
               </h2>
               <p
                 className="mb-6 text-gray-700 text-[20px] sm:text-[23px]"
-                style={{ lineHeight: "1.5" }}
-              >
+                style={{ lineHeight: "1.5" }}>
                 At VigyBag, we curate the finest earth-friendly essentials to
                 help you reduce your environmental footprint without
                 compromising on quality or style. Shop smart, live green, and
@@ -161,8 +173,7 @@ const Home = () => {
               <button
                 type="button"
                 onClick={scrollToSection}
-                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300"
-              >
+                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
                 Shop Now
               </button>
               <DownArrow />
@@ -193,8 +204,7 @@ const Home = () => {
         <section
           className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16"
           id="sect"
-          ref={sectionRef}
-        >
+          ref={sectionRef}>
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
               Latest in the Market
@@ -211,19 +221,16 @@ const Home = () => {
 
             <Link
               to="/dashboard"
-              className="mt-10 ml-4 text-green-800 hover:text-gray-600 flex items-center justify-center"
-            >
+              className="mt-10 ml-4 text-green-800 hover:text-gray-600 flex items-center justify-center">
               <button
                 type="button"
                 className="text-lg text-white bg-[#3d784aff] px-12 py-3 rounded-2xl"
-                style={{ fontSize: "19px" }}
-              >
+                style={{ fontSize: "19px" }}>
                 see more
               </button>
             </Link>
           </div>
         </section>
-
 
         {/* App Download Section */}
         <section
@@ -232,40 +239,34 @@ const Home = () => {
             backgroundImage: `url(${app})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}
-        >
+          }}>
           <div className="container mx-auto px-4 relative z-10">
             <div
               className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
-              style={{ minHeight: "30vh", height: "auto" }}
-            >
+              style={{ minHeight: "30vh", height: "auto" }}>
               <section
                 className="newsletter-section"
-                style={{ color: "white", padding: "40px 0" }}
-              >
+                style={{ color: "white", padding: "40px 0" }}>
                 <div
                   className="container"
                   style={{
                     maxWidth: "600px",
                     margin: "0 auto",
                     textAlign: "center",
-                  }}
-                >
+                  }}>
                   <h2
                     style={{
                       fontSize: "24px",
                       marginBottom: "10px",
                       color: "white",
-                    }}
-                  >
+                    }}>
                     Stay Updated with Our Latest News
                   </h2>
                   <p
                     style={{
                       fontSize: "16px",
                       marginBottom: "20px",
-                    }}
-                  >
+                    }}>
                     Subscribe to our newsletter to receive exclusive updates,
                     promotions, and tips.
                   </p>
@@ -294,8 +295,7 @@ const Home = () => {
                         border: "none",
                         borderRadius: "5px",
                         cursor: "pointer",
-                      }}
-                    >
+                      }}>
                       Subscribe
                     </button>{" "}
                   </form>
