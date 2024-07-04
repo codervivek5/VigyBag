@@ -45,12 +45,7 @@ const latestProducts = [
   {
     img: HandmadeSoapsImg,
     name: "Handmade Soaps",
-<<<<<<< HEAD
-    description:
-      "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
-=======
     description: "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
     discount: "15% Off",
     path: "/latestInMarket/handMadeSoaps"
   },
@@ -71,24 +66,14 @@ const latestProducts = [
   {
     img: BambooProductsImg,
     name: "Bamboo Products",
-<<<<<<< HEAD
-    description:
-      "Natural, non-toxic, biodegradable household and bath products.",
-=======
     description: "Natural, non-toxic, biodegradable household and bath products.",
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
     discount: "20% Off",
     path: "/latestInMarket/bambooProducts"
   },
   {
     img: StorageBasketsImg,
     name: "Storage Baskets",
-<<<<<<< HEAD
-    description:
-      "Natural basket collection featuring hand-woven sustainable materials.",
-=======
     description: "Natural basket collection featuring hand-woven sustainable materials.",
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
     discount: "20% Off",
     path: "/latestInMarket/storageBaskets"
   },
