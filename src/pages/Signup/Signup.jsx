@@ -10,6 +10,7 @@ import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SignUp from "../../components/Buttons/SignUp";
+import {FaEye,FaEyeSlash} from 'react-icons/fa6'
 
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
@@ -45,6 +46,9 @@ const SignUpForm = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword,setShowPassword]=useState(false)
+  const [showConfirmPassword,setShowConfirmPassword]=useState(false)
+
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -86,6 +90,20 @@ const SignUpForm = () => {
     }
   };
 
+  function handleToggle(){
+    if(showPassword){
+      setShowPassword(false)
+    }else{
+      setShowPassword(true)
+    }
+  }
+  function handleToggle1(){
+    if(showConfirmPassword){
+      setShowConfirmPassword(false)
+    }else{
+      setShowConfirmPassword(true)
+    }
+  }
   return (
     <>
       <div className={formContainerClasses}>
@@ -123,20 +141,29 @@ const SignUpForm = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
+              <div className="relative">
+
               <FormInput
                 icon={<RiLockPasswordLine />}
-                type="password"
+                type={`${showPassword?"text":"password"}`}
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+                          {showPassword?<FaEye className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>:<FaEyeSlash  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>}
+              </div>
+            <div className="relative">
+
               <FormInput
                 icon={<RiLockPasswordLine />}
-                type="password"
+                type={`${showConfirmPassword?"text":"password"}`}
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
+                                        {showConfirmPassword?<FaEye className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle1}/>:<FaEyeSlash  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle1}/>}
+
+            </div>
               <div className="flex items-center">
                 <input type="checkbox" id="terms" className="mr-2" required />
                 <label htmlFor="terms" className="text-zinc-400">
