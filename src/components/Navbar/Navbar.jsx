@@ -58,7 +58,7 @@ const Navbar = () => {
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6">
                 <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-                {isLoggedIn && <CartIcon />}
+                <CartIcon />
                 <AuthButton isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
               </div>
             </div>

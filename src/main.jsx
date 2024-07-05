@@ -85,44 +85,6 @@ const router = createBrowserRouter(
      <Route path="popularCategories/printingStationery" element={<PrintingStationery />} />
 
 
-<<<<<<< HEAD
-      {/* Drop down of "popularCategoriess */}
-      
-      <Route path="popularCategories" element={<PopularCategories/>} />
-      <Route path="popularCategories/beautyWellness" element={<BeautyWellness />} />
-      <Route path="popularCategories/bodyCare" element={<BodyCare />} />
-      <Route path="popularCategories/customizedGifts" element={<CustomizedGifts />} />
-      <Route path="popularCategories/fashionAccessories" element={<FashionAccessories />} />
-      <Route path="popularCategories/foodBeverages" element={<FoodBeverages />} />
-      <Route path="popularCategories/furnitureDecor" element={<FurnitureDecor />} />
-      <Route path="popularCategories/healthSupplements" element={<HealthSupplements />} />
-      <Route path="popularCategories/printingStationery" element={<PrintingStationery />} />
-{/*<------------------------------------------------------------------------------------>*/ }
-      <Route path="about" element={<AboutUs />} />
-      <Route path="help" element={<Help />} />
-      <Route path="privacy" element={<Privacy />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="team" element={<Team />} />
-      <Route path="login" element={<Login />} />
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="confirm" element={<Confirmation />} />
-      <Route path="cancel" element={<Cancellation />} />
-      <Route path="orderDetails" element={<OrderDetails />} />
-      <Route path="myOrders" element={<MyOrders />} />
-      <Route path="bambooProducts" element={<BambooProducts />} />
-      <Route path="checkout" element={<Checkout />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path="productDetails" element={<ProductDetails />} />
-      <Route path="payment" element={<Payment />} />
-      <Route path="returnAndCancellation" element={<ReturnAndCancellation />} />
-      <Route path="EPR_Page" element={<EPRPage />} />
-      <Route path="signup" element={<Signup />} />
-      <Route path="faq" element={<FAQ />} />
-      <Route path="CartEmpty" element={<CartEmpty />} />
-      <Route path="*" element={<Error />} />
-    </Route>
-  )
-=======
 {/*<------------------------------------------------------------------------------------------------------>*/ }
 <Route path="about" element={<AboutUs />} />
      <Route path="help" element={<Help />} />
@@ -153,7 +115,6 @@ const router = createBrowserRouter(
      <Route path="*" element={<Error />} />
    </Route>
  )
->>>>>>> 31e7cf96892fb671077a1a8ba0895d7e0ebd1673
 );
 
 
