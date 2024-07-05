@@ -10,7 +10,8 @@ import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SignUp from "../../components/Buttons/SignUp";
-import {FaEye,FaEyeSlash} from 'react-icons/fa6'
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { ClipLoader, DotLoader } from "react-spinners";
 
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
@@ -46,23 +47,25 @@ const SignUpForm = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword,setShowPassword]=useState(false)
-  const [showConfirmPassword,setShowConfirmPassword]=useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       console.log("Passwords do not match");
+      setLoading(false);
       return;
     }
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/signup",
+        "https://vigybag-backend.onrender.com/api/auth/signup",
         {
           username,
           email,
@@ -87,21 +90,23 @@ const SignUpForm = () => {
         alert(error.response.data.message);
         console.log(error.response.data.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
-  function handleToggle(){
-    if(showPassword){
-      setShowPassword(false)
-    }else{
-      setShowPassword(true)
+  function handleToggle() {
+    if (showPassword) {
+      setShowPassword(false);
+    } else {
+      setShowPassword(true);
     }
   }
-  function handleToggle1(){
-    if(showConfirmPassword){
-      setShowConfirmPassword(false)
-    }else{
-      setShowConfirmPassword(true)
+  function handleToggle1() {
+    if (showConfirmPassword) {
+      setShowConfirmPassword(false);
+    } else {
+      setShowConfirmPassword(true);
     }
   }
   return (
@@ -122,12 +127,14 @@ const SignUpForm = () => {
             </h2>
             <form className="space-y-4" onSubmit={handleSignup}>
               <FormInput
+                required={true}
                 icon={<CgProfile />}
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
               <FormInput
+                required={true}
                 icon={<MdEmail />}
                 type="email"
                 placeholder="Email"
@@ -135,6 +142,7 @@ const SignUpForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <FormInput
+                required={true}
                 icon={<IoCall />}
                 type="text"
                 placeholder="Phone Number"
@@ -142,35 +150,59 @@ const SignUpForm = () => {
                 onChange={(e) => setPhone(e.target.value)}
               />
               <div className="relative">
-
-              <FormInput
-                icon={<RiLockPasswordLine />}
-                type={`${showPassword?"text":"password"}`}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-                          {showPassword?<FaEye className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>:<FaEyeSlash  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>}
+                <FormInput
+                  required={true}
+                  icon={<RiLockPasswordLine />}
+                  type={`${showPassword ? "text" : "password"}`}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {/* {showPassword ? (
+                  <FaEye
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle}
+                  />
+                ) : (
+                  <FaEyeSlash
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle}
+                  />
+                )} */}
               </div>
-            <div className="relative">
-
-              <FormInput
-                icon={<RiLockPasswordLine />}
-                type={`${showConfirmPassword?"text":"password"}`}
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-                                        {showConfirmPassword?<FaEye className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle1}/>:<FaEyeSlash  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle1}/>}
-
-            </div>
+              <div className="relative">
+                <FormInput
+                  required={true}
+                  icon={<RiLockPasswordLine />}
+                  type={`${showConfirmPassword ? "text" : "password"}`}
+                  placeholder="Confirm Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                {/* {showConfirmPassword ? (
+                  <FaEye
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle1}
+                  />
+                ) : (
+                  <FaEyeSlash
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle1}
+                  />
+                )} */}
+              </div>
               <div className="flex items-center">
                 <input type="checkbox" id="terms" className="mr-2" required />
                 <label htmlFor="terms" className="text-zinc-400">
                   I agree to the Terms and Conditions
                 </label>
               </div>
-              <SignUp />
+              <button
+                type="submit"
+                className="w-full bg-green-700 text-white py-2 rounded-xl"
+              >
+                {loading ? <DotLoader color="#ffffff" size={24} /> : "SignUp"}
+              </button>
             </form>
 
             <div className="text-center mt-4">
