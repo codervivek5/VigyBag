@@ -8,6 +8,8 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
+import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,8 +48,10 @@ const Navbar = () => {
                       src="https://cdn.lordicon.com/wmwqvixz.json"
                       trigger="hover"
                       colors="primary:#15803D"
-                      style={{ width: "25px", height: "25px" }}></lord-icon>
-                  }>
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                  }
+                >
                   Home
                 </NavLink>
                 <ProductsDropdown
@@ -62,8 +66,10 @@ const Navbar = () => {
                       src="https://cdn.lordicon.com/jnzhohhs.json"
                       trigger="hover"
                       colors="primary:#15803D"
-                      style={{ width: "25px", height: "25px" }}></lord-icon>
-                  }>
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                  }
+                >
                   About Us
                 </NavLink>
               </div>
@@ -78,6 +84,15 @@ const Navbar = () => {
                   handleSearch={handleSearch}
                 />
                 {isLoggedIn && <CartIcon />}
+                {isLoggedIn && (
+                  <Link
+                    to="/dashboard"
+                    className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
+                  >
+                    <FaUserCircle className="mr-2 text-3xl" />
+                  </Link>
+                )}
+
                 <AuthButton
                   isLoggedIn={isLoggedIn}
                   handleLogout={handleLogout}
@@ -88,13 +103,15 @@ const Navbar = () => {
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+              >
                 {isOpen ? (
                   <svg
                     className="h-6 w-6"
                     stroke="#15803D"
                     fill="#15803D"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -107,7 +124,8 @@ const Navbar = () => {
                     className="h-6 w-6"
                     stroke="#15803D"
                     fill="#15803D"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
