@@ -197,5 +197,5 @@ const LoginForm = () => {
   );
 };
 
-export { isAdmin };
+
 export default LoginForm;
