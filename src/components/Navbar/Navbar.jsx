@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavLogo from "./NavLogo";
@@ -11,12 +10,11 @@ import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [openDropdown, setOpenDropdown] = useState(null);
   const navigate = useNavigate();
-
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   const toggleNavbar = () => setIsOpen(!isOpen);
@@ -85,14 +83,24 @@ const Navbar = () => {
                 />
                 {isLoggedIn && <CartIcon />}
                 {isLoggedIn && (
-                  <Link
-                    to="/dashboard"
-                    className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
-                  >
-                    <FaUserCircle className="mr-2 text-3xl" />
-                  </Link>
+                  <>
+                    {isAdmin ? (
+                      <Link
+                        to="/admin/dashboard"
+                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
+                      >
+                        <FaUserCircle className="mr-2 text-3xl" />
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/dashboard"
+                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
+                      >
+                        <FaUserCircle className="mr-2 text-3xl" />
+                      </Link>
+                    )}
+                  </>
                 )}
-
                 <AuthButton
                   isLoggedIn={isLoggedIn}
                   handleLogout={handleLogout}
