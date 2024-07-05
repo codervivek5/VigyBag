@@ -49,14 +49,12 @@ const CartItem = ({
       src="https://cdn.lordicon.com/skkahier.json"
       trigger="hover"
       colors="primary:#ff0000"
-
       style={{ width: "30px", height: "30px", cursor: "pointer" }}
       onClick={() => onRemove(id)}
       onKeyUp={(e) => {
         if (e.key === "Enter") onRemove(id);
       }}
       tabIndex="0"></lord-icon>
-
   </div>
 );
 
@@ -171,14 +169,12 @@ const Cart = () => {
               ))}
             </div>
             <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
-
               <button
                 type="button"
                 className={`${buttonBgClass} w-full sm:w-auto`}
                 onClick={clearCart}>
                 Clear Cart
               </button>
-
             </div>
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
@@ -201,11 +197,9 @@ const Cart = () => {
               <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
                 <button
                   type="button"
-                  className={`${buttonBgClass} w-full sm:w-auto`}
-                  style={{ minWidth: "425px" }}>
+                  className={`${buttonBgClass} w-full sm:w-auto`}>
                   Check Out
                 </button>
-
               </div>
             </div>
           </div>
