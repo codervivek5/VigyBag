@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Mug from "../../assets/coffee-mug.png";
-import Container from "../../assets/Storage-basket-and-container.jpeg";
-import DoorMat from "../../assets/Handwoven-Doormat.jpeg";
-import TUMBLER from "../../assets/TUMBLER.png";
 import { Link } from "react-router-dom";
-import { MdHeight } from "react-icons/md";
-import { FaMinus, FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import UseCart from "../../hooks/UseCart";
 
 // Define the CSS classes for the components
@@ -60,7 +55,6 @@ const CartItem = ({
         if (e.key === "Enter") onupdate(product, -1 * product.quantity);
       }}
       tabIndex="0"></lord-icon>
-
   </div>
 );
 
