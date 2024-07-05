@@ -8,7 +8,9 @@ import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Login from "../../components/Buttons/Login";
-import {FaEye,FaEyeSlash} from 'react-icons/fa6'
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { ClipLoader, DotLoader } from "react-spinners";
+
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
 const inputClasses =
@@ -40,13 +42,16 @@ const FormInput = ({ icon, placeholder, type = "text", value, onChange }) => {
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [showPassword,setShowPassword]=useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        "https://vigybag-backend.onrender.com/api/auth/login",
         {
           email,
           password,
@@ -66,15 +71,15 @@ const LoginForm = () => {
         alert(error.response.data.message);
         console.log(error.response.data.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
-  function handleToggle(){
-    if(showPassword){
-      setShowPassword(false)
-    }else{
-      setShowPassword(true)
-    }
+
+  function handleToggle() {
+    setShowPassword(!showPassword);
   }
+
   return (
     <div className={formContainerClasses}>
       <div className={cardClasses}>
@@ -95,6 +100,7 @@ const LoginForm = () => {
           {/* Login form */}
           <form className="space-y-4" onSubmit={handleLogin}>
             <FormInput
+              required={true}
               icon={<MdEmail />}
               type="email"
               placeholder="Email"
@@ -102,15 +108,25 @@ const LoginForm = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="relative">
-
-            <FormInput
-              icon={<RiLockPasswordLine />}
-              type={`${showPassword?"text":"password"}`}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {showPassword?<FaEye className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>:<FaEyeSlash  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black" onClick={handleToggle}/>}
+              <FormInput
+                required={true}
+                icon={<RiLockPasswordLine />}
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {/* {showPassword ? (
+                <FaEye
+                  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                  onClick={handleToggle}
+                />
+              ) : (
+                <FaEyeSlash
+                  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                  onClick={handleToggle}
+                />
+              )} */}
             </div>
             <div className="flex items-center">
               <input type="checkbox" id="remember" className="mr-2" />
@@ -118,12 +134,17 @@ const LoginForm = () => {
                 Remember Me
               </label>
             </div>
-            <Login />
+            <button
+              type="submit"
+              className="w-full h-12 bg-green-500 text-white rounded-xl flex items-center justify-center"
+            >
+              {loading ? <DotLoader color="#ffffff" size={24} /> : "Login"}
+            </button>
           </form>
 
           {/* Social login buttons */}
           <div className="text-center mt-4">
-            <p className="text-zinc-400 mb-2 ">Or Login with:</p>
+            <p className="text-zinc-400 mb-2">Or Login with:</p>
             <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
               <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
                 <FcGoogle
