@@ -1,26 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import App from "./App.jsx";
 import "./index.css";
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
 
-// Layout and pages
-import Layout from "./Layout";
-import Home from "./pages/Home/Home";
-import AboutUs from "./pages/About/AboutUs";
-import Contact from "./pages/Contacts/Contact";
-import Help from "./pages/Help/Help";
-import Privacy from "./pages/Privacy-Policy/Privacy";
-import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import FAQ from "./pages/FAQ/Faq";
-import Error from "./pages/404-Page/Error";
-
+// DONOT EDIT THIS FILE ONLY USE APP.JSX AND MUST FOLLOW THE CODE CUIDLELINES
 // Components
 import Team from "./components/Team/Team";
 import ProductDetails from "./components/Products/ProductDetails";

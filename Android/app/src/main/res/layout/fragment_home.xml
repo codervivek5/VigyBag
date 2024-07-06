@@ -66,12 +66,35 @@
                 android:layout_margin="10dp"/>
 
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_margin="10dp"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="13dp"
+                android:layout_margin="5dp"
+                android:layout_height="230dp">
 
 
+
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/imageslider"
+                    android:layout_width="300dp"
+                    android:layout_height="230dp"
+                    android:isScrollContainer="true"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="5"
+                    app:iss_delay="1000"
+                    app:iss_no_dots="false"
+                    app:iss_period="1000"
+                    app:iss_placeholder="@drawable/banner4"
+                    app:iss_selected_dot="@drawable/selected_dot"
+                    app:iss_unselected_dot="@drawable/unselected_dot"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvCategory"
+                    tools:ignore="MissingClass" />
+
+            </androidx.cardview.widget.CardView>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
