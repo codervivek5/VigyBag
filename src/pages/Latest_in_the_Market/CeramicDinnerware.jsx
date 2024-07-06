@@ -3,7 +3,9 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function CeramicDinnerware() {
+import axios from "axios";
+
+function ArtSupplies() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -11,22 +13,15 @@ function CeramicDinnerware() {
   const [ratingFilter, setRatingFilter] = useState(0);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    axios.get('https://fakestoreapi.com/products')
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data);
+        setProducts(response.data);
+        setFilteredProducts(response.data);
       })
       .catch((error) => {
-        console.error('Fetch error:', error);
+        console.error('Axios error:', error);
       });
   }, []);
-
   useEffect(() => {
     setFilteredProducts(
          products
