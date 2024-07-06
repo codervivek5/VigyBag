@@ -24,6 +24,7 @@ import Signup from "./pages/Signup/Signup";
 import FAQ from "./pages/FAQ/Faq";
 import CartEmpty from "./pages/Order/CartEmpty";
 import PrivateRoute from "./PrivateRoute";
+import TermsAndConditions from "./pages/TermsAndCondition/TermsAndCondition";
 
 // Latest_In_Market
 import LatestInMarket from "./pages/Latest_in_the_Market/LatestInMarket";
@@ -127,6 +128,7 @@ export default function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="productDetails" element={<ProductDetails />} />
           <Route path="payment" element={<Payment />} />
+
           <Route
             path="returnAndCancellation"
             element={<ReturnAndCancellation />}
@@ -136,6 +138,7 @@ export default function App() {
         <Route path="EPR_Page" element={<EPRPage />} />
         <Route path="signup" element={<Signup />} />
         <Route path="faq" element={<FAQ />} />
+        <Route path="termsAndCondition" element={<TermsAndConditions />} />
 
         <Route path="*" element={<Error />} />
       </Route>
