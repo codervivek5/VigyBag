@@ -71,6 +71,7 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    implementation("com.github.emreesen27:Android-Custom-Toast-Message:1.0.5")
 
 
 
