@@ -7,8 +7,6 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Login from "../../components/Buttons/Login";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ClipLoader, DotLoader } from "react-spinners";
 
 const containerClasses =
@@ -43,6 +41,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -58,6 +57,15 @@ const LoginForm = () => {
         }
       );
       localStorage.setItem("isLoggedIn", "true");
+
+      // Check if the user is an admin based on role
+      if (response.data.user.role === 1) {
+        localStorage.setItem("isAdmin", "true");
+        setIsAdmin(true); // Set state to indicate admin login
+      } else {
+        setIsAdmin(false); // Reset admin state if not admin login
+      }
+
       alert(response.data.message);
       setEmail("");
       setPassword("");
@@ -142,6 +150,11 @@ const LoginForm = () => {
             </button>
           </form>
 
+          {/* Show admin access message if isAdmin is true */}
+          {isAdmin && (
+            <p className="text-green-500 mt-4">Admin access granted!</p>
+          )}
+
           {/* Social login buttons */}
           <div className="text-center mt-4">
             <p className="text-zinc-400 mb-2">Or Login with:</p>
@@ -183,5 +196,6 @@ const LoginForm = () => {
     </div>
   );
 };
+
 
 export default LoginForm;
