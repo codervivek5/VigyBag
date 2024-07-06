@@ -12,6 +12,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.emreesen.sntoast.SnToast
+import com.emreesen.sntoast.Type
 import com.example.vigybagg.R
 import com.example.vigybagg.databinding.ActivitySignUpBinding
 import com.example.vigybagg.databinding.ProgressDialogBinding
@@ -79,11 +81,21 @@ class SignUpActivity : AppCompatActivity() {
                     PhoneAuthProvider.verifyPhoneNumber(options)
 
                 } else {
-                    Toast.makeText(this, "Please Enter correct Number", Toast.LENGTH_SHORT).show()
+                    SnToast.Builder()
+                        .context(this)
+                        .type(Type.INFORMATION)
+                        .message("Please enter correct Number!")
+                        .build()
+//                    Toast.makeText(this, "Please Enter correct Number", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Please Enter Number", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "Please Enter Number", Toast.LENGTH_SHORT).show()
 
+                SnToast.Builder()
+                    .context(this)
+                    .type(Type.WARNING)
+                    .message("Please Enter Number!")
+                    .build()
             }
         }
     }
@@ -103,16 +115,31 @@ class SignUpActivity : AppCompatActivity() {
 
                             if (task.isSuccessful) {
 
-                                Toast.makeText(this, "Sign-in Successful", Toast.LENGTH_SHORT)
-                                    .show()
+                                SnToast.Builder()
+                                    .context(this)
+                                    .type(Type.SUCCESS)
+                                    .message("Sign in Successful!")
+                                    .build()
+//                                Toast.makeText(this, "Sign-in Successful", Toast.LENGTH_SHORT)
+//                                    .show()
                                 startActivity(Intent(this, MainActivity::class.java))
                                 finish()
                             } else {
-                                Toast.makeText(this, "Sign in field", Toast.LENGTH_SHORT).show()
+                                SnToast.Builder()
+                                    .context(this)
+                                    .type(Type.INFORMATION)
+                                    .message("Sign in field!")
+                                    .build()
+//                                Toast.makeText(this, "Sign in field", Toast.LENGTH_SHORT).show()
                             }
                         }
                 } else {
-                    Toast.makeText(this, "Sign in field", Toast.LENGTH_SHORT).show()
+                    SnToast.Builder()
+                        .context(this)
+                        .type(Type.INFORMATION)
+                        .message("Sign in field!")
+                        .build()
+//                    Toast.makeText(this, "Sign in field", Toast.LENGTH_SHORT).show()
                 }
 
             }
@@ -136,7 +163,12 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(this, "Authenticate Successfully", Toast.LENGTH_SHORT).show()
+                    SnToast.Builder()
+                        .context(this)
+                        .type(Type.SUCCESS)
+                        .message("Authenticate Successfully!")
+                        .build()
+//                    Toast.makeText(this, "Authenticate Successfully", Toast.LENGTH_SHORT).show()
                     sendToMain()
                 } else {
                     // Sign in failed, display a message and update the UI
