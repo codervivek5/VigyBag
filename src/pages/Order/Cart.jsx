@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import UseCart from "../../hooks/UseCart";
+import CartEmpty from "./CartEmpty";
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
@@ -180,13 +181,13 @@ const Cart = () => {
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
       <div className="container mx-auto p-4 w-full max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:space-x-8">
-          <div className="w-full lg:w-2/3">
-            <Breadcrumbs />
-            <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
-            {
-              cartItems.length === 0 ? <EmptyCart /> :
-                <>
+        {
+          cartItems.length === 0 ? <CartEmpty /> : (
+            <>
+              <div className="flex flex-col lg:flex-row lg:space-x-8">
+                <div className="w-full lg:w-2/3">
+                  <Breadcrumbs />
+                  <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
                   <div className="space-y-6">
                     {cartItems.map((item) => (
                       <CartItem key={item.id} product={item} onupdate={onupdate} />
@@ -203,17 +204,16 @@ const Cart = () => {
                     </button>
 
                   </div>
-                </>
-            }
-          </div>
-          <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
-            <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
-            <Subtotal items={cartItems} />
-            {cartItems.length !== 0 && ( isLoggedIn ? <ProceedToCheckout /> : <LoginToContinue /> )}
-
-
-          </div>
-        </div>
+                </div>
+                <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
+                  <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
+                  <Subtotal items={cartItems} />
+                  {cartItems.length !== 0 && (isLoggedIn ? <ProceedToCheckout /> : <LoginToContinue />)}
+                </div>
+              </div>
+            </>
+          )
+        }
       </div>
     </div>
   );

@@ -3,15 +3,14 @@ function UseCart() {
     const addToCart = (product, quantity) => {
         let cart = JSON.parse(localStorage.getItem("vigybag-cart")) || [];
 
-        const existingItem = cart.filter(item => item.id === product.id)
+        const existingItem = cart.find(item => item.id === product.id)
 
-        const newQuantity = existingItem.length == 0 ? quantity
-            : existingItem[0].quantity + quantity > 0 ? existingItem[0].quantity + quantity : 0;
+        let newQuantity = quantity
+        if (existingItem) {
+            newQuantity =  existingItem.quantity + quantity > 0 ? existingItem.quantity + quantity : 0;
+        }
 
-        const filteredCart = cart.filter(item => {
-            console.log(item.id, product.id)
-            return item.id !== product.id
-        });
+        const filteredCart = cart.filter(item => item.id !== product.id);
 
         let newCart = []
         if (newQuantity === 0) {

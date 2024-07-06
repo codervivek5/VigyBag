@@ -8,30 +8,21 @@ const CartEmpty = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center pt-10">
+    <div className="flex flex-col justify-center items-center pt-2">
       <p className="text-4xl text-green-800 font-extrabold underline">Cart</p>
-      <img className="shadow-current pt-10 w-96" src={woman} alt="woman" />
+      <p className="mt-5">Your cart is empty!</p>
+      <img className="shadow-current pt-5 w-96" src={woman} alt="woman" />
       <br />
       <br />
       <div className="flex">
         <Link
-          to="/dashboard"
+          to="/"
           className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
           <button
             type="button"
             className="text-lg text-white bg-[#3d784aff] px-12 py-3 rounded-2xl"
             style={{ fontSize: "19px" }}>
-            Shop the Product
-          </button>
-        </Link>
-        <Link
-          to="/cart"
-          className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
-          <button
-            type="button"
-            className="text-lg text-white bg-[#3d784aff] px-24 py-3 rounded-2xl"
-            style={{ fontSize: "19px" }}>
-            My Cart
+            Shop Now
           </button>
         </Link>
       </div>
