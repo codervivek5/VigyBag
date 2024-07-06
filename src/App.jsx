@@ -46,6 +46,7 @@ import FoodBeverages from "./pages/Popular_Categories/Food-Beverages";
 import FurnitureDecor from "./pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
+import TermsAndConditions from "./pages/termsAndCondition/termsAndCondition";
 
 export default function App() {
   return (
@@ -127,6 +128,7 @@ export default function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="productDetails" element={<ProductDetails />} />
           <Route path="payment" element={<Payment />} />
+          <Route path="termsAndCondition" element={<TermsAndConditions />} />
           <Route
             path="returnAndCancellation"
             element={<ReturnAndCancellation />}
@@ -136,7 +138,6 @@ export default function App() {
         <Route path="EPR_Page" element={<EPRPage />} />
         <Route path="signup" element={<Signup />} />
         <Route path="faq" element={<FAQ />} />
-
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>

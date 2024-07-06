@@ -22,7 +22,6 @@ import Cancellation from "./pages/Cancellation/Cancellation";
 import Payment from "./pages/Payment/Payment";
 import ReturnAndCancellation from "./pages/ReturnAndCancellation/returnAndCancellation";
 import EPRPage from "./pages/EPRPage/EPR_Page";
-import TermsAndConditions from "./pages/termsAndCondition/termsAndCondition";
 
 // Product pages
 import BambooProducts from "./pages/Latest_in_the_Market/BambooProducts";
@@ -105,7 +104,6 @@ const router = createBrowserRouter(
       <Route path="EPR_Page" element={<EPRPage />} />
       <Route path="faq" element={<FAQ />} />
       <Route path="CartEmpty" element={<CartEmpty />} />
-      <Route path="termsAndCondition" element={<TermsAndConditions />} />
 
       {/* 404 route */}
       <Route path="*" element={<Error />} />
