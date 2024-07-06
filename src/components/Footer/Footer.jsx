@@ -198,9 +198,6 @@ const Footer = () => {
           src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg"
           alt="Payment methods"></img>
         <nav>
-          <Link to="/" onClick={scrollToTop}>
-            Home
-          </Link>
           <Link to="/our-services" onClick={scrollToTop}>
             Our Services
           </Link>
