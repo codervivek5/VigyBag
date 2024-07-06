@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./terms.css";
-import ContactForm from "../Contacts/Contact";
 
 const TermsAndConditions = () => {
   useEffect(() => {
@@ -9,7 +8,9 @@ const TermsAndConditions = () => {
 
   return (
     <div className="containerprivacy">
-      <h1>Terms and Conditions</h1>
+      <h1 className="h1" style={{ textDecoration: "underline" }}>
+        Terms and Conditions
+      </h1>
       <hr />
       <br />
       <h2 style={{ color: "#333" }}>Introduction</h2>
