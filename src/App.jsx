@@ -49,6 +49,7 @@ import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
@@ -117,10 +118,10 @@ export default function App() {
           <Route path="about" element={<AboutUs />} />
           <Route path="help" element={<Help />} />
           <Route path="privacy" element={<Privacy />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />
           <Route path="team" element={<Team />} />
           <Route path="login" element={<Login />} />
-          <Route path="cart" element={<Cart />} />
 
           <Route element={<PrivateRoute />}>
             <Route path="dashboard" element={<Dashboard />} />
@@ -146,7 +147,7 @@ export default function App() {
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
-
+      <Toaster/>
     </Provider>
   );
 }

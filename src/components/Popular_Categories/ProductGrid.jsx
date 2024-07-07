@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { manageCartItem } from '../../redux/cartSlice';
+import toast from 'react-hot-toast';
 
 function ProductGrid({ products }) {
   return (
@@ -20,12 +21,14 @@ function ProductGrid({ products }) {
 function ProductCard({ product }) {
 
   const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items)
 
   const onAddToCart = (product) => {
     const quantity = 1;
     dispatch(manageCartItem({product, quantity}))
-    alert("Item successfully added to cart!")
+    toast.success(`${product.title} successfully added to cart!`)
   }
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
       <img src={product.image} alt={product.title} className="w-full h-48 object-contain p-4" />
@@ -39,10 +42,11 @@ function ProductCard({ product }) {
           <span className="text-gray-500 ml-1">({product.rating.count})</span>
         </div>
         <button
-          className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors"
+          className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
           onClick={() => { onAddToCart(product) }}
+          disabled={cartItems.find(item => item.id === product.id)}
         >
-          Add to Cart
+          {cartItems.find(item => item.id === product.id) ? "Added to cart" : "Add to Cart" }
         </button>
       </div>
     </div>
