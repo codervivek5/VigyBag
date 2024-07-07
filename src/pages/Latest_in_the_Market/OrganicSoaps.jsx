@@ -5,7 +5,7 @@ import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
 import axios from "axios";
 
-function ArtSupplies() {
+function OrganicSoaps() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -13,14 +13,16 @@ function ArtSupplies() {
   const [ratingFilter, setRatingFilter] = useState(0);
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://fakestoreapi.com/products');
         setProducts(response.data);
         setFilteredProducts(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Axios error:', error);
-      });
+      }
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {

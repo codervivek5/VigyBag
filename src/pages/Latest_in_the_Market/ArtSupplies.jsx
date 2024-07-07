@@ -12,15 +12,18 @@ function ArtSupplies() {
   const [ratingFilter, setRatingFilter] = useState(0);
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://fakestoreapi.com/products');
         setProducts(response.data);
         setFilteredProducts(response.data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Axios error:', error);
-      });
+      }
+    };
+    fetchData();
   }, []);
+  
   useEffect(() => {
     setFilteredProducts(
          products
