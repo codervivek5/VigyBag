@@ -3,7 +3,9 @@ import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
 
-function BeautyWellness() {
+import axios from "axios";
+
+function PrintingStationery() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -11,20 +13,16 @@ function BeautyWellness() {
   const [ratingFilter, setRatingFilter] = useState(0);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data);
-      })
-      .catch((error) => {
-        console.error('Fetch error:', error);
-      });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://fakestoreapi.com/products');
+        setProducts(response.data);
+        setFilteredProducts(response.data);
+      } catch (error) {
+        console.error('Axios error:', error);
+      }
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -58,5 +56,5 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default PrintingStationery;
 

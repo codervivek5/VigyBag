@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../components/Popular_Categories/Header';
 import Filters from '../../components/Popular_Categories/Filters';
 import ProductGrid from '../../components/Popular_Categories/ProductGrid';
+import axios from "axios";
 
-function BeautyWellness() {
+function BambooProducts() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
@@ -11,45 +12,41 @@ function BeautyWellness() {
   const [ratingFilter, setRatingFilter] = useState(0);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data);
-      })
-      .catch((error) => {
-        console.error('Fetch error:', error);
-      });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://fakestoreapi.com/products');
+        setProducts(response.data);
+        setFilteredProducts(response.data);
+      } catch (error) {
+        console.error('Axios error:', error);
+      }
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
     setFilteredProducts(
-         products
-           .filter(product => !categoryFilter || product.category === categoryFilter)
-           .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
-           .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
-       );
+      products
+        .filter(product => !categoryFilter || product.category === categoryFilter)
+        .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
+        .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
+    );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
 
   return (
     <div className="bg-[#fff5edff] min-h-screen">
-      <Header 
-        backgroundUrl="https://wallpaperaccess.com/full/3854171.jpg" 
+      <Header
+        backgroundUrl="https://wallpaperaccess.com/full/3854171.jpg"
         headingText="Baamboo Products"
         paragraphText="Home/Baamboo Products"
       />
       <main className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-8 relative">
-          <Filters 
+          <Filters
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#eef29bff" 
+            backgroundColor="#eef29bff"
           />
           <ProductGrid products={filteredProducts} />
         </div>
@@ -58,4 +55,4 @@ function BeautyWellness() {
   );
 }
 
-export default BeautyWellness;
+export default BambooProducts;
