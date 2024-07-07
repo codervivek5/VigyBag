@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UseCart from '../../hooks/UseCart';
 import { useDispatch } from 'react-redux';
 import { manageCartItem } from '../../redux/cartSlice';
 
@@ -20,7 +19,6 @@ function ProductGrid({ products }) {
 
 function ProductCard({ product }) {
 
-  const {addToCart} = UseCart();
   const dispatch = useDispatch();
 
   const onAddToCart = (product) => {
