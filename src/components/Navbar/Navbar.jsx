@@ -81,7 +81,7 @@ const Navbar = ({ isAdmin }) => {
                   searchTerm={searchTerm}
                   handleSearch={handleSearch}
                 />
-                {isLoggedIn && <CartIcon />}
+                <CartIcon />
                 {isLoggedIn && (
                   <>
                     {isAdmin ? (
