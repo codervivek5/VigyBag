@@ -15,6 +15,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.emreesen.sntoast.SnToast
+import com.emreesen.sntoast.Type
 import com.example.vigybagg.R
 import com.example.vigybagg.databinding.ActivityOtpactivityBinding
 import com.example.vigybagg.utils
@@ -77,13 +79,26 @@ class OTPActivity : AppCompatActivity() {
                         OTP, typedOTP
                     )
 //                    progressBar.visibility = View.VISIBLE
-                    utils.showDialog(this@OTPActivity,"Verfying OTP")
+                    utils.showDialog(this@OTPActivity,"Verifying OTP")
                     signInWithPhoneAuthCredential(credential)
                 } else {
-                    Toast.makeText(this, "Please Enter Correct OTP", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Please Enter Correct OTP", Toast.LENGTH_SHORT).show()
+                    SnToast.Builder()
+                        .context(this)
+                        .type(Type.WARNING)
+                        .message("Please Enter Correct OTP!")
+                        .build()
+
+
                 }
             } else {
-                Toast.makeText(this, "Please Enter OTP", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "Please Enter OTP", Toast.LENGTH_SHORT).show()
+
+                SnToast.Builder()
+                    .context(this)
+                    .type(Type.INFORMATION)
+                    .message("Please Enter OTP!")
+                    .build()
             }
 
 
@@ -163,8 +178,14 @@ class OTPActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
+                    SnToast.Builder()
+                        .context(this)
+                        .type(Type.SUCCESS)
+                        .message("Authenticate Successfully")
+                        .build()
 
-                    Toast.makeText(this, "Authenticate Successfully", Toast.LENGTH_SHORT).show()
+
+//                    Toast.makeText(this, "Authenticate Successfully", Toast.LENGTH_SHORT).show()
                     sendToMain()
                 } else {
                     // Sign in failed, display a message and update the UI
