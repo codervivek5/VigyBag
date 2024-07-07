@@ -46,6 +46,9 @@ import FoodBeverages from "./pages/Popular_Categories/Food-Beverages";
 import FurnitureDecor from "./pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import { Toaster } from "react-hot-toast";
 
 //Admin Pages
 import AdminPanel from "./Admin/Admin_Panel";
