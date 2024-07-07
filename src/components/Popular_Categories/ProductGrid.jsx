@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UseCart from '../../hooks/UseCart';
+import { useDispatch } from 'react-redux';
+import { manageCartItem } from '../../redux/cartSlice';
 
 function ProductGrid({ products }) {
   return (
@@ -19,10 +21,11 @@ function ProductGrid({ products }) {
 function ProductCard({ product }) {
 
   const {addToCart} = UseCart();
+  const dispatch = useDispatch();
 
   const onAddToCart = (product) => {
-    console.log(product);
-    addToCart(product, 1)
+    const quantity = 1;
+    dispatch(manageCartItem({product, quantity}))
     alert("Item successfully added to cart!")
   }
   return (

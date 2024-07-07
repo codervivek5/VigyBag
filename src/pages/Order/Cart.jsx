@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import UseCart from "../../hooks/UseCart";
 import CartEmpty from "./CartEmpty";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, manageCartItem } from "../../redux/cartSlice";
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
@@ -14,7 +16,7 @@ const buttonBgClass =
 
 const CartItem = ({
   product,
-  onupdate,
+  onUpdate,
 }) => (
   <div
     className={`${cardClass} flex items-center justify-between mb-4`}
@@ -32,13 +34,13 @@ const CartItem = ({
         </p>
         <p className="flex gap-3 items-center">
           <span
-            onClick={() => onupdate(product, -1)}
+            onClick={() => onUpdate(product, -1)}
           >
             <FaMinusCircle />
           </span>
           <span>{product.quantity}</span>
           <span
-            onClick={() => onupdate(product, 1)}
+            onClick={() => onUpdate(product, 1)}
           >
             <FaPlusCircle />
           </span>
@@ -51,9 +53,9 @@ const CartItem = ({
       trigger="hover"
       colors="primary:#ff0000"
       style={{ width: "30px", height: "30px", cursor: "pointer" }}
-      onClick={() => onupdate(product, -1 * product.quantity)}
+      onClick={() => onUpdate(product, -1 * product.quantity)}
       onKeyUp={(e) => {
-        if (e.key === "Enter") onupdate(product, -1 * product.quantity);
+        if (e.key === "Enter") onUpdate(product, -1 * product.quantity);
       }}
       tabIndex="0"></lord-icon>
   </div>
@@ -104,13 +106,6 @@ const Subtotal = ({ items }) => {
   );
 };
 
-const EmptyCart = () => {
-  return (
-    <p>Your cart is Empty!</p>
-  )
-}
-
-
 const ProceedToCheckout = () => {
   return (
     <div className="mt-6">
@@ -159,24 +154,18 @@ const LoginToContinue = () => {
 }
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const { addToCart, clearCart, getCart } = UseCart();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const cartItems = useSelector(state => state.cart.items)
+  const dispatch = useDispatch()
 
-  const onupdate = (product, quantity) => {
-    addToCart(product, quantity)
-    setCartItems(getCart())
+  const onUpdate = (product, quantity) => {
+    dispatch(manageCartItem({ product, quantity }))
   }
 
   const onclear = () => {
-    clearCart()
-    setCartItems(getCart())
+    dispatch(clearCart())
   }
 
-  console.log(cartItems)
-  useEffect(() => {
-    setCartItems(getCart())
-  }, [])
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
@@ -190,7 +179,7 @@ const Cart = () => {
                   <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
                   <div className="space-y-6">
                     {cartItems.map((item) => (
-                      <CartItem key={item.id} product={item} onupdate={onupdate} />
+                      <CartItem key={item.id} product={item} onUpdate={onUpdate} />
                     ))}
                   </div>
                   <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
