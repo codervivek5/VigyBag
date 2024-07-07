@@ -50,6 +50,7 @@ import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { Toaster } from "react-hot-toast";
+import AdminPanel from "./Admin/Admin_Panel";
 
 export default function App() {
   return (
@@ -145,6 +146,7 @@ export default function App() {
           <Route path="termsAndCondition" element={<TermsAndConditions />} />
 
           <Route path="*" element={<Error />} />
+          <Route path="admin" element={<AdminPanel />} />
         </Route>
       </Routes>
       <Toaster/>
