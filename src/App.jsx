@@ -47,6 +47,9 @@ import FurnitureDecor from "./pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 
+//Admin Pages
+import AdminPanel from "./Admin/Admin_Panel";
+
 export default function App() {
   return (
     <Routes>
@@ -138,6 +141,8 @@ export default function App() {
         <Route path="faq" element={<FAQ />} />
 
         <Route path="*" element={<Error />} />
+
+        <Route path="admin" element={<AdminPanel />} />
       </Route>
     </Routes>
   );
