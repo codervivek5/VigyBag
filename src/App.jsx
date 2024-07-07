@@ -24,6 +24,7 @@ import Signup from "./pages/Signup/Signup";
 import FAQ from "./pages/FAQ/Faq";
 import CartEmpty from "./pages/Order/CartEmpty";
 import PrivateRoute from "./PrivateRoute";
+import TermsAndConditions from "./pages/TermsAndCondition/TermsAndCondition";
 
 // Latest_In_Market
 import LatestInMarket from "./pages/Latest_in_the_Market/LatestInMarket";
@@ -49,8 +50,6 @@ import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { Toaster } from "react-hot-toast";
-
-//Admin Pages
 import AdminPanel from "./Admin/Admin_Panel";
 
 export default function App() {
