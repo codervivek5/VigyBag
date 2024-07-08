@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import NavLogo from "./NavLogo";
 import NavLink from "./NavLink";
 import ProductsDropdown from "./ProductsDropdown";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
