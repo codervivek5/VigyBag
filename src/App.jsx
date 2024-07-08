@@ -49,7 +49,7 @@ import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import AdminPanel from "./Admin/Admin_Panel";
 import RegistrationForm from "./Admin/RegistrationForm";
-import ProductForm from "./Admin/ProductForm";
+
 
 export default function App() {
   return (
@@ -147,7 +147,6 @@ export default function App() {
           <Route path="*" element={<Error />} />
           <Route path="admin" element={<AdminPanel />} />
           <Route path="admin_form" element={<RegistrationForm />} />
-          <Route path="product_form" element={<ProductForm />} />
         </Route>
       </Routes>
     
