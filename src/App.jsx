@@ -47,14 +47,13 @@ import FoodBeverages from "./pages/Popular_Categories/Food-Beverages";
 import FurnitureDecor from "./pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import { Toaster } from "react-hot-toast";
 import AdminPanel from "./Admin/Admin_Panel";
+import RegistrationForm from "./Admin/RegistrationForm";
+import ProductForm from "./Admin/ProductForm";
 
 export default function App() {
   return (
-    <Provider store={store}>
+    
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -147,9 +146,10 @@ export default function App() {
 
           <Route path="*" element={<Error />} />
           <Route path="admin" element={<AdminPanel />} />
+          <Route path="admin_form" element={<RegistrationForm />} />
+          <Route path="product_form" element={<ProductForm />} />
         </Route>
       </Routes>
-      <Toaster/>
-    </Provider>
+    
   );
 }
