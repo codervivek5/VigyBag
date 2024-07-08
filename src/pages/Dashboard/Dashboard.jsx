@@ -15,10 +15,10 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import Aside from "../../components/Aside/Aside";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Dashboard/Header";
-import Banner from "../../components/Dashboard/Banner";
 import SearchBar from "../../components/Dashboard/SearchBar";
 import SeeMore from "../../components/Buttons/SeeMore";
 import ViewLess from "../../components/Buttons/ViewLess";
+import Dropdown from "../../components/Dashboard/Dropdown";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -102,9 +102,16 @@ const Dashboard = () => {
   ];
 
   const [products] = useState([...initialProducts, ...moreProducts]);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const [searchTerm, setSearchTerm] = useState("");
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [clicked, setClicked] = useState(0);
   const [showViewLess, setShowViewLess] = useState(false);
+
+  const handleSearch = (e) => setSearchTerm(e.target.value);
+  const handleDropdown = (dropdown) => setOpenDropdown(dropdown);
+  const handleDropdownLeave = () => setOpenDropdown(null);
 
   const handleSeeMore = () => {
     if (clicked === 0) {
@@ -147,15 +154,20 @@ const Dashboard = () => {
         {/* Header */}
         <Header />
 
-        {/* Welcome Banner */}
-        <Banner />
-
         {/* Search Bar */}
-        <SearchBar />
+        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
 
         {/* New Today Section */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">New Today</h2>
+          <div className="flex justify-between">
+            <h2 className="text-2xl font-bold mb-4">New Today</h2>
+            <Dropdown
+              isOpen={openDropdown === "products"}
+              onMouseEnter={() => handleDropdown("products")}
+              onMouseLeave={handleDropdownLeave}
+            />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.slice(0, visibleProducts).map((product, index) => (
               <ProductCard
@@ -168,12 +180,8 @@ const Dashboard = () => {
             ))}
           </div>
           <div className="mt-6 flex justify-center">
-            {clicked < 2 && (
-              <SeeMore />
-            )}
-            {showViewLess && (
-              <ViewLess />
-            )}
+            {clicked < 2 && <SeeMore />}
+            {showViewLess && <ViewLess />}
           </div>
         </section>
       </main>
