@@ -15,7 +15,6 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import Aside from "../../components/Aside/Aside";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Dashboard/Header";
-import Banner from "../../components/Dashboard/Banner";
 import SearchBar from "../../components/Dashboard/SearchBar";
 import SeeMore from "../../components/Buttons/SeeMore";
 import ViewLess from "../../components/Buttons/ViewLess";
@@ -155,11 +154,7 @@ const Dashboard = () => {
         {/* Header */}
         <Header />
 
-        {/* Welcome Banner */}
-        {/* <Banner /> */}
-
         {/* Search Bar */}
-        {/* <SearchBar /> */}
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
 
         {/* New Today Section */}
