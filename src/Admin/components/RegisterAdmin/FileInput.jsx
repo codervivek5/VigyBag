@@ -14,7 +14,7 @@ const FileInput = ({ label, accept, required = false, maxSize = 50 * 1024 }) => 
       setPreview(URL.createObjectURL(selectedFile));
     } else {
       setFile(null);
-      setError('File size exceeds 50 KB limit');
+      setError(`File size exceeds ${maxSize / 1024} KB limit`);
       setPreview('');
     }
   };
