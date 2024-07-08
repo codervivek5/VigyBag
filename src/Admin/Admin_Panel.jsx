@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../Admin/components/Admin_Panel/Header';
-import SearchBar from '../Admin/components/Admin_Panel/SearchBar';
-import ExportButton from '../Admin/components/Admin_Panel/ExportButton';
-import StatsSummary from '../Admin/components/Admin_Panel/StatsSummary';
-import VigyTable from '../Admin/components/Admin_Panel/VigyTable';
-import Pagination from '../Admin/components/Admin_Panel/Pagination';
-import AddVigyModal from '../Admin/components/Admin_Panel/AddVigyModal';
-import ProfileModal from '../Admin/components/Admin_Panel/ProfileModal';
+import Header from './components/AdminNavbar';
+import SearchBar from '../Admin/components/SearchBar';
+import ExportButton from '../Admin/components/ExportButton';
+import StatsSummary from '../Admin/components/StatsSummary';
+import VigyTable from '../Admin/components/VigyTable';
+import Pagination from '../Admin/components/Pagination';
+import AddVigyModal from '../Admin/components/AddVigyModal';
+import ProfileModal from '../Admin/components/ProfileModal';
 
 const AdminPanel = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -57,7 +57,7 @@ const AdminPanel = () => {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <Header />
+           
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="flex flex-col sm:flex-row justify-between mb-6">
                     <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
