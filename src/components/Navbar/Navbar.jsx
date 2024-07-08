@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavLogo from "./NavLogo";
-import NavLink from "./NavLink";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
