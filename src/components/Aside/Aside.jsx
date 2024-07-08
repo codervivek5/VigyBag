@@ -55,7 +55,7 @@ const Aside = () => {
             <span>My Profile</span>
           </a>
           <a
-            href="#"
+            href="MyOrders"
             className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md">
             <lord-icon
               style={{
@@ -68,7 +68,7 @@ const Aside = () => {
             <span>Orders</span>
           </a>
           <a
-            href="#"
+            href="Cart"
             className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md relative">
             <lord-icon
               style={{
@@ -113,7 +113,7 @@ const Aside = () => {
             </span>
           </a>
           <a
-            href="#"
+            href="Help"
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
@@ -126,7 +126,7 @@ const Aside = () => {
             <span>Help</span>
           </a>
           <a
-            href="#"
+            href="Contact"
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
