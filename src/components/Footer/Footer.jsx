@@ -3,7 +3,7 @@ import "./Footer.css"; // Ensure this CSS file exists with the provided styles
 import instagramIcon from "./image/in.png";
 import xIcon from "./image/tw.png";
 import linkedinIcon from "./image/li.png";
-import githubIcon from "./image/li.png";
+import githubIcon from "./image/github (1).png";
 import facebookIcon from "./image/meta.png";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/Logo.svg";
@@ -12,7 +12,7 @@ import googlePlay from "../../assets/google-play.png";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: 0,  
       behavior: "smooth",
     });
   };
@@ -189,19 +189,8 @@ const Footer = () => {
                   src="https://cdn.lordicon.com/fjuachvi.json"
                   trigger="hover"></lord-icon>
               </a>
-              <a href="https://github.com/">
-                <lord-icon
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    paddingTop: "0px",
-                    paddingLeft: "1px",
-                    stroke:"bold"
-                  
-                    
-                  }}
-                  src="https://cdn.lordicon.com/wxwbdnuw.json"
-                  trigger="hover"></lord-icon>
+              <a href="https://github.com/codervivek5/">
+                <img src={githubIcon} alt="Github"/>
               </a>
             </div>
           </div>
