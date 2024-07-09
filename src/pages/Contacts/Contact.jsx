@@ -79,11 +79,11 @@ const ContactForm = () => {
           <div className="flex flex-col items-center mb-1 mt-4">
             <div className="flex items-center mb-2">
               <FaEnvelope className="text-gray-400 mr-2" />
-              <span className="text-gray-400 text-sm">customersupport@vigybag.in</span>
+              <span className="text-gray-400 text-sm"><a href="mailto:vigybag@gmail.com">vigybag@gmail.com</a></span>
             </div>
             <div className="flex items-center">
               <FaPhone className="text-gray-400 mr-2" />
-              <span className="text-gray-400 text-sm">+91 9123456789</span>
+              <span className="text-gray-400 text-sm"> <a href="tel:+919123456789">+91 9123456789</a></span>
             </div>
           </div>
         </div>
