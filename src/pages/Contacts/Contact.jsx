@@ -1,8 +1,42 @@
 import React from 'react';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import Logo from '../../assets/offical_logo.png';
+import emailjs from "@emailjs/browser";
+import { useState } from 'react';
 
 const ContactForm = () => {
+    const [firstname,setFirstname]=useState('')
+    const [lastname,setLastname]=useState('')
+    const [contact,setContact]=useState('')
+    const [email,setEmail]=useState('')
+    const [message,setMessage]=useState('')
+
+
+    const handleEmailSubmit=(e)=>{
+      e.preventDefault();
+      
+      const templateParams={
+        from_name:firstname+" "+lastname,
+        from_email:email,
+        phone_number:contact,
+        email_id:"subtlybeige@gmail.com",
+        message: message,
+      }
+
+      emailjs.send("service_7lb51ka","template_mu7qnok",templateParams,"-OBmWZjadmE1odXKm")
+      .then((response)=>{
+        console.log("email sent",response)
+        alert("Your message has been sent successfully! Will get back to you as soon as possible.")
+        setName('')
+        setEmail('')
+        setMessage('')        
+      })
+      .catch((err)=>{
+        setLoading(false);
+        console.log("error",err)
+        alert("Sorry, something went wrong while sending your message. Please try again later.");
+      })
+    }
   return (
     <div className="bg-[#fff0e3ff] min-h-screen flex items-center justify-center mt-1">
       <div className="bg-[#393d3cff] text-white py-8 px-6 sm:px-12 rounded-lg" style={{ marginTop: '13vh', borderRadius: '20px', width: '90vw', maxWidth: '600px', marginBottom: '13vh' }}>
@@ -17,12 +51,15 @@ const ContactForm = () => {
         <h2 className="text-3xl font-semibold text-center mb-4 mt-10 text-white">Contact Us</h2>
         <p className="text-gray-400 text-center text-lg mb-8">Got something to say? Let us know!</p>
 
+      <form onSubmit={handleEmailSubmit}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <input
               className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               type="text"
               placeholder="First Name *"
+              onChange={(e)=>setFirstname(e.target.value)}
+              value={firstname}
               required
             />
           </div>
@@ -31,6 +68,8 @@ const ContactForm = () => {
               className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               type="text"
               placeholder="Last Name *"
+              onChange={(e)=>setLastname(e.target.value)}
+              value={lastname}
               required
             />
           </div>
@@ -42,6 +81,9 @@ const ContactForm = () => {
               className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               type="email"
               placeholder="Email Address *"
+              name='email'
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
               required
             />
           </div>
@@ -50,6 +92,9 @@ const ContactForm = () => {
               className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               type="tel"
               placeholder="Contact Number *"
+              name='contact'
+              value={contact}
+              onChange={(e)=>setContact(e.target.value)}
               required
             />
           </div>
@@ -60,6 +105,9 @@ const ContactForm = () => {
             className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
             rows={4}
             placeholder="Tell us your thoughts..."
+            name='message'
+            value={message}
+            onChange={(e)=>setMessage(e.target.value)}
             required
           ></textarea>
         </div>
@@ -71,6 +119,7 @@ const ContactForm = () => {
           >
             Get In Touch
           </button>
+        
           <hr className="w-full h-1 bg-white z-2 relative" />
           <p className="text-white text-sm mb-2 text-center px-10" 
           style={{ padding: '10px', border: '1px solid white', borderRadius: '20px',
@@ -87,6 +136,7 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
+      </form>
       </div>
     </div>
   );
