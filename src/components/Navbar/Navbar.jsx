@@ -91,7 +91,7 @@ const Navbar = () => {
                     onClick={() => handleDropdown("gifts")}
                   >
 
-                    onMouseEnter={() => handleDropdown("gifts")} onMouseLeave={() => handleDropdown("gifts")}
+                    onMouseEnter={() => handleDropdown("gifts")} onMouseLeave={() => handleDropdown("gifts")}>
 
                     <lord-icon
                       style={{
@@ -306,10 +306,10 @@ const Navbar = () => {
 
                   className="text-black hover:text-gray-600 block px-4 py-2 text-sm"
                 >
-                  {/* Fashion
+                  Fashion
 
                   className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
-                  Fashion  */}
+                  Fashion 
 
                 </Link>
                 <Link
