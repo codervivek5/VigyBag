@@ -73,6 +73,9 @@ const Footer = () => {
           <Link to="/about" onClick={scrollToTop}>
             Meet our contributor
           </Link>
+          <Link to="/certificate" onClick={scrollToTop}>
+            Certification Page
+          </Link>
         </div>
         <div className="contact-info text-sm">
           <p className="font-thin text-center text-gray-400">CONSUMER POLICY</p>{" "}
