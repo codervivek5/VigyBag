@@ -42,13 +42,13 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       const response = await axios.post(
         "https://vigybag-backend.onrender.com/api/auth/login",
@@ -58,10 +58,30 @@ const LoginForm = () => {
         }
       );
 
-      toast.success(response.data.message);
-      navigate("/dashboard");
-      setEmail("");
-      setPassword("");
+      if (response.status === 200) {
+        // Show success message with toast
+        toast.success(response.data.message);
+
+        // Check if the user is an admin based on role
+        // if (response.data.user.role === 1) {
+        //   localStorage.setItem("isAdmin", "true");
+        //   setIsAdmin(true);
+        // } else {
+        //   localStorage.setItem("isAdmin", "false");
+        //   setIsAdmin(false);
+        // }
+
+        // Set isLoggedIn in localStorage
+        localStorage.setItem("isLoggedIn", "true");
+
+        // Navigate to the dashboard after state updates
+        setEmail("");
+        setPassword("");
+        setLoading(false); // Ensure loading state is reset before navigation
+        navigate("/dashboard");
+      } else {
+        throw new Error("Unexpected response status");
+      }
     } catch (error) {
       if (
         error.response &&
@@ -72,15 +92,19 @@ const LoginForm = () => {
       } else {
         toast.error("An unexpected error occurred. Please try again.");
       }
-    } finally {
-      setLoading(false);
+      setLoading(false); // Ensure loading state is reset in case of error
     }
   };
+
+  function handleToggle() {
+    setShowPassword(!showPassword);
+  }
 
   return (
     <>
       <div className={formContainerClasses}>
         <div className={cardClasses}>
+          {/* Form section */}
           <div className={formSectionClasses}>
             <div className="flex justify-center mb-3">
               <img
@@ -91,8 +115,10 @@ const LoginForm = () => {
               />
             </div>
             <h2 className="text-3xl font-semibold text-center mb-6 text-white">
-              Login
+              Log in
             </h2>
+
+            {/* Login form */}
             <form className="space-y-4" onSubmit={handleLogin}>
               <FormInput
                 required={true}
@@ -102,56 +128,76 @@ const LoginForm = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <FormInput
-                required={true}
-                icon={<RiLockPasswordLine />}
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="w-full bg-green-700 text-white py-2 rounded-xl"
-              >
-                {loading ? <DotLoader color="#ffffff" size={24} /> : "Login"}
-              </button>
+              <div className="relative">
+                <FormInput
+                  required={true}
+                  icon={<RiLockPasswordLine />}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {/* {showPassword ? (
+                <FaEye
+                  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                  onClick={handleToggle}
+                />
+              ) : (
+                <FaEyeSlash
+                  className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                  onClick={handleToggle}
+                />
+              )} */}
+              </div>
               <div className="flex items-center">
                 <input type="checkbox" id="remember" className="mr-2" />
                 <label htmlFor="remember" className="text-zinc-400">
                   Remember Me
                 </label>
               </div>
+              <button
+                type="submit"
+                className="w-full h-12 bg-green-500 text-white rounded-xl flex items-center justify-center"
+              >
+                {loading ? <DotLoader color="#ffffff" size={24} /> : "Login"}
+              </button>
             </form>
 
+            {/* Show admin access message if isAdmin is true */}
+            {isAdmin && (
+              <p className="text-green-500 mt-4">Admin access granted!</p>
+            )}
+
+            {/* Social login buttons */}
             <div className="text-center mt-4">
-              <p className="text-zinc-400 mb-2">Or log in with:</p>
+              <p className="text-zinc-400 mb-2">Or Login with:</p>
               <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                 <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
                   <FcGoogle
                     className="text-black p-1"
                     style={{ fontSize: "2rem" }}
                   />
-                  <span className="ml-2 text-sm">Log in with Google</span>
+                  <span className="ml-2 text-sm">Login with Google</span>
                 </button>
                 <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
                   <FaFacebookSquare
                     className="text-black p-1"
                     style={{ fontSize: "2rem" }}
                   />
-                  <span className="ml-2 text-sm">Log in with Facebook</span>
+                  <span className="ml-2 text-sm">Login with Facebook</span>
                 </button>
               </div>
             </div>
 
             <p className="text-zinc-400 text-center mt-4">
-              Don't have an account?{" "}
+              Create an account?{" "}
               <Link to="/signup" className="text-green-500">
-                Sign up
+                Sign-Up
               </Link>
             </p>
           </div>
 
+          {/* Illustration section */}
           <div className={illustrationSectionClasses}>
             <img
               src={signUp}
