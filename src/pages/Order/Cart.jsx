@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Mug from "../../assets/coffee-mug.png";
-import Container from "../../assets/Storage-basket-and-container.jpeg";
-import DoorMat from "../../assets/Handwoven-Doormat.jpeg";
-import TUMBLER from "../../assets/TUMBLER.png";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MdHeight } from "react-icons/md";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import CartEmpty from "./CartEmpty";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, manageCartItem } from "../../redux/cartSlice";
+import toast from "react-hot-toast";
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
@@ -15,33 +15,36 @@ const buttonBgClass =
   "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
 
 const CartItem = ({
-  id,
-  name,
-  seller,
-  size,
-  price,
-  discount,
-  quantity,
-  image,
-  onRemove,
+  product,
+  onUpdate,
 }) => (
   <div
     className={`${cardClass} flex items-center justify-between mb-4`}
     style={{ border: "1px solid black" }}>
     <div className="flex items-center">
       <img
-        src={image}
-        alt={name}
+        src={product.image}
+        alt={product.title}
         className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4"
       />
       <div>
-        <h3 className="text-lg font-semibold text-zinc-800">{name}</h3>
-        <p className={textClass}>Sold by: {seller}</p>
-        <p className={textClass}>Size: {size}</p>
+        <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
         <p className={textClass}>
-          ₹{price} <span className="line-through">₹{discount}</span> (70% OFF)
+          ₹{product.total.toFixed(2)}
         </p>
-        <p className={greenTextClass}>Quantity: {quantity}</p>
+        <p className="flex gap-3 items-center">
+          <span
+            onClick={() => onUpdate(product, -1)}
+          >
+            <FaMinusCircle />
+          </span>
+          <span>{product.quantity}</span>
+          <span
+            onClick={() => onUpdate(product, 1)}
+          >
+            <FaPlusCircle />
+          </span>
+        </p>
       </div>
     </div>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
@@ -49,14 +52,12 @@ const CartItem = ({
       src="https://cdn.lordicon.com/skkahier.json"
       trigger="hover"
       colors="primary:#ff0000"
-
       style={{ width: "30px", height: "30px", cursor: "pointer" }}
-      onClick={() => onRemove(id)}
+      onClick={() => onUpdate(product, -1 * product.quantity)}
       onKeyUp={(e) => {
-        if (e.key === "Enter") onRemove(id);
+        if (e.key === "Enter") onUpdate(product, -1 * product.quantity);
       }}
       tabIndex="0"></lord-icon>
-
   </div>
 );
 
@@ -82,9 +83,8 @@ const Breadcrumbs = () => (
 
 const Subtotal = ({ items }) => {
   const total = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+    (acc, item) => acc + item.total, 0
+  ).toFixed(2);
 
   return (
     <div
@@ -94,7 +94,7 @@ const Subtotal = ({ items }) => {
       <ul className="list-disc list-inside text-zinc-700 space-y-1">
         {items.map((item, index) => (
           <li key={index}>
-            {item.name} ₹{item.price * item.quantity}
+            {item.title} ₹{item.total}
           </li>
         ))}
       </ul>
@@ -106,57 +106,67 @@ const Subtotal = ({ items }) => {
   );
 };
 
+const ProceedToCheckout = () => {
+  return (
+    <div className="mt-6">
+      <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+        <input
+          type="text"
+          placeholder="Enter coupon code"
+          className="p-2 border border-gray-300 rounded-md w-full"
+        />
+
+        <button
+          type="button"
+          className={`${buttonBgClass} w-full sm:w-auto`}>
+          Redeem
+        </button>
+      </div>
+      <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
+        <button
+          type="button"
+          className={`${buttonBgClass} w-full sm:w-auto`}
+          style={{ minWidth: "425px" }}>
+          Check Out
+        </button>
+
+      </div>
+    </div>
+  )
+}
+
+const LoginToContinue = () => {
+  return (
+    <div className="mt-5">
+      <p className="text-lg font-bold">Seems like you are not logged in yet. Please login to proceed to Checkout.</p>
+      <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
+        <Link to="/login">
+          <button
+            type="button"
+            className={`${buttonBgClass} w-full sm:w-auto`}
+            style={{ minWidth: "425px" }}>
+            Login now
+          </button>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Eco-friendly Coffee Mug",
-      seller: "XYZ",
-      size: "One Size",
-      price: 75,
-      discount: 249,
-      quantity: 4,
-      image: Mug,
-    },
-    {
-      id: 2,
-      name: "Handwoven Doormat",
-      seller: "XYZ",
-      size: "One Size",
-      price: 275,
-      discount: 299,
-      quantity: 1,
-      image: DoorMat,
-    },
-    {
-      id: 3,
-      name: "Bamboo Insulated Tumbler",
-      seller: "XYZ",
-      size: "One Size",
-      price: 175,
-      discount: 299,
-      quantity: 2,
-      image: TUMBLER,
-    },
-    {
-      id: 4,
-      name: "Storage basket and container",
-      seller: "XYZ",
-      size: "One Size",
-      price: 175,
-      discount: 299,
-      quantity: 1,
-      image: Container,
-    },
-  ]);
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const cartItems = useSelector(state => state.cart.items)
+  const dispatch = useDispatch()
 
-  const removeItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
+  const onUpdate = (product, quantity) => {
+    dispatch(manageCartItem({ product, quantity }))
+  }
 
-  const clearCart = () => {
-    setCartItems([]);
-  };
+  const onclear = () => {
+    dispatch(clearCart())
+    toast.success(`Cart successfully cleared!`)
+  }
+
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
@@ -165,49 +175,37 @@ const Cart = () => {
           <div className="w-full lg:w-2/3">
             <Breadcrumbs />
             <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
-            <div className="space-y-6">
-              {cartItems.map((item) => (
-                <CartItem key={item.id} {...item} onRemove={removeItem} />
-              ))}
-            </div>
-            <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+            {
+              cartItems.length === 0 ? <CartEmpty /> : (
+                <>
+                  <div className="space-y-6">
 
-              <button
-                type="button"
-                className={`${buttonBgClass} w-full sm:w-auto`}
-                onClick={clearCart}>
-                Clear Cart
-              </button>
+                    {cartItems.map((item) => (
+                      <CartItem key={item.id} product={item} onUpdate={onUpdate} />
+                    ))}
+                  </div>
+                  <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
 
-            </div>
+                    <button
+                      type="button"
+                      className={`${buttonBgClass} w-full sm:w-auto`}
+                      onClick={onclear}
+                    >
+                      Clear Cart
+                    </button>
+
+                  </div>
+                </>
+
+              )
+            }
+
+
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
             <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
             <Subtotal items={cartItems} />
-            <div className="mt-6">
-              <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                <input
-                  type="text"
-                  placeholder="Enter coupon code"
-                  className="p-2 border border-gray-300 rounded-md w-full"
-                />
-
-                <button
-                  type="button"
-                  className={`${buttonBgClass} w-full sm:w-auto`}>
-                  Redeem
-                </button>
-              </div>
-              <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-                <button
-                  type="button"
-                  className={`${buttonBgClass} w-full sm:w-auto`}
-                  style={{ minWidth: "425px" }}>
-                  Check Out
-                </button>
-
-              </div>
-            </div>
+            {!isLoggedIn ? <LoginToContinue /> : cartItems.length !== 0 ? <ProceedToCheckout  /> : <></>}
           </div>
         </div>
       </div>

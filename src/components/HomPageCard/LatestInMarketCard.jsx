@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function LatestInMarketCard({ product }) {
-  const { name, description, discount, img } = product;
-  const linkTo = `/product/${name.replace(/ /g, '-').toLowerCase()}`;
+  const { name, description, discount, img, path } = product;
 
   return (
-    <Link to={linkTo} className="block">
+    <Link to={path} className="block">
       <div className="bg-gray-700 rounded-lg overflow-hidden shadow-lg flex flex-col h-full transition-transform hover:scale-105 cursor-pointer">
         <div className="relative pb-[60%]">
           <img src={img} alt={name} className="absolute inset-0 w-full h-full object-cover" />

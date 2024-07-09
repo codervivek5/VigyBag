@@ -7,11 +7,12 @@ import archana from "../../assets/ARCHANA-KRISHNA.png";
 import yatra from "../../assets/YATRA-VISHWAKARMA.png";
 import harshita from "../../assets/HARSHITA-BHAMBHANI.png";
 import anshuman from "../../assets/ANSHUMAN-TIWARI.png";
-import ContributorCard from "../../components/ContributorCard/ContributorCard";
+import ContributorCard from "../../components/About/ContributorCard";
 import coFounder from "../../assets/co-founder.jpeg";
 import founder from "../../assets/founder.jpeg";
-import app from "../../assets/app.png";
-import Networkdiagram from "../../components/Networkdiagram/Networkdiagram";
+import Networkdiagram from "../../components/About/Networkdiagram";
+import Header from "../../components/About/Header";
+import SeeMore from "../../components/Buttons/SeeMore";
 
 const AboutUs = () => {
   const contributorsData = [
@@ -208,26 +209,8 @@ const AboutUs = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen">
-      {/* Reduced Height Header Section */}
-      <header className="relative h-64 md:h-96 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={app}
-            alt="Background"
-            className="w-full h-full object-cover filter blur-sm"
-          />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-        </div>
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-2 md:mb-4">
-            About VigyBag
-          </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Revolutionizing eco-friendly shopping with innovative technology and
-            sustainable practices.
-          </p>
-        </div>
-      </header>
+      {/*Header Section */}
+     <Header />
 
       {/* Leadership Section */}
       <section className="py-12 md:py-20 bg-gray-100">
@@ -278,11 +261,6 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Other Sections */}
-      <div className="container mx-auto px-4">
-        {/* Add other sections as needed */}
-      </div>
-
       {/* Contributors Section */}
       <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -300,9 +278,7 @@ const AboutUs = () => {
             ))}
           </div>
           <div className="flex justify-center mt-8">
-            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300">
-              See More
-            </button>
+            <SeeMore />
           </div>
         </div>
       </section>

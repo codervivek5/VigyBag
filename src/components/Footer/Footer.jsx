@@ -3,6 +3,7 @@ import "./Footer.css"; // Ensure this CSS file exists with the provided styles
 import instagramIcon from "./image/in.png";
 import xIcon from "./image/tw.png";
 import linkedinIcon from "./image/li.png";
+import githubIcon from "./image/github (1).png";
 import facebookIcon from "./image/meta.png";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/Logo.svg";
@@ -11,7 +12,7 @@ import googlePlay from "../../assets/google-play.png";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: 0,  
       behavior: "smooth",
     });
   };
@@ -23,32 +24,33 @@ const Footer = () => {
           <Link to="/" className="flex items-center">
             <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh" }} />
           </Link>
-   
-          <div className="text-center  md:text-left mb-4 md:mb-0 md:mr-8"  style={{
-            marginLeft:'20px', marginTop:'20px'
-          }} >
-                  
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.vigybag"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300"
-                  >
-                    <img
-                      src={googlePlay}
-                      alt="Google Play"
-                      className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3"
-                    />
-                    <span>
-                      <div className="text-xs">GET IT ON</div>
-                      <div className="text-base sm:text-lg md:text-xl font-semibold">
-                        Google Play
-                      </div>
-                    </span>
-                  </a>
+
+          <div
+            className="text-center  md:text-left mb-4 md:mb-0 md:mr-8"
+            style={{
+              marginLeft: "20px",
+              marginTop: "20px",
+            }}>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vigybag"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300">
+              <img
+                src={googlePlay}
+                alt="Google Play"
+                className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3"
+              />
+              <span>
+                <div className="text-xs">GET IT ON</div>
+                <div className="text-base sm:text-lg md:text-xl font-semibold">
+                  Google Play
                 </div>
+              </span>
+            </a>
+          </div>
         </div>
-   
+
         <div className="contact-info text-sm">
           <p className="font-thin text-center text-gray-400">QUICK LINKS</p>{" "}
           <hr />
@@ -91,7 +93,7 @@ const Footer = () => {
           <Link to="/EPR_Page" onClick={scrollToTop}>
             EPR Compliance
           </Link>
-          <Link to="/terms-and-conditions" onClick={scrollToTop}>
+          <Link to="/termsAndCondition" onClick={scrollToTop}>
             Terms & Conditions
           </Link>
         </div>
@@ -187,6 +189,9 @@ const Footer = () => {
                   src="https://cdn.lordicon.com/fjuachvi.json"
                   trigger="hover"></lord-icon>
               </a>
+              <a href="https://github.com/codervivek5/">
+                <img src={githubIcon} alt="Github"/>
+              </a>
             </div>
           </div>
         </div>
@@ -198,9 +203,6 @@ const Footer = () => {
           src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg"
           alt="Payment methods"></img>
         <nav>
-          <Link to="/" onClick={scrollToTop}>
-            Home
-          </Link>
           <Link to="/our-services" onClick={scrollToTop}>
             Our Services
           </Link>

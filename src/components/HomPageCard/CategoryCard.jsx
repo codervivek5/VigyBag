@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategoryCard = ({ image, name }) => {
-  const linkTo = `/category/${name.replace(/ & /g, '-').toLowerCase()}`;
-
+const CategoryCard = ({ image, name, path }) => {
   return (
-    <Link to={linkTo} className="block">
+    <Link to={path} className="block">
       <div
         className="relative w-full aspect-square max-w-[240px] mx-auto flex items-center justify-center overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105 cursor-pointer"
         style={{

@@ -20,3 +20,10 @@
         transform: translateY(20px);
     }
 }
+
+@media only screen and (max-width: 768px) {
+    #arrow {
+        margin-left: 388px;
+        margin-right: 356px;
+    }
+}
