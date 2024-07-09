@@ -17,15 +17,16 @@ function Certification() {
     const username = 'codervivek5';
     const repo = 'VigyBag';
     let page = 1;
+    let hasMorePages = true;
     
-    while (true) {
+    while (hasMorePages) {
       try {
         const response = await axios.get(
           `https://api.github.com/repos/${username}/${repo}/contributors?page=${page}&per_page=100`
         );
         
-        if (response.data.length === 0) {
-          return false;
+        if (response.data.length < 100) {
+          hasMorePages = false;
         }
         
         const contributor = response.data.find(c => 
@@ -42,6 +43,7 @@ function Certification() {
         throw new Error('Failed to check contribution');
       }
     }
+    return false;
   };
 
   const handleSubmit = async (e) => {
