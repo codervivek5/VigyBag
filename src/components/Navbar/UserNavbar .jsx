@@ -30,8 +30,9 @@ const Navbar = ({ isAdmin }) => {
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-md">
+    <nav className="bg-[#ecd5c5] shadow-md md:w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <NavLogo />
@@ -82,10 +83,76 @@ const Navbar = ({ isAdmin }) => {
               >
                 Contact Us
               </NavLink>
+
+        <div className="flex justify-between h-20">
+          <div className="flex items-center w-full">
+            <NavLogo />
+            <div className="hidden md:block lg:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+
+                <NavLink
+                  to="/"
+                  icon={
+                    <lord-icon
+                      src="https://cdn.lordicon.com/wmwqvixz.json"
+                      trigger="hover"
+                      colors="primary:#15803D"
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                  }
+                >
+                  Home
+                </NavLink>
+                <ProductsDropdown />
+                <NavLink
+                  to="/about"
+                  icon={
+                    <lord-icon
+                      src="https://cdn.lordicon.com/jnzhohhs.json"
+                      trigger="hover"
+                      colors="primary:#15803D"
+                      style={{ width: "25px", height: "25px" }}
+                    ></lord-icon>
+                  }
+                >
+                  About Us
+                </NavLink>
+
+                <div className="py-1 flex justify-evenly items-center">
+                  <Link
+                    to="/popularCategories/fashionAccessories"
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    Fashion
+                  </Link>
+                  <Link
+                    to="/popularCategories/customizedGifts"
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    Gifts
+                  </Link>
+                  <Link
+                    to="/popularCategories/furnitureDecor"
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    Furniture
+                  </Link>
+                  <Link
+                    to="/popularCategories/printingStationery"
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    Stationary
+                  </Link>
+                  <Link
+                    to="/popularCategories/bodyCare"
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    Body-Care
+                  </Link>
+                </div>
+
+              </div>
+
             </div>
           </div>
 
           <div className="flex items-center">
+
             <div className="hidden md:flex items-center space-x-4">
               {showSearch ? (
                 <div className="flex items-center space-x-2">
@@ -135,6 +202,39 @@ const Navbar = ({ isAdmin }) => {
                 handleLogout={handleLogout}
                 textSize="text-sm"
               />
+
+            <div className="md:block hidden">
+              <div className="ml-4 flex items-center md:ml-6">
+                <SearchBar
+                  searchTerm={searchTerm}
+                  handleSearch={handleSearch}
+                />
+                <CartIcon />
+                {isLoggedIn && (
+                  <>
+                    {isAdmin ? (
+                      <Link
+                        to="/admin/dashboard"
+                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
+                      >
+                        <FaUserCircle className="mr-2 text-3xl" />
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/dashboard"
+                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
+                      >
+                        <FaUserCircle className="mr-2 text-3xl" />
+                      </Link>
+                    )}
+                  </>
+                )}
+                <AuthButton
+                  isLoggedIn={isLoggedIn}
+                  handleLogout={handleLogout}
+                />
+              </div>
+
             </div>
 
             <div className="md:hidden">
