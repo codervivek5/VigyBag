@@ -5,6 +5,7 @@ import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
+import OrderSummary from "../../components/Order/OrderSummary";
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
@@ -13,6 +14,7 @@ const greenTextClass = "text-green-600";
 const buttonClass = "text-zinc-500 hover:text-red-600";
 const buttonBgClass =
   "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
+const currencyFormatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
 
 const CartItem = ({
   product,
@@ -30,7 +32,7 @@ const CartItem = ({
       <div>
         <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
         <p className={textClass}>
-          ₹{product.total.toFixed(2)}
+          {currencyFormatter.format(product.total)}
         </p>
         <p className="flex gap-3 items-center">
           <span
@@ -82,26 +84,42 @@ const Breadcrumbs = () => (
 );
 
 const Subtotal = ({ items }) => {
-  const total = items.reduce(
-    (acc, item) => acc + item.total, 0
-  ).toFixed(2);
+  const itemsTotal = items.reduce((acc, item) => acc + item.total, 0);
+
+  const shippingThreshold = 500.00;
+  const shippingRate = 40.00;
+
+  let shipping = itemsTotal >= shippingThreshold ? 0.00 : shippingRate;
+  let total = itemsTotal + shipping;
+
+  if (itemsTotal === 0) {
+    return <></>;
+  }
 
   return (
-    <div
-      className={`${cardClass} space-y-2`}
-      style={{ border: "1px solid black" }}>
-      <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
-      <ul className="list-disc list-inside text-zinc-700 space-y-1">
-        {items.map((item, index) => (
-          <li key={index}>
-            {item.title} ₹{item.total}
+    <div className="mb-5">
+      <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
+      <div className={`${cardClass} space-y-2`} style={{ border: "1px solid black" }}>
+        <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
+        <ul className="list-inside text-zinc-700 space-y-1 list-none">
+          <hr />
+          {items.map((item, index) => (
+            <li key={index} className="flex items-center justify-between gap-5 py-1">
+              <span>{item.title}</span>
+              <span>{currencyFormatter.format(item.total)}</span>
+            </li>
+          ))}
+          <li className="flex items-center justify-between gap-5 font-bold">
+            <span>Shipping</span>
+            <span>{currencyFormatter.format(shipping)}</span>
           </li>
-        ))}
-      </ul>
-      <p className="text-lg text-zinc-800">
-        Shipping Charges: <span className={greenTextClass}>Free</span>
-      </p>
-      <p className="text-lg font-bold text-zinc-800">Total: ₹{total}</p>
+          <hr />
+          <li className="flex items-center justify-between gap-5 font-bold text-xl">
+            <span>Total</span>
+            <span>{currencyFormatter.format(total)}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
@@ -137,7 +155,7 @@ const ProceedToCheckout = () => {
 
 const LoginToContinue = () => {
   return (
-    <div className="mt-5">
+    <div>
       <p className="text-lg font-bold">Seems like you are not logged in yet. Please login to proceed to Checkout.</p>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
         <Link to="/login">
@@ -196,16 +214,12 @@ const Cart = () => {
 
                   </div>
                 </>
-
               )
             }
-
-
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
-            <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
-            <Subtotal items={cartItems} />
-            {!isLoggedIn ? <LoginToContinue /> : cartItems.length !== 0 ? <ProceedToCheckout  /> : <></>}
+            <OrderSummary/>
+            {!isLoggedIn ? <LoginToContinue /> : cartItems.length !== 0 ? <ProceedToCheckout /> : <></>}
           </div>
         </div>
       </div>
