@@ -29,112 +29,92 @@ const Navbar = ({ isAdmin }) => {
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-md md:w-full">
+    <nav className="bg-[#ecd5c5] shadow-md w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center w-full">
+        <div className="flex justify-between h-20 items-center">
+          <div className="flex items-center space-x-4">
             <NavLogo />
-            <div className="hidden md:block lg:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+            <div className="hidden md:flex space-x-4 items-center">
+              <NavLink
+                to="/"
+                icon={
+                  <lord-icon
+                    src="https://cdn.lordicon.com/wmwqvixz.json"
+                    trigger="hover"
+                    colors="primary:#15803D"
+                    style={{ width: "20px", height: "20px" }}
+                  ></lord-icon>
+                }
+              >
+                Home
+              </NavLink>
 
-                <NavLink
-                  to="/"
-                  icon={
-                    <lord-icon
-                      src="https://cdn.lordicon.com/wmwqvixz.json"
-                      trigger="hover"
-                      colors="primary:#15803D"
-                      style={{ width: "25px", height: "25px" }}
-                    ></lord-icon>
-                  }
-                >
-                  Home
-                </NavLink>
-                <ProductsDropdown />
-                <NavLink
-                  to="/about"
-                  icon={
-                    <lord-icon
-                      src="https://cdn.lordicon.com/jnzhohhs.json"
-                      trigger="hover"
-                      colors="primary:#15803D"
-                      style={{ width: "25px", height: "25px" }}
-                    ></lord-icon>
-                  }
-                >
-                  About Us
-                </NavLink>
+              <NavLink
+                to="/about"
+                icon={
+                  <lord-icon
+                    src="https://cdn.lordicon.com/jnzhohhs.json"
+                    trigger="hover"
+                    colors="primary:#15803D"
+                    style={{ width: "20px", height: "20px" }}
+                  ></lord-icon>
+                }
+              >
+                About Us
+              </NavLink>
 
-                <div className="py-1 flex justify-evenly items-center">
-                  <Link
-                    to="/popularCategories/fashionAccessories"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
-                    Fashion
-                  </Link>
-                  <Link
-                    to="/popularCategories/customizedGifts"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
-                    Gifts
-                  </Link>
-                  <Link
-                    to="/popularCategories/furnitureDecor"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
-                    Furniture
-                  </Link>
-                  <Link
-                    to="/popularCategories/printingStationery"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
-                    Stationary
-                  </Link>
-                  <Link
-                    to="/popularCategories/bodyCare"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
-                    Body-Care
-                  </Link>
-                </div>
-
-              </div>
+              <Link
+                to="/popularCategories/fashionAccessories"
+                className="text-green-800 hover:text-green-500 text-sm"
+              >
+                Fashion
+              </Link>
+              <Link
+                to="/popularCategories/customizedGifts"
+                className="text-green-800 hover:text-green-500 text-sm"
+              >
+                Gifts
+              </Link>
+              <Link
+                to="/popularCategories/furnitureDecor"
+                className="text-green-800 hover:text-green-500 text-sm"
+              >
+                Furniture
+              </Link>
+              <Link
+                to="/popularCategories/printingStationery"
+                className="text-green-800 hover:text-green-500 text-sm"
+              >
+                Stationary
+              </Link>
+              <Link
+                to="/popularCategories/bodyCare"
+                className="text-green-800 hover:text-green-500 text-sm"
+              >
+                Body-Care
+              </Link>
             </div>
           </div>
 
-          <div className="flex items-center">
-            <div className="md:block hidden">
-              <div className="ml-4 flex items-center md:ml-6">
-                <SearchBar
-                  searchTerm={searchTerm}
-                  handleSearch={handleSearch}
-                />
-                <CartIcon />
-                {isLoggedIn && (
-                  <>
-                    {isAdmin ? (
-                      <Link
-                        to="/admin/dashboard"
-                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
-                      >
-                        <FaUserCircle className="mr-2 text-3xl" />
-                      </Link>
-                    ) : (
-                      <Link
-                        to="/dashboard"
-                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center"
-                      >
-                        <FaUserCircle className="mr-2 text-3xl" />
-                      </Link>
-                    )}
-                  </>
-                )}
-                <AuthButton
-                  isLoggedIn={isLoggedIn}
-                  handleLogout={handleLogout}
-                />
-              </div>
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-4">
+              <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+              <CartIcon />
+              {isLoggedIn && (
+                <Link
+                  to={isAdmin ? "/admin/dashboard" : "/dashboard"}
+                  className="text-green-800 hover:text-gray-600 flex items-center"
+                >
+                  <FaUserCircle className="text-xl" />
+                </Link>
+              )}
+              <AuthButton isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
             </div>
 
-            <div className="-mr-2 flex md:hidden">
+            <div className="md:hidden flex items-center">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+                className="text-green-800 hover:text-gray-600 focus:outline-none"
               >
                 {isOpen ? (
                   <svg
@@ -171,16 +151,18 @@ const Navbar = ({ isAdmin }) => {
         </div>
       </div>
 
-      <MobileMenu
-        isOpen={isOpen}
-        searchTerm={searchTerm}
-        handleSearch={handleSearch}
-        handleDropdown={() => {}}
-        openDropdown={null}
-        isLoggedIn={isLoggedIn}
-        handleLogout={handleLogout}
-        handleDropdownLeave={() => {}}
-      />
+      {isOpen && (
+        <MobileMenu
+          isOpen={isOpen}
+          searchTerm={searchTerm}
+          handleSearch={handleSearch}
+          handleDropdown={() => {}}
+          openDropdown={null}
+          isLoggedIn={isLoggedIn}
+          handleLogout={handleLogout}
+          handleDropdownLeave={() => {}}
+        />
+      )}
     </nav>
   );
 };
