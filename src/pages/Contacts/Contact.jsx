@@ -19,7 +19,7 @@ const ContactForm = () => {
         from_name:firstname+" "+lastname,
         from_email:email,
         phone_number:contact,
-        email_id:"subtlybeige@gmail.com",
+        email_id:"prajapativivek998@gmail.com",
         message: message,
       }
 
