@@ -42,27 +42,27 @@ const Navbar = ({ isAdmin }) => {
                 <div className="py-1 flex justify-evenly items-center">
                   <Link
                     to="/popularCategories/fashionAccessories"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
                     Fashion
                   </Link>
                   <Link
                     to="/popularCategories/customizedGifts"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
                     Gifts
                   </Link>
                   <Link
                     to="/popularCategories/furnitureDecor"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
                     Furniture
                   </Link>
                   <Link
                     to="/popularCategories/printingStationery"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
                     Stationary
                   </Link>
                   <Link
                     to="/popularCategories/bodyCare"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-lg font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
                     Body-Care
                   </Link>
                 </div>

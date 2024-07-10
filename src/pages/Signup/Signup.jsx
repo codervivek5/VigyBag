@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import signUp from "../../assets/sign-up-img.png";
-import Logo from "../../assets/offical_logo.png";
-import { IoCall } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
-import { RiLockPasswordLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookSquare } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SignUp from "../../components/Buttons/SignUp";
@@ -15,8 +9,7 @@ import { ClipLoader, DotLoader } from "react-spinners";
 
 const containerClasses =
   "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
-const inputClasses =
-  "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none rounded-xl";
+const inputClasses = "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none";
 const formContainerClasses =
   "min-h-screen flex flex-col items-center justify-center bg-[#fff0e3ff] p-4";
 const cardClasses =
@@ -114,28 +107,41 @@ const SignUpForm = () => {
       <div className={formContainerClasses}>
         <div className={cardClasses}>
           <div className={formSectionClasses}>
-            <div className="flex justify-center mb-3">
-              <img
-                src={Logo}
-                alt="Logo"
-                className="h-12 md:h-16"
-                style={{ width: "auto" }}
-              />
-            </div>
             <h2 className="text-3xl font-semibold text-center mb-6 text-white">
               Sign Up
             </h2>
             <form className="space-y-4" onSubmit={handleSignup}>
               <FormInput
                 required={true}
-                icon={<CgProfile />}
+                // icon={<CgProfile />}
+                icon={
+                  <lord-icon
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      paddingTop: "2px",
+                    }}
+                    src="https://cdn.lordicon.com/hrjifpbq.json"
+                    trigger="hover"
+                    colors="primary:#0a5c15"></lord-icon>
+                }
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
               <FormInput
                 required={true}
-                icon={<MdEmail />}
+                icon={
+                  <lord-icon
+                    style={{
+                      height: "25px",
+                      width: "25px",
+                      paddingTop: "2px",
+                    }}
+                    src="https://cdn.lordicon.com/tmqaflqo.json"
+                    trigger="hover"
+                    colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"></lord-icon>
+                }
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -143,7 +149,17 @@ const SignUpForm = () => {
               />
               <FormInput
                 required={true}
-                icon={<IoCall />}
+                icon={
+                  <lord-icon
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      paddingTop: "2px",
+                    }}
+                    src="https://cdn.lordicon.com/srsgifqc.json"
+                    trigger="hover"
+                    colors="primary:#0a5c15"></lord-icon>
+                }
                 type="text"
                 placeholder="Phone Number"
                 value={phone}
@@ -152,7 +168,17 @@ const SignUpForm = () => {
               <div className="relative">
                 <FormInput
                   required={true}
-                  icon={<RiLockPasswordLine />}
+                  icon={
+                    <lord-icon
+                      style={{
+                        height: "20px",
+                        width: "20px",
+                        paddingTop: "2px",
+                      }}
+                      src="https://cdn.lordicon.com/pdwpcpva.json"
+                      trigger="hover"
+                      colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
+                  }
                   type={`${showPassword ? "text" : "password"}`}
                   placeholder="Password"
                   value={password}
@@ -173,9 +199,19 @@ const SignUpForm = () => {
               <div className="relative">
                 <FormInput
                   required={true}
-                  icon={<RiLockPasswordLine />}
-                  type={`${showConfirmPassword ? "text" : "password"}`}
+                  icon={
+                    <lord-icon
+                      style={{
+                        height: "20px",
+                        width: "20px",
+                        paddingTop: "2px",
+                      }}
+                      src="https://cdn.lordicon.com/pdwpcpva.json"
+                      trigger="hover"
+                      colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
+                  }
                   placeholder="Confirm Password"
+                  type={`${showPassword ? "text" : "password"}`}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
@@ -199,35 +235,39 @@ const SignUpForm = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-700 text-white py-2 rounded-xl"
-              >
+                className="w-full bg-green-700 text-white py-2 rounded-xl">
                 {loading ? <DotLoader color="#ffffff" size={24} /> : "SignUp"}
               </button>
             </form>
 
             <div className="text-center mt-4">
-              <p className="text-zinc-400 mb-2">Or sign up with:</p>
+              <p className="text-zinc-400 mb-2 underline">Or</p>
               <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                 <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
                   <FcGoogle
                     className="text-black p-1"
                     style={{ fontSize: "2rem" }}
                   />
-                  <span className="ml-2 text-sm">Sign up with Google</span>
+                  <span className="ml-2 text-sm">Login with Google</span>
                 </button>
                 <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
-                  <FaFacebookSquare
-                    className="text-black p-1"
-                    style={{ fontSize: "2rem" }}
-                  />
-                  <span className="ml-2 text-sm">Sign up with Facebook</span>
+                  <lord-icon
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      paddingTop: "0px",
+                      paddingLeft: "1px",
+                    }}
+                    src="https://cdn.lordicon.com/nlsfemdg.json"
+                    trigger="hover"></lord-icon>
+                  <span className="ml-2 text-sm">Login with Facebook</span>
                 </button>
               </div>
             </div>
 
             <p className="text-zinc-400 text-center mt-4">
               Already have an account?{" "}
-              <Link to="/login" className="text-green-500">
+              <Link to="/login" className="text-green-500 underline">
                 Log in
               </Link>
             </p>
