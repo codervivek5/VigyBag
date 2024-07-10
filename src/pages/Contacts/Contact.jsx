@@ -29,19 +29,16 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        alert('Email sent successfully!');
+        alert('Feedback!');
         // Clear form fields if needed
         setFirstName('');
         setLastName('');
         setEmail('');
         setContactNumber('');
         setMessage('');
-      } else {
-        alert('Failed to send email. Please try again later.');
       }
     } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Failed to send email. Please try again later.');
+      console.error();
     }
   };
 
