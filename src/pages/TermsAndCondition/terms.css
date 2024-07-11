@@ -6,6 +6,10 @@ body {
     color: #333;
 }
 
+.privacy-policy {
+    margin-top: -29px;
+}
+
 .nav_menu .nav_link li a {
     cursor: pointer;
 }

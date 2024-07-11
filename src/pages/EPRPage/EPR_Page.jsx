@@ -7,11 +7,12 @@ const EPR_Page = () => {
 
   return (
     <div className="epr-compliance p-2 sm:p-5 bg-[#fff0e3ff]">
-      <div className="container mx-auto max-w-6xl bg-[white] px-4 py-8 sm:py-12 md:py-16 rounded-lg shadow-lg shadow-gray-500/50"
-      style={{border:'1px solid #393d3cff'}}>
+      <div
+        className="container mx-auto max-w-6xl bg-[white] px-4 py-8 sm:py-12 md:py-16 rounded-lg shadow-lg shadow-gray-500/50 mt-28"
+        style={{ border: "1px solid #393d3cff" }}>
         <main className="text-sm sm:text-base">
           <div className="head">
-            <h1 className="text-center text-xl sm:text-2xl font-bold mb-4 text-[forestgreen]" >
+            <h1 className="text-center text-xl sm:text-2xl font-bold mb-4 text-[forestgreen]">
               VIGYBAG INDIA PRIVATE LIMITED E-WASTE RECYCLING POLICY
             </h1>
           </div>
@@ -126,7 +127,9 @@ const EPR_Page = () => {
             </li>
           </ul>
           <br />
-          <h2 className="text-lg sm:text-xl font-semibold mb-2">Why Recycle?</h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-2">
+            Why Recycle?
+          </h2>
           <br />
           <ul className="list-disc list-inside mb-4">
             <li>
@@ -202,7 +205,9 @@ const EPR_Page = () => {
             </li>
           </ul>
           <br />
-          <h2 className="text-lg sm:text-xl font-semibold mb-2">Collection Points</h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-2">
+            Collection Points
+          </h2>
           <br />
           <h4 className="text-base sm:text-lg mb-2">
             You can also deposit your E-Waste directly at the collection points.
@@ -217,10 +222,18 @@ const EPR_Page = () => {
               <thead>
                 <tr>
                   <th className="border border-gray-200 p-2">Sr. No.</th>
-                  <th className="border border-gray-200 p-2">Name of State/UT</th>
-                  <th className="border border-gray-200 p-2">Name of Town/City</th>
-                  <th className="border border-gray-200 p-2">Address of Collection Points</th>
-                  <th className="border border-gray-200 p-2">Toll-Free Number/Alternate No.</th>
+                  <th className="border border-gray-200 p-2">
+                    Name of State/UT
+                  </th>
+                  <th className="border border-gray-200 p-2">
+                    Name of Town/City
+                  </th>
+                  <th className="border border-gray-200 p-2">
+                    Address of Collection Points
+                  </th>
+                  <th className="border border-gray-200 p-2">
+                    Toll-Free Number/Alternate No.
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -232,7 +245,9 @@ const EPR_Page = () => {
                     Plot No. 619, Block A, Near Tata Telco Service Station,
                     Rangpuri, Mahipalpur, Delhi - 110037
                   </td>
-                  <td className="border border-gray-200 p-2">1800-123-8783 / 9321743538</td>
+                  <td className="border border-gray-200 p-2">
+                    1800-123-8783 / 9321743538
+                  </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-200 p-2">2</td>
@@ -241,7 +256,9 @@ const EPR_Page = () => {
                   <td className="border border-gray-200 p-2">
                     S 317, Transport Nagar, Near RTO Office, Kanpur, UP - 226012
                   </td>
-                  <td className="border border-gray-200 p-2">1800-123-8783 / 9321743538</td>
+                  <td className="border border-gray-200 p-2">
+                    1800-123-8783 / 9321743538
+                  </td>
                 </tr>
                 <tr>
                   <td className="border border-gray-200 p-2">3</td>
@@ -251,7 +268,9 @@ const EPR_Page = () => {
                     Plot No. 92, Gali No. – 01, Sector 19C, Vashi, Navi Mumbai –
                     400705
                   </td>
-                  <td className="border border-gray-200 p-2">1800-123-8783 / 9321743538</td>
+                  <td className="border border-gray-200 p-2">
+                    1800-123-8783 / 9321743538
+                  </td>
                 </tr>
               </tbody>
             </table>

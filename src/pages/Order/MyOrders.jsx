@@ -115,7 +115,7 @@ const Orders = () => {
   }, []);
   return (
     <div className="bg-[#fff0e3ff] flex justify-center mt-1 px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#fff0e3ff] p-6 rounded-lg shadow-md w-full max-w-6xl">
+      <div className="bg-[#fff0e3ff] p-6 rounded-lg shadow-md w-full max-w-6xl mt-24 mb-10">
         <h2 className={`text-2xl font-bold mb-4 ${textColor}`}>Your Orders</h2>
         <Breadcrumbs />
 
