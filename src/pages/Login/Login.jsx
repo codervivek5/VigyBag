@@ -45,7 +45,7 @@ const LoginForm = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        "https://vigybag-backend.onrender.com/api/auth/login",
         {
           email,
           password,
