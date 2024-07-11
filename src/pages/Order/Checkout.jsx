@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ProgressBar from '../../components/Order/ProgressBar';
+import OrderSummary from '../../components/Order/OrderSummary';
 
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
@@ -135,19 +136,7 @@ const CheckoutForm = () => {
               </div>
             </form>
           </div>
-          <div className="w-full md:w-1/3 pl-0 md:pl-4">
-            <div className="border p-4 rounded-lg" style={{ border: '2px solid grey' }}>
-              <h3 className="text-xl font-semibold mb-2">Order Summary</h3>
-              <ul className="list-disc pl-5 mb-2">
-                <li>Eco-friendly Coffee Mug: ₹300</li>
-                <li>Handwoven Doormat: ₹275</li>
-                <li>Bamboo Insulated Tumbler with Strainer: ₹350</li>
-                <li>Storage Basket and Container: ₹175</li>
-              </ul>
-              <p className="font-medium mb-2">Shipping Charges: Free</p>
-              <p className="text-xl font-bold">Total: ₹1100</p>
-            </div>
-          </div>
+          <OrderSummary/>
         </div>
       </div>
     </div>

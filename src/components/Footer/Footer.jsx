@@ -3,6 +3,7 @@ import "./Footer.css"; // Ensure this CSS file exists with the provided styles
 import instagramIcon from "./image/in.png";
 import xIcon from "./image/tw.png";
 import linkedinIcon from "./image/li.png";
+import githubIcon from "./image/github (1).png";
 import facebookIcon from "./image/meta.png";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/Logo.svg";
@@ -11,7 +12,7 @@ import googlePlay from "../../assets/google-play.png";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: 0,  
       behavior: "smooth",
     });
   };
@@ -72,6 +73,9 @@ const Footer = () => {
           <Link to="/about" onClick={scrollToTop}>
             Meet our contributor
           </Link>
+          <Link to="/certificate" onClick={scrollToTop}>
+            Certification Page
+          </Link>
         </div>
         <div className="contact-info text-sm">
           <p className="font-thin text-center text-gray-400">CONSUMER POLICY</p>{" "}
@@ -126,7 +130,9 @@ const Footer = () => {
                 src="https://cdn.lordicon.com/xtzvywzp.json"
                 trigger="hover"
                 colors="primary:#109121"></lord-icon>{" "}
+              <a href="mailto:vigybag@gmail.com">
               contact@vigybag.com
+              </a>
             </p>
             <p>
               <lord-icon
@@ -139,7 +145,9 @@ const Footer = () => {
                 src="https://cdn.lordicon.com/srsgifqc.json"
                 trigger="hover"
                 colors="primary:#109121"></lord-icon>{" "}
+              <a href="tel:1234567890">
               +91 1234567890
+              </a>
             </p>
           </div>
           <br />
@@ -187,6 +195,9 @@ const Footer = () => {
                   }}
                   src="https://cdn.lordicon.com/fjuachvi.json"
                   trigger="hover"></lord-icon>
+              </a>
+              <a href="https://github.com/codervivek5/">
+                <img src={githubIcon} alt="Github"/>
               </a>
             </div>
           </div>
