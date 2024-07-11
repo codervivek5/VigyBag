@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Logout from "../../components/Buttons/Logout";
 
 const Aside = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
 
-  useEffect(() => {
-    const fetchUsername = () => {
-      const storedUsername = localStorage.getItem("username");
-      if (storedUsername) {
-        setUsername(storedUsername);
-      }
-    };
-
-    fetchUsername();
-  }, []);
+  const username = localStorage.getItem("username");
+  console.log(username);
 
   const handleLogout = () => {
     try {
       const confirmed = window.confirm("Are you sure you want to logout?");
       if (confirmed) {
-        localStorage.removeItem("isloggedin");
-        localStorage.removeItem("username"); // Clear username upon logout
+        localStorage.removeItem("isLoggedIn");
         alert("Logout Successful.");
         navigate("/login");
       } else {
@@ -38,14 +28,9 @@ const Aside = () => {
   return (
     <>
       <aside
-
-        className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 "
+        className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 index-"
         style={{ position: "sticky" }}
       >
-
-        className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 index-"
-        style={{ position: "sticky" }}>
-
         <div className="flex items-center space-x-4 mt-10 ml-5">
           <div className="h-10 bg-green-700 flex items-center justify-center p-8 rounded-lg gap-2">
             <lord-icon
@@ -57,7 +42,7 @@ const Aside = () => {
               trigger="hover"
               colors="primary:#ffffff"
             ></lord-icon>
-            <span className="text-white">{username}</span>
+            <span className="text-white">Welcome, {username}</span>
           </div>
         </div>
         <nav className="flex-1 px-4 py-8 space-y-2">
