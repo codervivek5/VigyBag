@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:741366849413:android:896a64b0a26a65b2c12eec",
+        "mobilesdk_app_id": "1:741366849413:android:e33ff2f65772682bc12eec",
         "android_client_info": {
-          "package_name": "com.example.vigybagg"
+          "package_name": "com.example.vigybag"
         }
       },
       "oauth_client": [
