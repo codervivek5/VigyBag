@@ -16,4 +16,5 @@ const SearchBar = ({ searchTerm, handleSearch }) => (
   </>
 );
 
+export default SearchBar;
 // SearchBar.jsx
