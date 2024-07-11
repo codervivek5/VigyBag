@@ -54,12 +54,12 @@ const LoginForm = () => {
       localStorage.setItem("isLoggedIn", "true");
 
       // Check if the user is an admin based on role
-      if (response.data.user.role === 1) {
-        localStorage.setItem("isAdmin", "true");
-        setIsAdmin(true); // Set state to indicate admin login
-      } else {
-        setIsAdmin(false); // Reset admin state if not admin login
-      }
+      // if (response.data.user.role === 1) {
+      //   localStorage.setItem("isAdmin", "true");
+      //   setIsAdmin(true); // Set state to indicate admin login
+      // } else {
+      //   setIsAdmin(false); // Reset admin state if not admin login
+      // }
 
       alert(response.data.message);
       setEmail("");

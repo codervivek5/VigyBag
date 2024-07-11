@@ -1,34 +1,81 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import NavLogo from "./NavLogo";
+
+
 import NavLink from "./NavLink";
+
 import SearchBar from "../SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const Navbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [openDropdown, setOpenDropdown] = useState(null);
+  const [username, setUsername] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const fetchUsername = async () => {
+      try {
+        const response = await fetch("/api/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            // Add any authentication headers if required
+          },
+        });
+        if (response.ok) {
+          const userData = await response.json();
+          setUsername(userData.username);
+        } else {
+          throw new Error("Failed to fetch username");
+        }
+      } catch (error) {
+        console.error("Error fetching username:", error);
+        setUsername("User");
+      }
+    };
+
+    if (isLoggedIn) {
+      fetchUsername();
+    }
+  }, [isLoggedIn]);
 
   const toggleNavbar = () => setIsOpen(!isOpen);
   const handleSearch = (e) => setSearchTerm(e.target.value);
-  const handleDropdown = (dropdown) => setOpenDropdown(dropdown);
-  const handleDropdownLeave = () => setOpenDropdown(null);
 
   const handleLogout = () => {
     const confirmed = window.confirm("Are you sure you want to logout?");
     if (confirmed) {
       localStorage.setItem("isLoggedIn", false);
+      localStorage.removeItem("username");
       alert("Logout Successful.");
       navigate("/login");
     }
   };
+
+  const handleDropdownToggle = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="bg-[#ecd5c5] shadow-lg md:w-full fixed z-50 -mt-1">
@@ -38,30 +85,35 @@ const Navbar = ({ isAdmin }) => {
             <NavLogo />
             <div className="hidden md:block lg:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <div className="py-1 flex justify-evenly items-center">
+              <div className="py-1 flex justify-evenly items-center">
                   <Link
                     to="/popularCategories/fashionAccessories"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
+                  >
                     Fashion
                   </Link>
                   <Link
                     to="/popularCategories/customizedGifts"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold"
+                  >
                     Gifts
                   </Link>
                   <Link
                     to="/popularCategories/furnitureDecor"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold"
+                  >
                     Furniture
                   </Link>
                   <Link
                     to="/popularCategories/printingStationery"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold"
+                  >
                     Stationary
                   </Link>
                   <Link
                     to="/popularCategories/bodyCare"
-                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold"
+                  >
                     Body-Care
                   </Link>
                 </div>
@@ -72,66 +124,48 @@ const Navbar = ({ isAdmin }) => {
           <div className="flex items-center">
             <div className="md:block hidden">
               <div className="ml-4 flex items-center md:ml-6">
-                <SearchBar
-                  searchTerm={searchTerm}
-                  handleSearch={handleSearch}
-                />
+                <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
                 <CartIcon />
-                {isLoggedIn && (
-                  <>
-                    {isAdmin ? (
-                      <Link
-                        to="/admin/dashboard"
-                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
-                        <FaUserCircle className="mr-2 text-3xl" />
-                      </Link>
-                    ) : (
-                      <Link
-                        to="/dashboard"
-                        className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
-                        <FaUserCircle className="mr-2 text-3xl" />
-                      </Link>
+                {isLoggedIn ? (
+                  <div className="relative">
+                    {/* need styling fix then implement only */}
+                    {/* <p className="mr-2 overflow-hidden flex text-gray-800">{`Hi, ${username}`}</p> */}
+                    <FaUserCircle
+                      onClick={handleDropdownToggle}
+                      className="text-3xl cursor-pointer"
+                    />
+                    {showDropdown && (
+                      <div
+                        ref={dropdownRef}
+                        className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1"
+                      >
+                        <Link
+                          to="/dashboard"
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        >
+                          Dashboard
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
+                        >
+                          Logout
+                        </button>
+                      </div>
                     )}
-                  </>
+                  </div>
+                ) : (
+                  <AuthButton isLoggedIn={isLoggedIn} />
                 )}
-                <AuthButton
-                  isLoggedIn={isLoggedIn}
-                  handleLogout={handleLogout}
-                />
               </div>
             </div>
 
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
-                {isOpen ? (
-                  <svg
-                    className="h-6 w-6"
-                    stroke="#15803D"
-                    fill="#15803D"
-                    viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="h-6 w-6"
-                    stroke="#15803D"
-                    fill="#15803D"
-                    viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+              >
+                
               </button>
             </div>
           </div>
@@ -142,11 +176,10 @@ const Navbar = ({ isAdmin }) => {
         isOpen={isOpen}
         searchTerm={searchTerm}
         handleSearch={handleSearch}
-        handleDropdown={handleDropdown}
-        openDropdown={openDropdown}
+        handleDropdown={handleDropdownToggle}
+        openDropdown={showDropdown}
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
-        handleDropdownLeave={handleDropdownLeave}
       />
     </nav>
   );
