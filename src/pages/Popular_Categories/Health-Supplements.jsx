@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../../components/Popular_Categories/Header';
-import Filters from '../../components/Popular_Categories/Filters';
-import ProductGrid from '../../components/Popular_Categories/ProductGrid';
+import React, { useState, useEffect } from "react";
+import Filters from "../../components/Popular_Categories/Filters";
+import ProductGrid from "../../components/Popular_Categories/ProductGrid";
 
 import axios from "axios";
 
 function HealthSupplements() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [categoryFilter, setCategoryFilter] = useState('');
-  const [priceFilter, setPriceFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
   const [ratingFilter, setRatingFilter] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://fakestoreapi.com/products');
+        const response = await axios.get("https://fakestoreapi.com/products");
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {
-        console.error('Axios error:', error);
+        console.error("Axios error:", error);
       }
     };
     fetchData();
@@ -27,29 +26,34 @@ function HealthSupplements() {
 
   useEffect(() => {
     setFilteredProducts(
-         products
-           .filter(product => !categoryFilter || product.category === categoryFilter)
-           .filter(product => !priceFilter || product.price <= parseInt(priceFilter))
-           .filter(product => !ratingFilter || Math.round(product.rating.rate) >= ratingFilter)
-       );
+      products
+        .filter(
+          (product) => !categoryFilter || product.category === categoryFilter
+        )
+        .filter(
+          (product) => !priceFilter || product.price <= parseInt(priceFilter)
+        )
+        .filter(
+          (product) =>
+            !ratingFilter || Math.round(product.rating.rate) >= ratingFilter
+        )
+    );
   }, [products, categoryFilter, priceFilter, ratingFilter]);
-  
+
   return (
     <div className="bg-[#fff5edff] min-h-screen">
-      <Header 
-        backgroundUrl="https://th.bing.com/th/id/OIP.U5NMNZxJdyVTt3AU1WcN5QHaC9?w=1500&h=600&rs=1&pid=ImgDetMain" 
-        headingText="Health & Supplements Products"
-        paragraphText="Home/Health & Supplements Products"
-      />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container">
         <div className="flex flex-col lg:flex-row gap-8 relative">
-          <Filters 
+          <Filters
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#d9d8a5ff" 
+            backgroundColor="#d9d8a5ff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Health Supplement"
+          />
         </div>
       </main>
     </div>
@@ -57,4 +61,3 @@ function HealthSupplements() {
 }
 
 export default HealthSupplements;
-

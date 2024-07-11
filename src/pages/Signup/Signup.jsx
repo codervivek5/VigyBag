@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import signUp from "../../assets/sign-up-img.png";
+import signUp from "../../assets/Sign-up.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -13,7 +13,7 @@ const inputClasses = "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none";
 const formContainerClasses =
   "min-h-screen flex flex-col items-center justify-center bg-[#fff0e3ff] p-4";
 const cardClasses =
-  "w-full max-w-4xl bg-[#fff0e3ff] dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row";
+  "w-full max-w-4xl bg-[#fff0e3ff] dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row mt-24";
 const formSectionClasses =
   "relative rounded-lg w-full md:w-1/2 bg-zinc-800 text-zinc-200 p-6 flex flex-col justify-center";
 const illustrationSectionClasses =

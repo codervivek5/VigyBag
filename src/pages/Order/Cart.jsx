@@ -14,14 +14,14 @@ const greenTextClass = "text-green-600";
 const buttonClass = "text-zinc-500 hover:text-red-600";
 const buttonBgClass =
   "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
-const currencyFormatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
+const currencyFormatter = new Intl.NumberFormat("en-IN", {
+  style: "currency",
+  currency: "INR",
+});
 
-const CartItem = ({
-  product,
-  onUpdate,
-}) => (
+const CartItem = ({ product, onUpdate }) => (
   <div
-    className={`${cardClass} flex items-center justify-between mb-4`}
+    className={`${cardClass} flex items-center justify-between mb-4 mt-20`}
     style={{ border: "1px solid black" }}>
     <div className="flex items-center">
       <img
@@ -31,19 +31,13 @@ const CartItem = ({
       />
       <div>
         <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
-        <p className={textClass}>
-          {currencyFormatter.format(product.total)}
-        </p>
+        <p className={textClass}>{currencyFormatter.format(product.total)}</p>
         <p className="flex gap-3 items-center">
-          <span
-            onClick={() => onUpdate(product, -1)}
-          >
+          <span onClick={() => onUpdate(product, -1)}>
             <FaMinusCircle />
           </span>
           <span>{product.quantity}</span>
-          <span
-            onClick={() => onUpdate(product, 1)}
-          >
+          <span onClick={() => onUpdate(product, 1)}>
             <FaPlusCircle />
           </span>
         </p>
@@ -86,10 +80,10 @@ const Breadcrumbs = () => (
 const Subtotal = ({ items }) => {
   const itemsTotal = items.reduce((acc, item) => acc + item.total, 0);
 
-  const shippingThreshold = 500.00;
-  const shippingRate = 40.00;
+  const shippingThreshold = 500.0;
+  const shippingRate = 40.0;
 
-  let shipping = itemsTotal >= shippingThreshold ? 0.00 : shippingRate;
+  let shipping = itemsTotal >= shippingThreshold ? 0.0 : shippingRate;
   let total = itemsTotal + shipping;
 
   if (itemsTotal === 0) {
@@ -99,12 +93,16 @@ const Subtotal = ({ items }) => {
   return (
     <div className="mb-5">
       <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
-      <div className={`${cardClass} space-y-2`} style={{ border: "1px solid black" }}>
+      <div
+        className={`${cardClass} space-y-2`}
+        style={{ border: "1px solid black" }}>
         <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
         <ul className="list-inside text-zinc-700 space-y-1 list-none">
           <hr />
           {items.map((item, index) => (
-            <li key={index} className="flex items-center justify-between gap-5 py-1">
+            <li
+              key={index}
+              className="flex items-center justify-between gap-5 py-1">
               <span>{item.title}</span>
               <span>{currencyFormatter.format(item.total)}</span>
             </li>
@@ -134,9 +132,7 @@ const ProceedToCheckout = () => {
           className="p-2 border border-gray-300 rounded-md w-full"
         />
 
-        <button
-          type="button"
-          className={`${buttonBgClass} w-full sm:w-auto`}>
+        <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>
           Redeem
         </button>
       </div>
@@ -147,16 +143,18 @@ const ProceedToCheckout = () => {
           style={{ minWidth: "425px" }}>
           Check Out
         </button>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
 const LoginToContinue = () => {
   return (
     <div>
-      <p className="text-lg font-bold">Seems like you are not logged in yet. Please login to proceed to Checkout.</p>
+      <p className="text-lg font-bold">
+        Seems like you are not logged in yet. Please login to proceed to
+        Checkout.
+      </p>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
         <Link to="/login">
           <button
@@ -168,58 +166,63 @@ const LoginToContinue = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Cart = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const cartItems = useSelector(state => state.cart.items)
-  const dispatch = useDispatch()
+  const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   const onUpdate = (product, quantity) => {
-    dispatch(manageCartItem({ product, quantity }))
-  }
+    dispatch(manageCartItem({ product, quantity }));
+  };
 
   const onclear = () => {
-    dispatch(clearCart())
-    toast.success(`Cart successfully cleared!`)
-  }
-
+    dispatch(clearCart());
+    toast.success(`Cart successfully cleared!`);
+  };
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
-      <div className="container mx-auto p-4 w-full max-w-7xl">
+      <div className="container mx-auto p-4 w-full max-w-7xl mt-20">
         <div className="flex flex-col lg:flex-row lg:space-x-8">
           <div className="w-full lg:w-2/3">
             <Breadcrumbs />
             <h2 className="text-2xl font-bold mb-6 text-zinc-800">Your Cart</h2>
-            {
-              cartItems.length === 0 ? <CartEmpty /> : (
-                <>
-                  <div className="space-y-6">
-
-                    {cartItems.map((item) => (
-                      <CartItem key={item.id} product={item} onUpdate={onUpdate} />
-                    ))}
-                  </div>
-                  <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
-
-                    <button
-                      type="button"
-                      className={`${buttonBgClass} w-full sm:w-auto`}
-                      onClick={onclear}
-                    >
-                      Clear Cart
-                    </button>
-
-                  </div>
-                </>
-              )
-            }
+            {cartItems.length === 0 ? (
+              <CartEmpty />
+            ) : (
+              <>
+                <div className="space-y-6">
+                  {cartItems.map((item) => (
+                    <CartItem
+                      key={item.id}
+                      product={item}
+                      onUpdate={onUpdate}
+                    />
+                  ))}
+                </div>
+                <div className="mt-6 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
+                  <button
+                    type="button"
+                    className={`${buttonBgClass} w-full sm:w-auto`}
+                    onClick={onclear}>
+                    Clear Cart
+                  </button>
+                </div>
+              </>
+            )}
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
-            <OrderSummary/>
-            {!isLoggedIn ? <LoginToContinue /> : cartItems.length !== 0 ? <ProceedToCheckout /> : <></>}
+            <OrderSummary />
+            {!isLoggedIn ? (
+              <LoginToContinue />
+            ) : cartItems.length !== 0 ? (
+              <ProceedToCheckout />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

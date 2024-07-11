@@ -101,7 +101,7 @@ function FAQItem({ question, answer }) {
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#f9e7dd] rounded-md">
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="flex-grow container mx-auto px-4 py-8 mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-center text-green-600">
             Frequently Asked Questions
