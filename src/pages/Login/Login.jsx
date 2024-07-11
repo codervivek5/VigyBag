@@ -56,6 +56,15 @@ const LoginForm = () => {
       const username = response.data.username;
       // Store username in localStorage
       localStorage.setItem("username", username);
+
+      // Check if the user is an admin based on role
+      // if (response.data.user.role === 1) {
+      //   localStorage.setItem("isAdmin", "true");
+      //   setIsAdmin(true); // Set state to indicate admin login
+      // } else {
+      //   setIsAdmin(false); // Reset admin state if not admin login
+      // }
+
       alert(response.data.message);
       setEmail("");
       setPassword("");

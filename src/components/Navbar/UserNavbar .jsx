@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import NavLogo from "./NavLogo";
 
+
 import NavLink from "./NavLink";
 
 import SearchBar from "../SearchBar/SearchBar";
@@ -84,7 +85,7 @@ const Navbar = ({ isAdmin }) => {
             <NavLogo />
             <div className="hidden md:block lg:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <div className="py-1 flex justify-evenly items-center">
+              <div className="py-1 flex justify-evenly items-center">
                   <Link
                     to="/popularCategories/fashionAccessories"
                     className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
@@ -123,10 +124,7 @@ const Navbar = ({ isAdmin }) => {
           <div className="flex items-center">
             <div className="md:block hidden">
               <div className="ml-4 flex items-center md:ml-6">
-                <SearchBar
-                  searchTerm={searchTerm}
-                  handleSearch={handleSearch}
-                />
+                <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
                 <CartIcon />
                 {isLoggedIn ? (
                   <div className="relative">
@@ -166,7 +164,13 @@ const Navbar = ({ isAdmin }) => {
               <button
                 onClick={toggleNavbar}
                 className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+
               ></button>
+
+              >
+                
+              </button>
+
             </div>
           </div>
         </div>
