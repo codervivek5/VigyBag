@@ -145,12 +145,12 @@ const Dashboard = () => {
     }
   };
   return (
-    <div className="flex min-h-screen bg-[#fff1e6] mt-1">
+    <div className="flex min-h-screen bg-[#fff1e6]">
       {/* Sidebar */}
       <Aside />
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 mt-20">
         {/* Header */}
         <Header />
 
