@@ -1,25 +1,23 @@
 import React, { useState } from "react";
-import signUp from "../../assets/sign-up-img.png";
-import Logo from "../../assets/offical_logo.png";
-import { IoCall } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
-import { RiLockPasswordLine } from "react-icons/ri";
+import signUp from "../../assets/Sign-up.png";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookSquare } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SignUp from "../../components/Buttons/SignUp";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ClipLoader, DotLoader } from "react-spinners";
-import toast, { Toaster } from "react-hot-toast";
 
-const containerClasses = "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
-const inputClasses = "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none rounded-xl";
-const formContainerClasses = "min-h-screen flex flex-col items-center justify-center bg-[#fff0e3ff] p-4";
-const cardClasses = "w-full max-w-4xl bg-[#fff0e3ff] dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row";
-const formSectionClasses = "relative rounded-lg w-full md:w-1/2 bg-zinc-800 text-zinc-200 p-6 flex flex-col justify-center";
-const illustrationSectionClasses = "rounded-lg hidden md:flex w-full md:w-1/2 p-8 items-center justify-center bg-[#c1cfabff] overflow-hidden";
+const containerClasses =
+  "flex items-center bg-[#fff0e3ff] p-2 text-black rounded-xl";
+const inputClasses = "bg-[#fff0e3ff] flex-1 ml-2 text-black focus:outline-none";
+const formContainerClasses =
+  "min-h-screen flex flex-col items-center justify-center bg-[#fff0e3ff] p-4";
+const cardClasses =
+  "w-full max-w-4xl bg-[#fff0e3ff] dark:bg-zinc-800 rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row mt-24";
+const formSectionClasses =
+  "relative rounded-lg w-full md:w-1/2 bg-zinc-800 text-zinc-200 p-6 flex flex-col justify-center";
+const illustrationSectionClasses =
+  "rounded-lg hidden md:flex w-full md:w-1/2 p-8 items-center justify-center bg-[#c1cfabff] overflow-hidden";
 
 const FormInput = ({ icon, placeholder, type = "text", value, onChange }) => {
   return (
@@ -52,7 +50,7 @@ const SignUpForm = () => {
     e.preventDefault();
     setLoading(true);
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      alert("Passwords do not match");
       console.log("Passwords do not match");
       setLoading(false);
       return;
@@ -69,7 +67,7 @@ const SignUpForm = () => {
         }
       );
 
-      toast.success(response.data.message);
+      alert(response.data.message);
       navigate("/login");
       setUsername("");
       setEmail("");
@@ -77,8 +75,12 @@ const SignUpForm = () => {
       setPassword("");
       setConfirmPassword("");
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.message) {
-        toast.error(error.response.data.message);
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        alert(error.response.data.message);
         console.log(error.response.data.message);
       }
     } finally {
@@ -100,27 +102,46 @@ const SignUpForm = () => {
       setShowConfirmPassword(true);
     }
   }
-
   return (
     <>
       <div className={formContainerClasses}>
         <div className={cardClasses}>
           <div className={formSectionClasses}>
-            <div className="flex justify-center mb-3">
-              <img src={Logo} alt="Logo" className="h-12 md:h-16" style={{ width: "auto" }} />
-            </div>
-            <h2 className="text-3xl font-semibold text-center mb-6 text-white">Sign Up</h2>
+            <h2 className="text-3xl font-semibold text-center mb-6 text-white">
+              Sign Up
+            </h2>
             <form className="space-y-4" onSubmit={handleSignup}>
               <FormInput
                 required={true}
-                icon={<CgProfile />}
+                // icon={<CgProfile />}
+                icon={
+                  <lord-icon
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      paddingTop: "2px",
+                    }}
+                    src="https://cdn.lordicon.com/hrjifpbq.json"
+                    trigger="hover"
+                    colors="primary:#0a5c15"></lord-icon>
+                }
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
               <FormInput
                 required={true}
-                icon={<MdEmail />}
+                icon={
+                  <lord-icon
+                    style={{
+                      height: "25px",
+                      width: "25px",
+                      paddingTop: "2px",
+                    }}
+                    src="https://cdn.lordicon.com/tmqaflqo.json"
+                    trigger="hover"
+                    colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"></lord-icon>
+                }
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -128,7 +149,17 @@ const SignUpForm = () => {
               />
               <FormInput
                 required={true}
-                icon={<IoCall />}
+                icon={
+                  <lord-icon
+                    style={{
+                      height: "20px",
+                      width: "20px",
+                      paddingTop: "2px",
+                    }}
+                    src="https://cdn.lordicon.com/srsgifqc.json"
+                    trigger="hover"
+                    colors="primary:#0a5c15"></lord-icon>
+                }
                 type="text"
                 placeholder="Phone Number"
                 value={phone}
@@ -137,57 +168,120 @@ const SignUpForm = () => {
               <div className="relative">
                 <FormInput
                   required={true}
-                  icon={<RiLockPasswordLine />}
+                  icon={
+                    <lord-icon
+                      style={{
+                        height: "20px",
+                        width: "20px",
+                        paddingTop: "2px",
+                      }}
+                      src="https://cdn.lordicon.com/pdwpcpva.json"
+                      trigger="hover"
+                      colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
+                  }
                   type={`${showPassword ? "text" : "password"}`}
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                {/* {showPassword ? (
+                  <FaEye
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle}
+                  />
+                ) : (
+                  <FaEyeSlash
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle}
+                  />
+                )} */}
               </div>
               <div className="relative">
                 <FormInput
                   required={true}
-                  icon={<RiLockPasswordLine />}
-                  type={`${showConfirmPassword ? "text" : "password"}`}
+                  icon={
+                    <lord-icon
+                      style={{
+                        height: "20px",
+                        width: "20px",
+                        paddingTop: "2px",
+                      }}
+                      src="https://cdn.lordicon.com/pdwpcpva.json"
+                      trigger="hover"
+                      colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
+                  }
                   placeholder="Confirm Password"
+                  type={`${showPassword ? "text" : "password"}`}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                {/* {showConfirmPassword ? (
+                  <FaEye
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle1}
+                  />
+                ) : (
+                  <FaEyeSlash
+                    className="absolute bottom-[11px] right-[13px] text-[1.5rem] text-black"
+                    onClick={handleToggle1}
+                  />
+                )} */}
               </div>
               <div className="flex items-center">
                 <input type="checkbox" id="terms" className="mr-2" required />
-                <label htmlFor="terms" className="text-zinc-400">I agree to the Terms and Conditions</label>
+                <label htmlFor="terms" className="text-zinc-400">
+                  I agree to the Terms and Conditions
+                </label>
               </div>
-              <button type="submit" className="w-full bg-green-700 text-white py-2 rounded-xl">
+              <button
+                type="submit"
+                className="w-full bg-green-700 text-white py-2 rounded-xl">
                 {loading ? <DotLoader color="#ffffff" size={24} /> : "SignUp"}
               </button>
             </form>
 
             <div className="text-center mt-4">
-              <p className="text-zinc-400 mb-2">Or sign up with:</p>
+              <p className="text-zinc-400 mb-2 underline">Or</p>
               <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                 <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
-                  <FcGoogle className="text-black p-1" style={{ fontSize: "2rem" }} />
-                  <span className="ml-2 text-sm">Sign up with Google</span>
+                  <FcGoogle
+                    className="text-black p-1"
+                    style={{ fontSize: "2rem" }}
+                  />
+                  <span className="ml-2 text-sm">Login with Google</span>
                 </button>
                 <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-1 w-full md:w-auto whitespace-nowrap">
-                  <FaFacebookSquare className="text-black p-1" style={{ fontSize: "2rem" }} />
-                  <span className="ml-2 text-sm">Sign up with Facebook</span>
+                  <lord-icon
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      paddingTop: "0px",
+                      paddingLeft: "1px",
+                    }}
+                    src="https://cdn.lordicon.com/nlsfemdg.json"
+                    trigger="hover"></lord-icon>
+                  <span className="ml-2 text-sm">Login with Facebook</span>
                 </button>
               </div>
             </div>
 
             <p className="text-zinc-400 text-center mt-4">
-              Already have an account? <Link to="/login" className="text-green-500">Log in</Link>
+              Already have an account?{" "}
+              <Link to="/login" className="text-green-500 underline">
+                Log in
+              </Link>
             </p>
           </div>
 
           <div className={illustrationSectionClasses}>
-            <img src={signUp} alt="Illustration" className="w-full h-full object-contain rounded" />
+            <img
+              src={signUp}
+              alt="Illustration"
+              className="w-full h-full object-contain rounded"
+            />
           </div>
         </div>
       </div>
-      <Toaster />
     </>
   );
 };

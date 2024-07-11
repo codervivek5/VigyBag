@@ -12,7 +12,7 @@ import googlePlay from "../../assets/google-play.png";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,  
+      top: 0,
       behavior: "smooth",
     });
   };
@@ -73,6 +73,9 @@ const Footer = () => {
           <Link to="/about" onClick={scrollToTop}>
             Meet our contributor
           </Link>
+          <Link to="/certificate" onClick={scrollToTop}>
+            Certification Page
+          </Link>
         </div>
         <div className="contact-info text-sm">
           <p className="font-thin text-center text-gray-400">CONSUMER POLICY</p>{" "}
@@ -127,7 +130,7 @@ const Footer = () => {
                 src="https://cdn.lordicon.com/xtzvywzp.json"
                 trigger="hover"
                 colors="primary:#109121"></lord-icon>{" "}
-              contact@vigybag.com
+              <a href="mailto:vigybag@gmail.com">contact@vigybag.com</a>
             </p>
             <p>
               <lord-icon
@@ -140,7 +143,7 @@ const Footer = () => {
                 src="https://cdn.lordicon.com/srsgifqc.json"
                 trigger="hover"
                 colors="primary:#109121"></lord-icon>{" "}
-              +91 1234567890
+              <a href="tel:1234567890">+91 1234567890</a>
             </p>
           </div>
           <br />
@@ -190,7 +193,7 @@ const Footer = () => {
                   trigger="hover"></lord-icon>
               </a>
               <a href="https://github.com/codervivek5/">
-                <img src={githubIcon} alt="Github"/>
+                <img src={githubIcon} alt="Github" />
               </a>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import Logo from '../../assets/offical_logo.png';
 import emailjs from "@emailjs/browser";
@@ -27,29 +27,42 @@ const ContactForm = () => {
       .then((response)=>{
         console.log("email sent",response)
         alert("Your message has been sent successfully! Will get back to you as soon as possible.")
-        setName('')
+        setFirstname('')
+        setLastname('')
+        setContact('')
         setEmail('')
         setMessage('')        
       })
       .catch((err)=>{
-        setLoading(false);
         console.log("error",err)
         alert("Sorry, something went wrong while sending your message. Please try again later.");
       })
     }
+
   return (
     <div className="bg-[#fff0e3ff] min-h-screen flex items-center justify-center mt-1">
-      <div className="bg-[#393d3cff] text-white py-8 px-6 sm:px-12 rounded-lg" style={{ marginTop: '13vh', borderRadius: '20px', width: '90vw', maxWidth: '600px', marginBottom: '13vh' }}>
+      <div
+        className="bg-[#393d3cff] text-white py-8 px-6 sm:px-12 rounded-lg"
+        style={{
+          marginTop: "13vh",
+          borderRadius: "20px",
+          width: "90vw",
+          maxWidth: "600px",
+          marginBottom: "13vh",
+        }}>
         <div className="flex items-center justify-center mb-6">
           <div className="relative bg-[#393d3cff] rounded-full p-4 mb-3"
-           style={{ top: '2vh', 
-           boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
-            padding: '27px' }}>
+            style={{ top: '2vh', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px', padding: '27px' }}>
+
             <img src={Logo} alt="Logo" width={"50px"} height={"50px"} />
           </div>
         </div>
-        <h2 className="text-3xl font-semibold text-center mb-4 mt-10 text-white">Contact Us</h2>
-        <p className="text-gray-400 text-center text-lg mb-8">Got something to say? Let us know!</p>
+        <h2 className="text-3xl font-semibold text-center mb-4 mt-10 text-white">
+          Contact Us
+        </h2>
+        <p className="text-gray-400 text-center text-lg mb-8">
+          Got something to say? Let us know!
+        </p>
 
       <form onSubmit={handleEmailSubmit}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -73,7 +86,6 @@ const ContactForm = () => {
               required
             />
           </div>
-        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
@@ -87,8 +99,9 @@ const ContactForm = () => {
               required
             />
           </div>
-          <div>
-            <input
+
+          <div className="mb-6">
+            <textarea
               className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500"
               type="tel"
               placeholder="Contact Number *"
@@ -96,9 +109,8 @@ const ContactForm = () => {
               value={contact}
               onChange={(e)=>setContact(e.target.value)}
               required
-            />
+            ></textarea>
           </div>
-        </div>
 
         <div className="mb-6">
           <textarea

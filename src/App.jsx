@@ -50,6 +50,7 @@ import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import AdminPanel from "./Admin/Admin_Panel";
 import RegistrationForm from "./Admin/RegistrationForm";
 import ProductForm from "./Admin/ProductForm";
+import Certifications from "./pages/Certifications/Certifications"
 
 export default function App() {
   return (
@@ -148,6 +149,7 @@ export default function App() {
           <Route path="admin" element={<AdminPanel />} />
           <Route path="admin_form" element={<RegistrationForm />} />
           <Route path="product_form" element={<ProductForm />} />
+          <Route path="certificate" element={<Certifications />} />
         </Route>
       </Routes>
     
