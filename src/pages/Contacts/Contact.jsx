@@ -52,15 +52,28 @@ const ContactForm = () => {
 
   return (
     <div className="bg-[#fff0e3ff] min-h-screen flex items-center justify-center mt-1">
-      <div className="bg-[#393d3cff] text-white py-8 px-6 sm:px-12 rounded-lg" style={{ marginTop: '13vh', borderRadius: '20px', width: '90vw', maxWidth: '600px', marginBottom: '13vh' }}>
+      <div
+        className="bg-[#393d3cff] text-white py-8 px-6 sm:px-12 rounded-lg"
+        style={{
+          marginTop: "13vh",
+          borderRadius: "20px",
+          width: "90vw",
+          maxWidth: "600px",
+          marginBottom: "13vh",
+        }}>
         <div className="flex items-center justify-center mb-6">
           <div className="relative bg-[#393d3cff] rounded-full p-4 mb-3"
             style={{ top: '2vh', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px', padding: '27px' }}>
+
             <img src={Logo} alt="Logo" width={"50px"} height={"50px"} />
           </div>
         </div>
-        <h2 className="text-3xl font-semibold text-center mb-4 mt-10 text-white">Contact Us</h2>
-        <p className="text-gray-400 text-center text-lg mb-8">Got something to say? Let us know!</p>
+        <h2 className="text-3xl font-semibold text-center mb-4 mt-10 text-white">
+          Contact Us
+        </h2>
+        <p className="text-gray-400 text-center text-lg mb-8">
+          Got something to say? Let us know!
+        </p>
 
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -140,6 +153,7 @@ const ContactForm = () => {
                 <FaPhone className="text-gray-400 mr-2" />
                 <span className="text-gray-400 text-sm"> <a href="tel:+919123456789">+91 9123456789</a></span>
               </div>
+
             </div>
           </div>
         </form>

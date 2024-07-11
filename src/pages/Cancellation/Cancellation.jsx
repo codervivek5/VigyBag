@@ -45,7 +45,9 @@ const CancellationPage = () => {
             />
           )}
         </div>
-        <button className="bg-[#AD8C74] text-white py-2 px-6 rounded-lg hover:bg-[#966e5a] transition-colors duration-300">
+        <button 
+        type='submit' 
+        className="bg-[#AD8C74] text-white py-2 px-6 rounded-lg hover:bg-[#966e5a] transition-colors duration-300">
           Cancel Order
         </button>
       </main>

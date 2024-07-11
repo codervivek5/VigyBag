@@ -7,13 +7,17 @@ body {
     color: #333;
 }
 
+.privacy-policy {
+    margin-top: -29px;
+}
+
 .nav_menu .nav_link li a {
     cursor: pointer;
 }
 
 .containerprivacy {
     max-width: 80%;
-    margin: 30px auto;
+    margin: 90px auto;
     padding: 20px;
     /* background: #f6ebe4; */
     border-radius: 8px;
@@ -26,7 +30,7 @@ body {
 }
 
 .containerprivacy main {
-    margin-top: 110px;
+    margin-top: 191px;
 }
 
 

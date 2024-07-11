@@ -11,13 +11,18 @@ import phoneCase from "../../assets/Biodegradable-Phone-Case.jpeg";
 import journals from "../../assets/Recycled-Paper-Journals.webp";
 import waterBottle from "../../assets/Glass-Water-Bottle.webp";
 import teaSet from "../../assets/Organic-Tea-Set.webp";
-import { FaSearch } from "react-icons/fa";
-import carryBag from "../../assets/vigybag-carry-bag.png";
-import profile from "../../assets/profile.png";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Aside from "../../components/Aside/Aside";
+import { useNavigate } from "react-router-dom";
+import Header from "../../components/Dashboard/Header";
+import SearchBar from "../../components/Dashboard/SearchBar";
+import SeeMore from "../../components/Buttons/SeeMore";
+import ViewLess from "../../components/Buttons/ViewLess";
+import Dropdown from "../../components/Dashboard/Dropdown";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   const initialProducts = [
     {
       image: granola,
@@ -97,9 +102,16 @@ const Dashboard = () => {
   ];
 
   const [products] = useState([...initialProducts, ...moreProducts]);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const [searchTerm, setSearchTerm] = useState("");
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [clicked, setClicked] = useState(0);
   const [showViewLess, setShowViewLess] = useState(false);
+
+  const handleSearch = (e) => setSearchTerm(e.target.value);
+  const handleDropdown = (dropdown) => setOpenDropdown(dropdown);
+  const handleDropdownLeave = () => setOpenDropdown(null);
 
   const handleSeeMore = () => {
     if (clicked === 0) {
@@ -117,74 +129,45 @@ const Dashboard = () => {
     setShowViewLess(false);
   };
 
+  const handleLogout = () => {
+    try {
+      let confirmed = confirm("Are you sure want to logout?");
+      if (confirmed) {
+        localStorage.removeItem("isLoggedin");
+        alert("Logout Successfully and safely.");
+        navigate("/login");
+      } else {
+        return;
+      }
+    } catch (error) {
+      alert("Logout Failed. Try Again later");
+      console.log(error.data.message);
+    }
+  };
   return (
-    <div className="flex min-h-screen bg-[#fff1e6] mt-1">
+    <div className="flex min-h-screen bg-[#fff1e6]">
       {/* Sidebar */}
       <Aside />
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 mt-20">
         {/* Header */}
-        <header className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <div className="flex items-center space-x-4">
-            <div className="h-10 bg-[#686469ff]  flex items-center justify-center px-3 rounded-xl">
-              <img
-                src={profile}
-                alt=""
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  margin: "5px",
-                }}
-              />
-              <span className="text-white">Vivek Prajapati</span>
-            </div>
-          </div>
-        </header>
-
-        {/* Welcome Banner */}
-        <div
-          className="bg-[#686469ff] p-6 rounded-lg shadow-lg text-white mb-6"
-          style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "row",
-          }}>
-          <div
-            style={{ width: "100%", display: "flex", flexDirection: "column" }}>
-            <h1 className="text-3xl ml-3 ">
-              Welcome Back,{" "}
-              <span style={{ color: "#faf48cff" }}>Vivek Prajapati</span>
-            </h1>
-            <h1 className=" text-xl ml-3 mt-2">What will u learn today?</h1>
-          </div>
-
-          <div className="flex mt-3 mr-20 ">
-            <img
-              src={carryBag}
-              alt=""
-              style={{ width: "13vw", height: "19vh" }}
-            />
-          </div>
-        </div>
+        <Header />
 
         {/* Search Bar */}
-        <div className="relative mb-6">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full pl-10 pr-4 py-2 rounded-md bg-[#d1cdcdff] focus:outline-none focus:ring-2 focus:ring-[#6AB04C] text-[#616161ff]"
-          />
-          <FaSearch className="absolute right-10 top-2.5 text-[#616161ff]" />
-        </div>
+        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
 
         {/* New Today Section */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">New Today</h2>
+          <div className="flex justify-between">
+            <h2 className="text-2xl font-bold mb-4">New Today</h2>
+            <Dropdown
+              isOpen={openDropdown === "products"}
+              onMouseEnter={() => handleDropdown("products")}
+              onMouseLeave={handleDropdownLeave}
+            />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.slice(0, visibleProducts).map((product, index) => (
               <ProductCard
@@ -197,20 +180,8 @@ const Dashboard = () => {
             ))}
           </div>
           <div className="mt-6 flex justify-center">
-            {clicked < 2 && (
-              <button
-                className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
-                onClick={handleSeeMore}>
-                See More
-              </button>
-            )}
-            {showViewLess && (
-              <button
-                className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 ml-4"
-                onClick={handleViewLess}>
-                View Less
-              </button>
-            )}
+            {clicked < 2 && <SeeMore />}
+            {showViewLess && <ViewLess />}
           </div>
         </section>
       </main>

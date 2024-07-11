@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
@@ -7,6 +7,7 @@ import app from "../../assets/app.png";
 import googlePlay from "../../assets/google-play.png";
 import mobile from "../../assets/mobile.png";
 import { Link } from "react-router-dom";
+import SearchBar from "../../pages/Home/SearchBar";
 
 // Import category images
 import customisedGiftsImg from "../../assets/Customized-Gifts.png";
@@ -26,15 +27,45 @@ import BambooProductsImg from "../../assets/Bamboo-Products.png";
 import StorageBasketsImg from "../../assets/Storage-Baskets.png";
 import DownArrow from "../../components/DownArrow/downArrow";
 
+//Redirectinh links --->
+
 const popularCategories = [
-  { name: "Fashion & Accessories", image: fashionAndAccessories },
-  { name: "Printing & Stationery", image: PrintingAndStationary },
-  { name: "Food & Beverages", image: FoodAndBeverages },
-  { name: "Beauty & Wellness", image: BeautyAndWellness },
-  { name: "Furniture & Decor", image: FurnitureAndDecor },
-  { name: "Body Care", image: BodyCare },
-  { name: "Health Supplements", image: HealthSupplementsImg },
-  { name: "Customized Gifts", image: customisedGiftsImg },
+  {
+    name: "Fashion & Accessories",
+    image: fashionAndAccessories,
+    path: "/popularCategories/fashionAccessories",
+  },
+  {
+    name: "Printing & Stationery",
+    image: PrintingAndStationary,
+    path: "/popularCategories/printingStationery",
+  },
+  {
+    name: "Food & Beverages",
+    image: FoodAndBeverages,
+    path: "/popularCategories/foodBeverages",
+  },
+  {
+    name: "Beauty & Wellness",
+    image: BeautyAndWellness,
+    path: "/popularCategories/beautyWellness",
+  },
+  {
+    name: "Furniture & Decor",
+    image: FurnitureAndDecor,
+    path: "/popularCategories/furnitureDecor",
+  },
+  { name: "Body Care", image: BodyCare, path: "/popularCategories/bodyCare" },
+  {
+    name: "Health Supplements",
+    image: HealthSupplementsImg,
+    path: "/popularCategories/healthSupplements",
+  },
+  {
+    name: "Customized Gifts",
+    image: customisedGiftsImg,
+    path: "/popularCategories/customizedGifts",
+  },
 ];
 
 const latestProducts = [
@@ -44,18 +75,21 @@ const latestProducts = [
     description:
       "A vibrant collection of artisan soaps that are 100% natural and biodegradable.",
     discount: "15% Off",
+    path: "/latestInMarket/handMadeSoaps",
   },
   {
     img: ArtSuppliesImg,
     name: "Art Supplies",
     description: "Natural and cruelty-free selection of art supplies.",
     discount: "Upto 50% Off",
+    path: "/latestInMarket/artSupplies",
   },
   {
     img: CeramicDinnerwareImg,
     name: "Ceramic Dinnerware",
     description: "Long-lasting and durable eco-friendly dinnerware.",
     discount: "Buy 1 Get 1",
+    path: "/latestInMarket/ceramicDinnerware",
   },
   {
     img: BambooProductsImg,
@@ -63,6 +97,7 @@ const latestProducts = [
     description:
       "Natural, non-toxic, biodegradable household and bath products.",
     discount: "20% Off",
+    path: "/latestInMarket/bambooProducts",
   },
   {
     img: StorageBasketsImg,
@@ -70,12 +105,14 @@ const latestProducts = [
     description:
       "Natural basket collection featuring hand-woven sustainable materials.",
     discount: "20% Off",
+    path: "/latestInMarket/storageBaskets",
   },
   {
     img: HandmadeSoapsImg,
     name: "Organic Soaps",
     description: "Handcrafted organic soaps made with natural ingredients.",
     discount: "10% Off",
+    path: "/latestInMarket/organicSoaps",
   },
   {
     img: FoodAndBeverages,
@@ -83,6 +120,7 @@ const latestProducts = [
     description:
       "A selection of premium organic teas from sustainable sources.",
     discount: "25% Off",
+    path: "/latestInMarket/organicTea",
   },
   {
     img: BeautyAndWellness,
@@ -90,11 +128,14 @@ const latestProducts = [
     description:
       "Eco-friendly makeup and skincare products made from natural ingredients.",
     discount: "Buy 2 Get 1",
+    path: "/latestInMarket/naturalCosmetics",
   },
 ];
 
 const Home = () => {
   const sectionRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (e) => setSearchTerm(e.target.value);
 
   const scrollToSection = () => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -103,6 +144,9 @@ const Home = () => {
   return (
     <div className="bg-[#fff0e3ff]">
       <main className="mt-1">
+        <div className="sm:block md:hidden bg-[#eff0f1] pt-5">
+          <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+        </div>
         {/* Hero Section */}
         <section
           className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
@@ -115,7 +159,7 @@ const Home = () => {
             height: "auto",
           }}>
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left">
+            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left mt-20">
               <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
                 Welcome to <span className="text-green-700">VigyBag!</span>
               </h1>
@@ -155,6 +199,7 @@ const Home = () => {
                   key={index}
                   name={category.name}
                   image={category.image}
+                  path={category.path}
                 />
               ))}
             </div>
@@ -205,36 +250,6 @@ const Home = () => {
             <div
               className="bg-[#373b3aff] rounded-lg p-4 sm:p-6 md:p-8 max-w-3xl mx-auto backdrop-blur-lg"
               style={{ minHeight: "30vh", height: "auto" }}>
-              {/* <div className="flex flex-col md:flex-row items-center justify-center mb-4">
-                <div className="text-center md:text-left mb-4 md:mb-0 md:mr-8">
-                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white">
-                    Download the App NOW
-                  </h2>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.vigybag"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300"
-                  >
-                    <img
-                      src={googlePlay}
-                      alt="Google Play"
-                      className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3"
-                    />
-                    <span>
-                      <div className="text-xs">GET IT ON</div>
-                      <div className="text-base sm:text-lg md:text-xl font-semibold">
-                        Google Play
-                      </div>
-                    </span>
-                  </a>
-                </div>
-                <img
-                  src={mobile}
-                  alt="VigyBag App"
-                  className="w-32 sm:w-40 md:w-60 mt-4 md:mt-0"
-                />
-              </div> */}
               <section
                 className="newsletter-section"
                 style={{ color: "white", padding: "40px 0" }}>
@@ -266,6 +281,7 @@ const Home = () => {
                       type="email"
                       placeholder="Enter your email address"
                       style={{
+                        color: "black",
                         width: "100%",
                         borderRadius: "10px",
                         padding: "10px",
