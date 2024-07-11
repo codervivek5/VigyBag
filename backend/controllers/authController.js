@@ -63,13 +63,9 @@ exports.login = async (req, res) => {
         const adminRole = 1;
 
         // Update the user's role in the database
-        const user = await User.findOneAndUpdate(
-          { email },
-          { $set: { role: adminRole } },
-          { new: true }
-        );
+        await User.updateOne({ email }, { $set: { role: adminRole } });
 
-        return res.status(200).json({ message: "Admin access granted", user });
+        return res.status(200).json({ message: "Admin access granted." });
       } else {
         return res.status(401).json({ message: "Invalid admin password" });
       }
@@ -81,7 +77,10 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    res.status(200).json({ message: "Login successful", user });
+    // Send username along with success message
+    res
+      .status(200)
+      .json({ message: "Login successful", username: user.username });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

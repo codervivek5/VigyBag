@@ -9,6 +9,7 @@ import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle, FaSearch } from "react-icons/fa";
 
+
 const Navbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -30,166 +31,193 @@ const Navbar = ({ isAdmin }) => {
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <div className="flex items-center">
-            <NavLogo />
-            <div className="hidden md:flex items-center space-x-2 ml-4 md:ml-10">
-              <NavLink
-                to="/"
-                icon={
-                  <lord-icon
-                    src="https://cdn.lordicon.com/wmwqvixz.json"
-                    trigger="hover"
-                    colors="primary:#15803D"
-                    className="w-5 h-5"
-                  ></lord-icon>
-                }
-                textSize="text-sm"
-                className="text-sm"
-              >
-                Home
-              </NavLink>
-              <ProductsDropdown textSize="text-sm" />
-              <NavLink
-                to="/about"
-                icon={
-                  <lord-icon
-                    src="https://cdn.lordicon.com/jnzhohhs.json"
-                    trigger="hover"
-                    colors="primary:#15803D"
-                    className="w-5 h-5"
-                  ></lord-icon>
-                }
-                textSize="text-sm"
-                className="text-sm"
-              >
-                About Us
-              </NavLink>
-              <NavLink
-                to="/contact"
-                icon={
-                  <lord-icon
-                    src="https://cdn.lordicon.com/rhvddzym.json"
-                    trigger="hover"
-                    colors="primary:#15803D"
-                    className="w-5 h-5"
-                  ></lord-icon>
-                }
-                textSize="text-sm"
-                className="text-sm"
-              >
-                Contact Us
-              </NavLink>
-            </div>
+    <>
+      <div class="w-full border-b">
+        <div class="flex flex-col items-center justify-between px-4 py-2 space-y-4 md:flex-row md:space-y-0">
+          <div class="flex items-center space-x-4">
+            <NavLogo></NavLogo>
+            <span class="text-2xl font-bold text-purple-600">VigyBag</span>
           </div>
-
-          <div className="flex items-center">
-            <div className="hidden md:flex items-center space-x-4">
-              {showSearch ? (
-                <div className="flex items-center space-x-2">
-                  <SearchBar
-                    searchTerm={searchTerm}
-                    handleSearch={handleSearch}
-                    textSize="text-sm"
-                    className="w-72"
-                  />
-                  <button
-                    onClick={toggleSearch}
-                    className="text-green-800 hover:text-gray-600 focus:outline-none"
-                  >
-                    <FaSearch className="h-6 w-6" />
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={toggleSearch}
-                  className="text-green-800 hover:text-gray-600 focus:outline-none"
-                >
-                  <FaSearch className="h-6 w-6" />
-                </button>
-              )}
-              <CartIcon textSize="text-sm" />
-              {isLoggedIn && (
-                <>
-                  {isAdmin ? (
-                    <Link
-                      to="/admin/dashboard"
-                      className="text-green-800 hover:text-gray-600 flex items-center text-sm"
-                    >
-                      <FaUserCircle className="text-lg" />
-                    </Link>
-                  ) : (
-                    <Link
-                      to="/dashboard"
-                      className="text-green-800 hover:text-gray-600 flex items-center text-sm"
-                    >
-                      <FaUserCircle className="text-lg h-5 w-5" />
-                    </Link>
-                  )}
-                </>
-              )}
-              <AuthButton
-                isLoggedIn={isLoggedIn}
-                handleLogout={handleLogout}
-                textSize="text-sm"
-              />
-            </div>
-
-            <div className="md:hidden">
-              <button
-                onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
-              >
-                {isOpen ? (
-                  <svg
-                    className="h-6 w-6"
-                    stroke="#15803D"
-                    fill="#15803D"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="h-6 w-6"
-                    stroke="#15803D"
-                    fill="#15803D"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
-              </button>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-sm text-gray-600">
+              About Us
+            </a>
+            <a href="#" class="text-sm text-gray-600">
+              Order Tracking
+            </a>
+            <a href="#" class="text-sm text-gray-600">
+              Contact Us
+            </a>
+            <a href="#" class="text-sm text-gray-600">
+              FAQs
+            </a>
+            <div class="flex items-center space-x-2">
+              <span class="text-sm text-gray-600">English</span>
+              <span class="text-sm text-gray-600">USD</span>
             </div>
           </div>
         </div>
+        <div class="flex flex-col items-center justify-between px-4 py-2 space-y-4 md:flex-row md:space-y-0">
+          <div class="flex items-center space-x-4">
+            <button
+              type="button"
+              role="combobox"
+              aria-controls="radix-:r0:"
+              aria-expanded="false"
+              aria-autocomplete="none"
+              dir="ltr"
+              data-state="closed"
+              data-placeholder=""
+              class="h-10 w-full justify-between rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex items-center space-x-2 text-sm text-gray-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+              >
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+              <span className="pointer-events: none;">All categories</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down h-4 w-4 opacity-50"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <input
+              class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full max-w-xs"
+              placeholder="I'm shopping for..."
+              type="text"
+            />
+            <button class="whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center w-10 h-10 p-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5 text-gray-600"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+              <span class="text-sm text-gray-600">Need Help?</span>
+              <span class="text-sm font-bold text-gray-600">
+                +001 123 456 789
+              </span>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 text-gray-600"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 text-gray-600"
+            >
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 text-gray-600"
+            >
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center justify-center px-4 py-2 space-x-4 bg-gray-100">
+          <a href="#" class="text-sm text-gray-600">
+            Mens
+          </a>
+          <a href="#" class="text-sm text-gray-600">
+            Womans
+          </a>
+          <a href="#" class="text-sm text-gray-600">
+            Kids
+          </a>
+          <a href="#" class="text-sm text-gray-600">
+            Electronic Items
+          </a>
+          <a href="#" class="text-sm text-gray-600">
+            Kitchen Accessories
+          </a>
+          <a href="#" class="text-sm text-gray-600">
+            News &amp; Blogs
+          </a>
+        </div>
       </div>
-
-      {isOpen && (
-        <MobileMenu
-          isOpen={isOpen}
-          searchTerm={searchTerm}
-          handleSearch={handleSearch}
-          handleDropdown={() => {}}
-          openDropdown={null}
-          isLoggedIn={isLoggedIn}
-          handleLogout={handleLogout}
-          handleDropdownLeave={() => {}}
-        />
-      )}
-    </nav>
+    </>
   );
 };
 
