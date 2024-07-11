@@ -75,8 +75,8 @@ const Navbar = ({ isAdmin }) => {
             <div className="md:block hidden">
               <div className="ml-4 flex items-center md:ml-6">
                 <SearchBar
-                  searchTerm={searchTerm}
-                  handleSearch={handleSearch}
+                  // searchTerm={searchTerm}
+                  // handleSearch={handleSearch}
                 />
                 <CartIcon />
                 {isLoggedIn && (
