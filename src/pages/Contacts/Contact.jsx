@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import Logo from '../../assets/offical_logo.png';
-import { stringify } from 'postcss';
 
 const ContactForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -9,9 +8,11 @@ const ContactForm = () => {
   const [email, setEmail] = useState('');
   const [contactNumber, setContactNumber] = useState('');
   const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setSubmitting(true);
 
     try {
       const response = await fetch('/send-email', {
@@ -29,16 +30,18 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        alert('Feedback!');
-        // Clear form fields if needed
+        alert('Message submitted successfully!');
         setFirstName('');
         setLastName('');
         setEmail('');
         setContactNumber('');
         setMessage('');
-      }
+      } 
     } catch (error) {
       console.error();
+      
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -121,8 +124,9 @@ const ContactForm = () => {
             <button
               className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg focus:outline-none focus:shadow-outline mb-6 transition duration-300 w-full"
               type="submit"
+              disabled={submitting}
             >
-              Get In Touch
+              {submitting ? 'Submitting...' : 'Get In Touch'}
             </button>
             <hr className="w-full h-1 bg-white z-2 relative" />
             <p className="text-white text-sm mb-2 text-center px-10"
