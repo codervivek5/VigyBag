@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaEnvelope, FaPhone } from 'react-icons/fa';
 import Logo from '../../assets/offical_logo.png';
 import emailjs from "@emailjs/browser";
-import { useState } from 'react';
 
 const ContactForm = () => {
     const [firstname,setFirstname]=useState('')
@@ -86,6 +85,7 @@ const ContactForm = () => {
               required
             />
           </div>
+          </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
@@ -111,6 +111,7 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
+        </div>
 
         <div className="mb-6">
           <textarea
