@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import NavLogo from "./NavLogo";
+
+
+import NavLink from "./NavLink";
+
 import SearchBar from "../SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
@@ -74,7 +78,7 @@ const Navbar = ({ isAdmin }) => {
   }, []);
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-md md:w-full">
+    <nav className="bg-[#ecd5c5] shadow-lg md:w-full fixed z-50 -mt-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center w-full">

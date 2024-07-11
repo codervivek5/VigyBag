@@ -4,9 +4,9 @@ import tick from "../../assets/tick.png";
 import { Link } from "react-router-dom";
 
 const OrderDetails = () => (
-  <div className="bg-[#fff0e3ff] p-4 sm:p-6 mt-1">
+  <div className="bg-[#fff0e3ff] p-4 sm:p-6">
     <Breadcrumbs />
-    <h1 className="text-xl sm:text-2xl font-bold mb-4">Order Details</h1>
+    <h1 className="text-xl sm:text-2xl font-bold mb-4 mt-20">Order Details</h1>
     <OrderInfo />
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
       <Card title="Shipping Address">

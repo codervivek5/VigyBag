@@ -25,7 +25,7 @@ const Aside = () => {
   return (
     <>
       <aside
-        className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 "
+        className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 index-"
         style={{ position: "sticky" }}>
         <div className="flex items-center space-x-4 mt-10 ml-5">
           <div className="h-10 bg-green-700 flex items-center justify-center p-8 rounded-lg gap-2">
