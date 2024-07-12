@@ -22,19 +22,8 @@ const Navbar = ({ isAdmin }) => {
   useEffect(() => {
     const fetchUsername = async () => {
       try {
-        const response = await fetch("/api/user", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            // Add any authentication headers if required
-          },
-        });
-        if (response.ok) {
-          const userData = await response.json();
-          setUsername(userData.username);
-        } else {
-          throw new Error("Failed to fetch username");
-        }
+        const username = localStorage.getItem("username");
+        console.log(username);
       } catch (error) {
         console.error("Error fetching username:", error);
         setUsername("User");
@@ -178,6 +167,7 @@ const Navbar = ({ isAdmin }) => {
                   </svg>
                 )}
               </button>
+
             </div>
           </div>
         </div>

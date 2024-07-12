@@ -1,7 +1,6 @@
 // AuthButton.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaUserCircle } from "react-icons/fa";
 
 const AuthButton = ({ isLoggedIn, handleLogout }) =>
   isLoggedIn ? (
@@ -20,7 +19,8 @@ const AuthButton = ({ isLoggedIn, handleLogout }) =>
       <button
         type="button"
         className="text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
-        style={{ fontSize: "19px" }}>
+        style={{ fontSize: "19px" }}
+      >
         Login
       </button>
     </Link>
