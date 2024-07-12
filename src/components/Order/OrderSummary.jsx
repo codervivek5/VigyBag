@@ -54,7 +54,7 @@ function OrderSummary() {
                     <li className="flex items-center justify-between gap-5 font-bold">
                         <span>Shipping</span>
                         {shipping === 0.00 ? (
-                            <span className="text-green-600">FREE</span>  {/*FREE display*/}
+                            <span className="text-green-600">FREE</span>  /*FREE display*/
                         ) : (
                             <span>{currencyFormatter.format(shipping)}</span>
                         )}
