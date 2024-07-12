@@ -159,7 +159,7 @@ const Home = () => {
             height: "auto",
           }}>
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left mt-20">
+            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left md:mt-20">
               <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
                 Welcome to <span className="text-green-700">VigyBag!</span>
               </h1>

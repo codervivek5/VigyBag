@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 function ProductGrid({ products, headingText }) {
   return (
-    <div className="w-full lg:w-3/4 lg:ml-auto mt-28 mb-9 ml-10">
+    <div className="w-full lg:w-3/4 lg:ml-auto -ml-4 md:mt-28 mt-8 mb-9">
       <h1 className="mb-10 font-bold ml-10" style={{ fontSize: "23px" }}>
         {headingText}
       </h1>
