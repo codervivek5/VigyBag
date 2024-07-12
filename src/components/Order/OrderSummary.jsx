@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux";
 
 const currencyFormatter = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
@@ -18,7 +19,7 @@ function OrderSummary() {
 
     let shipping = calculateShipping(itemsTotal, shippingThreshold, shippingRate);
     let total = itemsTotal + shipping;
-
+    
     if (itemsTotal === 0) {
         return (
         <div className="mb-5">
@@ -52,7 +53,11 @@ function OrderSummary() {
                     ))}
                     <li className="flex items-center justify-between gap-5 font-bold">
                         <span>Shipping</span>
-                        <span>{currencyFormatter.format(shipping)}</span>
+                        {shipping === 0.00 ? (
+                            <span className="text-green-600">FREE</span>
+                        ) : (
+                            <span>{currencyFormatter.format(shipping)}</span>
+                        )}
                     </li>
                     <hr />
                     <li className="flex items-center justify-between gap-5 font-bold text-xl">
