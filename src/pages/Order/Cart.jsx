@@ -160,7 +160,7 @@ const LoginToContinue = () => {
           <button
             type="button"
             className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "284px" }}>
+            style={{ minWidth: "425px" }}>
             Login now
           </button>
         </Link>
