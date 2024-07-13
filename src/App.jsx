@@ -25,6 +25,8 @@ import FAQ from "./pages/FAQ/Faq";
 import CartEmpty from "./pages/Order/CartEmpty";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./pages/TermsAndCondition/TermsAndCondition";
+import FeedbackButton from "./components/FeedbackForm/FeedBtn";
+import FeedbackModal from "./components/FeedbackForm/Feedback";
 
 // Latest_In_Market
 import LatestInMarket from "./pages/Latest_in_the_Market/LatestInMarket";
@@ -114,6 +116,10 @@ export default function App() {
           <Route
             path="popularCategories/printingStationery"
             element={<PrintingStationery />}
+          />
+          <Route
+            path="feedback"
+            element={<FeedbackModal />}
           />
 
           <Route path="about" element={<AboutUs />} />
