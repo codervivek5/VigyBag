@@ -49,13 +49,18 @@ function Certification() {
     return false;
   };
 
+  const [loadingName, setLoadingName] = useState(false);
+
   const fetchGitHubName = async (username) => {
     try {
+      setLoadingName(true);
       const response = await axios.get(`https://api.github.com/users/${username}`);
       return response.data.name || username;
     } catch (error) {
       console.error("Error fetching GitHub name:", error);
       return username;
+    } finally {
+      setLoadingName(false);
     }
   };
 
