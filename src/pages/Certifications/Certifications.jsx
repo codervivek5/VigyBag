@@ -90,6 +90,8 @@ function Certification() {
     e.preventDefault();
     if (isVerified) {
       setCertificate({ name, githubUsername, userId });
+    } else {
+      setError("User verification failed. Please verify the user before generating the certificate.");
     }
   };
 
