@@ -131,18 +131,17 @@ const ProceedToCheckout = () => {
           placeholder="Enter coupon code"
           className="p-2 border border-gray-300 rounded-md w-full"
         />
-
         <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>
           Redeem
         </button>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <button
+      <Link to="/Checkout"><button
           type="button"
           className={`${buttonBgClass} w-full sm:w-auto`}
           style={{ minWidth: "425px" }}>
           Check Out
-        </button>
+        </button></Link>
       </div>
     </div>
   );
@@ -177,11 +176,16 @@ const Cart = () => {
   const onUpdate = (product, quantity) => {
     dispatch(manageCartItem({ product, quantity }));
   };
-
-  const onclear = () => {
-    dispatch(clearCart());
-    toast.success(`Cart successfully cleared!`);
+  const onClearCart = () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to clear your cart?"
+    );
+    if (confirmed) {
+      dispatch(clearCart());
+      toast.success(`Cart successfully cleared!`);
+    }
   };
+ 
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
@@ -207,7 +211,7 @@ const Cart = () => {
                   <button
                     type="button"
                     className={`${buttonBgClass} w-full sm:w-auto`}
-                    onClick={onclear}>
+                    onClick={onClearCart}>
                     Clear Cart
                   </button>
                 </div>
@@ -216,17 +220,14 @@ const Cart = () => {
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
             <OrderSummary />
-            {!isLoggedIn ? (
-              <LoginToContinue />
-            ) : cartItems.length !== 0 ? (
+            
               <ProceedToCheckout />
-            ) : (
-              <></>
-            )}
+            
           </div>
         </div>
       </div>
     </div>
+      
   );
 };
 
