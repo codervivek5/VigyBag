@@ -5,11 +5,13 @@ import Logout from "../../components/Buttons/Logout";
 const Aside = () => {
   const navigate = useNavigate();
 
+  const username = localStorage.getItem("username");
+
   const handleLogout = () => {
     try {
       const confirmed = window.confirm("Are you sure you want to logout?");
       if (confirmed) {
-        localStorage.removeItem("isloggedin");
+        localStorage.removeItem("isLoggedIn");
         alert("Logout Successful.");
         navigate("/login");
       } else {
@@ -37,7 +39,7 @@ const Aside = () => {
               src="https://cdn.lordicon.com/hrjifpbq.json"
               trigger="hover"
               colors="primary:#ffffff"></lord-icon>
-            <span className="text-white">Vivek Prajapati</span>
+            <span className="text-white">{username}</span>
           </div>
         </div>
         <nav className="flex-1 px-4 py-8 space-y-2">

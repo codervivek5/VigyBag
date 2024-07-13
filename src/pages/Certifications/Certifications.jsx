@@ -144,7 +144,7 @@ function Certification() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96 mt-20">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96 md:mt-20 m-10">
         <h1 className="text-2xl font-bold mb-4">Contribution Certificate</h1>
         <form onSubmit={handleSubmit}>
           <div className="flex mb-4">
