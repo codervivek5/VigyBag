@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Logout from "../../components/Buttons/Logout";
 
@@ -32,7 +32,7 @@ const Aside = () => {
         style={{ position: "sticky" }}
       >
         <div className="flex items-center space-x-4 mt-10 ml-5">
-          <div className="h-10 bg-green-700 flex items-center justify-center p-8 rounded-lg gap-2 mr-6 md:mr-1">
+          <div className="h-10 bg-green-700 flex items-center justify-center p-8 rounded-lg gap-2">
             <lord-icon
               style={{
                 height: "40px",
