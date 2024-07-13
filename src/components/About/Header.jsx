@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import app from "../../assets/app.png";
 
 function Header() {
   return (
     <>
-    <header className="relative h-64 md:h-96 flex items-center justify-center overflow-hidden">
+      <header className="relative h-96 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://www.globalteckz.com/wp-content/uploads/2017/04/ecommerce-final.png"
@@ -23,9 +23,8 @@ function Header() {
           </p>
         </div>
       </header>
-    
     </>
-  )
+  );
 }
 
-export default Header
+export default Header;

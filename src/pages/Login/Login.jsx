@@ -53,13 +53,10 @@ const LoginForm = () => {
       );
       localStorage.setItem("isLoggedIn", "true");
 
-      // Check if the user is an admin based on role
-      // if (response.data.user.role === 1) {
-      //   localStorage.setItem("isAdmin", "true");
-      //   setIsAdmin(true); // Set state to indicate admin login
-      // } else {
-      //   setIsAdmin(false); // Reset admin state if not admin login
-      // }
+      const username = response.data.username;
+      // Store username in localStorage
+      localStorage.setItem("username", username);
+      console.log(username);
 
       alert(response.data.message);
       setEmail("");
@@ -105,7 +102,8 @@ const LoginForm = () => {
                   }}
                   src="https://cdn.lordicon.com/tmqaflqo.json"
                   trigger="hover"
-                  colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"></lord-icon>
+                  colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"
+                ></lord-icon>
               }
               type="email"
               placeholder="Email"
@@ -124,7 +122,8 @@ const LoginForm = () => {
                     }}
                     src="https://cdn.lordicon.com/pdwpcpva.json"
                     trigger="hover"
-                    colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
+                    colors="primary:#629110,secondary:#109121,tertiary:#629110"
+                  ></lord-icon>
                 }
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
@@ -151,7 +150,8 @@ const LoginForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full h-12 bg-green-700 text-white rounded-xl flex items-center justify-center">
+              className="w-full h-12 bg-green-700 text-white rounded-xl flex items-center justify-center"
+            >
               {loading ? <DotLoader color="#ffffff" size={24} /> : "Login"}
             </button>
           </form>
@@ -185,7 +185,8 @@ const LoginForm = () => {
                     paddingLeft: "1px",
                   }}
                   src="https://cdn.lordicon.com/nlsfemdg.json"
-                  trigger="hover"></lord-icon>
+                  trigger="hover"
+                ></lord-icon>
                 <span className="ml-2 text-sm">Login with Facebook</span>
               </button>
             </div>

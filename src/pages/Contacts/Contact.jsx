@@ -43,7 +43,7 @@ const ContactForm = () => {
       <div
         className="bg-[#393d3cff] text-white py-8 px-6 sm:px-12 rounded-lg"
         style={{
-          marginTop: "13vh",
+          marginTop: "21vh",
           borderRadius: "20px",
           width: "90vw",
           maxWidth: "600px",

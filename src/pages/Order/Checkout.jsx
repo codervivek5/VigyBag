@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ProgressBar from '../../components/Order/ProgressBar';
 import OrderSummary from '../../components/Order/OrderSummary';
-
+import { Link } from 'react-router-dom';
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -132,7 +132,7 @@ const CheckoutForm = () => {
               </div>
               <div className="flex justify-between mb-6">
                 <button type="button" className="px-4 py-2 bg-gray-300 rounded">Back to Cart</button>
-                <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">Proceed to Payment</button>
+                <Link to="/payment"><button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">Proceed to Payment</button></Link>
               </div>
             </form>
           </div>
