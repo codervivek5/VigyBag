@@ -205,15 +205,15 @@ function Certification() {
               <div
                 className="absolute text-center w-full"
                 style={{
-                  bottom: "10%",
-                  left: "50%",
+                  bottom: "3%",
+                  left: "80%",
                   transform: "translateX(-50%)",
-                  fontSize: "8px",
+                  fontSize: "5px",
                   color: "black",
                   fontFamily: "Arial, sans-serif",
                 }}
               >
-                GitHub ID: {certificate.userId}
+                ID: {certificate.userId}
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between">
