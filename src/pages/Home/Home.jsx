@@ -1,11 +1,8 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
 import background from "../../assets/background.png";
 import app from "../../assets/app.png";
-import googlePlay from "../../assets/google-play.png";
-import mobile from "../../assets/mobile.png";
 import { Link } from "react-router-dom";
 import SearchBar from "../../pages/Home/SearchBar";
 
@@ -287,7 +284,7 @@ const Home = () => {
                         padding: "10px",
                         marginBottom: "10px",
                         border: "1px solid #ccc",
-                        "@media (max-width: 780px)": {
+                        "@media (maxWidth: 780px)": {
                           width: "80%",
                         },
                       }}
