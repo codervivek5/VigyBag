@@ -7,10 +7,12 @@ import Certificate from "../../assets/images/Certificate.png";
 function Certification() {
   const [githubUsername, setGithubUsername] = useState("");
   const [name, setName] = useState("");
+  const [userId, setUserId] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [certificate, setCertificate] = useState(null);
   const [downloadFormat, setDownloadFormat] = useState("png");
+  const [isVerified, setIsVerified] = useState(false);
   const certificateRef = useRef(null);
 
   const checkContribution = async (contributorUsername) => {
@@ -34,6 +36,7 @@ function Certification() {
         );
 
         if (contributor) {
+          setUserId(contributor.id.toString());
           return true;
         }
 
@@ -46,17 +49,28 @@ function Certification() {
     return false;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const fetchGitHubName = async (username) => {
+    try {
+      const response = await axios.get(`https://api.github.com/users/${username}`);
+      return response.data.name || username;
+    } catch (error) {
+      console.error("Error fetching GitHub name:", error);
+      return username;
+    }
+  };
+
+  const handleVerify = async () => {
     setLoading(true);
     setError("");
-    setCertificate(null);
+    setIsVerified(false);
 
     try {
       const hasContributed = await checkContribution(githubUsername);
 
       if (hasContributed) {
-        setCertificate({ name, githubUsername });
+        const fetchedName = await fetchGitHubName(githubUsername);
+        setName(fetchedName);
+        setIsVerified(true);
       } else {
         setError(
           `The GitHub user ${githubUsername} has not contributed to the VigyBag repository.`
@@ -72,28 +86,35 @@ function Certification() {
     setLoading(false);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isVerified) {
+      setCertificate({ name, githubUsername, userId });
+    }
+  };
+
   const downloadAsPNG = () => {
     html2canvas(certificateRef.current, {
-      scale: 4, // Increase scale for better quality
+      scale: 4,
       useCORS: true,
       logging: true,
       letterRendering: 1,
     }).then((canvas) => {
       const link = document.createElement("a");
       link.download = "certificate.png";
-      link.href = canvas.toDataURL("image/png", 1.0); // Use maximum quality
+      link.href = canvas.toDataURL("image/png", 1.0);
       link.click();
     });
   };
 
   const downloadAsPDF = () => {
     html2canvas(certificateRef.current, {
-      scale: 10, // Increase scale for better quality
+      scale: 10,
       useCORS: true,
       logging: true,
       letterRendering: 1,
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png", 1.0); // Use maximum quality
+      const imgData = canvas.toDataURL("image/png", 1.0);
       const pdf = new jsPDF({
         orientation: "landscape",
         unit: "px",
@@ -123,17 +144,27 @@ function Certification() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96 md:mt-20 m-10">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96 mt-20">
         <h1 className="text-2xl font-bold mb-4">Contribution Certificate</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="GitHub Username"
-            value={githubUsername}
-            onChange={(e) => setGithubUsername(e.target.value)}
-            className="w-full p-2 mb-4 border rounded"
-            required
-          />
+          <div className="flex mb-4">
+            <input
+              type="text"
+              placeholder="GitHub Username"
+              value={githubUsername}
+              onChange={(e) => setGithubUsername(e.target.value)}
+              className="flex-grow p-2 border rounded-l"
+              required
+            />
+            <button
+              type="button"
+              onClick={handleVerify}
+              className="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600"
+              disabled={loading}
+            >
+              {loading ? "Verifying..." : "Verify"}
+            </button>
+          </div>
           <input
             type="text"
             placeholder="Your Name"
@@ -141,12 +172,14 @@ function Certification() {
             onChange={(e) => setName(e.target.value)}
             className="w-full p-2 mb-4 border rounded"
             required
+            readOnly={isVerified}
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            disabled={loading}>
-            {loading ? "Verifying..." : "Generate Certificate"}
+            className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+            disabled={!isVerified || loading}
+          >
+            Generate Certificate
           </button>
         </form>
         {error && <p className="text-red-500 mt-4">{error}</p>}
@@ -165,21 +198,37 @@ function Certification() {
                   color: "black",
                   textShadow: "1px 1px 2px white",
                   fontFamily: "Copperplate, Papyrus, fantasy",
-                }}>
+                }}
+              >
                 {certificate.name}
+              </div>
+              <div
+                className="absolute text-center w-full"
+                style={{
+                  bottom: "3%",
+                  left: "80%",
+                  transform: "translateX(-50%)",
+                  fontSize: "5px",
+                  color: "black",
+                  fontFamily: "Arial, sans-serif",
+                }}
+              >
+                ID: {certificate.userId}
               </div>
             </div>
             <div className="mt-4 flex items-center justify-between">
               <select
                 value={downloadFormat}
                 onChange={(e) => setDownloadFormat(e.target.value)}
-                className="p-2 border rounded">
+                className="p-2 border rounded"
+              >
                 <option value="png">PNG</option>
                 <option value="pdf">PDF</option>
               </select>
               <button
                 onClick={handleDownload}
-                className="bg-green-500 text-white p-2 rounded hover:bg-green-600">
+                className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
+              >
                 Download as {downloadFormat.toUpperCase()}
               </button>
             </div>
