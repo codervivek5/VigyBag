@@ -127,13 +127,14 @@ const Navbar = ({ isAdmin }) => {
                 <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
                 <CartIcon />
                 {isLoggedIn ? (
-                  <div className="relative">
-                    {/* need styling fix then implement only */}
-                    {/* <p className="mr-2 overflow-hidden flex text-gray-800">{`Hi, ${username}`}</p> */}
+                  <div className="relative flex"style={{flexDirection:"row",gap:"20px",top:"1px"}}>
+                    {/* Username not displayed */}
+                    
                     <FaUserCircle
                       onClick={handleDropdownToggle}
-                      className="text-3xl cursor-pointer"
+                      className="text-3xl cursor-pointer ml-4"
                     />
+                    <p className=" flex text-gray-800"style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>{`Hi,${username}`}</p>
                     {showDropdown && (
                       <div
                         ref={dropdownRef}
