@@ -27,12 +27,6 @@ function OrderSummary() {
             <div className={`${cardClass} space-y-2`} style={{ border: "1px solid black" }}>
                 <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
                 <p className="my-5">You have no items in the shopping cart!</p>
-                <ul className="list-inside text-zinc-700 space-y-1 list-none">
-                    <li className="flex items-center justify-between gap-5 font-bold text-xl">
-                        <span>Total</span>
-                        <span>{currencyFormatter.format(total)}</span>
-                    </li>
-                </ul>
             </div>
         </div>
         )
