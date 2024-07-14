@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function ProductGrid({ products, headingText }) {
   return (
@@ -20,8 +21,14 @@ function ProductGrid({ products, headingText }) {
 }
 
 function ProductCard({ product }) {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+
+  const handleClick = () => {
+    navigate("/productDetails");
+  };
 
   const onAddToCart = (product) => {
     const quantity = 1;
@@ -30,7 +37,9 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+    <div
+      onClick={handleClick}
+      className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
       <img
         src={product.image}
         alt={product.title}

@@ -55,7 +55,10 @@ function StorageBaskets() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#ffd294ff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Storage Baskets"
+          />
         </div>
       </main>
     </div>

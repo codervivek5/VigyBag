@@ -55,7 +55,10 @@ function CeramicDinnerware() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#aba4a1ff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Ceramic Dinnerware"
+          />
         </div>
       </main>
     </div>

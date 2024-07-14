@@ -55,7 +55,10 @@ function NaturalCosmetics() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#c4b2a3ff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Natural Cosmetics"
+          />
         </div>
       </main>
     </div>
