@@ -25,6 +25,8 @@ import FAQ from "./pages/FAQ/Faq";
 import CartEmpty from "./pages/Order/CartEmpty";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./pages/TermsAndCondition/TermsAndCondition";
+import FeedbackButton from "./components/FeedbackForm/FeedBtn";
+import FeedbackModal from "./components/FeedbackForm/Feedback";
 
 // Latest_In_Market
 import LatestInMarket from "./pages/Latest_in_the_Market/LatestInMarket";
@@ -83,37 +85,43 @@ export default function App() {
           element={<NaturalCosmetics />}
         />
 
-        {/* PopularCategories */}
-        <Route path="popularCategories" element={<PopularCategories />} />
-        <Route
-          path="popularCategories/beautyWellness"
-          element={<BeautyWellness />}
-        />
-        <Route path="popularCategories/bodyCare" element={<BodyCare />} />
-        <Route
-          path="popularCategories/customizedGifts"
-          element={<CustomizedGifts />}
-        />
-        <Route
-          path="popularCategories/fashionAccessories"
-          element={<FashionAccessories />}
-        />
-        <Route
-          path="popularCategories/foodBeverages"
-          element={<FoodBeverages />}
-        />
-        <Route
-          path="popularCategories/furnitureDecor"
-          element={<FurnitureDecor />}
-        />
-        <Route
-          path="popularCategories/healthSupplements"
-          element={<HealthSupplements />}
-        />
-        <Route
-          path="popularCategories/printingStationery"
-          element={<PrintingStationery />}
-        />
+            
+          {/* PopularCategories */}
+          <Route path="popularCategories" element={<PopularCategories />} />
+          <Route
+            path="popularCategories/beautyWellness"
+            element={<BeautyWellness />}
+          />
+          <Route path="popularCategories/bodyCare" element={<BodyCare />} />
+          <Route
+            path="popularCategories/customizedGifts"
+            element={<CustomizedGifts />}
+          />
+          <Route
+            path="popularCategories/fashionAccessories"
+            element={<FashionAccessories />}
+          />
+          <Route
+            path="popularCategories/foodBeverages"
+            element={<FoodBeverages />}
+          />
+          <Route
+            path="popularCategories/furnitureDecor"
+            element={<FurnitureDecor />}
+          />
+          <Route
+            path="popularCategories/healthSupplements"
+            element={<HealthSupplements />}
+          />
+          <Route
+            path="popularCategories/printingStationery"
+            element={<PrintingStationery />}
+          />
+          <Route
+            path="feedback"
+            element={<FeedbackModal />}
+          />
+
 
         <Route path="about" element={<AboutUs />} />
         <Route path="help" element={<Help />} />
