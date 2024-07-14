@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import "./feedback.css";
+import "./Sweetpopup.css";
 
 const FeedbackModal = () => {
     useEffect(() => {
@@ -42,15 +44,26 @@ const FeedbackModal = () => {
 
         // Example submission handling
         setIsSubmitted(true);
-        setTimeout(() => {
-        setIsSubmitted(false);
-        setRating(null);
-        setName("");
-        setEmail("");
-        setFeedback("");
-        window.alert("Feedback submitted successfully!");
-        },); 
-      };
+      setTimeout(() => {
+      setIsSubmitted(false);
+      setRating(null);
+      setName("");
+      setEmail("");
+      setFeedback("");
+      Swal.fire({
+        title: "Feedback submitted successfully!",
+        text: "Thanks for taking the time to share your thoughts..!",
+        icon: "success",
+        confirmButtonText: "Back",
+        customClass: {
+          popup: "custom-popup",
+          title: "custom-title",
+          content: "custom-content",
+          confirmButton: "custom-confirm-button",
+        },
+      });
+    }, 1000);
+  };
     
       return (
         <div className="feedback-wrapper">
