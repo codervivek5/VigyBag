@@ -50,7 +50,7 @@ function ProductCard({ product }) {
           {product.title}
         </h3>
         <p className="text-gray-600 text-lg font-semibold mt-2">
-          ${product.price.toFixed(2)}
+          ₹{product.price.toFixed(2)}
         </p>
         <div className="flex items-center mt-2">
           {[...Array(Math.round(product.rating.rate))].map((_, i) => (
