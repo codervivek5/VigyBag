@@ -54,7 +54,7 @@ function OrganicTea() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#cfc0baff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid products={filteredProducts} headingText="Organic Tea" />
         </div>
       </main>
     </div>

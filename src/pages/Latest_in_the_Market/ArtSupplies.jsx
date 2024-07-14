@@ -49,7 +49,7 @@ function ArtSupplies() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#d6b198ff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid products={filteredProducts} headingText="Art Supplies" />
         </div>
       </main>
     </div>
