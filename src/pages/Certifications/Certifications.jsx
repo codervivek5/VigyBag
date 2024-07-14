@@ -51,7 +51,9 @@ function Certification() {
 
   const fetchGitHubName = async (username) => {
     try {
-      const response = await axios.get(`https://api.github.com/users/${username}`);
+      const response = await axios.get(
+        `https://api.github.com/users/${username}`
+      );
       return response.data.name || username;
     } catch (error) {
       console.error("Error fetching GitHub name:", error);
@@ -144,7 +146,7 @@ function Certification() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96 mt-20">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96 mt-40 mb-11">
         <h1 className="text-2xl font-bold mb-4">Contribution Certificate</h1>
         <form onSubmit={handleSubmit}>
           <div className="flex mb-4">
@@ -160,8 +162,7 @@ function Certification() {
               type="button"
               onClick={handleVerify}
               className="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600"
-              disabled={loading}
-            >
+              disabled={loading}>
               {loading ? "Verifying..." : "Verify"}
             </button>
           </div>
@@ -177,8 +178,7 @@ function Certification() {
           <button
             type="submit"
             className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
-            disabled={!isVerified || loading}
-          >
+            disabled={!isVerified || loading}>
             Generate Certificate
           </button>
         </form>
@@ -198,8 +198,7 @@ function Certification() {
                   color: "black",
                   textShadow: "1px 1px 2px white",
                   fontFamily: "Copperplate, Papyrus, fantasy",
-                }}
-              >
+                }}>
                 {certificate.name}
               </div>
               <div
@@ -211,8 +210,7 @@ function Certification() {
                   fontSize: "5px",
                   color: "black",
                   fontFamily: "Arial, sans-serif",
-                }}
-              >
+                }}>
                 ID: {certificate.userId}
               </div>
             </div>
@@ -220,15 +218,13 @@ function Certification() {
               <select
                 value={downloadFormat}
                 onChange={(e) => setDownloadFormat(e.target.value)}
-                className="p-2 border rounded"
-              >
+                className="p-2 border rounded">
                 <option value="png">PNG</option>
                 <option value="pdf">PDF</option>
               </select>
               <button
                 onClick={handleDownload}
-                className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
-              >
+                className="bg-green-500 text-white p-2 rounded hover:bg-green-600">
                 Download as {downloadFormat.toUpperCase()}
               </button>
             </div>
