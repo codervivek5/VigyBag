@@ -55,7 +55,10 @@ function HandMadeSoaps() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#e0bbadff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="HandMade Soaps"
+          />
         </div>
       </main>
     </div>

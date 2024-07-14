@@ -1,11 +1,8 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
 import background from "../../assets/background.png";
 import app from "../../assets/app.png";
-import googlePlay from "../../assets/google-play.png";
-import mobile from "../../assets/mobile.png";
 import { Link } from "react-router-dom";
 import SearchBar from "../../pages/Home/SearchBar";
 
@@ -224,17 +221,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-
-            <Link
-              to="/dashboard"
-              className="mt-10 ml-4 text-green-800 hover:text-gray-600 flex items-center justify-center">
-              <button
-                type="button"
-                className="text-lg text-white bg-[#3d784aff] px-12 py-3 rounded-2xl"
-                style={{ fontSize: "19px" }}>
-                see more
-              </button>
-            </Link>
           </div>
         </section>
 
@@ -287,7 +273,7 @@ const Home = () => {
                         padding: "10px",
                         marginBottom: "10px",
                         border: "1px solid #ccc",
-                        "@media (max-width: 780px)": {
+                        "@media (maxWidth: 780px)": {
                           width: "80%",
                         },
                       }}

@@ -25,13 +25,14 @@ body {
 }
 
 .containerprivacy .head {
+    margin-top: 185px;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.containerprivacy main {
-    margin-top: 191px;
-}
+/* .containerprivacy main {
+    margin-top: 185px;
+} */
 
 
 .containerprivacy .head h1 {
