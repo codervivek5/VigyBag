@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import InputField from '../Admin/components/RegisterAdmin/InputField';
-import SelectField from '../Admin/components/RegisterAdmin/SelectField';
-import FileInput from '../Admin/components/RegisterAdmin/FileInput';
+import InputField from './components/RegisterAdmin/InputField';
+import SelectField from './components/RegisterAdmin/SelectField';
+import FileInput from './components/RegisterAdmin/FileInput';
 
-const RegistrationForm = () => {
+const VigyForm = () => {
   const [activeTab, setActiveTab] = useState('personal');
 
   const tabs = [
     { id: 'personal', label: 'Personal' },
     { id: 'contact', label: 'Contact' },
-    { id: 'business', label: 'Business' },
+    // {id:'Business', label: 'Business'},
     { id: 'banking', label: 'Banking' },
     { id: 'verification', label: 'Verification' },
     { id: 'additional', label: 'Additional' },
@@ -52,7 +52,8 @@ const RegistrationForm = () => {
                 { value: 'other', label: 'Other' }
               ]} 
             />
-            <FileInput label="Profile Picture" accept="image/*" />
+             <InputField label="Aadhaar Number" placeholder="Enter your aadhaar number" required />
+           
           </>
         );
       case 'contact':
@@ -63,25 +64,25 @@ const RegistrationForm = () => {
             <InputField label="Physical Address" placeholder="Enter your address" required />
           </>
         );
-      case 'business':
-        return (
-          <>
-            <InputField label="Business Name" placeholder="Enter business name" />
-            <InputField label="Business Address" placeholder="Enter business address" />
-            <SelectField 
-              label="Type of Business" 
-              options={[
-                { value: '', label: 'Select business type' },
-                { value: 'sole', label: 'Sole Proprietorship' },
-                { value: 'partnership', label: 'Partnership' },
-                { value: 'llc', label: 'LLC' }
-              ]} 
-            />
-            <InputField label="Business Registration Number" placeholder="Enter registration number" />
-            <InputField label="Tax Identification Number" placeholder="Enter TIN" />
-            <InputField label="Category of Products Sold" placeholder="Enter product categories" required />
-          </>
-        );
+      // case 'business':
+      //   return (
+      //     <>
+      //       <InputField label="Business Name" placeholder="Enter business name" />
+      //       <InputField label="Business Address" placeholder="Enter business address" />
+      //       <SelectField 
+      //         label="Type of Business" 
+      //         options={[
+      //           { value: '', label: 'Select business type' },
+      //           { value: 'sole', label: 'Sole Proprietorship' },
+      //           { value: 'partnership', label: 'Partnership' },
+      //           { value: 'llc', label: 'LLC' }
+      //         ]} 
+      //       />
+      //       <InputField label="Business Registration Number" placeholder="Enter registration number" />
+      //       <InputField label="Tax Identification Number" placeholder="Enter TIN" />
+      //       <InputField label="Category of Products Sold" placeholder="Enter product categories" required />
+      //     </>
+      //   );
       case 'banking':
         return (
           <>
@@ -98,25 +99,19 @@ const RegistrationForm = () => {
             <h2 className="text-lg font-semibold mb-4 text-gray-700">
               Verification Documents <span className="text-red-500 text-sm">(only 50kb max, .pdf, .jpg, .jpeg, .png)</span>
             </h2>
-            <FileInput 
-              label="Government-issued ID (e.g., Passport, Driver's License)" 
-              accept=".pdf,.jpg,.jpeg,.png" 
-              required 
-            />
+            
             <FileInput 
               label="Pan Card" 
               accept=".pdf,.jpg,.jpeg,.png" 
               required 
             />
-            <FileInput 
-              label="Business License (if applicable)" 
-              accept=".pdf,.jpg,.jpeg,.png" 
-            />
+            
             <FileInput 
               label="Proof of Address (e.g., Utility Bill, Bank Statement, Aadhaar card)" 
               accept=".pdf,.jpg,.jpeg,.png" 
               required 
             />
+             <FileInput label="Profile Picture" accept="image/*" />
           </>
         );
       case 'additional':
@@ -197,12 +192,13 @@ const RegistrationForm = () => {
               Next
             </button>
           ) : (
-            <button 
+            <Link to="/admin"> <button 
+           
               type="submit"
               className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md"
             >
               Submit Registration
-            </button>
+            </button></Link>
           )}
         </div>
       </form>
@@ -211,4 +207,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default VigyForm;
