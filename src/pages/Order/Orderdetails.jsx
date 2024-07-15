@@ -2,6 +2,7 @@ import React from "react";
 import TUMBLER from "../../assets/TUMBLER.png";
 import tick from "../../assets/tick.png";
 import { Link } from "react-router-dom";
+import OrderTrackingBar from './OrderTrackingBar';  // Import the new component
 
 const OrderDetails = () => (
   <div className="bg-[#fff0e3ff] p-4 sm:p-6">
@@ -95,6 +96,7 @@ const OrderSummary = () => (
 
 const OrderStatus = () => (
   <Card title="Arriving Wednesday">
+    <OrderTrackingBar currentStep={2} />  {/* Use the component and set current step */}
     <p className="text-sm text-zinc-600 mb-4">Not Yet Dispatched</p>
     <div className="flex flex-col sm:flex-row items-start">
       <img
