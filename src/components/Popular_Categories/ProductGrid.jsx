@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { MdHeight } from "react-icons/md";
 
 function ProductGrid({ products, headingText }) {
   return (
@@ -40,6 +41,17 @@ function ProductCard({ product }) {
     <div
       onClick={handleClick}
       className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
+      <div className="mt-2 ml-44">
+        <lord-icon
+          style={{
+            height: "30px",
+            width: "30px",
+          }}
+          src="https://cdn.lordicon.com/ulnswmkk.json"
+          trigger="morph"
+          state="morph-heart"
+          colors="primary:#e83a30"></lord-icon>
+      </div>
       <img
         src={product.image}
         alt={product.title}

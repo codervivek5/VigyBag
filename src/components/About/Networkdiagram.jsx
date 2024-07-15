@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
-import avatar1 from '../../assets/ANUJA-SINGH.png';
-import avatar2 from '../../assets/tanmay.jpg';
-import avatar3 from '../../assets/ARCHANA-KRISHNA.png';
-import avatar4 from '../../assets/YATRA-VISHWAKARMA.png';
-import avatar5 from '../../assets/HARSHITA-BHAMBHANI.png';
+import React, { useEffect, useState, useRef } from "react";
+import avatar1 from "../../assets/ANUJA-SINGH.png";
+import avatar2 from "../../assets/tanmay.jpg";
+import avatar3 from "../../assets/ARCHANA-KRISHNA.png";
+import avatar4 from "../../assets/YATRA-VISHWAKARMA.png";
+import avatar5 from "../../assets/HARSHITA-BHAMBHANI.png";
 
 const nodes = [
   { id: 1, x: 100, y: 100, size: 100, image: avatar1 },
@@ -80,42 +80,40 @@ const Diagram = () => {
 
   useEffect(() => {
     const svg = svgRef.current;
-    svg.addEventListener('mousedown', handleMouseDown);
-    svg.addEventListener('mousemove', handleMouseMove);
-    svg.addEventListener('mouseup', handleMouseUp);
-    svg.addEventListener('mouseleave', handleMouseUp);
+    svg.addEventListener("mousedown", handleMouseDown);
+    svg.addEventListener("mousemove", handleMouseMove);
+    svg.addEventListener("mouseup", handleMouseUp);
+    svg.addEventListener("mouseleave", handleMouseUp);
 
     return () => {
-      svg.removeEventListener('mousedown', handleMouseDown);
-      svg.removeEventListener('mousemove', handleMouseMove);
-      svg.removeEventListener('mouseup', handleMouseUp);
-      svg.removeEventListener('mouseleave', handleMouseUp);
+      svg.removeEventListener("mousedown", handleMouseDown);
+      svg.removeEventListener("mousemove", handleMouseMove);
+      svg.removeEventListener("mouseup", handleMouseUp);
+      svg.removeEventListener("mouseleave", handleMouseUp);
     };
   }, [isDragging, startPan]);
 
   return (
     <div className="w-full h-full flex justify-center items-center p-4">
-      <div 
+      <div
         className="w-full max-w-[1100px] h-[600px] overflow-x-auto overflow-y-hidden"
         style={{
-          msOverflowStyle: 'none',
-          scrollbarWidth: 'none',
-        }}
-      >
+          msOverflowStyle: "none",
+          scrollbarWidth: "none",
+        }}>
         <svg
           ref={svgRef}
           width="1100"
           height="600"
           className=""
-          style={{ 
-            cursor: isDragging ? 'grabbing' : 'grab',
-            touchAction: 'pan-x',
-          }}
-        >
+          style={{
+            cursor: isDragging ? "grabbing" : "grab",
+            touchAction: "pan-x",
+          }}>
           <g transform={`translate(${pan.x},0)`}>
             {connections.map((conn, index) => {
-              const fromNode = nodes.find(node => node.id === conn.from);
-              const toNode = nodes.find(node => node.id === conn.to);
+              const fromNode = nodes.find((node) => node.id === conn.from);
+              const toNode = nodes.find((node) => node.id === conn.to);
               return (
                 <line
                   key={index}
@@ -128,13 +126,13 @@ const Diagram = () => {
                 />
               );
             })}
-            {nodes.map(node => (
+            {nodes.map((node) => (
               <g key={node.id}>
                 <circle
                   cx={node.x}
                   cy={node.y}
                   r={node.size / 2}
-                  fill={node.size === 100 ? '#D6C2DE' : '#C9BF8A'}
+                  fill={node.size === 100 ? "#D6C2DE" : "#C9BF8A"}
                   stroke="black"
                   strokeWidth="3"
                 />
