@@ -53,9 +53,15 @@ import AdminPanel from "./Admin/Admin_Panel";
 import ProductForm from "./Admin/ProductForm";
 import Certifications from "./pages/Certifications/Certifications";
 import VigyForm from "./Admin/VigyForm";
+import { Helmet } from "react-helmet";
 
 export default function App() {
   return (
+    <>
+    <Helmet>
+    <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
+    </Helmet>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -158,5 +164,6 @@ export default function App() {
         <Route path="certificate" element={<Certifications />} />
       </Route>
     </Routes>
+    </>
   );
 }
