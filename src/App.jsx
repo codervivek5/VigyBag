@@ -140,13 +140,12 @@ export default function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="productDetails" element={<ProductDetails />} />
           <Route path="payment" element={<Payment />} />
-
-          <Route
-            path="returnAndCancellation"
-            element={<ReturnAndCancellation />}
-          />
         </Route>
 
+        <Route
+          path="returnAndCancellation"
+          element={<ReturnAndCancellation />}
+        />
         <Route path="EPR_Page" element={<EPRPage />} />
         <Route path="signup" element={<Signup />} />
         <Route path="faq" element={<FAQ />} />
