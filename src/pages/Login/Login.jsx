@@ -76,6 +76,11 @@ const LoginForm = () => {
     }
   };
 
+  const handleSocial = () => {
+    // Redirect to the backend URL to initiate the Google OAuth flow
+    window.location.href = 'http://localhost:8080/auth/google'; // Ensure this points to your backend
+  };
+
   function handleToggle() {
     setShowPassword(!showPassword);
   }
@@ -165,7 +170,10 @@ const LoginForm = () => {
           <div className="text-center mt-4">
             <p className="text-zinc-400 mb-2 underline">Or</p>
             <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-              <button className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap">
+              <button
+                onClick={handleSocial}
+                className="flex items-center justify-center h-12 bg-white text-black rounded-xl px-4 w-full md:w-auto whitespace-nowrap"
+              >
                 <FcGoogle
                   className="text-black p-1"
                   style={{ fontSize: "2rem" }}

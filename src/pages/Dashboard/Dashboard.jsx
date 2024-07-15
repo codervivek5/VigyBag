@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import granola from "../../assets/granola.jpg";
 import cuttery from "../../assets/cuttery-set.jpg";
 import basket from "../../assets/basket.png";
@@ -13,7 +14,6 @@ import waterBottle from "../../assets/Glass-Water-Bottle.webp";
 import teaSet from "../../assets/Organic-Tea-Set.webp";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Aside from "../../components/Aside/Aside";
-import { useNavigate } from "react-router-dom";
 import Header from "../../components/Dashboard/Header";
 import SearchBar from "../../components/Dashboard/SearchBar";
 import SeeMore from "../../components/Buttons/SeeMore";
@@ -22,6 +22,17 @@ import Dropdown from "../../components/Dashboard/Dropdown";
 
 const Dashboard = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+    const username = params.get("username");
+  }, []);
+  if (email && username) {
+    localStorage.setItem("email", email);
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("username", username);
+  }
 
   const initialProducts = [
     {
@@ -103,7 +114,6 @@ const Dashboard = () => {
 
   const [products] = useState([...initialProducts, ...moreProducts]);
   const [openDropdown, setOpenDropdown] = useState(null);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [visibleProducts, setVisibleProducts] = useState(4);
   const [clicked, setClicked] = useState(0);
@@ -131,9 +141,11 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     try {
-      let confirmed = confirm("Are you sure want to logout?");
+      let confirmed = confirm("Are you sure you want to logout?");
       if (confirmed) {
         localStorage.removeItem("isLoggedin");
+        localStorage.removeItem("email");
+        localStorage.removeItem("username");
         alert("Logout Successfully and safely.");
         navigate("/login");
       } else {
@@ -141,9 +153,10 @@ const Dashboard = () => {
       }
     } catch (error) {
       alert("Logout Failed. Try Again later");
-      console.log(error.data.message);
+      console.log(error);
     }
   };
+
   return (
     <div className="flex min-h-screen bg-[#fff1e6]">
       {/* Sidebar */}
@@ -180,8 +193,8 @@ const Dashboard = () => {
             ))}
           </div>
           <div className="mt-6 flex justify-center">
-            {clicked < 2 && <SeeMore />}
-            {showViewLess && <ViewLess />}
+            {clicked < 2 && <SeeMore onClick={handleSeeMore} />}
+            {showViewLess && <ViewLess onClick={handleViewLess} />}
           </div>
         </section>
       </main>

@@ -50,108 +50,108 @@ import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import AdminPanel from "./Admin/Admin_Panel";
 import RegistrationForm from "./Admin/RegistrationForm";
 import ProductForm from "./Admin/ProductForm";
-import Certifications from "./pages/Certifications/Certifications"
+import Certifications from "./pages/Certifications/Certifications";
+import AdditionalDetails from "./pages/AdditionalDetails.jsx";
 
 export default function App() {
   return (
-    
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          {/* Latest in the Market */}
-          <Route path="latestInMarket" element={<LatestInMarket />} />
-          <Route
-            path="latestInMarket/handMadeSoaps"
-            element={<HandMadeSoaps />}
-          />
-          <Route path="latestInMarket/artSupplies" element={<ArtSupplies />} />
-          <Route
-            path="latestInMarket/ceramicDinnerware"
-            element={<CeramicDinnerware />}
-          />
-          <Route
-            path="latestInMarket/bambooProducts"
-            element={<BambooProducts />}
-          />
-          <Route
-            path="latestInMarket/storageBaskets"
-            element={<StorageBaskets />}
-          />
-          <Route path="latestInMarket/organicSoaps" element={<OrganicSoaps />} />
-          <Route path="latestInMarket/organicTea" element={<OrganicTea />} />
-          <Route
-            path="latestInMarket/naturalCosmetics"
-            element={<NaturalCosmetics />}
-          />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        {/* Latest in the Market */}
+        <Route path="latestInMarket" element={<LatestInMarket />} />
+        <Route
+          path="latestInMarket/handMadeSoaps"
+          element={<HandMadeSoaps />}
+        />
+        <Route path="latestInMarket/artSupplies" element={<ArtSupplies />} />
+        <Route
+          path="latestInMarket/ceramicDinnerware"
+          element={<CeramicDinnerware />}
+        />
+        <Route
+          path="latestInMarket/bambooProducts"
+          element={<BambooProducts />}
+        />
+        <Route
+          path="latestInMarket/storageBaskets"
+          element={<StorageBaskets />}
+        />
+        <Route path="latestInMarket/organicSoaps" element={<OrganicSoaps />} />
+        <Route path="latestInMarket/organicTea" element={<OrganicTea />} />
+        <Route
+          path="latestInMarket/naturalCosmetics"
+          element={<NaturalCosmetics />}
+        />
 
-          {/* PopularCategories */}
-          <Route path="popularCategories" element={<PopularCategories />} />
-          <Route
-            path="popularCategories/beautyWellness"
-            element={<BeautyWellness />}
-          />
-          <Route path="popularCategories/bodyCare" element={<BodyCare />} />
-          <Route
-            path="popularCategories/customizedGifts"
-            element={<CustomizedGifts />}
-          />
-          <Route
-            path="popularCategories/fashionAccessories"
-            element={<FashionAccessories />}
-          />
-          <Route
-            path="popularCategories/foodBeverages"
-            element={<FoodBeverages />}
-          />
-          <Route
-            path="popularCategories/furnitureDecor"
-            element={<FurnitureDecor />}
-          />
-          <Route
-            path="popularCategories/healthSupplements"
-            element={<HealthSupplements />}
-          />
-          <Route
-            path="popularCategories/printingStationery"
-            element={<PrintingStationery />}
-          />
+        {/* PopularCategories */}
+        <Route path="popularCategories" element={<PopularCategories />} />
+        <Route
+          path="popularCategories/beautyWellness"
+          element={<BeautyWellness />}
+        />
+        <Route path="popularCategories/bodyCare" element={<BodyCare />} />
+        <Route path="/additional-details" element={<AdditionalDetails />} />
+        <Route
+          path="popularCategories/customizedGifts"
+          element={<CustomizedGifts />}
+        />
+        <Route
+          path="popularCategories/fashionAccessories"
+          element={<FashionAccessories />}
+        />
+        <Route
+          path="popularCategories/foodBeverages"
+          element={<FoodBeverages />}
+        />
+        <Route
+          path="popularCategories/furnitureDecor"
+          element={<FurnitureDecor />}
+        />
+        <Route
+          path="popularCategories/healthSupplements"
+          element={<HealthSupplements />}
+        />
+        <Route
+          path="popularCategories/printingStationery"
+          element={<PrintingStationery />}
+        />
 
-          <Route path="about" element={<AboutUs />} />
-          <Route path="help" element={<Help />} />
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="team" element={<Team />} />
-          <Route path="login" element={<Login />} />
+        <Route path="about" element={<AboutUs />} />
+        <Route path="help" element={<Help />} />
+        <Route path="privacy" element={<Privacy />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="team" element={<Team />} />
+        <Route path="login" element={<Login />} />
 
-          <Route element={<PrivateRoute />}>
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="confirm" element={<Confirmation />} />
-            <Route path="cancel" element={<Cancellation />} />
-            <Route path="orderDetails" element={<OrderDetails />} />
-            <Route path="myOrders" element={<MyOrders />} />
-            <Route path="checkout" element={<Checkout />} />
-            <Route path="productDetails" element={<ProductDetails />} />
-            <Route path="payment" element={<Payment />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="confirm" element={<Confirmation />} />
+          <Route path="cancel" element={<Cancellation />} />
+          <Route path="orderDetails" element={<OrderDetails />} />
+          <Route path="myOrders" element={<MyOrders />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="productDetails" element={<ProductDetails />} />
+          <Route path="payment" element={<Payment />} />
 
-            <Route
-              path="returnAndCancellation"
-              element={<ReturnAndCancellation />}
-            />
-          </Route>
-
-          <Route path="EPR_Page" element={<EPRPage />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="faq" element={<FAQ />} />
-          <Route path="termsAndCondition" element={<TermsAndConditions />} />
-
-          <Route path="*" element={<Error />} />
-          <Route path="admin" element={<AdminPanel />} />
-          <Route path="admin_form" element={<RegistrationForm />} />
-          <Route path="product_form" element={<ProductForm />} />
-          <Route path="certificate" element={<Certifications />} />
+          <Route
+            path="returnAndCancellation"
+            element={<ReturnAndCancellation />}
+          />
         </Route>
-      </Routes>
-    
+
+        <Route path="EPR_Page" element={<EPRPage />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="faq" element={<FAQ />} />
+        <Route path="termsAndCondition" element={<TermsAndConditions />} />
+
+        <Route path="*" element={<Error />} />
+        <Route path="admin" element={<AdminPanel />} />
+        <Route path="admin_form" element={<RegistrationForm />} />
+        <Route path="product_form" element={<ProductForm />} />
+        <Route path="certificate" element={<Certifications />} />
+      </Route>
+    </Routes>
   );
 }
