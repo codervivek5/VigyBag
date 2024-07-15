@@ -55,7 +55,10 @@ function OrganicSoaps() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#ffeda6ff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Organic Soaps"
+          />
         </div>
       </main>
     </div>

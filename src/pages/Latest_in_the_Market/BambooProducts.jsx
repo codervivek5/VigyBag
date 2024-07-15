@@ -54,7 +54,10 @@ function BambooProducts() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#eef29bff"
           />
-          <ProductGrid products={filteredProducts} />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Bamboo Products"
+          />
         </div>
       </main>
     </div>

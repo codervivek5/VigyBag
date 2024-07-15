@@ -221,17 +221,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-
-            <Link
-              to="/dashboard"
-              className="mt-10 ml-4 text-green-800 hover:text-gray-600 flex items-center justify-center">
-              <button
-                type="button"
-                className="text-lg text-white bg-[#3d784aff] px-12 py-3 rounded-2xl"
-                style={{ fontSize: "19px" }}>
-                see more
-              </button>
-            </Link>
           </div>
         </section>
 
