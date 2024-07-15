@@ -33,6 +33,7 @@ const Line = styled.div`
   flex: 1;
   height: 4px;
   background-color: ${({ completed }) => (completed ? '#4caf50' : '#ddd')};
+  margin: 0 3px; /* Reduced margin */
 `;
 
 const OrderTrackingBar = ({ currentStep }) => {
