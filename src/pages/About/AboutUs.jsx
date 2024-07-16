@@ -7,14 +7,25 @@ import archana from "../../assets/ARCHANA-KRISHNA.png";
 import yatra from "../../assets/YATRA-VISHWAKARMA.png";
 import harshita from "../../assets/HARSHITA-BHAMBHANI.png";
 import anshuman from "../../assets/ANSHUMAN-TIWARI.png";
+import sadaf from "../../assets/sadaf.png";
+import syed from "../../assets/syed.png";
+import mahima from "../../assets/mahima.png";
+
 import ContributorCard from "../../components/About/ContributorCard";
 import coFounder from "../../assets/co-founder.jpeg";
 import founder from "../../assets/founder.jpeg";
 import Networkdiagram from "../../components/About/Networkdiagram";
 import Header from "../../components/About/Header";
-import SeeMore from "../../components/Buttons/SeeMore";
 
 const AboutUs = () => {
+  const handleSeeMore = () => {
+    setVisibleProducts((prevCount) => prevCount + getProductsPerRow());
+  };
+
+  const handleViewLess = () => {
+    setVisibleProducts(getProductsPerRow());
+  };
+
   const contributorsData = [
     {
       name: "ANUJA SINGH",
@@ -143,6 +154,88 @@ const AboutUs = () => {
         },
       ],
     },
+    {
+      name: "SADAF KAUSAR",
+      role: "FRONTEND DEVELOPER",
+      image: sadaf,
+      socialLinks: [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/",
+          icon: <FaInstagram />,
+        },
+        {
+          name: "LinkedIn",
+          url: "https://www.linkedin.com/in/sadaf-kausar-788456244/",
+          icon: <FaLinkedin />,
+        },
+        {
+          name: "Twitter",
+          url: "https://x.com/SadafKausa69884",
+          icon: <FaXTwitter />,
+        },
+        {
+          name: "GitHub",
+          url: "https://github.com/SadafKausar2025",
+          icon: <FaGithub />,
+        },
+      ],
+    },
+    {
+      name: "Mahima Gupta",
+      role: "FRONTEND DEVELOPER",
+      image: mahima,
+      socialLinks: [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/",
+          icon: <FaInstagram />,
+        },
+        {
+          name: "LinkedIn",
+          url: "https://www.linkedin.com/in/mahima-gupta-30b4a9230/",
+          icon: <FaLinkedin />,
+        },
+        {
+          name: "Twitter",
+          url: "https://twitter.com/MahimaGupt6433",
+          icon: <FaXTwitter />,
+        },
+        {
+          name: "GitHub",
+          url: "https://github.com/Mahimatestgithub",
+          icon: <FaGithub />,
+        },
+      ],
+    },
+
+    {
+      name: "Syed Imtiyaz Ali",
+      role: "MERN STACK DEVELOPER",
+      image: syed,
+      socialLinks: [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/",
+          icon: <FaInstagram />,
+        },
+        {
+          name: "LinkedIn",
+          url: "in/imtiyaz-sde",
+          icon: <FaLinkedin />,
+        },
+        {
+          name: "Twitter",
+          url: "https://x.com/SadafKausa69884",
+          icon: <FaXTwitter />,
+        },
+        {
+          name: "GitHub",
+          url: "https://github.com/SyedImtiyaz-1",
+          icon: <FaGithub />,
+        },
+      ],
+    },
   ];
 
   const leadershipData = [
@@ -210,7 +303,7 @@ const AboutUs = () => {
   return (
     <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen">
       {/*Header Section */}
-     <Header />
+      <Header />
 
       {/* Leadership Section */}
       <section className="py-12 md:py-20 bg-gray-100">
@@ -277,8 +370,20 @@ const AboutUs = () => {
               />
             ))}
           </div>
-          <div className="flex justify-center mt-8">
-            <SeeMore />
+          <div className="flex justify-center mt-4">
+            {contributorsData < 18 ? (
+              <button
+                onClick={handleSeeMore}
+                className="px-4 py-2 bg-[#15a349ff] text-white rounded-lg mr-4 hover:bg-green-600 focus:outline-none transition duration-300">
+                See More
+              </button>
+            ) : (
+              <button
+                onClick={handleViewLess}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg mr-4 hover:bg-red-600 focus:outline-none transition duration-300">
+                View Less
+              </button>
+            )}
           </div>
         </div>
       </section>

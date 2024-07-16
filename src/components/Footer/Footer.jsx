@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-top">
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 z-50">
           <Link to="/" className="flex items-center">
             <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh" }} />
           </Link>
@@ -152,13 +152,15 @@ const Footer = () => {
               SOCIALS:
             </p>
             <div className="social-icons">
-              <a href="https://www.instagram.com">
+              <a href="https://www.instagram.com/vigybag/" target="_blank">
                 <img src={instagramIcon} alt="Instagram" />
               </a>
               <a href="https://www.x.com">
                 <img src={xIcon} alt="X" />
               </a>
-              <a href="https://www.linkedin.com">
+              <a
+                href="https://www.linkedin.com/posts/codervivek_startup-teamwork-innovation-activity-7211097005408890880-haWJ?"
+                target="_blank">
                 <lord-icon
                   style={{
                     width: "30px",
@@ -169,7 +171,9 @@ const Footer = () => {
                   src="https://cdn.lordicon.com/ftgjzwjn.json"
                   trigger="hover"></lord-icon>
               </a>
-              <a href="https://www.facebook.com">
+              <a
+                href="https://www.facebook.com/profile.php?id=61553496839072"
+                target="_blank">
                 <lord-icon
                   style={{
                     width: "30px",
@@ -181,7 +185,7 @@ const Footer = () => {
                   trigger="hover"></lord-icon>
               </a>
 
-              <a href="https://web.whatsapp.com/">
+              <a href="https://web.whatsapp.com/" target="_blank">
                 <lord-icon
                   style={{
                     width: "35px",
@@ -192,7 +196,7 @@ const Footer = () => {
                   src="https://cdn.lordicon.com/fjuachvi.json"
                   trigger="hover"></lord-icon>
               </a>
-              <a href="https://github.com/codervivek5/">
+              <a href="https://github.com/codervivek5/VigyBag" target="_blank">
                 <img src={githubIcon} alt="Github" />
               </a>
             </div>

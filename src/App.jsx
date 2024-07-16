@@ -11,6 +11,8 @@ import Confirmation from "./pages/Confirmation/Confirmation";
 import Cancellation from "./pages/Cancellation/Cancellation";
 import OrderDetails from "./pages/Order/Orderdetails";
 import MyOrders from "./pages/Order/MyOrders";
+import Dashboard_Orders from "./pages/Dashboard/dashboard_order";
+import Dashboard_Cart from "./pages/Dashboard/dashboard_cart";
 import Checkout from "./pages/Order/Checkout";
 import Cart from "./pages/Order/Cart";
 import Error from "./pages/404-Page/Error";
@@ -22,9 +24,10 @@ import ReturnAndCancellation from "./pages/ReturnAndCancellation/returnAndCancel
 import EPRPage from "./pages/EPRPage/EPR_Page";
 import Signup from "./pages/Signup/Signup";
 import FAQ from "./pages/FAQ/Faq";
-import CartEmpty from "./pages/Order/CartEmpty";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./pages/TermsAndCondition/TermsAndCondition";
+import FeedbackButton from "./components/FeedbackForm/FeedBtn";
+import FeedbackModal from "./components/FeedbackForm/Feedback";
 
 // Latest_In_Market
 import LatestInMarket from "./pages/Latest_in_the_Market/LatestInMarket";
@@ -50,7 +53,11 @@ import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import AdminPanel from "./Admin/Admin_Panel";
 import ProductForm from "./Admin/ProductForm";
 import Certifications from "./pages/Certifications/Certifications";
+
+import AdditionalDetails from "./pages/AdditionalDetails.jsx";
+
 import VigyForm from "./Admin/VigyForm";
+
 
 export default function App() {
   return (
@@ -114,6 +121,7 @@ export default function App() {
           path="popularCategories/printingStationery"
           element={<PrintingStationery />}
         />
+        <Route path="feedback" element={<FeedbackModal />} />
 
         <Route path="about" element={<AboutUs />} />
         <Route path="help" element={<Help />} />
@@ -132,13 +140,14 @@ export default function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="productDetails" element={<ProductDetails />} />
           <Route path="payment" element={<Payment />} />
-
-          <Route
-            path="returnAndCancellation"
-            element={<ReturnAndCancellation />}
-          />
+          <Route path="dashboard_order" element={<Dashboard_Orders />} />
+          <Route path="dashboard_cart" element={<Dashboard_Cart />} />
         </Route>
 
+        <Route
+          path="returnAndCancellation"
+          element={<ReturnAndCancellation />}
+        />
         <Route path="EPR_Page" element={<EPRPage />} />
         <Route path="signup" element={<Signup />} />
         <Route path="faq" element={<FAQ />} />
