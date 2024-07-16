@@ -70,6 +70,11 @@ Technologies Used :
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
 - ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
 
+  ### 🎥 Video Introduction
+
+[![Watch the video](https://img.youtube.com/vi/FeHQVTiYVxQ/0.jpg)](https://www.youtube.com/watch?v=FeHQVTiYVxQ)
+
+
 ## ⌛Links for the Website
 - [Live Website](https://codervivek5.github.io/VigyBag/)
 - [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
@@ -217,6 +222,45 @@ npm run dev
 - Do not update the [README.md](README.md)
 
 <!-- ## 👨‍💻 Workflow: -->
+
+
+🚀 Usage
+Once you have VigyBag running, you can:
+
+Use the search functionality to find products based on location.
+Explore nearby stores and compare prices easily.
+🧪 Testing
+To run tests for VigyBag, use the following command:
+
+# Run tests
+pytest
+
+
+## 🌐 Deployment
+
+To deploy VigyBag to a production server:
+
+1. Configure your production environment settings.
+2. Set up databases and other required services.
+3. Ensure all dependencies are installed and updated.
+4. Deploy the application using your preferred method (e.g., Docker, Heroku, AWS).
+
+
+## ❓ Troubleshooting
+
+If you encounter any issues while setting up or using VigyBag, try the following:
+
+- Double-check your environment setup against the installation instructions.
+- Search for similar issues in the project's [GitHub Issues](https://github.com/codervivek5/VigyBag/issues).
+- Reach out to the community or project maintainers for assistance.
+
+
+
+
+
+
+
+
 
 ## 🙂 Project Admin:
 ![62784060](https://user-images.githubusercontent.com/62784060/154093320-99598cbd-cce0-4dda-a9e5-38c947f088d5.jpg)

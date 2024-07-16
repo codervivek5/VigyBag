@@ -2,6 +2,7 @@
   background-color: #2e2e2e;
   color: #fff;
   padding: 20px;
+  z-index: 99;
   font-family: Arial, sans-serif;
 }
 
@@ -13,7 +14,8 @@
 }
 
 .footer-top .logo img {
-  width: 80px; /* Adjusted size for better visibility */
+  width: 80px;
+  /* Adjusted size for better visibility */
 }
 
 .footer-top .social-media {
@@ -30,7 +32,8 @@
 }
 
 .footer-top .social-icons a img {
-  width: 30px; /* Adjusted size for consistency */
+  width: 30px;
+  /* Adjusted size for consistency */
 }
 
 .footer-top .contact-info,
@@ -43,7 +46,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Space between image and text */
+  gap: 10px;
+  /* Space between image and text */
   margin: 5px 0;
   color: #fff;
   text-decoration: none;
@@ -55,7 +59,8 @@
 }
 
 .footer-top .address img {
-  width: 24px; /* Adjusted size for better alignment */
+  width: 24px;
+  /* Adjusted size for better alignment */
   height: 24px;
 }
 

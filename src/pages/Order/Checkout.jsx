@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import ProgressBar from '../../components/Order/ProgressBar';
-
+import { useState } from "react";
+import ProgressBar from "../../components/Order/ProgressBar";
+import OrderSummary from "../../components/Order/OrderSummary";
+import { Link } from "react-router-dom";
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    mobile: '',
-    email: '',
-    pinCode: '',
-    address: '',
-    locality: '',
-    saveAs: 'home',
+    name: "",
+    mobile: "",
+    email: "",
+    pinCode: "",
+    address: "",
+    locality: "",
+    saveAs: "home",
     defaultAddress: false,
   });
 
@@ -17,7 +18,7 @@ const CheckoutForm = () => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -27,20 +28,32 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center bg-[#fff0e3ff] py-10 mt-1">
-      <div className="container mx-auto p-6 bg-white shadow-lg rounded-lg mt-1 w-full" style={{ backgroundColor: '#fff0e3ff' }}>
+    <div className="w-full min-h-screen flex flex-col items-center bg-[#f5eee8] py-10 mt-1">
+      <div
+        className="container mx-auto p-6  shadow-lg rounded-lg mt-20 w-full"
+        style={{ backgroundColor: "#f5eee8" }}>
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold">Checkout</h2>
+          <h2 className="text-2xl items-center font-bold underline">
+            Checkout
+          </h2>
         </div>
-        {/*<ProgressBar />*/}
+        {/* <ProgressBar /> */}
 
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/3 pr-0 md:pr-4 mb-6 md:mb-0">
-            <div className="border p-4 rounded-lg mb-6" style={{ border: '2px solid grey' }}>
+            <div
+              className="border p-4 rounded-lg mb-6"
+              style={{ border: "2px solid green" }}>
               <p className="font-semibold mb-2">Default Address</p>
               <p>4-JHA-6, Vigyan Nagar, Kota, Rajasthan 324005</p>
             </div>
-            <form onSubmit={handleSubmit} style={{ border: '2px solid grey', padding: '13px 13px', borderRadius: '10px' }}>
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                border: "2px solid green",
+                padding: "13px 13px",
+                borderRadius: "10px",
+              }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block mb-1 font-medium">Name</label>
@@ -49,7 +62,7 @@ const CheckoutForm = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded"
+                    className="w-full p-2 border border-green-700 rounded"
                   />
                 </div>
                 <div>
@@ -59,7 +72,7 @@ const CheckoutForm = () => {
                     name="mobile"
                     value={formData.mobile}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded"
+                    className="w-full p-2 border border-green-700 rounded"
                   />
                 </div>
               </div>
@@ -70,7 +83,7 @@ const CheckoutForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded"
+                  className="w-full p-2 border border-green-700 rounded"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -81,17 +94,19 @@ const CheckoutForm = () => {
                     name="pinCode"
                     value={formData.pinCode}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded"
+                    className="w-full p-2 border border-green-700 rounded"
                   />
                 </div>
                 <div>
-                  <label className="block mb-1 font-medium">Address (house no, building, street)</label>
+                  <label className="block mb-1 font-medium">
+                    Address (house no, building, street)
+                  </label>
                   <input
                     type="text"
                     name="address"
                     value={formData.address}
                     onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded"
+                    className="w-full p-2 border border-green-700 rounded"
                   />
                 </div>
               </div>
@@ -102,17 +117,18 @@ const CheckoutForm = () => {
                   name="locality"
                   value={formData.locality}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded"
+                  className="w-full p-2 border border-green-700 rounded"
                 />
               </div>
               <div className="mb-4">
-                <label className="block mb-1 font-medium">Save Address As</label>
+                <label className="block mb-1 font-medium">
+                  Save Address As
+                </label>
                 <select
                   name="saveAs"
                   value={formData.saveAs}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded"
-                >
+                  className="w-full p-2 border border-green-700 rounded">
                   <option value="home">Home</option>
                   <option value="work">Work</option>
                 </select>
@@ -130,24 +146,20 @@ const CheckoutForm = () => {
                 </label>
               </div>
               <div className="flex justify-between mb-6">
-                <button type="button" className="px-4 py-2 bg-gray-300 rounded">Back to Cart</button>
-                <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded">Proceed to Payment</button>
+                <button type="button" className="px-4 py-2 bg-gray-300 rounded">
+                  Back to Cart
+                </button>
+                <Link to="/payment">
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-green-500 text-white rounded">
+                    Proceed to Payment
+                  </button>
+                </Link>
               </div>
             </form>
           </div>
-          <div className="w-full md:w-1/3 pl-0 md:pl-4">
-            <div className="border p-4 rounded-lg" style={{ border: '2px solid grey' }}>
-              <h3 className="text-xl font-semibold mb-2">Order Summary</h3>
-              <ul className="list-disc pl-5 mb-2">
-                <li>Eco-friendly Coffee Mug: ₹300</li>
-                <li>Handwoven Doormat: ₹275</li>
-                <li>Bamboo Insulated Tumbler with Strainer: ₹350</li>
-                <li>Storage Basket and Container: ₹175</li>
-              </ul>
-              <p className="font-medium mb-2">Shipping Charges: Free</p>
-              <p className="text-xl font-bold">Total: ₹1100</p>
-            </div>
-          </div>
+          <OrderSummary />
         </div>
       </div>
     </div>
