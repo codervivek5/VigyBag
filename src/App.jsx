@@ -53,7 +53,11 @@ import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import AdminPanel from "./Admin/Admin_Panel";
 import ProductForm from "./Admin/ProductForm";
 import Certifications from "./pages/Certifications/Certifications";
+
+import AdditionalDetails from "./pages/AdditionalDetails.jsx";
+
 import VigyForm from "./Admin/VigyForm";
+
 
 export default function App() {
   return (
