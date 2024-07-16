@@ -1,7 +1,5 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
-import { HiArrowRight } from "react-icons/hi";
 
 const ProductCard = ({ image, title, price, rating }) => {
   return (
@@ -30,6 +28,7 @@ const ProductCard = ({ image, title, price, rating }) => {
             />
           ))}
         </div>
+
         <button
           className="mt-4 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600"
           style={{
