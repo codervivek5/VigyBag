@@ -3,6 +3,8 @@ import loginImg from "../../assets/Login-cuate.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
+import "../../components/FeedbackForm/Sweetpopup.css";
 import { ClipLoader, DotLoader } from "react-spinners";
 
 const containerClasses =
@@ -58,7 +60,7 @@ const LoginForm = () => {
       localStorage.setItem("username", username);
       console.log(username);
 
-      alert(response.data.message);
+      // alert(response.data.message);
       setEmail("");
       setPassword("");
       navigate("/");
@@ -74,6 +76,19 @@ const LoginForm = () => {
     } finally {
       setLoading(false);
     }
+
+    Swal.fire({
+      title: "Login successfully!",
+      text: "Thanks for Choosing VigyBag!",
+      icon: "success",
+      confirmButtonText: "Ok",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+      },
+    });
   };
 
   const handleSocial = () => {
@@ -107,8 +122,7 @@ const LoginForm = () => {
                   }}
                   src="https://cdn.lordicon.com/tmqaflqo.json"
                   trigger="hover"
-                  colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"
-                ></lord-icon>
+                  colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"></lord-icon>
               }
               type="email"
               placeholder="Email"
@@ -127,8 +141,7 @@ const LoginForm = () => {
                     }}
                     src="https://cdn.lordicon.com/pdwpcpva.json"
                     trigger="hover"
-                    colors="primary:#629110,secondary:#109121,tertiary:#629110"
-                  ></lord-icon>
+                    colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
                 }
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
@@ -155,8 +168,7 @@ const LoginForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full h-12 bg-green-700 text-white rounded-xl flex items-center justify-center"
-            >
+              className="w-full h-12 bg-green-700 text-white rounded-xl flex items-center justify-center">
               {loading ? <DotLoader color="#ffffff" size={24} /> : "Login"}
             </button>
           </form>
@@ -193,8 +205,7 @@ const LoginForm = () => {
                     paddingLeft: "1px",
                   }}
                   src="https://cdn.lordicon.com/nlsfemdg.json"
-                  trigger="hover"
-                ></lord-icon>
+                  trigger="hover"></lord-icon>
                 <span className="ml-2 text-sm">Login with Facebook</span>
               </button>
             </div>

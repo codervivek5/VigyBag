@@ -4,7 +4,8 @@ import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import "../../components/FeedbackForm/Sweetpopup.css";
 import OrderSummary from "../../components/Order/OrderSummary";
 
 // Define the CSS classes for the components
@@ -43,7 +44,7 @@ const CartItem = ({ product, onUpdate }) => (
         </p>
       </div>
     </div>
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    {/* <script src="https://cdn.lordicon.com/lordicon.js"></script> */}
     <lord-icon
       src="https://cdn.lordicon.com/skkahier.json"
       trigger="hover"
@@ -136,12 +137,14 @@ const ProceedToCheckout = () => {
         </button>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-      <Link to="/Checkout"><button
-          type="button"
-          className={`${buttonBgClass} w-full sm:w-auto`}
-          style={{ minWidth: "425px" }}>
-          Check Out
-        </button></Link>
+        <Link to="/Checkout">
+          <button
+            type="button"
+            className={`${buttonBgClass} w-full sm:w-auto`}
+            style={{ minWidth: "425px" }}>
+            Check Out
+          </button>
+        </Link>
       </div>
     </div>
   );
@@ -176,16 +179,39 @@ const Cart = () => {
   const onUpdate = (product, quantity) => {
     dispatch(manageCartItem({ product, quantity }));
   };
+
   const onClearCart = () => {
-    const confirmed = window.confirm(
-      "Are you sure you want to clear your cart?"
-    );
-    if (confirmed) {
-      dispatch(clearCart());
-      toast.success(`Cart successfully cleared!`);
-    }
+    Swal.fire({
+      title: "Do you really want to clear?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Cleared successfully!",
+          text: "Thanks for clearing!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        }).then(() => {
+          dispatch(clearCart());
+        });
+      }
+    });
   };
- 
 
   return (
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
@@ -220,14 +246,12 @@ const Cart = () => {
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
             <OrderSummary />
-            
-              <ProceedToCheckout />
-            
+
+            <ProceedToCheckout />
           </div>
         </div>
       </div>
     </div>
-      
   );
 };
 
