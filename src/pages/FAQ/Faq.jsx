@@ -5,7 +5,7 @@ import ContactUs from "../../components/Buttons/ContactUs";
 const faqData = [
   {
     question:
-      "1. Why are there different prices for the same product? Is it legal",
+      "1. Why are there different prices for the same product? Is it legal?",
     answer:
       "Different prices for the same product can occur due to variations in size, color, seller, or other factors. This practice is generally legal as long as it's not discriminatory. Always check the specific details of the product you're interested in.",
   },
@@ -65,15 +65,13 @@ const faqData = [
   },
 ];
 
-function FAQItem({ question, answer }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function FAQItem({ question, answer, isOpen, onClick }) {
   return (
     <div className="bg-green-100 py-4 p-7 border-green-400 font-baloo text-lg">
       <button
         type="button"
         className="flex justify-between items-center w-full text-left font-semibold gap-4"
-        onClick={() => setIsOpen(!isOpen)}>
+        onClick={onClick}>
         <span className="font-medium">{question}</span>
         <span
           className={`transform ${
@@ -99,6 +97,12 @@ function FAQItem({ question, answer }) {
 }
 
 function App() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const handleClick = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f9e7dd] rounded-md">
       <main className="flex-grow container mx-auto px-4 py-8 mt-24">
@@ -112,12 +116,13 @@ function App() {
                 key={index}
                 question={item.question}
                 answer={item.answer}
+                isOpen={openIndex === index}
+                onClick={() => handleClick(index)}
               />
             ))}
           </div>
           <div className="mt-6 text-center">
             <Link to="/contact">
-              {" "}
               <p className="text-gray-600">Still need help?</p>
               <ContactUs />
             </Link>

@@ -50,10 +50,13 @@ import FurnitureDecor from "./pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./pages/Popular_Categories/Printing-Stationery";
 import AdminPanel from "./Admin/Admin_Panel";
-import RegistrationForm from "./Admin/RegistrationForm";
 import ProductForm from "./Admin/ProductForm";
 import Certifications from "./pages/Certifications/Certifications";
+
 import AdditionalDetails from "./pages/AdditionalDetails.jsx";
+
+import VigyForm from "./Admin/VigyForm";
+
 
 export default function App() {
   return (
@@ -136,13 +139,12 @@ export default function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="productDetails" element={<ProductDetails />} />
           <Route path="payment" element={<Payment />} />
-
-          <Route
-            path="returnAndCancellation"
-            element={<ReturnAndCancellation />}
-          />
         </Route>
 
+        <Route
+          path="returnAndCancellation"
+          element={<ReturnAndCancellation />}
+        />
         <Route path="EPR_Page" element={<EPRPage />} />
         <Route path="signup" element={<Signup />} />
         <Route path="faq" element={<FAQ />} />
@@ -150,7 +152,7 @@ export default function App() {
 
         <Route path="*" element={<Error />} />
         <Route path="admin" element={<AdminPanel />} />
-        <Route path="admin_form" element={<RegistrationForm />} />
+        <Route path="vigy_form" element={<VigyForm />} />
         <Route path="product_form" element={<ProductForm />} />
         <Route path="certificate" element={<Certifications />} />
       </Route>
