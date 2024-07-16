@@ -3,9 +3,12 @@
 <h1>VigyBag</h1>
 </div>
 
-<div align="center">
- <p>
 
+
+<div align="center">
+  
+ <p>
+ 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=codervivek5/VigyBag%20&countColor=%2523263759&style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/codervivek5/VigyBag?style=for-the-badge)
@@ -35,9 +38,9 @@
 
 
 ## 👋 Welcome  <a name="introduction"></a>
-This website is a location-based platform that allows users to search for products and services based on their geographical location. The website uses GPS technology to pinpoint the user's location and then displays nearby stores or businesses that offer the products or services they are searching for. It allows users to compare prices and make purchases directly through the site, making it convenient for local shopping and finding location-specific items.
+VigyBag is an e-commerce platform designed to empower villagers by providing them with a nationwide marketplace to sell their eco-friendly products across India. This platform bridges the gap between rural artisans and urban consumers, ensuring that their sustainable creations reach a wider audience.
 
-<h3><em>So, if you're looking for a complete solution for Shopping near you with pin point location then, this site is the right choice for you! </em></h3>
+<h3><em>So, if you're looking for a complete solution for Shopping near you with a pinpoint location then, this site is the right choice for you! </em></h3>
     
 ## 🖌️Design Preview
 ![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.webp)
@@ -67,17 +70,24 @@ Technologies Used :
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
 - ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
 
+  ### 🎥 Video Introduction
+
+[![Watch the video](https://img.youtube.com/vi/FeHQVTiYVxQ/0.jpg)](https://www.youtube.com/watch?v=FeHQVTiYVxQ)
+
+
 ## ⌛Links for the Website
 - [Live Website](https://codervivek5.github.io/VigyBag/)
 - [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
 <!-- - We can take reference of this website [Click Here](http://yellowpages.in/) -->
 
+#### Figma New Design
+- [Figma Design](https://www.figma.com/design/O0UOQfpC6u7wiQ9EeLnhGx/VigyBag-Redesign?node-id=0-1&t=sAeZiavEp8vPg1ss-0)
 
 
 If you want to work on this unique project and share it with the world, you can do that here. Go through the contributing guidelines here.
 
     
-## :handshake: Contributing  <a name="contributing"></a>
+## :handshake: Contributing <a name="contributing"></a>
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&logo=git&logoColor=white)](https://github.com/hound77/jwoc-archive/pulls)  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/hound77/jwoc-archive)
 
@@ -119,7 +129,7 @@ git pull upstream main
 git checkout -b <YOUR_BRANCH_NAME>
 ```
 
-**8.** Make changes in source code.
+**8.** Make changes in the source code.
 
 **9.** Check your changes.
 ```
@@ -156,26 +166,50 @@ Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission
 
 ## 🦄 Django Project Setup 
 
-**1.** Navigate to the project directory Backend Code .
+**1.** Navigate to the project directory Backend Code.
 
 ```bash
 cd Backend Code
 ```
 
-**2.** Navigate to the project directory VigyBag .
+**2.** Navigate to the project directory VigyBag.
 
 ```bash
 cd VigyBag
 ```
-**3.** If you get manage.py in file structure then run this command.
+**3.** If you get manage.py in the file structure then run this command.
 
 ```bash
 python manage.py runserver
 ```
 
-## 🦄 Django Admin Authentificaion 
+### 🦄 Django Admin Authentificaion 
 ```bash
 later on...
+```
+
+## ⚛️ React Project Setup 
+
+**1.** Navigate to the project directory Backend Code.
+
+```bash
+cd front-with-code
+```
+
+**2.** Navigate to the project directory VigyBag.
+
+```bash
+cd VigyBag
+```
+**3.** Run this command to install node packages.
+
+```bash
+npm install
+```
+
+## ⚛️ Start project
+```bash
+npm run dev
 ```
 
 ## ⚙️ Things to Note
@@ -188,6 +222,45 @@ later on...
 - Do not update the [README.md](README.md)
 
 <!-- ## 👨‍💻 Workflow: -->
+
+
+🚀 Usage
+Once you have VigyBag running, you can:
+
+Use the search functionality to find products based on location.
+Explore nearby stores and compare prices easily.
+🧪 Testing
+To run tests for VigyBag, use the following command:
+
+# Run tests
+pytest
+
+
+## 🌐 Deployment
+
+To deploy VigyBag to a production server:
+
+1. Configure your production environment settings.
+2. Set up databases and other required services.
+3. Ensure all dependencies are installed and updated.
+4. Deploy the application using your preferred method (e.g., Docker, Heroku, AWS).
+
+
+## ❓ Troubleshooting
+
+If you encounter any issues while setting up or using VigyBag, try the following:
+
+- Double-check your environment setup against the installation instructions.
+- Search for similar issues in the project's [GitHub Issues](https://github.com/codervivek5/VigyBag/issues).
+- Reach out to the community or project maintainers for assistance.
+
+
+
+
+
+
+
+
 
 ## 🙂 Project Admin:
 ![62784060](https://user-images.githubusercontent.com/62784060/154093320-99598cbd-cce0-4dda-a9e5-38c947f088d5.jpg)
