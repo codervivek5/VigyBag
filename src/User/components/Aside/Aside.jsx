@@ -8,11 +8,11 @@ const Aside = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const email = params.get("email");
+    // const email = params.get("email");
     const name = params.get("name");
 
-    if (email && name) {
-      localStorage.setItem("useremail", email);
+    if (name) {
+      // localStorage.setItem("useremail", email);
       localStorage.setItem("username", name);
     }
   }, [location]);
@@ -44,8 +44,7 @@ const Aside = () => {
     <>
       <aside
         className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 index-"
-        style={{ position: "sticky" }}
-      >
+        style={{ position: "sticky" }}>
         <div className="flex items-center space-x-4 mt-10 ml-5">
           <div className="h-10 bg-green-700 flex items-center justify-center p-8 rounded-lg gap-2">
             <lord-icon
@@ -55,8 +54,7 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/hrjifpbq.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span className="text-white">{username}</span>
           </div>
         </div>
@@ -71,8 +69,7 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/hrjifpbq.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>My Profile</span>
           </Link>
 
@@ -87,8 +84,7 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/xljvqlng.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>Orders</span>
           </Link>
 
@@ -102,8 +98,7 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/pbrgppbb.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>Cart</span>
             <span className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
               5
@@ -120,8 +115,7 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/ulnswmkk.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>Wishlist</span>
           </Link>
 
@@ -135,17 +129,16 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/lznlxwtc.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>Notifications</span>
             <span className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
               2
             </span>
-            </Link>
-
-          <Link to="#"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
-          >
+          </Link>
+          
+          <Link
+            to="#"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
                 height: "20px",
@@ -153,14 +146,12 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/ojnjgkun.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>Help</span>
-            </Link>
-
-          <Link to="/contact"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
-          >
+          </Link>
+          <Link
+            to="/contact"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
                 height: "20px",
@@ -168,14 +159,12 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/srsgifqc.json"
               trigger="hover"
-              colors="primary:#ffffff"
-            ></lord-icon>
+              colors="primary:#ffffff"></lord-icon>
             <span>Contact Us</span>
-            </Link>
-
-          <a className="flex items-center space-x-2 p-2 relative justify-center">
+          </Link>
+          <div className="flex items-center space-x-2 p-2 relative justify-center">
             <Logout />
-          </a>
+          </div>
         </nav>
       </aside>
     </>

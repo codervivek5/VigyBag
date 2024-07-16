@@ -3,8 +3,9 @@ import signUp from "../../../assets/Sign-up.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
+import "../../components/FeedbackForm/Sweetpopup.css";
 import SignUp from "../../components/Buttons/SignUp";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { ClipLoader, DotLoader } from "react-spinners";
 
 const containerClasses =
@@ -66,8 +67,6 @@ const SignUpForm = () => {
           phone,
         }
       );
-
-      alert(response.data.message);
       navigate("/login");
       setUsername("");
       setEmail("");
@@ -86,6 +85,19 @@ const SignUpForm = () => {
     } finally {
       setLoading(false);
     }
+
+    Swal.fire({
+      title: "SignUp successfully!",
+      text: "Thanks for Choosing VigyBag!",
+      icon: "success",
+      confirmButtonText: "Ok",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+      },
+    });
   };
 
   function handleToggle() {

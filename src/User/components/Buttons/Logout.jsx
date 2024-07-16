@@ -23,8 +23,7 @@ function Logout() {
           padding: "12px 30px",
           borderRadius: "8px",
           border: "1px solid #98bf8cff",
-        }}
-      >
+        }}>
         Logout
       </button>
     </>
