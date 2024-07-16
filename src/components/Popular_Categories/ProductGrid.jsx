@@ -38,9 +38,7 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
       <div className="mt-2 ml-44">
         <lord-icon
           style={{
@@ -53,6 +51,7 @@ function ProductCard({ product }) {
           colors="primary:#e83a30"></lord-icon>
       </div>
       <img
+        onClick={handleClick}
         src={product.image}
         alt={product.title}
         className="w-full h-48 object-contain p-4"
