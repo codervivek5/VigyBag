@@ -23,17 +23,6 @@ import Dropdown from "../../components/Dashboard/Dropdown";
 const Dashboard = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get("email");
-    const username = params.get("username");
-  }, []);
-  if (email && username) {
-    localStorage.setItem("email", email);
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("username", username);
-  }
-
   const initialProducts = [
     {
       image: granola,

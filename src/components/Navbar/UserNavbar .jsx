@@ -6,6 +6,8 @@ import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
+import Swal from "sweetalert2";
+import "../../components/FeedbackForm/Sweetpopup.css";
 
 const Navbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,13 +39,37 @@ const Navbar = ({ isAdmin }) => {
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
   const handleLogout = () => {
-    const confirmed = window.confirm("Are you sure you want to logout?");
-    if (confirmed) {
-      localStorage.setItem("isLoggedIn", false);
-      localStorage.removeItem("username");
-      alert("Logout Successful.");
-      navigate("/login");
-    }
+    Swal.fire({
+      title: "Do you really want to logout?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("username");
+        navigate("/login");
+
+        Swal.fire({
+          title: "Logout successfully!",
+          text: "Visit Again to VigyBag!",
+          icon: "success",
+          confirmButtonText: "Back",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        });
+      }
+    });
   };
 
   const handleDropdownToggle = () => {
