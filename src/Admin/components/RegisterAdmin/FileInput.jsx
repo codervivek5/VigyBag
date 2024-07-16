@@ -1,6 +1,13 @@
 import React, { useState, useRef } from 'react';
 
-const FileInput = ({ label, accept, required = false, maxSize = 50 * 1024 }) => {
+const FileInput = ({ 
+  label, 
+  name,
+  accept, 
+  required = false, 
+  maxSize = 50 * 1024,
+  onChange
+}) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState('');
   const [preview, setPreview] = useState('');
@@ -12,10 +19,16 @@ const FileInput = ({ label, accept, required = false, maxSize = 50 * 1024 }) => 
       setFile(selectedFile);
       setError('');
       setPreview(URL.createObjectURL(selectedFile));
+      if (onChange) {
+        onChange({ target: { name, value: selectedFile } });
+      }
     } else {
       setFile(null);
       setError(`File size exceeds ${maxSize / 1024} KB limit`);
       setPreview('');
+      if (onChange) {
+        onChange({ target: { name, value: null } });
+      }
     }
   };
 
@@ -25,6 +38,9 @@ const FileInput = ({ label, accept, required = false, maxSize = 50 * 1024 }) => 
     setPreview('');
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
+    }
+    if (onChange) {
+      onChange({ target: { name, value: null } });
     }
   };
 
@@ -54,6 +70,7 @@ const FileInput = ({ label, accept, required = false, maxSize = 50 * 1024 }) => 
         <input
           ref={fileInputRef}
           type="file"
+          name={name}
           accept={accept}
           required={required}
           onChange={handleFileChange}
