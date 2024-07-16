@@ -92,7 +92,7 @@ const VigyForm = () => {
   };
 
   const validateEmail = (email) => {
-    return email.includes('@');
+    return /^[^@]+@[^@]+\.[^@]+$/.test(email);
   };
 
   const indianBanks = [
