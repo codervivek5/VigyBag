@@ -162,9 +162,11 @@ const Aside = () => {
               colors="primary:#ffffff"></lord-icon>
             <span>Contact Us</span>
           </Link>
+
           <div className="flex items-center space-x-2 p-2 relative justify-center">
             <Logout />
           </div>
+
         </nav>
       </aside>
     </>
