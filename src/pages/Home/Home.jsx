@@ -139,7 +139,9 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-[#fff0e3ff]">
+    <div className="bg-[#fff0e3ff]"style={{
+      transform: "translateY(20px)",
+    }}>
       <main className="mt-1">
         <div className="sm:block md:hidden bg-[#eff0f1] pt-5">
           <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
