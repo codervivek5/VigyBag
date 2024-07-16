@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-top">
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 z-50">
           <Link to="/" className="flex items-center">
             <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh" }} />
           </Link>

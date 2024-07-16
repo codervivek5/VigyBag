@@ -57,7 +57,7 @@ const Aside = () => {
             <span>My Profile</span>
           </a>
           <a
-            href="MyOrders"
+            href="dashboard_order"
             className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md">
             <lord-icon
               style={{
@@ -70,7 +70,7 @@ const Aside = () => {
             <span>Orders</span>
           </a>
           <a
-            href="Cart"
+            href="dashboard_cart"
             className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md relative">
             <lord-icon
               style={{
