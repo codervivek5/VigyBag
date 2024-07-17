@@ -47,15 +47,27 @@ function Filters({
 function FilterSection({ title, options, onChange }) {
   return (
     <div>
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <select onChange={onChange} className="w-full p-2 border rounded">
-        <option value="">All</option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {title === "Price" ? `Under $${option}` : option}
-          </option>
-        ))}
-      </select>
+<h3 className="font-semibold mb-2">{title}</h3>
+<select 
+  onChange={onChange} 
+  className="w-full p-2 border rounded-lg bg-[#166635ff] text-white hover:bg-[#3d9907ff] focus:bg-[#bad9a8] focus:outline-none"
+  style={{ borderRadius: '1rem' }}
+>
+  <option value="" className="bg-[#166635ff] text-white hover:bg-[#3d9907ff] focus:bg-[#bad9a8]">
+    All
+  </option>
+  {options.map((option) => (
+    <option 
+      key={option} 
+      value={option} 
+      className="bg-[#166635ff] text-white hover:bg-[#3d9907ff] focus:bg-[#bad9a8]" 
+      style={{ borderRadius: '1rem' }}
+    >
+      {title === "Price" ? `Under $${option}` : option}
+    </option>
+  ))}
+</select>
+
     </div>
   );
 }
