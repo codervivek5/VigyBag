@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SelectField = ({ 
-  label, 
+  label , 
   name,
   options, 
   required = false,

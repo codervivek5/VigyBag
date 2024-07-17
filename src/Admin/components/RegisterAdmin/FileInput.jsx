@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 const FileInput = ({ 
-  label, 
+  label , 
   name,
   accept, 
   required = false, 

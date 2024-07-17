@@ -92,7 +92,9 @@ const VigyForm = () => {
   };
 
   const validateEmail = (email) => {
+
     return email.includes('@');
+
   };
 
   const indianBanks = [
@@ -264,8 +266,8 @@ const VigyForm = () => {
               maxSize={50 * 1024}
             />
             
-            <FileInput 
-              label="Proof of Address (e.g., Utility Bill, Bank Statement, Aadhaar card)" 
+            <FileInput
+              label="Proof of Address (e.g.,Aadhaar card,Driving Licenese)" 
               name="addressProof"
               onChange={handleInputChange}
               accept=".pdf,.jpg,.jpeg,.png" 
