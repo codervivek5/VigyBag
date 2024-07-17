@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import emailjs from 'emailjs-com';
 import "./feedback.css";
 import "./Sweetpopup.css";
 
@@ -13,6 +14,8 @@ const FeedbackModal = () => {
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [from_name, setFromName] = useState("Vivek");
+
 
   const handleRatingChange = (value) => {
     setRating(value === rating ? null : value);
@@ -34,6 +37,7 @@ const FeedbackModal = () => {
     e.preventDefault();
 
     const formData = {
+      from_name: from_name,
       name,
       email,
       rating,
@@ -41,27 +45,38 @@ const FeedbackModal = () => {
     };
     console.log(formData);
 
-    // Example submission handling
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setRating(null);
-      setName("");
-      setEmail("");
-      setFeedback("");
-      Swal.fire({
-        title: "Feedback submitted successfully!",
-        text: "Thanks for taking the time to share your thoughts..!",
-        icon: "success",
-        confirmButtonText: "Back",
-        customClass: {
-          popup: "custom-popup",
-          title: "custom-title",
-          content: "custom-content",
-          confirmButton: "custom-confirm-button",
-        },
+  
+    emailjs.send(
+      'service_ifek0ov',   //Service_ID
+      'template_ndx2kok',   //Template_ID
+      formData, 
+      '4kNzuPWxQwXpq7otN'    // User_ID
+    ).then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setRating(null);
+          setName("");
+          setEmail("");
+          setFeedback("");
+          Swal.fire({
+            title: "Feedback submitted successfully!",
+            text: "Thanks for taking the time to share your thoughts!",
+            icon: "success",
+            confirmButtonText: "Back",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              content: "custom-content",
+              confirmButton: "custom-confirm-button",
+            },
+          });
+        });
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
       });
-    }, 1000);
   };
 
   return (
