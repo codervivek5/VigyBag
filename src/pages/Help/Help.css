@@ -5,7 +5,7 @@ padding: 50px;
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #f1ddd0 !important;
+    background-color: #f1ddd0;
 }
 
 
@@ -13,8 +13,8 @@ padding: 50px;
     display: flex;
     justify-content: space-evenly;
     max-width: 100%;
-    padding-left: 100px !important;
-    padding-right: 100px !important;
+    padding-left: 100px;
+    padding-right: 100px ;
 }
 .card {
     display: flex;
