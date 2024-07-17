@@ -5,6 +5,7 @@ import PaymentButton from "../../components/Buttons/PaymentButton";
 
 const PaymentPage = () => {
   const [totalAmount, setTotalAmount] = useState(0);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
 
   return (
     <div className="flex flex-col items-center bg-[#fff0e3ff] p-4">
@@ -41,7 +42,7 @@ const PaymentPage = () => {
                 </label>
               </div>
             </div>
-            <PaymentButton amount={totalAmount} />
+            <PaymentButton amount={totalAmount} paymentMethod={selectedPaymentMethod} />
           </div>
           {/* Order Summary */}
           <OrderSummary setTotalAmount={setTotalAmount} />
