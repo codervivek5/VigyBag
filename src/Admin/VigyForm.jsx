@@ -92,9 +92,7 @@ const VigyForm = () => {
   };
 
   const validateEmail = (email) => {
-
     return email.includes('@');
-
   };
 
   const indianBanks = [
@@ -344,11 +342,15 @@ const VigyForm = () => {
               <div className="space-y-2">
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" required />
-                  <span className="ml-2 text-sm text-gray-700">I agree to the <Link to="/termsAndCondition" className="text-blue-500 hover:underline">terms and conditions</Link></span>
+                  <span className="ml-2 text-sm text-gray-700">
+                    I agree to the <Link to="/termsAndCondition" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">terms and conditions</Link>
+                  </span>
                 </label>
                 <label className="flex items-center">
                   <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" required />
-                  <span className="ml-2 text-sm text-gray-700">I agree to the <Link to="/privacy" className="text-blue-500 hover:underline">privacy policy</Link></span>
+                  <span className="ml-2 text-sm text-gray-700">
+                    I agree to the <Link to="/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">privacy policy</Link>
+                  </span>
                 </label>
               </div>
             </div>
