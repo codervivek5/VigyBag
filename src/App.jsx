@@ -63,9 +63,17 @@ import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
 
+import { Helmet } from "react-helmet";
+
 export default function App() {
   return (
     <AuthProvider>
+
+      <Helmet>
+        <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
+        <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
+      </Helmet>
+
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />} />
@@ -90,7 +98,7 @@ export default function App() {
           <Route path="popularCategories/furnitureDecor" element={<FurnitureDecor />} />
           <Route path="popularCategories/healthSupplements" element={<HealthSupplements />} />
           <Route path="popularCategories/printingStationery" element={<PrintingStationery />} />
-          
+
           <Route path="about" element={<AboutUs />} />
           <Route path="help" element={<Help />} />
           <Route path="privacy" element={<Privacy />} />
@@ -130,7 +138,7 @@ export default function App() {
         </Route>
 
         <Route path="/admin/login" element={<AdminLogin />} />
-        
+
       </Routes>
     </AuthProvider>
   );
