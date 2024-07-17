@@ -60,27 +60,17 @@ const VigyForm = () => {
     const { name, value } = e.target;
     let processedValue = value;
 
-    switch (name) {
-      case 'aadhaarNumber':
-        processedValue = value.replace(/\D/g, '').slice(0, 12);
-        break;
-      case 'phoneNumber':
-        processedValue = value.replace(/\D/g, '').slice(0, 10);
-        break;
-      case 'email':
-        processedValue = value.toLowerCase();
-        break;
-      case 'bankAccountName':
-      case 'bankBranch':
-      case 'ifscCode':
-        processedValue = value.toUpperCase();
-        break;
-      case 'bankAccountNumber':
-        processedValue = value.replace(/\D/g, '').slice(0, 18);
-        break;
-      default:
-        break;
-    }
+    const inputProcessors = {
+      aadhaarNumber: val => val.replace(/\D/g, '').slice(0, 12),
+      phoneNumber: val => val.replace(/\D/g, '').slice(0, 10),
+      email: val => val.toLowerCase(),
+      bankAccountName: val => val.toUpperCase(),
+      bankBranch: val => val.toUpperCase(),
+      ifscCode: val => val.toUpperCase(),
+      bankAccountNumber: val => val.replace(/\D/g, '').slice(0, 18),
+    };
+    
+    processedValue = inputProcessors[name] ? inputProcessors[name](value) : value;
 
     setFormData(prevData => ({
       ...prevData,
