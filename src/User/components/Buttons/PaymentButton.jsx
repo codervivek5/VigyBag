@@ -22,7 +22,7 @@ const PaymentButton = ({ amount }) => {
     }
 
     const options = {
-      key: 'rzp_test_ha0ktmZzSu1erb' || process.env.REACT_APP_RAZORPAY_KEY , // Enter the Key ID here inside ' ' or from the environment variables
+      key: import.meta.env.VITE_RAZORPAY_KEY, // Enter the Key ID here inside ' ' or from the environment variables
       amount: amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 100 paise = 1 INR
       currency: 'INR',
       name: 'Your Company Name',
