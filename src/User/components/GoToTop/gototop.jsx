@@ -39,8 +39,8 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 45px;
-  right: 15px;
+  bottom: 95px;
+  right: 28px;
   color: white;
   background-color: #16a34a;
   width: 50px;
