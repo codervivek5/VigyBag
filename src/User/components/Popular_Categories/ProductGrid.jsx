@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { manageCartItem } from "../../../redux/cartSlice";
+import { manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { MdHeight } from "react-icons/md";

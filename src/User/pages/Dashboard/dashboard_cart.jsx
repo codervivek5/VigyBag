@@ -7,7 +7,7 @@ import CartEmpty from "../../pages/Order/CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Dashboard/Header";
 import SearchBar from "../../components/Dashboard/SearchBar";
-import { clearCart, manageCartItem } from "../../../redux/cartSlice";
+import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import OrderSummary from "../../components/Order/OrderSummary";
 

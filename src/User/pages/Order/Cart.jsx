@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, manageCartItem } from "../../../redux/cartSlice";
+import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import OrderSummary from "../../components/Order/OrderSummary";
 
