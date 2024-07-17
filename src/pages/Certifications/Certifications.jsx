@@ -1,8 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Certificate from "../../assets/images/Certificate.png";
+import Swal from 'sweetalert2';
+import confetti from 'canvas-confetti';
 
 function Certification() {
   const [githubUsername, setGithubUsername] = useState("");
@@ -92,6 +94,46 @@ function Certification() {
     e.preventDefault();
     if (isVerified) {
       setCertificate({ name, githubUsername, userId });
+
+      // Trigger confetti
+      const end = Date.now() + (15 * 1000);
+      const colors = ['#bb0000', '#ffffff'];
+
+      (function frame() {
+        confetti({
+          particleCount: 2,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 2,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+
+      // Show SweetAlert after generating the certificate
+      Swal.fire({
+        title: 'Certificate Generated!',
+        text: `Congratulations ${name}! Your contribution certificate has been successfully generated.`,
+        icon: 'success',
+        confirmButtonText: 'Great!',
+        confirmButtonColor: '#28a745',
+        background: '#f8f9fa',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Optionally, you can add any action here after the user clicks "Great!"
+          console.log("User acknowledged certificate generation");
+        }
+      });
     }
   };
 
@@ -231,6 +273,13 @@ function Certification() {
           </>
         )}
       </div>
+      <style>
+        {`
+          .swal2-container {
+            background-size: cover !important;
+          }
+        `}
+      </style>
     </div>
   );
 }
