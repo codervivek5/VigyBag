@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import InputField from "../Admin/components/ProductForm/InputField";
-import TextArea from "../Admin/components/ProductForm/TextArea";
-import FileInput from "../Admin/components/ProductForm/FileInput";
-import PriceInput from "../Admin/components/ProductForm/PriceInput";
+import InputField from "../components/ProductForm/InputField";
+import TextArea from "../components/ProductForm/TextArea";
+import FileInput from "../components/ProductForm/FileInput";
+import PriceInput from "../components/ProductForm/PriceInput";
 
 const ProductForm = () => {
   const [activeTab, setActiveTab] = useState("basic");

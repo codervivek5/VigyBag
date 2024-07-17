@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/AdminNavbar';
-import SearchBar from '../Admin/components/SearchBar';
-import ExportButton from '../Admin/components/ExportButton';
-import StatsSummary from '../Admin/components/StatsSummary';
-import VigyTable from '../Admin/components/VigyTable';
-import Pagination from '../Admin/components/Pagination';
-import ProfileModal from '../Admin/components/ProfileModal';
+import Header from '../components/AdminNavbar';
+import SearchBar from '../components/SearchBar';
+import ExportButton from '../components/ExportButton';
+import StatsSummary from '../components/StatsSummary';
+import VigyTable from '../components/VigyTable';
+import Pagination from '../components/Pagination';
+import ProfileModal from '../components/ProfileModal';
 import {Link} from "react-router-dom";
 
 const AdminPanel = () => {
