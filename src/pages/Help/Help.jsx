@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import './Help.css';
+import boxImage from './box.gif';
+import refundImage from './refund.gif';
+import basketImage from './basket.gif';
+import walletImage from './wallet.gif';
+import locationImage from './location.gif';
+import accountImage from './account.gif';
 
 const Help = () => {
   const [faqOpen, setFaqOpen] = useState({});
@@ -28,11 +34,12 @@ const Help = () => {
  
   
   
-    const [expanded, setExpanded] = useState({});
+const [expanded, setExpanded] = useState({});
   
     const handleToggle = (index) => {
-      setExpanded((prevExpanded) => ({ ...prevExpanded, [index]: !prevExpanded[index] }));
-    }; 
+  setExpanded((prevExpanded) => ({ ...prevExpanded, [index]: !prevExpanded[index] }));
+ };
+ 
 
   return (
     <div>
@@ -49,7 +56,7 @@ const Help = () => {
       }}
     />     <div className="container">
         <div className="card">
-        <img src="/src/pages/Help/box.gif" alt="Card Image" />
+ <img src={boxImage} alt="Card Image" />
         <div className="card-content">
             <h2>Returns and Refunds</h2>
             <p>Return or exchange items</p>
@@ -57,15 +64,15 @@ const Help = () => {
           </div>
         </div>
         <div className="card">
-        <img src="/src/pages/Help/refund.gif" alt="Card Image" />
-        <div className="card-content">
+<img src={refundImage} alt="Card Image" />
+          <div className="card-content">
             <h2>Returns and Refunds</h2>
             <p>Return or exchange items</p>
             <p>Print return mailing labels</p>
           </div>
         </div>
         <div className="card">
-          <img src="/src/pages/Help/basket.gif" alt="Card Image" />
+          <img src={basketImage} alt="Card Image" />
           <div className="card-content">
             <h2>Product Delivery</h2>
             <p>Update your addresses</p>
@@ -75,7 +82,7 @@ const Help = () => {
       </div>
       <div className="container">
         <div className="card">
-          <img src="/src/pages/Help/wallet.gif" alt="Card Image" />
+          <img src={walletImage} alt="Card Image" />
           <div className="card-content">
             <h2>Payment Settings</h2>
             <p>Add or edit payment methods</p>
@@ -86,7 +93,7 @@ const Help = () => {
 
 
         <div className="card">
-          <img src="/src/pages/Help/location.gif" alt="Card Image" />
+          <img src={locationImage} alt="Card Image" />
           <div className="card-content">
             <h2>Manage Addresses</h2>
             <p>Update your addresses</p>
@@ -94,7 +101,7 @@ const Help = () => {
           </div>
         </div>
         <div className="card">
-          <img src="src/pages/Help/account.gif" alt="Card Image" />
+          <img src={accountImage} alt="Card Image" />
           <div className="card-content">
             <h2>Account Setting</h2>
             <p>Update your addresses</p>
@@ -108,13 +115,13 @@ const Help = () => {
       <ul>
         {questions.map((question, index) => (
           <li key={index}>
-            <h3 onClick={() => handleToggle(index)}>
+<h3 onClick={() => handleToggle(index)} aria-expanded={expanded[index]}>
               {question.question}
               <span style={{ float: 'right' }}>
                 {expanded[index] ? (
-                  <span>&#9660;</span> // down arrow
+                  <span aria-hidden="true">&#9660;</span> // down arrow
                 ) : (
-                  <span>&#9658;</span> // right arrow
+                  <span aria-hidden="true">&#9658;</span> // right arrow
                 )}
               </span>
             </h3>
