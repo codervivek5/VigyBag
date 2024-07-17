@@ -1,6 +1,7 @@
 // src/components/Payment/PaymentButton.jsx
 import React from 'react';
 
+
 const PaymentButton = ({ amount }) => {
   const loadRazorpay = (src) => {
     return new Promise((resolve) => {
@@ -21,7 +22,7 @@ const PaymentButton = ({ amount }) => {
     }
 
     const options = {
-      key: process.env.REACT_APP_RAZORPAY_KEY, // Enter the Key ID from the environment variables
+      key: 'rzp_test_ha0ktmZzSu1erb', // Enter the Key ID here inside ' ' or from the environment variables
       amount: amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 100 paise = 1 INR
       currency: 'INR',
       name: 'Your Company Name',
