@@ -14,8 +14,6 @@ const FeedbackModal = () => {
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [from_name, setFromName] = useState("Vivek");
-
 
   const handleRatingChange = (value) => {
     setRating(value === rating ? null : value);
@@ -37,7 +35,6 @@ const FeedbackModal = () => {
     e.preventDefault();
 
     const formData = {
-      from_name: from_name,
       name,
       email,
       rating,
@@ -45,7 +42,7 @@ const FeedbackModal = () => {
     };
     console.log(formData);
 
-  
+    // Example submission handling
     emailjs.send(
       'service_ifek0ov',   //Service_ID
       'template_ndx2kok',   //Template_ID
