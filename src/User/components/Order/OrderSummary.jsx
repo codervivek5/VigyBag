@@ -24,9 +24,9 @@ function OrderSummary({ setTotalAmount }) {
   let total = itemsTotal + shipping;
 
   // Update total amount in parent component
-  useEffect(() => {
-    setTotalAmount(total);
-  }, [total, setTotalAmount]);
+  // useEffect(() => {
+  //   setTotalAmount(total);
+  // }, [total, setTotalAmount]);
 
   if (itemsTotal === 0) {
     return (
