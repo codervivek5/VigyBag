@@ -50,13 +50,21 @@ const SignUpForm = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      console.log("Passwords do not match");
+  
+    // Validate fields
+    if (!username || !email || !password || !phone) {
+      alert("All fields are required");
       setLoading(false);
       return;
     }
-
+  
+    // Validate password match
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      setLoading(false);
+      return;
+    }
+  
     try {
       const response = await axios.post(
         "https://vigybag-backend.onrender.com/api/auth/signup",
@@ -67,38 +75,41 @@ const SignUpForm = () => {
           phone,
         }
       );
-      navigate("/login");
+  
+      // Clear form fields and navigate on successful signup
       setUsername("");
       setEmail("");
       setPhone("");
       setPassword("");
       setConfirmPassword("");
+      navigate("/login");
+  
+      Swal.fire({
+        title: "Signup successful!",
+        text: "Thanks for Choosing VigyBag!",
+        icon: "success",
+        confirmButtonText: "Ok",
+        customClass: {
+          popup: "custom-popup",
+          title: "custom-title",
+          content: "custom-content",
+          confirmButton: "custom-confirm-button",
+        },
+      });
+  
     } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
+      if (error.response && error.response.data && error.response.data.message) {
         alert(error.response.data.message);
         console.log(error.response.data.message);
+      } else {
+        alert("Signup failed. Please try again later.");
+        console.error("Signup error:", error.message);
       }
     } finally {
       setLoading(false);
     }
-
-    Swal.fire({
-      title: "SignUp successfully!",
-      text: "Thanks for Choosing VigyBag!",
-      icon: "success",
-      confirmButtonText: "Ok",
-      customClass: {
-        popup: "custom-popup",
-        title: "custom-title",
-        content: "custom-content",
-        confirmButton: "custom-confirm-button",
-      },
-    });
   };
+  
 
   function handleToggle() {
     if (showPassword) {
