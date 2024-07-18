@@ -42,7 +42,6 @@ const FeedbackModal = () => {
     };
     console.log(formData);
 
-    // Example submission handling
     emailjs.send(
       'service_ifek0ov',   //Service_ID
       'template_ndx2kok',   //Template_ID
@@ -50,30 +49,29 @@ const FeedbackModal = () => {
       '4kNzuPWxQwXpq7otN'    // User_ID
     ).then((response) => {
       console.log('Email sent successfully!', response.status, response.text);
-        setIsSubmitted(true);
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setRating(null);
-          setName("");
-          setEmail("");
-          setFeedback("");
-          Swal.fire({
-            title: "Feedback submitted successfully!",
-            text: "Thanks for taking the time to share your thoughts!",
-            icon: "success",
-            confirmButtonText: "Back",
-            customClass: {
-              popup: "custom-popup",
-              title: "custom-title",
-              content: "custom-content",
-              confirmButton: "custom-confirm-button",
-            },
-          });
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setRating(null);
+        setName("");
+        setEmail("");
+        setFeedback("");
+        Swal.fire({
+          title: "Feedback submitted successfully!",
+          text: "Thanks for taking the time to share your thoughts!",
+          icon: "success",
+          confirmButtonText: "Back",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
         });
-      })
-      .catch((error) => {
-        console.error('Error sending email:', error);
-      });
+      }, 1000);
+    }).catch((error) => {
+      console.error('Error sending email:', error);
+    });
   };
 
   return (
