@@ -12,7 +12,7 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: false, // Changed to false
+    required: false,
     unique: true,
     trim: true,
     lowercase: true,
@@ -20,12 +20,12 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: false, // Changed to false
+    required: false,
     minlength: 6,
   },
   phone: {
     type: String,
-    required: false, // Changed to false
+    required: false,
     trim: true,
     match: [/^\d{10}$/, "Please enter a 10-digit phone number"],
   },
@@ -35,6 +35,8 @@ const userSchema = new Schema({
   },
   googleId: String,
   secret: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
 });
 
 userSchema.plugin(passportLocalMongoose);

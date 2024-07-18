@@ -21,7 +21,14 @@ function OrderSummary() {
   let shipping = calculateShipping(itemsTotal, shippingThreshold, shippingRate);
   let total = itemsTotal + shipping;
 
-  if (itemsTotal === 0) {
+
+
+
+ 
+
+
+
+if (itemsTotal === 0) {
     return (
       <div className="mb-5">
         <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>

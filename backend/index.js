@@ -7,6 +7,7 @@ const passport = require("./middlewares/Passport");
 const routes = require("./routes");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const passwordResetRoutes = require("./routes/passwordResetRoutes");
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ mongoose
 
 app.use("/auth", authRoutes);
 app.use("/api", routes);
+app.use("/api", passwordResetRoutes);
 app.use("/vpi", userRoutes);
 
 const PORT = process.env.PORT || 3000;
