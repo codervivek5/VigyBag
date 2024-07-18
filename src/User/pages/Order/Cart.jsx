@@ -22,7 +22,7 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 
 const CartItem = ({ product, onUpdate }) => (
   <div
-    className={`${cardClass} flex items-center justify-between mb-4 mt-8`}
+    className={`${cardClass} flex items-center justify-between mb-4 mt-11`}
     style={{ border: "1px solid black" }}>
     <div className="flex items-center">
       <img

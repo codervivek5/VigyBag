@@ -37,7 +37,7 @@ const CheckoutForm = () => {
             Checkout
           </h2>
         </div>
-        <div className="flex justify-center flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-2/3 pr-0 md:pr-4 mb-6 md:mb-0">
             <div
               className="border p-4 rounded-lg mb-6"
@@ -147,14 +147,14 @@ const CheckoutForm = () => {
               </button>
             </form>
           </div>
-        </div>
-        <div className="w-full md:w-1/3 items-center md:ml-96">
-          <OrderSummary />
-          <Link to="/payment">
-            <button className="w-full bg-green-700 text-white p-2 rounded hover:bg-green-800 transition-colors duration-300">
-              Place Order
-            </button>
-          </Link>
+          <div className="w-full md:w-1/3">
+            <OrderSummary />
+            <Link to="/payment">
+              <button className="w-full bg-green-700 text-white p-2 rounded hover:bg-green-800 transition-colors duration-300">
+                Place Order
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
