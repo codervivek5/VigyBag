@@ -35,7 +35,7 @@ const ProgressBar = ({ currentStep, goToStep }) => {
                 style={{
                   left: "50%",
                   marginLeft: "-50%",
-                  bottom: "4.3vh",
+                  bottom: "4.5vh",
                 }}></div>
             )}
             <div

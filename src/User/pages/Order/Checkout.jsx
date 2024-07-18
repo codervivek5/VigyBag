@@ -29,11 +29,23 @@ const CheckoutForm = () => {
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center bg-[#f5eee8] py-10 mt-1">
+<<<<<<< Updated upstream:src/User/pages/Order/Checkout.jsx
       <div className="container mx-auto p-6 shadow-lg rounded-lg mt-20 w-full" style={{ backgroundColor: "#f5eee8" }}>
+=======
+      <div
+        className="container flex-row mx-auto p-6  shadow-lg rounded-lg mt-20 w-full"
+        style={{ backgroundColor: "#f5eee8" }}>
+>>>>>>> Stashed changes:src/pages/Order/Checkout.jsx
         <div className="text-center mb-6">
           <h2 className="text-2xl items-center font-bold underline">Checkout</h2>
         </div>
+<<<<<<< Updated upstream:src/User/pages/Order/Checkout.jsx
         <div className="flex flex-col md:flex-row">
+=======
+        {/* <ProgressBar /> */}
+
+        <div className="flex justify-center  flex-col md:flex-row">
+>>>>>>> Stashed changes:src/pages/Order/Checkout.jsx
           <div className="w-full md:w-2/3 pr-0 md:pr-4 mb-6 md:mb-0">
             <div className="border p-4 rounded-lg mb-6" style={{ border: "2px solid green" }}>
               <p className="font-semibold mb-2">Default Address</p>
@@ -118,6 +130,7 @@ const CheckoutForm = () => {
                   <option value="other">Other</option>
                 </select>
               </div>
+<<<<<<< Updated upstream:src/User/pages/Order/Checkout.jsx
               <div className="flex items-center mb-4">
                 <input
                   type="checkbox"
@@ -127,6 +140,35 @@ const CheckoutForm = () => {
                   className="mr-2"
                 />
                 <label className="font-medium">Make Default Address</label>
+=======
+              <div className="mb-4">
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    name="defaultAddress"
+                    checked={formData.defaultAddress}
+                    onChange={handleChange}
+                    className="form-checkbox"
+                  />
+                  <span className="ml-2">Make this my default address</span>
+                </label>
+              </div>
+              <div className="flex justify-between mb-6">
+                <Link to="/cart">
+                  <button
+                    type="button"
+                    className="px-4 py-2 bg-gray-300 rounded">
+                    Back to Cart
+                  </button>
+                </Link>
+                <Link to="/payment">
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-green-500 text-white rounded">
+                    Proceed to Payment
+                  </button>
+                </Link>
+>>>>>>> Stashed changes:src/pages/Order/Checkout.jsx
               </div>
               <button
                 type="submit"
@@ -135,6 +177,7 @@ const CheckoutForm = () => {
               </button>
             </form>
           </div>
+<<<<<<< Updated upstream:src/User/pages/Order/Checkout.jsx
           <div className="w-full md:w-1/3">
             <OrderSummary />
             <Link to="/payment">
@@ -144,6 +187,11 @@ const CheckoutForm = () => {
               </button>
             </Link>
           </div>
+=======
+        </div>
+        <div className="md:w-[60vw] md:h-[50vh] md:ml-44 md:mt-6">
+          <OrderSummary />
+>>>>>>> Stashed changes:src/pages/Order/Checkout.jsx
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Logout from "../../components/Buttons/Logout";
+// import Logout from "../../components/Buttons/Logout";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
+import "../../components/FeedbackForm/Sweetpopup.css";
 
 const Aside = () => {
   const navigate = useNavigate();
@@ -20,7 +22,25 @@ const Aside = () => {
   const userEmail = localStorage.getItem("useremail");
   const username = localStorage.getItem("username") || "Admin";
 
+  // const handleLogout = () => {
+  //   try {
+  //     const confirmed = window.confirm("Are you sure you want to logout?");
+  //     if (confirmed) {
+  //       localStorage.removeItem("isLoggedIn");
+  //       alert("Logout Successful.");
+  //       navigate("/login");
+  //     } else {
+  //       // User cancelled logout
+  //       return;
+  //     }
+  //   } catch (error) {
+  //     alert("Logout failed. Please try again later.");
+  //     console.error("Logout error:", error);
+  //   }
+  // };
+
   const handleLogout = () => {
+<<<<<<< Updated upstream:src/User/components/Aside/Aside.jsx
     try {
       const confirmed = window.confirm("Are you sure you want to logout?");
       if (confirmed) {
@@ -28,15 +48,40 @@ const Aside = () => {
         localStorage.removeItem("useremail");
         localStorage.removeItem("username");
         alert("Logout Successful.");
+=======
+    Swal.fire({
+      title: "Are you sure you want to logout?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.setItem("isLoggedIn", false);
+        localStorage.removeItem("username");
+>>>>>>> Stashed changes:src/components/Aside/Aside.jsx
         navigate("/login");
-      } else {
-        // User cancelled logout
-        return;
+
+        Swal.fire({
+          title: "Logout successfully!",
+          text: "Visit Again to VigyBag!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        });
       }
-    } catch (error) {
-      alert("Logout failed. Please try again later.");
-      console.error("Logout error:", error);
-    }
+    });
   };
 
 
@@ -117,6 +162,9 @@ const Aside = () => {
               trigger="hover"
               colors="primary:#ffffff"></lord-icon>
             <span>Wishlist</span>
+            <span className="absolute right-6 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
+              2
+            </span>
           </Link>
 
           <Link to="#"
@@ -137,7 +185,11 @@ const Aside = () => {
           </Link>
           
           <Link
+<<<<<<< Updated upstream:src/User/components/Aside/Aside.jsx
             to="#"
+=======
+            to="/Help"
+>>>>>>> Stashed changes:src/components/Aside/Aside.jsx
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
@@ -164,7 +216,17 @@ const Aside = () => {
           </Link>
 
           <div className="flex items-center space-x-2 p-2 relative justify-center">
-            <Logout />
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="mt-10 bg-green-700"
+              style={{
+                padding: "12px 30px",
+                borderRadius: "8px",
+                border: "1px solid #98bf8cff",
+              }}>
+              Logout
+            </button>
           </div>
 
         </nav>

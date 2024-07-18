@@ -114,8 +114,8 @@ const Footer = () => {
                 }}
                 src="https://cdn.lordicon.com/tdtlrbly.json"
                 trigger="hover"
-                colors="primary:#109121,secondary:#109121"></lord-icon>{" "}
-              Aung Fatehpur, Uttar Pradesh India-212665
+                colors="primary:#ffffff,secondary:#ffffff"></lord-icon>{" "}
+              Aung Fatehpur, Kanpur, India-208025
             </p>
             <p>
               <lord-icon
@@ -127,8 +127,8 @@ const Footer = () => {
                 }}
                 src="https://cdn.lordicon.com/xtzvywzp.json"
                 trigger="hover"
-                colors="primary:#109121"></lord-icon>{" "}
-              <a href="mailto:vigybag@gmail.com">contact@vigybag.com</a>
+                colors="primary:#ffffff"></lord-icon>{" "}
+              <a href="mailto:vigybag@gmail.com">vigybag@gmail.com</a>
             </p>
             <p>
               <lord-icon
@@ -140,7 +140,7 @@ const Footer = () => {
                 }}
                 src="https://cdn.lordicon.com/srsgifqc.json"
                 trigger="hover"
-                colors="primary:#109121"></lord-icon>{" "}
+                colors="primary:#ffffff"></lord-icon>{" "}
               <a href="tel:1234567890">+91 1234567890</a>
             </p>
           </div>

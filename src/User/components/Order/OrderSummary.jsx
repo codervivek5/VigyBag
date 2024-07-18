@@ -48,8 +48,17 @@ function OrderSummary({ setTotalAmount }) {
 
   return (
     <div className="mb-5">
+<<<<<<< Updated upstream:src/User/components/Order/OrderSummary.jsx
       <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
       <div className={`${cardClass} space-y-2`} style={{ border: "1px solid black" }}>
+=======
+      <h2 className="text-2xl font-bold mb-3 md:text-center  text-green-700 underline">
+        Subtotal
+      </h2>
+      <div
+        className={`${cardClass} space-y-2`}
+        style={{ border: "1px solid black" }}>
+>>>>>>> Stashed changes:src/components/Order/OrderSummary.jsx
         <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
         <ul className="list-inside text-zinc-700 space-y-1 list-none">
           <hr />
