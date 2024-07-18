@@ -1,8 +1,10 @@
 <div align="center">
-  <img src="https://res.cloudinary.com/dxxeks4o5/image/upload/v1696576943/logo_mklszb_zzxb64.png" width="200" alt="Logo">
-<h1>VigyBag</h1>
-</div>
+<img src="https://github.com/user-attachments/assets/7a4cafc0-5b94-4b13-8fee-976812288475" width="200px">
 
+
+<h1>VigyBag</h1>
+
+</div>
 
 
 <div align="center">
