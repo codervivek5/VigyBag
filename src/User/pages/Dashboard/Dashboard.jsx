@@ -27,14 +27,14 @@ const Dashboard = () => {
     const params = new URLSearchParams(window.location.search);
     const email = params.get("email");
     const username = params.get("username");
-    
+
     if (email && username) {
       localStorage.setItem("email", email);
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("username", username);
     }
-  },[location]);
-  
+  }, [location]);
+
   const initialProducts = [
     {
       image: granola,
@@ -160,13 +160,11 @@ const Dashboard = () => {
 
   return (
     <div className="flex min-h-screen bg-[#fff1e6]">
-
       {/* Sidebar */}
       <Aside />
 
       {/* Main Content */}
       <main className="flex-1 p-6 mt-20">
-
         {/* Header */}
         <Header />
 
@@ -192,6 +190,7 @@ const Dashboard = () => {
                 title={product.title}
                 price={product.price}
                 rating={product.rating}
+                product={product}
               />
             ))}
           </div>
