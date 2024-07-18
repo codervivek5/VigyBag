@@ -106,6 +106,7 @@ const SignUpForm = () => {
         console.error("Signup error:", error.message);
       }
     } finally {
+      
       setLoading(false);
     }
   };
