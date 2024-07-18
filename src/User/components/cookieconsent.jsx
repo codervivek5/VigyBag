@@ -1,7 +1,7 @@
  //CookieConsentBanner.jsx
 import React from 'react';
 import CookieConsent from 'react-cookie-consent';
-import { Link } from 'react-router-dom'; // Import Link if using react-router-dom for routing
+import { Link } from 'react-router-dom'; 
 
 const CookieConsentBanner = () => {
   return (
@@ -23,6 +23,8 @@ const CookieConsentBanner = () => {
       }}
       buttonStyle={{ color: '#4e503b', fontSize: '16px', position: 'absolute', bottom: '10px', right: '80px', left: '290px' }}
       expires={150}
+      aria-label="Cookie consent banner"
+      role="dialog"
     >
 
     This website uses cookies to enhance the user experience. By continuing, you agree to our cookie policy. Kinldy visit the link below for more info.{' '}
