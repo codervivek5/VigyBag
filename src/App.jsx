@@ -36,7 +36,7 @@ import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 import AdminLayout from "./Admin/AdminLayout";
 import AdminLogin from "./Admin/Pages/AdminLogin";
 // import AdminDashboard from "./Admin/pages/AdminDashboard";
-// import VigyForm from "./Admin/pages/VigyForm";
+import VigyForm from "./Admin/VigyForm";
 import AdminPanel from "./Admin/Pages/AdminPanel";
 import ProductForm from "./Admin/Pages/ProductForm";
 import Certifications from "./User/pages/Certifications/Certifications";
@@ -159,7 +159,7 @@ export default function App() {
             element={<ReturnAndCancellation />}
           />
           <Route path="EPR_Page" element={<EPRPage />} />
-          <Route path="certificate" element={<Certifications />} />
+        
 
           <Route element={<PrivateRoute />}>
             <Route path="dashboard" element={<Dashboard />} />
@@ -172,6 +172,7 @@ export default function App() {
             <Route path="payment" element={<Payment />} />
             <Route path="dashboard_order" element={<Dashboard_Orders />} />
             <Route path="dashboard_cart" element={<Dashboard_Cart />} />
+            <Route path="certificate" element={<Certifications />} />
           </Route>
 
           <Route path="*" element={<Error />} />
@@ -180,7 +181,7 @@ export default function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminPanel />} />
           {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
-          {/* <Route path="vigy_form" element={<VigyForm />} /> */}
+          <Route path="vigy_form" element={<VigyForm />} />
           <Route path="product_form" element={<ProductForm />} />
         </Route>
 
