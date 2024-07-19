@@ -17,6 +17,7 @@
     "canvas-confetti": "^1.9.3",
     "dotenv": "^16.4.5",
     "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
     "express": "^4.19.2",
     "file-saver": "^2.0.5",
     "fuse.js": "^7.0.0",
@@ -40,7 +41,7 @@
     "sitemap": "^8.0.0",
     "styled-component": "^2.8.0",
     "styled-components": "^6.1.12",
-    "sweetalert2": "^11.12.2"
+    "sweetalert2": "^11.12.3"
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.15",
