@@ -13,7 +13,15 @@ const FeedbackModal = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [feedbackOption, setFeedbackOption] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const predefinedFeedbackOptions = [
+    "Great service!",
+    "Could be better.",
+    "Needs improvement.",
+    "Excellent experience.",
+  ];
 
   const handleRatingChange = (value) => {
     setRating(value === rating ? null : value);
@@ -27,8 +35,20 @@ const FeedbackModal = () => {
     setEmail(e.target.value);
   };
 
+  const handleFeedbackOptionChange = (e) => {
+    const selectedOption = e.target.value;
+    setFeedbackOption(selectedOption);
+    if (selectedOption !== "Other") {
+      setFeedback(selectedOption);
+    } else {
+      setFeedback("");
+    }
+  };
+
   const handleFeedbackChange = (e) => {
-    setFeedback(e.target.value);
+    if (feedbackOption === "Other") {
+      setFeedback(e.target.value);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -40,13 +60,13 @@ const FeedbackModal = () => {
       rating,
       feedback,
     };
-    console.log(formData);
 
     emailjs.send(
-      'service_ifek0ov',   //Service_ID
-      'template_ndx2kok',   //Template_ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,   //Service_ID
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,   //Template_ID
       formData, 
-      '4kNzuPWxQwXpq7otN'    // User_ID
+      import.meta.env.VITE_EMAILJS_USER_ID    // User_ID
+
     ).then((response) => {
       console.log('Email sent successfully!', response.status, response.text);
       setIsSubmitted(true);
@@ -56,6 +76,7 @@ const FeedbackModal = () => {
         setName("");
         setEmail("");
         setFeedback("");
+        setFeedbackOption("");
         Swal.fire({
           title: "Feedback submitted successfully!",
           text: "Thanks for taking the time to share your thoughts!",
@@ -71,6 +92,18 @@ const FeedbackModal = () => {
       }, 1000);
     }).catch((error) => {
       console.error('Error sending email:', error);
+      Swal.fire({
+               title: "Error submitting feedback",
+               text: "There was an issue sending your feedback. Please try again later.",
+               icon: "error",
+               confirmButtonText: "Back",
+               customClass: {
+                 popup: "custom-popup",
+                 title: "custom-title",
+                 content: "custom-content",
+                confirmButton: "custom-confirm-button",
+            },
+        });
     });
   };
 
@@ -82,7 +115,6 @@ const FeedbackModal = () => {
           <p>
             Share your thoughts on how we're doing and where we can enhance our
             service.
-            <br /> <span className="vigyname">VigyBag</span>
           </p>
           <div>
             <p htmlFor="rating" className="rate-para">
@@ -101,7 +133,7 @@ const FeedbackModal = () => {
             </div>
           </div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="name" className="label-big">Your Name</label>
             <input
               type="text"
               id="name"
@@ -110,7 +142,7 @@ const FeedbackModal = () => {
               placeholder="Enter your name"
               required
             />
-            <label htmlFor="email">Your Email</label>
+            <label htmlFor="email" className="label-big">Your Email</label>
             <input
               type="email"
               id="email"
@@ -119,14 +151,31 @@ const FeedbackModal = () => {
               placeholder="Enter your email"
               required
             />
-            <label htmlFor="feedback">Your Feedback</label>
-            <textarea
-              id="feedback"
-              rows="4"
-              value={feedback}
-              onChange={handleFeedbackChange}
-              placeholder="Let us know how we can improve..."
-              required></textarea>
+            <label htmlFor="feedbackOption" className="label-big">Your Feedback</label>
+            <div className="select-container">
+              <select
+                id="feedbackOption"
+                value={feedbackOption}
+                onChange={handleFeedbackOptionChange}
+                required
+              >
+                <option value="" disabled>Select your feedback</option>
+                {predefinedFeedbackOptions.map((option, index) => (
+                  <option key={index} value={option}>{option}</option>
+                ))}
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            {feedbackOption === "Other" && (
+              <textarea
+                id="feedback"
+                rows="4"
+                value={feedback}
+                onChange={handleFeedbackChange}
+                placeholder="Let us know how we can improve..."
+                required
+              ></textarea>
+            )}
             <button type="submit">Submit Feedback</button>
           </form>
         </div>
