@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 
 // User components
-import UserAuth from "./User/pages/UserAuth/UserAuth";
+import Login from "./User/pages/Login/Login";
 import AboutUs from "./User/pages/About/AboutUs";
 import Contact from "./User/pages/Contacts/Contact";
 import Dashboard from "./User/pages/Dashboard/Dashboard";
@@ -25,6 +25,7 @@ import Privacy from "./User/pages/Privacy-Policy/Privacy";
 import Payment from "./User/pages/Payment/Payment";
 import ReturnAndCancellation from "./User/pages/ReturnAndCancellation/returnAndCancellation";
 import EPRPage from "./User/pages/EPRPage/EPR_Page";
+import Signup from "./User/pages/Signup/Signup";
 import FAQ from "./User/pages/FAQ/Faq";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
@@ -96,7 +97,8 @@ export default function App() {
           <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />
           <Route path="team" element={<Team />} />
-          <Route path="auth" element={<UserAuth />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="termsAndCondition" element={<TermsAndConditions />} />
           <Route path="feedback" element={<FeedbackModal />} />
