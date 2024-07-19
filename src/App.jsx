@@ -31,8 +31,7 @@ import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
 import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
-
-// Admin components
+import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
 import AdminLogin from "./Admin/Pages/AdminLogin";
 // import AdminDashboard from "./Admin/pages/AdminDashboard";
@@ -159,11 +158,14 @@ export default function App() {
             element={<ReturnAndCancellation />}
           />
           <Route path="EPR_Page" element={<EPRPage />} />
-        
 
           <Route element={<PrivateRoute />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="confirm" element={<Confirmation />} />
+            <Route
+              path="admin-verification"
+              element={<AdminVerificationPage></AdminVerificationPage>}
+            ></Route>
             <Route path="cancel" element={<Cancellation />} />
             <Route path="orderDetails" element={<OrderDetails />} />
             <Route path="myOrders" element={<MyOrders />} />

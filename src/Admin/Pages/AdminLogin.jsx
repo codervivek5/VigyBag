@@ -15,7 +15,7 @@ const AdminLogin = () => {
    // console.log("Email:", email);
    // console.log("Password:", password);
    try {
-     const response = await axios.post("http://localhost:8080/api/admin", { email, password });
+     const response = await axios.post("https://vigybag-backend.onrender.com/api/admin", { email, password });
      setMessage(response.data.message);
      if (response.status === 200) {
         // console.log("Login successful");
