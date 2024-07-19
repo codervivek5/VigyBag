@@ -7,6 +7,10 @@ const PaymentPage = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
 
+  const handlePaymentMethodChange = (e) => {
+    setSelectedPaymentMethod(e.target.id);
+  };
+
   return (
     <div className="flex flex-col items-center bg-[#fff0e3ff] p-4">
       <div className="w-full max-w-6xl mt-20 mb-20">

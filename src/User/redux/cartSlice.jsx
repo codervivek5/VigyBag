@@ -1,45 +1,51 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    items: JSON.parse(localStorage.getItem("vigybag-cart")) || [],
+  items: JSON.parse(localStorage.getItem("vigybag-cart")) || [],
+  totalAmount: 0,
 };
 
 const cartSlice = createSlice({
-    name: "cart",
-    initialState: initialState,
-    reducers: {
-        manageCartItem: (state, action) => {
-            const { product, quantity } = action.payload
+  name: "cart",
+  initialState,
+  reducers: {
+    manageCartItem: (state, action) => {
+      const { product, quantity } = action.payload;
+      const existingItem = state.items.find((item) => item.id === product.id);
 
-            const existingItem = state.items.find(item => item.id === product.id)
+      let newQuantity = quantity;
+      if (existingItem) {
+        newQuantity = existingItem.quantity + quantity > 0 ? existingItem.quantity + quantity : 0;
+      }
 
-            let newQuantity = quantity
-            if (existingItem) {
-                newQuantity = existingItem.quantity + quantity > 0 ? existingItem.quantity + quantity : 0;
-            }
+      const updatedCart = state.items
+        .filter((item) => item.id !== product.id)
+        .concat(
+          newQuantity > 0
+            ? {
+                id: product.id,
+                title: product.title,
+                quantity: newQuantity,
+                price: product.price,
+                total: newQuantity * product.price,
+                image: product.image,
+              }
+            : []
+        )
+        .sort((a, b) => a.id - b.id);
 
-            const updatedCart = state.items
-                .filter(item => item.id !== product.id)
-                .concat(newQuantity > 0 ? {
-                    id: product.id,
-                    title: product.title,
-                    quantity: newQuantity,
-                    price: product.price,
-                    total: newQuantity * product.price,
-                    image: product.image,
-                } : [])
-                .sort((a, b) => a.id - b.id);
+      localStorage.setItem("vigybag-cart", JSON.stringify(updatedCart));
+      state.items = updatedCart;
+    },
+    clearCart: (state) => {
+      localStorage.setItem("vigybag-cart", JSON.stringify([]));
+      state.items = [];
+    },
+    setTotalAmount: (state, action) => {
+      state.totalAmount = action.payload;
+    },
+  },
+});
 
-            localStorage.setItem("vigybag-cart", JSON.stringify(updatedCart))
-            state.items = updatedCart
-        },
-
-        clearCart: (state) => {
-            localStorage.setItem("vigybag-cart", JSON.stringify([]))
-            state.items = []
-        }
-    }
-})
-
-export const { manageCartItem, clearCart } = cartSlice.actions
-export default cartSlice.reducer
+export const { manageCartItem, clearCart, setTotalAmount } = cartSlice.actions;
+export default cartSlice.reducer;
