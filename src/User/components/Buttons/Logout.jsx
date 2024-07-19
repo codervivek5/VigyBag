@@ -1,8 +1,18 @@
 import React from "react";
-
 // import useNavigate from "react-router-dom";
 
 function Logout() {
+  const handleLogout = () => {
+    const navigate = useNavigate();
+    const confirmed = window.confirm("Are you sure you want to logout?");
+    if (confirmed) {
+      localStorage.setItem("isLoggedIn", false);
+      localStorage.removeItem("username");
+      navigate("/login");
+      alert("Logout Successful.");
+    }
+  };
+
   return (
     <>
       <button

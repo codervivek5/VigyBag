@@ -4,8 +4,9 @@ import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 import OrderSummary from "../../components/Order/OrderSummary";
+import Swal from 'sweetalert2';
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
@@ -21,7 +22,7 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 
 const CartItem = ({ product, onUpdate }) => (
   <div
-    className={`${cardClass} flex items-center justify-between mb-4 mt-11`}
+    className={`${cardClass} flex items-center justify-between mb-4 mt-20`}
     style={{ border: "1px solid black" }}>
     <div className="flex items-center">
       <img
