@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/AdminNavbar';
+import Header from '../components/AdminNavbar/AdminNavbar';
 import SearchBar from '../components/SearchBar';
 import ExportButton from '../components/ExportButton';
 import StatsSummary from '../components/StatsSummary';
