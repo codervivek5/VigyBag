@@ -1,7 +1,21 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { manageCartItem } from "../../redux/cartSlice";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
-const ProductCard = ({ image, title, price, rating }) => {
+const dispatch = useDispatch();
+// const onAddToCart = (product) => {
+//   const quantity = 1;
+//   dispatch(manageCartItem({ product, quantity }));
+//   toast.success(`${product.title} successfully added to cart!`);
+// };
+
+const ProductCard = ({ image, title, price, rating, product }) => {
+  const navigate = useNavigate();
+
+  const cartItems = useSelector((state) => state.cart.items);
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       <img
@@ -30,14 +44,8 @@ const ProductCard = ({ image, title, price, rating }) => {
         </div>
 
         <button
-          className="mt-4 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10px",
-          }}>
-          Add to Bag
+          className="flex justify-center items-center gap-3 mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
+          disabled={cartItems.find((item) => item.id === product.id)}>
           <lord-icon
             style={{
               height: "25px",
@@ -45,7 +53,8 @@ const ProductCard = ({ image, title, price, rating }) => {
             }}
             src="https://cdn.lordicon.com/mqdkoaef.json"
             trigger="hover"
-            colors="primary:#0a5c15"></lord-icon>
+            colors="primary:#ffffff"></lord-icon>
+          Add to Cart
         </button>
       </div>
     </div>
