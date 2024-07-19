@@ -5,9 +5,7 @@ import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import Swal from "sweetalert2";
-import "../../components/FeedbackForm/Sweetpopup.css";
 import OrderSummary from "../../components/Order/OrderSummary";
-import Swal from 'sweetalert2';
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";

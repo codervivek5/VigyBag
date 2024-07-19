@@ -190,7 +190,6 @@ const Dashboard = () => {
                 title={product.title}
                 price={product.price}
                 rating={product.rating}
-                product={product}
               />
             ))}
           </div>

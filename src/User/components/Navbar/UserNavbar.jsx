@@ -7,7 +7,6 @@ import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
-import "../../components/FeedbackForm/Sweetpopup.css";
 
 const UserNavbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);

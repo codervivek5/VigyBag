@@ -5,16 +5,16 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
-const onAddToCart = (product) => {
-  const quantity = 1;
-  dispatch(manageCartItem({ product, quantity }));
-  toast.success(`${product.title} successfully added to cart!`);
-};
+const dispatch = useDispatch();
+// const onAddToCart = (product) => {
+//   const quantity = 1;
+//   dispatch(manageCartItem({ product, quantity }));
+//   toast.success(`${product.title} successfully added to cart!`);
+// };
 
 const ProductCard = ({ image, title, price, rating, product }) => {
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
@@ -45,13 +45,7 @@ const ProductCard = ({ image, title, price, rating, product }) => {
 
         <button
           className="flex justify-center items-center gap-3 mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
-          onClick={() => {
-            onAddToCart(product);
-          }}
           disabled={cartItems.find((item) => item.id === product.id)}>
-          {cartItems.find((item) => item.id === product.id)
-            ? "Added to cart"
-            : "Add to Cart"}
           <lord-icon
             style={{
               height: "25px",
@@ -60,6 +54,7 @@ const ProductCard = ({ image, title, price, rating, product }) => {
             src="https://cdn.lordicon.com/mqdkoaef.json"
             trigger="hover"
             colors="primary:#ffffff"></lord-icon>
+          Add to Cart
         </button>
       </div>
     </div>
