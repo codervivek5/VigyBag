@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import emailjs from 'emailjs-com';
 import "./feedback.css";
 import "./Sweetpopup.css";
 
@@ -41,27 +42,36 @@ const FeedbackModal = () => {
     };
     console.log(formData);
 
-    // Example submission handling
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setRating(null);
-      setName("");
-      setEmail("");
-      setFeedback("");
-      Swal.fire({
-        title: "Feedback submitted successfully!",
-        text: "Thanks for taking the time to share your thoughts..!",
-        icon: "success",
-        confirmButtonText: "Back",
-        customClass: {
-          popup: "custom-popup",
-          title: "custom-title",
-          content: "custom-content",
-          confirmButton: "custom-confirm-button",
-        },
-      });
-    }, 1000);
+    emailjs.send(
+      'service_ifek0ov',   //Service_ID
+      'template_ndx2kok',   //Template_ID
+      formData, 
+      '4kNzuPWxQwXpq7otN'    // User_ID
+    ).then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setRating(null);
+        setName("");
+        setEmail("");
+        setFeedback("");
+        Swal.fire({
+          title: "Feedback submitted successfully!",
+          text: "Thanks for taking the time to share your thoughts!",
+          icon: "success",
+          confirmButtonText: "Back",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        });
+      }, 1000);
+    }).catch((error) => {
+      console.error('Error sending email:', error);
+    });
   };
 
   return (

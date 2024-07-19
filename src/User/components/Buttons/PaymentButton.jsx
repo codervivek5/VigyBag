@@ -1,8 +1,10 @@
 // src/components/Payment/PaymentButton.jsx
 import React from 'react';
+import { useSelector } from 'react-redux';
 
+const PaymentButton = () => {
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
-const PaymentButton = ({ amount }) => {
   const loadRazorpay = (src) => {
     return new Promise((resolve) => {
       const script = document.createElement('script');
@@ -22,8 +24,8 @@ const PaymentButton = ({ amount }) => {
     }
 
     const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY, // Enter the Key ID here inside ' ' or from the environment variables
-      amount: amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 100 paise = 1 INR
+      key: import.meta.env.VITE_RAZORPAY_KEY,
+      amount: totalAmount * 100, // Use totalAmount from Redux store
       currency: 'INR',
       name: 'Your Company Name',
       description: 'Test Transaction',
@@ -53,7 +55,7 @@ const PaymentButton = ({ amount }) => {
 
   return (
     <button className="bg-green-500 text-white font-medium py-2 px-4 rounded-lg w-full mt-4" onClick={displayRazorpay}>
-      Pay ₹{amount}
+      Pay ₹{totalAmount}
     </button>
   );
 };

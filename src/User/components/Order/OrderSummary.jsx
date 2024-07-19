@@ -12,6 +12,7 @@ const calculateShipping = (itemsTotal, threshold, rate) => {
 
 function OrderSummary() {
   const items = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   const itemsTotal = items.reduce((acc, item) => acc + item.total, 0);
 
@@ -21,14 +22,7 @@ function OrderSummary() {
   let shipping = calculateShipping(itemsTotal, shippingThreshold, shippingRate);
   let total = itemsTotal + shipping;
 
-
-
-
- 
-
-
-
-if (itemsTotal === 0) {
+  if (itemsTotal === 0) {
     return (
       <div className="mb-5">
         <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
@@ -69,6 +63,7 @@ if (itemsTotal === 0) {
           <li className="flex items-center justify-between gap-5 font-bold text-xl">
             <span>Total</span>
             <span>{currencyFormatter.format(total)}</span>
+            
           </li>
         </ul>
       </div>
