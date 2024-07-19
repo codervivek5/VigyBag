@@ -9,7 +9,7 @@ import { FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "../../components/FeedbackForm/Sweetpopup.css";
 
-const Navbar = ({ isAdmin }) => {
+const UserNavbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   // const [username, setUsername] = useState("");
@@ -227,4 +227,4 @@ const Navbar = ({ isAdmin }) => {
   );
 };
 
-export default Navbar;
+export default UserNavbar;
