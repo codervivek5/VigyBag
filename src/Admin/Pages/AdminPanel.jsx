@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/AdminNavbar';
+import Header from '../components/AdminNavbar/AdminNavbar';
 import SearchBar from '../components/SearchBar';
 import ExportButton from '../components/ExportButton';
 import StatsSummary from '../components/StatsSummary';
@@ -55,7 +55,7 @@ const AdminPanel = () => {
                 <div className="flex flex-col sm:flex-row justify-between mb-6">
                     <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                     <div className="flex space-x-2">
-                        <Link to="/vigy_form" >
+                        <Link to="/admin/vigy_form" >
                         <button onClick={() => setShowAddModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded">+ Add New Vigy</button></Link>
                         <ExportButton 
                             showExportOptions={showExportOptions} 

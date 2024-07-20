@@ -56,14 +56,50 @@ const LoginForm = () => {
       localStorage.setItem("isLoggedIn", "true");
 
       const username = response.data.username;
-      // Store username in localStorage
-      localStorage.setItem("username", username);
-      console.log(username);
+      const adminRole = response.data.adminrole;
 
-      // alert(response.data.message);
+      // Store username and admin role in localStorage
+      localStorage.setItem("username", username);
+      if (adminRole !== undefined) {
+        localStorage.setItem("adminRole", adminRole);
+      }
+      console.log(username);
+      console.log(adminRole);
       setEmail("");
       setPassword("");
-      navigate("/");
+      if (adminRole === 1) {
+        Swal.fire({
+          title: "Admin login detected",
+          text: `Welcome, ${username}! Redirecting to admin verification page...`,
+          icon: "warning",
+          confirmButtonText: "Ok",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          navigate("/admin-verification");
+        });
+      } else {
+        Swal.fire({
+          title: "Login successfully!",
+          text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
+          icon: "success",
+          confirmButtonText: "Ok",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        }).then(() => {
+          navigate("/");
+        });
+      }
     } catch (error) {
       if (
         error.response &&
@@ -76,24 +112,11 @@ const LoginForm = () => {
     } finally {
       setLoading(false);
     }
-
-    Swal.fire({
-      title: "Login successfully!",
-      text: "Thanks for Choosing VigyBag!",
-      icon: "success",
-      confirmButtonText: "Ok",
-      customClass: {
-        popup: "custom-popup",
-        title: "custom-title",
-        content: "custom-content",
-        confirmButton: "custom-confirm-button",
-      },
-    });
   };
 
   const handleSocial = () => {
     // Redirect to the backend URL to initiate the Google OAuth flow
-    window.location.href = 'http://localhost:8080/auth/google'; // Ensure this points to your backend
+    window.location.href = "https://vigybag-backend.onrender.com/auth/google";
   };
 
   function handleToggle() {
@@ -122,7 +145,8 @@ const LoginForm = () => {
                   }}
                   src="https://cdn.lordicon.com/tmqaflqo.json"
                   trigger="hover"
-                  colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"></lord-icon>
+                  colors="primary:#0a5c15,secondary:#16c72e,tertiary:#fff0e3ff"
+                ></lord-icon>
               }
               type="email"
               placeholder="Email"
@@ -141,7 +165,8 @@ const LoginForm = () => {
                     }}
                     src="https://cdn.lordicon.com/pdwpcpva.json"
                     trigger="hover"
-                    colors="primary:#629110,secondary:#109121,tertiary:#629110"></lord-icon>
+                    colors="primary:#629110,secondary:#109121,tertiary:#629110"
+                  ></lord-icon>
                 }
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
@@ -168,7 +193,8 @@ const LoginForm = () => {
             </div>
             <button
               type="submit"
-              className="w-full h-12 bg-green-700 text-white rounded-xl flex items-center justify-center">
+              className="w-full h-12 bg-green-700 text-white rounded-xl flex items-center justify-center"
+            >
               {loading ? <DotLoader color="#ffffff" size={24} /> : "Login"}
             </button>
           </form>
@@ -205,7 +231,8 @@ const LoginForm = () => {
                     paddingLeft: "1px",
                   }}
                   src="https://cdn.lordicon.com/nlsfemdg.json"
-                  trigger="hover"></lord-icon>
+                  trigger="hover"
+                ></lord-icon>
                 <span className="ml-2 text-sm">Login with Facebook</span>
               </button>
             </div>
@@ -215,6 +242,14 @@ const LoginForm = () => {
             Create an account?{" "}
             <Link to="/signup" className="text-green-500 underline">
               Sign-Up
+            </Link>
+          </p>
+          <p className="text-zinc-400 text-center mt-4">
+            <Link
+              to="/forgot-password"
+              className="text-green-500 text-center underline"
+            >
+              Forgot Password?
             </Link>
           </p>
         </div>

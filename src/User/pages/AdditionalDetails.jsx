@@ -11,7 +11,7 @@ const AdditionalDetails = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/update-details",
+        "https://vigybag-backend.onrender.com/api/auth/update-details",
         { email, phone }
       );
       localStorage.setItem("isLoggedIn", "true");
