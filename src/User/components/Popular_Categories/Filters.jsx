@@ -15,7 +15,7 @@ function Filters({
 
   return (
     <aside
-      className={`lg:w-[20vw] p-6 shadow-md  lg:z-50 lg:h-[70vh] w-[100vw] mt-24 ${filterClasses}`}
+      className={`lg:w-[20vw] p-6 shadow-md  lg:z-50 lg:h-[70vh] w-[100vw] mt-24 fixed ${filterClasses}`}
       style={{ filterStyles }}>
       <h2 className="text-xl font-bold mb-4">Filters</h2>
       <div className="space-y-4">
