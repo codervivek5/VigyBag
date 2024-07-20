@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { manageCartItem, setTotalAmount as setTotalAmountAction } from "../../redux/cartSlice";
 
 const currencyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
@@ -12,8 +13,9 @@ const calculateShipping = (itemsTotal, threshold, rate) => {
   return itemsTotal >= threshold ? 0.0 : rate;
 };
 
-function OrderSummary({ setTotalAmount }) {
+function OrderSummary() {
   const items = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   const itemsTotal = items.reduce((acc, item) => acc + item.total, 0);
 
@@ -23,10 +25,10 @@ function OrderSummary({ setTotalAmount }) {
   let shipping = calculateShipping(itemsTotal, shippingThreshold, shippingRate);
   let total = itemsTotal + shipping;
 
-  // Update total amount in parent component
-  // useEffect(() => {
-  //   setTotalAmount(total);
-  // }, [total, setTotalAmount]);
+  useEffect(() => {
+    dispatch(setTotalAmountAction(total));
+  }, [total, dispatch]);
+
 
   if (itemsTotal === 0) {
     return (
@@ -71,6 +73,7 @@ function OrderSummary({ setTotalAmount }) {
           <li className="flex items-center justify-between gap-5 font-bold text-xl">
             <span>Total</span>
             <span>{currencyFormatter.format(total)}</span>
+            
           </li>
         </ul>
       </div>

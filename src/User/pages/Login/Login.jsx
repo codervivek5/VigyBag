@@ -56,14 +56,50 @@ const LoginForm = () => {
       localStorage.setItem("isLoggedIn", "true");
 
       const username = response.data.username;
-      // Store username in localStorage
-      localStorage.setItem("username", username);
-      console.log(username);
+      const adminRole = response.data.adminrole;
 
-      // alert(response.data.message);
+      // Store username and admin role in localStorage
+      localStorage.setItem("username", username);
+      if (adminRole !== undefined) {
+        localStorage.setItem("adminRole", adminRole);
+      }
+      console.log(username);
+      console.log(adminRole);
       setEmail("");
       setPassword("");
-      navigate("/");
+      if (adminRole === 1) {
+        Swal.fire({
+          title: "Admin login detected",
+          text: `Welcome, ${username}! Redirecting to admin verification page...`,
+          icon: "warning",
+          confirmButtonText: "Ok",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          navigate("/admin-verification");
+        });
+      } else {
+        Swal.fire({
+          title: "Login successfully!",
+          text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
+          icon: "success",
+          confirmButtonText: "Ok",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        }).then(() => {
+          navigate("/");
+        });
+      }
     } catch (error) {
       if (
         error.response &&
@@ -76,24 +112,11 @@ const LoginForm = () => {
     } finally {
       setLoading(false);
     }
-
-    Swal.fire({
-      title: "Login successfully!",
-      text: "Thanks for Choosing VigyBag!",
-      icon: "success",
-      confirmButtonText: "Ok",
-      customClass: {
-        popup: "custom-popup",
-        title: "custom-title",
-        content: "custom-content",
-        confirmButton: "custom-confirm-button",
-      },
-    });
   };
 
   const handleSocial = () => {
     // Redirect to the backend URL to initiate the Google OAuth flow
-    window.location.href = "http://localhost:8080/auth/google"; // Ensure this points to your backend
+    window.location.href = "https://vigybag-backend.onrender.com/auth/google";
   };
 
   function handleToggle() {

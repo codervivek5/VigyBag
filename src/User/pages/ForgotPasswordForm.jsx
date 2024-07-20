@@ -1,4 +1,3 @@
-// ForgotPasswordForm.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./ForgotPasswordForm.module.css";
@@ -11,7 +10,10 @@ const ForgotPasswordForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/forgot-password", { email });
+      await axios.post(
+        "https://vigybag-backend.onrender.com/api/forgot-password",
+        { email }
+      );
       setMessage("Password reset email sent.");
       setError(false);
     } catch (error) {
