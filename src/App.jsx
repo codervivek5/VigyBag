@@ -69,16 +69,14 @@ import PrintingStationery from "./User/pages/Popular_Categories/Printing-Station
 
 import { Helmet } from "react-helmet";
 
-
 export default function App() {
   return (
     <AuthProvider>
-       <CookieConsentBanner /> {/* CookieConsentBanner component */}
+      <CookieConsentBanner /> {/* CookieConsentBanner component */}
       <Helmet>
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
         <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
       </Helmet>
-
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />} />
@@ -154,7 +152,7 @@ export default function App() {
           />
 
           <Route path="team" element={<Team />} />
-          <Route path="auth" element={<UserAuth  />} />
+          <Route path="auth" element={<UserAuth />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="termsAndCondition" element={<TermsAndConditions />} />
           <Route path="feedback" element={<FeedbackModal />} />
@@ -165,6 +163,12 @@ export default function App() {
           <Route path="EPR_Page" element={<EPRPage />} />
 
           <Route element={<PrivateRoute />}>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminPanel />} />
+              {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
+              <Route path="vigy_form" element={<VigyForm />} />
+              <Route path="product_form" element={<ProductForm />} />
+            </Route>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="confirm" element={<Confirmation />} />
             <Route

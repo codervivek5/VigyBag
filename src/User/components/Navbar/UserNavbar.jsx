@@ -47,7 +47,7 @@ const UserNavbar = ({ isAdmin }) => {
       if (result.isConfirmed) {
         localStorage.setItem("isLoggedIn", false);
         localStorage.removeItem("username");
-        navigate("/login");
+        navigate("/auth");
 
         Swal.fire({
           title: "Logout successfully!",
@@ -99,7 +99,8 @@ const UserNavbar = ({ isAdmin }) => {
                     <Link
                       key={link.text}
                       to={link.to}
-                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
+                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
+                    >
                       {link.text}
                     </Link>
                   ))}
@@ -126,15 +127,18 @@ const UserNavbar = ({ isAdmin }) => {
                     {showDropdown && (
                       <div
                         ref={dropdownRef}
-                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
+                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1"
+                      >
                         <Link
                           to="/dashboard"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        >
                           Dashboard
                         </Link>
                         <button
                           onClick={handleLogout}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
+                        >
                           Logout
                         </button>
                       </div>
@@ -148,12 +152,14 @@ const UserNavbar = ({ isAdmin }) => {
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+              >
                 <svg
                   className="h-6 w-6"
                   stroke="#15803D"
                   fill="#15803D"
-                  viewBox="0 0 24 24">
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
