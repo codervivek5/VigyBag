@@ -6,6 +6,7 @@ import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const UserNavbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,13 +21,48 @@ const UserNavbar = ({ isAdmin }) => {
   const toggleNavbar = () => setIsOpen(!isOpen);
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
+  // const handleLogout = () => {
+  //   if (window.confirm("Are you sure you want to logout?")) {
+  //     localStorage.removeItem("isLoggedIn");
+  //     localStorage.removeItem("username");
+  //     alert("Logout Successful.");
+  //     navigate("/login");
+  //   }
+  // };
+
   const handleLogout = () => {
-    if (window.confirm("Are you sure you want to logout?")) {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("username");
-      alert("Logout Successful.");
-      navigate("/login");
-    }
+    Swal.fire({
+      title: "Are you sure you want to logout?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.setItem("isLoggedIn", false);
+        localStorage.removeItem("username");
+        navigate("/login");
+
+        Swal.fire({
+          title: "Logout successfully!",
+          text: "Visit Again to VigyBag!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        });
+      }
+    });
   };
 
   const handleDropdownToggle = () => setShowDropdown((prev) => !prev);
@@ -63,8 +99,7 @@ const UserNavbar = ({ isAdmin }) => {
                     <Link
                       key={link.text}
                       to={link.to}
-                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
-                    >
+                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
                       {link.text}
                     </Link>
                   ))}
@@ -76,7 +111,10 @@ const UserNavbar = ({ isAdmin }) => {
           <div className="flex items-center">
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6 gap-6">
-                <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+                <SearchBar
+                  searchTerm={searchTerm}
+                  handleSearch={handleSearch}
+                />
                 <CartIcon />
                 {isLoggedIn ? (
                   <div className="relative flex gap-3 items-center">
@@ -88,18 +126,15 @@ const UserNavbar = ({ isAdmin }) => {
                     {showDropdown && (
                       <div
                         ref={dropdownRef}
-                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1"
-                      >
+                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
                         <Link
                           to="/dashboard"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                        >
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                           Dashboard
                         </Link>
                         <button
                           onClick={handleLogout}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
-                        >
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
                           Logout
                         </button>
                       </div>
@@ -113,19 +148,21 @@ const UserNavbar = ({ isAdmin }) => {
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
-              >
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
                 <svg
                   className="h-6 w-6"
                   stroke="#15803D"
                   fill="#15803D"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    d={
+                      isOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
                   />
                 </svg>
               </button>

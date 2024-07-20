@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logout from "../../components/Buttons/Logout";
+import Swal from "sweetalert2";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Aside = () => {
@@ -20,25 +20,59 @@ const Aside = () => {
   const userEmail = localStorage.getItem("useremail");
   const username = localStorage.getItem("username") || "Admin";
 
-  const handleLogout = () => {
-    try {
-      const confirmed = window.confirm("Are you sure you want to logout?");
-      if (confirmed) {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("useremail");
-        localStorage.removeItem("username");
-        alert("Logout Successful.");
-        navigate("/login");
-      } else {
-        // User cancelled logout
-        return;
-      }
-    } catch (error) {
-      alert("Logout failed. Please try again later.");
-      console.error("Logout error:", error);
-    }
-  };
+  // const handleLogout = () => {
+  //   try {
+  //     const confirmed = window.confirm("Are you sure you want to logout?");
+  //     if (confirmed) {
+  //       localStorage.removeItem("isLoggedIn");
+  //       localStorage.removeItem("useremail");
+  //       localStorage.removeItem("username");
+  //       alert("Logout Successful.");
+  //       navigate("/login");
+  //     } else {
+  //       // User cancelled logout
+  //       return;
+  //     }
+  //   } catch (error) {
+  //     alert("Logout failed. Please try again later.");
+  //     console.error("Logout error:", error);
+  //   }
+  // };
 
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure you want to logout?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.setItem("isLoggedIn", false);
+        localStorage.removeItem("username");
+        navigate("/login");
+
+        Swal.fire({
+          title: "Logout successfully!",
+          text: "Visit Again to VigyBag!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        });
+      }
+    });
+  };
 
   return (
     <>
@@ -59,9 +93,9 @@ const Aside = () => {
           </div>
         </div>
         <nav className="flex-1 px-4 py-8 space-y-2">
-          <Link to="#"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
-          >
+          <Link
+            to="#"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
                 height: "20px",
@@ -73,10 +107,9 @@ const Aside = () => {
             <span>My Profile</span>
           </Link>
 
-
-          <Link to="/dashboard_order"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md"
-          >
+          <Link
+            to="/dashboard_order"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md">
             <lord-icon
               style={{
                 height: "20px",
@@ -88,9 +121,9 @@ const Aside = () => {
             <span>Orders</span>
           </Link>
 
-          <Link to="/dashboard_cart"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md relative"
-          >
+          <Link
+            to="/dashboard_cart"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md relative">
             <lord-icon
               style={{
                 height: "20px",
@@ -105,9 +138,9 @@ const Aside = () => {
             </span>
           </Link>
 
-          <Link to="#"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
-          >
+          <Link
+            to="#"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
                 height: "20px",
@@ -119,9 +152,9 @@ const Aside = () => {
             <span>Wishlist</span>
           </Link>
 
-          <Link to="#"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative"
-          >
+          <Link
+            to="#"
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative">
             <lord-icon
               style={{
                 height: "20px",
@@ -135,9 +168,9 @@ const Aside = () => {
               2
             </span>
           </Link>
-          
+
           <Link
-            to="#"
+            to="/Help"
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
@@ -164,9 +197,18 @@ const Aside = () => {
           </Link>
 
           <div className="flex items-center space-x-2 p-2 relative justify-center">
-            <Logout />
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="mt-10 bg-green-700"
+              style={{
+                padding: "12px 30px",
+                borderRadius: "8px",
+                border: "1px solid #98bf8cff",
+              }}>
+              Logout
+            </button>
           </div>
-
         </nav>
       </aside>
     </>
