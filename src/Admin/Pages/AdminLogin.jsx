@@ -13,7 +13,10 @@ const AdminLogin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/api/admin", { email, password });
+      const response = await axios.post("http://localhost:8080/api/admin", {
+        email,
+        password,
+      });
       setMessage(response.data.message);
       if (response.status === 200) {
         navigate("/loggedin");
@@ -30,7 +33,9 @@ const AdminLogin = () => {
         <img src={Logo} alt="VigiBag Logo" className="w-32" />
       </div>
       <div className="bg-[#3E4A4B] p-8 rounded-lg shadow-lg w-80">
-        <h1 className="text-white text-2xl font-bold mb-6 text-center">LOGIN</h1>
+        <h1 className="text-white text-2xl font-bold mb-6 text-center">
+          LOGIN
+        </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <input
@@ -60,9 +65,14 @@ const AdminLogin = () => {
               onChange={(e) => setRememberMe(e.target.checked)}
               className="mr-2"
             />
-            <label htmlFor="rememberMe" className="text-white text-sm">Remember me</label>
+            <label htmlFor="rememberMe" className="text-white text-sm">
+              Remember me
+            </label>
           </div>
-          <button className="w-full bg-[#4CAF50] text-white p-2 rounded hover:bg-[#45a049]" type="submit">
+          <button
+            className="w-full bg-[#4CAF50] text-white p-2 rounded hover:bg-[#45a049]"
+            type="submit"
+          >
             Log in
           </button>
         </form>
@@ -76,4 +86,3 @@ const AdminLogin = () => {
 };
 
 export default AdminLogin;
-
