@@ -31,7 +31,12 @@ import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
 import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
+
+import CookieConsentBanner from "./User/components/cookieconsent.jsx";
+// Admin components
+
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
+
 import AdminLayout from "./Admin/AdminLayout";
 import AdminLogin from "./Admin/Pages/AdminLogin";
 // import AdminDashboard from "./Admin/pages/AdminDashboard";
@@ -65,9 +70,11 @@ import PrintingStationery from "./User/pages/Popular_Categories/Printing-Station
 
 import { Helmet } from "react-helmet";
 
+
 export default function App() {
   return (
     <AuthProvider>
+       <CookieConsentBanner /> {/* CookieConsentBanner component */}
       <Helmet>
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
         <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
