@@ -40,7 +40,7 @@ function OrderSummary() {
           <ul className="list-inside text-zinc-700 space-y-1 list-none">
             <li className="flex items-center justify-between gap-5 font-bold text-xl">
               <span>Total</span>
-              <span>{currencyFormatter.format(total)}</span>
+              <span>$0.00</span>
             </li>
           </ul>
         </div>
