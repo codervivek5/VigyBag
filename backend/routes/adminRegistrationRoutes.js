@@ -66,8 +66,8 @@ router.post('/vigy_form', upload.fields([
       promotionalCode
     } = req.body;
 
-    console.log('Uploaded files:', req.files);
-    console.log('Form data:', req.body);
+    // console.log('Uploaded files:', req.files);
+    // console.log('Form data:', req.body);
 
     const newRegistration = new AdminRegistration({
       fullname,
