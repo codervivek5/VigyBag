@@ -14,7 +14,7 @@ const AdminNavbar = () => {
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("username");
       alert("Logout Successful.");
-      navigate("/login");
+      navigate("/auth");
     }
   };
 
