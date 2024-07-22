@@ -14,26 +14,25 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
-  // boxShadow: "0px 0px 10px 4px #ffffff";
+
   return (
     <footer className="footer">
       <div className="footer-top">
-        <div className="flex-shrink-0 z-50">
+        <div className="flex-shrink-0 ">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh" }} />
+            <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh",zIndex: "1" ,marginLeft: "40px" }} />
           </Link>
 
           <div
-            className="text-center  md:text-left mb-4 md:mb-0 md:mr-8"
-            style={{
-              marginLeft: "20px",
-              marginTop: "20px",
-            }}>
+            className="text-center md:text-left mb-4 md:mb-0 md:mr-8"
+            style={{ marginLeft: "20px", marginTop: "20px" }}
+          >
             <a
               href="https://play.google.com/store/apps/details?id=com.vigybag"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300">
+              className="bg-[#1a73e8] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg inline-flex items-center hover:bg-blue-700 transition duration-300"
+            >
               <img
                 src={googlePlay}
                 alt="Google Play"
@@ -50,7 +49,7 @@ const Footer = () => {
         </div>
 
         <div className="contact-info text-sm">
-          <p className="font-thin text-center text-gray-400">QUICK LINKS</p>{" "}
+          <p className="font-thin text-center text-gray-400">QUICK LINKS</p>
           <hr />
           <br />
           <Link to="/" onClick={scrollToTop}>
@@ -76,7 +75,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="contact-info text-sm">
-          <p className="font-thin text-center text-gray-400">CONSUMER POLICY</p>{" "}
+          <p className="font-thin text-center text-gray-400">CONSUMER POLICY</p>
           <hr />
           <br />
           <Link to="/myOrders" onClick={scrollToTop}>
@@ -101,47 +100,41 @@ const Footer = () => {
         <div className="flex flex-col justify-items-end items-start md:justify-center">
           <p className="text-center text-gray-400 text-sm md:justify-center underline">
             Registered Office Address:
-          </p>{" "}
+          </p>
           <hr />
           <div className="address flex flex-col justify-start items-start text-sm hover:cursor-pointer">
+            <a
+              href="https://www.google.com/maps?q=Kanpur,+Uttar+Pradesh+208025"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>
+                <lord-icon
+                  style={{ width: "25px", height: "25px", paddingTop: "0px", paddingLeft: "1px" }}
+                  src="https://cdn.lordicon.com/tdtlrbly.json"
+                  trigger="hover"
+                  colors="primary:#ffffff,secondary:#ffffff"
+                ></lord-icon>{" "}
+                Kanpur, Uttar Pradesh 208025
+              </p>
+            </a>
             <p>
               <lord-icon
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  paddingTop: "0px",
-                  paddingLeft: "1px",
-                }}
-                src="https://cdn.lordicon.com/tdtlrbly.json"
-                trigger="hover"
-                colors="primary:#ffffff,secondary:#ffffff"></lord-icon>{" "}
-              Aung Fatehpur, Kanpur, India-208025
-            </p>
-            <p>
-              <lord-icon
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  paddingTop: "0px",
-                  paddingLeft: "1px",
-                }}
+                style={{ width: "25px", height: "25px", paddingTop: "0px", paddingLeft: "1px" }}
                 src="https://cdn.lordicon.com/xtzvywzp.json"
                 trigger="hover"
-                colors="primary:#ffffff"></lord-icon>{" "}
+                colors="primary:#ffffff"
+              ></lord-icon>{" "}
               <a href="mailto:vigybag@gmail.com">vigybag@gmail.com</a>
             </p>
             <p>
               <lord-icon
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  paddingTop: "0px",
-                  paddingLeft: "1px",
-                }}
+                style={{ width: "25px", height: "25px", paddingTop: "0px", paddingLeft: "1px" }}
                 src="https://cdn.lordicon.com/srsgifqc.json"
                 trigger="hover"
-                colors="primary:#ffffff"></lord-icon>{" "}
-              <a href="tel:1234567890">+91 1234567890</a>
+                colors="primary:#ffffff"
+              ></lord-icon>{" "}
+              <a href="tel:+911234567890">+91 1234567890</a>
             </p>
           </div>
           <br />
@@ -150,51 +143,38 @@ const Footer = () => {
               SOCIALS:
             </p>
             <div className="social-icons">
-              <a href="https://www.instagram.com/vigybag/" target="_blank">
+              <a href="https://www.instagram.com/vigybag/" target="_blank" rel="noopener noreferrer">
                 <img src={instagramIcon} alt="Instagram" />
               </a>
-              <a href="https://www.x.com">
+              <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
                 <img src={xIcon} alt="X" />
               </a>
               <a
                 href="https://www.linkedin.com/posts/codervivek_startup-teamwork-innovation-activity-7211097005408890880-haWJ?"
-                target="_blank">
+                target="_blank" rel="noopener noreferrer"
+              >
                 <lord-icon
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    paddingTop: "0px",
-                    paddingLeft: "1px",
-                  }}
+                  style={{ width: "30px", height: "30px", paddingTop: "0px", paddingLeft: "1px" }}
                   src="https://cdn.lordicon.com/ftgjzwjn.json"
-                  trigger="hover"></lord-icon>
+                  trigger="hover"
+                ></lord-icon>
               </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61553496839072"
-                target="_blank">
+              <a href="https://www.facebook.com/profile.php?id=61553496839072" target="_blank" rel="noopener noreferrer">
                 <lord-icon
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    paddingTop: "0px",
-                    paddingLeft: "1px",
-                  }}
+                  style={{ width: "30px", height: "30px", paddingTop: "0px", paddingLeft: "1px" }}
                   src="https://cdn.lordicon.com/nlsfemdg.json"
-                  trigger="hover"></lord-icon>
+                  trigger="hover"
+                ></lord-icon>
               </a>
 
-              <a href="https://web.whatsapp.com/" target="_blank">
+              <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">
                 <lord-icon
-                  style={{
-                    width: "35px",
-                    height: "35px",
-                    paddingTop: "0px",
-                    paddingLeft: "1px",
-                  }}
+                  style={{ width: "35px", height: "35px", paddingTop: "0px", paddingLeft: "1px" }}
                   src="https://cdn.lordicon.com/fjuachvi.json"
-                  trigger="hover"></lord-icon>
+                  trigger="hover"
+                ></lord-icon>
               </a>
-              <a href="https://github.com/codervivek5/VigyBag" target="_blank">
+              <a href="https://github.com/codervivek5/VigyBag" target="_blank" rel="noopener noreferrer">
                 <img src={githubIcon} alt="Github" />
               </a>
             </div>
@@ -206,7 +186,8 @@ const Footer = () => {
         <p>© 2024 VigyBag. All rights reserved</p>
         <img
           src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg"
-          alt="Payment methods"></img>
+          alt="Payment methods"
+        />
         <nav>
           <Link to="/our-services" onClick={scrollToTop}>
             Our Services

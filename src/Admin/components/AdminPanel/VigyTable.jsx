@@ -12,6 +12,7 @@ const VigyTable = ({ currentItems, handleViewProfile }) => (
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pending Product</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Return Order</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Income</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@ const VigyTable = ({ currentItems, handleViewProfile }) => (
                         <td className="px-6 py-4 whitespace-nowrap text-sm">{row.pendingProduct}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm">{row.returnOrder}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm">{row.totalIncome}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm">{row.status}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm">
                             <button onClick={() => handleViewProfile(row)} className="text-indigo-600 hover:text-indigo-900">View Profile</button>
                         </td>
