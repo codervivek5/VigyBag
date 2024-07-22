@@ -13,7 +13,7 @@ const AuthButton = ({ isLoggedIn, handleLogout }) =>
     </button>
   ) : (
     <Link
-      to="/login"
+      to="/auth"
       className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
       <button
         type="button"

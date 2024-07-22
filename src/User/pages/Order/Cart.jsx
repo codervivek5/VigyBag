@@ -5,7 +5,9 @@ import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
+// import { toast } from "react-toastify";
 import OrderSummary from "../../components/Order/OrderSummary";
+import Swal from "sweetalert2";
 
 // Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
@@ -21,7 +23,7 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 
 const CartItem = ({ product, onUpdate }) => (
   <div
-    className={`${cardClass} flex items-center justify-between mb-4 mt-20`}
+    className={`${cardClass} flex items-center justify-between mb-4 mt-8`}
     style={{ border: "1px solid black" }}>
     <div className="flex items-center">
       <img
@@ -49,11 +51,18 @@ const CartItem = ({ product, onUpdate }) => (
       trigger="hover"
       colors="primary:#ff0000"
       style={{ width: "30px", height: "30px", cursor: "pointer" }}
-      onClick={() => onUpdate(product, -1 * product.quantity)}
-      onKeyUp={(e) => {
-        if (e.key === "Enter") onUpdate(product, -1 * product.quantity);
+      onClick={() => {
+        onUpdate(product, -1 * product.quantity);
+        toast.success("Successfully deleted");
       }}
-      tabIndex="0"></lord-icon>
+      onKeyUp={(e) => {
+        if (e.key === "Enter") {
+          onUpdate(product, -1 * product.quantity);
+          toast.success("Successfully deleted");
+        }
+      }}
+      tabIndex="0"
+    />
   </div>
 );
 
