@@ -4,6 +4,7 @@
   padding: 20px;
   z-index: 99;
   font-family: Arial, sans-serif;
+  transform: translateY(20px);
 }
 
 .footer-top {
