@@ -34,25 +34,7 @@ const VigyForm = () => {
     }
 
     if (newIndex !== currentIndex) {
-      Swal.fire({
-        title: "Do you want to save the changes?",
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Save",
-        denyButtonText: `Don't save`
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire("Saved!", "", "success");
-          setActiveTab(tabs[newIndex].id);
-        } else if (result.isDenied) {
-          setFormData(prevData => ({
-            ...prevData,
-            [activeTab]: { ...prevData[activeTab] }
-          }));
-          Swal.fire("Changes are not saved", "", "info");
-          setActiveTab(tabs[newIndex].id);
-        }
-      });
+      setActiveTab(tabs[newIndex].id);
     }
   };
 
@@ -107,7 +89,7 @@ const VigyForm = () => {
         return (
           <>
             <InputField 
-              label="Full Name [ As per Aadhaar ]" 
+              label="Full Name ( As per Aadhaar )" 
               name="fullName"
               value={currentFormData.fullName || ''}
               onChange={handleInputChange}
@@ -115,7 +97,7 @@ const VigyForm = () => {
               required 
             />
             <InputField 
-              label="Date of Birth [ As per Aadhaar ]" 
+              label="Date of Birth ( As per Aadhaar )" 
               name="dob"
               value={currentFormData.dob || ''}
               onChange={handleInputChange}
@@ -123,7 +105,7 @@ const VigyForm = () => {
               required 
             />
             <SelectField 
-              label="Gender [ As per Aadhaar ]" 
+              label="Gender ( As per Aadhaar )" 
               name="gender"
               value={currentFormData.gender || ''}
               onChange={handleInputChange}
@@ -300,9 +282,34 @@ const VigyForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted", formData);
+
+    const formDataToSend = new FormData();
+
+    // Append all form fields to formDataToSend
+    Object.keys(formData).forEach(tab => {
+      Object.keys(formData[tab]).forEach(field => {
+        formDataToSend.append(field, formData[tab][field]);
+      });
+    });
+
+    // Log the data entered by the user
+    console.log('Data entered by user:', Object.fromEntries(formDataToSend));
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/vigy_form', formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log(response.data);
+      console.log('Form submitted successfully!');
+      // Handle successful submission (e.g., show success message, redirect)
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error (e.g., show error message)
+    }
   };
 
   return (
@@ -373,6 +380,7 @@ const VigyForm = () => {
                 <button 
                   type="submit"
                   className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md"
+                  onSubmit={handleSubmit}
                 >
                   Submit Registration
                 </button>

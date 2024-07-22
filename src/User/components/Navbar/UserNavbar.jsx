@@ -17,6 +17,7 @@ const UserNavbar = ({ isAdmin }) => {
 
   const username = localStorage.getItem("username");
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const isAdminT = localStorage.getItem("isAdmin") === "true";
 
   const toggleNavbar = () => setIsOpen(!isOpen);
   const handleSearch = (e) => setSearchTerm(e.target.value);
@@ -129,6 +130,14 @@ const UserNavbar = ({ isAdmin }) => {
                         ref={dropdownRef}
                         className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1"
                       >
+                         {isAdminT && (
+                            <Link
+                              to="/admin"
+                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                              >
+                              Admin Dashboard
+                            </Link>
+                          )}
                         <Link
                           to="/dashboard"
                           className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
