@@ -160,7 +160,7 @@ const AuthForm = () => {
               Eco-Friendly
             </h2>
             <div className="space-x-4">
-              <Link to="/admin/login">
+              <Link to="/admin-verification">
                 <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
                   Login as Admin
                 </button>

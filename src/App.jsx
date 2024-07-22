@@ -171,10 +171,6 @@ export default function App() {
             </Route>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="confirm" element={<Confirmation />} />
-            <Route
-              path="admin-verification"
-              element={<AdminVerificationPage></AdminVerificationPage>}
-            ></Route>
             <Route path="cancel" element={<Cancellation />} />
             <Route path="orderDetails" element={<OrderDetails />} />
             <Route path="myOrders" element={<MyOrders />} />
@@ -195,6 +191,10 @@ export default function App() {
           <Route path="vigy_form" element={<VigyForm />} />
           <Route path="product_form" element={<ProductForm />} />
         </Route>
+        <Route
+              path="admin-verification"
+              element={<AdminVerificationPage></AdminVerificationPage>}
+            ></Route>
 
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
