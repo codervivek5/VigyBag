@@ -23,7 +23,8 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 const CartItem = ({ product, onUpdate }) => (
   <div
     className={`${cardClass} flex items-center justify-between mb-4 mt-12`}
-    style={{ border: "1px solid black" }}>
+    style={{ border: "1px solid black" }}
+  >
     <div className="flex items-center">
       <img
         src={product.image}
@@ -54,7 +55,8 @@ const CartItem = ({ product, onUpdate }) => (
       onKeyUp={(e) => {
         if (e.key === "Enter") onUpdate(product, -1 * product.quantity);
       }}
-      tabIndex="0"></lord-icon>
+      tabIndex="0"
+    ></lord-icon>
   </div>
 );
 
@@ -76,14 +78,16 @@ const Subtotal = ({ items }) => {
       <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
       <div
         className={`${cardClass} space-y-2`}
-        style={{ border: "1px solid black" }}>
+        style={{ border: "1px solid black" }}
+      >
         <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
         <ul className="list-inside text-zinc-700 space-y-1 list-none">
           <hr />
           {items.map((item, index) => (
             <li
               key={index}
-              className="flex items-center justify-between gap-5 py-1">
+              className="flex items-center justify-between gap-5 py-1"
+            >
               <span>{item.title}</span>
               <span>{currencyFormatter.format(item.total)}</span>
             </li>
@@ -121,7 +125,8 @@ const ProceedToCheckout = () => {
           <button
             type="button"
             className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "375px" }}>
+            style={{ minWidth: "375px" }}
+          >
             Check Out
           </button>
         </Link>
@@ -138,11 +143,12 @@ const LoginToContinue = () => {
         Checkout.
       </p>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <Link to="/login">
+        <Link to="/auth">
           <button
             type="button"
             className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "425px" }}>
+            style={{ minWidth: "425px" }}
+          >
             Login now
           </button>
         </Link>
@@ -209,7 +215,8 @@ const Dashboard_Cart = () => {
                     <button
                       type="button"
                       className={`${buttonBgClass} w-full sm:w-auto`}
-                      onClick={onClearCart}>
+                      onClick={onClearCart}
+                    >
                       Clear Cart
                     </button>
                   </div>
