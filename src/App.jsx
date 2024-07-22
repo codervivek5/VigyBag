@@ -39,7 +39,7 @@ import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
 import AdminLogin from "./Admin/Pages/AdminLogin";
 // import AdminDashboard from "./Admin/pages/AdminDashboard";
-import VigyForm from "./Admin/VigyForm";
+import VigyForm from "./Admin/Pages/VigyForm";
 import AdminPanel from "./Admin/Pages/AdminPanel";
 import ProductForm from "./Admin/Pages/ProductForm";
 import Certifications from "./User/pages/Certifications/Certifications";
