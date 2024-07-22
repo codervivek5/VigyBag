@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Aside from "../../components/Aside/Aside";
 import { Link, useNavigate } from "react-router-dom";
-
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "../../pages/Order/CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +9,7 @@ import SearchBar from "../../components/Dashboard/SearchBar";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import OrderSummary from "../../components/Order/OrderSummary";
+import Swal from "sweetalert2";
 
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
 const textClass = "text-zinc-500";
@@ -23,8 +23,7 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 const CartItem = ({ product, onUpdate }) => (
   <div
     className={`${cardClass} flex items-center justify-between mb-4 mt-12`}
-    style={{ border: "1px solid black" }}
-  >
+    style={{ border: "1px solid black" }}>
     <div className="flex items-center">
       <img
         src={product.image}
@@ -51,12 +50,14 @@ const CartItem = ({ product, onUpdate }) => (
       trigger="hover"
       colors="primary:#ff0000"
       style={{ width: "30px", height: "30px", cursor: "pointer" }}
-      onClick={() => onUpdate(product, -1 * product.quantity)}
+      onClick={() => {
+        onUpdate(product, -1 * product.quantity);
+        toast.success("Successfully deleted");
+      }}
       onKeyUp={(e) => {
         if (e.key === "Enter") onUpdate(product, -1 * product.quantity);
       }}
-      tabIndex="0"
-    ></lord-icon>
+      tabIndex="0"></lord-icon>
   </div>
 );
 
@@ -78,16 +79,14 @@ const Subtotal = ({ items }) => {
       <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
       <div
         className={`${cardClass} space-y-2`}
-        style={{ border: "1px solid black" }}
-      >
+        style={{ border: "1px solid black" }}>
         <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
         <ul className="list-inside text-zinc-700 space-y-1 list-none">
           <hr />
           {items.map((item, index) => (
             <li
               key={index}
-              className="flex items-center justify-between gap-5 py-1"
-            >
+              className="flex items-center justify-between gap-5 py-1">
               <span>{item.title}</span>
               <span>{currencyFormatter.format(item.total)}</span>
             </li>
@@ -125,8 +124,7 @@ const ProceedToCheckout = () => {
           <button
             type="button"
             className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "375px" }}
-          >
+            style={{ minWidth: "375px" }}>
             Check Out
           </button>
         </Link>
@@ -147,8 +145,7 @@ const LoginToContinue = () => {
           <button
             type="button"
             className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "425px" }}
-          >
+            style={{ minWidth: "425px" }}>
             Login now
           </button>
         </Link>
@@ -168,14 +165,46 @@ const Dashboard_Cart = () => {
   const onUpdate = (product, quantity) => {
     dispatch(manageCartItem({ product, quantity }));
   };
+  // const onClearCart = () => {
+  //   const confirmed = window.confirm(
+  //     "Are you sure you want to clear your cart?"
+  //   );
+  //   if (confirmed) {
+  //     dispatch(clearCart());
+  //     toast.success(`Cart successfully cleared!`);
+  //   }
+  // };
   const onClearCart = () => {
-    const confirmed = window.confirm(
-      "Are you sure you want to clear your cart?"
-    );
-    if (confirmed) {
-      dispatch(clearCart());
-      toast.success(`Cart successfully cleared!`);
-    }
+    Swal.fire({
+      title: "Do you really want to clear?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Cleared successfully!",
+          text: "Thanks for clearing!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        }).then(() => {
+          dispatch(clearCart());
+        });
+      }
+    });
   };
 
   return (
@@ -215,8 +244,7 @@ const Dashboard_Cart = () => {
                     <button
                       type="button"
                       className={`${buttonBgClass} w-full sm:w-auto`}
-                      onClick={onClearCart}
-                    >
+                      onClick={onClearCart}>
                       Clear Cart
                     </button>
                   </div>

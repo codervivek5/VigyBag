@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
+import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { MdHeight } from "react-icons/md";
@@ -26,6 +27,7 @@ function ProductCard({ product }) {
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+  const wishlistItems = useSelector((state) => state.wishlist.items);
 
   const handleClick = () => {
     navigate("/productDetails");
@@ -34,13 +36,23 @@ function ProductCard({ product }) {
   const onAddToCart = (product) => {
     const quantity = 1;
     dispatch(manageCartItem({ product, quantity }));
-    toast.success(`${product.title} successfully added to cart!`);
+    toast.success(`successfully added to cart!`);
+  };
+
+  const onAddToWhishlist = (product) => {
+    const quantity = 1;
+    dispatch(manageWishlistItem({ product, quantity }));
+    toast.success(`added to wishlist!`);
   };
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
       <div className="mt-2 ml-44">
         <lord-icon
+          onClick={() => {
+            onAddToWhishlist(product);
+          }}
+          disabled={wishlistItems.find((item) => item.id === product.id)}
           style={{
             height: "30px",
             width: "30px",
