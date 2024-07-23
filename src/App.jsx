@@ -16,6 +16,7 @@ import OrderDetails from "./User/pages/Order/Orderdetails";
 import MyOrders from "./User/pages/Order/MyOrders";
 import Dashboard_Orders from "./User/pages/Dashboard/dashboard_order";
 import Dashboard_Cart from "./User/pages/Dashboard/dashboard_cart";
+import Dashboard_wishlist from "./User/pages/Dashboard/dashboard_wishlist";
 import Checkout from "./User/pages/Order/Checkout";
 import Cart from "./User/pages/Order/Cart";
 import Error from "./User/pages/404-Page/Error";
@@ -182,12 +183,21 @@ export default function App() {
             <Route path="payment" element={<Payment />} />
             <Route path="dashboard_order" element={<Dashboard_Orders />} />
             <Route path="dashboard_cart" element={<Dashboard_Cart />} />
+            <Route path="dashboard_wishlist" element={<Dashboard_wishlist />} />
             <Route path="certificate" element={<Certifications />} />
           </Route>
 
           <Route path="*" element={<Error />} />
         </Route>
-
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminPanel />} />
+          {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
+          <Route path="vigy_form" element={<VigyForm />} />
+          <Route path="product_form" element={<ProductForm />} />
+        </Route>
+        <Route
+          path="admin-verification"
+          element={<AdminVerificationPage></AdminVerificationPage>}></Route>
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </AuthProvider>
