@@ -117,7 +117,9 @@ function RatingComponent() {
 
   const emojis = ['😡', '☹️', '😐', '🙂', '😄'];
    const getEmoji = (ratingValue) => emojis[ratingValue - 1] || '😐';
-
+   const gifs = ['/src/User/components/FeedbackForm/emoji1.gif', '/src/User/components/FeedbackForm/emoji2.gif', '/src/User/components/FeedbackForm/emoji3.gif', '/src/User/components/FeedbackForm/emoji5.gif', '/src/User/components/FeedbackForm/emoji4.gif'];
+   const getGif = (ratingValue) => gifs[ratingValue - 1] || 'emoji3.gif'; // default to emoji3.gif if ratingValue is invalid
+   
   
   return (
     <div className="feedback-wrapper">
@@ -132,16 +134,16 @@ function RatingComponent() {
             <p htmlFor="rating" className="rate-para">
               <strong>Rate Us Below</strong>
             </p>
-            <div style={{ textAlign: 'center' }} className="rating-container">
+            <div style={{ textAlign: 'center',width:'300px',margin:'0 auto' }} className="rating-container">
       {[1, 2, 3, 4, 5].map((ratingValue) => (
-        <button
-          key={ratingValue}
-          type="button"
-          style={ratingValue <= rating? {  color: '#fff' } : {}}
-          onClick={() => handleRatingChange(ratingValue)}
-        >
-          {getEmoji(ratingValue)}
-        </button>
+       <button
+       key={ratingValue}
+       type="button"
+       style={ratingValue <= rating ? {  color: '#fff' } : {}}
+       onClick={() => handleRatingChange(ratingValue)}
+     >
+       <img src={getGif(ratingValue)} alt={`Rating ${ratingValue}`} />
+     </button>
       ))}
     </div>
           <form onSubmit={handleSubmit}>
