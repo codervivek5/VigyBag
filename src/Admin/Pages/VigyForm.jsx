@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import InputField from './components/RegisterAdmin/InputField';
-import SelectField from './components/RegisterAdmin/SelectField';
-import FileInput from './components/RegisterAdmin/FileInput';
-import axios from 'axios';
+import InputField from '../components/RegisterAdmin/InputField';
+import SelectField from '../components/RegisterAdmin/SelectField';
+import FileInput from '../components/RegisterAdmin/FileInput';
+import Swal from 'sweetalert2';
 
 const VigyForm = () => {
   const [activeTab, setActiveTab] = useState('personal');
@@ -89,15 +89,15 @@ const VigyForm = () => {
         return (
           <>
             <InputField 
-              label="Full Name" 
-              name="fullname"
-              value={currentFormData.fullname || ''}
+              label="Full Name ( As per Aadhaar )" 
+              name="fullName"
+              value={currentFormData.fullName || ''}
               onChange={handleInputChange}
               placeholder="Enter your full name" 
               required 
             />
             <InputField 
-              label="Date of Birth" 
+              label="Date of Birth ( As per Aadhaar )" 
               name="dob"
               value={currentFormData.dob || ''}
               onChange={handleInputChange}
@@ -105,7 +105,7 @@ const VigyForm = () => {
               required 
             />
             <SelectField 
-              label="Gender" 
+              label="Gender ( As per Aadhaar )" 
               name="gender"
               value={currentFormData.gender || ''}
               onChange={handleInputChange}
@@ -189,6 +189,19 @@ const VigyForm = () => {
               pattern="\d{8,18}"
               title="Bank account number must be 8 to 18 digits"
             />
+            <InputField 
+              label="Enter Confirm Bank Account Number" 
+              name="bankAccountNumber"
+              value={currentFormData.bankBranch || ''}
+              onChange={handleInputChange}
+              placeholder="Enter your confirm bank account number" 
+              required 
+              minLength={8}
+              maxLength={18}
+              pattern="\d{8,18}"
+              title="Bank account number must be 8 to 18 digits"
+              
+            />
             <SelectField 
               label="Bank Name" 
               name="bankName"
@@ -197,15 +210,7 @@ const VigyForm = () => {
               options={indianBanks} 
               required
             />
-            <InputField 
-              label="Bank Branch" 
-              name="bankBranch"
-              value={currentFormData.bankBranch || ''}
-              onChange={handleInputChange}
-              placeholder="Enter bank branch" 
-              required 
-              style={{textTransform: 'uppercase'}}
-            />
+            
             <InputField 
               label="IFSC Code" 
               name="ifscCode"
