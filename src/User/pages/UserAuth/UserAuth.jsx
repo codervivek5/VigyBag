@@ -251,8 +251,14 @@ const AuthForm = () => {
                       </button>
                     </div>
                     <p className="text-xs text-center mt-4">
-                      By continuing, you agree to follow Terms of Use and
-                      Privacy Policy
+                     By continuing, you agree to follow our{" "}
+                         <Link to="https://www.vigybag.com/termsAndCondition" className="text-[#4caf50] hover:underline">
+                          Terms of Use
+                         </Link>{" "}
+                            and{" "}
+                           <Link to="https://www.vigybag.com/privacy" className="text-[#4caf50] hover:underline">
+                            Privacy Policy
+                         </Link>.
                     </p>
                     <p className="text-sm text-center mt-4">
                       Don't have an account?{" "}
