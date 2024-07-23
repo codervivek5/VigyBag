@@ -106,7 +106,33 @@ const FeedbackModal = () => {
         });
     });
   };
+  
+function RatingComponent() {
+  const [rating, setRating] = useState(0);
 
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+    console.log("Rating selected:", newRating);
+  }; }
+
+  const getEmoji = (ratingValue) => {
+    switch (ratingValue) {
+      case 1:
+        return '😡';
+      case 2:
+        return '☹️';
+      case 3:
+        return '😐';
+      case 4:
+        return '🙂';
+      case 5:
+        return '😄';
+      default:
+        return '😐';
+    }
+  };
+
+  
   return (
     <div className="feedback-wrapper">
       <div className="feedback-form">
@@ -120,18 +146,18 @@ const FeedbackModal = () => {
             <p htmlFor="rating" className="rate-para">
               <strong>Rate Us Below</strong>
             </p>
-            <div className="rating-container">
-              {[1, 2, 3, 4, 5].map((value) => (
-                <button
-                  key={value}
-                  type="button"
-                  className={value <= rating ? "active" : ""}
-                  onClick={() => handleRatingChange(value)}>
-                  {value <= rating ? "★" : "☆"}
-                </button>
-              ))}
-            </div>
-          </div>
+            <div style={{ textAlign: 'center' }} className="rating-container">
+      {[1, 2, 3, 4, 5].map((ratingValue) => (
+        <button
+          key={ratingValue}
+          type="button"
+          style={ratingValue <= rating? {  color: '#fff' } : {}}
+          onClick={() => handleRatingChange(ratingValue)}
+        >
+          {getEmoji(ratingValue)}
+        </button>
+      ))}
+    </div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="name" className="label-big">Your Name</label>
             <input
@@ -180,7 +206,7 @@ const FeedbackModal = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 
