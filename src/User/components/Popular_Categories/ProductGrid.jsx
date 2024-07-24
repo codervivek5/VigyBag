@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
@@ -24,10 +24,11 @@ function ProductGrid({ products, headingText }) {
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
+  const [isHeartFilled, setIsHeartFilled] = useState(true);
+  const [lastClickTime, setLastClickTime] = useState(0);
 
   const handleClick = () => {
     navigate("/productDetails");
@@ -45,12 +46,25 @@ function ProductCard({ product }) {
     toast.success(`added to wishlist!`);
   };
 
+  const handleHeartClick = () => {
+    const currentTime = new Date().getTime();
+    if (currentTime - lastClickTime < 300) {
+      // Double click
+      setIsHeartFilled(false); // Unfill on double click
+    } else {
+      // Single click
+      setIsHeartFilled(!isHeartFilled); // Toggle fill state on single click
+    }
+    setLastClickTime(currentTime);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
-      <div className="mt-2 ml-44">
+      <div className="mt-2 md:ml-48 ml-80">
         <lord-icon
           onClick={() => {
             onAddToWhishlist(product);
+            handleHeartClick;
           }}
           disabled={wishlistItems.find((item) => item.id === product.id)}
           style={{
@@ -58,8 +72,8 @@ function ProductCard({ product }) {
             width: "30px",
           }}
           src="https://cdn.lordicon.com/ulnswmkk.json"
-          trigger="morph"
-          state="morph-heart"
+          trigger="click"
+          state={isHeartFilled ? "morph-heart" : "morph-heart-empty"}
           colors="primary:#e83a30"></lord-icon>
       </div>
       <img
