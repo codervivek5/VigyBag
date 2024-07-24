@@ -14,9 +14,23 @@ function BodyCare() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
-        setFilteredProducts(response.data);
+        const response = await axios.get("https://dummyjson.com/products");
+        if (response.data && Array.isArray(response.data.products)) {
+          // Map dummyjson data to match your existing structure
+          const mappedProducts = response.data.products.map((product) => ({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            category: product.category,
+            image: product.images[0], // Assuming images array is present
+            rating: {
+              rate: product.rating,
+              count: product.reviews.length, // Assuming reviews array is present
+            },
+          }));
+          setProducts(mappedProducts);
+          setFilteredProducts(mappedProducts);
+        } 
       } catch (error) {
         console.error("Axios error:", error);
       }
