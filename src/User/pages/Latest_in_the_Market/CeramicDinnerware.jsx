@@ -22,10 +22,10 @@ function CeramicDinnerware() {
             title: product.title,
             price: product.price,
             category: product.category,
-            image: product.images[0], // Assuming images array is present
+            image: product.images[0] || "", // Ensuring images array is present
             rating: {
               rate: product.rating,
-              count: product.reviews.length, // Assuming reviews array is present
+              count: product.reviews.length || 0, // AEnsuring reviews array is present
             },
           }));
           setProducts(mappedProducts);
