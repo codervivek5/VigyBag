@@ -107,11 +107,7 @@ const FeedbackModal = () => {
     });
   };
   
-function RatingComponent() {  
-  const handleRatingChange = (newRating) => {
-    setRating(newRating);
-    console.log("Rating selected:", newRating);
-  }; }
+
 
   const emojis = ['😡', '☹️', '😐', '🙂', '😄'];
    const getEmoji = (ratingValue) => emojis[ratingValue - 1] || '😐';
