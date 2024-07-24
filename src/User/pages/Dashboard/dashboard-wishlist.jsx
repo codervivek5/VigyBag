@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Aside from "../../components/Aside/Aside";
 import { Link, useNavigate } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
-import WishlistEmpty from "../../pages/Order/WishlistEmpty";
+import WishlistEmpty from "../Order/WishlistEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Dashboard/Header";
 import SearchBar from "../../components/Dashboard/SearchBar";
@@ -31,15 +31,8 @@ const WishlistItem = ({ product, onUpdate }) => (
       />
       <div>
         <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
-        <p className={textClass}>{currencyFormatter.format(product.total)}</p>
-        <p className="flex gap-3 items-center">
-          <span onClick={() => onUpdate(product, -1)}>
-            <FaMinusCircle />
-          </span>
-          <span>{product.quantity}</span>
-          <span onClick={() => onUpdate(product, 1)}>
-            <FaPlusCircle />
-          </span>
+        <p className="text-gray-600 text-lg font-semibold mt-2">
+          ₹{product.price.toFixed(2)}
         </p>
       </div>
     </div>

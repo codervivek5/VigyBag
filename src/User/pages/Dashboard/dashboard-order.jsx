@@ -88,7 +88,7 @@ const ProductCard = ({
   </div>
 );
 
-const Dashboard_Orders = () => {
+const DashboardOrders = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = (e) => setSearchTerm(e.target.value);
@@ -144,4 +144,4 @@ const Dashboard_Orders = () => {
   );
 };
 
-export default Dashboard_Orders;
+export default DashboardOrders;
