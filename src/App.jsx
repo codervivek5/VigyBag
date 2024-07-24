@@ -14,9 +14,9 @@ import Confirmation from "./User/pages/Confirmation/Confirmation";
 import Cancellation from "./User/pages/Cancellation/Cancellation";
 import OrderDetails from "./User/pages/Order/Orderdetails";
 import MyOrders from "./User/pages/Order/MyOrders";
-import Dashboard_Orders from "./User/pages/Dashboard/dashboard_order";
-import Dashboard_Cart from "./User/pages/Dashboard/dashboard_cart";
-import Dashboard_wishlist from "./User/pages/Dashboard/dashboard_wishlist";
+import DashboardOrders from "./User/pages/Dashboard/dashboard-order";
+import DashboardCart from "./User/pages/Dashboard/dashboard-cart";
+import DashboardWishlist from "./User/pages/Dashboard/dashboard-wishlist";
 import Checkout from "./User/pages/Order/Checkout";
 import Cart from "./User/pages/Order/Cart";
 import Error from "./User/pages/404-Page/Error";
@@ -169,15 +169,21 @@ export default function App() {
             </Route>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="confirm" element={<Confirmation />} />
+
+
+            <Route
+              path="admin-verification"
+              element={<AdminVerificationPage />}
+            />
             <Route path="cancel" element={<Cancellation />} />
             <Route path="orderDetails" element={<OrderDetails />} />
             <Route path="myOrders" element={<MyOrders />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="productDetails" element={<ProductDetails />} />
             <Route path="payment" element={<Payment />} />
-            <Route path="dashboard_order" element={<Dashboard_Orders />} />
-            <Route path="dashboard_cart" element={<Dashboard_Cart />} />
-            <Route path="dashboard_wishlist" element={<Dashboard_wishlist />} />
+            <Route path="dashboard-order" element={<DashboardOrders />} />
+            <Route path="dashboard-cart" element={<DashboardCart />} />
+            <Route path="dashboard-wishlist" element={<DashboardWishlist />} />
             <Route path="certificate" element={<Certifications />} />
           </Route>
 
