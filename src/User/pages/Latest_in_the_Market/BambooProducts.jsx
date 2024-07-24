@@ -32,6 +32,7 @@ function BambooProducts() {
         } 
       } catch (error) {
         console.error("Axios error:", error);
+        console.error("Failed to fetch products:", error); 
       }
     };
     fetchData();
