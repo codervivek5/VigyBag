@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import UserNavbar from "./components/Navbar/UserNavbar";
-import AdminNavbar from "../Admin/components/AdminNavbar";
+import AdminNavbar from "../Admin/components/AdminNavbar/AdminNavbar";
 import Footer from "./components/Footer/Footer";
 import GoToTop from "./components/GoToTop/gototop";
 import ScrollProgressBar from "./components/progressbar/ScrollProgressBar";

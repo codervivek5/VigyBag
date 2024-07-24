@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 
 // User components
-import Login from "./User/pages/Login/Login";
+import UserAuth from "./User/pages/UserAuth/UserAuth";
 import AboutUs from "./User/pages/About/AboutUs";
 import Contact from "./User/pages/Contacts/Contact";
 import Dashboard from "./User/pages/Dashboard/Dashboard";
@@ -14,8 +14,9 @@ import Confirmation from "./User/pages/Confirmation/Confirmation";
 import Cancellation from "./User/pages/Cancellation/Cancellation";
 import OrderDetails from "./User/pages/Order/Orderdetails";
 import MyOrders from "./User/pages/Order/MyOrders";
-import Dashboard_Orders from "./User/pages/Dashboard/dashboard_order";
-import Dashboard_Cart from "./User/pages/Dashboard/dashboard_cart";
+import DashboardOrders from "./User/pages/Dashboard/dashboard-order";
+import DashboardCart from "./User/pages/Dashboard/dashboard-cart";
+import DashboardWishlist from "./User/pages/Dashboard/dashboard-wishlist";
 import Checkout from "./User/pages/Order/Checkout";
 import Cart from "./User/pages/Order/Cart";
 import Error from "./User/pages/404-Page/Error";
@@ -25,18 +26,21 @@ import Privacy from "./User/pages/Privacy-Policy/Privacy";
 import Payment from "./User/pages/Payment/Payment";
 import ReturnAndCancellation from "./User/pages/ReturnAndCancellation/returnAndCancellation";
 import EPRPage from "./User/pages/EPRPage/EPR_Page";
-import Signup from "./User/pages/Signup/Signup";
 import FAQ from "./User/pages/FAQ/Faq";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
 import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 
+import CookieConsentBanner from "./User/components/cookieconsent.jsx";
 // Admin components
+
+import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
+
 import AdminLayout from "./Admin/AdminLayout";
 import AdminLogin from "./Admin/Pages/AdminLogin";
 // import AdminDashboard from "./Admin/pages/AdminDashboard";
-import VigyForm from "./Admin/VigyForm";
+import VigyForm from "./Admin/Pages/VigyForm";
 import AdminPanel from "./Admin/Pages/AdminPanel";
 import ProductForm from "./Admin/Pages/ProductForm";
 import Certifications from "./User/pages/Certifications/Certifications";
@@ -69,11 +73,11 @@ import { Helmet } from "react-helmet";
 export default function App() {
   return (
     <AuthProvider>
+      <CookieConsentBanner /> {/* CookieConsentBanner component */}
       <Helmet>
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
         <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
       </Helmet>
-
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />} />
@@ -143,14 +147,10 @@ export default function App() {
           <Route path="privacy" element={<Privacy />} />
           <Route path="cart" element={<Cart />} />
           <Route path="contact" element={<Contact />} />
-          <Route
-            path="forgot-password"
-            element={<ForgotPasswordForm></ForgotPasswordForm>}
-          />
+          <Route path="forgot-password" element={<ForgotPasswordForm />} />
 
           <Route path="team" element={<Team />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+          <Route path="auth" element={<UserAuth />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="termsAndCondition" element={<TermsAndConditions />} />
           <Route path="feedback" element={<FeedbackModal />} />
@@ -159,33 +159,40 @@ export default function App() {
             element={<ReturnAndCancellation />}
           />
           <Route path="EPR_Page" element={<EPRPage />} />
-        
 
           <Route element={<PrivateRoute />}>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminPanel />} />
+              {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
+              <Route path="vigy_form" element={<VigyForm />} />
+              <Route path="product_form" element={<ProductForm />} />
+            </Route>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="confirm" element={<Confirmation />} />
+
+
+            <Route
+              path="admin-verification"
+              element={<AdminVerificationPage />}
+            />
             <Route path="cancel" element={<Cancellation />} />
             <Route path="orderDetails" element={<OrderDetails />} />
             <Route path="myOrders" element={<MyOrders />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="productDetails" element={<ProductDetails />} />
             <Route path="payment" element={<Payment />} />
-            <Route path="dashboard_order" element={<Dashboard_Orders />} />
-            <Route path="dashboard_cart" element={<Dashboard_Cart />} />
+            <Route path="dashboard-order" element={<DashboardOrders />} />
+            <Route path="dashboard-cart" element={<DashboardCart />} />
+            <Route path="dashboard-wishlist" element={<DashboardWishlist />} />
             <Route path="certificate" element={<Certifications />} />
           </Route>
 
           <Route path="*" element={<Error />} />
         </Route>
-
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminPanel />} />
-          {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
-          <Route path="vigy_form" element={<VigyForm />} />
-          <Route path="product_form" element={<ProductForm />} />
-        </Route>
-
-        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="admin-verification"
+          element={<AdminVerificationPage></AdminVerificationPage>}
+        ></Route>
       </Routes>
     </AuthProvider>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css"; 
+import "./Footer.css";
 import instagramIcon from "./image/in.png";
 import xIcon from "./image/tw.png";
 import githubIcon from "./image/github (1).png";
@@ -14,13 +14,13 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
-  // boxShadow: "0px 0px 10px 4px #ffffff";
+  
   return (
     <footer className="footer">
       <div className="footer-top">
-        <div className="flex-shrink-0 z-50">
+        <div className="flex-shrink-0 ">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh" }} />
+            <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh",zIndex: "1" ,marginLeft: "40px" }} />
           </Link>
 
           <div
@@ -104,6 +104,11 @@ const Footer = () => {
           </p>{" "}
           <hr />
           <div className="address flex flex-col justify-start items-start text-sm hover:cursor-pointer">
+          <a
+              href="https://www.google.com/maps?q=Kanpur,+Uttar+Pradesh+208025"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
             <p>
               <lord-icon
                 style={{
@@ -114,9 +119,10 @@ const Footer = () => {
                 }}
                 src="https://cdn.lordicon.com/tdtlrbly.json"
                 trigger="hover"
-                colors="primary:#109121,secondary:#109121"></lord-icon>{" "}
-              Aung Fatehpur, Uttar Pradesh India-212665
+                colors="primary:#ffffff,secondary:#ffffff"></lord-icon>{" "}
+             Kanpur, Uttar Pradesh 208025
             </p>
+            </a>
             <p>
               <lord-icon
                 style={{
@@ -127,8 +133,8 @@ const Footer = () => {
                 }}
                 src="https://cdn.lordicon.com/xtzvywzp.json"
                 trigger="hover"
-                colors="primary:#109121"></lord-icon>{" "}
-              <a href="mailto:vigybag@gmail.com">contact@vigybag.com</a>
+                colors="primary:#ffffff"></lord-icon>{" "}
+              <a href="mailto:vigybag@gmail.com">vigybag@gmail.com</a>
             </p>
             <p>
               <lord-icon
@@ -140,7 +146,7 @@ const Footer = () => {
                 }}
                 src="https://cdn.lordicon.com/srsgifqc.json"
                 trigger="hover"
-                colors="primary:#109121"></lord-icon>{" "}
+                colors="primary:#ffffff"></lord-icon>{" "}
               <a href="tel:1234567890">+91 1234567890</a>
             </p>
           </div>
