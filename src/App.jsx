@@ -137,11 +137,13 @@ export default function App() {
             <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
             <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
             <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
+
           </Route>
 
           <Route path="certificate" element={<Certifications />} /> {/* Certifications page route */}
           <Route path="*" element={<Error />} /> {/* 404 Error page route */}
         </Route>
+
 
         {/* Admin routes */}
         <Route path="/admin" element={<AdminLayout />}>
@@ -153,6 +155,7 @@ export default function App() {
 
         <Route path="admin-verification" element={<AdminVerificationPage />} /> {/* Admin verification page route */}
         <Route path="/admin/login" element={<AdminLogin />} /> {/* Admin login page route */}
+
       </Routes>
     </AuthProvider>
   );
