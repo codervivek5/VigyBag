@@ -23,7 +23,7 @@ function OrderSummary() {
   const shippingRate = 40.0;
 
   let shipping = calculateShipping(itemsTotal, shippingThreshold, shippingRate);
-  let total = itemsTotal + shipping;
+  let total = itemsTotal < 500 ? itemsTotal + shipping : itemsTotal;
 
   useEffect(() => {
     dispatch(setTotalAmountAction(total));
@@ -40,7 +40,7 @@ function OrderSummary() {
           <ul className="list-inside text-zinc-700 space-y-1 list-none">
             <li className="flex items-center justify-between gap-5 font-bold text-xl">
               <span>Total</span>
-              <span>$0.00</span>
+              <span>{currencyFormatter.format(0.00)}</span>
             </li>
           </ul>
         </div>
