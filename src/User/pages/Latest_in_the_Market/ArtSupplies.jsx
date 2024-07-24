@@ -32,6 +32,7 @@ function ArtSupplies() {
         } 
       } catch (error) {
         console.error("Axios error:", error);
+        toast.error("Failed to fetch products. Please try again later.");
       }
     };
     fetchData();
