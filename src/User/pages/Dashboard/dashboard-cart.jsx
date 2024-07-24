@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Aside from "../../components/Aside/Aside";
 import { Link, useNavigate } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
-import CartEmpty from "../../pages/Order/CartEmpty";
+import CartEmpty from "../Order/CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Dashboard/Header";
 import SearchBar from "../../components/Dashboard/SearchBar";
@@ -154,7 +154,7 @@ const LoginToContinue = () => {
   );
 };
 
-const Dashboard_Cart = () => {
+const DashboardCart = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = (e) => setSearchTerm(e.target.value);
@@ -263,4 +263,4 @@ const Dashboard_Cart = () => {
   );
 };
 
-export default Dashboard_Cart;
+export default DashboardCart;

@@ -2,7 +2,6 @@
   background-color: #2e2e2e;
   color: #fff;
   padding: 20px;
-  z-index: 99;
   font-family: Arial, sans-serif;
   transform: translateY(20px);
 }
@@ -10,7 +9,7 @@
 .footer-top {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
   align-items: center;
 }
 

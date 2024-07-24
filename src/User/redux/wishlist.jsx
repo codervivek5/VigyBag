@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const wishlistSlice = createSlice({
-  name: "dashboard_wishlist",
+  name: "dashboard-wishlist",
   initialState,
   reducers: {
     manageWishlistItem: (state, action) => {
