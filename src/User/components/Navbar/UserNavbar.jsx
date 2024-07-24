@@ -6,6 +6,7 @@ import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const UserNavbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,17 +17,53 @@ const UserNavbar = ({ isAdmin }) => {
 
   const username = localStorage.getItem("username");
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const isAdminT = localStorage.getItem("isAdmin") === "true";
 
   const toggleNavbar = () => setIsOpen(!isOpen);
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
+  // const handleLogout = () => {
+  //   if (window.confirm("Are you sure you want to logout?")) {
+  //     localStorage.removeItem("isLoggedIn");
+  //     localStorage.removeItem("username");
+  //     alert("Logout Successful.");
+  //     navigate("/login");
+  //   }
+  // };
+
   const handleLogout = () => {
-    if (window.confirm("Are you sure you want to logout?")) {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("username");
-      alert("Logout Successful.");
-      navigate("/login");
-    }
+    Swal.fire({
+      title: "Are you sure you want to logout?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        popup: "custom-popup",
+        title: "custom-title",
+        content: "custom-content",
+        confirmButton: "custom-confirm-button",
+        cancelButton: "custom-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.setItem("isLoggedIn", false);
+        localStorage.removeItem("username");
+        navigate("/auth");
+
+        Swal.fire({
+          title: "Logout successfully!",
+          text: "Visit Again to VigyBag!",
+          icon: "success",
+          confirmButtonText: "OK",
+          customClass: {
+            popup: "custom-popup",
+            title: "custom-title",
+            content: "custom-content",
+            confirmButton: "custom-confirm-button",
+          },
+        });
+      }
+    });
   };
 
   const handleDropdownToggle = () => setShowDropdown((prev) => !prev);
@@ -76,7 +113,10 @@ const UserNavbar = ({ isAdmin }) => {
           <div className="flex items-center">
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6 gap-6">
-                <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+                <SearchBar
+                  searchTerm={searchTerm}
+                  handleSearch={handleSearch}
+                />
                 <CartIcon />
                 {isLoggedIn ? (
                   <div className="relative flex gap-3 items-center">
@@ -90,6 +130,14 @@ const UserNavbar = ({ isAdmin }) => {
                         ref={dropdownRef}
                         className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1"
                       >
+                         {isAdminT && (
+                            <Link
+                              to="/admin"
+                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                              >
+                              Admin Dashboard
+                            </Link>
+                          )}
                         <Link
                           to="/dashboard"
                           className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -125,7 +173,11 @@ const UserNavbar = ({ isAdmin }) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    d={
+                      isOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
                   />
                 </svg>
               </button>

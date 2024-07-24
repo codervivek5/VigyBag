@@ -66,6 +66,8 @@ const AdminVerificationPage = () => {
         "https://vigybag-backend.onrender.com/api/auth/verify-otp",
         { email, otp }
       );
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("isAdmin", "true");
       Swal.fire({
         title: "OTP Verified!",
         text: "The OTP is correct.",

@@ -25,7 +25,7 @@
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",
-    "node": "^22.5.0",
+    "node": "^22.5.1",
     "nodemailer": "^6.9.14",
     "razorpay": "^2.9.4",
     "react": "^18.2.0",
@@ -42,7 +42,7 @@
     "sitemap": "^8.0.0",
     "styled-component": "^2.8.0",
     "styled-components": "^6.1.12",
-    "sweetalert2": "^11.12.3"
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.15",
