@@ -107,9 +107,7 @@ const FeedbackModal = () => {
     });
   };
   
-function RatingComponent() {
-  const [rating, setRating] = useState(null);
-  
+function RatingComponent() {  
   const handleRatingChange = (newRating) => {
     setRating(newRating);
     console.log("Rating selected:", newRating);
