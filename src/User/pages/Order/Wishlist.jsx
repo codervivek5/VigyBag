@@ -22,8 +22,15 @@ const Breadcrumbs = () => (
     </div>
 );
 
-const WishlistItem = ({ product, onUpdate, onAddToCart, isExistsInTheCart }) => (
-    <div
+const WishlistItem = ({ product, onUpdate, onAddToCart, isExistsInTheCart }) => {
+
+    const handleDelete = () => {
+        onUpdate(product, -1 * product.quantity);
+        toast.success("Successfully deleted");
+    };
+
+    return (
+        <div
         className={`${cardClass} flex items-center justify-between mb-4 mt-12`}
         style={{ border: "1px solid black" }}>
         <div className="flex items-center">
@@ -57,16 +64,12 @@ const WishlistItem = ({ product, onUpdate, onAddToCart, isExistsInTheCart }) => 
             trigger="hover"
             colors="primary:#ff0000"
             style={{ width: "30px", height: "30px", cursor: "pointer" }}
-            onClick={() => {
-                onUpdate(product, -1 * product.quantity);
-                toast.success("Successfully deleted");
-            }}
-            onKeyUp={(e) => {
-                if (e.key === "Enter") onUpdate(product, -1 * product.quantity);
-            }}
+            onClick={() => handleDelete(product, -1 * product.quantity)}
+            onKeyUp={() => handleDelete(product, -1 * product.quantity)}
             tabIndex="0"></lord-icon>
     </div>
-);
+    )
+};
 
 function Wishlist() {
     const wishlistItems = useSelector((state) => state.wishlist.items);
@@ -74,7 +77,11 @@ function Wishlist() {
     const dispatch = useDispatch();
 
     const onUpdate = (product, quantity) => {
-        dispatch(manageWishlistItem({ product, quantity }));
+        try {
+            dispatch(manageWishlistItem({ product, quantity }));
+        } catch (error) {
+            toast.error("Failed to update wishlist item.");
+        }
     };
 
     const onClearWishlist = () => {
@@ -112,8 +119,12 @@ function Wishlist() {
 
     const onAddToCart = (product) => {
         const quantity = 1;
-        dispatch(manageCartItem({ product, quantity }));
-        toast.success(`Item added to cart!`);
+        try {
+            dispatch(manageCartItem({ product, quantity }));
+            toast.success(`Item added to cart!`);
+        } catch (error) {
+            toast.error("Failed to add item to cart.");
+        }
     };
 
     return (
