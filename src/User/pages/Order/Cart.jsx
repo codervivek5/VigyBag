@@ -29,7 +29,14 @@ const CartItem = ({ product, onUpdate }) => (
       />
       <div>
         <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
-        <p className={textClass}>{currencyFormatter.format(product.total)}</p>
+        <p className={textClass}>
+          <p className="text-gray-600 text-lg my-2 flex items-center gap-2">
+            {currencyFormatter.format(product.total)}
+            <span className="text-sm text-green-500 line-through">
+              {currencyFormatter.format(product.oldPrice * product.quantity)}
+            </span>
+          </p>
+        </p>
         <p className="flex gap-3 items-center">
           <span onClick={() => onUpdate(product, -1)}>
             <FaMinusCircle />
@@ -95,7 +102,7 @@ const ProceedToCheckout = () => {
         </button>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <Link to="/Checkout" className="w-full bg-red-300">
+        <Link to="/Checkout" className="w-full">
           <button
             type="button"
             className={`${buttonBgClass} w-full`}

@@ -31,43 +31,46 @@ const WishlistItem = ({ product, onUpdate, onAddToCart, isExistsInTheCart }) => 
 
     return (
         <div
-        className={`${cardClass} flex items-center justify-between mb-4 mt-12`}
-        style={{ border: "1px solid black" }}>
-        <div className="flex items-center">
-            <img
-                src={product.image}
-                alt={product.title}
-                className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4"
-            />
-            <div>
-                <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
-                <p className="text-gray-600 text-lg font-semibold mt-2">
-                    ₹{product.price.toFixed(2)}
-                </p>
-                <button
-                    className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
-                    onClick={() => {
-                        onAddToCart(product);
-                    }}
-                    disabled={isExistsInTheCart}>
-                    {isExistsInTheCart
-                        ? "Added to cart"
-                        : "Add to Cart"}
-                </button>
+            className={`${cardClass} flex items-center justify-between mb-4 mt-12`}
+            style={{ border: "1px solid black" }}>
+            <div className="flex items-center">
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4"
+                />
+                <div>
+                    <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
+                    <p className="text-gray-600 text-lg font-semibold mt-2 flex items-center gap-2">
+                        ₹{product.newPrice}
+                        <span className="text-sm text-green-500 line-through">
+                            ₹{product.price.toFixed(2)}
+                        </span>
+                    </p>
+                    <button
+                        className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
+                        onClick={() => {
+                            onAddToCart(product);
+                        }}
+                        disabled={isExistsInTheCart}>
+                        {isExistsInTheCart
+                            ? "Added to cart"
+                            : "Add to Cart"}
+                    </button>
+                </div>
+
+
             </div>
-
-
+            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com/skkahier.json"
+                trigger="hover"
+                colors="primary:#ff0000"
+                style={{ width: "30px", height: "30px", cursor: "pointer" }}
+                onClick={() => handleDelete(product, -1 * product.quantity)}
+                onKeyUp={() => handleDelete(product, -1 * product.quantity)}
+                tabIndex="0"></lord-icon>
         </div>
-        <script src="https://cdn.lordicon.com/lordicon.js"></script>
-        <lord-icon
-            src="https://cdn.lordicon.com/skkahier.json"
-            trigger="hover"
-            colors="primary:#ff0000"
-            style={{ width: "30px", height: "30px", cursor: "pointer" }}
-            onClick={() => handleDelete(product, -1 * product.quantity)}
-            onKeyUp={() => handleDelete(product, -1 * product.quantity)}
-            tabIndex="0"></lord-icon>
-    </div>
     )
 };
 
