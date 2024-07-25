@@ -6,6 +6,7 @@ import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { MdHeight } from "react-icons/md";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 function ProductGrid({ products, headingText }) {
   return (
@@ -43,39 +44,35 @@ function ProductCard({ product }) {
   const onAddToWhishlist = (product) => {
     const quantity = 1;
     dispatch(manageWishlistItem({ product, quantity }));
-    toast.success(`added to wishlist!`);
-  };
-
-  const handleHeartClick = () => {
-    const currentTime = new Date().getTime();
-    if (currentTime - lastClickTime < 300) {
-      // Double click
-      setIsHeartFilled(false); // Unfill on double click
-    } else {
-      // Single click
-      setIsHeartFilled(!isHeartFilled); // Toggle fill state on single click
-    }
-    setLastClickTime(currentTime);
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
-      <div className="mt-2 md:ml-48 ml-80">
-        <lord-icon
-          onClick={() => {
-            onAddToWhishlist(product);
-            handleHeartClick;
-          }}
-          disabled={wishlistItems.find((item) => item.id === product.id)}
-          style={{
-            height: "30px",
-            width: "30px",
-          }}
-          src="https://cdn.lordicon.com/ulnswmkk.json"
-          trigger="click"
-          state={isHeartFilled ? "morph-heart" : "morph-heart-empty"}
-          colors="primary:#e83a30"></lord-icon>
-      </div>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer relative">
+
+      {
+        wishlistItems.find((item) => item.id === product.id) ? (
+          <button 
+            className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
+            onClick={() => {
+              onAddToWhishlist(product);
+              toast.success(`Item removed from wishlist!`);
+            }}
+          >
+            <FaHeart size={18}/>
+          </button>
+        ) :
+        (
+          <button 
+            className="mt-2 md:ml-48 ml-80 text-red-600  absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
+            onClick={() => {
+              onAddToWhishlist(product);
+              toast.success(`Item added to wishlist!`) 
+            }}
+          >
+            <FaRegHeart size={18}/>
+          </button>
+        )
+      }
       <img
         onClick={handleClick}
         src={product.image}

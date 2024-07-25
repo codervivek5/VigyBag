@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
-// import { toast } from "react-toastify";
 import OrderSummary from "../../components/Order/OrderSummary";
 import Swal from "sweetalert2";
 
-// Define the CSS classes for the components
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
 const textClass = "text-zinc-500";
-const greenTextClass = "text-green-600";
-const buttonClass = "text-zinc-500 hover:text-red-600";
 const buttonBgClass =
   "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
 const currencyFormatter = new Intl.NumberFormat("en-IN", {
@@ -45,7 +41,6 @@ const CartItem = ({ product, onUpdate }) => (
         </p>
       </div>
     </div>
-    {/* <script src="https://cdn.lordicon.com/lordicon.js"></script> */}
     <lord-icon
       src="https://cdn.lordicon.com/skkahier.json"
       trigger="hover"
@@ -86,51 +81,6 @@ const Breadcrumbs = () => (
   </div>
 );
 
-const Subtotal = ({ items }) => {
-  const itemsTotal = items.reduce((acc, item) => acc + item.total, 0);
-
-  const shippingThreshold = 500.0;
-  const shippingRate = 40.0;
-
-  let shipping = itemsTotal >= shippingThreshold ? 0.0 : shippingRate;
-  let total = itemsTotal + shipping;
-
-  if (itemsTotal === 0) {
-    return <></>;
-  }
-
-  return (
-    <div className="mb-5">
-      <h2 className="text-2xl font-bold mb-6 text-black">Subtotal</h2>
-      <div
-        className={`${cardClass} space-y-2`}
-        style={{ border: "1px solid black" }}>
-        <p className="text-lg font-semibold text-zinc-800">Order Summary</p>
-        <ul className="list-inside text-zinc-700 space-y-1 list-none">
-          <hr />
-          {items.map((item, index) => (
-            <li
-              key={index}
-              className="flex items-center justify-between gap-5 py-1">
-              <span>{item.title}</span>
-              <span>{currencyFormatter.format(item.total)}</span>
-            </li>
-          ))}
-          <li className="flex items-center justify-between gap-5 font-bold">
-            <span>Shipping</span>
-            <span>{currencyFormatter.format(shipping)}</span>
-          </li>
-          <hr />
-          <li className="flex items-center justify-between gap-5 font-bold text-xl">
-            <span>Total</span>
-            <span>{currencyFormatter.format(total)}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
 const ProceedToCheckout = () => {
   return (
     <div className="mt-6">
@@ -145,11 +95,11 @@ const ProceedToCheckout = () => {
         </button>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <Link to="/Checkout">
+        <Link to="/Checkout" className="w-full bg-red-300">
           <button
             type="button"
-            className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "425px" }}>
+            className={`${buttonBgClass} w-full`}
+          >
             Check Out
           </button>
         </Link>
@@ -158,29 +108,7 @@ const ProceedToCheckout = () => {
   );
 };
 
-const LoginToContinue = () => {
-  return (
-    <div>
-      <p className="text-lg font-bold">
-        Seems like you are not logged in yet. Please login to proceed to
-        Checkout.
-      </p>
-      <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <Link to="/login">
-          <button
-            type="button"
-            className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "425px" }}>
-            Login now
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
-};
-
 const Cart = () => {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
@@ -254,7 +182,6 @@ const Cart = () => {
           </div>
           <div className="w-full lg:w-1/3 mt-8 lg:mt-10">
             <OrderSummary />
-
             <ProceedToCheckout />
           </div>
         </div>
