@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { manageCartItem, setTotalAmount as setTotalAmountAction } from "../../redux/cartSlice";
+import { setTotalAmount as setTotalAmountAction } from "../../redux/cartSlice";
 
 const currencyFormatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
@@ -10,7 +10,7 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
 
 const calculateShipping = (itemsTotal, threshold, rate) => {
-  return itemsTotal >= threshold ? 0.0 : rate;
+  return itemsTotal >= threshold || itemsTotal == 0 ? 0.0 : rate;
 };
 
 function OrderSummary() {
