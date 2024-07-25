@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const Admin = require("../models/Admin.js");
 
 dotenv.config();
 
@@ -60,13 +61,13 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Check if the email is the admin email
-    if (email === process.env.ADMINMAIL) {
-      if (password === process.env.ADMINPASSWORD) {
-        // Admin login
+    const admin = await Admin.findOne({ email });
+    if (admin) {
+      const isMatch = await bcrypt.compare(password, admin.password);
+      if (isMatch) {
         const adminRole = 1;
-        const adminUsername = "AdminVigy";
+        const adminUsername = admin.username;
+
         await User.updateOne(
           { email },
           { $set: { role: adminRole, username: adminUsername } }
@@ -87,6 +88,7 @@ exports.login = async (req, res) => {
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
+
     // Send username along with success message
     res.status(200).json({
       message: "Login successful",
