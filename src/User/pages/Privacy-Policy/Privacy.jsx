@@ -22,7 +22,7 @@ const Privacy = () => {
       })
       .catch((error) => {
         console.error('Error generating PDF', error);
-      });
+        alert('An error occurred while generating the PDF. Please try again.');      });
   };
   return (
     <div className="privacy-policy">
