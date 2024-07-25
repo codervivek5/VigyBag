@@ -151,7 +151,7 @@ const AuthForm = () => {
       <div className="flex justify-center items-center h-[calc(100vh-80px)]">
         <div className="lg:mt-40 mt-30 bg-[#e7f0e7] rounded-lg p-10 shadow-lg md:flex w-full  max-w-7xl lg:h-[75vh] h-[100%] gap-[10vw]">
           {/* Left side */}
-          <div className="md:flex-1 pr-8 mt-[13vh]">
+          <div className="md:flex-1 md:block pr-8 mt-[13vh] hidden">
             <h1 className="text-5xl font-bold text-[#2d3e40] mb-4">
               Welcome to VigyBag!!
             </h1>
@@ -159,7 +159,7 @@ const AuthForm = () => {
               Make Your Shopping <br />
               Eco-Friendly
             </h2>
-            <div className="space-x-4 md:block flex ">
+            <div className="space-x-4">
               <Link to="/admin-verification">
                 <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
                   Login as Admin
@@ -180,7 +180,7 @@ const AuthForm = () => {
               <div className="flipper">
                 {/* Login Form */}
                 <div className="front">
-                  <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white lg:h-[65vh] h-[75vh] ">
+                  <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white lg:h-[65vh] h-[60vh] ">
                     <h2 className="text-2xl font-semibold text-center mb-6 text-[#4caf50] flex items-center justify-center">
                       <SlLogin className="mr-2" />
                       Login as a User
@@ -236,17 +236,18 @@ const AuthForm = () => {
                         )}
                       </button>
                     </form>
-                    <div className="mt-4 md:flex justify-between md:space-x-2 -space-x-2 md:space-y-0 space-y-3 md:ml-0 ml-8">
+                    <div className="md:mt-4 mt-8 md:mb-0 mb-16 flex justify-between space-x-2 space-y-0  md:ml-0 ml-5">
                       <button
                         onClick={() => handleSocialLogin("google")}
-                        className="flex-1 flex items-center justify-center bg-white text-black px-4 py-2 rounded text-sm hover:bg-gray-100 transition duration-300">
+                        className="flex-1 flex items-center justify-center bg-white text-black px-4 py-2 rounded md:text-sm text-xs hover:bg-gray-100 transition duration-300">
                         <FcGoogle className="mr-2" />
-                        Continue with Google
+                        Login with Google
                       </button>
                       <button
                         onClick={() => handleSocialLogin("facebook")}
-                        className="flex-1 flex items-center justify-center bg-[#1877f2] text-white px-4 py-2 rounded text-sm hover:bg-[#166fe5] transition duration-300">
-                        <FaFacebook className="mr-2" /> Continue with Facebook
+                        className="flex-1 flex items-center justify-center bg-[#1877f2] text-white px-4 py-2 rounded md:text-sm text-xs hover:bg-[#166fe5] transition duration-300">
+                        <FaFacebook className="md:mr-2 mr-1" /> Login with
+                        facebook
                       </button>
                     </div>
                     <p className="text-xs text-center mt-4">
@@ -261,6 +262,16 @@ const AuthForm = () => {
                         Sign up
                       </button>
                     </p>
+                  </div>
+                  <div className="flex space-x-4 mt-8 text-center md:hidden visible">
+                    <Link to="/admin-verification">
+                      <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
+                        Login as Admin
+                      </button>
+                    </Link>
+                    <button className="bg-[#f9efe4] text-[#2d3e40] px-6 py-2 rounded-full border border-[#2d3e40] hover:bg-[#2d3e40] hover:text-white transition duration-300">
+                      Login as Vigy
+                    </button>
                   </div>
                 </div>
 
@@ -345,6 +356,16 @@ const AuthForm = () => {
                         Log in
                       </button>
                     </p>
+                  </div>
+                  <div className="flex space-x-4 mt-8 text-center md:hidden visible">
+                    <Link to="/admin-verification">
+                      <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
+                        Login as Admin
+                      </button>
+                    </Link>
+                    <button className="bg-[#f9efe4] text-[#2d3e40] px-6 py-2 rounded-full border border-[#2d3e40] hover:bg-[#2d3e40] hover:text-white transition duration-300">
+                      Login as Vigy
+                    </button>
                   </div>
                 </div>
               </div>
