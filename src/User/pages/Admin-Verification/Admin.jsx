@@ -24,7 +24,7 @@ const AdminVerificationPage = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://vigybag-backend.onrender.com/api/auth/send-otp",
+        "http://localhost:8080/api/auth/send-otp",
         { email }
       );
       setOtpSent(true);
@@ -103,7 +103,7 @@ const AdminVerificationPage = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://vigybag-backend.onrender.com/api/auth/send-otp",
+        "http://localhost:8080/api/auth/send-otp",
         { email }
       );
       Swal.fire({
