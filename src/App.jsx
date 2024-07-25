@@ -19,6 +19,7 @@ import DashboardCart from "./User/pages/Dashboard/dashboard-cart";
 import DashboardWishlist from "./User/pages/Dashboard/dashboard-wishlist";
 import Checkout from "./User/pages/Order/Checkout";
 import Cart from "./User/pages/Order/Cart";
+import Wishlist from "./User/pages/Order/Wishlist";
 import Error from "./User/pages/404-Page/Error";
 import ProductDetails from "./User/components/Products/ProductDetails";
 import Help from "./User/pages/Help/Help";
@@ -105,6 +106,7 @@ export default function App() {
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy" element={<Privacy />} /> {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> {/* Cart page route */}
+          <Route path="wishlist" element={<Wishlist />} /> {/* Wishlist page route */}
           <Route path="contact" element={<Contact />} /> {/* Contact page route */}
           <Route path="forgot-password" element={<ForgotPasswordForm />} /> {/* Forgot password page route */}
 

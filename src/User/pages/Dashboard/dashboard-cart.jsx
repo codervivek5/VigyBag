@@ -32,7 +32,14 @@ const CartItem = ({ product, onUpdate }) => (
       />
       <div>
         <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
-        <p className={textClass}>{currencyFormatter.format(product.total)}</p>
+        <p className={textClass}>
+          <p className="text-gray-600 text-lg my-2 flex items-center gap-2">
+            {currencyFormatter.format(product.total)}
+            <span className="text-sm text-green-500 line-through">
+              {currencyFormatter.format(product.oldPrice * product.quantity)}
+            </span>
+          </p>
+        </p>
         <p className="flex gap-3 items-center">
           <span onClick={() => onUpdate(product, -1)}>
             <FaMinusCircle />

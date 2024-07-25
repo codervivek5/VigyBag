@@ -1,15 +1,14 @@
-// CartIcon.jsx
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function CartIcon() {
-  const cartItems = useSelector(state => state.cart.items)
+function WishlistIcon() {
+  const wishlistItems = useSelector(state => state.wishlist.items)
 
-  const noOfItems = cartItems.reduce((a, b) => a + b.quantity, 0);
+  const noOfItems = wishlistItems.length;
 
   return (
-    <Link to="/cart" className=" text-green-800 hover:text-gray-600 relative h-full">
+    <Link to="/wishlist" className=" text-green-800 hover:text-gray-600 relative h-full">
       <lord-icon
         style={{
           width: "40px",
@@ -17,7 +16,7 @@ function CartIcon() {
           paddingTop: "2px",
           paddingLeft: "1px",
         }}
-        src="https://cdn.lordicon.com/pbrgppbb.json"
+        src="https://cdn.lordicon.com/ulnswmkk.json"
         trigger="hover"
         colors="primary:#15803D"
       ></lord-icon>
@@ -30,4 +29,4 @@ function CartIcon() {
   )
 };
 
-export default CartIcon;
+export default WishlistIcon;
