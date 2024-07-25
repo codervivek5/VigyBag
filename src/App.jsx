@@ -127,7 +127,6 @@ export default function App() {
 
             <Route path="dashboard" element={<Dashboard />} /> {/* User dashboard route */}
             <Route path="confirm" element={<Confirmation />} /> {/* Order confirmation route */}
-            <Route path="admin-verification" element={<AdminVerificationPage />} /> {/* Admin verification page route */}
             <Route path="cancel" element={<Cancellation />} /> {/* Order cancellation route */}
             <Route path="orderDetails" element={<OrderDetails />} /> {/* Order details route */}
             <Route path="myOrders" element={<MyOrders />} /> {/* My orders route */}
@@ -137,25 +136,14 @@ export default function App() {
             <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
             <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
             <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
-
           </Route>
-
+                {/* private route ends */}
+                
           <Route path="certificate" element={<Certifications />} /> {/* Certifications page route */}
           <Route path="*" element={<Error />} /> {/* 404 Error page route */}
         </Route>
-
-
-        {/* Admin routes */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminPanel />} /> {/* Admin panel route */}
-          {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
-          <Route path="vigy_form" element={<VigyForm />} /> {/* Admin Vigy form route */}
-          <Route path="product_form" element={<ProductForm />} /> {/* Admin product form route */}
-        </Route>
-
-        <Route path="admin-verification" element={<AdminVerificationPage />} /> {/* Admin verification page route */}
-        <Route path="/admin/login" element={<AdminLogin />} /> {/* Admin login page route */}
-
+        <Route path="admin-verification" element={<AdminVerificationPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </AuthProvider>
   );
