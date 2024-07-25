@@ -146,12 +146,12 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9efe4]">
+    <div className="lg:min-h-screen bg-[#f9efe4] h-[170vh]">
       {/* Main content */}
       <div className="flex justify-center items-center h-[calc(100vh-80px)]">
-        <div className="mt-40 bg-[#e7f0e7] rounded-lg p-10 shadow-lg flex w-full max-w-7xl h-[75vh] gap-[10vw]">
+        <div className="lg:mt-40 mt-30 bg-[#e7f0e7] rounded-lg p-10 shadow-lg md:flex w-full  max-w-7xl lg:h-[75vh] h-[100%] gap-[10vw]">
           {/* Left side */}
-          <div className="flex-1 pr-8 mt-[13vh]">
+          <div className="md:flex-1 pr-8 mt-[13vh]">
             <h1 className="text-5xl font-bold text-[#2d3e40] mb-4">
               Welcome to VigyBag!!
             </h1>
@@ -159,7 +159,7 @@ const AuthForm = () => {
               Make Your Shopping <br />
               Eco-Friendly
             </h2>
-            <div className="space-x-4">
+            <div className="space-x-4 md:block flex ">
               <Link to="/admin-verification">
                 <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
                   Login as Admin
@@ -172,13 +172,16 @@ const AuthForm = () => {
           </div>
 
           {/* Right side - Login/Signup Form */}
-          <div className="flex-1">
-            <div className={`flip-container ${isFlipped ? "flipped" : ""}`}>
+          <div className="md:flex-1">
+            <div
+              className={`flip-container ${
+                isFlipped ? "flipped" : ""
+              } md:mt-0 mt-28`}>
               <div className="flipper">
                 {/* Login Form */}
                 <div className="front">
-                  <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white">
-                    <h2 className="text-white text-2xl font-semibold text-center mb-6 text-[#4caf50] flex items-center justify-center">
+                  <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white lg:h-[65vh] h-[75vh] ">
+                    <h2 className="text-2xl font-semibold text-center mb-6 text-[#4caf50] flex items-center justify-center">
                       <SlLogin className="mr-2" />
                       Login as a User
                     </h2>
@@ -218,16 +221,14 @@ const AuthForm = () => {
                         </label>
                         <a
                           href="#"
-                          className="text-sm text-[#4caf50] hover:underline ml-[15vw]"
-                        >
+                          className="text-sm text-[#4caf50] hover:underline ml-[15vw]">
                           Forgot password?
                         </a>
                       </div>
                       <button
                         type="submit"
                         onClick={handleLogin}
-                        className="w-full bg-[#4caf50] text-white p-2 rounded hover:bg-[#45a049] transition duration-300"
-                      >
+                        className="w-full bg-[#4caf50] text-white p-2 rounded hover:bg-[#45a049] transition duration-300">
                         {loading ? (
                           <DotLoader color="#ffffff" size={24} />
                         ) : (
@@ -235,18 +236,16 @@ const AuthForm = () => {
                         )}
                       </button>
                     </form>
-                    <div className="mt-4 flex justify-between space-x-2">
+                    <div className="mt-4 md:flex justify-between md:space-x-2 -space-x-2 md:space-y-0 space-y-3 md:ml-0 ml-8">
                       <button
                         onClick={() => handleSocialLogin("google")}
-                        className="flex-1 flex items-center justify-center bg-white text-black px-4 py-2 rounded text-sm hover:bg-gray-100 transition duration-300"
-                      >
+                        className="flex-1 flex items-center justify-center bg-white text-black px-4 py-2 rounded text-sm hover:bg-gray-100 transition duration-300">
                         <FcGoogle className="mr-2" />
                         Continue with Google
                       </button>
                       <button
                         onClick={() => handleSocialLogin("facebook")}
-                        className="flex-1 flex items-center justify-center bg-[#1877f2] text-white px-4 py-2 rounded text-sm hover:bg-[#166fe5] transition duration-300"
-                      >
+                        className="flex-1 flex items-center justify-center bg-[#1877f2] text-white px-4 py-2 rounded text-sm hover:bg-[#166fe5] transition duration-300">
                         <FaFacebook className="mr-2" /> Continue with Facebook
                       </button>
                     </div>
@@ -258,8 +257,7 @@ const AuthForm = () => {
                       Don't have an account?{" "}
                       <button
                         onClick={() => setIsFlipped(true)}
-                        className="text-[#4caf50] hover:underline"
-                      >
+                        className="text-[#4caf50] hover:underline">
                         Sign up
                       </button>
                     </p>
@@ -269,7 +267,7 @@ const AuthForm = () => {
                 {/* Signup Form */}
                 <div className="back">
                   <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white">
-                    <h2 className="text-white text-2xl font-semibold text-center mb-6 text-[#4caf50] flex items-center justify-center">
+                    <h2 className="text-white text-2xl font-semibold text-center mb-6 flex items-center justify-center">
                       <MdAssignmentInd className="mr-2" />
                       SignUp as a User
                     </h2>
@@ -331,8 +329,7 @@ const AuthForm = () => {
                       </div>
                       <button
                         type="submit"
-                        className="w-full bg-[#4caf50] text-white p-2 rounded hover:bg-[#45a049] transition duration-300"
-                      >
+                        className="w-full bg-[#4caf50] text-white p-2 rounded hover:bg-[#45a049] transition duration-300">
                         {loading ? (
                           <DotLoader color="#ffffff" size={24} />
                         ) : (
@@ -344,8 +341,7 @@ const AuthForm = () => {
                       Already have an account?{" "}
                       <button
                         onClick={() => setIsFlipped(false)}
-                        className="text-[#4caf50] hover:underline"
-                      >
+                        className="text-[#4caf50] hover:underline">
                         Log in
                       </button>
                     </p>
