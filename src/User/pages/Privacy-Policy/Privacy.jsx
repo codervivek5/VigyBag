@@ -17,8 +17,10 @@ const Privacy = () => {
         const pdf = new jsPDF('p', 'mm', 'a4');
         const imgWidth = 210; // A4 width in mm
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        const padding = 10; // Adjust padding as needed
+        pdf.addImage(imgData, 'PNG', padding, padding, imgWidth - 2 * padding, imgHeight - 2 * padding);
         pdf.save('privacy_policy.pdf');
+        console.log("PDF generated and saved"); // Debug log
       })
       .catch((error) => {
         console.error('Error generating PDF', error);
