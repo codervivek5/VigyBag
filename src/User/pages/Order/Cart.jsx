@@ -145,11 +145,11 @@ const ProceedToCheckout = () => {
         </button>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <Link to="/Checkout">
+        <Link to="/Checkout" className="w-full">
           <button
             type="button"
-            className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "425px" }}>
+            className={`${buttonBgClass} w-full sm:w-full`}
+            >
             Check Out
           </button>
         </Link>
