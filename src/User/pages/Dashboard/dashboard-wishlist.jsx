@@ -1,25 +1,21 @@
 import React, { useState } from "react";
 import Aside from "../../components/Aside/Aside";
 import { Link, useNavigate } from "react-router-dom";
-import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
-import WishlistEmpty from "../../pages/Order/WishlistEmpty";
+import WishlistEmpty from "../Order/WishlistEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Dashboard/Header";
 import SearchBar from "../../components/Dashboard/SearchBar";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { clearWishlist, manageWishlistItem } from "../../redux/wishlist";
+import { manageCartItem } from "../../redux/cartSlice";
 
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
 const textClass = "text-zinc-500";
 const buttonBgClass =
   "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out";
-const currencyFormatter = new Intl.NumberFormat("en-IN", {
-  style: "currency",
-  currency: "INR",
-});
 
-const WishlistItem = ({ product, onUpdate }) => (
+const WishlistItem = ({ product, onUpdate, onAddToCart, isExistsInTheCart }) => (
   <div
     className={`${cardClass} flex items-center justify-between mb-4 mt-12`}
     style={{ border: "1px solid black" }}>
@@ -31,17 +27,25 @@ const WishlistItem = ({ product, onUpdate }) => (
       />
       <div>
         <h3 className="text-lg font-semibold text-zinc-800">{product.title}</h3>
-        <p className={textClass}>{currencyFormatter.format(product.total)}</p>
-        <p className="flex gap-3 items-center">
-          <span onClick={() => onUpdate(product, -1)}>
-            <FaMinusCircle />
-          </span>
-          <span>{product.quantity}</span>
-          <span onClick={() => onUpdate(product, 1)}>
-            <FaPlusCircle />
+        <p className="text-gray-600 text-lg font-semibold mt-2 flex items-center gap-2">
+          ₹{product.newPrice}
+          <span className="text-sm text-green-500 line-through">
+            ₹{product.price.toFixed(2)}
           </span>
         </p>
+        <button
+          className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
+          onClick={() => {
+            onAddToCart(product);
+          }}
+          disabled={isExistsInTheCart}>
+          {isExistsInTheCart
+            ? "Added to cart"
+            : "Add to Cart"}
+        </button>
       </div>
+
+
     </div>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <lord-icon
@@ -60,33 +64,11 @@ const WishlistItem = ({ product, onUpdate }) => (
   </div>
 );
 
-const LoginToContinue = () => {
-  return (
-    <div>
-      <p className="text-lg font-bold">
-        Seems like you are not logged in yet. Please login to proceed to
-        Checkout.
-      </p>
-      <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
-        <Link to="/auth">
-          <button
-            type="button"
-            className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "425px" }}>
-            Login now
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
-};
-
 const DashboardWishlist = () => {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearch = (e) => setSearchTerm(e.target.value);
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const wishlistItems = useSelector((state) => state.wishlist.items);
+  const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   const onUpdate = (product, quantity) => {
@@ -126,6 +108,13 @@ const DashboardWishlist = () => {
     });
   };
 
+  const onAddToCart = (product) => {
+    const quantity = 1;
+    dispatch(manageCartItem({ product, quantity }));
+    toast.success(`Item added to cart!`);
+  };
+
+
   return (
     <div className="flex min-h-screen bg-[#fff1e6]">
       {/* Sidebar */}
@@ -156,6 +145,8 @@ const DashboardWishlist = () => {
                         key={item.id}
                         product={item}
                         onUpdate={onUpdate}
+                        isExistsInTheCart={cartItems.find((product) => item.id === product.id)}
+                        onAddToCart={onAddToCart}
                       />
                     ))}
                   </div>

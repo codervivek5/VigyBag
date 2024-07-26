@@ -39,10 +39,13 @@ const VigyForm = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
     let processedValue = value;
-
-    const inputProcessors = {
+  
+    if (type === 'file') {
+      processedValue = e.target.files[0];
+    } else {
+      const inputProcessors = {
       aadhaarNumber: val => val.replace(/\D/g, '').slice(0, 12),
       phoneNumber: val => val.replace(/\D/g, '').slice(0, 10),
       email: val => val.toLowerCase(),
@@ -53,15 +56,16 @@ const VigyForm = () => {
     };
     
     processedValue = inputProcessors[name] ? inputProcessors[name](value) : value;
+  }
 
-    setFormData(prevData => ({
-      ...prevData,
-      [activeTab]: {
-        ...prevData[activeTab],
-        [name]: processedValue
-      }
-    }));
-  };
+  setFormData(prevData => ({
+    ...prevData,
+    [activeTab]: {
+      ...prevData[activeTab],
+      [name]: processedValue
+    }
+  }));
+};
 
   const validateEmail = (email) => {
     return email.includes('@');
@@ -220,7 +224,7 @@ const VigyForm = () => {
               required 
               maxLength={11}
               pattern="^[A-Z]{4}0[A-Z0-9]{6}$"
-              title="IFSC code must be 11 characters long and in the correct format"
+              title="IFSC code must be 11 characters long, start with 4 uppercase letters, followed by a 0, and end with 6 alphanumeric characters"
               style={{textTransform: 'uppercase'}}
             />
           </>
@@ -290,12 +294,13 @@ const VigyForm = () => {
     // Append all form fields to formDataToSend
     Object.keys(formData).forEach(tab => {
       Object.keys(formData[tab]).forEach(field => {
-        formDataToSend.append(field, formData[tab][field]);
+        if (field === 'panCard' || field === 'addressProof' || field === 'profilePicture') {
+          formDataToSend.append(field, formData[tab][field], formData[tab][field].name);
+        } else {
+          formDataToSend.append(field, formData[tab][field]);
+        }
       });
     });
-
-    // Log the data entered by the user
-    console.log('Data entered by user:', Object.fromEntries(formDataToSend));
 
     try {
       const response = await axios.post('http://localhost:8080/api/vigy_form', formDataToSend, {
@@ -335,7 +340,7 @@ const VigyForm = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6" encType="multipart/form-data">
           {renderTabContent()}
 
           {activeTab === 'additional' && (
@@ -376,15 +381,12 @@ const VigyForm = () => {
                 Next
               </button>
             ) : (
-              <Link to="/admin">
-                <button 
-                  type="submit"
-                  className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md"
-                  onSubmit={handleSubmit}
-                >
-                  Submit Registration
-                </button>
-              </Link>
+              <button 
+                type="submit"
+                className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md"
+              >
+                Submit Registration
+              </button>
             )}
           </div>
         </form>

@@ -10,7 +10,7 @@ const CartIcon = () => {
 
   return (
     <Link
-      to="/dashboard_cart"
+      to="/dashboard-cart"
       className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md relative">
       <lord-icon
         style={{
@@ -20,7 +20,7 @@ const CartIcon = () => {
         src="https://cdn.lordicon.com/pbrgppbb.json"
         trigger="hover"
         colors="primary:#ffffff"></lord-icon>
-      Cart
+      <span>Cart</span>
       <div className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
         {noOfItems}
       </div>
@@ -34,7 +34,7 @@ const WishlistIcon = () => {
 
   return (
     <Link
-      to="/dashboard_wishlist"
+      to="/dashboard-wishlist"
       className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative">
       <lord-icon
         style={{
@@ -139,7 +139,7 @@ const Aside = () => {
           </Link>
 
           <Link
-            to="/dashboard_order"
+            to="/dashboard-order"
             className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md">
             <lord-icon
               style={{
@@ -154,23 +154,10 @@ const Aside = () => {
 
           <CartIcon />
 
-          {/* <Link
-            to="/dashboard_wishlist"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
-            <lord-icon
-              style={{
-                height: "20px",
-                width: "20px",
-              }}
-              src="https://cdn.lordicon.com/ulnswmkk.json"
-              trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
-            <span>Wishlist</span>
-          </Link> */}
           <WishlistIcon />
 
           <Link
-            to="#"
+            to="/dashboard-notifications"
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative">
             <lord-icon
               style={{
