@@ -25,6 +25,7 @@ const AuthForm = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [showLoginPassword, setShowLoginPassword] = useState(false); // New state for login password visibility
 
   // Signup state
   const [username, setUsername] = useState("");
@@ -32,6 +33,8 @@ const AuthForm = () => {
   const [phone, setPhone] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showSignupPassword, setShowSignupPassword] = useState(false); // New state for signup password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // New state for confirm password visibility
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -200,13 +203,20 @@ const AuthForm = () => {
                       <div className="relative">
                         <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                         <input
-                          type="password"
+                          type={showLoginPassword ? "text" : "password"} // Toggle input type
                           placeholder="Password"
                           className="w-full p-2 pl-10 rounded bg-white text-black"
                           value={loginPassword}
                           onChange={(e) => setLoginPassword(e.target.value)}
                           required
                         />
+                        <button
+                          type="button"
+                          onClick={() => setShowLoginPassword(!showLoginPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        >
+                          {showLoginPassword ? "Hide" : "Show"}
+                        </button>
                       </div>
                       <div className="flex items-center">
                         <input
@@ -319,24 +329,38 @@ const AuthForm = () => {
                       <div className="relative">
                         <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                         <input
-                          type="password"
+                          type={showSignupPassword ? "text" : "password"} // Toggle input type
                           placeholder="Password"
                           className="w-full p-2 pl-10 rounded bg-white text-black"
                           value={signupPassword}
                           onChange={(e) => setSignupPassword(e.target.value)}
                           required
                         />
+                        <button
+                          type="button"
+                          onClick={() => setShowSignupPassword(!showSignupPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        >
+                          {showSignupPassword ? "Hide" : "Show"}
+                        </button>
                       </div>
                       <div className="relative">
                         <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                         <input
-                          type="password"
+                          type={showConfirmPassword ? "text" : "password"} // Toggle input type
                           placeholder="Confirm Password"
                           className="w-full p-2 pl-10 rounded bg-white text-black"
                           value={confirmPassword}
                           onChange={(e) => setConfirmPassword(e.target.value)}
                           required
                         />
+                        <button
+                          type="button"
+                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        >
+                          {showConfirmPassword ? "Hide" : "Show"}
+                        </button>
                       </div>
                       <button
                         type="submit"
