@@ -1,16 +1,11 @@
-<<<<<<<<< Temporary merge branch 1
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-=========
-import React from "react";
->>>>>>>>> Temporary merge branch 2
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
 import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-<<<<<<<<< Temporary merge branch 1
 import ProductCard from "./../ProductCard/ProductCard";
 
 function ProductGrid({ products, headingText }) {
