@@ -1,5 +1,7 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
@@ -7,17 +9,16 @@ import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "./../ProductCard/ProductCard";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+
+
 
 function ProductGrid({ products, headingText }) {
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const navigate = useNavigate();
-=========
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-
-function ProductGrid({ products, headingText }) {
-
+  
   function getRandomDiscountPercent(price) {
     return (price % 40) + 10;
   }
@@ -25,7 +26,7 @@ function ProductGrid({ products, headingText }) {
   function getNewPrice(discountPercent, actualPrice) {
     return ((100 - discountPercent) * actualPrice / 100).toFixed(2);
   }
->>>>>>>>> Temporary merge branch 2
+
 
   return (
     <div className="w-full lg:w-3/4 lg:ml-auto -ml-4 md:mt-28 mt-8 mb-9 mr-5">
@@ -72,41 +73,7 @@ function ProductCard({ product }) {
   const isInWishlist = !!wishlistItems.find((item) => item.id === product.id);
 
   return (
-<<<<<<<<< Temporary merge branch 1
 
-    <div className="w-full lg:w-3/4 lg:ml-auto -ml-4 md:mt-28 mt-8 mb-9">
-      <h1 className="mb-10 font-bold ml-10" style={{ fontSize: "23px" }}>
-        {headingText}
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onClick={() => handleClick(product.id)}
-            onAddToCart={() => onAddToCart(product)}
-            isInCart={!!cartItems.find((item) => item.id === product.id)}
-          />
-        ))}
-
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
-      <div className="mt-2 md:ml-48 ml-80">
-        <lord-icon
-          onClick={() => {
-            onAddToWhishlist(product);
-            handleHeartClick;
-          }}
-          disabled={wishlistItems.find((item) => item.id === product.id)}
-          style={{
-            height: "30px",
-            width: "30px",
-          }}
-          src="https://cdn.lordicon.com/ulnswmkk.json"
-          trigger="click"
-          state={isHeartFilled ? "morph-heart" : "morph-heart-empty"}
-          colors="primary:#e83a30"></lord-icon>
-      </div>
-=========
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer relative">
       {/* wishlist heart */}
       {
@@ -134,7 +101,7 @@ function ProductCard({ product }) {
           )
       }
       {/* product imagee */}
->>>>>>>>> Temporary merge branch 2
+
       <img
         onClick={handleClick}
         src={product.image}
