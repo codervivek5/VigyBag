@@ -209,7 +209,7 @@ const Footer = () => {
       </div>
       <br />
       <div className="footer-bottom text-sm">
-        <p>© 2024 VigyBag. All rights reserved</p>
+        <p>© {new Date().getFullYear()} VigyBag. All rights reserved</p>
         <img
           src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg"
           alt="Payment methods"></img>
