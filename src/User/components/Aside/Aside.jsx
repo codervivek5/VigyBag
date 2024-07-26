@@ -125,7 +125,7 @@ const Aside = () => {
         </div>
         <nav className="flex-1 px-4 py-8 space-y-2">
           <Link
-            to="/profile"
+            to="#"
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
             <lord-icon
               style={{
