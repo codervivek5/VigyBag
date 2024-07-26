@@ -7,6 +7,7 @@ import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
+import WishlistIcon from "./WishlistIcon";
 
 const UserNavbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,6 +118,7 @@ const UserNavbar = ({ isAdmin }) => {
                   searchTerm={searchTerm}
                   handleSearch={handleSearch}
                 />
+                <WishlistIcon/>
                 <CartIcon />
                 {isLoggedIn ? (
                   <div className="relative flex gap-3 items-center">

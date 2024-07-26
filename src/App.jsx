@@ -19,6 +19,7 @@ import DashboardCart from "./User/pages/Dashboard/dashboard-cart";
 import DashboardWishlist from "./User/pages/Dashboard/dashboard-wishlist";
 import Checkout from "./User/pages/Order/Checkout";
 import Cart from "./User/pages/Order/Cart";
+import Wishlist from "./User/pages/Order/Wishlist";
 import Error from "./User/pages/404-Page/Error";
 import ProductDetails from "./User/components/Products/ProductDetails";
 import Help from "./User/pages/Help/Help";
@@ -106,6 +107,7 @@ export default function App() {
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy" element={<Privacy />} /> {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> {/* Cart page route */}
+          <Route path="wishlist" element={<Wishlist />} /> {/* Wishlist page route */}
           <Route path="contact" element={<Contact />} /> {/* Contact page route */}
           <Route path="forgot-password" element={<ForgotPasswordForm />} /> {/* Forgot password page route */}
 
@@ -128,7 +130,6 @@ export default function App() {
 
             <Route path="dashboard" element={<Dashboard />} /> {/* User dashboard route */}
             <Route path="confirm" element={<Confirmation />} /> {/* Order confirmation route */}
-            <Route path="admin-verification" element={<AdminVerificationPage />} /> {/* Admin verification page route */}
             <Route path="cancel" element={<Cancellation />} /> {/* Order cancellation route */}
             <Route path="orderDetails" element={<OrderDetails />} /> {/* Order details route */}
             <Route path="myOrders" element={<MyOrders />} /> {/* My orders route */}
@@ -138,13 +139,17 @@ export default function App() {
             <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
             <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
             <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
+
             <Route path="dashboard-notifications" element={<NotificationPage />} /> {/* Dashboard notifications route */}
             
-          </Route>
 
+          </Route>
+                {/* private route ends */}
+                
           <Route path="certificate" element={<Certifications />} /> {/* Certifications page route */}
           <Route path="*" element={<Error />} /> {/* 404 Error page route */}
         </Route>
+
 
         {/* Admin routes */}
         <Route path="/admin" element={<AdminLayout />}>
@@ -156,6 +161,10 @@ export default function App() {
 
         <Route path="admin-verification" element={<AdminVerificationPage />} /> {/* Admin verification page route */}
         <Route path="/admin/login" element={<AdminLogin />} /> {/* Admin login page route */}
+
+
+        <Route path="admin-verification" element={<AdminVerificationPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
       </Routes>
     </AuthProvider>
