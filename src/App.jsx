@@ -33,7 +33,7 @@ import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 import CookieConsentBanner from "./User/components/cookieconsent.jsx";
 import NotificationPage from "./User/pages/Dashboard/NotificationPage";
-import ProfilePage from "./User/pages/Dashboard/ProfilePage";
+
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -139,7 +139,7 @@ export default function App() {
             <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
             <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
             <Route path="dashboard-notifications" element={<NotificationPage />} /> {/* Dashboard notifications route */}
-            <Route path="/profile" element={<ProfilePage />} />
+            
           </Route>
 
           <Route path="certificate" element={<Certifications />} /> {/* Certifications page route */}
