@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Filters from "../../components/Popular_Categories/Filters";
 import ProductGrid from "../../components/Popular_Categories/ProductGrid";
-
+import toast from "react-hot-toast";
 import axios from "axios";
 
 function BodyCare() {
@@ -14,11 +14,27 @@ function BodyCare() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
-        setFilteredProducts(response.data);
+        const response = await axios.get("https://dummyjson.com/products");
+        if (response.data && Array.isArray(response.data.products)) {
+          // Mapping dummyjson data to match the existing structure
+          const mappedProducts = response.data.products.map((product) => ({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            category: product.category,
+            image: product.images[0] || "", // Ensuring the images array is present
+            rating: {
+              rate: product.rating,
+              count: product.reviews.length || 0, // Ensuriing reviews array is present
+            },
+          }));
+          setProducts(mappedProducts);
+          setFilteredProducts(mappedProducts);
+        } else {
+          setProducts([]);
+          setFilteredProducts([]);}
       } catch (error) {
-        console.error("Axios error:", error);
+        toast.error("Oops, can't get your products, sorry! Try refreshing the page.", error);
       }
     };
     fetchData();
