@@ -9,7 +9,7 @@ function CartIcon() {
   const noOfItems = cartItems.reduce((a, b) => a + b.quantity, 0);
 
   return (
-    <Link to="/cart" className="ml-4 text-green-800 hover:text-gray-600 relative h-full">
+    <Link to="/cart" className=" text-green-800 hover:text-gray-600 relative h-full">
       <lord-icon
         style={{
           width: "40px",

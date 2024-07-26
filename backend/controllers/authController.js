@@ -217,7 +217,6 @@ exports.otp = async (req, res) => {
       </html>
     `,
     };
-
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         return res.status(500).json({ error: error.message });

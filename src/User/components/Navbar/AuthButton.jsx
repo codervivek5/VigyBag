@@ -14,7 +14,7 @@ const AuthButton = ({ isLoggedIn, handleLogout }) =>
   ) : (
     <Link
       to="/auth"
-      className="ml-4 text-green-800 hover:text-gray-600 flex items-center">
+      className=" text-green-800 hover:text-gray-600 flex items-center">
       <button
         type="button"
         className="text-lg text-white bg-[#3d784aff] px-5 py-1 rounded-2xl"
