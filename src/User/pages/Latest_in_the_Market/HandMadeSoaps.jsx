@@ -25,7 +25,7 @@ function HandMadeSoaps() {
             image: product.images?.[0] || "", // Ensuring images array is present
             rating: {
               rate: product.rating,
-              count: product.reviews?.length || 0,, // Ensuring reviews array is present
+              count: product.reviews?.length || 0, // Ensuring reviews array is present
             },
           }));
           setProducts(mappedProducts);
