@@ -7,7 +7,6 @@ import { FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import Card from './Card';
 import anuja from "../../../assets/ANUJA-SINGH.png";
 import tanmay from "../../../assets/tanmay.jpg";
-import archana from "../../../assets/ARCHANA-KRISHNA.png";
 import yatra from "../../../assets/YATRA-VISHWAKARMA.png";
 import harshita from "../../../assets/HARSHITA-BHAMBHANI.png";
 import anshuman from "../../../assets/ANSHUMAN-TIWARI.png";
@@ -45,17 +44,6 @@ function Team() {
         linkedin: "https://www.linkedin.com/in/tanmay-mirgal-1402792a2/",
         twitter: "https://x.com/TanmayMirgal?t=mJp5zJZ_iKDrFF4jw-UF4w&s=08",
         instagram: "https://www.instagram.com/https.tanmay_mirgal/"
-      }
-    },
-    {
-      name: "ARCHANA KRISHNA",
-      role: "UI/UX DESIGNER",
-      imageUrl: archana,
-      socialLinks: {
-       // github: "https://github.com/archana",
-       // linkedin: "https://www.linkedin.com/in/archana",
-       // twitter: "https://twitter.com/archana",
-       // instagram: "https://www.instagram.com/archana"
       }
     },
     {
