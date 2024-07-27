@@ -154,23 +154,10 @@ const Aside = () => {
 
           <CartIcon />
 
-          {/* <Link
-            to="/dashboard_wishlist"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
-            <lord-icon
-              style={{
-                height: "20px",
-                width: "20px",
-              }}
-              src="https://cdn.lordicon.com/ulnswmkk.json"
-              trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
-            <span>Wishlist</span>
-          </Link> */}
           <WishlistIcon />
 
           <Link
-            to="#"
+            to="/dashboard-notifications"
             className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative">
             <lord-icon
               style={{
