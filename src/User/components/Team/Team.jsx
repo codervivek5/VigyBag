@@ -277,7 +277,7 @@ function Team() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-green-800 text-center mb-8 mt-[10vh]">Our Leadership Team</h1>
+      <h1 className="text-3xl font-bold text-green-800 text-center mb-8 mt-[10vh]">Our Leadership </h1>
       <div className="w-full h-1 bg-green-600 mb-8"></div>
 
       <div className="flex justify-center">
