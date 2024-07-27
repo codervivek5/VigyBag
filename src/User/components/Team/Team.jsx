@@ -247,7 +247,9 @@ function Team() {
       })
       .catch(error => {
         console.error('Error fetching GitHub data:', error);
+        alert('Failed to fetch contributors. Please try again later.');
         setLoading(false);
+      });
       });
   };
 
