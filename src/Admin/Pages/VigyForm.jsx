@@ -5,7 +5,7 @@ import SelectField from "../components/RegisterAdmin/SelectField";
 import FileInput from "../components/RegisterAdmin/FileInput";
 import Swal from "sweetalert2";
 import axios from "axios";
-
+import { ClipLoader } from "react-spinners";
 const VigyForm = () => {
   const [activeTab, setActiveTab] = useState("personal");
   const [formData, setFormData] = useState({
@@ -15,6 +15,7 @@ const VigyForm = () => {
     verification: {},
     additional: {},
   });
+  const [loading, setLoading] = useState(false); // Add this line
 
   const tabs = [
     { id: "personal", label: "Personal" },
@@ -293,6 +294,7 @@ const VigyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Add this line
 
     const formDataToSend = new FormData();
 
@@ -327,10 +329,20 @@ const VigyForm = () => {
       );
       console.log(response.data);
       console.log("Form submitted successfully!");
-      // Handle successful submission (e.g., show success message, redirect)
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Form submitted successfully!",
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle error (e.g., show error message)
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "There was an error submitting the form.",
+      });
+    } finally {
+      setLoading(false); // Add this line
     }
   };
 
@@ -433,8 +445,18 @@ const VigyForm = () => {
               <button
                 type="submit"
                 className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md"
+                disabled={loading} // Add this line
               >
-                Submit Registration
+                {loading ? (
+                  <ClipLoader
+                    type="ThreeDots"
+                    color="#fff"
+                    height={24}
+                    width={24}
+                  /> // Add this line
+                ) : (
+                  "Submit Registration"
+                )}
               </button>
             )}
           </div>
