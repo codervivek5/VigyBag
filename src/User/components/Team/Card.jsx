@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 
+import PropTypes from 'prop-types';
+
 const Card = ({ name, role, imageUrl, socialLinks }) => (
   <div className="w-96 bg-white rounded-lg overflow-hidden shadow-lg m-4">
     <div className="relative h-64">
@@ -29,5 +31,17 @@ const Card = ({ name, role, imageUrl, socialLinks }) => (
     </div>
   </div>
 );
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  socialLinks: PropTypes.shape({
+    instagram: PropTypes.string,
+    linkedin: PropTypes.string,
+    twitter: PropTypes.string,
+    github: PropTypes.string,
+  }).isRequired,
+};
 
 export default Card;
