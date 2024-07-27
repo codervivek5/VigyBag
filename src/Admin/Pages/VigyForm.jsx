@@ -317,7 +317,7 @@ const VigyForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/v1/vigy_form",
+        "https://vigybag-backend.onrender.com/api/v1/vigy_form",
         formDataToSend,
         {
           headers: {
