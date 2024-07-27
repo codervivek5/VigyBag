@@ -22,7 +22,10 @@ const repo = "VigyBag";
 function Team() {
   const [contributors, setContributors] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState({ page: 1, loading: false });
+
+  const setPage = (page) => setState((prevState) => ({ ...prevState, page }));
+  const setLoading = (loading) => setState((prevState) => ({ ...prevState, loading }));
 
   const contributorsList = [
     {
