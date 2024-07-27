@@ -7,7 +7,7 @@ const ProfilePage = () => {
     email: '',
     mobile: '',
     password: '',
-    profilePicture: null, // Add a state to store the profile picture
+    profilePicture: 'https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg', // Sample avatar URL
   });
 
   const [couponVisibility, setCouponVisibility] = useState([false, false]); // State for coupon visibility
@@ -21,10 +21,12 @@ const ProfilePage = () => {
   };
 
   const handleFileChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      profilePicture: e.target.files[0],
-    }));
+    if (e.target.files && e.target.files[0]) {
+      setFormData((prevData) => ({
+        ...prevData,
+        profilePicture: e.target.files[0],
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -37,6 +39,14 @@ const ProfilePage = () => {
     setCouponVisibility((prevVisibility) =>
       prevVisibility.map((visible, i) => (i === index ? !visible : visible))
     );
+  };
+
+  const getProfilePicture = () => {
+    if (typeof formData.profilePicture === 'string') {
+      return formData.profilePicture;
+    } else {
+      return URL.createObjectURL(formData.profilePicture);
+    }
   };
 
   return (
@@ -52,13 +62,13 @@ const ProfilePage = () => {
           <div className="flex flex-col md:flex-row items-center mb-8">
             <div className="relative w-32 h-32 mb-4 md:mb-0 md:mr-4">
               <img
-                src={formData.profilePicture ? URL.createObjectURL(formData.profilePicture) : 'https://via.placeholder.com/150'}
+                src={getProfilePicture()}
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover border-black border"
               />
             </div>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <button className=" text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out">
+              <button className="text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out">
                 Edit
               </button>
               <label htmlFor="fileUpload" className="text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out cursor-pointer">
@@ -150,7 +160,7 @@ const ProfilePage = () => {
                 <input
                   type="text"
                   readOnly
-                  value={couponVisibility[index] ? 'ABC123' : '*****'}
+                  value={couponVisibility[index] ? 'ABC123' : '******'}
                   className="block w-48 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-2 mr-4"
                   style={{ backgroundColor: '#e0f7e0', borderColor: '#c4e4c4', fontSize: '14px' }}
                 />
