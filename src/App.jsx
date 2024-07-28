@@ -67,7 +67,11 @@ import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
 
+
 import { Helmet } from "react-helmet";
+
+// not required imports
+import Blog from "./User/pages/Blog/Blog.jsx";
 
 export default function App() {
   return (
@@ -141,6 +145,8 @@ export default function App() {
             <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
 
             <Route path="dashboard-notifications" element={<NotificationPage />} /> {/* Dashboard notifications route */}
+            //Not in use routes 
+            <Route path="blog" element={<Blog />} />
             
 
           </Route>
