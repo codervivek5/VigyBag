@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
 import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { MdHeight } from "react-icons/md";
 
 function ProductGrid({ products, headingText }) {
 
@@ -37,7 +38,6 @@ function ProductCard({ product }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  const wishlistItems = useSelector((state) => state.wishlist.items);
 
   const handleClick = () => {
     navigate("/productDetails");
@@ -49,41 +49,19 @@ function ProductCard({ product }) {
     toast.success(`successfully added to cart!`);
   };
 
-  const onAddToWhishlist = (product) => {
-    const quantity = 1;
-    dispatch(manageWishlistItem({ product, quantity }));
-  };
-
-  
-
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer relative">
-      {/* wishlist heart */}
-      {
-        wishlistItems.find((item) => item.id === product.id) ? (
-          <button
-            className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
-            onClick={() => {
-              onAddToWhishlist(product);
-              toast.success(`Item removed from wishlist!`);
-            }}
-          >
-            <FaHeart size={18} />
-          </button>
-        ) :
-          (
-            <button
-              className="mt-2 md:ml-48 ml-80 text-red-600  absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
-              onClick={() => {
-                onAddToWhishlist(product);
-                toast.success(`Item added to wishlist!`)
-              }}
-            >
-              <FaRegHeart size={18} />
-            </button>
-          )
-      }
-      {/* product imagee */}
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer">
+      <div className="mt-2 ml-44">
+        <lord-icon
+          style={{
+            height: "30px",
+            width: "30px",
+          }}
+          src="https://cdn.lordicon.com/ulnswmkk.json"
+          trigger="morph"
+          state="morph-heart"
+          colors="primary:#e83a30"></lord-icon>
+      </div>
       <img
         onClick={handleClick}
         src={product.image}
@@ -118,7 +96,8 @@ function ProductCard({ product }) {
           onClick={() => {
             onAddToCart(product);
           }}
-          disabled={cartItems.find((item) => item.id === product.id)}>
+          disabled={cartItems.find((item) => item.id === product.id)}
+        >
           {cartItems.find((item) => item.id === product.id)
             ? "Added to cart"
             : "Add to Cart"}
