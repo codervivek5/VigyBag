@@ -32,7 +32,7 @@ import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
 import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
-import CookieConsentBanner from "./User/components/cookieconsent.jsx";
+
 
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
@@ -71,7 +71,6 @@ import { Helmet } from "react-helmet";
 export default function App() {
   return (
     <AuthProvider>
-      <CookieConsentBanner /> {/* Cookie consent banner component */}
       <Helmet>
         {/* Botpress chatbot script */}
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
