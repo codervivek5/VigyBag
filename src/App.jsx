@@ -34,7 +34,7 @@ import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 import CookieConsentBanner from "./User/components/cookieconsent.jsx";
 import NotificationPage from "./User/pages/Dashboard/NotificationPage";
-
+import ProfilePage from "./User/pages/Dashboard/ProfilePage";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -148,7 +148,7 @@ export default function App() {
             //Not in use routes 
             <Route path="blog" element={<Blog />} />
             
-
+            <Route path="profile" element={<ProfilePage />} /> {/* Dashboard Profile route */}
           </Route>
                 {/* private route ends */}
                 

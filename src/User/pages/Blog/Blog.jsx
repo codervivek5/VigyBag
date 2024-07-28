@@ -1,54 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
 
-const articles = [
-  {
-    title: "Deadly Strike on Soccer Field Raises Risk of Escalation Between Israel and Hezbollah",
-    time: "2:24 AM ET",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "Pro-Gaza Activists Size Up Harris",
-    time: "12:06 AM ET",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "A Fed Rate Cut Is Finally Within View",
-    time: "12:02 AM ET",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "Posing as ‘Alicia,’ This Man Scammed Hundreds Online. He Was Also a Victim.",
-    time: "9:00 PM ET",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "British Slang Might Not Be the Dog’s Bollocks Much Longer",
-    time: "9:00 PM ET",
-    img: "https://via.placeholder.com/150"
-  }
-];
-
-const popularArticles = [
-  {
-    title: "Harris Erases Trump’s Lead, WSJ Poll Finds",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "A Few Blockbuster Podcasts Are Making All the Money",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "Arizona Copper Mine at the Center of Epic Fight Over Religion and Politics",
-    img: "https://via.placeholder.com/150"
-  },
-  {
-    title: "Deadly Strike on Soccer Field Raises Risk of Escalation Between Israel and Hezbollah",
-    img: "https://via.placeholder.com/150"
-  }
-];
-
 const ModernBlogPage = () => {
+  const [articles, setArticles] = useState([]);
+  const [latestPosts, setLatestPosts] = useState([]);
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  const fetchArticles = async (page) => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts?per_page=5&page=${page}&_embed`);
+      setArticles((prevArticles) => [...prevArticles, ...response.data]);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+
+  const fetchLatestPosts = async () => {
+    try {
+      const response = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts?per_page=5&page=1&_embed`);
+      setLatestPosts(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchArticles(page);
+  }, [page]);
+
+  useEffect(() => {
+    fetchLatestPosts();
+  }, []);
+
+  const handleArticleClick = async (article) => {
+    try {
+      const response = await axios.get(`https://techcrunch.com/wp-json/wp/v2/posts/${article.id}?_embed`);
+      setSelectedArticle(response.data);
+    } catch (error) {
+      console.error("Error fetching article data:", error);
+    }
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-white shadow-md py-6">
@@ -70,42 +68,70 @@ const ModernBlogPage = () => {
       </header>
       <main className="container mx-auto px-6 py-8 flex">
         <div className="w-2/3">
-          <h2 className="text-3xl font-bold mb-6">Latest Headlines</h2>
+          {selectedArticle ? (
+            <div>
+              <h2 className="text-3xl font-bold mb-6">{selectedArticle.title.rendered}</h2>
+              {selectedArticle._embedded && selectedArticle._embedded['wp:featuredmedia'] && (
+                <img src={selectedArticle._embedded['wp:featuredmedia'][0].source_url} alt={selectedArticle.title.rendered} className="w-full h-auto rounded-md mb-4" />
+              )}
+              <div dangerouslySetInnerHTML={{ __html: selectedArticle.content.rendered }} />
+              <button onClick={() => setSelectedArticle(null)} className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md">
+                Back to Articles
+              </button>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-3xl font-bold mb-6">Latest Headlines</h2>
+              <div className="space-y-6">
+                {articles.map((article, index) => (
+                  <motion.article
+                    key={article.id}
+                    className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                  >
+                    {article._embedded && article._embedded['wp:featuredmedia'] && (
+                      <img src={article._embedded['wp:featuredmedia'][0].source_url} alt={article.title.rendered} className="w-24 h-24 rounded-md mr-4" />
+                    )}
+                    <div>
+                      <a onClick={() => handleArticleClick(article)} className="text-xl font-bold text-blue-600 hover:underline cursor-pointer">
+                        {article.title.rendered}
+                      </a>
+                      <p className="text-gray-500 text-sm mt-2">{new Date(article.date).toLocaleTimeString()}</p>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={() => setPage((prevPage) => prevPage + 1)}
+                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+                  disabled={loading}
+                >
+                  {loading ? 'Loading...' : 'Load More'}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+        <div className="w-1/3 pl-6">
+          <h3 className="text-2xl font-bold mb-6">Latest Posts</h3>
           <div className="space-y-6">
-            {articles.map((article, index) => (
+            {latestPosts.map((post, index) => (
               <motion.article
-                key={index}
+                key={post.id}
                 className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <img src={article.img} alt="placeholder" className="w-24 h-24 rounded-md mr-4"/>
+                {post._embedded && post._embedded['wp:featuredmedia'] && (
+                  <img src={post._embedded['wp:featuredmedia'][0].source_url} alt={post.title.rendered} className="w-16 h-16 rounded-md mr-4" />
+                )}
                 <div>
-                  <a href="#" className="text-xl font-bold text-blue-600 hover:underline">
-                    {article.title}
-                  </a>
-                  <p className="text-gray-500 text-sm mt-2">{article.time}</p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-        <div className="w-1/3 pl-6">
-          <h3 className="text-2xl font-bold mb-6">Most Popular News</h3>
-          <div className="space-y-6">
-            {popularArticles.map((article, index) => (
-              <motion.article
-                key={index}
-                className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
-              >
-                <img src={article.img} alt="placeholder" className="w-16 h-16 rounded-md mr-4"/>
-                <div>
-                  <a href="#" className="text-lg font-bold text-blue-600 hover:underline">
-                    {article.title}
+                  <a onClick={() => handleArticleClick(post)} className="text-lg font-bold text-blue-600 hover:underline cursor-pointer">
+                    {post.title.rendered}
                   </a>
                 </div>
               </motion.article>
