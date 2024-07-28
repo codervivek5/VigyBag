@@ -150,7 +150,6 @@ export default function App() {
             //Not in use routes 
             <Route path="blog" element={<Blog />} />
             //additional routes 
-            
             <Route path="giftcard" element={<GiftcardPage />} />
 
 
