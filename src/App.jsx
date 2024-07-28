@@ -68,7 +68,11 @@ import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
 
+
 import { Helmet } from "react-helmet";
+
+// not required imports
+import Blog from "./User/pages/Blog/Blog.jsx";
 
 export default function App() {
   return (
@@ -197,22 +201,17 @@ export default function App() {
             <Route path="productDetails" element={<ProductDetails />} />{" "}
             {/* Product details route */}
             <Route path="payment" element={<Payment />} /> {/* Payment route */}
-            <Route path="dashboard-order" element={<DashboardOrders />} />{" "}
-            {/* Dashboard orders route */}
-            <Route path="dashboard-cart" element={<DashboardCart />} />{" "}
-            {/* Dashboard cart route */}
-            <Route
-              path="dashboard-wishlist"
-              element={<DashboardWishlist />}
-            />{" "}
-            {/* Dashboard wishlist route */}
-            <Route
-              path="dashboard-notifications"
-              element={<NotificationPage />}
-            />{" "}
-            {/* Dashboard notifications route */}
-            <Route path="profile" element={<ProfilePage />} />{" "}
-            {/* Dashboard Profile route */}
+
+            <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
+            <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
+            <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
+
+            <Route path="dashboard-notifications" element={<NotificationPage />} /> {/* Dashboard notifications route */}
+            //Not in use routes 
+            <Route path="blog" element={<Blog />} />
+            
+            <Route path="profile" element={<ProfilePage />} /> {/* Dashboard Profile route */}
+
           </Route>
           {/* private route ends */}
           <Route path="certificate" element={<Certifications />} />{" "}
