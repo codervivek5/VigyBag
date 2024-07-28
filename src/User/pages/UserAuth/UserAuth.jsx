@@ -149,10 +149,10 @@ const AuthForm = () => {
   };
 
   return (
-    <div className="lg:min-h-screen bg-[#f9efe4] h-[170vh]">
+    <div className="md:min-h-screen h-[120vh] bg-[#f9efe4]">
       {/* Main content */}
-      <div className="flex justify-center items-center h-[calc(100vh-80px)]">
-        <div className="lg:mt-40 mt-30 bg-[#e7f0e7] rounded-lg p-10 shadow-lg md:flex w-full  max-w-7xl lg:h-[75vh] h-[100%] gap-[10vw]">
+      <div className="flex justify-center items-center md:h-[calc(100vh-80px)] h-[calc(150vh-80px)] ">
+        <div className="md:mt-40 mt-30 bg-[#e7f0e7] rounded-lg p-10 shadow-lg md:flex w-full md:max-w-7xl md:h-[75vh] h-[100%] gap-[10vw]">
           {/* Left side */}
           <div className="md:flex-1 md:block pr-8 mt-[13vh] hidden">
             <h1 className="text-5xl font-bold text-[#2d3e40] mb-4">
@@ -183,7 +183,7 @@ const AuthForm = () => {
               <div className="flipper">
                 {/* Login Form */}
                 <div className="front">
-                  <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white lg:h-[65vh] h-[60vh] ">
+                  <div className="bg-[#2d3e40] rounded-lg p-6 shadow-lg text-white">
                     <h2 className="text-2xl font-semibold text-center mb-6 text-[#4caf50] flex items-center justify-center">
                       <SlLogin className="mr-2" />
                       Login as a User
@@ -261,8 +261,16 @@ const AuthForm = () => {
                       </button>
                     </div>
                     <p className="text-xs text-center mt-4">
-                      By continuing, you agree to follow <a href='https://www.vigybag.com/termsandcondition'>Terms of Use</a> and <a href='https://www.vigybag.com/privacy'>
-                      Privacy Policy</a>
+
+                     By continuing, you agree to follow our{" "}
+                         <Link to="https://www.vigybag.com/termsAndCondition" className="text-[#4caf50] hover:underline">
+                          Terms of Use
+                         </Link>{" "}
+                            and{" "}
+                           <Link to="https://www.vigybag.com/privacy" className="text-[#4caf50] hover:underline">
+                            Privacy Policy
+                         </Link>.
+
                     </p>
                     <p className="text-sm text-center mt-4">
                       Don't have an account?{" "}
@@ -384,11 +392,11 @@ const AuthForm = () => {
                   <div className="flex space-x-4 mt-8 text-center md:hidden visible">
                     <Link to="/admin-verification">
                       <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
-                        Login as Admin
+                        SignUp as Admin
                       </button>
                     </Link>
                     <button className="bg-[#f9efe4] text-[#2d3e40] px-6 py-2 rounded-full border border-[#2d3e40] hover:bg-[#2d3e40] hover:text-white transition duration-300">
-                      Login as Vigy
+                      SignUp as Vigy
                     </button>
                   </div>
                 </div>

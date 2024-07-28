@@ -90,7 +90,7 @@ const Navbar = ({ isAdmin }) => {
                   <Link
                     to="/popularCategories/printingStationery"
                     className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 text-base font-bold">
-                    Stationary
+                    Stationery
                   </Link>
                   <Link
                     to="/popularCategories/bodyCare"

@@ -101,8 +101,7 @@ const UserNavbar = ({ isAdmin }) => {
                     <Link
                       key={link.text}
                       to={link.to}
-                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
-                    >
+                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
                       {link.text}
                     </Link>
                   ))}
@@ -118,38 +117,44 @@ const UserNavbar = ({ isAdmin }) => {
                   searchTerm={searchTerm}
                   handleSearch={handleSearch}
                 />
-                <WishlistIcon/>
+                <WishlistIcon />
                 <CartIcon />
                 {isLoggedIn ? (
                   <div className="relative flex gap-3 items-center">
-                    <FaUserCircle
+                    {/* <FaUserCircle
                       onClick={handleDropdownToggle}
                       className="text-3xl cursor-pointer"
-                    />
+                    /> */}
+                    <lord-icon
+                      onClick={handleDropdownToggle}
+                      className="text-3xl cursor-pointer"
+                      style={{
+                        height: "40px",
+                        width: "40px",
+                      }}
+                      src="https://cdn.lordicon.com/hrjifpbq.json"
+                      trigger="hover"
+                      colors="primary:#15803D"></lord-icon>
                     <span className="text-green-700 font-bold">{username}</span>
                     {showDropdown && (
                       <div
                         ref={dropdownRef}
-                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1"
-                      >
-                         {isAdminT && (
-                            <Link
-                              to="/admin"
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                              >
-                              Admin Dashboard
-                            </Link>
-                          )}
+                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
+                        {isAdminT && (
+                          <Link
+                            to="/admin"
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                            Admin Dashboard
+                          </Link>
+                        )}
                         <Link
                           to="/dashboard"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                        >
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                           Dashboard
                         </Link>
                         <button
                           onClick={handleLogout}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
-                        >
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
                           Logout
                         </button>
                       </div>
@@ -163,14 +168,12 @@ const UserNavbar = ({ isAdmin }) => {
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
-              >
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
                 <svg
                   className="h-6 w-6"
                   stroke="#15803D"
                   fill="#15803D"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

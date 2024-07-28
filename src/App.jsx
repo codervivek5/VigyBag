@@ -33,7 +33,8 @@ import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition
 import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 
-
+import NotificationPage from "./User/pages/Dashboard/NotificationPage";
+import ProfilePage from "./User/pages/Dashboard/ProfilePage";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -66,7 +67,13 @@ import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
 
+
 import { Helmet } from "react-helmet";
+
+// not required imports
+import Blog from "./User/pages/Blog/Blog.jsx";
+//additionla poges
+import GiftcardPage from "./User/pages/AdditionalPages/GiftCardPage.jsx";
 
 export default function App() {
   return (
@@ -137,14 +144,40 @@ export default function App() {
             <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
             <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
             <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
+
+            <Route path="dashboard-notifications" element={<NotificationPage />} /> {/* Dashboard notifications route */}
+            //Not in use routes 
+            <Route path="blog" element={<Blog />} />
+            //additional routes 
+            <Route path="giftcard" element={<GiftcardPage />} />
+
+
+            ////
+            
+            <Route path="profile" element={<ProfilePage />} /> {/* Dashboard Profile route */}
           </Route>
                 {/* private route ends */}
                 
           <Route path="certificate" element={<Certifications />} /> {/* Certifications page route */}
           <Route path="*" element={<Error />} /> {/* 404 Error page route */}
         </Route>
+
+
+        {/* Admin routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminPanel />} /> {/* Admin panel route */}
+          {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
+          <Route path="vigy_form" element={<VigyForm />} /> {/* Admin Vigy form route */}
+          <Route path="product_form" element={<ProductForm />} /> {/* Admin product form route */}
+        </Route>
+
+        <Route path="admin-verification" element={<AdminVerificationPage />} /> {/* Admin verification page route */}
+        <Route path="/admin/login" element={<AdminLogin />} /> {/* Admin login page route */}
+
+
         <Route path="admin-verification" element={<AdminVerificationPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+
       </Routes>
     </AuthProvider>
   );
