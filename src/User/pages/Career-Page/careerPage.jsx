@@ -46,13 +46,11 @@ const CareerPage = () => {
 
       <section>
         <p className="text-black text-5xl mt-8 font-bold text-center font-baloo gap-2">
-          Come to <span className="text-green-500">VigyBag</span> to{" "}
-          <span className="text-blue-300"> maximise </span>
+          Come to <span className="text-green-600">VigyBag</span> to maximise
           yourself
         </p>
         <p className="text-black mt-3 text-5xl  font-bold text-center font-baloo mb-3">
-          because when you <span className="text-blue-300"> maximise</span>, we
-          <span className="text-blue-300"> maximise.</span>
+          because when you maximise, we maximise.
         </p>
         <div className="mt-2">
           <img src={career} alt="" className="w-full h-full object-cover" />
