@@ -73,7 +73,7 @@ import { Helmet } from "react-helmet";
 // not required imports
 import Blog from "./User/pages/Blog/Blog.jsx";
 //additionla poges
-import GiftcardPage from "./User/pages/AdditionalPages/GiftCardPage.jsx";
+import GiftcardPage from "./User/pages/AdditionalPages/GiftCardPage";
 
 export default function App() {
   return (
