@@ -24,8 +24,13 @@ function Filters({
           options={[
             "electronics",
             "jewelery",
+            "beauty",
+            "skin-care",
+            "grocery",
             "men's clothing",
             "women's clothing",
+            "sunglasses",
+            "home decor"
           ]}
           onChange={(e) => setCategoryFilter(e.target.value)}
         />

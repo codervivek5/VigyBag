@@ -18,6 +18,7 @@ const ProductCard = ({ image, title, price, rating }) => {
             display: "flex",
             alignItems: "center",
             flexDirection: "row",
+            gap: "0.5rem", //added gap between price and stars
           }}>
           <p className="text-[#1b1a1a]">₹{price}</p>
           {[...Array(rating)].map((_, i) => (
