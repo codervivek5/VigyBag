@@ -52,12 +52,12 @@ const ModernBlogPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-white shadow-md py-6">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between mt-[10vh]">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between mt-[10vh]">
             <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500">
-              Blog Site
+              Vigy Blog
             </h1>
-            <div className="mt-4 sm:mt-0">
+            <div>
               <button className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">
                 Subscribe
               </button>
@@ -68,19 +68,19 @@ const ModernBlogPage = () => {
           </div>
         </div>
       </header>
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:flex">
-        <div className="lg:w-2/3">
+      <main className="container mx-auto px-6 py-8 flex">
+        <div className="w-2/3">
           <h2 className="text-3xl font-bold mb-6">Latest Headlines</h2>
           <div className="space-y-6">
             {articles.map((article, index) => (
               <motion.article
                 key={index}
-                className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col lg:flex-row"
+                className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <img src={article.img} alt="placeholder" className="w-full h-48 lg:w-24 lg:h-24 rounded-md mb-4 lg:mb-0 lg:mr-4"/>
+                <img src={article.img} alt="placeholder" className="w-24 h-24 rounded-md mr-4"/>
                 <div>
                   <a href="#" className="text-xl font-bold text-blue-600 hover:underline">
                     {article.title}
@@ -91,18 +91,18 @@ const ModernBlogPage = () => {
             ))}
           </div>
         </div>
-        <div className="lg:w-1/3 lg:pl-6 mt-8 lg:mt-0">
+        <div className="w-1/3 pl-6">
           <h3 className="text-2xl font-bold mb-6">Most Popular News</h3>
           <div className="space-y-6">
             {popularArticles.map((article, index) => (
               <motion.article
                 key={index}
-                className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col lg:flex-row"
+                className="bg-white p-6 rounded-md shadow-sm hover:shadow-lg transition-shadow duration-300 flex"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
               >
-                <img src={article.img} alt="placeholder" className="w-full h-48 lg:w-16 lg:h-16 rounded-md mb-4 lg:mb-0 lg:mr-4"/>
+                <img src={article.img} alt="placeholder" className="w-16 h-16 rounded-md mr-4"/>
                 <div>
                   <a href="#" className="text-lg font-bold text-blue-600 hover:underline">
                     {article.title}
