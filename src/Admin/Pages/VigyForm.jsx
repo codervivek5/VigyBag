@@ -42,7 +42,7 @@ const VigyForm = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value, type } = e.target;
+    const { fullname, value, type } = e.target;
     let processedValue = value;
 
     if (type === "file") {
@@ -58,8 +58,8 @@ const VigyForm = () => {
         bankAccountNumber: (val) => val.replace(/\D/g, "").slice(0, 18),
       };
 
-      processedValue = inputProcessors[name]
-        ? inputProcessors[name](value)
+      processedValue = inputProcessors[fullname]
+        ? inputProcessors[fullname](value)
         : value;
     }
 
@@ -67,7 +67,7 @@ const VigyForm = () => {
       ...prevData,
       [activeTab]: {
         ...prevData[activeTab],
-        [name]: processedValue,
+        [fullname]: processedValue,
       },
     }));
   };
@@ -77,7 +77,6 @@ const VigyForm = () => {
   };
 
   const indianBanks = [
-    { value: "", label: "Select bank" },
     { value: "SBI", label: "State Bank of India" },
     { value: "HDFC", label: "HDFC Bank" },
     { value: "ICICI", label: "ICICI Bank" },
