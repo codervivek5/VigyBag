@@ -6,6 +6,7 @@ import FileInput from "../components/RegisterAdmin/FileInput";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
+
 const VigyForm = () => {
   const [activeTab, setActiveTab] = useState("personal");
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const VigyForm = () => {
     verification: {},
     additional: {},
   });
-  const [loading, setLoading] = useState(false); // Add this line
+  const [loading, setLoading] = useState(false);
 
   const tabs = [
     { id: "personal", label: "Personal" },
@@ -98,8 +99,8 @@ const VigyForm = () => {
           <>
             <InputField
               label="Full Name ( As per Aadhaar )"
-              name="fullName"
-              value={currentFormData.fullName || ""}
+              name="fullname"
+              value={currentFormData.fullname || ""}
               onChange={handleInputChange}
               placeholder="Enter your full name"
               required
@@ -198,9 +199,9 @@ const VigyForm = () => {
               title="Bank account number must be 8 to 18 digits"
             />
             <InputField
-              label="Enter Confirm Bank Account Number"
-              name="bankAccountNumber"
-              value={currentFormData.bankBranch || ""}
+              label="Confirm Bank Account Number"
+              name="confirmBankAccountNumber"
+              value={currentFormData.confirmBankAccountNumber || ""}
               onChange={handleInputChange}
               placeholder="Enter your confirm bank account number"
               required
@@ -217,7 +218,15 @@ const VigyForm = () => {
               options={indianBanks}
               required
             />
-
+            <InputField
+              label="Bank Branch"
+              name="bankBranch"
+              value={currentFormData.bankBranch || ""}
+              onChange={handleInputChange}
+              placeholder="Enter bank branch"
+              required
+              style={{ textTransform: "uppercase" }}
+            />
             <InputField
               label="IFSC Code"
               name="ifscCode"
@@ -241,7 +250,6 @@ const VigyForm = () => {
                 (only 50kb max, .pdf, .jpg, .jpeg, .png)
               </span>
             </h2>
-
             <FileInput
               label="Pan Card"
               name="panCard"
@@ -250,9 +258,8 @@ const VigyForm = () => {
               required
               maxSize={50 * 1024}
             />
-
             <FileInput
-              label="Proof of Address (e.g.,Aadhaar card,Driving Licenese)"
+              label="Proof of Address (e.g., Aadhaar card, Driving License)"
               name="addressProof"
               onChange={handleInputChange}
               accept=".pdf,.jpg,.jpeg,.png"
@@ -294,7 +301,7 @@ const VigyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Add this line
+    setLoading(true);
 
     const formDataToSend = new FormData();
 
@@ -339,10 +346,10 @@ const VigyForm = () => {
       Swal.fire({
         icon: "error",
         title: "Error",
-        text: "There was an error submitting the form.",
+        text: `There was an error submitting the form. ${error.message}`,
       });
     } finally {
-      setLoading(false); // Add this line
+      setLoading(false);
     }
   };
 
@@ -445,7 +452,7 @@ const VigyForm = () => {
               <button
                 type="submit"
                 className="px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md"
-                disabled={loading} // Add this line
+                disabled={loading}
               >
                 {loading ? (
                   <ClipLoader
@@ -453,7 +460,7 @@ const VigyForm = () => {
                     color="#fff"
                     height={24}
                     width={24}
-                  /> // Add this line
+                  />
                 ) : (
                   "Submit Registration"
                 )}
