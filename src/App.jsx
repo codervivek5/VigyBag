@@ -35,6 +35,11 @@ import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 
 import NotificationPage from "./User/pages/Dashboard/NotificationPage";
 import ProfilePage from "./User/pages/Dashboard/ProfilePage";
+<<<<<<< Updated upstream
+=======
+import CareerPage from "./User/pages/Career-Page/careerPage.jsx";
+import ServicePage from "./User/pages/Service-Page/service.jsx";
+>>>>>>> Stashed changes
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -66,7 +71,6 @@ import FoodBeverages from "./User/pages/Popular_Categories/Food-Beverages";
 import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
-
 
 import { Helmet } from "react-helmet";
 
@@ -123,7 +127,13 @@ export default function App() {
           <Route path="feedback" element={<FeedbackModal />} /> {/* Feedback page route */}
           <Route path="returnAndCancellation" element={<ReturnAndCancellation />} /> {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
+<<<<<<< Updated upstream
 
+=======
+          <Route path="Career" element={<CareerPage />} />{" "}
+          <Route path="service" element={<ServicePage />} />{" "}
+          {/* EPR page route */}
+>>>>>>> Stashed changes
           {/* Private routes requiring authentication */}
           <Route element={<PrivateRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
@@ -132,6 +142,7 @@ export default function App() {
               <Route path="vigy_form" element={<VigyForm />} /> {/* Admin Vigy form route */}
               <Route path="product_form" element={<ProductForm />} /> {/* Admin product form route */}
             </Route>
+<<<<<<< Updated upstream
 
             <Route path="dashboard" element={<Dashboard />} /> {/* User dashboard route */}
             <Route path="confirm" element={<Confirmation />} /> {/* Order confirmation route */}
@@ -155,6 +166,41 @@ export default function App() {
             ////
             
             <Route path="profile" element={<ProfilePage />} /> {/* Dashboard Profile route */}
+=======
+            <Route path="dashboard" element={<Dashboard />} />{" "}
+            {/* User dashboard route */}
+            <Route path="confirm" element={<Confirmation />} />{" "}
+            {/* Order confirmation route */}
+            <Route path="cancel" element={<Cancellation />} />{" "}
+            {/* Order cancellation route */}
+            <Route path="orderDetails" element={<OrderDetails />} />{" "}
+            {/* Order details route */}
+            <Route path="myOrders" element={<MyOrders />} />{" "}
+            {/* My orders route */}
+            <Route path="checkout" element={<Checkout />} />{" "}
+            {/* Checkout route */}
+            <Route path="productDetails" element={<ProductDetails />} />{" "}
+            {/* Product details route */}
+            <Route path="payment" element={<Payment />} /> {/* Payment route */}
+            <Route path="dashboard-order" element={<DashboardOrders />} />{" "}
+            {/* Dashboard orders route */}
+            <Route path="dashboard-cart" element={<DashboardCart />} />{" "}
+            {/* Dashboard cart route */}
+            <Route
+              path="dashboard-wishlist"
+              element={<DashboardWishlist />}
+            />{" "}
+            {/* Dashboard wishlist route */}
+            <Route
+              path="dashboard-notifications"
+              element={<NotificationPage />}
+            />{" "}
+            {/* Dashboard notifications route */}
+            //Not in use routes
+            <Route path="blog" element={<Blog />} />
+            <Route path="profile" element={<ProfilePage />} />{" "}
+            {/* Dashboard Profile route */}
+>>>>>>> Stashed changes
           </Route>
                 {/* private route ends */}
                 
