@@ -21,7 +21,7 @@ function ProductGrid({ products, headingText }) {
       <h1 className="mb-10 font-bold ml-10" style={{ fontSize: "23px" }}>
         {headingText}
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
           const discountPercent = getRandomDiscountPercent(product.price);
           product.discountPercent = discountPercent
@@ -54,10 +54,9 @@ function ProductCard({ product }) {
     dispatch(manageWishlistItem({ product, quantity }));
   };
 
-  
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer relative">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer relative w-full max-w-sm">
       {/* wishlist heart */}
       {
         wishlistItems.find((item) => item.id === product.id) ? (
@@ -73,7 +72,7 @@ function ProductCard({ product }) {
         ) :
           (
             <button
-              className="mt-2 md:ml-48 ml-80 text-red-600  absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
+              className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
               onClick={() => {
                 onAddToWhishlist(product);
                 toast.success(`Item added to wishlist!`)
@@ -88,7 +87,7 @@ function ProductCard({ product }) {
         onClick={handleClick}
         src={product.image}
         alt={product.title}
-        className="w-full h-48 object-contain p-4"
+        className="w-full h-60 object-contain"
       />
       {/* product details */}
       <div className="p-4">
