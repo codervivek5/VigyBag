@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
-    "@reduxjs/toolkit": "^2.2.6",
+    "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.2",
     "canvas-confetti": "^1.9.3",
     "dotenv": "^16.4.5",
@@ -20,7 +20,7 @@
     "emailjs-com": "^3.2.0",
     "express": "^4.19.2",
     "file-saver": "^2.0.5",
-    "framer-motion": "^11.3.17",
+    "framer-motion": "^11.3.19",
     "fuse.js": "^7.0.0",
     "helmet": "^7.1.0",
     "html2canvas": "^1.4.1",
