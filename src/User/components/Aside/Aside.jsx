@@ -5,13 +5,13 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const CartIcon = () => {
   const cartItems = useSelector((state) => state.cart.items);
-
   const noOfItems = cartItems.reduce((a, b) => a + b.quantity, 0);
 
   return (
     <Link
       to="/dashboard-cart"
-      className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md relative">
+      className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative"
+    >
       <lord-icon
         style={{
           height: "20px",
@@ -19,7 +19,8 @@ const CartIcon = () => {
         }}
         src="https://cdn.lordicon.com/pbrgppbb.json"
         trigger="hover"
-        colors="primary:#ffffff"></lord-icon>
+        colors="primary:#ffffff"
+      ></lord-icon>
       <span>Cart</span>
       <div className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
         {noOfItems}
@@ -35,7 +36,8 @@ const WishlistIcon = () => {
   return (
     <Link
       to="/dashboard-wishlist"
-      className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative">
+      className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative"
+    >
       <lord-icon
         style={{
           height: "20px",
@@ -43,7 +45,8 @@ const WishlistIcon = () => {
         }}
         src="https://cdn.lordicon.com/ulnswmkk.json"
         trigger="hover"
-        colors="primary:#ffffff"></lord-icon>
+        colors="primary:#ffffff"
+      ></lord-icon>
       <span>Wishlist</span>
       <div className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
         {noOfItem}
@@ -53,21 +56,19 @@ const WishlistIcon = () => {
 };
 
 const Aside = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    // const email = params.get("email");
     const name = params.get("name");
 
     if (name) {
-      // localStorage.setItem("useremail", email);
       localStorage.setItem("username", name);
     }
   }, [location]);
 
-  const userEmail = localStorage.getItem("useremail");
   const username = localStorage.getItem("username") || "Admin";
 
   const handleLogout = () => {
@@ -105,11 +106,18 @@ const Aside = () => {
     });
   };
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <aside
-        className="w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 index-"
-        style={{ position: "sticky" }}>
+        className={`w-64 bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform md:translate-x-0 z-40`}
+        style={{ position: "sticky" }}
+      >
         <div className="flex items-center space-x-4 mt-10 ml-5">
           <div className="h-10 bg-green-700 flex items-center justify-center p-8 rounded-lg gap-2">
             <lord-icon
@@ -119,14 +127,16 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/hrjifpbq.json"
               trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
+              colors="primary:#ffffff"
+            ></lord-icon>
             <span className="text-white">{username}</span>
           </div>
         </div>
         <nav className="flex-1 px-4 py-8 space-y-2">
           <Link
             to="/profile"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
+          >
             <lord-icon
               style={{
                 height: "20px",
@@ -134,13 +144,15 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/hrjifpbq.json"
               trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
+              colors="primary:#ffffff"
+            ></lord-icon>
             <span>My Profile</span>
           </Link>
 
           <Link
             to="/dashboard-order"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700  rounded-md">
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
+          >
             <lord-icon
               style={{
                 height: "20px",
@@ -148,7 +160,8 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/xljvqlng.json"
               trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
+              colors="primary:#ffffff"
+            ></lord-icon>
             <span>Orders</span>
           </Link>
 
@@ -158,7 +171,8 @@ const Aside = () => {
 
           <Link
             to="/dashboard-notifications"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative">
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md relative"
+          >
             <lord-icon
               style={{
                 height: "20px",
@@ -166,7 +180,8 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/lznlxwtc.json"
               trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
+              colors="primary:#ffffff"
+            ></lord-icon>
             <span>Notifications</span>
             <span className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
               2
@@ -175,7 +190,8 @@ const Aside = () => {
 
           <Link
             to="/Help"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
+          >
             <lord-icon
               style={{
                 height: "20px",
@@ -183,12 +199,14 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/ojnjgkun.json"
               trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
+              colors="primary:#ffffff"
+            ></lord-icon>
             <span>Help</span>
           </Link>
           <Link
             to="/contact"
-            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md">
+            className="flex items-center space-x-2 p-2 hover:bg-green-700 rounded-md"
+          >
             <lord-icon
               style={{
                 height: "20px",
@@ -196,7 +214,8 @@ const Aside = () => {
               }}
               src="https://cdn.lordicon.com/srsgifqc.json"
               trigger="hover"
-              colors="primary:#ffffff"></lord-icon>
+              colors="primary:#ffffff"
+            ></lord-icon>
             <span>Contact Us</span>
           </Link>
 
@@ -209,12 +228,22 @@ const Aside = () => {
                 padding: "12px 30px",
                 borderRadius: "8px",
                 border: "1px solid #98bf8cff",
-              }}>
+              }}
+            >
               Logout
             </button>
           </div>
         </nav>
       </aside>
+
+      <div className="md:hidden fixed top-1/2 left-0 transform -translate-y-1/2 z-50">
+        <button
+          onClick={toggleSidebar}
+          className="bg-green-700 p-2 rounded-md text-white flex items-center"
+        >
+          <span>{isOpen ? "<" : ">"}</span>
+        </button>
+      </div>
     </>
   );
 };
