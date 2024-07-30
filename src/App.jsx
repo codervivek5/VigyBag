@@ -75,10 +75,10 @@ import { Helmet } from "react-helmet";
 import Blog from "./User/pages/Blog/Blog.jsx";
 //additionla poges
 import GiftcardPage from "./User/pages/AdditionalPages/GiftCardPage";
-import Sponsorships from "./User/pages/Sponsorships/Sponsorships";
-import Warranty from "./User/pages/Warranty/Warranty";
-import ProductCare from "./User/pages/ProductCare/ProductCare";
-import Subscription from "./User/pages/Subscription/Subscription";
+// import Sponsorships from "./User/pages/Sponsorships/Sponsorships";
+// import Warranty from "./User/pages/Warranty/Warranty";
+// import ProductCare from "./User/pages/ProductCare/ProductCare";
+// import Subscription from "./User/pages/Subscription/Subscription";
 import Events from "./User/pages/Events/Events";
 
 
@@ -227,10 +227,10 @@ export default function App() {
             <Route path="blog" element={<Blog />} />
             //additional routes
             <Route path="giftcard" element={<GiftcardPage />} />
-            <Route path="sponsorships" element={<Sponsorships />} />
+            {/* <Route path="sponsorships" element={<Sponsorships />} />
             <Route path="warranty" element={<Warranty/>} />
             <Route path="productCare" element={<ProductCare/>} />
-            <Route path="subscription" element={<Subscription/>} />
+            <Route path="subscription" element={<Subscription/>} /> */}
             <Route path="events" element={<Events/>} />
 
 x
