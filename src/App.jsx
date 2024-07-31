@@ -1,6 +1,6 @@
 import React from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { Route, Routes } from "react-router-dom";
+import { AuthProvider,  } from "./context/AuthContext";
 
 // User components
 import UserAuth from "./User/pages/UserAuth/UserAuth";
