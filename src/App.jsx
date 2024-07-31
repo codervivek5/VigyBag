@@ -80,11 +80,14 @@ import GiftcardPage from "./User/pages/AdditionalPages/GiftCardPage";
 // import ProductCare from "./User/pages/ProductCare/ProductCare";
 // import Subscription from "./User/pages/Subscription/Subscription";
 import Events from "./User/pages/Events/Events";
+import SPLoader from "./components/SpinnerLoader.jsx";
 
 
 export default function App() {
   return (
+    
     <AuthProvider>
+      <SPLoader />
       <Helmet>
         {/* Botpress chatbot script */}
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
