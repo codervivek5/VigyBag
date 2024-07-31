@@ -7,8 +7,8 @@ const Loader = ({ visible }) => {
     <div className={`loader-overlay ${visible ? 'visible' : 'hidden'}`}>
       <RotatingLines
         visible={visible}
-        height="96"
-        width="96"
+        height="300"
+        width="300"
         color="grey"
         strokeWidth="5"
         animationDuration="0.75"
