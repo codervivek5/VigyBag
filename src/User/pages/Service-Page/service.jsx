@@ -31,7 +31,7 @@ const ServicePage = () => {
       name: "Advertising",
       image: advertising,
       description:
-        "Lend your advertising services to sellers across the country. Help them promote their products and boost their sales. ",
+        "Lend your advertising services to sellers across the country. Help them promote their products and boost their sales.",
     },
     {
       name: "Cataloging",
@@ -55,13 +55,13 @@ const ServicePage = () => {
       name: "Seller Account Reinstatement",
       image: sellerAcount,
       description:
-        "Help sellers in reinstating their suspended accounts and ensure their accounts don't get suspended in future",
+        "Help sellers in reinstating their suspended accounts and ensure their accounts don't get suspended in future.",
     },
     {
       name: "Seller Training",
       image: sellerTaining,
       description:
-        "Provide in-person classroom / online training to new sellers & recently onboarded sellers on how to manage and grow their business on VigyBag",
+        "Provide in-person classroom / online training to new sellers & recently onboarded sellers on how to manage and grow their business on VigyBag.",
     },
     {
       name: "Software Solutions",
@@ -87,27 +87,27 @@ const ServicePage = () => {
       description:
         "Provide storage & inventory handling services to recent and existing sellers for non-FBF fulfillment on VigyBag platform at your warehouse locations.",
     },
-
     // Add more leadership members as needed
   ];
 
   return (
     <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen">
-      {/*Header Section */}
+      {/* Header Section */}
       <Header />
 
       {/* Leadership Section */}
       <section className="py-12 bg-green-50 md:py-20">
-        <h2 className="text-2xl md:text-2xl font-bold text-center mb-8 md:mb-16 text-green-800 ">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16 text-green-800">
           SERVICES THAT YOU CAN PROVIDE
         </h2>
-        <div className="container mx-auto px-16">
+        <div className="container mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {leadershipData.map((leader, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105 h-[50vh] w-[20vw]">
-                <div className="relative h-48 md:h-50">
+                className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105"
+              >
+                <div className="relative h-48 md:h-64">
                   <img
                     src={leader.image}
                     alt={leader.name}
@@ -115,7 +115,7 @@ const ServicePage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                    <h3 className="text-xl md:text-xl font-semibold text-white">
+                    <h3 className="text-lg md:text-xl font-semibold text-white">
                       {leader.name}
                     </h3>
                   </div>
@@ -127,14 +127,11 @@ const ServicePage = () => {
                   <p className="text-sm text-blue-500">
                     List Your Service{" "}
                     <lord-icon
-                      style={{
-                        height: "20px",
-                        width: "20px",
-                        paddingTop: "5px",
-                      }}
+                      style={{ height: "20px", width: "20px", paddingTop: "5px" }}
                       src="https://cdn.lordicon.com/vduvxizq.json"
                       trigger="hover"
-                      colors="primary:#1663c7"></lord-icon>
+                      colors="primary:#1663c7"
+                    ></lord-icon>
                   </p>
                 </div>
               </div>
