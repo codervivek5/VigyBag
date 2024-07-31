@@ -75,10 +75,10 @@ import { Helmet } from "react-helmet";
 import Blog from "./User/pages/Blog/Blog.jsx";
 //additionla poges
 import GiftcardPage from "./User/pages/AdditionalPages/GiftCardPage";
-// import Sponsorships from "./User/pages/Sponsorships/Sponsorships";
-// import Warranty from "./User/pages/Warranty/Warranty";
-// import ProductCare from "./User/pages/ProductCare/ProductCare";
-// import Subscription from "./User/pages/Subscription/Subscription";
+import Sponsorships from "./User/pages/Sponsorships/Sponsorships";
+import Warranty from "./User/pages/Warranty/Warranty";
+import ProductCare from "./User/pages/ProductCare/ProductCare";
+import Subscription from "./User/pages/Subscription/Subscription";
 import Events from "./User/pages/Events/Events";
 
 
@@ -152,96 +152,91 @@ export default function App() {
             path="popularCategories/printingStationery"
             element={<PrintingStationery />}
           />
-          <Route path="about" element={<AboutUs />} />{" "}
+          <Route path="about" element={<AboutUs />} />
           {/* About Us page route */}
           <Route path="help" element={<Help />} /> {/* Help page route */}
-          <Route path="privacy" element={<Privacy />} />{" "}
+          <Route path="privacy" element={<Privacy />} />
           {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> {/* Cart page route */}
-          <Route path="wishlist" element={<Wishlist />} />{" "}
+          <Route path="wishlist" element={<Wishlist />} />
           {/* Wishlist page route */}
-          <Route path="contact" element={<Contact />} />{" "}
+          <Route path="contact" element={<Contact />} />
           {/* Contact page route */}
-          <Route path="forgot-password" element={<ForgotPasswordForm />} />{" "}
+          <Route path="forgot-password" element={<ForgotPasswordForm />} />
           {/* Forgot password page route */}
           <Route path="team" element={<Team />} /> {/* Team page route */}
-          <Route path="auth" element={<UserAuth />} />{" "}
+          <Route path="auth" element={<UserAuth />} />
           {/* User authentication page route */}
           <Route path="faq" element={<FAQ />} /> {/* FAQ page route */}
           <Route
             path="termsAndCondition"
             element={<TermsAndConditions />}
-          />{" "}
+          />
           {/* Terms and Conditions page route */}
-          <Route path="feedback" element={<FeedbackModal />} />{" "}
+          <Route path="feedback" element={<FeedbackModal />} />
           {/* Feedback page route */}
           <Route
             path="returnAndCancellation"
             element={<ReturnAndCancellation />}
-          />{" "}
+          />
           {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
-          <Route path="career" element={<CareerPage />} />{" "}
-          <Route path="service" element={<ServicePage />} />{" "}
+          <Route path="career" element={<CareerPage />} />
+          <Route path="service" element={<ServicePage />} />
           {/* EPR page route */}
           {/* Private routes requiring authentication */}
           <Route element={<PrivateRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminPanel />} /> {/* Admin panel route */}
               {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
-              <Route path="vigy_form" element={<VigyForm />} />{" "}
+              <Route path="vigy_form" element={<VigyForm />} />
               {/* Admin Vigy form route */}
-              <Route path="product_form" element={<ProductForm />} />{" "}
+              <Route path="product_form" element={<ProductForm />} />
               {/* Admin product form route */}
             </Route>
-            <Route path="dashboard" element={<Dashboard />} />{" "}
+            <Route path="dashboard" element={<Dashboard />} />
             {/* User dashboard route */}
-            <Route path="confirm" element={<Confirmation />} />{" "}
+            <Route path="confirm" element={<Confirmation />} />
             {/* Order confirmation route */}
-            <Route path="cancel" element={<Cancellation />} />{" "}
+            <Route path="cancel" element={<Cancellation />} />
             {/* Order cancellation route */}
-            <Route path="orderDetails" element={<OrderDetails />} />{" "}
+            <Route path="orderDetails" element={<OrderDetails />} />
             {/* Order details route */}
-            <Route path="myOrders" element={<MyOrders />} />{" "}
+            <Route path="myOrders" element={<MyOrders />} />
             {/* My orders route */}
-            <Route path="checkout" element={<Checkout />} />{" "}
+            <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
-            <Route path="productDetails" element={<ProductDetails />} />{" "}
+            <Route path="productDetails" element={<ProductDetails />} />
             {/* Product details route */}
             <Route path="payment" element={<Payment />} /> {/* Payment route */}
-            <Route path="dashboard-order" element={<DashboardOrders />} />{" "}
+            <Route path="dashboard-order" element={<DashboardOrders />} />
             {/* Dashboard orders route */}
-            <Route path="dashboard-cart" element={<DashboardCart />} />{" "}
+            <Route path="dashboard-cart" element={<DashboardCart />} />
             {/* Dashboard cart route */}
             <Route
               path="dashboard-wishlist"
               element={<DashboardWishlist />}
-            />{" "}
+            />
             {/* Dashboard wishlist route */}
             <Route
               path="dashboard-notifications"
               element={<NotificationPage />}
-            />{" "}
+            />
             {/* Dashboard notifications route */}
-            //Not in use routes
+            {/* Not in use routes */}
             <Route path="blog" element={<Blog />} />
-            //additional routes
+            {/* additional routes */}
             <Route path="giftcard" element={<GiftcardPage />} />
-            {/* <Route path="sponsorships" element={<Sponsorships />} />
-            <Route path="warranty" element={<Warranty/>} />
-            <Route path="productCare" element={<ProductCare/>} />
-            <Route path="subscription" element={<Subscription/>} /> */}
-            <Route path="events" element={<Events/>} />
-
-x
-
-
-
-            <Route path="profile" element={<ProfilePage />} />{" "}
+            <Route path="sponsorships" element={<Sponsorships />} />
+            <Route path="warranty" element={<Warranty />} />
+            <Route path="productCare" element={<ProductCare />} />
+            <Route path="subscription" element={<Subscription />} />
+            <Route path="events" element={<Events />} />
+            <Route path="profile" element={<ProfilePage />} />
             {/* Dashboard Profile route */}
           </Route>
           {/* private route ends */}
-          <Route path="certificate" element={<Certifications />} />{" "}
+          <Route path="certificate" element={<Certifications />} />
           {/* Certifications page route */}
           <Route path="*" element={<Error />} /> {/* 404 Error page route */}
         </Route>
@@ -249,17 +244,15 @@ x
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminPanel />} /> {/* Admin panel route */}
           {/* <Route path="dashboard" element={<AdminDashboard />} /> */}
-          <Route path="vigy_form" element={<VigyForm />} />{" "}
+          <Route path="vigy_form" element={<VigyForm />} />
           {/* Admin Vigy form route */}
-          <Route path="product_form" element={<ProductForm />} />{" "}
+          <Route path="product_form" element={<ProductForm />} />
           {/* Admin product form route */}
         </Route>
-        <Route path="admin-verification" element={<AdminVerificationPage />} />{" "}
-        {/* Admin verification page route */}
-        <Route path="/admin/login" element={<AdminLogin />} />{" "}
-        {/* Admin login page route */}
         <Route path="admin-verification" element={<AdminVerificationPage />} />
+        {/* Admin verification page route */}
         <Route path="/admin/login" element={<AdminLogin />} />
+        {/* Admin login page route */}
       </Routes>
     </AuthProvider>
   );
