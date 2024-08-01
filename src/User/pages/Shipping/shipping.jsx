@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const shipping = () => {
+const Shipping = () => {
   useEffect(() => {
     document.title = "VigyBag | shipping";
   }, []);
@@ -252,4 +252,4 @@ const shipping = () => {
   );
 };
 
-export default shipping;
+export default Shipping;
