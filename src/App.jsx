@@ -85,9 +85,9 @@ import SPLoader from "./components/SpinnerLoader.jsx";
 
 export default function App() {
   return (
-    
+   
     <AuthProvider>
-      <SPLoader />
+      {isLoading && <SPLoader />}
       <Helmet>
         {/* Botpress chatbot script */}
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
