@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { AuthProvider,  } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 // User components
 import UserAuth from "./User/pages/UserAuth/UserAuth";
@@ -37,6 +37,7 @@ import NotificationPage from "./User/pages/Dashboard/NotificationPage";
 import ProfilePage from "./User/pages/Dashboard/ProfilePage";
 import CareerPage from "./User/pages/Career-Page/careerPage.jsx";
 import ServicePage from "./User/pages/Service-Page/service.jsx";
+import Shipping from "./User/pages/Shipping/shipping";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -80,7 +81,6 @@ import Warranty from "./User/pages/Warranty/Warranty";
 import ProductCare from "./User/pages/ProductCare/ProductCare";
 import Subscription from "./User/pages/Subscription/Subscription";
 import Events from "./User/pages/Events/Events";
-
 
 export default function App() {
   return (
@@ -168,10 +168,7 @@ export default function App() {
           <Route path="auth" element={<UserAuth />} />
           {/* User authentication page route */}
           <Route path="faq" element={<FAQ />} /> {/* FAQ page route */}
-          <Route
-            path="termsAndCondition"
-            element={<TermsAndConditions />}
-          />
+          <Route path="termsAndCondition" element={<TermsAndConditions />} />
           {/* Terms and Conditions page route */}
           <Route path="feedback" element={<FeedbackModal />} />
           {/* Feedback page route */}
@@ -181,8 +178,9 @@ export default function App() {
           />
           {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
-          <Route path="career" element={<CareerPage />} />
-          <Route path="service" element={<ServicePage />} />
+          <Route path="career" element={<CareerPage />} />{" "}
+          <Route path="service" element={<ServicePage />} />{" "}
+          <Route path="shipping" element={<Shipping />} />{" "}
           {/* EPR page route */}
           {/* Private routes requiring authentication */}
           <Route element={<PrivateRoute />}>
@@ -213,10 +211,7 @@ export default function App() {
             {/* Dashboard orders route */}
             <Route path="dashboard-cart" element={<DashboardCart />} />
             {/* Dashboard cart route */}
-            <Route
-              path="dashboard-wishlist"
-              element={<DashboardWishlist />}
-            />
+            <Route path="dashboard-wishlist" element={<DashboardWishlist />} />
             {/* Dashboard wishlist route */}
             <Route
               path="dashboard-notifications"

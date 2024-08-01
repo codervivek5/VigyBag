@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footer.css";
-import { FaDiscord } from 'react-icons/fa';
-import { FaInstagram } from 'react-icons/fa';
-import { BsTwitterX } from 'react-icons/bs';  
+import { FaDiscord } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.svg";
 import googlePlay from "../../../assets/google-play.png";
@@ -19,7 +19,11 @@ const Footer = () => {
       <div className="footer-top">
         <div className="flex-shrink-0 ">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh", zIndex: "1", marginLeft: "40px" }} />
+            <img
+              src={Logo}
+              alt="VigyBag Logo"
+              style={{ height: "12vh", zIndex: "1", marginLeft: "40px" }}
+            />
           </Link>
 
           <div
@@ -64,7 +68,7 @@ const Footer = () => {
           <Link to="/contact" onClick={scrollToTop}>
             Contact us
           </Link>
-          <Link to="/our-services" onClick={scrollToTop}>
+          <Link to="/service" onClick={scrollToTop}>
             Our Services
           </Link>
           <Link to="/about" onClick={scrollToTop}>
@@ -96,6 +100,9 @@ const Footer = () => {
           <Link to="/termsAndCondition" onClick={scrollToTop}>
             Terms & Conditions
           </Link>
+          <Link to="/shipping" onClick={scrollToTop}>
+            shipping
+          </Link>
         </div>
         <div className="flex flex-col justify-items-end items-start md:justify-center">
           <p className="text-center text-gray-400 text-sm md:justify-center underline">
@@ -106,8 +113,7 @@ const Footer = () => {
             <a
               href="https://www.google.com/maps?q=Kanpur,+Uttar+Pradesh+208025"
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               <p>
                 <lord-icon
                   style={{
@@ -155,11 +161,18 @@ const Footer = () => {
               SOCIALS:
             </p>
             <div className="social-icons">
-              <a href="https://www.instagram.com/vigybag/" target="_blank" rel="noopener noreferrer">
-                <FaInstagram size={30} style={{ color: '#E4405F' }} />
+              <a
+                href="https://www.instagram.com/vigybag/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <FaInstagram size={30} style={{ color: "#E4405F" }} />
               </a>
-              <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
-                <BsTwitterX size={25} style={{ color: '#ffffff' }} /> {/* X color */}
+              <a
+                href="https://www.x.com"
+                target="_blank"
+                rel="noopener noreferrer">
+                <BsTwitterX size={25} style={{ color: "#ffffff" }} />{" "}
+                {/* X color */}
               </a>
               <a
                 href="https://www.linkedin.com/posts/codervivek_startup-teamwork-innovation-activity-7211097005408890880-haWJ?"
@@ -199,7 +212,10 @@ const Footer = () => {
                   src="https://cdn.lordicon.com/fjuachvi.json"
                   trigger="hover"></lord-icon>
               </a>
-              <a href="https://discord.com/invite/xujgQevyZ4" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://discord.com/invite/xujgQevyZ4"
+                target="_blank"
+                rel="noopener noreferrer">
                 <FaDiscord size={30} />
               </a>
             </div>
