@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import TUMBLER from "../../../assets/TUMBLER.png";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const textColor = "text-zinc-800";
 const subTextColor = "text-zinc-600";
@@ -113,10 +114,22 @@ const Orders = () => {
   useEffect(() => {
     document.title = "VigyBag | My Orders";
   }, []);
+
   return (
     <div className="bg-[#fff0e3ff] flex justify-center mt-1 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>VigyBag | My Orders</title>
+        <meta
+          name="description"
+          content="Review and manage your orders on VigyBag. Track shipments, view details, and edit your order."
+        />
+        <meta
+          name="keywords"
+          content="VigyBag, eco-friendly products, order management, order tracking"
+        />
+      </Helmet>
       <div className="bg-[#fff0e3ff] p-6 rounded-lg shadow-md w-full max-w-6xl mt-24 mb-10">
-        <h2 className={`text-2xl font-bold mb-4 ${textColor}`}>Your Orders</h2>
+        <h1 className={`text-2xl font-bold mb-4 ${textColor}`}>Your Orders</h1>
         <Breadcrumbs />
 
         <div style={{ borderRadius: "20px" }}>

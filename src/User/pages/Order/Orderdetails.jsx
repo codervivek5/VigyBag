@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";  // Import Helmet for SEO
 import TUMBLER from "../../../assets/TUMBLER.png";
 import tick from "../../../assets/tick.png";
 import { Link } from "react-router-dom";
@@ -6,6 +7,14 @@ import OrderTrackingBar from './OrderTrackingBar';  // Import the new component
 
 const OrderDetails = () => (
   <div className="bg-[#fff0e3ff] p-4 sm:p-6">
+    <Helmet>
+      <title>Order Details | VigyBag</title>
+      <meta
+        name="description"
+        content="View detailed information about your order including shipping address, payment methods, order summary, and order status. Track your package and manage your order."
+      />
+      <meta name="robots" content="index, follow" />
+    </Helmet>
     <Breadcrumbs />
     <h1 className="text-xl sm:text-2xl font-bold mb-4 mt-20">Order Details</h1>
     <OrderInfo />
@@ -23,7 +32,8 @@ const OrderDetails = () => (
 );
 
 const Breadcrumbs = () => (
-  <div
+  <nav
+    aria-label="breadcrumb"
     className="text-sm text-zinc-500 mb-2 relative"
     style={{ left: "1vw", top: ".5vh" }}>
     <Link to="/dashboard" className="hover:underline">
@@ -41,7 +51,7 @@ const Breadcrumbs = () => (
     <Link to="/orderDetails" className="hover:underline">
       Order Details
     </Link>
-  </div>
+  </nav>
 );
 
 const OrderInfo = () => (
@@ -58,14 +68,14 @@ const Card = ({ title, children }) => (
 );
 
 const Address = () => (
-  <>
-    <p>Anujo Singh</p>
+  <address>
+    <p>Anuja Singh</p>
     <p>4/783 Gurudwara Gali</p>
     <p>Vigyan Nagar</p>
     <p>KANAKPUR, UTTAR PRADESH</p>
     <p>342200</p>
     <p>India</p>
-  </>
+  </address>
 );
 
 const OrderSummary = () => (
