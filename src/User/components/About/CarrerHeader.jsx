@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 function Header() {
   return (
     <>
-      <header className="relative h-96 md:h-[100vh] flex items-center justify-center overflow-hidden">
+      <header className="relative h-[100vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://image-assets.eu-2.volcanic.cloud/api/v1/assets/images/67b76b0e206f4f5656559b5c96208131?size=2000x600%3C"
