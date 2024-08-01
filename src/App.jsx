@@ -36,7 +36,7 @@ import NotificationPage from "./User/pages/Dashboard/NotificationPage";
 import ProfilePage from "./User/pages/Dashboard/ProfilePage";
 import CareerPage from "./User/pages/Career-Page/careerPage.jsx";
 import ServicePage from "./User/pages/Service-Page/service.jsx";
-
+import Shipping from "./User/pages/Shipping/shipping";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -126,13 +126,20 @@ export default function App() {
           <Route path="team" element={<Team />} /> {/* Team page route */}
           <Route path="auth" element={<UserAuth />} /> {/* User authentication page route */}
           <Route path="faq" element={<FAQ />} /> {/* FAQ page route */}
-          <Route path="termsAndCondition" element={<TermsAndConditions />} /> {/* Terms and Conditions page route */}
-          <Route path="feedback" element={<FeedbackModal />} /> {/* Feedback page route */}
-          <Route path="returnAndCancellation" element={<ReturnAndCancellation />} /> {/* Return and Cancellation page route */}
+          <Route path="termsAndCondition" element={<TermsAndConditions />} />
+          {/* Terms and Conditions page route */}
+          <Route path="feedback" element={<FeedbackModal />} />
+          {/* Feedback page route */}
+          <Route
+            path="returnAndCancellation"
+            element={<ReturnAndCancellation />}
+          />
+          {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
-          <Route path="career" element={<CareerPage />} /> {/* Career page route */}
-          <Route path="service" element={<ServicePage />} /> {/* Service page route */}
-          
+          <Route path="career" element={<CareerPage />} />{" "}
+          <Route path="service" element={<ServicePage />} />{" "}
+          <Route path="shipping" element={<Shipping />} />{" "}
+          {/* EPR page route */}
           {/* Private routes requiring authentication */}
           <Route element={<PrivateRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
@@ -148,18 +155,28 @@ export default function App() {
             <Route path="checkout" element={<Checkout />} /> {/* Checkout route */}
             <Route path="productDetails" element={<ProductDetails />} /> {/* Product details route */}
             <Route path="payment" element={<Payment />} /> {/* Payment route */}
-            <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
-            <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}
-            <Route path="dashboard-wishlist" element={<DashboardWishlist />} /> {/* Dashboard wishlist route */}
-            <Route path="dashboard-notifications" element={<NotificationPage />} /> {/* Dashboard notifications route */}
-            <Route path="blog" element={<Blog />} /> {/* Blog page route */}
-            <Route path="giftcard" element={<GiftcardPage />} /> {/* Gift card page route */}
-            <Route path="sponsorships" element={<Sponsorships />} /> {/* Sponsorships page route */}
-            <Route path="warranty" element={<Warranty />} /> {/* Warranty page route */}
-            <Route path="productCare" element={<ProductCare />} /> {/* Product care page route */}
-            <Route path="subscription" element={<Subscription />} /> {/* Subscription page route */}
-            <Route path="events" element={<Events />} /> {/* Events page route */}
-            <Route path="profile" element={<ProfilePage />} /> {/* Profile page route */}
+            <Route path="dashboard-order" element={<DashboardOrders />} />
+            {/* Dashboard orders route */}
+            <Route path="dashboard-cart" element={<DashboardCart />} />
+            {/* Dashboard cart route */}
+            <Route path="dashboard-wishlist" element={<DashboardWishlist />} />
+            {/* Dashboard wishlist route */}
+            <Route
+              path="dashboard-notifications"
+              element={<NotificationPage />}
+            />
+            {/* Dashboard notifications route */}
+            {/* Not in use routes */}
+            <Route path="blog" element={<Blog />} />
+            {/* additional routes */}
+            <Route path="giftcard" element={<GiftcardPage />} />
+            <Route path="sponsorships" element={<Sponsorships />} />
+            <Route path="warranty" element={<Warranty />} />
+            <Route path="productCare" element={<ProductCare />} />
+            <Route path="subscription" element={<Subscription />} />
+            <Route path="events" element={<Events />} />
+            <Route path="profile" element={<ProfilePage />} />
+            {/* Dashboard Profile route */}
           </Route>
           
           {/* Certifications page route */}
