@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 export default function SPLoader() {
 
-   const [text, setText] = useState('')
+   //const [text, setText] = useState('')
    const [showImg, setShowImg] = useState(true)
 
    useEffect(() => {
