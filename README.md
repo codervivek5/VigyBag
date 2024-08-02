@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://res.cloudinary.com/dxxeks4o5/image/upload/v1696576943/logo_mklszb_zzxb64.png" width="200" alt="Logo">
+  <img src="https://github.com/user-attachments/assets/d476cdf0-7a01-4bcb-b61e-9f10b12216c5" width="200" alt="Logo">
 <h1>VigyBag</h1>
 </div>
 
@@ -40,51 +40,56 @@
 ## 👋 Welcome  <a name="introduction"></a>
 VigyBag is an e-commerce platform designed to empower villagers by providing them with a nationwide marketplace to sell their eco-friendly products across India. This platform bridges the gap between rural artisans and urban consumers, ensuring that their sustainable creations reach a wider audience.
 
-<h3><em>So, if you're looking for a complete solution for Shopping near you with a pinpoint location then, this site is the right choice for you! </em></h3>
+<h3><em>Be vocal for local with Vigybag! Join us and be part of the Vigy family, explore a varied range of products, curated just for you! </br>Be a vigy and help us bridge the gap between you and your favourite local products.  </em></h3>
     
 ## 🖌️Design Preview
 ![VigyBag Application Preview](https://github.com/codervivek5/VigyBag/blob/main/graphics/vigybag_application_preview/vigybag_app_preview.webp)
 
+
 ## 📌Repository <a name="repo"></a>
 
-Are you tired of scrolling through endless online stores, only to find that they don't ship to your area? Look no further than VigyBag - the ultimate online shopping destination for those looking to shop local! With our location-based platform, you can easily find and buy products from your favorite nearby shops. Whether you're a city slicker or living off the beaten path, VigyBag makes shopping a breeze. Say goodbye to long drives to the mall and hello to stress-free, convenient shopping with VigyBag!
+  Tired of scrolling through endless online stores that don't ship to your area?</br>
+  Welcome to VigyBag - the ultimate online shopping destination for those looking to shop local! With our location-based platform, you can easily find and buy products from your favorite nearby shops. Whether you're a city slicker or living off the beaten path, VigyBag makes shopping a breeze. Say goodbye to long drives to the mall and hello to stress-free, convenient shopping with VigyBag!
 
 ## ✔Feature  <a name="features"></a>
-- Search for products and services based on location
-- GPS technology to locate user's position
-- Displays nearby stores and businesses
-- Compare prices and make purchases directly through the website
+- Search for products from 10 different broad categories. 
+- Get the best products at the best price.
+- Local products, at your doorstep, just a click away.
+- Compare prices and make purchases directly through the website.
 
 
 ## 🔑Tech Stacks <a name="tech"></a>
-<!-- Skills : Python, HTML, CSS, JS, Java, Bootstrap, Android, Django, GPS technology -->
+<!-- Skills : Python, HTML, CSS, JS, React, Bootstrap, Android, Django, GPS technology -->
 Technologies Used :
 
-- ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+- ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 - ![HTML](https://img.shields.io/badge/HTML-5-orange)
 - ![CSS](https://img.shields.io/badge/CSS-3-blue)
 - ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
-- ![Java](https://img.shields.io/badge/Java-11-red)
+- ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 - ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-blueviolet)
 - ![Android](https://img.shields.io/badge/Android-9%2B-brightgreen)
 - ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
-- ![GPS technology](https://img.shields.io/badge/GPS_API-1.2%2B-blueviolet)
-
+- ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+- ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+- ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
   ### 🎥 Video Introduction
 
 [![Watch the video](https://img.youtube.com/vi/FeHQVTiYVxQ/0.jpg)](https://www.youtube.com/watch?v=FeHQVTiYVxQ)
 
 
 ## ⌛Links for the Website
-- [Live Website](https://codervivek5.github.io/VigyBag/)
-- [Figma Design](https://www.figma.com/file/hXcM6chTK70O6rAqCTFxuc/Vigy?node-id=0%3A1&t=px6VNjlFCos5Ll9z-1)
+- [Visit us!](https://codervivek5.github.io/VigyBag/)
+
 <!-- - We can take reference of this website [Click Here](http://yellowpages.in/) -->
 
 #### Figma New Design
-- [Figma Design](https://www.figma.com/design/O0UOQfpC6u7wiQ9EeLnhGx/VigyBag-Redesign?node-id=0-1&t=sAeZiavEp8vPg1ss-0)
+- [Check it out here :eyes:](https://www.figma.com/design/sttuMcIvVuk7AORRMS70s5/VigyBag-Redesign?node-id=0-1&t=hA6fe3u7c9kflZzx-0)
 
 
-If you want to work on this unique project and share it with the world, you can do that here. Go through the contributing guidelines here.
+We accpet contributions to our project pertaining to the [Code of Conduct](https://github.com/codervivek5/VigyBag?tab=coc-ov-file) and [Contributing Guidelines](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md) stated below.
 
     
 ## :handshake: Contributing <a name="contributing"></a>
@@ -92,7 +97,7 @@ If you want to work on this unique project and share it with the world, you can 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat&logo=git&logoColor=white)](https://github.com/hound77/jwoc-archive/pulls)  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/hound77/jwoc-archive)
 
 > Please read our [Code of Conduct](https://github.com/codervivek5/VigyBag/blob/main/CODE_OF_CONDUCT.md).
-**We're accepting PRs for our open and unassigned [issues](https://github.com/codervivek5/VigyBag/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md). We'd love your contributions! **Kindly follow the steps below to get started:** 
+**We're accepting PRs for our open and unassigned [issues](https://github.com/codervivek5/VigyBag/issues)**. Please check [CONTRIBUTING.md](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md). We love contributions and welcome them as long as you respect the community and our rules! **Kindly follow the steps below to get started:** 
 
 
 **1.** Fork [the](https://github.com/codervivek5/VigyBag) repository.
@@ -108,30 +113,34 @@ git clone https://github.com/codervivek5/VigyBag.git
 ```bash
 cd VigyBag
 ```
+**4.** Install all the required dependencies.
 
-**4.** Add a reference(remote) to the original repository.
+```bash
+npm i
+```
+**5.** Add a reference(remote) to the original repository.
 ```
 git remote add upstream https://github.com/codervivek5/VigyBag.git
 ```
 
-**5.** Check the remotes for this repository.
+**6.** Check the remotes for this repository.
 ```
 git remote -v
 ```
 
-**6.** Always take a pull from the upstream repository to your main branch to keep it updated as per the main project repository.
+**7.** Always take a pull from the upstream repository to your main branch to keep it updated as per the main project repository.
 ```
 git pull upstream main
 ```
 
-**7.** Create a new branch.
+**8.** Create a new branch.
 ```
 git checkout -b <YOUR_BRANCH_NAME>
 ```
 
-**8.** Make changes in the source code.
+**9.** Make changes in the source code.
 
-**9.** Check your changes.
+**10.** Check your changes.
 ```
 git status
 ```
@@ -139,32 +148,32 @@ git status
 git diff
 ```
 
-**10.** Stage your changes.
+**11.** Stage your changes.
 
 ```bash
 git add .
 ```
 
-**11.** Commit your changes.
+**12.** Commit your changes.
 ```
 git commit -m "<your_commit_message>"
 ```
 
-**12.** Push your local commits to the remote repo.
+**13.** Push your local commits to the remote repo.
 
 ```bash
 git push -u origin <your_branch_name>
 ```
 
-**13.** To Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository, click on `compare and pull request`.
+**14.** To Create a [PR](https://codervivek5.github.io/VigyBag/) to `develop` !) repository, click on `compare and pull request`.
 
-**14.** Add an appropriate title and description to your PR explaining your changes.
+**15.** Add an appropriate title and description to your PR explaining your changes.
 
-**15.** Click on `Create pull request`
+**16.** Click on `Create pull request`
 
 Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission to be accepted and your PR to be merged by a maintainer.
 
-## 🦄 Django Project Setup 
+## 🦄 Django Project Setup: For Backend Developers
 
 **1.** Navigate to the project directory Backend Code.
 
@@ -212,13 +221,17 @@ npm install
 npm run dev
 ```
 
-## ⚙️ Things to Note
-- Make sure you do not copy codes from external sources because that work will not be considered. Plagiarism is strictly not allowed.
-- You can only work on issues that have been assigned to you.
-- If you want to contribute, it's preferable that you create a new issue before making a PR and link your PR to that issue.
-- If you have modified/added code, make sure the code compiles before submitting.
-- Strictly use snake_case (underscore_separated) in your file_name and push it in the correct folder.
-- Add Screenshots to help us know what the idea is all about.
+## ⚙️ IMPORTANT POINTS
+- Ensure all code is original; copied work and plagiarism are strictly prohibited.
+- Work only on assigned issues.
+
+- Create a new issue and link your PR before making changes.
+
+- Ensure your code compiles before submission.
+
+- Use snake_case for file names and place files in the correct folder.
+
+- Attach screenshots to illustrate your changes.
 - Do not update the [README.md](README.md)
 
 <!-- ## 👨‍💻 Workflow: -->
@@ -227,7 +240,7 @@ npm run dev
 🚀 Usage
 Once you have VigyBag running, you can:
 
-Use the search functionality to find products based on location.
+Use the search functionality to find products based on your chosen category.
 Explore nearby stores and compare prices easily.
 🧪 Testing
 To run tests for VigyBag, use the following command:
@@ -238,7 +251,7 @@ pytest
 
 ## 🌐 Deployment
 
-To deploy VigyBag to a production server:
+To deploy VigyBag to a production server :
 
 1. Configure your production environment settings.
 2. Set up databases and other required services.
@@ -285,8 +298,9 @@ If you want to contact me, you can reach me through below handles.
  <p>    
   <a href="https://twitter.com/codervivek5/"><img src= "https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" heigth="10"></a>
   <a href="https://www.instagram.com/coder_vivek/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" heigth="10"></a>    
-  <a href="https://www.linkedin.com/in/codervivek/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" heigth="10"></a>    
-  <a href="https://www.youtube.com/@codervivek"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" heigth="10"></a>        
+  <a href="https://www.linkedin.com/company/vigybag/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" heigth="10"></a>  
+  <a href="https://youtube.com/@vigybag"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" heigth="10"></a>     
+          
  </p>
 
 

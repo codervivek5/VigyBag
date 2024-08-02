@@ -1,16 +1,35 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./privacy.css";
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const Privacy = () => {
   useEffect(() => {
     document.title = "VigyBag | Privacy Policy";
   }, []);
 
+  const generatePdf = () => {
+    const input = document.getElementById('pdf-content');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const imgWidth = 210; // A4 width in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        const padding = 10; // Adjust padding as needed
+        pdf.addImage(imgData, 'PNG', padding, padding, imgWidth - 2 * padding, imgHeight - 2 * padding);
+        pdf.save('privacy_policy.pdf');
+        console.log("PDF generated and saved"); // Debug log
+      })
+      .catch((error) => {
+        console.error('Error generating PDF', error);
+        alert('An error occurred while generating the PDF. Please try again.');      });
+  };
   return (
     <div className="privacy-policy">
       <div className="containerprivacy">
-        <main>
+        <main id="pdf-content" >
           <div className="head">
             <h1>VigyBag Privacy Policy</h1>
           </div>
@@ -316,6 +335,16 @@ const Privacy = () => {
             </p>
           </section>
         </main>
+        <button onClick={generatePdf} style={{ 
+                 color: '#4CAF50', 
+                 fontSize:'20px',
+                 padding: '10px 20px', 
+                 borderRadius: '5px', 
+                 cursor: 'pointer',
+                 display: 'block', 
+                 margin: '0 auto'
+              }} >Download a copy of this Privacy Policy(PDF)</button>
+
       </div>
     </div>
   );

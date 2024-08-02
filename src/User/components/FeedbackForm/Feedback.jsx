@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 import "./feedback.css";
 import "./Sweetpopup.css";
 
@@ -61,26 +61,43 @@ const FeedbackModal = () => {
       feedback,
     };
 
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,   //Service_ID
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,   //Template_ID
-      formData, 
-      import.meta.env.VITE_EMAILJS_USER_ID    // User_ID
-
-    ).then((response) => {
-      console.log('Email sent successfully!', response.status, response.text);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setRating(null);
-        setName("");
-        setEmail("");
-        setFeedback("");
-        setFeedbackOption("");
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, //Service_ID
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, //Template_ID
+        formData,
+        import.meta.env.VITE_EMAILJS_USER_ID // User_ID
+      )
+      .then((response) => {
+        console.log("Email sent successfully!", response.status, response.text);
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setRating(null);
+          setName("");
+          setEmail("");
+          setFeedback("");
+          setFeedbackOption("");
+          Swal.fire({
+            title: "Feedback submitted successfully!",
+            text: "Thanks for taking the time to share your thoughts!",
+            icon: "success",
+            confirmButtonText: "Back",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              content: "custom-content",
+              confirmButton: "custom-confirm-button",
+            },
+          });
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
         Swal.fire({
-          title: "Feedback submitted successfully!",
-          text: "Thanks for taking the time to share your thoughts!",
-          icon: "success",
+          title: "Error submitting feedback",
+          text: "There was an issue sending your feedback. Please try again later.",
+          icon: "error",
           confirmButtonText: "Back",
           customClass: {
             popup: "custom-popup",
@@ -89,32 +106,26 @@ const FeedbackModal = () => {
             confirmButton: "custom-confirm-button",
           },
         });
-      }, 1000);
-    }).catch((error) => {
-      console.error('Error sending email:', error);
-      Swal.fire({
-               title: "Error submitting feedback",
-               text: "There was an issue sending your feedback. Please try again later.",
-               icon: "error",
-               confirmButtonText: "Back",
-               customClass: {
-                 popup: "custom-popup",
-                 title: "custom-title",
-                 content: "custom-content",
-                confirmButton: "custom-confirm-button",
-            },
-        });
-    });
+      });
   };
-  
 
+  const emojis = [
+    "/src/User/components/FeedbackForm/emoji1.gif",
+    "/src/User/components/FeedbackForm/emoji2.gif",
+    "/src/User/components/FeedbackForm/emoji3.gif",
+    "/src/User/components/FeedbackForm/emoji4.gif",
+    "/src/User/components/FeedbackForm/emoji5.gif",
+  ];
+  const getEmoji = (ratingValue) => emojis[ratingValue - 1] || "😐";
+  const gifs = [
+    "/src/User/components/FeedbackForm/emoji1.gif",
+    "/src/User/components/FeedbackForm/emoji2.gif",
+    "/src/User/components/FeedbackForm/emoji3.gif",
+    "/src/User/components/FeedbackForm/emoji4.gif",
+    "/src/User/components/FeedbackForm/emoji5.gif",
+  ];
+  const getGif = (ratingValue) => gifs[ratingValue - 1] || "emoji3.gif"; // default to emoji3.gif if ratingValue is invalid
 
-  const emojis = ['😡', '☹️', '😐', '🙂', '😄'];
-   const getEmoji = (ratingValue) => emojis[ratingValue - 1] || '😐';
-   const gifs = ['/src/User/components/FeedbackForm/emoji1.gif', '/src/User/components/FeedbackForm/emoji2.gif', '/src/User/components/FeedbackForm/emoji3.gif', '/src/User/components/FeedbackForm/emoji5.gif', '/src/User/components/FeedbackForm/emoji4.gif'];
-   const getGif = (ratingValue) => gifs[ratingValue - 1] || 'emoji3.gif'; // default to emoji3.gif if ratingValue is invalid
-   
-  
   return (
     <div className="feedback-wrapper">
       <div className="feedback-form">
@@ -128,20 +139,28 @@ const FeedbackModal = () => {
             <p htmlFor="rating" className="rate-para">
               <strong>Rate Us Below</strong>
             </p>
-            <div style={{ textAlign: 'center',width:'300px',margin:'0 auto' }} className="rating-container">
-      {[1, 2, 3, 4, 5].map((ratingValue) => (
-       <button
-       key={ratingValue}
-       type="button"
-       style={ratingValue <= rating ? {  color: '#fff' } : {}}
-       onClick={() => handleRatingChange(ratingValue)}
-     >
-       <img src={getGif(ratingValue)} alt={`Rating ${ratingValue}`} />
-     </button>
-      ))}
-    </div>
+            <div
+              style={{ textAlign: "center", width: "300px", margin: "0 auto" }}
+              className="rating-container">
+              {[1, 2, 3, 4, 5].map((ratingValue) => (
+                <button
+                  key={ratingValue}
+                  type="button"
+                  style={ratingValue <= rating ? { color: "#fff" } : {}}
+                  onClick={() => handleRatingChange(ratingValue)}>
+                  <img
+                    className="text-sm"
+                    src={getGif(ratingValue)}
+                    alt={`loading..`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name" className="label-big">Your Name</label>
+            <label htmlFor="name" className="label-big">
+              Your Name
+            </label>
             <input
               type="text"
               id="name"
@@ -150,7 +169,9 @@ const FeedbackModal = () => {
               placeholder="Enter your name"
               required
             />
-            <label htmlFor="email" className="label-big">Your Email</label>
+            <label htmlFor="email" className="label-big">
+              Your Email
+            </label>
             <input
               type="email"
               id="email"
@@ -159,17 +180,22 @@ const FeedbackModal = () => {
               placeholder="Enter your email"
               required
             />
-            <label htmlFor="feedbackOption" className="label-big">Your Feedback</label>
+            <label htmlFor="feedbackOption" className="label-big">
+              Your Feedback
+            </label>
             <div className="select-container">
               <select
                 id="feedbackOption"
                 value={feedbackOption}
                 onChange={handleFeedbackOptionChange}
-                required
-              >
-                <option value="" disabled>Select your feedback</option>
+                required>
+                <option value="" disabled>
+                  Select your feedback
+                </option>
                 {predefinedFeedbackOptions.map((option, index) => (
-                  <option key={index} value={option}>{option}</option>
+                  <option key={index} value={option}>
+                    {option}
+                  </option>
                 ))}
                 <option value="Other">Other</option>
               </select>
@@ -181,14 +207,13 @@ const FeedbackModal = () => {
                 value={feedback}
                 onChange={handleFeedbackChange}
                 placeholder="Let us know how we can improve..."
-                required
-              ></textarea>
+                required></textarea>
             )}
             <button type="submit">Submit Feedback</button>
           </form>
         </div>
       </div>
-    </div></div>
+    </div>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footer.css";
-import instagramIcon from "./image/in.png";
-import xIcon from "./image/tw.png";
-import githubIcon from "./image/github (1).png";
+import { FaDiscord } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/images/Logo.svg";
 import googlePlay from "../../../assets/google-play.png";
@@ -14,13 +14,16 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
-  
   return (
     <footer className="footer">
       <div className="footer-top">
         <div className="flex-shrink-0 ">
           <Link to="/" className="flex items-center">
-            <img src={Logo} alt="VigyBag Logo" style={{ height: "12vh",zIndex: "1" ,marginLeft: "40px" }} />
+            <img
+              src={Logo}
+              alt="VigyBag Logo"
+              style={{ height: "12vh", zIndex: "1", marginLeft: "40px" }}
+            />
           </Link>
 
           <div
@@ -65,7 +68,7 @@ const Footer = () => {
           <Link to="/contact" onClick={scrollToTop}>
             Contact us
           </Link>
-          <Link to="/our-services" onClick={scrollToTop}>
+          <Link to="/service" onClick={scrollToTop}>
             Our Services
           </Link>
           <Link to="/about" onClick={scrollToTop}>
@@ -97,6 +100,9 @@ const Footer = () => {
           <Link to="/termsAndCondition" onClick={scrollToTop}>
             Terms & Conditions
           </Link>
+          <Link to="/shipping" onClick={scrollToTop}>
+            shipping
+          </Link>
         </div>
         <div className="flex flex-col justify-items-end items-start md:justify-center">
           <p className="text-center text-gray-400 text-sm md:justify-center underline">
@@ -104,24 +110,23 @@ const Footer = () => {
           </p>{" "}
           <hr />
           <div className="address flex flex-col justify-start items-start text-sm hover:cursor-pointer">
-          <a
+            <a
               href="https://www.google.com/maps?q=Kanpur,+Uttar+Pradesh+208025"
               target="_blank"
-              rel="noopener noreferrer"
-            >
-            <p>
-              <lord-icon
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  paddingTop: "0px",
-                  paddingLeft: "1px",
-                }}
-                src="https://cdn.lordicon.com/tdtlrbly.json"
-                trigger="hover"
-                colors="primary:#ffffff,secondary:#ffffff"></lord-icon>{" "}
-             Kanpur, Uttar Pradesh 208025
-            </p>
+              rel="noopener noreferrer">
+              <p>
+                <lord-icon
+                  style={{
+                    width: "25px",
+                    height: "25px",
+                    paddingTop: "0px",
+                    paddingLeft: "1px",
+                  }}
+                  src="https://cdn.lordicon.com/tdtlrbly.json"
+                  trigger="hover"
+                  colors="primary:#ffffff,secondary:#ffffff"></lord-icon>{" "}
+                Kanpur, Uttar Pradesh 208025
+              </p>
             </a>
             <p>
               <lord-icon
@@ -156,11 +161,18 @@ const Footer = () => {
               SOCIALS:
             </p>
             <div className="social-icons">
-              <a href="https://www.instagram.com/vigybag/" target="_blank">
-                <img src={instagramIcon} alt="Instagram" />
+              <a
+                href="https://www.instagram.com/vigybag/"
+                target="_blank"
+                rel="noopener noreferrer">
+                <FaInstagram size={30} style={{ color: "#E4405F" }} />
               </a>
-              <a href="https://www.x.com">
-                <img src={xIcon} alt="X" />
+              <a
+                href="https://www.x.com"
+                target="_blank"
+                rel="noopener noreferrer">
+                <BsTwitterX size={25} style={{ color: "#ffffff" }} />{" "}
+                {/* X color */}
               </a>
               <a
                 href="https://www.linkedin.com/posts/codervivek_startup-teamwork-innovation-activity-7211097005408890880-haWJ?"
@@ -200,8 +212,11 @@ const Footer = () => {
                   src="https://cdn.lordicon.com/fjuachvi.json"
                   trigger="hover"></lord-icon>
               </a>
-              <a href="https://github.com/codervivek5/VigyBag" target="_blank">
-                <img src={githubIcon} alt="Github" />
+              <a
+                href="https://discord.com/invite/xujgQevyZ4"
+                target="_blank"
+                rel="noopener noreferrer">
+                <FaDiscord size={30} />
               </a>
             </div>
           </div>
@@ -209,7 +224,7 @@ const Footer = () => {
       </div>
       <br />
       <div className="footer-bottom text-sm">
-        <p>© 2024 VigyBag. All rights reserved</p>
+        <p>© {new Date().getFullYear()} VigyBag. All rights reserved</p>
         <img
           src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg"
           alt="Payment methods"></img>
