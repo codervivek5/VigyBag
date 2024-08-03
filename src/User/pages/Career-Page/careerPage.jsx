@@ -40,16 +40,16 @@ const CareerPage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen">
+    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto w-fit">
       {/*Header Section */}
       <Header />
 
       <section>
-        <p className="text-black text-5xl mt-8 font-bold text-center font-baloo gap-2">
+        <p className="text-black md:text-5xl text-2xl mt-8 font-bold text-center font-baloo gap-2">
           Come to <span className="text-green-600">VigyBag</span> to maximise
           yourself
         </p>
-        <p className="text-black mt-3 text-5xl  font-bold text-center font-baloo mb-3">
+        <p className="text-black mt-3 md:text-5xl text-2xl  font-bold text-center font-baloo mb-3">
           because when you maximise, we maximise.
         </p>
         <div className="mt-2">
@@ -58,12 +58,12 @@ const CareerPage = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-12 bg-green-50 md:py-20">
+      <section className="py-10 bg-green-50 md:py-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 text-green-800 underline">
           Our Role
         </h2>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-[70vw] h-[120vh] ml-56">
+        <div className="container mx-auto px-4 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:w-[70vw] w-[90vw] md:h-[120vh] md:ml-56">
             {leadershipData.map((leader, index) => (
               <div
                 key={index}
