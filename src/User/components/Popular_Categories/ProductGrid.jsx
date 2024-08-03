@@ -6,14 +6,16 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
+// ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
-
+  // Function to get a random discount percentage
   function getRandomDiscountPercent(price) {
     return (price % 40) + 10;
   }
 
+  // Function to calculate the new price after discount
   function getNewPrice(discountPercent, actualPrice) {
-    return ((100 - discountPercent) * actualPrice / 100).toFixed(2)
+    return ((100 - discountPercent) * actualPrice / 100).toFixed(2);
   }
 
   return (
@@ -21,88 +23,88 @@ function ProductGrid({ products, headingText }) {
       <h1 className="mb-10 font-bold ml-10" style={{ fontSize: "23px" }}>
         {headingText}
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 gap-6 ml-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
           const discountPercent = getRandomDiscountPercent(product.price);
-          product.discountPercent = discountPercent
-          product.newPrice = getNewPrice(discountPercent, product.price)
-          return <ProductCard key={product.id} product={product} />
+          product.discountPercent = discountPercent;
+          product.newPrice = getNewPrice(discountPercent, product.price);
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     </div>
   );
 }
 
+// ProductCard component to display individual product details
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
+  // Function to handle product click and navigate to product details page
   const handleClick = () => {
     navigate("/productDetails");
   };
 
+  // Function to add product to cart
   const onAddToCart = (product) => {
     const quantity = 1;
     dispatch(manageCartItem({ product, quantity }));
-    toast.success(`successfully added to cart!`);
+    toast.success("Successfully added to cart!");
   };
 
-  const onAddToWhishlist = (product) => {
+  // Function to add or remove product from wishlist
+  const onAddToWishlist = (product) => {
     const quantity = 1;
     dispatch(manageWishlistItem({ product, quantity }));
   };
 
-
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:cursor-pointer relative w-full max-w-sm">
-      {/* wishlist heart */}
-      {
-        wishlistItems.find((item) => item.id === product.id) ? (
-          <button
-            className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
-            onClick={() => {
-              onAddToWhishlist(product);
-              toast.success(`Item removed from wishlist!`);
-            }}
-          >
-            <FaHeart size={18} />
-          </button>
-        ) :
-          (
-            <button
-              className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition "
-              onClick={() => {
-                onAddToWhishlist(product);
-                toast.success(`Item added to wishlist!`)
-              }}
-            >
-              <FaRegHeart size={18} />
-            </button>
-          )
-      }
-      {/* product imagee */}
+      {/* Wishlist heart */}
+      {wishlistItems.find((item) => item.id === product.id) ? (
+        <button
+          className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition"
+          onClick={() => {
+            onAddToWishlist(product);
+            toast.success("Item removed from wishlist!");
+          }}
+        >
+          <FaHeart size={18} />
+        </button>
+      ) : (
+        <button
+          className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition"
+          onClick={() => {
+            onAddToWishlist(product);
+            toast.success("Item added to wishlist!");
+          }}
+        >
+          <FaRegHeart size={18} />
+        </button>
+      )}
+      {/* Product image */}
       <img
         onClick={handleClick}
         src={product.image}
         alt={product.title}
         className="w-full h-60 object-contain"
       />
-      {/* product details */}
+      {/* Product details */}
       <div className="p-4">
-        {/* title */}
+        {/* Title */}
         <h3 className="font-bold text-sm h-12 overflow-hidden">
           {product.title}
         </h3>
-        {/* price */}
+        {/* Price */}
         <p className="text-gray-600 text-lg font-semibold mt-2 flex items-center gap-2">
           ₹{product.newPrice}
           <span className="text-sm text-green-500 line-through">
             ₹{product.price.toFixed(2)}
           </span>
         </p>
-        {/* rating */}
+        {/* Rating */}
         <div className="flex items-center mt-2">
           {[...Array(Math.round(product.rating.rate))].map((_, i) => (
             <span key={i} className="text-yellow-400">
@@ -111,13 +113,14 @@ function ProductCard({ product }) {
           ))}
           <span className="text-gray-500 ml-1">({product.rating.count})</span>
         </div>
-        {/* add to cart button */}
+        {/* Add to cart button */}
         <button
           className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
           onClick={() => {
             onAddToCart(product);
           }}
-          disabled={cartItems.find((item) => item.id === product.id)}>
+          disabled={cartItems.find((item) => item.id === product.id)}
+        >
           {cartItems.find((item) => item.id === product.id)
             ? "Added to cart"
             : "Add to Cart"}
