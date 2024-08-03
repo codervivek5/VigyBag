@@ -78,7 +78,7 @@ const latestProducts = [
     img: ArtSuppliesImg,
     name: "Art Supplies",
     description: "Natural and cruelty-free selection of art supplies.",
-    discount: "Upto 50% Off",
+    discount: "Up to 50% Off",
     path: "/latestInMarket/artSupplies",
   },
   {
