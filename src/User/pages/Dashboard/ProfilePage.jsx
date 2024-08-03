@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import Aside from '../../components/Aside/Aside';
+import React, { useState } from "react";
+import Aside from "../../components/Aside/Aside";
+import copy from "../../../assets/copy.png";
+import toast from "react-hot-toast";
+
+import "./profile.css";
 
 const ProfilePage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    password: '',
-    profilePicture: 'https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg', // Sample avatar URL
+    name: "",
+    email: "",
+    mobile: "",
+    password: "",
+    profilePicture:
+      "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg", // Sample avatar URL
   });
 
   const [couponVisibility, setCouponVisibility] = useState([false, false]); // State for coupon visibility
@@ -18,6 +23,11 @@ const ProfilePage = () => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const copyText = (text) => {
+    toast("Copied to Clipboard!");
+    navigator.clipboard.writeText(text);
   };
 
   const handleFileChange = (e) => {
@@ -32,7 +42,7 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission and file upload here
-    console.log('Form data:', formData);
+    console.log("Form data:", formData);
   };
 
   const toggleCouponVisibility = (index) => {
@@ -42,7 +52,7 @@ const ProfilePage = () => {
   };
 
   const getProfilePicture = () => {
-    if (typeof formData.profilePicture === 'string') {
+    if (typeof formData.profilePicture === "string") {
       return formData.profilePicture;
     } else {
       return URL.createObjectURL(formData.profilePicture);
@@ -55,23 +65,24 @@ const ProfilePage = () => {
       <Aside />
 
       {/* Main Content */}
-      <main className="flex-1 p-6 mt-20 flex flex-col md:flex-row md:justify-between">
+      <main className="flex-1 bg-white p-6 mt-20 flex justify-center md:justify-center">
         {/* Left Section */}
-        <div className="flex-1 mr-6">
-          <h1 className="text-2xl font-bold mb-6 text-zinc-800">Profile :</h1>
+        <div className="flex-1 mr-6 justify-center items-center shadow-2xl p-3 w-[50vw] bg-green-50">
+          <h1 className="text-2xl font-bold mb-6 text-green-800 ">
+            Personal Information
+          </h1>
           <div className="flex flex-col md:flex-row items-center mb-8">
             <div className="relative w-32 h-32 mb-4 md:mb-0 md:mr-4">
               <img
                 src={getProfilePicture()}
                 alt="Profile"
-                className="w-full h-full rounded-full object-cover border-black border"
+                className="w-full h-full rounded-full object-cover"
               />
             </div>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <button className="text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out">
-                Edit
-              </button>
-              <label htmlFor="fileUpload" className="text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out cursor-pointer">
+              <label
+                htmlFor="fileUpload"
+                className="text-white bg-blue-400 px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out cursor-pointer">
                 Upload
               </label>
               <input
@@ -80,14 +91,16 @@ const ProfilePage = () => {
                 className="hidden"
                 onChange={handleFileChange}
               />
-              <button className="bg-yellow-500 text-white border-black border px-4 py-2 rounded-md hover:bg-yellow-500 transition duration-300 ease-in-out">
+              <button className="bg-yellow-500 text-white border px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-300 ease-in-out">
                 Save
               </button>
             </div>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form method="post" onSubmit={handleSubmit}>
             <div className="mb-5">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+              <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
+                Full Name
+              </label>
               <div className="flex items-center">
                 <input
                   type="text"
@@ -95,16 +108,49 @@ const ProfilePage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your full name"
-                  className="block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
-                  style={{ backgroundColor: '#e0f7e0', borderColor: '#c4e4c4' }}
+                  className="block w-[40vw] border border-gray-300  shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
+                  style={{ backgroundColor: "#ffffff", borderColor: "#ffffff" }}
                 />
-                <button className="ml-2 text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out">
+                <button className="ml-2 text-blue-600 px-4 py-2 transition duration-300 ease-in-out">
                   Edit
                 </button>
               </div>
             </div>
             <div className="mb-5">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Mobile Number</label>
+              <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
+                Select your gender:
+              </label>
+              <input type="checkbox" id="male" name="gender" value="male" />
+              <label className="pr-5" for="male">
+                Male
+              </label>
+
+              <input type="checkbox" id="female" name="gender" value="female" />
+              <label className="pr-5" for="female">
+                Female
+              </label>
+
+              <input type="checkbox" id="other" name="gender" value="other" />
+              <label className="pr-5" for="other">
+                Other
+              </label>
+
+              <input
+                type="checkbox"
+                id="prefer_not_to_say"
+                name="gender"
+                value="prefer_not_to_say"
+              />
+              <label className="pr-5" for="prefer_not_to_say">
+                Prefer not to say
+              </label>
+              <br />
+              <div className="flex items-center"></div>
+            </div>
+            <div className="mb-5">
+              <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
+                Mobile Number
+              </label>
               <div className="flex items-center">
                 <input
                   type="tel"
@@ -112,16 +158,18 @@ const ProfilePage = () => {
                   value={formData.mobile}
                   onChange={handleChange}
                   placeholder="Enter your mobile number"
-                  className="block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
-                  style={{ backgroundColor: '#e0f7e0', borderColor: '#c4e4c4' }}
+                  className="block w-[40vw] border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
+                  style={{ backgroundColor: "#ffffff", borderColor: "#ffffff" }}
                 />
-                <button className="ml-2 text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out">
+                <button className="ml-2 text-blue-600 px-4 py-2 transition duration-300 ease-in-out">
                   Edit
                 </button>
               </div>
             </div>
             <div className="mb-5">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
+                Email
+              </label>
               <div className="flex items-center">
                 <input
                   type="email"
@@ -129,46 +177,127 @@ const ProfilePage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  className="block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
-                  style={{ backgroundColor: '#e0f7e0', borderColor: '#c4e4c4' }}
+                  className="block w-[40vw] border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
+                  style={{ backgroundColor: "#ffffff", borderColor: "#ffffff" }}
                 />
-                <button className="ml-2 text-black border-black border px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 ease-in-out">
+                <button className="ml-2 text-blue-600 px-4 py-2  transition duration-300 ease-in-out">
                   Edit
                 </button>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
-              <button className="bg-blue-200 text-black border-black border px-4 py-2 rounded-md hover:bg-blue-300 transition duration-300 ease-in-out">
+            <div className="flex flex-col md:flex-row justify-start gap-96 space-y-4 md:space-y-0">
+              <button className="bg-blue-400 text-white border px-4 py-2 rounded-md hover:bg-blue-300 transition duration-300 ease-in-out">
                 Change/Update Password
               </button>
-              <button className="bg-yellow-500 text-white border-black border px-4 py-2 rounded-md hover:bg-yellow-500 transition duration-300 ease-in-out ml-4">
+              <button className="bg-yellow-500 text-white  px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-300 ease-in-out">
                 Save
               </button>
             </div>
           </form>
+
+          <div className="mt-7">
+            <h1 className="font-bold text-black text-lg">FAQs</h1>
+            <br />
+
+            <div class="faq">
+              <h2 className="font-bold text-gray-700 text-sm">
+                What happens when I update my email address (or mobile number)?
+              </h2>
+              <br />
+              <p className="text-sm">
+                Your login email id (or mobile number) changes, likewise. You'll
+                receive all your account related communication on your updated
+                email address (or mobile number).
+              </p>
+            </div>
+            <br />
+
+            <div class="faq">
+              <h2 className="font-bold text-gray-700 text-sm">
+                When will my VigyBag account be updated with the new email
+                address (or mobile number)?
+              </h2>
+              <br />
+              <p className="text-sm">
+                It happens as soon as you confirm the verification code sent to
+                your email (or mobile) and save the changes.
+              </p>
+            </div>
+            <br />
+
+            <div class="faq">
+              <h2 className="font-bold text-gray-700 text-sm">
+                What happens to my existing VigyBag account when I update my
+                email address (or mobile number)?
+              </h2>
+              <br />
+              <p className="text-sm">
+                Updating your email address (or mobile number) doesn't
+                invalidate your account. Your account remains fully functional.
+                You'll continue seeing your Order history, saved information and
+                personal details.
+              </p>
+            </div>
+            <br />
+
+            <div class="faq">
+              <h2 className="font-bold text-gray-700 text-sm">
+                Does my Seller account get affected when I update my email
+                address?
+              </h2>
+              <br />
+              <p className="text-sm">
+                Flipkart has a 'single sign-on' policy. Any changes will reflect
+                in your Seller account also.
+              </p>
+            </div>
+          </div>
+          <br />
+          <br />
+          <p className="text-blue-500 font-bold text-sm">Deactivate Account</p>
+          <br />
+          <p className="text-red-600 font-bold text-sm">Delete Account</p>
+          <br />
+          <br />
+          {/* <img className="w-full h-[25vh]" src={profilefooter} alt="footer" /> */}
         </div>
 
         {/* Right Section */}
-        <div className="w-full md:w-1/3 mt-6 md:mt-0 flex-shrink-0">
+        <div className="w-full md:w-1/3 mt-6 md:mt-7 flex-shrink-0">
           <div className="mb-6">
             <h2 className="text-xl font-bold text-zinc-800">Coins : 100 🪙</h2>
           </div>
-          <div className="p-4 bg-yellow-100 shadow-lg rounded-md">
+          <div className="p-4 shadow-lg rounded-md bg-green-50">
             <h2 className="text-xl font-bold text-zinc-800">My Coupons :</h2>
             {Array.from({ length: 2 }).map((_, index) => (
               <div key={index} className="flex items-center mb-4">
-                <input
-                  type="text"
-                  readOnly
-                  value={couponVisibility[index] ? 'ABC123' : '******'}
-                  className="block w-48 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-2 mr-4"
-                  style={{ backgroundColor: '#e0f7e0', borderColor: '#c4e4c4', fontSize: '14px' }}
-                />
+                <div class="input-container">
+                  <input
+                    type="text"
+                    readOnly
+                    value={couponVisibility[index] ? "ABC123" : "******"}
+                    className="block w-48 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-2 mr-4"
+                    style={{
+                      backgroundColor: "#e0f7e0",
+                      borderColor: "#c4e4c4",
+                      fontSize: "14px",
+                    }}
+                    id="couponInput"
+                  />
+                  <img
+                    onClick={() => {
+                      copyText("ABC123");
+                    }}
+                    src={copy}
+                    alt="coupon"
+                    class="input-image"
+                    id="couponImage"
+                  />
+                </div>
                 <button
                   onClick={() => toggleCouponVisibility(index)}
-                  className="bg-pink-300 text-blue border-black border px-3 py-1 rounded-md hover:bg-pink-300 transition duration-300 ease-in-out"
-                >
-                  {couponVisibility[index] ? 'Hide Coupon' : 'Show Coupon'}
+                  className="bg-pink-300 text-blue  px-3 py-1 rounded-md hover:bg-pink-300 transition duration-300 ease-in-out">
+                  {couponVisibility[index] ? "Hide Coupon" : "Show Coupon"}
                 </button>
               </div>
             ))}
