@@ -120,23 +120,23 @@ const ProfilePage = () => {
               <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
                 Select your gender:
               </label>
-              <input type="checkbox" id="male" name="gender" value="male" />
+              <input type="radio" id="male" name="gender" value="male" />
               <label className="pr-5" for="male">
                 Male
               </label>
 
-              <input type="checkbox" id="female" name="gender" value="female" />
+              <input type="radio" id="female" name="gender" value="female" />
               <label className="pr-5" for="female">
                 Female
               </label>
 
-              <input type="checkbox" id="other" name="gender" value="other" />
+              <input type="radio" id="other" name="gender" value="other" />
               <label className="pr-5" for="other">
                 Other
               </label>
 
               <input
-                type="checkbox"
+                type="radio"
                 id="prefer_not_to_say"
                 name="gender"
                 value="prefer_not_to_say"
