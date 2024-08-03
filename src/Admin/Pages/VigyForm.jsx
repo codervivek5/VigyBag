@@ -312,7 +312,7 @@ const VigyForm = () => {
 
 
    try {
-     const response = await axios.post('http://localhost:8080/api/vigy_form', formDataToSend, {
+     const response = await axios.post('https://www.vigybag.com/api/vigy_form', formDataToSend, {
        headers: {
          'Content-Type': 'multipart/form-data',
        },
