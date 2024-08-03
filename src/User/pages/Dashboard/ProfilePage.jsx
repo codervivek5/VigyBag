@@ -65,9 +65,9 @@ const ProfilePage = () => {
       <Aside />
 
       {/* Main Content */}
-      <main className="flex-1 bg-white p-6 mt-20 flex justify-center md:justify-center">
+      <main className="flex-1 bg-white p-6 mt-20 flex flex-col md:flex-row justify-center md:justify-center">
         {/* Left Section */}
-        <div className="flex-1 mr-6 justify-center items-center shadow-2xl p-3 w-[50vw] bg-green-50">
+        <div className="flex-1 mr-6 justify-center items-center shadow-2xl p-3 md:w-[50vw] w-full bg-green-50">
           <h1 className="text-2xl font-bold mb-6 text-green-800 ">
             Personal Information
           </h1>
@@ -185,7 +185,7 @@ const ProfilePage = () => {
                 </button>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-start gap-96 space-y-4 md:space-y-0">
+            <div className="flex flex-col md:flex-row justify-start md:gap-96  space-y-4 md:space-y-0">
               <button className="bg-blue-400 text-white border px-4 py-2 rounded-md hover:bg-blue-300 transition duration-300 ease-in-out">
                 Change/Update Password
               </button>
