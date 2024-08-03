@@ -106,6 +106,7 @@ export default function App() {
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy" element={<Privacy />} /> {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> {/* Cart page route */}
+          <Route path="productDetails/:productId" element={<ProductDetails />} /> {/* Product details route */}
           <Route path="wishlist" element={<Wishlist />} /> {/* Wishlist page route */}
           <Route path="contact" element={<Contact />} /> {/* Contact page route */}
           <Route path="forgot-password" element={<ForgotPasswordForm />} /> {/* Forgot password page route */}
@@ -134,7 +135,6 @@ export default function App() {
             <Route path="orderDetails" element={<OrderDetails />} /> {/* Order details route */}
             <Route path="myOrders" element={<MyOrders />} /> {/* My orders route */}
             <Route path="checkout" element={<Checkout />} /> {/* Checkout route */}
-            <Route path="productDetails" element={<ProductDetails />} /> {/* Product details route */}
             <Route path="payment" element={<Payment />} /> {/* Payment route */}
             <Route path="dashboard-order" element={<DashboardOrders />} /> {/* Dashboard orders route */}
             <Route path="dashboard-cart" element={<DashboardCart />} /> {/* Dashboard cart route */}

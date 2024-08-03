@@ -8,10 +8,6 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 function ProductGrid({ products, headingText }) {
 
-  function getRandomDiscountPercent(price) {
-    return (price % 40) + 10;
-  }
-
   function getNewPrice(discountPercent, actualPrice) {
     return ((100 - discountPercent) * actualPrice / 100).toFixed(2)
   }
@@ -23,8 +19,9 @@ function ProductGrid({ products, headingText }) {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
-          const discountPercent = getRandomDiscountPercent(product.price);
-          product.discountPercent = discountPercent
+          console.log(product)
+          console.log(product.discountPercent)
+          const discountPercent = product.discountPercent;
           product.newPrice = getNewPrice(discountPercent, product.price)
           return <ProductCard key={product.id} product={product} />
         })}
@@ -39,8 +36,8 @@ function ProductCard({ product }) {
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
-  const handleClick = () => {
-    navigate("/productDetails");
+  const handleClick = (productId) => {
+    navigate(`/productDetails/${productId}`);
   };
 
   const onAddToCart = (product) => {
@@ -85,7 +82,7 @@ function ProductCard({ product }) {
       }
       {/* product imagee */}
       <img
-        onClick={handleClick}
+        onClick={() => handleClick(product.id)}
         src={product.image}
         alt={product.title}
         className="w-full h-48 object-contain p-4"

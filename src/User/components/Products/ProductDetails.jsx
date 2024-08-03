@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import avatar from "../../../assets/avatar.png";
 import like from "../../../assets/like.png";
 import comb from "../../../assets/comb.jpg";
 import Similarproducts from "../Products/Similarproducts";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const sharedClasses = {
   textGray: "text-zinc-600 dark:white",
@@ -14,19 +16,19 @@ const sharedClasses = {
   buttonGreen: "px-4 py-2 bg-green-600 text-white rounded-lg",
 };
 
-const ProductImage = () => (
+const ProductImage = ({ thumbnail, images }) => (
   <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
     <img
-      src={comb}
+      src={thumbnail}
       alt="Product Image"
       className={`${sharedClasses.roundedLg} ${sharedClasses.mb4} w-full h-auto max-h-[50vh] object-contain`}
     />
     <div
       className={`${sharedClasses.flexSpaceX2} ${sharedClasses.mb4} justify-center`}>
-      {[1, 2, 3].map((i) => (
+      {images?.map((i) => (
         <img
           key={i}
-          src={comb}
+          src={i}
           alt={`Thumbnail ${i}`}
           className="w-1/4 h-auto rounded-lg object-cover"
         />
@@ -35,27 +37,41 @@ const ProductImage = () => (
   </div>
 );
 
-const ProductDetails = () => (
-  <div className="w-full lg:w-1/2 lg:pl-6">
-    <h2 className="text-2xl font-bold mb-2  sm:text-2xl md:text-3xl  md:mb-8 text-black">
-      Bamboo India
-    </h2>
-    <p className={`${sharedClasses.textGray} ${sharedClasses.mb4}`}>
-      Eco-friendly Handmade Bamboo Comb | Reduce Breakage and Hairfall
-    </p>
-    <p className="text-xl font-semibold mb-2">
-      ₹175 <span className="line-through text-zinc-500">₹249</span> (30% OFF)
-    </p>
-    <p className="text-zinc-500 dark:white mb-4">Inclusive of taxes</p>
-    <ColorOptions />
-    <SizeOptions />
-    <DeliveryOptions />
-    <ActionButtons />
-    <ProductInfo />
-    <ProductRatings />
-    <CustomerFeedback />
-  </div>
-);
+const ProductDetails = ({ product }) => {
+
+  function getNewPrice(discountPercent, actualPrice) {
+    return ((100 - discountPercent) * actualPrice / 100).toFixed(2)
+  }
+
+  useEffect(() => {
+    if (product) {
+      const discountPercent = product?.discountPercent;
+      product.newPrice = product ? getNewPrice(discountPercent, product?.price) : 0
+    }
+  }, [product])
+
+  return (
+    <div className="w-full lg:w-1/2 lg:pl-6">
+      <h2 className="text-2xl font-bold mb-2  sm:text-2xl md:text-3xl  md:mb-8 text-black">
+        {product?.title}
+      </h2>
+      <p className={`${sharedClasses.textGray} ${sharedClasses.mb4}`}>
+        {product?.description}
+      </p>
+      <p className="text-xl font-semibold mb-2">
+        ₹{product?.newPrice} <span className="line-through text-zinc-500">{product?.price}</span> ({product?.discountPercentage}% OFF)
+      </p>
+      <p className="text-zinc-500 dark:white mb-4">Inclusive of taxes</p>
+      <ColorOptions />
+      <SizeOptions />
+      <DeliveryOptions />
+      <ActionButtons />
+      <ProductInfo />
+      <ProductRatings />
+      <CustomerFeedback />
+    </div>
+  )
+};
 
 const ColorOptions = () => (
   <div className={sharedClasses.mb4}>
@@ -190,16 +206,39 @@ const CustomerFeedback = () => (
   </div>
 );
 
-const ProductPage = () => (
-  <div className="bg-[#fff0e3ff] min-h-screen">
-    <div className="max-w-7xl mx-auto bg-[#fff0e3ff] rounded-lg  p-4 sm:p-6">
-      <div className="flex flex-col lg:flex-row mt-24">
-        <ProductImage />
-        <ProductDetails />
+const ProductPage = () => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
+
+  console.log(product)
+
+  const fetchProduct = async () => {
+    try {
+      const response = await axios.get(`https://dummyjson.com/products/${productId}`);
+      setProduct(response.data);
+    } catch (error) {
+      console.error("Axios error:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (productId) {
+      fetchProduct();
+    }
+    console.log(productId)
+  }, [productId])
+
+  return (
+    <div className="bg-[#fff0e3ff] min-h-screen">
+      <div className="max-w-7xl mx-auto bg-[#fff0e3ff] rounded-lg  p-4 sm:p-6">
+        <div className="flex flex-col lg:flex-row mt-24">
+          <ProductImage thumbnail={product?.thumbnail} images={product?.images} />
+          <ProductDetails product={product} />
+        </div>
+        <Similarproducts />
       </div>
-      <Similarproducts />
     </div>
-  </div>
-);
+  )
+};
 
 export default ProductPage;
