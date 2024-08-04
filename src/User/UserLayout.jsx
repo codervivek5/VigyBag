@@ -8,7 +8,7 @@ import ScrollProgressBar from "./components/progressbar/ScrollProgressBar";
 import FeedbackButton from "./components/FeedbackForm/FeedBtn";
 import Loader from "./components/progressbar/Loader";
 const UserLayout = () => {
-   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
    const location = useLocation();
 
   // Determine which navbar to show based on the current route
@@ -16,19 +16,26 @@ const UserLayout = () => {
 
   // Simulate page loading
   useEffect(() => {
-    const loadPage = async () => {
-      // Simulate page load delay
-      await new Promise(resolve => setTimeout(resolve, 3000)); // 3-second delay
-      setLoading(false); // Hide loader after page is loaded
+    const simulateLoading = () => {
+      setProgress(0);
+      const interval = setInterval(() => {
+        setProgress(prev => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            return 100;
+          }
+          return prev + 1;
+        });
+      }, 30); // Adjust the speed as needed
     };
 
-    loadPage();
-  }, []);
+    simulateLoading();
+  }, [location]);
 
   return (
     <>
       {isAdminRoute ? <AdminNavbar /> : <UserNavbar />}
-      <Loader visible={loading} /> {/*set to true to manage state as needed */}
+      <Loader progress={progress} /> {/*set to true to manage state as needed */}
       <ScrollProgressBar />
       <Outlet />
       <Footer />

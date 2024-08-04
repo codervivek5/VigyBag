@@ -42,6 +42,7 @@
     "react-router-dom": "^6.26.0",
     "react-slick": "^0.30.2",
     "react-spinners": "^0.14.1",
+    "react-top-loader": "^1.0.0",
     "react-top-loading-bar": "^2.3.1",
     "react-use": "^17.5.0",
     "sitemap": "^8.0.0",
