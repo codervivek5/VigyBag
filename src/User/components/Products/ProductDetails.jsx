@@ -213,9 +213,9 @@ const CustomerFeedback = ({ reviews }) => (
     <h3 className="text-lg font-semibold mb-2">Customer Feedback</h3>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
       {
-        reviews?.map(review => {
+        reviews?.map((review, index) => {
           return (
-            <div className="p-4 bg-[#798280ff] rounded-lg text-white">
+            <div key={index} className="p-4 bg-[#798280ff] rounded-lg text-white">
               <div className="flex items-center mb-2">
                 <img
                   src={avatar}

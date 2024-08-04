@@ -35,7 +35,7 @@ const Similarproducts = ({category}) => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://dummyjson.com/products");
-        if (response.data && Array.isArray(response.data.products)) {
+        if (response.data && Array.isArray(response.data.products) && response.data.products.length > 0) {
           const mappedProducts = response.data.products.map((product) => ({
             id: product.id,
             title: product.title,
