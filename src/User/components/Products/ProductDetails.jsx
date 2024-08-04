@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import avatar from "../../../assets/avatar.png";
 import Similarproducts from "../Products/Similarproducts";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { manageCartItem } from "../../redux/cartSlice";
@@ -114,6 +114,7 @@ const ActionButtons = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
+  const navigate = useNavigate()
 
   const onAddToCart = () => {
     const quantity = 1;
@@ -127,15 +128,24 @@ const ActionButtons = ({ product }) => {
 
   return (
     <div className={`${sharedClasses.mb4} space-y-2`}>
-      <button
-        className={`${sharedClasses.buttonGreen} w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none`}
-        onClick={onAddToCart}
-        disabled={cartItems.find((item) => item.id === product?.id)}
-      >
-        {cartItems.find((item) => item.id === product?.id)
-          ? "Item added to the cart"
-          : "Add to cart"}
-      </button>
+      {
+        cartItems.find((item) => item.id === product?.id) ? (
+          <button
+            className={`${sharedClasses.buttonGreen} w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none`}
+            onClick={() => navigate("/cart")}
+          >
+            Buy now
+          </button>
+        ) :
+          (
+            <button
+              className={`${sharedClasses.buttonGreen} w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none`}
+              onClick={onAddToCart}
+            >
+              Add to cart
+            </button>
+          )
+      }
       <button
         className="w-full px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-800 transition-colors disabled:opacity-45 disabled:pointer-events-none"
         disabled={wishlistItems.find((item) => item.id === product?.id)}
@@ -176,10 +186,10 @@ const ProductRatings = ({ product }) => {
 
 
     return [
-        { label: "Excellent", width: (counts?.excellent / totalReviews) * 100 },
-        { label: "Very Good", width: (counts?.veryGood / totalReviews) * 100 },
-        { label: "Good", width: (counts?.good / totalReviews) * 100 },
-        { label: "Low", width: (counts?.low / totalReviews) * 100 }
+      { label: "Excellent", width: (counts?.excellent / totalReviews) * 100 },
+      { label: "Very Good", width: (counts?.veryGood / totalReviews) * 100 },
+      { label: "Good", width: (counts?.good / totalReviews) * 100 },
+      { label: "Low", width: (counts?.low / totalReviews) * 100 }
     ];
   };
 
@@ -203,7 +213,7 @@ const RatingBar = ({ label, width }) => (
   <div className="flex items-center mb-1">
     <span className={`flex-1 ${sharedClasses.textGray}`}>{label}</span>
     <div className="w-4/5 relative bg-green-300 rounded-lg">
-      <div style={{width: `${width}%`}} className={`bg-green-700 h-2 rounded-lg`}></div>
+      <div style={{ width: `${width}%` }} className={`bg-green-700 h-2 rounded-lg`}></div>
     </div>
   </div>
 );
