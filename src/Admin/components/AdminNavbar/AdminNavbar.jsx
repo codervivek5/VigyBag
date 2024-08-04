@@ -47,21 +47,13 @@ const AdminNavbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
         <div className="flex items-center space-x-4 mb-4 sm:mb-0">
-          <img src={Logo} alt="Logo" className="h-[7vh]" />
-          <nav className="hidden sm:block" style={{ textDecoration: "none" }}>
+         <Link to="/" ><img src={Logo} alt="Logo" className="h-[7vh]" /></Link>
+          <nav className="hidden sm:block" >
             <ul className="flex space-x-10 text-gray-600">
-              <li>
                 <Link to="/admin">Home</Link>
-              </li>
-              <li>
                 <Link to="#">Contact Us</Link>
-              </li>
-              <li>
                 <Link to="#">Help</Link>
-              </li>
-              <li>
                 <Link to="#">Analytics</Link>
-              </li>
             </ul>
           </nav>
         </div>
