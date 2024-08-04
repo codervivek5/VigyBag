@@ -111,58 +111,66 @@ const UserNavbar = ({ isAdmin }) => {
           </div>
 
           <div className="flex items-center">
-            <div className="hidden md:block">
+            <div className="md:block">
               <div className="ml-4 flex items-center md:ml-6 gap-6">
-                <SearchBar
-                  searchTerm={searchTerm}
-                  handleSearch={handleSearch}
-                />
-                <WishlistIcon />
-                <CartIcon />
-                {isLoggedIn ? (
-                  <div className="relative flex gap-3 items-center">
-                    {/* <FaUserCircle
+                <div className="hidden md:block">
+                  <SearchBar
+                    searchTerm={searchTerm}
+                    handleSearch={handleSearch}
+                  />
+                </div>
+                <div className="flex md:gap-6 gap-7 mr-4 md:mr-0">
+                  <WishlistIcon />
+                  <CartIcon />
+                </div>
+                <div className="md:block hidden">
+                  {isLoggedIn ? (
+                    <div className="relative flex gap-3 items-center">
+                      {/* <FaUserCircle
                       onClick={handleDropdownToggle}
                       className="text-3xl cursor-pointer"
                     /> */}
-                    <lord-icon
-                      onClick={handleDropdownToggle}
-                      className="text-3xl cursor-pointer"
-                      style={{
-                        height: "40px",
-                        width: "40px",
-                      }}
-                      src="https://cdn.lordicon.com/hrjifpbq.json"
-                      trigger="hover"
-                      colors="primary:#15803D"></lord-icon>
-                    <span className="text-green-700 font-bold">{username}</span>
-                    {showDropdown && (
-                      <div
-                        ref={dropdownRef}
-                        className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
-                        {isAdminT && (
+                      <lord-icon
+                        onClick={handleDropdownToggle}
+                        className="text-3xl cursor-pointer"
+                        style={{
+                          height: "40px",
+                          width: "40px",
+                        }}
+                        src="https://cdn.lordicon.com/hrjifpbq.json"
+                        trigger="hover"
+                        colors="primary:#15803D"></lord-icon>
+                      <span className="text-green-700 font-bold">
+                        {username}
+                      </span>
+                      {showDropdown && (
+                        <div
+                          ref={dropdownRef}
+                          className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
+                          {isAdminT && (
+                            <Link
+                              to="/admin"
+                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                              Admin Dashboard
+                            </Link>
+                          )}
                           <Link
-                            to="/admin"
+                            to="/dashboard"
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
-                            Admin Dashboard
+                            Dashboard
                           </Link>
-                        )}
-                        <Link
-                          to="/dashboard"
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
-                          Dashboard
-                        </Link>
-                        <button
-                          onClick={handleLogout}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
-                          Logout
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <AuthButton isLoggedIn={isLoggedIn} />
-                )}
+                          <button
+                            onClick={handleLogout}
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
+                            Logout
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <AuthButton isLoggedIn={isLoggedIn} />
+                  )}
+                </div>
               </div>
             </div>
             <div className="-mr-2 flex md:hidden">
