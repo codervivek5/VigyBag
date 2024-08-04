@@ -5,6 +5,10 @@ import comb from "../../../assets/comb.jpg";
 import Similarproducts from "../Products/Similarproducts";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { manageCartItem } from "../../redux/cartSlice";
+import { manageWishlistItem } from "../../redux/wishlist";
 
 const sharedClasses = {
   textGray: "text-zinc-600 dark:white",
@@ -39,16 +43,6 @@ const ProductImage = ({ thumbnail, images }) => (
 
 const ProductDetails = ({ product }) => {
 
-  function getNewPrice(discountPercent, actualPrice) {
-    return ((100 - discountPercent) * actualPrice / 100).toFixed(2)
-  }
-
-  useEffect(() => {
-    if (product) {
-      const discountPercent = product?.discountPercent;
-      product.newPrice = product ? getNewPrice(discountPercent, product?.price) : 0
-    }
-  }, [product])
 
   return (
     <div className="w-full lg:w-1/2 lg:pl-6">
@@ -65,10 +59,9 @@ const ProductDetails = ({ product }) => {
       <ColorOptions />
       <SizeOptions />
       <DeliveryOptions />
-      <ActionButtons />
-      <ProductInfo />
-      <ProductRatings />
-      <CustomerFeedback />
+      <ActionButtons product={product} />
+      <ProductInfo product={product} />
+      <ProductRatings product={product} />
     </div>
   )
 };
@@ -120,88 +113,132 @@ const DeliveryOptions = () => (
   </div>
 );
 
-const ActionButtons = () => (
-  <div className={`${sharedClasses.mb4} space-y-2`}>
-    <button className={`${sharedClasses.buttonGreen} w-full`}>
-      Add to Cart
-    </button>
-    <button className="w-full px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg">
-      Wishlist
-    </button>
-  </div>
-);
+const ActionButtons = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const wishlistItems = useSelector((state) => state.wishlist.items);
 
-const ProductInfo = () => (
+  const onAddToCart = () => {
+    const quantity = 1;
+    dispatch(manageCartItem({ product, quantity }));
+  };
+
+  const onAddToWishlist = () => {
+    const quantity = 1;
+    dispatch(manageWishlistItem({ product, quantity }));
+  };
+
+  return (
+    <div className={`${sharedClasses.mb4} space-y-2`}>
+      <button
+        className={`${sharedClasses.buttonGreen} w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none`}
+        onClick={onAddToCart}
+        disabled={cartItems.find((item) => item.id === product?.id)}
+      >
+        {cartItems.find((item) => item.id === product?.id)
+          ? "Item added to the cart"
+          : "Add to cart"}
+      </button>
+      <button
+        className="w-full px-4 py-2 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg hover:bg-zinc-800 transition-colors disabled:opacity-45 disabled:pointer-events-none"
+        disabled={wishlistItems.find((item) => item.id === product?.id)}
+        onClick={onAddToWishlist}
+      >
+        {wishlistItems.find((item) => item.id === product?.id)
+          ? "Item added to wishlist"
+          : "Add to wishlist"}
+      </button>
+    </div>
+  )
+};
+
+const ProductInfo = ({ product }) => (
   <div className={sharedClasses.mb4}>
     <h3 className="text-lg font-semibold mb-2">Product Details</h3>
-    {[
-      "Pattern: Solid",
-      "Sleeve Length: Short Sleeves",
-      "Neck: Round Neck",
-      "Sustainable: Regular",
-      "Wash Care: Machine Wash",
-      "Country of Origin: India",
-    ].map((detail, index) => (
-      <p key={index} className={`${sharedClasses.textGray} mb-1`}>
-        {detail}
-      </p>
-    ))}
+    {product?.category && <p>Category: {product.category}</p>}
+    {product?.availabilityStatus && <p>Availability Status: {product.availabilityStatus}</p>}
+    {product?.brand && <p>Brand: {product.brand}</p>}
+    {product?.returnPolicy && <p>Return Policy: {product.returnPolicy}</p>}
+    {product?.warrantyInformation && <p>Warranty Information: {product.warrantyInformation}</p>}
+    {product?.shippingInformation && <p>Shipping Information: {product.shippingInformation}</p>}
   </div>
 );
 
-const ProductRatings = () => (
-  <div className={sharedClasses.mb4}>
-    <h3 className="text-lg font-semibold mb-2">Product Ratings & Reviews</h3>
-    <div className="flex items-center mb-2">
-      <span className="text-2xl font-bold">3.7</span>
-      <span className="text-yellow-500 ml-2">★</span>
+const ProductRatings = ({ product }) => {
+
+  const calculatePercentages = () => {
+    const totalReviews = product?.reviews.length;
+
+    const counts = product?.reviews.reduce((acc, review) => {
+      if (review.rating === 5) acc.excellent++;
+      else if (review.rating === 4) acc.veryGood++;
+      else if (review.rating === 3 || review.rating === 2) acc.good++;
+      else if (review.rating === 1 || review.rating === 0) acc.low++;
+      return acc;
+    }, { excellent: 0, veryGood: 0, good: 0, low: 0 });
+
+    console.log(counts)
+
+    return [
+        { label: "Excellent", width: (counts?.excellent / totalReviews) * 100 },
+        { label: "Very Good", width: (counts?.veryGood / totalReviews) * 100 },
+        { label: "Good", width: (counts?.good / totalReviews) * 100 },
+        { label: "Low", width: (counts?.low / totalReviews) * 100 }
+    ];
+  };
+
+  console.log(calculatePercentages());
+
+  return (
+    <div className={sharedClasses.mb4}>
+      <h3 className="text-lg font-semibold mb-2">Product Ratings & Reviews</h3>
+      <div className="flex items-center mb-2">
+        <span className="text-2xl font-bold">{product?.rating}</span>
+        <span className="text-yellow-500 ml-2">★</span>
+      </div>
+      <p className={`${sharedClasses.textGray} mb-2`}>Total reviews {product?.reviews.length}</p>
+      {calculatePercentages().map((rating, index) => (
+        <RatingBar key={index} {...rating} />
+      ))}
     </div>
-    <p className={`${sharedClasses.textGray} mb-2`}>204 Ratings, 36 Reviews</p>
-    {[
-      { label: "Excellent", width: "w-2/3", color: "bg-green-600" },
-      { label: "Very Good", width: "w-1/2", color: "bg-green-500" },
-      { label: "Good", width: "w-1/3", color: "bg-green-400" },
-      { label: "Average", width: "w-1/4", color: "bg-green-300" },
-    ].map((rating, index) => (
-      <RatingBar key={index} {...rating} />
-    ))}
-  </div>
-);
+  )
+};
 
-const RatingBar = ({ label, width, color }) => (
+const RatingBar = ({ label, width }) => (
   <div className="flex items-center mb-1">
     <span className={`flex-1 ${sharedClasses.textGray}`}>{label}</span>
-    <div className={`${width} ${color} h-2 rounded-lg`}></div>
+    <div className="w-4/5 relative bg-green-300 rounded-lg">
+      <div style={{width: `${width}%`}} className={`bg-green-700 h-2 rounded-lg`}></div>
+    </div>
   </div>
 );
 
-const CustomerFeedback = () => (
-  <div className={sharedClasses.mb4}>
+const CustomerFeedback = ({ reviews }) => (
+  <div className="mt-8 px-4 ">
     <h3 className="text-lg font-semibold mb-2">Customer Feedback</h3>
-    <div className="p-4 bg-[#798280ff] rounded-lg text-white">
-      <div className="flex items-center mb-2">
-        <img
-          src={avatar}
-          alt="User Avatar"
-          className={`w-12 h-12 ${sharedClasses.roundedFull} mr-2`}
-        />
-        <div>
-          <p className="font-semibold">User Name</p>
-          <p className="text-sm text-white">Posted on May 2023</p>
-        </div>
-      </div>
-      <p className="mb-2 text-white">
-        This is a good comb. It's very comfortable, and the size is just
-        right... but great. Nice buy!
-      </p>
-      <div className="flex items-center">
-        <img
-          src={like}
-          alt="Product Thumbnail"
-          className={`w-12 h-12 ${sharedClasses.roundedLg} mr-2`}
-        />
-        <span className="text-white">Likes: 21</span>
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+      {
+        reviews?.map(review => {
+          return (
+            <div className="p-4 bg-[#798280ff] rounded-lg text-white">
+              <div className="flex items-center mb-2">
+                <img
+                  src={avatar}
+                  alt="User Avatar"
+                  className={`w-12 h-12 ${sharedClasses.roundedFull} mr-2`}
+                />
+                <div>
+                  <p className="font-semibold">{review?.reviewerName}</p>
+                  <p className="text-sm text-white">{review?.reviewerEmail}</p>
+                </div>
+              </div>
+              <p className="mb-2 text-white">
+                {review?.comment}
+              </p>
+            </div>
+          )
+        })
+      }
     </div>
   </div>
 );
@@ -210,12 +247,18 @@ const ProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
 
-  console.log(product)
+  function getNewPrice(discountPercent, actualPrice) {
+    return ((100 - discountPercent) * actualPrice / 100).toFixed(2)
+  }
 
   const fetchProduct = async () => {
     try {
       const response = await axios.get(`https://dummyjson.com/products/${productId}`);
-      setProduct(response.data);
+      const requiredProduct = response.data;
+      console.log(response.data)
+      requiredProduct.newPrice = getNewPrice(requiredProduct.discountPercentage, requiredProduct.price)
+      setProduct(requiredProduct);
+      console.log(requiredProduct);
     } catch (error) {
       console.error("Axios error:", error);
     }
@@ -235,7 +278,8 @@ const ProductPage = () => {
           <ProductImage thumbnail={product?.thumbnail} images={product?.images} />
           <ProductDetails product={product} />
         </div>
-        <Similarproducts />
+        <CustomerFeedback reviews={product?.reviews} />
+        <Similarproducts category={product?.category} />
       </div>
     </div>
   )

@@ -21,9 +21,8 @@ function ProductGrid({ products, headingText }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
           console.log(product)
-          console.log(product.discountPercent)
-          const discountPercent = product.discountPercent;
-          product.newPrice = getNewPrice(discountPercent, product.price)
+          console.log(product.discountPercentage)
+          product.newPrice = getNewPrice(product.discountPercentage, product.price)
           return <ProductCard key={product.id} product={product} />
         })}
       </div>
