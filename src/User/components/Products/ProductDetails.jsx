@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import avatar from "../../../assets/avatar.png";
-import like from "../../../assets/like.png";
-import comb from "../../../assets/comb.jpg";
 import Similarproducts from "../Products/Similarproducts";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import toast from "react-hot-toast";
 import { manageCartItem } from "../../redux/cartSlice";
 import { manageWishlistItem } from "../../redux/wishlist";
 
@@ -177,7 +174,6 @@ const ProductRatings = ({ product }) => {
       return acc;
     }, { excellent: 0, veryGood: 0, good: 0, low: 0 });
 
-    console.log(counts)
 
     return [
         { label: "Excellent", width: (counts?.excellent / totalReviews) * 100 },
@@ -187,7 +183,6 @@ const ProductRatings = ({ product }) => {
     ];
   };
 
-  console.log(calculatePercentages());
 
   return (
     <div className={sharedClasses.mb4}>
@@ -258,7 +253,6 @@ const ProductPage = () => {
       console.log(response.data)
       requiredProduct.newPrice = getNewPrice(requiredProduct.discountPercentage, requiredProduct.price)
       setProduct(requiredProduct);
-      console.log(requiredProduct);
     } catch (error) {
       console.error("Axios error:", error);
     }
@@ -268,7 +262,6 @@ const ProductPage = () => {
     if (productId) {
       fetchProduct();
     }
-    console.log(productId)
   }, [productId])
 
   return (

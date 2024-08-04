@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import comb from '../../../assets/comb.jpg';
 import axios from 'axios';
 
 const Similarproducts = ({category}) => {
@@ -63,7 +62,6 @@ const Similarproducts = ({category}) => {
     fetchData();
   }, []);
 
-  console.log(products)
 
   return (
     <div className="mt-8 px-4 ">
