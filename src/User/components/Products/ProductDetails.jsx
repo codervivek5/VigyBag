@@ -118,7 +118,9 @@ const ActionButtons = ({ product }) => {
 
   const onAddToCart = () => {
     const quantity = 1;
-    dispatch(manageCartItem({ product, quantity }));
+    if (product && quantity > 0) {
+      dispatch(manageCartItem({ product, quantity }));
+    }
   };
 
   const onAddToWishlist = () => {
@@ -133,6 +135,7 @@ const ActionButtons = ({ product }) => {
           <button
             className={`${sharedClasses.buttonGreen} w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none`}
             onClick={() => navigate("/cart")}
+            aria-label="Buy now"
           >
             Buy now
           </button>
@@ -174,9 +177,9 @@ const ProductInfo = ({ product }) => (
 const ProductRatings = ({ product }) => {
 
   const calculatePercentages = () => {
-    const totalReviews = product?.reviews.length;
+    const totalReviews = product?.reviews.length || 0;
 
-    const counts = product?.reviews.reduce((acc, review) => {
+    const counts = product?.reviews?.reduce((acc, review) => {
       if (review.rating === 5) acc.excellent++;
       else if (review.rating === 4) acc.veryGood++;
       else if (review.rating === 3 || review.rating === 2) acc.good++;

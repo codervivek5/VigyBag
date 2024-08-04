@@ -60,7 +60,7 @@ const Similarproducts = ({category}) => {
       }
     };
     fetchData();
-  }, []);
+  }, [category]);
 
 
   return (
