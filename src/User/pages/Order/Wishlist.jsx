@@ -35,7 +35,7 @@ const WishlistItem = ({ product, onUpdate, onAddToCart, isExistsInTheCart }) => 
             style={{ border: "1px solid black" }}>
             <div className="flex items-center">
                 <img
-                    src={product.image}
+                    src={product.thumbnail}
                     alt={product.title}
                     className="w-32 h-32 md:w-20 md:h-20 rounded-lg mr-4"
                 />

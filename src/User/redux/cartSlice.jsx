@@ -29,7 +29,7 @@ const cartSlice = createSlice({
                 oldPrice: product.price || product.oldPrice,
                 newPrice: product.newPrice,
                 total: newQuantity * product.newPrice,
-                image: product.image,
+                image: product.thumbnail,
               }
             : []
         )
