@@ -1,16 +1,15 @@
 import React from "react";
-import career from "../../../assets/career.png";
 import anv from "../../../assets/anniversary.webp";
 import best from "../../../assets/best wishes.jpg";
 import birthday from "../../../assets/birthday-gifts.webp";
-import birthdaygift from "../../../assets/bithday.gif";
-import cong from "../../../assets/congratulations.png";
-import farewell from "../../../assets/farewell.png";
-import generic from "../../../assets/generic.webp";
+import birthdaygift from "../../../assets/cake.jpg";
+import cong from "../../../assets/clap.avif";
+import farewell from "../../../assets/flowers.avif";
+import generic from "../../../assets/gift.jpg";
 import giftcard from "../../../assets/giftcard.jpg";
-import more from "../../../assets/more.avif";
+import more from "../../../assets/gifts.jpg";
 import thank from "../../../assets/thank you.jpg";
-import wedding from "../../../assets/wedding.jpg";
+import wedding from "../../../assets/wedding.webp";
 import laddo from "../../../assets/laddo.png";
 
 import Header from "../../components/About/GiftHeader";
