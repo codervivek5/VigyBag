@@ -153,10 +153,10 @@ export default function App() {
             element={<PrintingStationery />}
           />
           {/* Other user routes */}
-          <Route path="about" element={<AboutUs />} />{" "}
+          <Route path="about" element={<AboutUs />} />
           {/* About Us page route */}
           <Route path="help" element={<Help />} /> {/* Help page route */}
-          <Route path="privacy" element={<Privacy />} />{" "}
+          <Route path="privacy" element={<Privacy />} />
           {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> {/* Cart page route */}
           <Route
@@ -164,14 +164,14 @@ export default function App() {
             element={<ProductDetails />}
           />{" "}
           {/* Product details route */}
-          <Route path="wishlist" element={<Wishlist />} />{" "}
+          <Route path="wishlist" element={<Wishlist />} />
           {/* Wishlist page route */}
-          <Route path="contact" element={<Contact />} />{" "}
+          <Route path="contact" element={<Contact />} />
           {/* Contact page route */}
-          <Route path="forgot-password" element={<ForgotPasswordForm />} />{" "}
+          <Route path="forgot-password" element={<ForgotPasswordForm />} />
           {/* Forgot password page route */}
           <Route path="team" element={<Team />} /> {/* Team page route */}
-          <Route path="auth" element={<UserAuth />} />{" "}
+          <Route path="auth" element={<UserAuth />} />
           {/* User authentication page route */}
           <Route path="faq" element={<FAQ />} /> {/* FAQ page route */}
           <Route path="termsAndCondition" element={<TermsAndConditions />} />
@@ -184,33 +184,33 @@ export default function App() {
           />
           {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
-          <Route path="career" element={<CareerPage />} />{" "}
-          <Route path="service" element={<ServicePage />} />{" "}
-          <Route path="shipping" element={<Shipping />} />{" "}
-          <Route path="gift-card" element={<GiftCard />} />{" "}
+          <Route path="career" element={<CareerPage />} />
+          <Route path="service" element={<ServicePage />} />
+          <Route path="shipping" element={<Shipping />} />
+          <Route path="gift-card" element={<GiftCard />} />
           {/* EPR page route */}
           {/* Private routes requiring authentication */}
           <Route element={<PrivateRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminPanel />} /> {/* Admin panel route */}
-              <Route path="vigy_form" element={<VigyForm />} />{" "}
+              <Route path="vigy_form" element={<VigyForm />} />
               {/* Admin Vigy form route */}
-              <Route path="product_form" element={<ProductForm />} />{" "}
+              <Route path="product_form" element={<ProductForm />} />
               {/* Admin product form route */}
             </Route>
-            <Route path="dashboard" element={<Dashboard />} />{" "}
+            <Route path="dashboard" element={<Dashboard />} />
             {/* User dashboard route */}
-            <Route path="confirm" element={<Confirmation />} />{" "}
+            <Route path="confirm" element={<Confirmation />} />
             {/* Order confirmation route */}
-            <Route path="cancel" element={<Cancellation />} />{" "}
+            <Route path="cancel" element={<Cancellation />} />
             {/* Order cancellation route */}
-            <Route path="orderDetails" element={<OrderDetails />} />{" "}
+            <Route path="orderDetails" element={<OrderDetails />} />
             {/* Order details route */}
-            <Route path="myOrders" element={<MyOrders />} />{" "}
+            <Route path="myOrders" element={<MyOrders />} />
             {/* My orders route */}
-            <Route path="checkout" element={<Checkout />} />{" "}
+            <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
-            <Route path="productDetails" element={<ProductDetails />} />{" "}
+            <Route path="productDetails" element={<ProductDetails />} />
             {/* Product details route */}
             <Route path="payment" element={<Payment />} /> {/* Payment route */}
             <Route path="dashboard-order" element={<DashboardOrders />} />
@@ -245,9 +245,9 @@ export default function App() {
         {/* Admin routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminPanel />} /> {/* Admin panel route */}
-          <Route path="vigy_form" element={<VigyForm />} />{" "}
+          <Route path="vigy_form" element={<VigyForm />} />
           {/* Admin Vigy form route */}
-          <Route path="product_form" element={<ProductForm />} />{" "}
+          <Route path="product_form" element={<ProductForm />} />
           {/* Admin product form route */}
         </Route>
 
