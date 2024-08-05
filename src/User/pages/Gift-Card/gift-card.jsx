@@ -99,8 +99,8 @@ const GiftCard = () => {
           05-Aug-24.
         </p>
       </div>
-      <section className="py-10 bg-orange-400 md:py-20">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-gray-500">
+      <section className="py-10 bg-blue-50 md:py-20">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-gray-700">
           Cards for every Occasions!
         </h2>
         <div className="container mx-auto px-4 md:px-16">
