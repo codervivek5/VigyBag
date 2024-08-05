@@ -117,7 +117,7 @@ const GiftCard = () => {
                   />
                 </div>
                 <div className="mr-6">
-                  <p className="text-sm font-bold md:text-base text-gray-700">
+                  <p className="text-sm font-bold md:text-base text-gray-900">
                     {leader.description}
                   </p>
                 </div>
