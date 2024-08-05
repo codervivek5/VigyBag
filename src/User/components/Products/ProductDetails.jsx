@@ -263,8 +263,8 @@ const ProductPage = () => {
     try {
       const response = await axios.get(`https://dummyjson.com/products/${productId}`);
       const requiredProduct = response.data;
-      console.log(response.data)
       requiredProduct.newPrice = getNewPrice(requiredProduct.discountPercentage, requiredProduct.price)
+      requiredProduct.image = requiredProduct.images[0] || requiredProduct.thumbnail
       setProduct(requiredProduct);
     } catch (error) {
       console.error("Axios error:", error);
