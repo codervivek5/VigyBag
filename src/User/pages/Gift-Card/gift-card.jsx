@@ -64,8 +64,7 @@ const GiftCard = () => {
   ];
 
   return (
-
-    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto w-fit">
+    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto">
       {/*Header Section */}
       <Header />
       {/* Leadership Section */}
@@ -179,11 +178,11 @@ const GiftCard = () => {
           />
         </div>
         <div className="relative md:flex md:justify-center md:items-start text-gray-700 px-4">
-          <div className="mt-28  p-20">
-            <h1 className="text-5xl md:text-5xl font-bold">
+          <div className="md:mt-28 mt-32  md:p-20">
+            <h1 className="text-4xl md:text-5xl font-bold">
               Celebrate Siblling loves with
             </h1>
-            <h1 className="text-5xl md:text-5xl font-bold">
+            <h1 className="text-4xl md:text-5xl font-bold">
               VigyBag Rakhi Gift Cards!
             </h1>
             <button className="text-3xl mt-8 max-w-3xl mx-auto rounded-lg font-bold text-white bg-yellow-400 p-5">
@@ -193,14 +192,14 @@ const GiftCard = () => {
           <div className="md:block flex md:gap-0 gap-4">
             <div className="">
               <img
-                className="md:h-[50vh] md:w-[30vw] md:mt-72 md:-rotate-45 mt-5"
+                className="md:h-[50vh] md:w-[30vw] md:mt-72 md:-rotate-45 mt-9"
                 src="https://i.pinimg.com/736x/fe/bb/91/febb912ff66ac274a9a1b5efd036c8c1.jpg"
                 alt=""
               />
             </div>
             <div>
               <img
-                className="h-[50vh] md:w-[25vw] w-[60vw] md:mt-96"
+                className="md:h-[50vh] md:w-[25vw] w-[70vw] md:mt-96 mt-40"
                 src={laddo}
                 alt=""
               />
