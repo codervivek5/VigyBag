@@ -64,6 +64,7 @@ const GiftCard = () => {
   ];
 
   return (
+
     <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto w-fit">
       {/*Header Section */}
       <Header />
@@ -100,16 +101,16 @@ const GiftCard = () => {
         </p>
       </div>
       <section className="py-10 bg-blue-50 md:py-20">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-gray-700">
+        <h2 className="text-6xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-gray-700">
           Cards for every Occasions!
         </h2>
         <div className="container mx-auto px-4 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 md:w-[80vw] w-[100vw] md:h-[70vh] md:ml-40 hover:cursor-pointer">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 w-[80vw] md:h-[70vh] h-full md:ml-40 ml-9 hover:cursor-pointer">
             {leadershipData.map((leader, index) => (
               <div
                 key={index}
                 className="bg-white flex items-center rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105">
-                <div className="relative h-[10vh] md:h-[20vh] p-4 items-center ml-3">
+                <div className="relative h-[40vh] md:h-[20vh] p-4 items-center ml-3">
                   <img
                     src={leader.image}
                     alt={leader.name}
@@ -177,27 +178,33 @@ const GiftCard = () => {
             className="w-full h-full object-cover filter mt-16"
           />
         </div>
-        <div className="relative flex justify-center items-start text-gray-700 px-4">
-          <div className="mt-28 p-20">
-            <h1 className="text-4xl md:text-5xl font-bold">
+        <div className="relative md:flex md:justify-center md:items-start text-gray-700 px-4">
+          <div className="mt-28  p-20">
+            <h1 className="text-5xl md:text-5xl font-bold">
               Celebrate Siblling loves with
             </h1>
-            <h1 className="text-4xl md:text-5xl font-bold">
+            <h1 className="text-5xl md:text-5xl font-bold">
               VigyBag Rakhi Gift Cards!
             </h1>
             <button className="text-3xl mt-8 max-w-3xl mx-auto rounded-lg font-bold text-white bg-yellow-400 p-5">
               Up to ₹2,000* Off* | →
             </button>
           </div>
-          <div className="">
-            <img
-              className="h-[50vh] w-[30vw] mt-72 -rotate-45"
-              src="https://i.pinimg.com/736x/fe/bb/91/febb912ff66ac274a9a1b5efd036c8c1.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img className="h-[50vh] w-[25vw] mt-96" src={laddo} alt="" />
+          <div className="md:block flex md:gap-0 gap-4">
+            <div className="">
+              <img
+                className="md:h-[50vh] md:w-[30vw] md:mt-72 md:-rotate-45 mt-5"
+                src="https://i.pinimg.com/736x/fe/bb/91/febb912ff66ac274a9a1b5efd036c8c1.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                className="h-[50vh] md:w-[25vw] w-[60vw] md:mt-96"
+                src={laddo}
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { MdHeight } from "react-icons/md";
 function Header() {
   return (
     <>
-      <header className="relative h-[100vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
+      <header className="relative h-[120vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={gift}
@@ -25,10 +25,11 @@ function Header() {
             stroke="bold"
             state="morph-open"></lord-icon>
           <div>
-            <h1 className="text-4xl md:text-8xl font-bold mb-2 md:mb-4 text-yellow-300">
+            <h1 className="text-7xl md:text-8xl font-bold mb-2 md:mb-4 text-yellow-300">
               Gift Card Store
             </h1>
-            <p className="text-5xl max-w-3xl mt-10 font-bold text-green-300">
+            <p className="md:text-5xl text-6xl max-w-3xl mt-10 font-bold text-green-300">
+
               Give Your Gift For Choice
             </p>
           </div>
