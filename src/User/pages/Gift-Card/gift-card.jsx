@@ -64,7 +64,8 @@ const GiftCard = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen  md:w-auto ">
+
+    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto w-fit">
       {/*Header Section */}
       <Header />
       {/* Leadership Section */}

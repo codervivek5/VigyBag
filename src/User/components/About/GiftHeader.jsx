@@ -29,6 +29,7 @@ function Header() {
               Gift Card Store
             </h1>
             <p className="md:text-5xl text-6xl max-w-3xl mt-10 font-bold text-green-300">
+
               Give Your Gift For Choice
             </p>
           </div>

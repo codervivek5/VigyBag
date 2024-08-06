@@ -127,8 +127,7 @@ const UserNavbar = ({ isAdmin }) => {
                   {isLoggedIn ? (
                     <div className="relative flex gap-3 items-center">
                       {/* <FaUserCircle
-                      onClick={handleDropdownToggle}
-                      className="text-3xl cursor-pointer"
+                      onClick={handleDropdownToggle}                     className="text-3xl cursor-pointer"
                     /> */}
                       <lord-icon
                         onClick={handleDropdownToggle}

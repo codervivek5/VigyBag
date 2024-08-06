@@ -1,21 +1,17 @@
-import React from 'react';
-import { RotatingLines } from 'react-loader-spinner'; // Import the spinner component
-import './Loader.css'; // Import CSS file for styling (create this if needed)
+import React from "react";
+import TopLoader from "react-top-loader"; // Import TopLoader component
 
-const Loader = ({ visible }) => {
+const Loader = ({ progress }) => {
   return (
-    <div className={`loader-overlay ${visible ? 'visible' : 'hidden'}`}>
-      <RotatingLines
-        visible={visible}
-        height="300"
-        width="300"
-        color="grey"
-        strokeWidth="5"
-        animationDuration="0.75"
-        ariaLabel="rotating-lines-loading"
-      />
-    </div>
+    <TopLoader
+      show={progress < 100}
+      progress={progress / 100}
+      thickness={5}
+      color="#4caf50"
+      backgroundColor="transparent"
+    />
   );
 };
 
 export default Loader;
+
