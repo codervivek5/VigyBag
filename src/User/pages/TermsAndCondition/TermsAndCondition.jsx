@@ -4,6 +4,33 @@ import "./terms.css";
 const TermsAndConditions = () => {
   useEffect(() => {
     document.title = "VigyBag | Terms and Conditions";
+
+    const updateLastUpdatedDate = () => {
+      const dateElement = document.getElementById("last-updated-date");
+      if (!dateElement) {
+        console.error("Element with ID 'last-updated-date' not found.");
+        return;
+      }
+      const now = new Date();
+      const day = now.getDate();
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      const month = monthNames[now.getMonth()]; // Get the full month name
+      const year = now.getFullYear();
+      dateElement.textContent = `${month} ${day}, ${year}`; // Fixed template literal
+    };
+
+    const updateWeekly = () => {
+      const now = new Date();
+      const dayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
+      const timeUntilNextUpdate = (7 - dayOfWeek) * 24 * 60 * 60 * 1000; // Time until next Sunday
+      updateLastUpdatedDate();
+      setTimeout(updateWeekly, timeUntilNextUpdate);
+    };
+
+    updateWeekly();
   }, []);
 
   return (
@@ -15,7 +42,11 @@ const TermsAndConditions = () => {
           Terms and Conditions
         </h1>
         <hr />
-        <br />
+
+        <div className="Lastupdate">
+            Last updated: <span id="last-updated-date"></span>
+  </div>
+
         <h2 style={{ color: "#333" }}>Introduction</h2>
         <p>
           Welcome to VigyBag. By accessing or using our website, you agree to
