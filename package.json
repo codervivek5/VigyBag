@@ -42,6 +42,7 @@
     "react-slick": "^0.30.2",
     "react-spinners": "^0.14.1",
     "react-use": "^17.5.0",
+    "reactjs-popup": "^2.0.6",
     "sitemap": "^8.0.0",
     "slick-carousel": "^1.8.1",
     "styled-component": "^2.8.0",
