@@ -9,6 +9,34 @@ const Privacy = () => {
     document.title = "VigyBag | Privacy Policy";
   }, []);
 
+  const updateLastUpdatedDate = () => {
+    const dateElement = document.getElementById("last-updated-date");
+    if (!dateElement) {
+      console.error("Element with ID 'last-updated-date' not found.");
+      return;
+    }
+    const now = new Date();
+    const day = now.getDate();
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const month = monthNames[now.getMonth()]; // Get the full month name
+    const year = now.getFullYear();
+    dateElement.textContent = `${month} ${day}, ${year}`; // Fixed template literal
+  };
+
+  const updateWeekly = () => {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
+    const timeUntilNextUpdate = (7 - dayOfWeek) * 24 * 60 * 60 * 1000; // Time until next Sunday
+    updateLastUpdatedDate();
+    setTimeout(updateWeekly, timeUntilNextUpdate);
+  };
+
+  updateWeekly();
+
+
   const generatePdf = () => {
     const input = document.getElementById('pdf-content');
     html2canvas(input)
@@ -24,7 +52,9 @@ const Privacy = () => {
       })
       .catch((error) => {
         console.error('Error generating PDF', error);
-        alert('An error occurred while generating the PDF. Please try again.');      });
+        alert('An error occurred while generating the PDF. Please try again.');  
+            
+      });
   };
   return (
     <div className="privacy-policy">
@@ -34,6 +64,9 @@ const Privacy = () => {
             <h1>VigyBag Privacy Policy</h1>
           </div>
           <section>
+          <div className="Lastupdate">
+            Last updated: <span id="last-updated-date"></span>
+  </div>
             <p>
               We value the trust you place in us and recognize the importance of
               secure transactions and information privacy. This Privacy Policy
