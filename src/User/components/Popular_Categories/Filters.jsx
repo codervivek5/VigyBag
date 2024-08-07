@@ -69,7 +69,7 @@ function Filters({
           options={["1", "2", "3", "4", "5"]}
           onChange={(e) => {
             const value = parseInt(e.target.value, 10); //converting into int from decimal
-            setRatingFilter(isNaN(value) ? 0.00 : value); //applying condition for rating or higher
+            setRatingFilter(Number.isNaN(value) ? 0.00 : value); //applying condition for rating or higher
           }
         }  
         />
