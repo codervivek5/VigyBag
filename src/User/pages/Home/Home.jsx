@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
 import background from "../../../assets/background.png";
@@ -24,8 +25,7 @@ import BambooProductsImg from "../../../assets/Bamboo-Products.png";
 import StorageBasketsImg from "../../../assets/Storage-Baskets.png";
 import DownArrow from "../../components/DownArrow/downArrow";
 
-//Redirectinh links --->
-
+// Redirecting links
 const popularCategories = [
   {
     name: "Fashion & Accessories",
@@ -132,19 +132,40 @@ const latestProducts = [
 const Home = () => {
   const sectionRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const handleSearch = (e) => setSearchTerm(e.target.value);
+  const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+
+    // Filter categories and products for suggestions
+    const filteredSuggestions = [
+      ...popularCategories.filter(category => category.name.toLowerCase().includes(term.toLowerCase())),
+      ...latestProducts.filter(product => product.name.toLowerCase().includes(term.toLowerCase()))
+    ];
+    setSuggestions(filteredSuggestions);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    // Navigate to the corresponding path
+    navigate(suggestion.path);
+  };
 
   const scrollToSection = () => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="bg-[#fff0e3ff]" style={{
-      transform: "translateY(20px)",
-    }}>
+    <div className="bg-[#fff0e3ff]" style={{ transform: "translateY(20px)" }}>
       <main className="mt-1">
         <div className="sm:block md:hidden bg-[#eff0f1] pt-5">
-          <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+          <SearchBar 
+            searchTerm={searchTerm} 
+            handleSearch={handleSearch} 
+            suggestions={suggestions} 
+            handleSuggestionClick={handleSuggestionClick} 
+          />
         </div>
         {/* Hero Section */}
         <section
@@ -186,7 +207,6 @@ const Home = () => {
           </div>
         </section>
         {/* Popular Categories */}
-
         <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
@@ -204,7 +224,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
         {/* Latest in the Market */}
         <section
           className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16"
@@ -225,7 +244,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
         {/* App Download Section */}
         <section
           className="py-8 sm:py-12 md:py-16 relative mb-[-1px]"
@@ -305,3 +323,4 @@ const Home = () => {
 };
 
 export default Home;
+
