@@ -68,14 +68,14 @@ const Footer = () => {
           <Link to="/contact" onClick={scrollToTop}>
             Contact us
           </Link>
-          <Link to="/service" onClick={scrollToTop}>
-            Our Services
-          </Link>
-          <Link to="/about" onClick={scrollToTop}>
-            Meet our contributor
+          <Link to="/career" onClick={scrollToTop}>
+            Careers
           </Link>
           <Link to="/certificate" onClick={scrollToTop}>
             Certification Page
+          </Link>
+          <Link to="/about" onClick={scrollToTop}>
+            Meet our contributor
           </Link>
         </div>
         <div className="contact-info text-sm">
