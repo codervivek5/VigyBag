@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { FaArrowUp } from "react-icons/fa";
+import './top.css'; // Import the CSS file
 
 const GoToTop = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (currentScrollY / documentHeight) * 100;
 
-      setIsVisible(currentScrollY > 200); // Change 200 to your desired scroll distance
+      setScrollProgress(progress);
+      setIsVisible(progress > 2); // Show button only if scroll progress is greater than 2%
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,36 +27,33 @@ const GoToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
+  // Calculate the dash offset for the circle based on scroll progress
+  const circleLength = 157; // Approximate circumference of the circle (2 * PI * radius)
+  const strokeDashoffset = ((100 - scrollProgress) / 100) * circleLength;
+
   return (
-    <>
-      {isVisible && (
-        <Wrapper onClick={goToTop}>
-          <FaArrowUp className="top-btn--icon" />
-        </Wrapper>
-      )}
-    </>
+    <div
+      className={`go-to-top-wrapper ${isVisible ? "" : "hidden"}`}
+      onClick={goToTop}
+    >
+      <svg className="circular-progress">
+        <circle
+          className="circle-background"
+          cx="50%"
+          cy="50%"
+          r="25"
+        />
+        <circle
+          className="circle"
+          cx="50%"
+          cy="50%"
+          r="25"
+          style={{ strokeDashoffset }}
+        />
+      </svg>
+      <FaArrowUp className="top-btn--icon" />
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 95px;
-  right: 28px;
-  color: white;
-  background-color: #16a34a;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 99;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  &:hover {
-    background-color: #005a01;
-    transform: scale(1.1);
-  }
-`;
 
 export default GoToTop;

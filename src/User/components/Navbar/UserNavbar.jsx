@@ -13,6 +13,7 @@ const UserNavbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
 
@@ -23,14 +24,35 @@ const UserNavbar = ({ isAdmin }) => {
   const toggleNavbar = () => setIsOpen(!isOpen);
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
-  // const handleLogout = () => {
-  //   if (window.confirm("Are you sure you want to logout?")) {
-  //     localStorage.removeItem("isLoggedIn");
-  //     localStorage.removeItem("username");
-  //     alert("Logout Successful.");
-  //     navigate("/login");
-  //   }
-  // };
+  const searchableItems = [
+    { name: "Fashion & Accessories", link: "/popularCategories/fashionAccessories" },
+    { name: "Printing & Stationery", link: "/popularCategories/printingStationery" },
+    { name: "Food & Beverages", link: "/popularCategories/foodBeverages" },
+    { name: "Beauty & Wellness", link: "/popularCategories/beautyWellness" },
+    { name: "Furniture & Decor", link: "/popularCategories/furnitureDecor" },
+    { name: "Body Care", link: "/popularCategories/bodyCare" },
+    { name: "Health Supplements", link: "/popularCategories/healthSupplements" },
+    { name: "Customized Gifts", link: "/popularCategories/customizedGifts" },
+    { name: "Handmade Soaps", link: "/latestInMarket/handmadeSoaps" },
+    { name: "Art Supplies", link: "/latestInMarket/artSupplies" },
+    { name: "Ceramic Dinnerware", link: "/latestInMarket/ceramicDinnerware" },
+    { name: "Bamboo Products", link: "/latestInMarket/bambooProducts" },
+    { name: "Storage Baskets", link: "/latestInMarket/storageBaskets" },
+    { name: "Organic Soaps", link: "/latestInMarket/organicSoaps" },
+    { name: "Organic Tea", link: "/latestInMarket/organicTea" },
+    { name: "Natural Cosmetics", link: "/latestInMarket/naturalCosmetics" },
+  ];
+
+  useEffect(() => {
+    if (searchTerm) {
+      const results = searchableItems.filter(item =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchTerm]);
 
   const handleLogout = () => {
     Swal.fire({
@@ -88,6 +110,12 @@ const UserNavbar = ({ isAdmin }) => {
     { to: "/popularCategories/bodyCare", text: "Body-Care" },
   ];
 
+  const handleResultClick = (link) => {
+    navigate(link);
+    setSearchTerm("");
+    setSearchResults([]);
+  };
+
   return (
     <nav className="bg-[#ecd5c5] shadow-lg fixed w-full z-50 -mt-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,6 +145,8 @@ const UserNavbar = ({ isAdmin }) => {
                   <SearchBar
                     searchTerm={searchTerm}
                     handleSearch={handleSearch}
+                    searchResults={searchResults}
+                    onResultClick={handleResultClick}
                   />
                 </div>
                 <div className="flex md:gap-6 gap-7 mr-4 md:mr-0">
@@ -126,10 +156,6 @@ const UserNavbar = ({ isAdmin }) => {
                 <div className="md:block hidden">
                   {isLoggedIn ? (
                     <div className="relative flex gap-3 items-center">
-                      {/* <FaUserCircle
-                      onClick={handleDropdownToggle}
-                      className="text-3xl cursor-pointer"
-                    /> */}
                       <lord-icon
                         onClick={handleDropdownToggle}
                         className="text-3xl cursor-pointer"

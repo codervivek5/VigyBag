@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Filters from "../../components/Popular_Categories/Filters";
 import ProductGrid from "../../components/Popular_Categories/ProductGrid";
-import axios from "axios";
 import toast from "react-hot-toast";
+import axios from "axios";
+
 
 function ArtSupplies() {
   const [products, setProducts] = useState([]);
@@ -23,6 +24,7 @@ function ArtSupplies() {
             price: product.price,
             category: product.category,
             image: product.images[0] || "", // Ensuring the images array is present
+            discountPercentage: product.discountPercentage,
             rating: {
               rate: product.rating,
               count: product.reviews.length || 0, // Ensuriing reviews array is present
@@ -64,9 +66,12 @@ function ArtSupplies() {
             setCategoryFilter={setCategoryFilter}
             setPriceFilter={setPriceFilter}
             setRatingFilter={setRatingFilter}
-            backgroundColor="#d6b198ff"
+            backgroundColor="#c2b6a9ff"
           />
-          <ProductGrid products={filteredProducts} headingText="Art Supplies" />
+          <ProductGrid
+            products={filteredProducts}
+            headingText="Art Supplies"
+          />
         </div>
       </main>
     </div>

@@ -8,12 +8,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
-  // Function to get a random discount percentage
-  function getRandomDiscountPercent(price) {
-    return (price % 40) + 10;
-  }
 
-  // Function to calculate the new price after discount
   function getNewPrice(discountPercent, actualPrice) {
     return ((100 - discountPercent) * actualPrice / 100).toFixed(2);
   }
@@ -25,10 +20,8 @@ function ProductGrid({ products, headingText }) {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
-          const discountPercent = getRandomDiscountPercent(product.price);
-          product.discountPercent = discountPercent;
-          product.newPrice = getNewPrice(discountPercent, product.price);
-          return <ProductCard key={product.id} product={product} />;
+          product.newPrice = getNewPrice(product.discountPercentage, product.price)
+          return <ProductCard key={product.id} product={product} />
         })}
       </div>
     </div>
@@ -42,9 +35,8 @@ function ProductCard({ product }) {
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
-  // Function to handle product click and navigate to product details page
-  const handleClick = () => {
-    navigate("/productDetails");
+  const handleClick = (productId) => {
+    navigate(`/productDetails/${productId}`);
   };
 
   // Function to add product to cart
@@ -86,7 +78,7 @@ function ProductCard({ product }) {
       )}
       {/* Product image */}
       <img
-        onClick={handleClick}
+        onClick={() => handleClick(product.id)}
         src={product.image}
         alt={product.title}
         className="w-full h-60 object-contain"

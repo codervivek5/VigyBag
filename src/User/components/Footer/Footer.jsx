@@ -68,14 +68,14 @@ const Footer = () => {
           <Link to="/contact" onClick={scrollToTop}>
             Contact us
           </Link>
-          <Link to="/service" onClick={scrollToTop}>
-            Our Services
-          </Link>
-          <Link to="/about" onClick={scrollToTop}>
-            Meet our contributor
+          <Link to="/career" onClick={scrollToTop}>
+            Careers
           </Link>
           <Link to="/certificate" onClick={scrollToTop}>
             Certification Page
+          </Link>
+          <Link to="/about" onClick={scrollToTop}>
+            Meet our contributor
           </Link>
         </div>
         <div className="contact-info text-sm">
@@ -229,10 +229,13 @@ const Footer = () => {
           src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/payment-method-c454fb.svg"
           alt="Payment methods"></img>
         <nav>
-          <Link to="/our-services" onClick={scrollToTop}>
+          <Link to="/service" onClick={scrollToTop}>
             Our Services
           </Link>
-          <Link to="/terms-and-conditions" onClick={scrollToTop}>
+          <Link to="/gift-card" onClick={scrollToTop}>
+            Gift Cards
+          </Link>
+          <Link to="/termsAndCondition" onClick={scrollToTop}>
             Terms & Conditions
           </Link>
           <Link to="/faq" onClick={scrollToTop}>

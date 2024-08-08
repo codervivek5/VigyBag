@@ -30,15 +30,30 @@ function Filters({
         <FilterSection
           title="Category"
           options={[
-            "electronics",
-            "jewelery",
-            "beauty",
-            "skin-care",
-            "grocery",
-            "men's clothing",
-            "women's clothing",
-            "sunglasses",
-            "home decor"
+              "beauty", //added all the categories
+              "fragrances",
+              "furniture",
+              "groceries",
+              "home-decoration",
+              "kitchen-accessories",
+              "laptops",
+              "mens-shirts",
+              "mens-shoes",
+              "mens-watches",
+              "mobile-accessories",
+              "motorcycle",
+              "skin-care",
+              "smartphones",
+              "sports-accessories",
+              "sunglasses",
+              "tablets",
+              "tops",
+              "vehicle",
+              "womens-bags",
+              "womens-dresses",
+              "womens-jewellery",
+              "womens-shoes",
+              "womens-watches"
           ]}
           onChange={(e) => setCategoryFilter(e.target.value)}
         />
@@ -51,8 +66,12 @@ function Filters({
         {/* Filter section for Rating */}
         <FilterSection
           title="Rating"
-          options={["1", "2", "3", "4"]}
-          onChange={(e) => setRatingFilter(parseInt(e.target.value))}
+          options={["1", "2", "3", "4", "5"]}
+          onChange={(e) => {
+            const value = parseInt(e.target.value, 10); //converting into int from decimal
+            setRatingFilter(Number.isNaN(value) ? 0.00 : value); //applying condition for rating or higher
+          }
+        }  
         />
       </div>
     </aside>
@@ -68,7 +87,7 @@ function FilterSection({ title, options, onChange }) {
         <option value="">All</option>
         {options.map((option) => (
           <option key={option} value={option}>
-            {title === "Price" ? `Under $${option}` : option}
+            {title === "Price" ? `Under ₹${option}` : option}
           </option>
         ))}
       </select>

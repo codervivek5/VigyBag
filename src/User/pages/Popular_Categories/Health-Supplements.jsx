@@ -23,6 +23,7 @@ function HealthSupplements() {
             price: product.price,
             category: product.category,
             image: product.images[0] || "", // Ensuring the images array is present
+            discountPercentage: product.discountPercentage,
             rating: {
               rate: product.rating,
               count: product.reviews.length || 0, // Ensuriing reviews array is present

@@ -23,6 +23,7 @@ function BeautyWellness() {
             price: product.price,
             category: product.category,
             image: product.images[0] || "",
+            discountPercentage: product.discountPercentage,
             rating: {
               rate: product.rating,
               count: product.reviews ? product.reviews.length : 0,
