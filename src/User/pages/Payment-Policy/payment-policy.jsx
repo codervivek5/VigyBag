@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const Payment_Page = () => {
+const Payment_Policy = () => {
   useEffect(() => {
     document.title = "VigyBag | Return and Cancellation";
   }, []);
@@ -617,4 +617,4 @@ const Payment_Page = () => {
   );
 };
 
-export default Payment_Page;
+export default Payment_Policy;

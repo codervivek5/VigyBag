@@ -38,7 +38,7 @@ import CareerPage from "./User/pages/Career-Page/careerPage.jsx";
 import ServicePage from "./User/pages/Service-Page/service.jsx";
 import Shipping from "./User/pages/Shipping/shipping";
 import GiftCard from "./User/pages/Gift-Card/gift-card.jsx";
-import Payment_Page from "./User/pages/Payment-Page/payment-page.jsx";
+import Payment_Policy from "./User/pages/Payment-Policy/payment-policy.jsx";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -183,7 +183,7 @@ export default function App() {
             path="returnAndCancellation"
             element={<ReturnAndCancellation />}
           />
-          <Route path="payment-page" element={<Payment_Page />} />
+          <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
           <Route path="career" element={<CareerPage />} />
