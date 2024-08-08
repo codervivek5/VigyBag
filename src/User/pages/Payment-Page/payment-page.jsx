@@ -533,56 +533,62 @@ const Payment_Page = () => {
               The table below shows a representative rendering of EMI plans for
               a ₹20,000 purchase on VigyBag paid using the EMI payment plan:
             </p>
-            <table className="border-2 border-black p-6">
-              <thead className="border-2 p-4">
-                <tr className="border-2 border-black">
-                  <th className="border-2 border-black">Tenure (months)</th>
-                  <th className="border-2 border-black">Loan amount</th>
-                  <th className="border-2 border-black">Monthly installment</th>
-                  <th className="border-2 border-black">Bank interest rate</th>
-                  <th className="border-2 border-black">
-                    Total effective price you pay
-                  </th>
-                  <th className="border-2 border-black">
-                    Interest paid to Bank
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-2 border-black">
-                  <td className="border-2 border-black">3</td>
-                  <td className="border-2 border-black">₹20,000</td>
-                  <td className="border-2 border-black">₹6,800.44</td>
-                  <td className="border-2 border-black">12.00%</td>
-                  <td className="border-2 border-black">₹20,401.33</td>
-                  <td className="border-2 border-black">₹401.33</td>
-                </tr>
-                <tr className="border-2 border-black">
-                  <td className="border-2 border-black">6</td>
-                  <td className="border-2 border-black">₹20,000</td>
-                  <td className="border-2 border-black">₹3,450.97</td>
-                  <td className="border-2 border-black">12.00%</td>
-                  <td className="border-2 border-black">₹20,705.80</td>
-                  <td className="border-2 border-black">₹705.80</td>
-                </tr>
-                <tr className="border-2 border-black">
-                  <td className="border-2 border-black">9</td>
-                  <td className="border-2 border-black">₹20,000</td>
-                  <td className="border-2 border-black">₹2,344.32</td>
-                  <td className="border-2 border-black">13.00%</td>
-                  <td className="border-2 border-black">₹21,098.89</td>
-                  <td className="border-2 border-black">₹1,098.89</td>
-                </tr>
-                <tr className="border-2 border-black">
-                  <td className="border-2 border-black">12</td>
-                  <td className="border-2 border-black">₹20,000</td>
-                  <td className="border-2 border-black">₹1,786.35</td>
-                  <td className="border-2 border-black">13.00%</td>
-                  <td className="border-2 border-black">₹21,436.15</td>
-                  <td className="border-2 border-black">₹1,436.15</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="min-w-full border-2 border-black">
+                <thead className="border-2">
+                  <tr className="border-2 border-black">
+                    <th className="border-2 border-black">Tenure (months)</th>
+                    <th className="border-2 border-black">Loan amount</th>
+                    <th className="border-2 border-black">
+                      Monthly installment
+                    </th>
+                    <th className="border-2 border-black">
+                      Bank interest rate
+                    </th>
+                    <th className="border-2 border-black">
+                      Total effective price you pay
+                    </th>
+                    <th className="border-2 border-black">
+                      Interest paid to Bank
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-2 border-black">
+                    <td className="border-2 border-black">3</td>
+                    <td className="border-2 border-black">₹20,000</td>
+                    <td className="border-2 border-black">₹6,800.44</td>
+                    <td className="border-2 border-black">12.00%</td>
+                    <td className="border-2 border-black">₹20,401.33</td>
+                    <td className="border-2 border-black">₹401.33</td>
+                  </tr>
+                  <tr className="border-2 border-black">
+                    <td className="border-2 border-black">6</td>
+                    <td className="border-2 border-black">₹20,000</td>
+                    <td className="border-2 border-black">₹3,450.97</td>
+                    <td className="border-2 border-black">12.00%</td>
+                    <td className="border-2 border-black">₹20,705.80</td>
+                    <td className="border-2 border-black">₹705.80</td>
+                  </tr>
+                  <tr className="border-2 border-black">
+                    <td className="border-2 border-black">9</td>
+                    <td className="border-2 border-black">₹20,000</td>
+                    <td className="border-2 border-black">₹2,344.32</td>
+                    <td className="border-2 border-black">13.00%</td>
+                    <td className="border-2 border-black">₹21,098.89</td>
+                    <td className="border-2 border-black">₹1,098.89</td>
+                  </tr>
+                  <tr className="border-2 border-black">
+                    <td className="border-2 border-black">12</td>
+                    <td className="border-2 border-black">₹20,000</td>
+                    <td className="border-2 border-black">₹1,786.35</td>
+                    <td className="border-2 border-black">13.00%</td>
+                    <td className="border-2 border-black">₹21,436.15</td>
+                    <td className="border-2 border-black">₹1,436.15</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <br />
             <h3 className="text-black font-bold text-sm">
               How do I make a payment using VigyBag's credit card EMI option?
