@@ -235,8 +235,8 @@ const Footer = () => {
           <Link to="/gift-card" onClick={scrollToTop}>
             Gift Cards
           </Link>
-          <Link to="/termsAndCondition" onClick={scrollToTop}>
-            Terms & Conditions
+          <Link to="/payment-page" onClick={scrollToTop}>
+            payments
           </Link>
           <Link to="/faq" onClick={scrollToTop}>
             FAQ
