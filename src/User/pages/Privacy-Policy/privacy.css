@@ -74,3 +74,13 @@ h3 {
     padding: 13px;
     border: 2px solid black;
 }
+
+.Lastupdate {
+    margin-bottom: 14px;
+    font-size: 17px;         
+    margin-top: 3px;
+  }
+  
+#last-updated-date {
+    font-size: 17px;
+  }
