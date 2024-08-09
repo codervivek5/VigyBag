@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
-import { FaSignOutAlt } from "react-icons/fa"; // Import an icon for the logout button
+import { FaSignOutAlt } from "react-icons/fa"; 
 
 const CartIcon = ({ collapsed }) => {
   const cartItems = useSelector((state) => state.cart.items);
