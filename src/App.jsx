@@ -230,7 +230,7 @@ export default function App() {
             {/* Not in use routes */}
             <Route path="blog" element={<Blog />} />
             {/* additional routes */}
-            {/* <Route path="giftcard" element={<GiftcardPage />} /> */}
+            <Route path="giftcard" element={<GiftcardPage />} />
             <Route path="sponsorships" element={<Sponsorships />} />
             <Route path="warranty" element={<Warranty />} />
             <Route path="productCare" element={<ProductCare />} />
