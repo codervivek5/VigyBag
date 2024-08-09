@@ -60,14 +60,14 @@ const GiftCard = () => {
       image: thank,
       description: "Thank You→",
     },
+    // Add more leadership members as needed
   ];
 
   return (
-    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen">
-      {/* Header Section */}
+    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto">
+      {/*Header Section */}
       <Header />
-      
-      {/* Introduction Section */}
+      {/* Leadership Section */}
       <div className="p-9">
         <h1 className="font-bold text-gray-600 text-2xl">Gift Card Store</h1>
         <br />
@@ -99,27 +99,25 @@ const GiftCard = () => {
           05-Aug-24.
         </p>
       </div>
-
-      {/* Cards for every Occasions Section */}
       <section className="py-10 bg-blue-50 md:py-20">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-gray-700">
-          Cards for Every Occasion!
+        <h2 className="text-6xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-gray-700">
+          Cards for every Occasions!
         </h2>
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="container mx-auto px-4 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 w-[80vw] md:h-[70vh] h-full md:ml-40 ml-9 hover:cursor-pointer">
             {leadershipData.map((leader, index) => (
               <div
                 key={index}
-                className="bg-white flex flex-col items-center rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105">
-                <div className="relative w-full h-[200px] md:h-[150px]">
+                className="bg-white flex items-center rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105">
+                <div className="relative h-[40vh] md:h-[20vh] p-4 items-center ml-3">
                   <img
                     src={leader.image}
-                    alt={leader.description}
-                    className="w-full h-full object-cover"
+                    alt={leader.name}
+                    className="rounded-full bg-yellow-400 h-full object-cover"
                   />
                 </div>
-                <div className="p-4 text-center">
-                  <p className="text-sm font-bold text-gray-900">
+                <div className="mr-6">
+                  <p className="text-sm font-bold md:text-base text-gray-900">
                     {leader.description}
                   </p>
                 </div>
@@ -129,16 +127,14 @@ const GiftCard = () => {
           </div>
         </div>
       </section>
-
-      {/* Final Section */}
       <div className="p-9">
         <h1 className="font-bold text-gray-600 text-2xl">
           VigyBag Gift Cards - For Those Special Moments
         </h1>
         <br />
         <p className="text-sm">
-          Gift Cards provide an ideal gifting solution for all occasions. In
-          addition to the ease of gifting, it also provides a choice to the
+          Gift Cards provide for an ideal gifting solution for all occasions in
+          addition to the ease of gifting it also provides a choice to the
           individual to buy something they want and when they want. If you can’t
           decide what to get someone, there’s a simple solution for this - Go to
           the Gift Cards Section on VigyBag. From something as small as fashion
@@ -148,7 +144,7 @@ const GiftCard = () => {
           choose one as per your wish and the category you want to choose. You
           can gift them VigyBag Gift Cards or choose from 100+ brands like
           Myntra, Tanishq, Croma, Google Play, Big Bazar & others from
-          categories such as Fashion, Travel, Jewellery, Grocery, Apps, and
+          categories such as Fashion, Travel, Jewellery, Grocery, Apps and
           Subscriptions.
         </p>
         <br />
@@ -159,7 +155,7 @@ const GiftCard = () => {
         <p className="text-sm">
           Purchasing gift vouchers online is very simple. At the product page,
           select the value of the gift card you would like to purchase, click on
-          buy now and then enter the recipient details, address (if required),
+          buy now and then enter the recipient details , address (if required)
           and 'proceed to pay’. You can then pay using a credit card, debit
           card, net banking & UPI. After the checkout process, you will receive
           an email with the Gift card details.
@@ -173,37 +169,41 @@ const GiftCard = () => {
           of choosing what their heart desires the most.
         </p>
       </div>
-
-      {/* Promotional Section */}
-      <div className="relative h-[100vh] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[100vh] md:h-[100vh] flex items-start justify-start overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://png.pngtree.com/thumb_back/fh260/background/20200724/pngtree-happy-raksha-bandhan-orange-background-vector-illustration-image_364910.jpg"
             alt="Background"
-            className="w-full h-full object-cover filter"
+            className="w-full h-full object-cover filter mt-16"
           />
         </div>
-        <div className="relative text-center text-gray-700 px-4 md:px-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Celebrate Sibling Love with
-          </h1>
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">
-            VigyBag Rakhi Gift Cards!
-          </h1>
-          <button className="text-3xl rounded-lg font-bold text-white bg-yellow-400 p-5">
-            Up to ₹2,000* Off* | →
-          </button>
-          <div className="flex justify-center gap-4 mt-8">
-            <img
-              className="h-[30vh] w-auto md:h-[50vh] md:w-[30vw] rotate-[-15deg]"
-              src="https://i.pinimg.com/736x/fe/bb/91/febb912ff66ac274a9a1b5efd036c8c1.jpg"
-              alt="Decorative"
-            />
-            <img
-              className="h-[30vh] w-auto md:h-[50vh] md:w-[25vw]"
-              src={laddo}
-              alt="Decorative"
-            />
+        <div className="relative md:flex md:justify-center md:items-start text-gray-700 px-4">
+          <div className="md:mt-28 mt-32  md:p-20">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              Celebrate Siblling loves with
+            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold">
+              VigyBag Rakhi Gift Cards!
+            </h1>
+            <button className="text-3xl mt-8 max-w-3xl mx-auto rounded-lg font-bold text-white bg-yellow-400 p-5">
+              Up to ₹2,000* Off* | →
+            </button>
+          </div>
+          <div className="md:block flex md:gap-0 gap-4">
+            <div className="">
+              <img
+                className="md:h-[50vh] md:w-[30vw] md:mt-72 md:-rotate-45 mt-9"
+                src="https://i.pinimg.com/736x/fe/bb/91/febb912ff66ac274a9a1b5efd036c8c1.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                className="md:h-[50vh] md:w-[25vw] w-[70vw] md:mt-96 mt-40"
+                src={laddo}
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
