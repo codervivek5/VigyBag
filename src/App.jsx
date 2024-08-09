@@ -4,7 +4,8 @@ import { AuthProvider } from "./context/AuthContext";
 
 // User components
 import UserAuth from "./User/pages/UserAuth/UserAuth";
-import AboutUs from "./User/pages/About/AboutUs";
+import AboutUs from "./User/pages/AboutUs/Aboutus.jsx";
+import Contributors from "./User/pages/Contributors/Contributors.jsx";
 import Contact from "./User/pages/Contacts/Contact";
 import Dashboard from "./User/pages/Dashboard/Dashboard";
 import Home from "./User/pages/Home/Home";
@@ -154,8 +155,8 @@ export default function App() {
             element={<PrintingStationery />}
           />
           {/* Other user routes */}
-          <Route path="about" element={<AboutUs />} />
-          {/* About Us page route */}
+          <Route path="contributors" element={<Contributors />} />
+          <Route path="aboutUs" element={<AboutUs />} />
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy" element={<Privacy />} />
           {/* Privacy policy page route */}

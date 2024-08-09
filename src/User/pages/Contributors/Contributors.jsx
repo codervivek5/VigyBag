@@ -17,7 +17,7 @@ import founder from "../../../assets/founder.jpeg";
 import Networkdiagram from "../../components/About/Networkdiagram";
 import Header from "../../components/About/Header";
 
-const AboutUs = () => {
+const Contributors = () => {
   const handleSeeMore = () => {
     setVisibleProducts((prevCount) => prevCount + getProductsPerRow());
   };
@@ -308,7 +308,7 @@ const AboutUs = () => {
       {/* Leadership Section */}
       <section className="py-12 md:py-20 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 text-green-800">
+          <h2 className="text-3xl md:text-6xl font-bold text-center mb-8 md:mb-16 text-green-800">
             Our Leadership
           </h2>
           <hr className="border-2 border-green-600 w-1/2 mx-auto mb-10 -mt-6" />
@@ -400,4 +400,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Contributors;
