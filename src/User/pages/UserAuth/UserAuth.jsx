@@ -10,6 +10,7 @@ import {
   FaEyeSlash,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { auth, FacebookAuthProvider, signInWithPopup } from "./firebase";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { DotLoader } from "react-spinners";
@@ -163,7 +164,43 @@ const AuthForm = () => {
   };
 
   const handleSocialLogin = (provider) => {
-    window.location.href = `https://vigybag-backend.onrender.com/auth/${provider}`;
+    if (provider === "facebook") {
+      const facebookProvider = new FacebookAuthProvider();
+      signInWithPopup(auth, facebookProvider)
+        .then((result) => {
+          const user = result.user;
+          const username = user.displayName;
+          // Store username in localStorage
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("username", username);
+  
+          Swal.fire({
+            title: "Login successfully!",
+            text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
+            icon: "success",
+            confirmButtonText: "Ok",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              content: "custom-content",
+              confirmButton: "custom-confirm-button",
+            },
+          }).then(() => {
+            navigate("/");
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire({
+            title: "Login failed",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        });
+    } else if (provider === "google") {
+      window.location.href = `https://vigybag-backend.onrender.com/auth/google`;
+    }
   };
 
   const checkPasswordStrength = (password) => { //checking password strength
@@ -244,23 +281,27 @@ const AuthForm = () => {
                           {showLoginPassword ? "Hide" : "Show"}
                         </button>
                       </div>
-                      <div className="flex items-center">
-                        <input
-                          type="checkbox"
-                          id="rememberMe"
-                          checked={rememberMe}
-                          onChange={(e) => setRememberMe(e.target.checked)}
-                          className="mr-2"
-                        />
-                        <label htmlFor="rememberMe" className="text-sm">
-                          Remember me
-                        </label>
-                        <a
-                          href="#"
-                          className="text-sm text-[#4caf50] hover:underline ml-[15vw]">
-                          Forgot password?
-                        </a>
-                      </div>
+                      <div className="flex items-center justify-between">
+  <div className="flex items-center">
+    <input
+      type="checkbox"
+      id="rememberMe"
+      checked={rememberMe}
+      onChange={(e) => setRememberMe(e.target.checked)}
+      className="mr-2"
+    />
+    <label htmlFor="rememberMe" className="text-sm">
+      Remember me
+    </label>
+  </div>
+  <a
+    href="#"
+    className="text-sm text-[#4caf50] hover:underline"
+  >
+    Forgot password?
+  </a>
+</div>
+
                       <button
                         type="submit"
                         onClick={handleLogin}
@@ -279,7 +320,7 @@ const AuthForm = () => {
                         <FcGoogle className="mr-2" />
                         Login with Google
                       </button>
-                      <button
+                       <button
                         onClick={() => handleSocialLogin("facebook")}
                         className="flex-1 flex items-center justify-center bg-[#1877f2] text-white px-4 py-2 rounded md:text-sm text-xs hover:bg-[#166fe5] transition duration-300">
                         <FaFacebook className="md:mr-2 mr-1" /> Login with
