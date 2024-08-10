@@ -4,14 +4,7 @@ import ProductGrid from "../../components/Popular_Categories/ProductGrid";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import { data } from "autoprefixer";
-import { count } from "console";
-import { content } from "html2canvas/dist/types/css/property-descriptors/content";
-import { image } from "html2canvas/dist/types/css/types/image";
-import { get } from "http";
-import { title } from "process";
-import React from "react";
-import { isArray } from "util";
+
 
 
 
