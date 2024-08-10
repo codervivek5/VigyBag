@@ -4,7 +4,8 @@ import { AuthProvider } from "./context/AuthContext";
 
 // User components
 import UserAuth from "./User/pages/UserAuth/UserAuth";
-import AboutUs from "./User/pages/About/AboutUs";
+import AboutUs from "./User/pages/AboutUs/Aboutus.jsx";
+import Contributors from "./User/pages/Contributors/Contributors.jsx";
 import Contact from "./User/pages/Contacts/Contact";
 import Dashboard from "./User/pages/Dashboard/Dashboard";
 import Home from "./User/pages/Home/Home";
@@ -38,6 +39,7 @@ import CareerPage from "./User/pages/Career-Page/careerPage.jsx";
 import ServicePage from "./User/pages/Service-Page/service.jsx";
 import Shipping from "./User/pages/Shipping/shipping";
 import GiftCard from "./User/pages/Gift-Card/gift-card.jsx";
+import Payment_Policy from "./User/pages/Payment-Policy/payment-policy.jsx";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -153,8 +155,8 @@ export default function App() {
             element={<PrintingStationery />}
           />
           {/* Other user routes */}
-          <Route path="about" element={<AboutUs />} />
-          {/* About Us page route */}
+          <Route path="contributors" element={<Contributors />} />
+          <Route path="aboutUs" element={<AboutUs />} />
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy" element={<Privacy />} />
           {/* Privacy policy page route */}
@@ -182,6 +184,7 @@ export default function App() {
             path="returnAndCancellation"
             element={<ReturnAndCancellation />}
           />
+          <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
           <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
           <Route path="career" element={<CareerPage />} />

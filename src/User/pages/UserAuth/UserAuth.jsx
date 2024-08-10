@@ -6,8 +6,11 @@ import {
   FaLock,
   FaUser,
   FaPhone,
+  FaEye,
+  FaEyeSlash,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { auth, FacebookAuthProvider, signInWithPopup } from "./firebase";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { DotLoader } from "react-spinners";
@@ -15,6 +18,10 @@ import "./UserAuth.css";
 import { SlLogin } from "react-icons/sl";
 import { MdAssignmentInd } from "react-icons/md";
 import { Link } from "react-router-dom";
+
+
+
+
 
 const AuthForm = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -35,7 +42,9 @@ const AuthForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showSignupPassword, setShowSignupPassword] = useState(false); // New state for signup password visibility
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // New state for confirm password visibility
+  const [passwordStrength, setPasswordStrength] = useState(0);
 
+  const isPhoneValid = (number) => /^\d+$/.test(number) && number.length == 10; //checking phone number's validity
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -117,6 +126,16 @@ const AuthForm = () => {
       setLoading(false);
       return;
     }
+    if (!isPhoneValid(phone)) {  //checking phone number's validity
+      Swal.fire({
+        title: "Invalid phone number",
+        text: "Phone number must be of 10 digits.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      setLoading(false);
+      return;
+    }
 
     try {
       await axios.post("https://vigybag-backend.onrender.com/api/auth/signup", {
@@ -145,9 +164,53 @@ const AuthForm = () => {
   };
 
   const handleSocialLogin = (provider) => {
-    window.location.href = `https://vigybag-backend.onrender.com/auth/${provider}`;
+    if (provider === "facebook") {
+      const facebookProvider = new FacebookAuthProvider();
+      signInWithPopup(auth, facebookProvider)
+        .then((result) => {
+          const user = result.user;
+          const username = user.displayName;
+          // Store username in localStorage
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("username", username);
+  
+          Swal.fire({
+            title: "Login successfully!",
+            text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
+            icon: "success",
+            confirmButtonText: "Ok",
+            customClass: {
+              popup: "custom-popup",
+              title: "custom-title",
+              content: "custom-content",
+              confirmButton: "custom-confirm-button",
+            },
+          }).then(() => {
+            navigate("/");
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire({
+            title: "Login failed",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        });
+    } else if (provider === "google") {
+      window.location.href = `https://vigybag-backend.onrender.com/auth/google`;
+    }
   };
 
+  const checkPasswordStrength = (password) => { //checking password strength
+    const lengthCriteria = password.length >= 8;
+    const numberCriteria = /\d/.test(password);
+    const letterCriteria = /[a-zA-Z]/.test(password);
+    const strength = (lengthCriteria ? 1 : 0) + (numberCriteria ? 1 : 0) + (letterCriteria ? 1 : 0);
+
+    return strength;
+  };
   return (
     <div className="md:min-h-screen h-[120vh] bg-[#f9efe4]">
       {/* Main content */}
@@ -218,23 +281,27 @@ const AuthForm = () => {
                           {showLoginPassword ? "Hide" : "Show"}
                         </button>
                       </div>
-                      <div className="flex items-center">
-                        <input
-                          type="checkbox"
-                          id="rememberMe"
-                          checked={rememberMe}
-                          onChange={(e) => setRememberMe(e.target.checked)}
-                          className="mr-2"
-                        />
-                        <label htmlFor="rememberMe" className="text-sm">
-                          Remember me
-                        </label>
-                        <a
-                          href="#"
-                          className="text-sm text-[#4caf50] hover:underline ml-[15vw]">
-                          Forgot password?
-                        </a>
-                      </div>
+                      <div className="flex items-center justify-between">
+  <div className="flex items-center">
+    <input
+      type="checkbox"
+      id="rememberMe"
+      checked={rememberMe}
+      onChange={(e) => setRememberMe(e.target.checked)}
+      className="mr-2"
+    />
+    <label htmlFor="rememberMe" className="text-sm">
+      Remember me
+    </label>
+  </div>
+  <a
+    href="#"
+    className="text-sm text-[#4caf50] hover:underline"
+  >
+    Forgot password?
+  </a>
+</div>
+
                       <button
                         type="submit"
                         onClick={handleLogin}
@@ -253,7 +320,7 @@ const AuthForm = () => {
                         <FcGoogle className="mr-2" />
                         Login with Google
                       </button>
-                      <button
+                       <button
                         onClick={() => handleSocialLogin("facebook")}
                         className="flex-1 flex items-center justify-center bg-[#1877f2] text-white px-4 py-2 rounded md:text-sm text-xs hover:bg-[#166fe5] transition duration-300">
                         <FaFacebook className="md:mr-2 mr-1" /> Login with
@@ -326,11 +393,16 @@ const AuthForm = () => {
                       <div className="relative">
                         <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                         <input
-                          type="tel"
+                          type="text"
                           placeholder="Phone Number"
                           className="w-full p-2 pl-10 rounded bg-white text-black"
                           value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (/^\d*$/.test(value)) {
+                              setPhone(value);
+                            }
+                          }}
                           required
                         />
                       </div>
@@ -341,7 +413,10 @@ const AuthForm = () => {
                           placeholder="Password"
                           className="w-full p-2 pl-10 rounded bg-white text-black"
                           value={signupPassword}
-                          onChange={(e) => setSignupPassword(e.target.value)}
+                          onChange={(e) => {
+                            setSignupPassword(e.target.value);
+                            setPasswordStrength(checkPasswordStrength(e.target.value)); {/*password strength check */}
+                          }}
                           required
                         />
                         <button
@@ -349,8 +424,25 @@ const AuthForm = () => {
                           onClick={() => setShowSignupPassword(!showSignupPassword)}
                           className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
                         >
-                          {showSignupPassword ? "Hide" : "Show"}
+                          {showSignupPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
+                      </div>
+                      <div className="relative">
+                        <div className="w-full bg-gray-200 rounded-full h-2 mt-2"> {/*passward strength check*/}
+                          <div
+                            className={`h-full rounded-full ${
+                              passwordStrength === 3 ? "bg-green-500" : 
+                              passwordStrength === 2 ? "bg-yellow-500" : 
+                              passwordStrength === 1 ? "bg-red-500" : "bg-gray-400"
+                            }`}
+                            style={{ width: `${(passwordStrength / 3) * 100}%` }}
+                          ></div>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {passwordStrength === 3 ? "Strong" : 
+                          passwordStrength === 2 ? "Medium" : 
+                          passwordStrength === 1 ? "Weak" : "Very Weak"}
+                        </p>
                       </div>
                       <div className="relative">
                         <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
