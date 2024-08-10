@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/Dashboard/Header";
 import SearchBar from "../../components/Dashboard/SearchBar";
 import TUMBLER from "../../../assets/TUMBLER.png";
-import { Link } from "react-router-dom";
 
 const textColor = "text-zinc-800";
 const subTextColor = "text-zinc-600";
@@ -56,11 +55,35 @@ const ProductCard = ({
   productName,
   productDescription,
   productImage,
+  orderPlaced,
+  totalItems,
+  totalAmount,
+  shipTo,
+  orderId
 }) => (
   <div
     className={`${containerBg} p-4 rounded-lg mb-4`}
     style={{ border: "1px solid black" }}>
+    {/* Arrival Date */}
     <p className="text-green-700 font-semibold mb-2">{arrivalDate}</p>
+    
+    {/* Order Info */}
+    <div
+      className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 bg-[#d8e6d3ff] p-4"
+      style={{
+        borderTopLeftRadius: "20px",
+        borderTopRightRadius: "20px",
+      }}>
+      <OrderInfo label="ORDER PLACED" value={orderPlaced} />
+      <OrderInfo label="TOTAL ITEMS" value={totalItems} />
+      <OrderInfo label="TOTAL" value={totalAmount} />
+      <OrderInfo label="SHIP TO" value={shipTo} />
+    </div>
+    
+    {/* Order Details */}
+    <OrderDetails orderNumber={orderId} />
+    
+    {/* Product Info */}
     <div className="flex flex-col md:flex-row items-center">
       <img
         src={productImage}
@@ -112,31 +135,27 @@ const DashboardOrders = () => {
             Your Orders
           </h2>
 
-          <div style={{ borderRadius: "20px" }}>
-            <div
-              className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 bg-[#d8e6d3ff] p-4"
-              style={{
-                borderTopLeftRadius: "20px",
-                borderTopRightRadius: "20px",
-              }}>
-              <OrderInfo label="ORDER PLACED" value="8 JUNE 2024" />
-              <OrderInfo label="TOTAL ITEMS" value="2" />
-              <OrderInfo label="TOTAL" value="₹350" />
-              <OrderInfo label="SHIP TO" value="Anuja Singh" />
-            </div>
-            <OrderDetails orderNumber="123-456789-0987654" />
-          </div>
           <ProductCard
             arrivalDate="Arriving Wednesday"
             productName="BAMBOO PRODUCT - TUMBLER"
             productDescription="This eco-friendly bamboo tumbler offers a stylish and sustainable alternative for your beverage needs. Its natural bamboo exterior provides excellent insulation while ensuring a unique and elegant look."
             productImage={TUMBLER}
+            orderPlaced="8 JUNE 2024"
+            totalItems="1"
+            totalAmount="₹350"
+            shipTo="Sai Pradyumna"
+            orderId="123-456789-0987654"
           />
           <ProductCard
-            arrivalDate="Arriving Wednesday"
-            productName="BAMBOO PRODUCT - TUMBLER"
-            productDescription="This eco-friendly bamboo tumbler offers a stylish and sustainable alternative for your beverage needs. Its natural bamboo exterior provides excellent insulation while ensuring a unique and elegant look."
+            arrivalDate="Arriving Friday"
+            productName="BAMBOO PRODUCT - BOTTLE"
+            productDescription="A sleek bamboo bottle designed for durability and style. Perfect for keeping your drinks hot or cold."
             productImage={TUMBLER}
+            orderPlaced="9 JUNE 2024"
+            totalItems="1"
+            totalAmount="₹250"
+            shipTo="Sai Pradyumna"
+            orderId="123-456789-0987655"
           />
         </div>
       </main>
