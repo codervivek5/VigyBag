@@ -15,7 +15,6 @@ const lordIcons = {
   help: "https://cdn.lordicon.com/ojnjgkun.json",
   contact: "https://cdn.lordicon.com/srsgifqc.json",
 };
-
 const NavLink = ({ to, icon, label, collapsed, isActive }) => (
   <Link
     to={to}
