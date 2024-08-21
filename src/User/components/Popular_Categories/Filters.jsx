@@ -6,6 +6,7 @@ function Filters({
   setPriceFilter,
   setRatingFilter,
   backgroundColor,
+  availableCategories, // Accept the dynamically generated categories as a prop
 }) {
   // Determine CSS classes based on background color input
   const filterClasses = backgroundColor.startsWith("#")
@@ -29,32 +30,7 @@ function Filters({
         {/* Filter section for Category */}
         <FilterSection
           title="Category"
-          options={[
-              "beauty", //added all the categories
-              "fragrances",
-              "furniture",
-              "groceries",
-              "home-decoration",
-              "kitchen-accessories",
-              "laptops",
-              "mens-shirts",
-              "mens-shoes",
-              "mens-watches",
-              "mobile-accessories",
-              "motorcycle",
-              "skin-care",
-              "smartphones",
-              "sports-accessories",
-              "sunglasses",
-              "tablets",
-              "tops",
-              "vehicle",
-              "womens-bags",
-              "womens-dresses",
-              "womens-jewellery",
-              "womens-shoes",
-              "womens-watches"
-          ]}
+          options={availableCategories} // Use availableCategories instead of static list
           onChange={(e) => setCategoryFilter(e.target.value)}
         />
         {/* Filter section for Price */}
