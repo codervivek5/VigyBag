@@ -34,7 +34,6 @@ const NavLink = ({ to, icon, label, collapsed, isActive }) => (
 const CartIcon = ({ collapsed }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const noOfItems = cartItems.reduce((a, b) => a + b.quantity, 0);
-
   return (
     <NavLink
       to="/dashboard-cart"
