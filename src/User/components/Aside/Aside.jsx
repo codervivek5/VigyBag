@@ -30,7 +30,6 @@ const NavLink = ({ to, icon, label, collapsed, isActive }) => (
     {!collapsed && <span>{label}</span>}
   </Link>
 );
-
 const CartIcon = ({ collapsed }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const noOfItems = cartItems.reduce((a, b) => a + b.quantity, 0);
