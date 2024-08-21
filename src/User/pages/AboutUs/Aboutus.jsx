@@ -1,8 +1,6 @@
 import React from "react";
-import delivery from "../../../assets/delivery boy.webp";
 import delivery_boy from "../../../assets/delivery man.jpg";
 import selling from "../../../assets/selling.jpg";
-import ino from "../../../assets/6224584.jpg";
 import inov from "../../../assets/6417880.jpg";
 
 const AboutUs = () => {
