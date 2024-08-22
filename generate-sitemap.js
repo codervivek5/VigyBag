@@ -12,11 +12,16 @@ const links = [
   { url: '/', changefreq: 'daily', priority: 1.0 },
   { url: '/about', changefreq: 'weekly', priority: 0.8 },
   { url: '/products/', changefreq: 'daily', priority: 0.9 },
-  { url: '/categories/', changefreq: 'daily', priority: 0.9 },
+  { url: '/contributors/', changefreq: 'daily', priority: 0.9 },
   { url: '/blog/', changefreq: 'daily', priority: 0.9 },
   { url: '/help/', changefreq: 'daily', priority: 0.9 },
-  { url: '/login/', changefreq: 'daily', priority: 0.9 },
-  { url: '/signup/', changefreq: 'daily', priority: 0.9 },
+  { url: '/auth/', changefreq: 'daily', priority: 0.9 },
+  { url: '/certificate/', changefreq: 'daily', priority: 0.9 },
+  { url: '/contact/', changefreq: 'daily', priority: 0.9 },
+  { url: '/faq/', changefreq: 'daily', priority: 0.9 },
+  { url: '/terms-and-condition/', changefreq: 'daily', priority: 0.9 },
+  { url: '/return-and-cancellation/', changefreq: 'daily', priority: 0.9 },
+  { url: '/privacy-policy/', changefreq: 'daily', priority: 0.9 },
   // Add other site routes here as needed
 ];
 
