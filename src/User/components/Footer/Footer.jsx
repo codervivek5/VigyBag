@@ -62,7 +62,7 @@ const Footer = () => {
           <Link to="/faq" onClick={scrollToTop}>
             FAQ
           </Link>
-          <Link to="/aboutUs" onClick={scrollToTop}>
+          <Link to="/about-us" onClick={scrollToTop}>
             About Us
           </Link>
           <Link to="/contact" onClick={scrollToTop}>

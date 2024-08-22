@@ -1,23 +1,25 @@
 import React from "react";
-import Header from "../../components/About/AboutUsHeader";
+import delivery_boy from "../../../assets/delivery man.jpg";
+import selling from "../../../assets/selling.jpg";
+import inov from "../../../assets/6417880.jpg";
 
 const AboutUs = () => {
   return (
-    <div className=" bg-green-50 from-[#ceedfa] to-[#cee1fa] min-h-screen">
-      <Header />
-      <section className="py-12 md:py-20 bg-yellow-50 h-[90vh]">
-        <p className="text-5xl font-bold text-yellow-500 text-center mt-4">
+    <div className="  from-[#ceedfa] to-[#cee1fa] min-h-screen">
+      <section className="py-12 md:py-20  h-[95vh]">
+        <p className="text-5xl font-bold text-emerald-700 text-center mt-9">
           Our Mission
         </p>
         <div class="flex flex-col md:flex-row justify-between p-8">
           <div class="md:w-1/2  p-14">
-            <p class="text-3xl text-gray-500 font-serif">
-              At <span className="text-green-500">VigyBag,</span> we believe in
-              empowering local artisans and connecting them with the rest of the
-              country. Our mission is to provide a platform where villagers and
-              rural artisans can showcase their eco-friendly products to a
-              nationwide audience. We are committed to fostering sustainability
-              by bringing the best of rural craftsmanship to your doorstep.
+            <p class="text-[27px] sm:text-[23px] text-slate-700 mt-20 font-normal">
+              At <span className="text-green-700 font-bold">VigyBag,</span> we
+              believe in empowering local artisans and connecting them with the
+              rest of the country. Our mission is to provide a platform where
+              villagers and rural artisans can showcase their eco-friendly
+              products to a nationwide audience.We are committed to fostering
+              sustainability by bringing the best of rural craftsmanship to your
+              doorstep.
             </p>
           </div>
 
@@ -26,7 +28,7 @@ const AboutUs = () => {
               <iframe
                 width="685"
                 height="415"
-                src="https://www.youtube.com/embed/F9aJdlUGd08?si=5BOrQptz9R-lc_su"
+                src="https://www.youtube.com/embed/F9aJdlUGd08?autoplay=1&loop=1&playlist=F9aJdlUGd08&mute=1"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -36,67 +38,70 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-
-      <section className="py-12 md:py-20 bg-emerald-50 h-[90vh]">
-        <p className="text-5xl font-bold text-orange-300 text-center mt-4">
+      <div className="w-full h-2 opacity-10 bg-slate-900"></div>
+      <section className="py-12 md:py-20 h-[90vh]">
+        <p className="text-5xl font-bold text-emerald-800 text-center">
           Our Story
         </p>
-        <div class="flex flex-col md:flex-row justify-between p-8">
-          <div class="md:w-1/2 p-4">
-            <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 ">
+        <div className="flex flex-col md:flex-row justify-between p-8">
+          <div className="md:w-1/2 p-4">
+            <div className="aspect-w-16 aspect-h-9">
               <img
+                className="rounded-2xl"
                 style={{
-                  width: "685px",
-                  height: "415px",
+                  width: "785px",
+                  height: "515px",
                 }}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL7fZywYDSrKqUlXeHrZnJd9VL0sVcx2q7Yg&s"
+                src={delivery_boy}
                 alt=""
               />
             </div>
           </div>
           <div class="md:w-1/2  p-14">
-            <p class="text-2xl text-gray-500 font-serif">
-              <span className="text-green-500">VigyBag,</span> was born out of a
-              desire to bridge the gap between rural artisans and urban
-              consumers. We saw the potential in the handcrafted, eco-friendly
-              products being created in villages across India and wanted to
-              provide these talented individuals with the tools and platform
-              they need to succeed. By harnessing the power of e-commerce, we
-              are making these unique products accessible to everyone, no matter
-              where they live.
+            <p class="text-xl text-slate-700 font-baloo mt-10">
+              <span className="text-green-700 font-bold">VigyBag,</span> was
+              born out of a desire to bridge the gap between rural artisans and
+              urban consumers. We saw the potential in the handcrafted,
+              eco-friendly products being created in villages across India and
+              wanted to provide these talented individuals with the tools and
+              platform they need to succeed. By harnessing the power of
+              e-commerce, we are making these unique products accessible to
+              everyone, no matter where they live.
             </p>
           </div>
         </div>
       </section>
-
-      <section className="py-12 md:py-20 bg-yellow-50 h-[90vh]">
+      <div className="w-full h-2 opacity-10 bg-slate-900"></div>
+      <section className="py-12 md:py-20  h-[90vh]">
         <p className="text-5xl font-bold text-yellow-500 text-center mt-4">
-          Why Choose <span className="text-green-500">VigyBag</span>?
+          Why Choose <span className="text-green-700 font-bold">VigyBag</span>?
         </p>
         <div class="flex flex-col md:flex-row justify-between p-8">
           <div class="md:w-1/2  p-14">
-            <p className="font-bold text-2xl text-teal-300">💡Empowerment:</p>
-            <p class="text-xl text-gray-500 font-serif">
-              Every purchase on <span className="text-green-500">VigyBag,</span>{" "}
+            <p className="font-bold text-2xl text-orange-500">💡Empowerment</p>
+            <p class="text-lg text-slate-700 font-baloo">
+              Every purchase on
+              <span className="text-green-700 font-bold">VigyBag,</span>
               directly supports local artisans and their communities. By
-              choosing <span className="text-green-500">VigyBag,</span> you're
+              choosing
+              <span className="text-green-700 font-bold"> VigyBag,</span> you're
               not just buying a product – you're contributing to a more
               sustainable and equitable world.
             </p>
             <br />
-            <p className="font-bold text-2xl text-green-400">
-              🌱 Sustainability:
+            <p className="font-bold text-2xl text-orange-500">
+              🌱 Sustainability
             </p>
-            <p class="text-xl text-gray-500 font-serif">
+            <p class="text-lg text-slate-700 font-baloo">
               We prioritize products that are made with the environment in mind.
               From natural materials to eco-friendly packaging, our goal is to
               reduce the carbon footprint associated with shopping.
             </p>
             <br />
-            <p className="font-bold text-2xl text-orange-400">
+            <p className="font-bold text-2xl text-orange-500">
               🔒 Authenticity
             </p>
-            <p class="text-xl text-gray-500 font-serif">
+            <p class="text-lg text-slate-700 font-baloo">
               Our products are handcrafted with care, carrying the rich heritage
               and culture of the artisans who make them. Every item tells a
               story of tradition, skill, and passion.
@@ -104,70 +109,73 @@ const AboutUs = () => {
           </div>
 
           <div class="md:w-1/2 p-4">
-            <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 rounded-md ">
+            <div className="aspect-w-16 aspect-h-9">
               <img
+                className="rounded-2xl"
                 style={{
                   width: "685px",
                   height: "415px",
                 }}
-                src="https://i.ytimg.com/vi/F9aJdlUGd08/sddefault.jpg"
+                src={selling}
                 alt=""
               />
             </div>
           </div>
         </div>
       </section>
-
-      <section className="py-12 md:py-20 bg-emerald-50 h-[120vh]">
-        <p className="text-5xl font-bold text-yellow-500 text-center mt-4">
+      <div className="w-full h-2 opacity-10 bg-slate-900"></div>
+      <section className="py-12 md:py-20 h-[120vh]">
+        <p className="text-5xl font-bold text-emerald-800 text-center mt-4">
           Our Values
         </p>
         <div class="flex flex-col md:flex-row justify-between p-8">
           <div class="md:w-1/2 p-4">
-            <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 rounded-md ">
+            <div class="aspect-w-16 aspect-h-9">
               <img
+                className="rounded-2xl"
                 style={{
                   width: "685px",
-                  height: "415px",
+                  height: "580px",
                 }}
-                src="https://www.vigybag.com/assets/Storage-Baskets-CsXAtQTR.png"
+                src={inov}
                 alt=""
               />
             </div>
           </div>
           <div class="md:w-1/2  p-14">
-            <p className="font-bold text-2xl text-teal-300">🧑‍🤝‍🧑Community</p>
-            <p class="text-xl text-gray-500 font-serif">
+            <p className="font-bold text-2xl text-orange-500">🧑‍🤝‍🧑Community</p>
+            <p class="text-lg text-slate-700 font-baloo">
               We are deeply rooted in the communities we serve. By partnering
               with artisans and small-scale producers, we create a network of
               support that benefits everyone involved.
             </p>
             <br />
-            <p className="font-bold text-2xl text-green-400">
-              🌱 Sustainability:
+            <p className="font-bold text-2xl text-orange-500">
+              🌱 Sustainability
             </p>
-            <p class="text-xl text-gray-500 font-serif">
+            <p class="text-lg text-slate-700 font-baloo">
               We are committed to promoting sustainable practices in everything
               we do, from the products we offer to the way we operate.
             </p>
             <br />
-            <p className="font-bold text-2xl text-orange-400">🔍Transparency</p>
-            <p class="text-xl text-gray-500 font-serif">
+            <p className="font-bold text-2xl text-orange-500">🔍Transparency</p>
+            <p class="text-lg text-slate-700 font-baloo">
               We believe in being open and honest with our customers. You can
               trust that when you shop with
-              <span className="text-green-500">VigyBag</span> you’re getting
-              authentic, high-quality products made with care.
+              <span className="text-green-700 font-bold"> VigyBag</span> you’re
+              getting authentic, high-quality products made with care.
             </p>
             <br />
-            <p className="font-bold text-2xl text-orange-400">
+            <p className="font-bold text-2xl text-orange-500">
               💕 Join the Vigy Family
             </p>
-            <p class="text-xl text-gray-500 font-serif">
+            <p class="text-lg text-slate-700 font-baloo">
               We invite you to become a part of the{" "}
-              <span className="text-green-500">VigyBag</span> community. Whether
-              you're a consumer looking for unique, eco-friendly products or an
-              artisan wanting to reach a wider audience,{" "}
-              <span className="text-green-500">VigyBag</span>
+              <span className="text-green-700 font-bold">VigyBag</span>{" "}
+              community. Whether you're a consumer looking for unique,
+              eco-friendly products or an artisan wanting to reach a wider
+              audience,{" "}
+              <span className="text-green-700 font-bold">VigyBag</span>
               is here for you. Together, we can create a sustainable future that
               benefits everyone.
             </p>

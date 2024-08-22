@@ -156,7 +156,7 @@ export default function App() {
           />
           {/* Other user routes */}
           <Route path="contributors" element={<Contributors />} />
-          <Route path="aboutUs" element={<AboutUs />} />
+          <Route path="about-us" element={<AboutUs />} />
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy" element={<Privacy />} />
           {/* Privacy policy page route */}

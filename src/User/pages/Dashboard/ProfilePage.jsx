@@ -458,7 +458,7 @@ const ProfilePage = () => {
               </h2>
               <br />
               <p className="text-sm">
-                Flipkart has a 'single sign-on' policy. Any changes will reflect
+                VigyBag has a 'single sign-on' policy. Any changes will reflect
                 in your Seller account also.
               </p>
             </div>
