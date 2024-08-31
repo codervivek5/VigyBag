@@ -158,7 +158,7 @@ export default function App() {
           <Route path="contributors" element={<Contributors />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="help" element={<Help />} /> {/* Help page route */}
-          <Route path="privacy" element={<Privacy />} />
+          <Route path="privacy-policy" element={<Privacy />} />
           {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> {/* Cart page route */}
           <Route
@@ -176,17 +176,17 @@ export default function App() {
           <Route path="auth" element={<UserAuth />} />
           {/* User authentication page route */}
           <Route path="faq" element={<FAQ />} /> {/* FAQ page route */}
-          <Route path="termsAndCondition" element={<TermsAndConditions />} />
+          <Route path="terms-and-condition" element={<TermsAndConditions />} />
           {/* Terms and Conditions page route */}
           <Route path="feedback" element={<FeedbackModal />} />
           {/* Feedback page route */}
           <Route
-            path="returnAndCancellation"
+            path="return-and-cancellation"
             element={<ReturnAndCancellation />}
           />
           <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
-          <Route path="EPR_Page" element={<EPRPage />} /> {/* EPR page route */}
+          <Route path="epr" element={<EPRPage />} /> {/* EPR page route */}
           <Route path="career" element={<CareerPage />} />
           <Route path="service" element={<ServicePage />} />
           <Route path="shipping" element={<Shipping />} />
@@ -196,9 +196,9 @@ export default function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminPanel />} /> {/* Admin panel route */}
-              <Route path="vigy_form" element={<VigyForm />} />
+              <Route path="vigy-form" element={<VigyForm />} />
               {/* Admin Vigy form route */}
-              <Route path="product_form" element={<ProductForm />} />
+              <Route path="product-form" element={<ProductForm />} />
               {/* Admin product form route */}
             </Route>
             <Route path="dashboard" element={<Dashboard />} />
@@ -209,7 +209,7 @@ export default function App() {
             {/* Order cancellation route */}
             <Route path="orderDetails" element={<OrderDetails />} />
             {/* Order details route */}
-            <Route path="myOrders" element={<MyOrders />} />
+            <Route path="my-orders" element={<MyOrders />} />
             {/* My orders route */}
             <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
@@ -248,9 +248,9 @@ export default function App() {
         {/* Admin routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminPanel />} /> {/* Admin panel route */}
-          <Route path="vigy_form" element={<VigyForm />} />
+          <Route path="vigy-form" element={<VigyForm />} />
           {/* Admin Vigy form route */}
-          <Route path="product_form" element={<ProductForm />} />
+          <Route path="product-form" element={<ProductForm />} />
           {/* Admin product form route */}
         </Route>
 
