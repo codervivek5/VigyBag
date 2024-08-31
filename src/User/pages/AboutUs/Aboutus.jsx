@@ -7,12 +7,12 @@ const AboutUs = () => {
   return (
     <div className="  from-[#ceedfa] to-[#cee1fa] min-h-screen">
       <section className="py-12 md:py-20  h-[95vh]">
-        <p className="text-5xl font-bold text-emerald-700 text-center mt-9">
+        <p className="md:text-5xl text-3xl font-bold text-emerald-700 text-center mt-9">
           Our Mission
         </p>
         <div class="flex flex-col md:flex-row justify-between p-8">
-          <div class="md:w-1/2  p-14">
-            <p class="text-[27px] sm:text-[23px] text-slate-700 mt-20 font-normal">
+          <div class="md:w-1/2  md:p-14">
+            <p class="md:text-[23px] text-lg sm:text-[23px] text-slate-700 md:mt-20 font-normal">
               At <span className="text-green-700 font-bold">VigyBag,</span> we
               believe in empowering local artisans and connecting them with the
               rest of the country. Our mission is to provide a platform where
@@ -23,11 +23,12 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div class="md:w-1/2 p-4">
+          <div class="md:w-1/2  md:p-4 mt-10">
             <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 rounded-md ">
               <iframe
-                width="685"
-                height="415"
+                className="md:w-[685px] md:h-[410px] w-[300px] h-[150px]"
+                // width="685"
+                // height="415"
                 src="https://www.youtube.com/embed/F9aJdlUGd08?autoplay=1&loop=1&playlist=F9aJdlUGd08&mute=1"
                 title="YouTube video player"
                 frameborder="0"
@@ -39,8 +40,8 @@ const AboutUs = () => {
         </div>
       </section>
       <div className="w-full h-2 opacity-10 bg-slate-900"></div>
-      <section className="py-12 md:py-20 h-[90vh]">
-        <p className="text-5xl font-bold text-emerald-800 text-center">
+      <section className="py-3 md:py-20 md:h-[90vh]">
+        <p className="md:text-5xl text-3xl font-bold text-emerald-800 text-center">
           Our Story
         </p>
         <div className="flex flex-col md:flex-row justify-between p-8">
@@ -58,7 +59,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div class="md:w-1/2  p-14">
-            <p class="text-xl text-slate-700 font-baloo mt-10">
+            <p class="md:text-xl text-lg text-slate-700 font-baloo mt-10">
               <span className="text-green-700 font-bold">VigyBag,</span> was
               born out of a desire to bridge the gap between rural artisans and
               urban consumers. We saw the potential in the handcrafted,
@@ -72,14 +73,14 @@ const AboutUs = () => {
         </div>
       </section>
       <div className="w-full h-2 opacity-10 bg-slate-900"></div>
-      <section className="py-12 md:py-20  h-[90vh]">
-        <p className="text-5xl font-bold text-yellow-500 text-center mt-4">
+      <section className="py-12 md:py-20  md:h-[90vh]">
+        <p className="md:text-5xl text-3xl font-bold text-yellow-500 text-center mt-4">
           Why Choose <span className="text-green-700 font-bold">VigyBag</span>?
         </p>
         <div class="flex flex-col md:flex-row justify-between p-8">
-          <div class="md:w-1/2  p-14">
+          <div class="md:w-1/2 p-14">
             <p className="font-bold text-2xl text-orange-500">💡Empowerment</p>
-            <p class="text-lg text-slate-700 font-baloo">
+            <p class="md:text-lg text-sm text-slate-700 font-baloo">
               Every purchase on
               <span className="text-green-700 font-bold">VigyBag,</span>
               directly supports local artisans and their communities. By
@@ -92,7 +93,7 @@ const AboutUs = () => {
             <p className="font-bold text-2xl text-orange-500">
               🌱 Sustainability
             </p>
-            <p class="text-lg text-slate-700 font-baloo">
+            <p class="md:text-lg text-sm text-slate-700 font-baloo">
               We prioritize products that are made with the environment in mind.
               From natural materials to eco-friendly packaging, our goal is to
               reduce the carbon footprint associated with shopping.
@@ -101,7 +102,7 @@ const AboutUs = () => {
             <p className="font-bold text-2xl text-orange-500">
               🔒 Authenticity
             </p>
-            <p class="text-lg text-slate-700 font-baloo">
+            <p class="md:text-lg text-sm text-slate-700 font-baloo">
               Our products are handcrafted with care, carrying the rich heritage
               and culture of the artisans who make them. Every item tells a
               story of tradition, skill, and passion.
@@ -124,13 +125,13 @@ const AboutUs = () => {
         </div>
       </section>
       <div className="w-full h-2 opacity-10 bg-slate-900"></div>
-      <section className="py-12 md:py-20 h-[120vh]">
-        <p className="text-5xl font-bold text-emerald-800 text-center mt-4">
+      <section className="py-12 md:py-20 md:h-[120vh]">
+        <p className="md:text-5xl text-3xl font-bold text-emerald-800 text-center mt-4">
           Our Values
         </p>
         <div class="flex flex-col md:flex-row justify-between p-8">
           <div class="md:w-1/2 p-4">
-            <div class="aspect-w-16 aspect-h-9">
+            <div class="md:aspect-w-16 md:aspect-h-9">
               <img
                 className="rounded-2xl"
                 style={{
