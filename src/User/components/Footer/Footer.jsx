@@ -88,16 +88,16 @@ const Footer = () => {
           <Link to="/help" onClick={scrollToTop}>
             Help
           </Link>
-          <Link to="/privacy" onClick={scrollToTop}>
+          <Link to="/privacy-policy" onClick={scrollToTop}>
             Privacy Policy
           </Link>
-          <Link to="/returnAndCancellation" onClick={scrollToTop}>
+          <Link to="/return-and-cancellation" onClick={scrollToTop}>
             Return and Cancellation
           </Link>
-          <Link to="/EPR_Page" onClick={scrollToTop}>
+          <Link to="/epr" onClick={scrollToTop}>
             EPR Compliance
           </Link>
-          <Link to="/termsAndCondition" onClick={scrollToTop}>
+          <Link to="/terms-and-condition" onClick={scrollToTop}>
             Terms & Conditions
           </Link>
           <Link to="/shipping" onClick={scrollToTop}>
