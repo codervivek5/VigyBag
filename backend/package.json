@@ -2,24 +2,26 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "vigybag server and backend credentials",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ansh101112/VigyBag.git"
+    "url": "git+https://github.com/codervivek5/VigyBag.git"
   },
   "keywords": [
-    "vigybag"
+    "vigybag",
+    "backend",
+    "Vigy Bag"
   ],
-  "author": "Anshuman Tiwari",
+  "author": "Vivek Prajapti",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ansh101112/VigyBag/issues"
+    "url": "https://github.com/codervivek5/VigyBag/issues"
   },
-  "homepage": "https://github.com/Ansh101112/VigyBag#readme",
+  "homepage": "https://github.com/codervivek5/VigyBag#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",

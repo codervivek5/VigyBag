@@ -1,7 +1,6 @@
+// app.js
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv");
 const session = require("express-session");
 const passport = require("./middlewares/Passport");
 const routes = require("./routes");
@@ -10,10 +9,9 @@ const userRoutes = require("./routes/userRoutes");
 const passwordResetRoutes = require("./routes/passwordResetRoutes");
 const adminRegistrationRoutes = require("./routes/adminRegistrationRoutes");
 
-dotenv.config();
-
 const app = express();
 
+// Middleware setup
 app.use(express.json());
 app.use(cors());
 app.use(
@@ -26,25 +24,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose
-  .connect(process.env.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err.message);
-  });
-
+// Route setup
 app.use("/auth", authRoutes);
 app.use("/api", routes);
 app.use("/api", passwordResetRoutes);
 app.use("/vpi", userRoutes);
 app.use("/api/v1", adminRegistrationRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports = app;
