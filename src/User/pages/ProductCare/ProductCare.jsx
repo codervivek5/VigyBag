@@ -40,7 +40,7 @@ const ProductCareInstructionsPage = () => {
               <li>Lubricate moving parts if applicable, using recommended products.</li>
               <li>Replace any worn or damaged components promptly.</li>
               <li>Consult the product manual for specific maintenance recommendations.</li>
-              <li>Maintain accuracy and safety by using approved parts recalibrating regularly.</li>
+              <li>Maintain accuracy and safety by using approved parts and recalibrating regularly.</li>
             </ul>
           </div>
         </section>
