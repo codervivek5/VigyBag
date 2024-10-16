@@ -110,19 +110,19 @@ const FeedbackModal = () => {
   };
 
   const emojis = [
-    "/src/User/components/FeedbackForm/emoji1.gif",
-    "/src/User/components/FeedbackForm/emoji2.gif",
-    "/src/User/components/FeedbackForm/emoji3.gif",
-    "/src/User/components/FeedbackForm/emoji4.gif",
-    "/src/User/components/FeedbackForm/emoji5.gif",
+    "/emoji1.gif",
+    "/emoji2.gif",
+    "/emoji3.gif",
+    "/emoji4.gif",
+    "/emoji5.gif",
   ];
   const getEmoji = (ratingValue) => emojis[ratingValue - 1] || "😐";
   const gifs = [
-    "/src/User/components/FeedbackForm/emoji1.gif",
-    "/src/User/components/FeedbackForm/emoji2.gif",
-    "/src/User/components/FeedbackForm/emoji3.gif",
-    "/src/User/components/FeedbackForm/emoji4.gif",
-    "/src/User/components/FeedbackForm/emoji5.gif",
+      "/emoji1.gif",
+      "/emoji2.gif",
+      "/emoji3.gif",
+      "/emoji4.gif",
+      "/emoji5.gif",
   ];
   const getGif = (ratingValue) => gifs[ratingValue - 1] || "emoji3.gif"; // default to emoji3.gif if ratingValue is invalid
 
