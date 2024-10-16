@@ -82,26 +82,15 @@ import Warranty from "./User/pages/Warranty/Warranty";
 import ProductCare from "./User/pages/ProductCare/ProductCare";
 import Subscription from "./User/pages/Subscription/Subscription";
 import Events from "./User/pages/Events/Events";
-import AnimatedCursor from "react-animated-cursor";
 
 export default function App() {
   return (
-    <>
-    <Helmet>
+    <AuthProvider>
+      <Helmet>
         {/* Botpress chatbot script */}
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
         <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
       </Helmet>
-    <AnimatedCursor 
-     innerSize={15}
-     outerSize={25} 
-     color="20, 83, 45"
-     outerAlpha={0.4}
-     innerScale={0.7}
-     outerScale={3}
-    />
-    <AuthProvider>
-      
       <Routes>
         {/* User routes */}
         <Route path="/" element={<UserLayout />}>
@@ -270,6 +259,5 @@ export default function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </AuthProvider>
-    </>
   );
 }
