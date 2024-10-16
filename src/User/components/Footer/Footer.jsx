@@ -22,7 +22,12 @@ const Footer = () => {
             <img
               src={Logo}
               alt="VigyBag Logo"
-              style={{ height: "12vh", zIndex: "1", marginLeft: "40px" }}
+              style={{
+                height: "12vh",
+                zIndex: "1",
+                marginLeft: "40px",
+                filter: "drop-shadow(1px 1px)",
+              }}
             />
           </Link>
 
