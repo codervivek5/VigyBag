@@ -64,7 +64,7 @@ const Navbar = ({ isAdmin }) => {
   }, []);
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-lg md:w-full fixed md:z-50 -mt-1 w-[100vw] z-50 pt-4 sm:pt-5">
+    <nav className="bg-[#ecd5c5] shadow-lg md:w-full md:z-50 -mt-1 w-[100vw] z-50 pt-4 sm:pt-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center w-full">

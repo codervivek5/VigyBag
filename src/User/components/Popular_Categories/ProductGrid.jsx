@@ -5,6 +5,7 @@ import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import PaymentPage from "../../pages/Payment/Payment";
 
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
@@ -39,6 +40,10 @@ function ProductCard({ product }) {
 
   const handleClick = (productId) => {
     navigate(`/productDetails/${productId}`);
+  };
+
+  const handleBuyNow = () => {
+    navigate(`/payment`);
   };
 
   // Function to add product to cart
@@ -86,18 +91,20 @@ function ProductCard({ product }) {
       {/* Product details */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="font-bold text-sm h-12 overflow-hidden">
+        <h3
+          onClick={() => handleClick(product.id)}
+          className="font-bold text-sm overflow-hidden">
           {product.title}
         </h3>
         {/* Price */}
-        <p className="text-gray-600 text-lg font-semibold mt-2 flex items-center gap-2">
+        <p className="text-gray-600 text-lg font-semibold flex items-center gap-2">
           ₹{product.newPrice}
           <span className="text-sm text-green-500 line-through">
             ₹{product.price.toFixed(2)}
           </span>
         </p>
         {/* Rating */}
-        <div className="flex items-center mt-2">
+        <div className="flex items-center ">
           {[...Array(Math.round(product.rating.rate))].map((_, i) => (
             <span key={i} className="text-yellow-400">
               ⭐
