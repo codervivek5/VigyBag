@@ -100,7 +100,13 @@ function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label htmlFor="fname" className="block mb-2">First Name</label>
-                <input type="text" id="fname" className="w-full p-2 border rounded" placeholder="Enter your first name" minLength={3} required/>
+                <input type="text" id="fname" className="w-full p-2 border rounded" placeholder="Enter your first name" minLength={3} required pattern="[a-zA-Z ]+"
+              onInvalid={(e) => {
+                e.target.setCustomValidity('Numbers and Symbols are not allowed.');
+              }}
+              onInput={(e) => {
+                e.target.setCustomValidity('');
+              }}/>
               </div>
               <div>
                 <label htmlFor="lname" className="block mb-2">Last Name</label>
