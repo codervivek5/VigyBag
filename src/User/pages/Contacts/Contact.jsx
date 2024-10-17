@@ -104,7 +104,13 @@ function ContactPage() {
               </div>
               <div>
                 <label htmlFor="lname" className="block mb-2">Last Name</label>
-                <input type="text" id="lname" className="w-full p-2 border rounded" placeholder="Enter your last name" minLength={3} required />
+                <input type="text" id="lname" className="w-full p-2 border rounded" placeholder="Enter your last name" minLength={3} required pattern="[a-zA-Z ]+"
+              onInvalid={(e) => {
+                e.target.setCustomValidity('Numbers and Symbols are not allowed.');
+              }}
+              onInput={(e) => {
+                e.target.setCustomValidity('');
+              }}/>
               </div>
             </div>
             <div className="mb-4">
