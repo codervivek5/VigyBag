@@ -5,12 +5,12 @@ import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import PaymentPage from "../../pages/Payment/Payment";
 
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
-
   function getNewPrice(discountPercent, actualPrice) {
-    return ((100 - discountPercent) * actualPrice / 100).toFixed(2);
+    return (((100 - discountPercent) * actualPrice) / 100).toFixed(2);
   }
 
   return (
@@ -20,8 +20,11 @@ function ProductGrid({ products, headingText }) {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
-          product.newPrice = getNewPrice(product.discountPercentage, product.price)
-          return <ProductCard key={product.id} product={product} />
+          product.newPrice = getNewPrice(
+            product.discountPercentage,
+            product.price
+          );
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     </div>
@@ -61,8 +64,7 @@ function ProductCard({ product }) {
           onClick={() => {
             onAddToWishlist(product);
             toast.success("Item removed from wishlist!");
-          }}
-        >
+          }}>
           <FaHeart size={18} />
         </button>
       ) : (
@@ -71,8 +73,7 @@ function ProductCard({ product }) {
           onClick={() => {
             onAddToWishlist(product);
             toast.success("Item added to wishlist!");
-          }}
-        >
+          }}>
           <FaRegHeart size={18} />
         </button>
       )}
@@ -86,18 +87,16 @@ function ProductCard({ product }) {
       {/* Product details */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="font-bold text-sm h-12 overflow-hidden">
-          {product.title}
-        </h3>
+        <h3 className="font-bold text-sm overflow-hidden">{product.title}</h3>
         {/* Price */}
-        <p className="text-gray-600 text-lg font-semibold mt-2 flex items-center gap-2">
+        <p className="text-gray-600 text-lg font-semibold flex items-center gap-2">
           ₹{product.newPrice}
           <span className="text-sm text-green-500 line-through">
             ₹{product.price.toFixed(2)}
           </span>
         </p>
         {/* Rating */}
-        <div className="flex items-center mt-2">
+        <div className="flex items-center ">
           {[...Array(Math.round(product.rating.rate))].map((_, i) => (
             <span key={i} className="text-yellow-400">
               ⭐
@@ -106,17 +105,34 @@ function ProductCard({ product }) {
           <span className="text-gray-500 ml-1">({product.rating.count})</span>
         </div>
         {/* Add to cart button */}
-        <button
-          className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
-          onClick={() => {
-            onAddToCart(product);
-          }}
-          disabled={cartItems.find((item) => item.id === product.id)}
-        >
-          {cartItems.find((item) => item.id === product.id)
-            ? "Added to cart"
-            : "Add to Cart"}
-        </button>
+        <div className="flex h-10 gap-2">
+          <button
+            className="mt-1 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
+            onClick={() => {
+              onAddToCart(product);
+            }}
+            disabled={cartItems.find((item) => item.id === product.id)}>
+            {/* <lord-icon
+              style={{
+                height: "20px",
+                width: "20px",
+              }}
+              src="https://cdn.lordicon.com/pbrgppbb.json"
+              trigger="hover"
+              colors="primary:#ffffff"></lord-icon> */}
+            {cartItems.find((item) => item.id === product.id)
+              ? "Added to cart"
+              : "Add to Cart"}
+          </button>
+          <button
+            className="mt-1 bg-orange-600 text-white px-4 py-2 rounded text-sm w-full hover:bg-orange-700 transition-colors disabled:opacity-45 disabled:pointer-events-none"
+            onClick={() => PaymentPage}
+            disabled={cartItems.find((item) => item.id === product.id)}>
+            {cartItems.find((item) => item.id === product.id)
+              ? "⚡Buy Now"
+              : "⚡Buy Now"}
+          </button>
+        </div>
       </div>
     </div>
   );
