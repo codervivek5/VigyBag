@@ -168,6 +168,13 @@ const FeedbackModal = () => {
               onChange={handleNameChange}
               placeholder="Enter your name"
               required
+              pattern="[a-zA-Z ]+"
+              onInvalid={(e) => {
+                e.target.setCustomValidity('Numbers and Symbols are not allowed.');
+              }}
+              onInput={(e) => {
+                e.target.setCustomValidity('');
+              }}
             />
             <label htmlFor="email" className="label-big">
               Your Email
