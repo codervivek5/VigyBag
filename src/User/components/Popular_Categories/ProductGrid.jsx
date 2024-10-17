@@ -8,9 +8,8 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
-
   function getNewPrice(discountPercent, actualPrice) {
-    return ((100 - discountPercent) * actualPrice / 100).toFixed(2);
+    return (((100 - discountPercent) * actualPrice) / 100).toFixed(2);
   }
 
   return (
@@ -20,8 +19,11 @@ function ProductGrid({ products, headingText }) {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ml-10">
         {products.map((product) => {
-          product.newPrice = getNewPrice(product.discountPercentage, product.price)
-          return <ProductCard key={product.id} product={product} />
+          product.newPrice = getNewPrice(
+            product.discountPercentage,
+            product.price
+          );
+          return <ProductCard key={product.id} product={product} />;
         })}
       </div>
     </div>
@@ -61,8 +63,7 @@ function ProductCard({ product }) {
           onClick={() => {
             onAddToWishlist(product);
             toast.success("Item removed from wishlist!");
-          }}
-        >
+          }}>
           <FaHeart size={18} />
         </button>
       ) : (
@@ -71,8 +72,7 @@ function ProductCard({ product }) {
           onClick={() => {
             onAddToWishlist(product);
             toast.success("Item added to wishlist!");
-          }}
-        >
+          }}>
           <FaRegHeart size={18} />
         </button>
       )}
@@ -106,17 +106,29 @@ function ProductCard({ product }) {
           <span className="text-gray-500 ml-1">({product.rating.count})</span>
         </div>
         {/* Add to cart button */}
-        <button
-          className="mt-4 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
-          onClick={() => {
-            onAddToCart(product);
-          }}
-          disabled={cartItems.find((item) => item.id === product.id)}
-        >
-          {cartItems.find((item) => item.id === product.id)
-            ? "Added to cart"
-            : "Add to Cart"}
-        </button>
+        <div className="flex h-10 gap-2">
+          <button
+            className="mt-1 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
+            onClick={() => {
+              onAddToCart(product);
+            }}
+            disabled={cartItems.find((item) => item.id === product.id)}>
+            {cartItems.find((item) => item.id === product.id)
+              ? "Added"
+              : "Add to Cart"}
+          </button>
+          <button
+            onClick={() => {
+              onAddToCart(product); // First, add the product to the cart
+              handleBuyNow(); // Then, navigate to the payment page
+            }}
+            className="mt-1 bg-orange-600 text-white px-4 py-2 rounded text-sm w-full hover:bg-orange-700 transition-colors disabled:opacity-45 disabled:pointer-events-none"
+            disabled={cartItems.find((item) => item.id === product.id)}>
+            {cartItems.find((item) => item.id === product.id)
+              ? "⚡Buy Now"
+              : "⚡Buy Now"}
+          </button>
+        </div>
       </div>
     </div>
   );
