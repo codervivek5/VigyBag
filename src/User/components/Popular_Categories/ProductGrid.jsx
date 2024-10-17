@@ -87,7 +87,11 @@ function ProductCard({ product }) {
       {/* Product details */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="font-bold text-sm overflow-hidden">{product.title}</h3>
+        <h3
+          onClick={() => handleClick(product.id)}
+          className="font-bold text-sm overflow-hidden">
+          {product.title}
+        </h3>
         {/* Price */}
         <p className="text-gray-600 text-lg font-semibold flex items-center gap-2">
           ₹{product.newPrice}
@@ -121,7 +125,7 @@ function ProductCard({ product }) {
               trigger="hover"
               colors="primary:#ffffff"></lord-icon> */}
             {cartItems.find((item) => item.id === product.id)
-              ? "Added to cart"
+              ? "Added"
               : "Add to Cart"}
           </button>
           <button
