@@ -42,6 +42,10 @@ function ProductCard({ product }) {
     navigate(`/productDetails/${productId}`);
   };
 
+  const handleBuyNow = () => {
+    navigate(`/payment`);
+  };
+
   // Function to add product to cart
   const onAddToCart = (product) => {
     const quantity = 1;
@@ -129,8 +133,11 @@ function ProductCard({ product }) {
               : "Add to Cart"}
           </button>
           <button
+            onClick={() => {
+              onAddToCart(product); // First, add the product to the cart
+              handleBuyNow(); // Then, navigate to the payment page
+            }}
             className="mt-1 bg-orange-600 text-white px-4 py-2 rounded text-sm w-full hover:bg-orange-700 transition-colors disabled:opacity-45 disabled:pointer-events-none"
-            onClick={() => PaymentPage}
             disabled={cartItems.find((item) => item.id === product.id)}>
             {cartItems.find((item) => item.id === product.id)
               ? "⚡Buy Now"
