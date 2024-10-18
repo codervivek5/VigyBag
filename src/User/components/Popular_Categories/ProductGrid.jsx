@@ -120,14 +120,6 @@ function ProductCard({ product }) {
               onAddToCart(product);
             }}
             disabled={cartItems.find((item) => item.id === product.id)}>
-            {/* <lord-icon
-              style={{
-                height: "20px",
-                width: "20px",
-              }}
-              src="https://cdn.lordicon.com/pbrgppbb.json"
-              trigger="hover"
-              colors="primary:#ffffff"></lord-icon> */}
             {cartItems.find((item) => item.id === product.id)
               ? "Added"
               : "Add to Cart"}
