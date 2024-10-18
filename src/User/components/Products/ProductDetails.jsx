@@ -22,7 +22,7 @@ const ProductImage = ({ thumbnail, images }) => (
     <img
       src={thumbnail}
       alt="Product Image"
-      className={`${sharedClasses.roundedLg} ${sharedClasses.mb4} w-full h-auto max-h-[50vh] object-contain bg-gray-100 border-2 border-green-600 hover:cursor-pointer`}
+      className={`${sharedClasses.roundedLg} ${sharedClasses.mb4} w-full h-auto max-h-[50vh] object-contain bg-gray-100 border-2 border-green-700 hover:cursor-pointer`}
     />
     <div
       className={`${sharedClasses.flexSpaceX2} ${sharedClasses.mb4} justify-center`}>
@@ -31,7 +31,7 @@ const ProductImage = ({ thumbnail, images }) => (
           key={i}
           src={i}
           alt={`Thumbnail ${i}`}
-          className="w-1/4 h-auto rounded-lg object-cover bg-gray-100 border-2 border-green-600 hover:cursor-pointer "
+          className="w-1/4 h-auto rounded-lg object-cover bg-gray-100 border-2 border-green-700 hover:cursor-pointer "
         />
       ))}
     </div>
