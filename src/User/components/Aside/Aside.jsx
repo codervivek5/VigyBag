@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
-import { FaSignOutAlt } from "react-icons/fa"; 
+import { FaSignOutAlt } from "react-icons/fa";
 
 const iconStyles = { height: "20px", width: "20px" };
 const lordIcons = {
@@ -38,8 +38,7 @@ const CartIcon = ({ collapsed }) => {
       icon={lordIcons.cart}
       label="Cart"
       collapsed={collapsed}
-      isActive={window.location.pathname === "/dashboard-cart"}
-    >
+      isActive={window.location.pathname === "/dashboard-cart"}>
       {!collapsed && (
         <div className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
           {noOfItems}
@@ -59,8 +58,7 @@ const WishlistIcon = ({ collapsed }) => {
       icon={lordIcons.wishlist}
       label="Wishlist"
       collapsed={collapsed}
-      isActive={window.location.pathname === "/dashboard-wishlist"}
-    >
+      isActive={window.location.pathname === "/dashboard-wishlist"}>
       {!collapsed && (
         <div className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
           {noOfItem}
@@ -127,7 +125,7 @@ const Aside = () => {
 
   return (
     <aside
-      className={`bg-[#2d4031] text-white flex flex-col fixed top-0 mt-20 ${
+      className={`bg-[#2d4031] text-white flex flex-col fixed top-0 mt-2 ${
         collapsed ? "w-20" : "w-64"
       } transition-width duration-300`}
       style={{ position: "sticky" }}>
@@ -178,8 +176,7 @@ const Aside = () => {
           icon={lordIcons.notifications}
           label="Notifications"
           collapsed={collapsed}
-          isActive={window.location.pathname === "/dashboard-notifications"}
-        >
+          isActive={window.location.pathname === "/dashboard-notifications"}>
           {!collapsed && (
             <span className="absolute right-2 top-1 bg-red-500 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center mt-1">
               2
@@ -213,11 +210,7 @@ const Aside = () => {
               borderRadius: "8px",
               border: "1px solid #98bf8cff",
             }}>
-            {collapsed ? (
-              <FaSignOutAlt className="text-white" />
-            ) : (
-              "Logout"
-            )}
+            {collapsed ? <FaSignOutAlt className="text-white" /> : "Logout"}
           </button>
         </div>
       </nav>
