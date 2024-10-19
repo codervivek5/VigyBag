@@ -141,8 +141,12 @@ const Home = () => {
 
     // Filter categories and products for suggestions
     const filteredSuggestions = [
-      ...popularCategories.filter(category => category.name.toLowerCase().includes(term.toLowerCase())),
-      ...latestProducts.filter(product => product.name.toLowerCase().includes(term.toLowerCase()))
+      ...popularCategories.filter((category) =>
+        category.name.toLowerCase().includes(term.toLowerCase())
+      ),
+      ...latestProducts.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      ),
     ];
     setSuggestions(filteredSuggestions);
   };
@@ -157,14 +161,14 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-[#fff0e3ff]" style={{ transform: "translateY(20px)" }}>
-      <main className="mt-1">
+    <div className="bg-[#fff0e3ff]">
+      <main className="">
         <div className="sm:block md:hidden bg-[#eff0f1] pt-5">
-          <SearchBar 
-            searchTerm={searchTerm} 
-            handleSearch={handleSearch} 
-            suggestions={suggestions} 
-            handleSuggestionClick={handleSuggestionClick} 
+          <SearchBar
+            searchTerm={searchTerm}
+            handleSearch={handleSearch}
+            suggestions={suggestions}
+            handleSuggestionClick={handleSuggestionClick}
           />
         </div>
         {/* Hero Section */}
@@ -323,4 +327,3 @@ const Home = () => {
 };
 
 export default Home;
-
