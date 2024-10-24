@@ -24,7 +24,7 @@ const AboutUs = () => {
           </div>
 
           <div class="md:w-1/2  md:p-4 mt-10">
-            <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 rounded-md ">
+            <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 rounded-md w-316 ">
               <iframe
                 className="md:w-[685px] md:h-[410px] w-[300px] h-[150px]"
                 // width="685"

@@ -157,13 +157,10 @@ export default function App() {
           {/* Other user routes */}
           <Route path="contributors" element={<Contributors />} />
           <Route path="about-us" element={<AboutUs />} />
-<<<<<<< HEAD
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy-policy" element={<Privacy />} />
-=======
           <Route path="help" element={<Help />} />
           <Route path="privacy" element={<Privacy />} />
->>>>>>> 5eed12d9 (revert sadaf commit for category changes)
           {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> 
           <Route
