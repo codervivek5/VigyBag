@@ -12,9 +12,6 @@ export default {
         'baloo': ["Baloo 2", 'sans-serif'],
         'roboto': ['Roboto', 'sans-serif'],
       },
-      width: {
-        '316': '316px',  // Add custom width class
-      },
     },
   },
   plugins: [],

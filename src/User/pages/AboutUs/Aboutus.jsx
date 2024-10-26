@@ -22,22 +22,24 @@ const AboutUs = () => {
               doorstep.
             </p>
           </div>
-
-          <div class="md:w-1/2  md:p-4 mt-10">
-            <div class="aspect-w-16 aspect-h-9 border-8 border-green-600 rounded-md w-316 ">
-              <iframe
-                className="md:w-[685px] md:h-[410px] w-[300px] h-[150px]"
-                // width="685"
-                // height="415"
-                src="https://www.youtube.com/embed/F9aJdlUGd08?autoplay=1&loop=1&playlist=F9aJdlUGd08&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
+          <div class="md:w-1/2  md:p-4 mt-10"> {/*Responsive width with padding for medium screens and up*/}
+              <div className="w-full max-w-2xl mx-auto border-8 border-green-600 rounded-md">{/*Centered container with responsive max width and border*/}
+                <div className="relative overflow-hidden" style={{ paddingTop: "56.25%" }}> {/*  16:9 Aspect Ratio for responsive video scaling */}
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/F9aJdlUGd08?autoplay=1&loop=1&playlist=F9aJdlUGd08&mute=1"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    loading="lazy" //Improves loading performance by deferring iframe load
+                    aria-label="About VigyBag" //Accessibility improvement: describes video content
+                 ></iframe>
+               </div>
+             </div>
             </div>
-          </div>
-        </div>
+         </div>
+        
       </section>
       <div className="w-full h-2 opacity-10 bg-slate-900"></div>
       <section className="py-3 md:py-20 md:h-[90vh]">
