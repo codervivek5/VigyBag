@@ -135,6 +135,9 @@ const Home = () => {
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
 
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [email, setEmail] = useState("");
+
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -159,6 +162,17 @@ const Home = () => {
   const scrollToSection = () => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    setIsSubscribed(true); // Show the success message
+    setTimeout(() => {
+      setIsSubscribed(false); // Hide the message
+      setEmail(""); // Clear the email input
+    }, 3000); // 3 seconds
+  };
+  
 
   return (
     <div className="bg-[#fff0e3ff]">
@@ -250,6 +264,13 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+
+
+
+
+
+
         {/* App Download Section */}
         <section
           className="py-8 sm:py-12 md:py-16 relative mb-[-1px]"
@@ -288,10 +309,12 @@ const Home = () => {
                     Subscribe to our newsletter to receive exclusive updates,
                     promotions, and tips.
                   </p>
-                  <form>
+                  <form onSubmit={handleSubscribe}>
                     <input
                       type="email"
                       placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       style={{
                         color: "black",
                         width: "100%",
@@ -299,9 +322,6 @@ const Home = () => {
                         padding: "10px",
                         marginBottom: "10px",
                         border: "1px solid #ccc",
-                        "@media (maxWidth: 780px)": {
-                          width: "80%",
-                        },
                       }}
                     />
                     <button
@@ -315,8 +335,13 @@ const Home = () => {
                         cursor: "pointer",
                       }}>
                       Subscribe
-                    </button>{" "}
+                    </button>
                   </form>
+                  {isSubscribed && (
+                    <div className="popup-message">
+                      <p>Subscribed successfully!</p>
+                    </div>
+                  )}
                 </div>
               </section>
             </div>
