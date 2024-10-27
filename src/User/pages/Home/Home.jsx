@@ -218,12 +218,14 @@ const Home = () => {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {popularCategories.map((category, index) => (
+                <div key={index} className="custom-shadow">
                 <CategoryCard
                   key={index}
                   name={category.name}
                   image={category.image}
                   path={category.path}
                 />
+                  </div>
               ))}
             </div>
           </div>

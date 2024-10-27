@@ -9,6 +9,12 @@
     animation: smoothUpDown 2s infinite alternate ease-in-out;
 }
 
+.custom-shadow {
+    box-shadow: 0px 6px 20px rgba(60, 60, 60, 0.3); /* Dark gray, thick shadow */
+    border-radius: 8px;
+  }
+  
+  
 @keyframes smoothUpDown {
 
     0%,
