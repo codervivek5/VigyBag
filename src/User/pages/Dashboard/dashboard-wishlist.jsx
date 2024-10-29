@@ -155,7 +155,7 @@ const DashboardWishlist = () => {
                       type="button"
                       className={`${buttonBgClass} w-full sm:w-auto`}
                       onClick={onClearWishlist}>
-                      Clear Wishlist ❤️
+                      Clear Wishlist ❤️a
                     </button>
                   </div>
                 </>
