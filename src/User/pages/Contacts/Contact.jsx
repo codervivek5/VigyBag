@@ -100,7 +100,7 @@ function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label htmlFor="fname" className="block mb-2">First Name</label>
-                <input type="text" id="fname" className="w-full p-2 border " placeholder="Enter your first name" minLength={3} required pattern="[a-zA-Z ]+"
+                <input type="text" id="fname" className="w-full p-2 border rounded" placeholder="Enter your first name" minLength={3} required pattern="[a-zA-Z ]+"
               onInvalid={(e) => {
                 e.target.setCustomValidity('Numbers and Symbols are not allowed.');
               }}
@@ -110,7 +110,7 @@ function ContactPage() {
               </div>
               <div>
                 <label htmlFor="lname" className="block mb-2">Last Name</label>
-                <input type="text" id="lname" className="w-full p-2 border " placeholder="Enter your last name" minLength={3} required pattern="[a-zA-Z ]+"
+                <input type="text" id="lname" className="w-full p-2 border rounded" placeholder="Enter your last name" minLength={3} required pattern="[a-zA-Z ]+"
               onInvalid={(e) => {
                 e.target.setCustomValidity('Numbers and Symbols are not allowed.');
               }}
@@ -121,14 +121,14 @@ function ContactPage() {
             </div>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-2">Email</label>
-              <input type="email" id="email" className="w-full p-2 border" placeholder="name@example.com" required />
+              <input type="email" id="email" className="w-full p-2 border rounded" placeholder="name@example.com" required />
             </div>
             <div className="mb-4">
               <label htmlFor="phone" className="block mb-2">Phone</label>
                 <select
                   id="countryCode"
                   name="countryCode"
-                  className="p-2 border  mr-2"
+                  className="p-2 border rounded mr-2"
                   value={countryCode}
                   onChange={(e) => setCountryCode(e.target.value)}
                   required
@@ -143,7 +143,7 @@ function ContactPage() {
                 <input type="tel" 
                 id="phone"
                 name="phone" 
-                className=" p-2 border " 
+                className=" p-2 border rounded" 
                 placeholder="+91888888888" 
                 pattern="\d{10}" 
                 minlength={4} 
@@ -154,7 +154,7 @@ function ContactPage() {
             </div>
             <div className="mb-4">
               <label htmlFor="country" className="block mb-2">Country</label>
-              <select id="country" className="w-full p-2 border " required> {/*added list of all countries */}
+              <select id="country" className="w-full p-2 border rounded" required> {/*added list of all countries */}
                 <option value="IN">India</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AL">Albania</option>
@@ -354,9 +354,9 @@ function ContactPage() {
             </div>
             <div className="mb-4">
               <label htmlFor="message" className="block mb-2">Message</label>
-              <textarea id="message" name="message" rows="3" className="w-full p-2 border" placeholder='Enter your issues you face' minlength="10" required></textarea> {/*fixed min length to 10 char */}
+              <textarea id="message" name="message" rows="3" className="w-full p-2 border rounded" placeholder='Enter your issues you face' minlength="10" required></textarea> {/*fixed min length to 10 char */}
             </div>
-            <button type="submit" className="bg-gray-800 text-white px-4 py-2  hover:bg-gray-700 mb-[5vh]">Send Message</button>
+            <button type="submit" className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 mb-[5vh]">Send Message</button>
             </form>
         </div>
       </div>
