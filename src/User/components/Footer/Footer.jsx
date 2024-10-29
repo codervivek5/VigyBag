@@ -161,6 +161,9 @@ const Footer = () => {
             </p>
           </div>
           <br />
+
+
+
           <div className="social-media flex flex-col justify-center items-center">
             <p className="text-sm text-center text-gray-400 sm:items-center underline">
               SOCIALS:
