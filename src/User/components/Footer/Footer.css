@@ -1,3 +1,4 @@
+/* Existing Footer Styles */
 .footer {
   background-color: #2e2e2e;
   color: #fff;
@@ -9,13 +10,11 @@
 .footer-top {
   display: flex;
   flex-direction: column;
-  /* gap: 20px; */
   align-items: center;
 }
 
 .footer-top .logo img {
   width: 80px;
-  /* Adjusted size for better visibility */
 }
 
 .footer-top .social-media {
@@ -33,7 +32,6 @@
 
 .footer-top .social-icons a img {
   width: 30px;
-  /* Adjusted size for consistency */
 }
 
 .footer-top .contact-info,
@@ -47,7 +45,6 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  /* Space between image and text */
   margin: 5px 0;
   color: #fff;
   text-decoration: none;
@@ -60,7 +57,6 @@
 
 .footer-top .address img {
   width: 24px;
-  /* Adjusted size for better alignment */
   height: 24px;
 }
 
@@ -95,6 +91,28 @@
   text-decoration: underline;
 }
 
+/* Social Media Icon Hover Effects */
+.footer-top .social-icons a {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.footer-top .social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.footer-top .social-icons a:nth-child(1):hover img {
+  filter: brightness(1.2) saturate(1.2);
+}
+
+.footer-top .social-icons a:nth-child(2):hover img {
+  filter: brightness(1.2) saturate(1.2);
+}
+
+.footer-top .social-icons a:nth-child(6):hover img {
+  filter: brightness(1.2) saturate(1.2);
+}
+
+/* Responsive Styles */
 @media (min-width: 768px) {
   .footer-top {
     flex-direction: row;
