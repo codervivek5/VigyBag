@@ -159,8 +159,6 @@ export default function App() {
           <Route path="about-us" element={<AboutUs />} />
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy-policy" element={<Privacy />} />
-          <Route path="help" element={<Help />} />
-          <Route path="privacy" element={<Privacy />} />
           {/* Privacy policy page route */}
           <Route path="cart" element={<Cart />} /> 
           <Route
