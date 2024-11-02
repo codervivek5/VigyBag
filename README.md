@@ -280,9 +280,12 @@ If you encounter any issues while setting up or using VigyBag, try the following
 
 ## 😍 Our Contributors :  <a name="contributors"></a>
 
-<a href="https://github.com/codervivek5/VigyBag/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=codervivek5/VigyBag" />
-</a>
+<table>
+  <tr>
+    <td><img src="https://avatars.githubusercontent.com/u/176493940?v=4" width="100px"alt="Zafar Ali""/></td>
+    <p><a href="https://github.com/zafar-Alee" target="_blank"> Zafar Ali</a></p>
+  </p>
+</table>
 
 Made with [contrib.rocks](https://contrib.rocks).
 
