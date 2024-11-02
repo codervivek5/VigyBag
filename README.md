@@ -280,6 +280,7 @@ If you encounter any issues while setting up or using VigyBag, try the following
 
 ## 😍 Our Contributors :  <a name="contributors"></a>
 
+
 <table>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/u/176493940?v=4" width="100px"alt="Zafar Ali""/></td>
