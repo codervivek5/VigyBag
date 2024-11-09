@@ -11,7 +11,7 @@ export default {
         'pop': ['Poppins'],
         'baloo': ["Baloo 2", 'sans-serif'],
         'roboto': ['Roboto', 'sans-serif'],
-      }
+      },
     },
   },
   plugins: [],
