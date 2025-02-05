@@ -1,0 +1,9 @@
+.flex flex-col lg:flex-row gap-8 relative{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: auto;
+    @media (min-width: 1024px) {
+        flex-direction: row;
+    }
+}
