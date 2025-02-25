@@ -131,6 +131,7 @@ const latestProducts = [
 
 const Home = () => {
   const sectionRef = useRef(null);
+  const categoriesRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
@@ -162,6 +163,10 @@ const Home = () => {
   const scrollToSection = () => {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  const scrollToCategories=()=>{
+    categoriesRef.current.scrollIntoView({behavior:"smooth"});
+  }
 
 
   const handleSubscribe = (e) => {
@@ -220,12 +225,12 @@ const Home = () => {
                 className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
                 Shop Now
               </button>
-              <DownArrow />
+              <DownArrow scrollToCategories={scrollToCategories} />
             </div>
           </div>
         </section>
         {/* Popular Categories */}
-        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
+        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]" ref={categoriesRef} >
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
               Popular Categories
