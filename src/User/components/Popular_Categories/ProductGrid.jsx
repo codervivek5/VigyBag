@@ -113,7 +113,7 @@ function ProductCard({ product }) {
           <span className="text-gray-500 ml-1">({product.rating.count})</span>
         </div>
         {/* Add to cart button */}
-        <div className="flex h-10 gap-2">
+        <div className="flex h-13 gap-2">
           <button
             className="mt-1 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
             onClick={() => {
