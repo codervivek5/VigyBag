@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
-    "@reduxjs/toolkit": "^2.2.7",
+    "@reduxjs/toolkit": "^2.7.0",
     "axios": "^1.7.9",
     "canvas-confetti": "^1.9.3",
     "dotenv": "^16.4.5",
