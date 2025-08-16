@@ -17,3 +17,26 @@
 ## Note to reviewers
 
 <!-- Add notes to reviewers if applicable -->
+
+
+## Description
+
+<!-- Describe what this PR does and why. -->
+
+## Type of change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Documentation
+- [ ] CI / Build
+- [ ] Other (please describe):
+
+## How to test
+1. Steps to reproduce / test locally
+2.
+
+## Checklist
+- [ ] My code follows the project style (naming, formatting).
+- [ ] I added/updated relevant tests (if applicable).
+- [ ] I added/updated documentation (if applicable).
+- [ ] Screenshots attached (if UI changes).
+
