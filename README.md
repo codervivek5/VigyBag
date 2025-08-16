@@ -1,6 +1,8 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/d476cdf0-7a01-4bcb-b61e-9f10b12216c5" width="200" alt="Logo">
-<h1>VigyBag</h1>
+<!--   <img src="https://github.com/user-attachments/assets/d476cdf0-7a01-4bcb-b61e-9f10b12216c5" width="200" alt="Logo"> -->
+  <img width="1128" height="283" alt="OSCI_Project_Banner" src="https://github.com/user-attachments/assets/faf4e938-962f-44f2-be65-438f270ffbc6" />
+
+<!-- <h1>VigyBag</h1> -->
 </div>
 
 
