@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
+import NotFound from "./pages/NotFound";
 
 // User components
 import UserAuth from "./User/pages/UserAuth/UserAuth";
@@ -257,6 +258,7 @@ export default function App() {
         {/* Admin verification and login routes */}
         <Route path="admin-verification" element={<AdminVerificationPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>
   );

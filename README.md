@@ -4,6 +4,8 @@
 
 <!-- <h1>VigyBag</h1> -->
 </div>
+![CI](https://github.com/codervivek5/VigyBag/actions/workflows/ci.yml/badge.svg)
+
 
 
 
