@@ -2,6 +2,8 @@
   <img src="https://github.com/user-attachments/assets/d476cdf0-7a01-4bcb-b61e-9f10b12216c5" width="200" alt="Logo">
 <h1>VigyBag</h1>
 </div>
+![CI](https://github.com/codervivek5/VigyBag/actions/workflows/ci.yml/badge.svg)
+
 
 
 
