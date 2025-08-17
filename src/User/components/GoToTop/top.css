@@ -29,7 +29,8 @@
     background-color: #005a01;
     transform: scale(1.1);
   }
-  
+ 
+
   .circular-progress {
     position: absolute;
     width: 100%;
@@ -57,5 +58,5 @@
     color: white;
     font-size: 24px;
     z-index: 1; /* Ensure it is above the circle */
-    background-color: #16a34a;
+    background-color:transparent;
   }
