@@ -1,0 +1,29 @@
+name: "📌 Contribution Issue"
+description: "Use this template when working on a contribution under GSSoC / OSCI"
+title: "[Contribution]: "
+labels: ["contribution"]
+assignees: []
+
+body:
+  - type: checkboxes
+    id: program
+    attributes:
+      label: "Select your program"
+      description: "Please select the program you are contributing under"
+      options:
+        - label: "GSSoC"
+        - label: "OSCI"
+  - type: textarea
+    id: summary
+    attributes:
+      label: "📖 Describe the issue"
+      description: "Give a clear description of what you are working on."
+      placeholder: "Write your issue details here..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "✅ Proposed Solution"
+      description: "Explain the approach or solution you plan to implement."
+      placeholder: "How will you solve this?"
