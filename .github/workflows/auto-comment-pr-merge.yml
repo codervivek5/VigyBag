@@ -20,7 +20,7 @@ jobs:
       run: |
         COMMENT=$(cat <<EOF
         {
-          "body": "Congratulations, Your pull request has been successfully merged 🥳🎉 Thank you for your contribution to the project 🚀 Keep Contributing!! ✨"
+          "body": "Congratulations, Your pull request has been successfully merged 🥳🎉 Thank you for your valuable contribution to the project 🚀 Keep contributing!! ✨\n\n📢 Don’t forget to share your VigyBag PR on LinkedIn and tag @VigyBag and me — we’d love to celebrate your achievement with you! 🔗💡"
         }
         EOF
         )
