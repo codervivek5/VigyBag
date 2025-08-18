@@ -1,29 +1,40 @@
-name: "📌 Contribution Issue"
-description: "Use this template when working on a contribution under GSSoC / OSCI"
-title: "[Contribution]: "
-labels: ["contribution"]
-assignees: []
+name: Program Participation Issue
+description: Use this template to report issues or suggestions related to Open Source Community India (OSCI) or GirlScript Summer of Code (GSSoC).
+title: "[Program Issue]: "
+labels: ["program-related"]
+assignees: ""
 
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to our project! Please fill out the details below to help us understand your issue or suggestion related to OSCI or GSSoC.
+
   - type: checkboxes
-    id: program
+    id: program_affiliation
     attributes:
-      label: "Select your program"
-      description: "Please select the program you are contributing under"
+      label: Program Affiliation
+      description: Select at least one program this issue pertains to.
       options:
-        - label: "GSSoC"
-        - label: "OSCI"
+        - label: Open Source Community India (OSCI)
+          required: false
+        - label: GirlScript Summer of Code (GSSoC)
+          required: false
+
   - type: textarea
-    id: summary
+    id: issue_description
     attributes:
-      label: "📖 Describe the issue"
-      description: "Give a clear description of what you are working on."
-      placeholder: "Write your issue details here..."
+      label: Issue Description
+      description: Provide a clear and concise description of the issue or suggestion.
+      placeholder: Describe the issue or suggestion related to OSCI or GSSoC.
     validations:
       required: true
+
   - type: textarea
-    id: solution
+    id: additional_context
     attributes:
-      label: "✅ Proposed Solution"
-      description: "Explain the approach or solution you plan to implement."
-      placeholder: "How will you solve this?"
+      label: Additional Context
+      description: Add any other relevant details, such as links, screenshots, or specific examples.
+      placeholder: Include any additional information that might help us address your issue.
+    validations:
+      required: false
