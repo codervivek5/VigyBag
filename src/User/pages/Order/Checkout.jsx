@@ -28,9 +28,19 @@ const CheckoutForm = () => {
   };
 
   const handleSubmit = (e) => {
-    if (formData.mobile === "" || isNaN(formData.mobile) ||
-      formData.name === "" || formData.email === "" || formData.pinCode === "" || formData.address === "" || formData.locality === "" ||
-      formData.email.indexOf("@") === -1 || formData.email.indexOf(".") === -1 || isNaN(formData.pinCode)) {
+    const name = formData.name.trim();
+    const mobile = formData.mobile.trim();
+    const email = formData.email.trim();
+    const pinCode = formData.pinCode.trim();
+    const address = formData.address.trim();
+    const locality = formData.locality.trim();
+    const digitsOnly = /^\d+$/;
+
+    const hasEmptyFields = !name || !mobile || !email || !pinCode || !address || !locality;
+    const isMobileValid = digitsOnly.test(mobile) && mobile.length === 10;  
+    const isEmailValid = email.includes("@") && email.includes(".") && email.length > 5;
+    const isPinCodeValid = digitsOnly.test(pinCode) && pinCode.length === 6;
+    if (hasEmptyFields || !isMobileValid || !isEmailValid || !isPinCodeValid) {
       e.preventDefault();
       setError(true);
       return;
