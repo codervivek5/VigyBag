@@ -1,8 +1,12 @@
 import { useState } from "react";
 import OrderSummary from "../../components/Order/OrderSummary";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
+  
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -13,6 +17,7 @@ const CheckoutForm = () => {
     saveAs: "home",
     defaultAddress: false,
   });
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -23,9 +28,36 @@ const CheckoutForm = () => {
   };
 
   const handleSubmit = (e) => {
+    const name = formData.name.trim();
+    const mobile = formData.mobile.trim();
+    const email = formData.email.trim();
+    const pinCode = formData.pinCode.trim();
+    const address = formData.address.trim();
+    const locality = formData.locality.trim();
+    const digitsOnly = /^\d+$/;
+
+    const hasEmptyFields = !name || !mobile || !email || !pinCode || !address || !locality;
+    const isMobileValid = digitsOnly.test(mobile) && mobile.length === 10;  
+    const isEmailValid = email.includes("@") && email.includes(".") && email.length > 5;
+    const isPinCodeValid = digitsOnly.test(pinCode) && pinCode.length === 6;
+    if (hasEmptyFields || !isMobileValid || !isEmailValid || !isPinCodeValid) {
+      e.preventDefault();
+      setError(true);
+      return;
+    }
+    setError(false);
     e.preventDefault();
     console.log(formData);
+    navigate("/payment");
   };
+
+  const ErrorMessage = () => {
+    return (
+      <div className="text-red-500 mt-4">
+        <p>Please fill in all fields correctly before proceeding.</p>
+      </div>
+    )
+  }
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center bg-[#f5eee8] py-10 mt-1">
@@ -137,12 +169,11 @@ const CheckoutForm = () => {
           </div>
           <div className="w-full md:w-1/3">
             <OrderSummary />
-            <Link to="/payment">
-              <button
+              <button onClick={handleSubmit}
                 className="w-full bg-green-700 text-white p-2 rounded hover:bg-green-800 transition-colors duration-300">
                 Place Order
               </button>
-            </Link>
+            {error && <ErrorMessage />}
           </div>
         </div>
       </div>
