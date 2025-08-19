@@ -18,36 +18,45 @@ function Filters({
     ? { backgroundColor }
     : {};
 
+  // Define price ranges
+  const priceRanges = [
+    "0-100",
+    "100-200",
+    "200-300",
+    "300-400",
+    "400-500",
+    "500-1000",
+  ];
+
   return (
     <aside
       className={`lg:w-[20vw] p-6 shadow-md lg:h-auto w-[100vw] mt-[13vh] ${filterClasses}`}
       style={filterStyles} // Apply the determined inline styles
-
-     
     >
       <h2 className="text-xl font-bold mb-4">Filters</h2>
       <div className="space-y-4">
         {/* Filter section for Category */}
         <FilterSection
           title="Category"
-          options={availableCategories} // Use availableCategories instead of static list
+          options={availableCategories}
           onChange={(e) => setCategoryFilter(e.target.value)}
         />
+
         {/* Filter section for Price */}
         <FilterSection
           title="Price"
-          options={["50", "100", "200", "500"]}
+          options={priceRanges}
           onChange={(e) => setPriceFilter(e.target.value)}
         />
+
         {/* Filter section for Rating */}
         <FilterSection
           title="Rating"
           options={["1", "2", "3", "4", "5"]}
           onChange={(e) => {
-            const value = parseInt(e.target.value, 10); //converting into int from decimal
-            setRatingFilter(Number.isNaN(value) ? 0.00 : value); //applying condition for rating or higher
-          }
-        }  
+            const value = parseInt(e.target.value, 10);
+            setRatingFilter(Number.isNaN(value) ? 0.0 : value);
+          }}
         />
       </div>
     </aside>
@@ -63,7 +72,9 @@ function FilterSection({ title, options, onChange }) {
         <option value="">All</option>
         {options.map((option) => (
           <option key={option} value={option}>
-            {title === "Price" ? `Under ₹${option}` : option}
+            {title === "Price" && option.includes("-")
+              ? `₹${option.split("-")[0]} - ₹${option.split("-")[1]}`
+              : option}
           </option>
         ))}
       </select>
