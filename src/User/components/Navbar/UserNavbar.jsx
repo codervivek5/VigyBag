@@ -1,242 +1,231 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import NavLogo from "./NavLogo";
-import SearchBar from "../SearchBar/SearchBar";
-import CartIcon from "./CartIcon";
-import AuthButton from "./AuthButton";
-import MobileMenu from "./MobileMenu";
-import { FaUserCircle } from "react-icons/fa";
-import Swal from "sweetalert2";
-import WishlistIcon from "./WishlistIcon";
+import { FaUserCircle, FaBars, FaTimes, FaSearch } from "react-icons/fa";
 
-const UserNavbar = ({ isAdmin }) => {
+const Navbar = ({ isAdmin }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
+  const username = localStorage.getItem("username");
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
 
-  const username = localStorage.getItem("username");
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const isAdminT = localStorage.getItem("isAdmin") === "true";
-
   const toggleNavbar = () => setIsOpen(!isOpen);
-  const handleSearch = (e) => setSearchTerm(e.target.value);
+  const handleDropdownToggle = () => setShowDropdown(prev => !prev);
 
-  const searchableItems = [
-    { name: "Fashion & Accessories", link: "/popularCategories/fashionAccessories" },
-    { name: "Printing & Stationery", link: "/popularCategories/printingStationery" },
-    { name: "Food & Beverages", link: "/popularCategories/foodBeverages" },
-    { name: "Beauty & Wellness", link: "/popularCategories/beautyWellness" },
-    { name: "Furniture & Decor", link: "/popularCategories/furnitureDecor" },
-    { name: "Body Care", link: "/popularCategories/bodyCare" },
-    { name: "Health Supplements", link: "/popularCategories/healthSupplements" },
-    { name: "Customized Gifts", link: "/popularCategories/customizedGifts" },
-    { name: "Handmade Soaps", link: "/latestInMarket/handmadeSoaps" },
-    { name: "Art Supplies", link: "/latestInMarket/artSupplies" },
-    { name: "Ceramic Dinnerware", link: "/latestInMarket/ceramicDinnerware" },
-    { name: "Bamboo Products", link: "/latestInMarket/bambooProducts" },
-    { name: "Storage Baskets", link: "/latestInMarket/storageBaskets" },
-    { name: "Organic Soaps", link: "/latestInMarket/organicSoaps" },
-    { name: "Organic Tea", link: "/latestInMarket/organicTea" },
-    { name: "Natural Cosmetics", link: "/latestInMarket/naturalCosmetics" },
-  ];
-
-  useEffect(() => {
-    if (searchTerm) {
-      const results = searchableItems.filter(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setSearchResults(results);
-    } else {
-      setSearchResults([]);
+  const handleClickOutside = e => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setShowDropdown(false);
     }
-  }, [searchTerm]);
-
-  const handleLogout = () => {
-    Swal.fire({
-      title: "Are you sure you want to logout?",
-      showCancelButton: true,
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-      customClass: {
-        popup: "custom-popup",
-        title: "custom-title",
-        content: "custom-content",
-        confirmButton: "custom-confirm-button",
-        cancelButton: "custom-cancel-button",
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        localStorage.setItem("isLoggedIn", false);
-        localStorage.removeItem("username");
-        navigate("/auth");
-
-        Swal.fire({
-          title: "Logout successfully!",
-          text: "Visit Again to VigyBag!",
-          icon: "success",
-          confirmButtonText: "OK",
-          customClass: {
-            popup: "custom-popup",
-            title: "custom-title",
-            content: "custom-content",
-            confirmButton: "custom-confirm-button",
-          },
-        });
-      }
-    });
   };
 
-  const handleDropdownToggle = () => setShowDropdown((prev) => !prev);
-
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setShowDropdown(false);
-      }
-    };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const navLinks = [
-    { to: "/popularCategories/fashionAccessories", text: "Fashion" },
-    { to: "/popularCategories/customizedGifts", text: "Gifts" },
-    { to: "/popularCategories/furnitureDecor", text: "Furniture" },
-    { to: "/popularCategories/printingStationery", text: "Stationary" },
-    { to: "/popularCategories/bodyCare", text: "Body-Care" },
-  ];
-
-  const handleResultClick = (link) => {
-    navigate(link);
-    setSearchTerm("");
-    setSearchResults([]);
+  const handleLogout = () => {
+    if (window.confirm("Are you sure you want to logout?")) {
+      localStorage.setItem("isLoggedIn", false);
+      localStorage.removeItem("username");
+      alert("Logout Successful.");
+      navigate("/login");
+    }
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-lg w-full z-50 -mt-1">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center w-full">
-            <NavLogo />
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <div className="py-1 flex justify-evenly items-center">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.text}
-                      to={link.to}
-                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
-                      {link.text}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center">
-            <div className="md:block">
-              <div className="ml-4 flex items-center md:ml-6 gap-6">
-                <div className="hidden md:block">
-                  <SearchBar
-                    searchTerm={searchTerm}
-                    handleSearch={handleSearch}
-                    searchResults={searchResults}
-                    onResultClick={handleResultClick}
-                  />
-                </div>
-                <div className="flex md:gap-6 gap-7 mr-4 md:mr-0">
-                  <WishlistIcon />
-                  <CartIcon />
-                </div>
-                <div className="md:block hidden">
-                  {isLoggedIn ? (
-                    <div className="relative flex gap-3 items-center">
-                      <lord-icon
-                        onClick={handleDropdownToggle}
-                        className="text-3xl cursor-pointer"
-                        style={{
-                          height: "40px",
-                          width: "40px",
-                        }}
-                        src="https://cdn.lordicon.com/hrjifpbq.json"
-                        trigger="hover"
-                        colors="primary:#15803D"></lord-icon>
-                      <span className="text-green-700 font-bold">
-                        {username}
-                      </span>
-                      {showDropdown && (
-                        <div
-                          ref={dropdownRef}
-                          className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
-                          {isAdminT && (
-                            <Link
-                              to="/admin"
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
-                              Admin Dashboard
-                            </Link>
-                          )}
-                          <Link
-                            to="/dashboard"
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
-                            Dashboard
-                          </Link>
-                          <button
-                            onClick={handleLogout}
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
-                            Logout
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <AuthButton isLoggedIn={isLoggedIn} />
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="-mr-2 flex md:hidden">
-              <button
-                onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
-                <svg
-                  className="h-6 w-6"
-                  stroke="#15803D"
-                  fill="#15803D"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d={
-                      isOpen
-                        ? "M6 18L18 6M6 6l12 12"
-                        : "M4 6h16M4 12h16M4 18h16"
-                    }
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
+    <nav style={styles.navbar}>
+      <div style={styles.logo}>
+        <Link to="/" style={styles.logoLink}>FashionApp</Link>
       </div>
 
-      <MobileMenu
-        isOpen={isOpen}
-        searchTerm={searchTerm}
-        handleSearch={handleSearch}
-        handleDropdown={handleDropdownToggle}
-        openDropdown={showDropdown}
-        isLoggedIn={isLoggedIn}
-        handleLogout={handleLogout}
-        username={username}
-      />
+      {/* Hamburger for mobile */}
+      <div style={styles.hamburger} onClick={toggleNavbar}>
+        {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+      </div>
+
+      {/* Nav menu */}
+      <ul style={{ ...styles.navMenu, ...(isOpen ? styles.navMenuActive : {}) }}>
+        <li><Link to="/fashion" style={styles.navLink}>Fashion</Link></li>
+        <li><Link to="/gifts" style={styles.navLink}>Gifts</Link></li>
+        <li><Link to="/furniture" style={styles.navLink}>Furniture</Link></li>
+        <li><Link to="/stationery" style={styles.navLink}>Stationery</Link></li>
+        <li><Link to="/bodycare" style={styles.navLink}>Body-Care</Link></li>
+      </ul>
+
+      {/* Search bar */}
+      <div style={styles.searchContainer}>
+        <FaSearch color="#666" />
+        <input
+          type="text"
+          placeholder="Search products..."
+          style={styles.searchInput}
+          // onChange=...
+        />
+      </div>
+
+      {/* User actions */}
+      <div style={styles.userSection}>
+        {isLoggedIn ? (
+          <div style={styles.userProfile} ref={dropdownRef}>
+            <div style={styles.userName} onClick={handleDropdownToggle}>
+              <FaUserCircle size={24} style={{ marginRight: 6 }} />
+              Hi, {username || "User"}
+            </div>
+            {showDropdown && (
+              <div style={styles.dropdownMenu}>
+                <Link to="/dashboard" style={styles.dropdownItem}>Dashboard</Link>
+                <button onClick={handleLogout} style={styles.dropdownItemButton}>Logout</button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div>
+            <Link to="/login" style={styles.authButton}>Login</Link>
+            <Link to="/register" style={{ ...styles.authButton, marginLeft: 10 }}>Register</Link>
+          </div>
+        )}
+      </div>
     </nav>
   );
 };
 
-export default UserNavbar;
+// Inline styling: you can move this to a CSS or styled-components file as preferred
+const styles = {
+  navbar: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#222",
+    color: "#fff",
+    padding: "10px 20px",
+    position: "sticky",
+    top: 0,
+    zIndex: 999,
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  },
+  logo: {
+    fontWeight: "bold",
+    fontSize: 24,
+  },
+  logoLink: {
+    color: "#ff4081",
+    textDecoration: "none",
+  },
+  hamburger: {
+    display: "none",
+    cursor: "pointer",
+  },
+  navMenu: {
+    display: "flex",
+    listStyle: "none",
+    gap: "20px",
+  },
+  navMenuActive: {
+    position: "absolute",
+    top: 60,
+    left: 0,
+    width: "100%",
+    flexDirection: "column",
+    backgroundColor: "#222",
+    padding: 20,
+    display: "flex",
+  },
+  navLink: {
+    color: "#ccc",
+    textDecoration: "none",
+    fontWeight: 500,
+    transition: "color 0.3s ease",
+  },
+  searchContainer: {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "#333",
+    padding: "5px 10px",
+    borderRadius: 20,
+    marginLeft: 20,
+  },
+  searchInput: {
+    backgroundColor: "transparent",
+    border: "none",
+    outline: "none",
+    color: "#fff",
+    marginLeft: 5,
+    width: 150,
+  },
+  userSection: {
+    marginLeft: "auto",
+    display: "flex",
+    alignItems: "center",
+    position: "relative",
+  },
+  userProfile: {
+    cursor: "pointer",
+    userSelect: "none",
+  },
+  userName: {
+    display: "flex",
+    alignItems: "center",
+    fontWeight: 600,
+    color: "#ff4081",
+  },
+  dropdownMenu: {
+    position: "absolute",
+    top: 40,
+    right: 0,
+    backgroundColor: "#333",
+    borderRadius: 6,
+    boxShadow: "0px 4px 8px rgba(0,0,0,0.3)",
+    minWidth: 150,
+    zIndex: 1000,
+    padding: 10,
+  },
+  dropdownItem: {
+    display: "block",
+    color: "#fff",
+    textDecoration: "none",
+    padding: "8px 10px",
+    borderRadius: 4,
+    transition: "background-color 0.2s ease",
+    marginBottom: 6,
+  },
+  dropdownItemButton: {
+    display: "block",
+    width: "100%",
+    padding: "8px 10px",
+    borderRadius: 4,
+    border: "none",
+    backgroundColor: "#ff4081",
+    color: "#fff",
+    fontWeight: 600,
+    cursor: "pointer",
+  },
+  authButton: {
+    backgroundColor: "#ff4081",
+    color: "#fff",
+    padding: "6px 12px",
+    borderRadius: 20,
+    textDecoration: "none",
+    fontWeight: 600,
+    transition: "background-color 0.3s ease",
+  },
+  
+  // Responsive (add media queries by moving styles to CSS file or use styled-components)
+  // Here just an example to enable hamburger menu on small screens
+  '@media (max-width: 768px)': {
+    navbar: {
+      flexWrap: "wrap",
+    },
+    hamburger: {
+      display: "block",
+    },
+    navMenu: {
+      display: "none",
+      flexDirection: "column",
+      width: "100%",
+    },
+  },
+};
+
+export default Navbar;
