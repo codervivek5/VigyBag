@@ -164,6 +164,7 @@ const Home = () => {
   };
 
 
+
   const handleSubscribe = (e) => {
     e.preventDefault();
     setIsSubscribed(true); // Show the success message
@@ -172,7 +173,8 @@ const Home = () => {
       setEmail(""); // Clear the email input
     }, 3000); // 3 seconds
   };
-  
+
+
 
   return (
     <div className="bg-[#fff0e3ff]">
@@ -216,16 +218,23 @@ const Home = () => {
               </p>
               <button
                 type="button"
-                onClick={scrollToSection}
-                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
+                onClick={() => {
+                  const section = document.getElementById("popular-categories");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300"
+              >
                 Shop Now
               </button>
+
               <DownArrow />
             </div>
           </div>
         </section>
         {/* Popular Categories */}
-        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
+        <section id="popular-categories" className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
           <div className="container mx-auto px-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
               Popular Categories
@@ -233,17 +242,18 @@ const Home = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {popularCategories.map((category, index) => (
                 <div key={index} className="custom-shadow">
-                <CategoryCard
-                  key={index}
-                  name={category.name}
-                  image={category.image}
-                  path={category.path}
-                />
-                  </div>
+                  <CategoryCard
+                    key={index}
+                    name={category.name}
+                    image={category.image}
+                    path={category.path}
+                  />
+                </div>
               ))}
             </div>
           </div>
         </section>
+
         {/* Latest in the Market */}
         <section
           className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16"
