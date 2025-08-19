@@ -4,12 +4,55 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Keep existing Google site verification -->
     <meta name="google-site-verification" content="ozm89q0WEqACFCdVPRWDNFvKDes5OGWyEQAB99JpA38" />
     <title>VigyBag - Eco friendly store</title>
+
+    <!-- Accessibility helpers (safe, minimal CSS) -->
+    <style>
+      /* Make keyboard focus clearly visible everywhere */
+      :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+      /* Visually hide the skip link until it’s focused */
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+      .skip-link:focus {
+        position: fixed;
+        left: 1rem;
+        top: 1rem;
+        width: auto;
+        height: auto;
+        clip: auto;
+        padding: 0.75rem 1rem;
+        background: #ffffff;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        z-index: 1000;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { scroll-behavior: auto !important; }
+      }
+    </style>
   </head>
+
   <body>
-    <div id="root"></div>
+    <!-- New: keyboard users can jump straight to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Wrap React root in a landmark for screen readers -->
+    <main id="main-content" tabindex="-1">
+      <div id="root"></div>
+    </main>
+
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
