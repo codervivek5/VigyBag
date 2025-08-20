@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import NavLogo from "./NavLogo";
 import SearchBar from "../SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
@@ -16,12 +16,14 @@ const UserNavbar = ({ isAdmin }) => {
   const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
+  const location = useLocation();
 
   const username = localStorage.getItem("username");
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const isAdminT = localStorage.getItem("isAdmin") === "true";
 
   const toggleNavbar = () => setIsOpen(!isOpen);
+  const closeNavbar = () => setIsOpen(false);
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
   const searchableItems = [
@@ -101,6 +103,10 @@ const UserNavbar = ({ isAdmin }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const navLinks = [
     { to: "/popularCategories/fashionAccessories", text: "Fashion" },
@@ -225,6 +231,15 @@ const UserNavbar = ({ isAdmin }) => {
         </div>
       </div>
 
+      {/* Overlay for outside click to close */}
+      {isOpen && (
+        <div
+          onClick={closeNavbar}
+          className="fixed inset-0 bg-black bg-opacity-30 md:hidden"
+          style={{ zIndex: 40 }}
+        />
+      )}
+
       <MobileMenu
         isOpen={isOpen}
         searchTerm={searchTerm}
@@ -234,6 +249,7 @@ const UserNavbar = ({ isAdmin }) => {
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
         username={username}
+        onClose={closeNavbar}
       />
     </nav>
   );
