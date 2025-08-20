@@ -202,14 +202,18 @@ const AuthForm = () => {
             Make Your Shopping <br /> Eco-Friendly
           </h2>
           <div className="space-x-4">
-            <Link to="/admin-verification">
-              <button className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300">
-                Login as Admin
-              </button>
+            <Link
+              to="/admin-verification"
+              className="bg-[#2d3e40] text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition duration-300"
+            >
+              Login as Admin
             </Link>
-            <button className="bg-[#f9efe4] text-[#2d3e40] px-6 py-2 rounded-full border border-[#2d3e40] hover:bg-[#2d3e40] hover:text-white transition duration-300">
+            <Link
+              to="/vigy-form"
+              className="bg-[#f9efe4] text-[#2d3e40] px-6 py-2 rounded-full border border-[#2d3e40] hover:bg-[#2d3e40] hover:text-white transition duration-300"
+            >
               Login as Vigy
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -307,14 +311,14 @@ const AuthForm = () => {
                   <p className="text-xs text-center mt-4">
                     By continuing, you agree to our{" "}
                     <Link
-                      to="https://www.vigybag.com/termsAndCondition"
+                      to="/terms-and-condition"
                       className="text-[#4caf50] hover:underline"
                     >
                       Terms of Use
                     </Link>{" "}
                     and{" "}
                     <Link
-                      to="https://www.vigybag.com/privacy"
+                      to="/privacy-policy"
                       className="text-[#4caf50] hover:underline"
                     >
                       Privacy Policy
@@ -331,10 +335,11 @@ const AuthForm = () => {
                     </button>
                   </p>
                   <p className="sm:hidden text-sm text-center  pb-0 mt-2">
-                    <Link to="/admin-verification">
-                      <button className="bg-[#2d3e40] text-green-500 px-6 rounded-full hover:bg-opacity-90 transition duration-300">
-                        Login as Admin
-                      </button>
+                    <Link
+                      to="/admin-verification"
+                      className="bg-[#2d3e40] text-green-500 px-6 rounded-full hover:bg-opacity-90 transition duration-300"
+                    >
+                      Login as Admin
                     </Link>
                   </p>
                 </div>
@@ -474,10 +479,11 @@ const AuthForm = () => {
                     </button>
                   </p>
                   <p className="sm:hidden text-sm text-center  pb-0 mt-2">
-                    <Link to="/admin-verification">
-                      <button className="bg-[#2d3e40] text-green-500 px-6 rounded-full hover:bg-opacity-90 transition duration-300">
-                        Login as Admin
-                      </button>
+                    <Link
+                      to="/admin-verification"
+                      className="bg-[#2d3e40] text-green-500 px-6 rounded-full hover:bg-opacity-90 transition duration-300"
+                    >
+                      Login as Admin
                     </Link>
                   </p>
                 </div>
