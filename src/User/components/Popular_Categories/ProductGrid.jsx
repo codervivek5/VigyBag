@@ -43,7 +43,7 @@ function ProductCard({ product }) {
   };
 
   const handleBuyNow = () => {
-    navigate(`/payment`);
+    navigate(`/checkout`);
   };
 
   // Function to add product to cart
