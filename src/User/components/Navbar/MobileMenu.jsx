@@ -3,8 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 
-const MobileMenu = ({ isOpen, isLoggedIn, username }) => (
-  <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
+const MobileMenu = ({ isOpen, isLoggedIn, username, onClose }) => (
+  <div className={`${isOpen ? "block" : "hidden"} md:hidden relative z-50`}>
     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <div className="py-1">
         {isLoggedIn ? (
@@ -16,6 +16,7 @@ const MobileMenu = ({ isOpen, isLoggedIn, username }) => (
         ) : (
           <Link
             to="/auth"
+            onClick={onClose}
             className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
             <lord-icon
               style={{
@@ -30,37 +31,44 @@ const MobileMenu = ({ isOpen, isLoggedIn, username }) => (
         )}
         <Link
           to="Dashboard"
+          onClick={onClose}
           className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
           Dashboard
         </Link>
         <Link
           to="popularCategories/fashionAccessories"
+          onClick={onClose}
           className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
           Fashion
         </Link>
         <Link
           to="popularCategories/customizedGifts"
+          onClick={onClose}
           className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
           Gifts
         </Link>
         <Link
           to="popularCategories/furnitureDecor"
+          onClick={onClose}
           className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
           Furniture
         </Link>
         <Link
           to="popularCategories/printingStationery"
+          onClick={onClose}
           className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
           Stationary
         </Link>
         <Link
           to="popularCategories/bodyCare"
+          onClick={onClose}
           className="text-black hover:text-gray-600 block px-4 py-2 text-sm">
           Body-Care
         </Link>
       </div>
       <Link
         to="/cart"
+        onClick={onClose}
         className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
         <lord-icon
           style={{
@@ -76,6 +84,7 @@ const MobileMenu = ({ isOpen, isLoggedIn, username }) => (
       </Link>
       <Link
         to="/wishlist"
+        onClick={onClose}
         className="text-black hover:text-gray-600 px-3 py-2 rounded-md text-lg font-medium flex items-center">
         <lord-icon
           style={{
