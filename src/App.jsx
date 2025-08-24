@@ -27,7 +27,7 @@ import Help from "./User/pages/Help/Help";
 import Privacy from "./User/pages/Privacy-Policy/Privacy";
 import Payment from "./User/pages/Payment/Payment";
 import ReturnAndCancellation from "./User/pages/ReturnAndCancellation/returnAndCancellation";
-import EPRPage from "./User/pages/EPRPage/EPR_Page";
+import EPR_Page from "./User/pages/EPRPage/EPR_Page";
 import FAQ from "./User/pages/FAQ/Faq";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
@@ -40,6 +40,7 @@ import ServicePage from "./User/pages/Service-Page/service.jsx";
 import Shipping from "./User/pages/Shipping/shipping";
 import GiftCard from "./User/pages/Gift-Card/gift-card.jsx";
 import Payment_Policy from "./User/pages/Payment-Policy/payment-policy.jsx";
+import Certification from "./User/pages/Certifications/Certifications.jsx";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -47,7 +48,6 @@ import AdminLogin from "./Admin/Pages/AdminLogin";
 import VigyForm from "./Admin/Pages/VigyForm";
 import AdminPanel from "./Admin/Pages/AdminPanel";
 import ProductForm from "./Admin/Pages/ProductForm";
-import Certifications from "./User/pages/Certifications/Certifications";
 
 // Latest In Market
 import LatestInMarket from "./User/pages/Latest_in_the_Market/LatestInMarket";
@@ -186,7 +186,7 @@ export default function App() {
           />
           <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
-          <Route path="epr" element={<EPRPage />} /> {/* EPR page route */}
+          <Route path="epr-compliance" element={<EPR_Page />} /> {/* EPR page route */}
           <Route path="career" element={<CareerPage />} />
           <Route path="service" element={<ServicePage />} />
           <Route path="shipping" element={<Shipping />} />
@@ -209,7 +209,7 @@ export default function App() {
             {/* Order cancellation route */}
             <Route path="orderDetails" element={<OrderDetails />} />
             {/* Order details route */}
-            <Route path="my-orders" element={<MyOrders />} />
+            <Route path="myorders" element={<MyOrders />} />
             {/* My orders route */}
             <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
@@ -240,7 +240,7 @@ export default function App() {
             {/* Dashboard Profile route */}
           </Route>
           {/* Certifications page route */}
-          <Route path="certificate" element={<Certifications />} />
+          <Route path="certification" element={<Certification />} />
           {/* 404 Error page route */}
           <Route path="*" element={<Error />} />
         </Route>
