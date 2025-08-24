@@ -26,6 +26,8 @@ import ProductDetails from "./User/components/Products/ProductDetails";
 import Help from "./User/pages/Help/Help";
 import Privacy from "./User/pages/Privacy-Policy/Privacy";
 import Payment from "./User/pages/Payment/Payment";
+import MeetTheMakers from "./User/pages/MeetTheMakers/MeetTheMakers.jsx";
+
 import ReturnAndCancellation from "./User/pages/ReturnAndCancellation/returnAndCancellation";
 import EPR_Page from "./User/pages/EPRPage/EPR_Page";
 import FAQ from "./User/pages/FAQ/Faq";
@@ -157,6 +159,8 @@ export default function App() {
           {/* Other user routes */}
           <Route path="contributors" element={<Contributors />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route path="meet-the-makers" element={<MeetTheMakers />} />
+
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy-policy" element={<Privacy />} />
           {/* Privacy policy page route */}
