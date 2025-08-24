@@ -26,6 +26,15 @@ import teaset from "../../../assets/teaset.jpeg";
 import oil from "../../../assets/oil.jpg";
 import mat from "../../../assets/mat.jpeg";
 import basket from "../../../assets/basket.webp";
+import kashida from "../../../assets/kashida.webp";
+import penstand from "../../../assets/penstand.jpeg";
+import temple from "../../../assets/temple.jpeg";
+import embrbags from "../../../assets/embrbags.jpeg";
+import embellscarf from "../../../assets/embellscarf.jpeg";
+import toys from "../../../assets/toys.jpeg";
+import teainfused from "../../../assets/teainfused.jpeg";
+import chairs from "../../../assets/chairs.jpeg";
+import shawl from "../../../assets/shawl.jpeg";
 
 const makers = [
   {
@@ -44,6 +53,7 @@ const makers = [
     items: [
       { name: "Eco-friendly Sari", image: saree },
       { name: "Handcrafted Scarf", image: scarf },
+      { name: "Handwoven Shawl", image: shawl },
     ],
   },
   {
@@ -62,6 +72,7 @@ const makers = [
     items: [
       { name: "Handwoven Yoga Mat", image: mat },
       { name: "Ayurvedic Body Oil", image: oil },
+      { name: "Coconut Shell Chair", image: chairs },
     ],
   },
   {
@@ -80,6 +91,7 @@ const makers = [
     items: [
       { name: "Tea Gift Set", image: teaset },
       { name: "Leaf Journal", image: leaf },
+      { name: "Tea Infused Stationery", image: teainfused }
     ],
   },
   {
@@ -98,6 +110,7 @@ const makers = [
     items: [
       { name: "Handwoven Basket", image: basket },
       { name: "Bamboo Lamp", image: lamp },
+      { name: "Traditional Toys", image: toys },
     ],
   },
   {
@@ -116,6 +129,7 @@ const makers = [
     items: [
       { name: "Kantha Silk Sari", image: kanthasaree },
       { name: "Embroidered Quilt", image: quilt },
+      { name: "Embellished Scarf", image: embellscarf },
     ],
   },
   {
@@ -134,6 +148,7 @@ const makers = [
     items: [
       { name: "Embellished Clutch", image: clutch },
       { name: "Potli Bag", image: potlibag },
+      { name: "Embroidered Handbag", image: embrbags}
     ],
   },
   {
@@ -152,6 +167,7 @@ const makers = [
     items: [
       { name: "Ornate Wooden Chair", image: chair },
       { name: "Carved Wall Art", image: wallart },
+      { name: "Temple Decor", image: temple },
     ],
   },
   {
@@ -170,6 +186,7 @@ const makers = [
     items: [
       { name: "Patchwork Journal", image: patchwork },
       { name: "Envelope Set", image: envelope },
+      { name: "Eco Pen Stand", image: penstand },
     ],
   },
   {
@@ -188,6 +205,7 @@ const makers = [
     items: [
       { name: "Fine Pashmina Shawl", image: pashmina },
       { name: "Embroidered Wrap", image: wrap },
+      { name: "Kashida Embroidery", image: kashida }
     ],
   },
 ];
@@ -239,7 +257,7 @@ export default function MeetTheMakers() {
               <p className="mt-3 text-gray-600">{maker.story}</p>
               <ul className="mt-4 text-left text-sm text-gray-700">
                 {maker.highlights.map((h, i) => (
-                  <li key={i}>• {h}</li>
+                  <li key={i}> {h}</li>
                 ))}
               </ul>
               <div className="flex flex-wrap justify-center mt-4">
