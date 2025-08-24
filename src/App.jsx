@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 
 // User components
@@ -41,7 +41,6 @@ import Shipping from "./User/pages/Shipping/shipping";
 import GiftCard from "./User/pages/Gift-Card/gift-card.jsx";
 import Payment_Policy from "./User/pages/Payment-Policy/payment-policy.jsx";
 import Certification from "./User/pages/Certification/Certification.jsx";
-import { Navigate } from "react-router-dom";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -188,6 +187,8 @@ export default function App() {
           <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
           <Route path="epr-compliance" element={<EPR_Page />} /> {/* EPR page route */}
+          {/* Backward-compat: legacy URL */}
+          <Route path="epr" element={<Navigate to="/epr-compliance" replace />} />
           <Route path="career" element={<CareerPage />} />
           <Route path="service" element={<ServicePage />} />
           <Route path="shipping" element={<Shipping />} />
@@ -245,6 +246,8 @@ export default function App() {
           </Route>
           {/* Certification page route */}
           <Route path="certification" element={<Certification />} />
+          {/* Backward-compat: legacy URL */}
+          <Route path="certificate" element={<Navigate to="/certification" replace />} />
           {/* 404 Error page route */}
           <Route path="*" element={<Error />} />
         </Route>
