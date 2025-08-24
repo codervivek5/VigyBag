@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import TUMBLER from "../../../assets/TUMBLER.png";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const textColor = "text-zinc-800";
 const subTextColor = "text-zinc-600";
