@@ -40,7 +40,8 @@ import ServicePage from "./User/pages/Service-Page/service.jsx";
 import Shipping from "./User/pages/Shipping/shipping";
 import GiftCard from "./User/pages/Gift-Card/gift-card.jsx";
 import Payment_Policy from "./User/pages/Payment-Policy/payment-policy.jsx";
-import Certification from "./User/pages/Certifications/Certifications.jsx";
+import Certification from "./User/pages/Certification/Certification.jsx";
+import { Navigate } from "react-router-dom";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -210,6 +211,9 @@ export default function App() {
             <Route path="orderDetails" element={<OrderDetails />} />
             {/* Order details route */}
             <Route path="myorders" element={<MyOrders />} />
+            {/* Backward-compatibility redirects */}
+            <Route path="my-orders" element={<Navigate to="/myorders" replace />} />
+            <Route path="myOrders" element={<Navigate to="/myorders" replace />} />
             {/* My orders route */}
             <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
@@ -239,7 +243,7 @@ export default function App() {
             <Route path="profile" element={<ProfilePage />} />
             {/* Dashboard Profile route */}
           </Route>
-          {/* Certifications page route */}
+          {/* Certification page route */}
           <Route path="certification" element={<Certification />} />
           {/* 404 Error page route */}
           <Route path="*" element={<Error />} />
