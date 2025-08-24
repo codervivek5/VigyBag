@@ -187,7 +187,7 @@ const ProductForm = () => {
               label="Country of Origin"
               placeholder="Manufacturing country"
             />
-            <InputField label="Certifications" placeholder="If any" />
+            <InputField label="Certification" placeholder="If any" />
             <InputField label="Tags" placeholder="Comma-separated tags" />
           </>
         );

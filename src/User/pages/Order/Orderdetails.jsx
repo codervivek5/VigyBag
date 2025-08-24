@@ -44,7 +44,7 @@ const Breadcrumbs = () => (
       Cart
     </Link>{" "}
     &gt;
-    <Link to="/myOrders" className="hover:underline">
+    <Link to="/myorders" className="hover:underline">
       My Orders
     </Link>{" "}
     &gt;
