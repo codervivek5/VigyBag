@@ -1,5 +1,5 @@
 import React from "react";
-import career from "../../../assets/career.png";
+import career from "../../../assets/career_page_cover.png";
 import UX from "../../../assets/uxui designer.jpg";
 import video from "../../../assets/video editing.jpg";
 import content from "../../../assets/Content_Writer.avif";
@@ -41,19 +41,22 @@ const CareerPage = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto w-fit">
-      {/*Header Section */}
       <Header />
 
       <section>
-        <p className="text-black md:text-5xl text-2xl mt-8 font-bold text-center font-baloo gap-2">
-          Come to <span className="text-green-600">VigyBag</span> to maximise
-          yourself
-        </p>
-        <p className="text-black mt-3 md:text-5xl text-2xl  font-bold text-center font-baloo mb-3">
-          because when you maximise, we maximise.
-        </p>
-        <div className="mt-2">
-          <img src={career} alt="" className="w-full h-full object-cover" />
+        <div className="relative mt-8">
+          <img src={career} alt="" className="w-full h-full object-cover mx-auto" />
+          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-1/2 flex flex-col items-center justify-center px-4 md:px-8">
+            <h2 className="font-bold text-white text-center">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white drop-shadow-lg">
+                Maximise
+              </span>
+            </h2>
+            <p className="font-bold text-white mt-4 text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
+              Come to VigyBag to maximise
+              yourself because when you maximise, we maximise.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -62,28 +65,30 @@ const CareerPage = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-16 text-green-800 underline">
           Our Role
         </h2>
-        <div className="container mx-auto px-4 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 md:w-[70vw] w-[90vw] md:h-[120vh] md:ml-56">
+        <div className="container mx-auto px-2 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 w-full max-w-7xl mx-auto">
             {leadershipData.map((leader, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105">
-                <div className="relative h-48 md:h-64">
+                className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105 w-full"
+                style={{ minWidth: 0 }}
+              >
+                <div className="relative h-40 md:h-48">
                   <img
                     src={leader.image}
                     alt={leader.name}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                    <h3 className="text-xl md:text-2xl font-semibold text-white">
+                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
+                    <h3 className="text-lg md:text-xl font-semibold text-white">
                       {leader.name}
                     </h3>
-                    <p className="text-green-300">{leader.role}</p>
+                    <p className="text-green-300 text-xs md:text-sm">{leader.role}</p>
                   </div>
                 </div>
-                <div className="p-4 md:p-6">
-                  <p className="text-sm md:text-base text-gray-600 mb-4">
+                <div className="p-2 md:p-3">
+                  <p className="text-xs md:text-sm text-gray-600 mb-2">
                     {leader.description}
                   </p>
                 </div>
