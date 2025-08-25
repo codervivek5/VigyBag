@@ -1,72 +1,53 @@
 import React from "react";
 
-// Filters component to handle filtering of products
-function Filters({
-  setCategoryFilter,
-  setPriceFilter,
-  setRatingFilter,
-  backgroundColor,
-  availableCategories, // Accept the dynamically generated categories as a prop
-}) {
-  // Determine CSS classes based on background color input
-  const filterClasses = backgroundColor.startsWith("#")
-    ? ""
-    : `bg-${backgroundColor}`;
-
-  // Determine inline styles based on background color input
-  const filterStyles = backgroundColor.startsWith("#")
-    ? { backgroundColor }
-    : {};
-
+function Filters({ availableCategories, setCategoryFilter, setPriceFilter, setRatingFilter, backgroundColor }) {
   return (
-    <aside
-      className={`lg:w-[20vw] p-6 shadow-md lg:h-auto w-[100vw] mt-[13vh] ${filterClasses}`}
-      style={filterStyles} // Apply the determined inline styles
-
-     
-    >
-      <h2 className="text-xl font-bold mb-4">Filters</h2>
-      <div className="space-y-4">
-        {/* Filter section for Category */}
-        <FilterSection
-          title="Category"
-          options={availableCategories} // Use availableCategories instead of static list
+    <div className="p-4 rounded-2xl shadow-md" style={{ backgroundColor }}>
+      {/* Category Filter */}
+      <div className="mb-4">
+        <h3 className="font-semibold mb-2">Category</h3>
+        <select
+          className="w-full p-2 border rounded"
           onChange={(e) => setCategoryFilter(e.target.value)}
-        />
-        {/* Filter section for Price */}
-        <FilterSection
-          title="Price"
-          options={["50", "100", "200", "500"]}
-          onChange={(e) => setPriceFilter(e.target.value)}
-        />
-        {/* Filter section for Rating */}
-        <FilterSection
-          title="Rating"
-          options={["1", "2", "3", "4", "5"]}
-          onChange={(e) => {
-            const value = parseInt(e.target.value, 10); //converting into int from decimal
-            setRatingFilter(Number.isNaN(value) ? 0.00 : value); //applying condition for rating or higher
-          }
-        }  
-        />
+        >
+          <option value="">All</option>
+          {availableCategories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
-    </aside>
-  );
-}
 
-// FilterSection component to render individual filter sections
-function FilterSection({ title, options, onChange }) {
-  return (
-    <div>
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <select onChange={onChange} className="w-full p-2 border rounded">
-        <option value="">All</option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {title === "Price" ? `Under ₹${option}` : option}
-          </option>
-        ))}
-      </select>
+      {/* Price Filter */}
+      <div className="mb-4">
+        <h3 className="font-semibold mb-2">Price Range</h3>
+        <select
+          className="w-full p-2 border rounded"
+          onChange={(e) => setPriceFilter(e.target.value)}
+        >
+          <option value="">All</option>
+          <option value="0-100">₹0 - ₹100</option>
+          <option value="100-300">₹100 - ₹300</option>
+          <option value="300-500">₹300 - ₹500</option>
+          <option value="500-1000">₹500 - ₹1000</option>
+          <option value="1000-99999">Above ₹1000</option>
+        </select>
+      </div>
+
+      {/* Rating Filter */}
+      <div className="mb-4">
+        <h3 className="font-semibold mb-2">Rating</h3>
+        <select
+          className="w-full p-2 border rounded"
+          onChange={(e) => setRatingFilter(Number(e.target.value))}
+        >
+          <option value="0">All</option>
+          <option value="3">3 ★ & above</option>
+          <option value="4">4 ★ & above</option>
+          <option value="5">5 ★ only</option>
+        </select>
+      </div>
     </div>
   );
 }
