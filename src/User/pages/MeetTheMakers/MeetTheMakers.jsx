@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import rani from "../../../assets/rani.jpg";
+// ...other assets imports...
 import suresh from "../../../assets/suresh.jpg";
 import aarti from "../../../assets/aarti.jpeg";
 import ashaben from "../../../assets/ashaben.jpeg";
@@ -35,6 +36,9 @@ import toys from "../../../assets/toys.jpeg";
 import teainfused from "../../../assets/teainfused.jpeg";
 import chairs from "../../../assets/chairs.jpeg";
 import shawl from "../../../assets/shawl.jpeg";
+import meenaImg from "../../../assets/meenaImg.jpeg";
+import silverEarringsImg from "../../../assets/silverEarringsImg.jpeg";
+import necklaceImg from "../../../assets/necklaceImg.jpeg";
 
 const makers = [
   {
@@ -208,11 +212,63 @@ const makers = [
       { name: "Kashida Embroidery", image: kashida }
     ],
   },
+  {
+   id: 10,
+    name: "Meena",
+    location: "Tamil Nadu",
+    category: "Jewelry & Accessories",
+    story: `Meena crafts beautiful handmade silver jewelry blending traditional and modern designs. She empowers local women with her cooperative, offering workshops and selling her creations globally.`,
+    highlights: [
+      "Handcrafted silver earrings",
+      "Traditional and modern jewelry styles",
+      "Community workshops and training",
+    ],
+    image: meenaImg, // import this image at top
+    emoji: "💍",
+    items: [
+      { name: "Silver Earrings", image: silverEarringsImg },
+      { name: "Handmade Necklace", image: necklaceImg },
+    ],
+  },
 ];
 
+
 export default function MeetTheMakers() {
-  const [view, setView] = useState("main"); // 'main' or 'waiting'
-  const [formData, setFormData] = useState({ name: "", location: "", story: "" });
+  const [view, setView] = useState("main");
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    location: "",
+    category: "",
+    material: "",
+    story: ""
+  });
+
+ // === Pagination state ===
+  const storiesPerPage = 9;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(makers.length / storiesPerPage);
+
+  // Which makers to show on current page
+  const indexOfLastStory = currentPage * storiesPerPage;
+  const indexOfFirstStory = indexOfLastStory - storiesPerPage;
+  const currentStories = makers.slice(indexOfFirstStory, indexOfLastStory);
+
+  // Pagination handler
+  const handlePageChange = (pageNum) => {
+    setCurrentPage(pageNum);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  // Sample category options
+  const categoryOptions = [
+    "Fashion",
+    "Body Care & Furniture",
+    "Stationery & Gifts",
+    "Home Decor & Gifts",
+    "Accessories",
+    "Other"
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -221,7 +277,8 @@ export default function MeetTheMakers() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setView("waiting"); // Switch to waiting page
+    setShowModal(false);
+    setView("waiting");
   };
 
   if (view === "waiting") {
@@ -237,17 +294,17 @@ export default function MeetTheMakers() {
 
   return (
     <section className="bg-gradient-to-b from-pink-50 to-yellow-50 py-16 px-6">
-      <h1 className="text-4xl font-extrabold text-center text-pink-600 mb-4">Meet the Makers</h1>
+      <h1 className="text-4xl font-extrabold text-center text-pink-600 mb-4">
+        Meet the Makers
+      </h1>
       <p className="text-center text-gray-600 text-lg mb-12">
         Discover vibrant artisan stories and their beautiful crafts in fashion, body care, furniture, stationery, and gifts ✨
       </p>
 
+      {/* STORY CARDS (paginated) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        {makers.map((maker) => (
-          <div
-            key={maker.id}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300"
-          >
+        {currentStories.map((maker) => (
+          <div key={maker.id} className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
             <img src={maker.image} alt={maker.name} className="w-full h-56 object-cover" />
             <div className="p-6 text-center">
               <h3 className="text-xl font-bold text-gray-800">
@@ -257,7 +314,7 @@ export default function MeetTheMakers() {
               <p className="mt-3 text-gray-600">{maker.story}</p>
               <ul className="mt-4 text-left text-sm text-gray-700">
                 {maker.highlights.map((h, i) => (
-                  <li key={i}> {h}</li>
+                  <li key={i}>{h}</li>
                 ))}
               </ul>
               <div className="flex flex-wrap justify-center mt-4">
@@ -273,41 +330,128 @@ export default function MeetTheMakers() {
         ))}
       </div>
 
-      <div className="max-w-xl mx-auto mt-16 p-6 bg-white rounded-xl shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-pink-600">Submit Your Story</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="name"
-            required
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
-          />
-          <input
-            type="text"
-            name="location"
-            required
-            placeholder="Your Location"
-            value={formData.location}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
-          />
-          <textarea
-            name="story"
-            required
-            placeholder="Share your story"
-            value={formData.story}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded resize-none"
-            rows={5}
-          />
-          <button type="submit" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition">
-            Submit
+      {/* PAGINATION CONTROLS */}
+      <div className="flex justify-center mt-10 mb-10">
+        <nav className="flex items-center space-x-2">
+          <button
+            onClick={() => handlePageChange(1)}
+            disabled={currentPage === 1}
+            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+          >
+            First
           </button>
-        </form>
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+          >
+            Prev
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(num => (
+            <button
+              key={num}
+              onClick={() => handlePageChange(num)}
+              className={`px-3 py-1 rounded font-semibold ${num === currentPage ? 'bg-pink-600 text-white' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+            >
+              {num}
+            </button>
+          ))}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+          >
+            Next
+          </button>
+          <button
+            onClick={() => handlePageChange(totalPages)}
+            disabled={currentPage === totalPages}
+            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+          >
+            Last
+          </button>
+        </nav>
       </div>
+
+      {/* Button to open modal */}
+      <div className="flex justify-center mt-2 mb-16">
+        <button
+          type="button"
+          onClick={() => setShowModal(true)}
+          className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition font-semibold"
+        >
+          Submit Your Story
+        </button>
+      </div>
+
+      {/* Modal Popup for Form */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-lg w-full relative">
+            <button
+              className="absolute top-3 right-4 text-pink-600 text-xl font-bold"
+              onClick={() => setShowModal(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-semibold mb-4 text-pink-600 text-center">Submit Your Story</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded"
+              />
+              <input
+                type="text"
+                name="location"
+                required
+                placeholder="Your Location"
+                value={formData.location}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded"
+              />
+              <select
+                name="category"
+                required
+                value={formData.category}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded bg-white"
+              >
+                <option value="">Select Category</option>
+                {categoryOptions.map((cat, idx) => (
+                  <option key={idx} value={cat}>{cat}</option>
+                ))}
+              </select>
+              <input
+                type="text"
+                name="material"
+                required
+                placeholder="Product/Material (e.g. Silk, Bamboo, Tea)"
+                value={formData.material}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded"
+              />
+              <textarea
+                name="story"
+                required
+                placeholder="Share your story"
+                value={formData.story}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded resize-none"
+                rows={5}
+              />
+              <button type="submit" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition font-semibold">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
