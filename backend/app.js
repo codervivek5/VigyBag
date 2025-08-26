@@ -9,6 +9,11 @@ const userRoutes = require("./routes/userRoutes");
 const passwordResetRoutes = require("./routes/passwordResetRoutes");
 const adminRegistrationRoutes = require("./routes/adminRegistrationRoutes");
 
+// Import routes
+const subscribeRoute = require("./routes/subscribe");
+
+// Use routes
+
 const app = express();
 
 // Middleware setup
@@ -21,8 +26,9 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+app.use("/api/subscribe", subscribeRoute);
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Route setup
 app.use("/auth", authRoutes);
