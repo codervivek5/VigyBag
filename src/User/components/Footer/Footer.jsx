@@ -85,14 +85,32 @@ const Footer = () => {
                 <Link to="/career" onClick={scrollToTop} className="link-3d">Careers</Link>
               </li>
 
-              {/* Disabled links to prevent broken links */}
+              {/* Disabled links - Coming Soon */}
               <li>
                 <FaCertificate className="li-icon" />
-                <Link to="#" className="link-3d">Certification Page</Link>
+                <span
+                  className="link-disabled"
+                  role="link"
+                  aria-disabled="true"
+                  tabIndex={-1}
+                  title="Coming soon"
+                >
+                  Certification Page
+                  <span className="sr-only"> (Coming soon)</span>
+                </span>
               </li>
               <li>
                 <FaUsers className="li-icon" />
-                <Link to="#" className="link-3d">Meet our contributor</Link>
+                <span
+                  className="link-disabled"
+                  role="link"
+                  aria-disabled="true"
+                  tabIndex={-1}
+                  title="Coming soon"
+                >
+                  Meet our contributor
+                  <span className="sr-only"> (Coming soon)</span>
+                </span>
               </li>
             </ul>
           </div>
