@@ -27,13 +27,22 @@ const UserNavbar = ({ isAdmin }) => {
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
   const searchableItems = [
-    { name: "Fashion & Accessories", link: "/popularCategories/fashionAccessories" },
-    { name: "Printing & Stationery", link: "/popularCategories/printingStationery" },
+    {
+      name: "Fashion & Accessories",
+      link: "/popularCategories/fashionAccessories",
+    },
+    {
+      name: "Printing & Stationery",
+      link: "/popularCategories/printingStationery",
+    },
     { name: "Food & Beverages", link: "/popularCategories/foodBeverages" },
     { name: "Beauty & Wellness", link: "/popularCategories/beautyWellness" },
     { name: "Furniture & Decor", link: "/popularCategories/furnitureDecor" },
     { name: "Body Care", link: "/popularCategories/bodyCare" },
-    { name: "Health Supplements", link: "/popularCategories/healthSupplements" },
+    {
+      name: "Health Supplements",
+      link: "/popularCategories/healthSupplements",
+    },
     { name: "Customized Gifts", link: "/popularCategories/customizedGifts" },
     { name: "Handmade Soaps", link: "/latestInMarket/handmadeSoaps" },
     { name: "Art Supplies", link: "/latestInMarket/artSupplies" },
@@ -47,7 +56,7 @@ const UserNavbar = ({ isAdmin }) => {
 
   useEffect(() => {
     if (searchTerm) {
-      const results = searchableItems.filter(item =>
+      const results = searchableItems.filter((item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setSearchResults(results);
@@ -114,7 +123,7 @@ const UserNavbar = ({ isAdmin }) => {
     { to: "/popularCategories/furnitureDecor", text: "Furniture" },
     { to: "/popularCategories/printingStationery", text: "Stationary" },
     { to: "/popularCategories/bodyCare", text: "Body-Care" },
-    //  { to: "/meet-the-makers", text: "Meet the Makers" },
+    { to: "/meet-the-makers", text: "Meet the Makers" },
   ];
 
   const handleResultClick = (link) => {
@@ -124,7 +133,7 @@ const UserNavbar = ({ isAdmin }) => {
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-lg w-full z-50 -mt-1">
+    <nav className="bg-[#ecd5c5] shadow-lg w-full z-5 -mt-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center w-full">
@@ -136,7 +145,8 @@ const UserNavbar = ({ isAdmin }) => {
                     <Link
                       key={link.text}
                       to={link.to}
-                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
+                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
+                    >
                       {link.text}
                     </Link>
                   ))}
@@ -162,46 +172,55 @@ const UserNavbar = ({ isAdmin }) => {
                 </div>
                 <div className="md:block hidden">
                   {isLoggedIn ? (
-                    <div className="relative flex gap-3 items-center">
-                      <lord-icon
+                    <div className="relative z-10">
+                      <div
+                        className="flex gap-3 items-center cursor-pointer"
                         onClick={handleDropdownToggle}
-                        className="text-3xl cursor-pointer"
-                        style={{
-                          height: "40px",
-                          width: "40px",
-                        }}
-                        src="https://cdn.lordicon.com/hrjifpbq.json"
-                        trigger="hover"
-                        colors="primary:#15803D"></lord-icon>
-                      <span className="text-green-700 font-bold">
-                        {username}
-                      </span>
+                      >
+                        <lord-icon
+                          className="text-3xl cursor-pointer"
+                          style={{
+                            height: "40px",
+                            width: "40px",
+                          }}
+                          src="https://cdn.lordicon.com/hrjifpbq.json"
+                          trigger="hover"
+                          colors="primary:#15803D"
+                        ></lord-icon>
+                        <span className="text-green-700 font-bold">
+                          {username}
+                        </span>
+                      </div>
                       {showDropdown && (
                         <div
                           ref={dropdownRef}
-                          className="absolute right-0 mt-32 w-48 bg-white rounded-md shadow-lg py-1">
+                          className="absolute  top-14 w-48 bg-white rounded-md shadow-lg py-1"
+                        >
                           {isAdminT && (
                             <Link
                               to="/admin"
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                            >
                               Admin Dashboard
                             </Link>
                           )}
                           <Link
                             to="/dashboard"
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                          >
                             Dashboard
                           </Link>
 
-                           <Link
-      to="/meet-the-makers"
-      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-    >
-      Meet the Makers
-    </Link>
+                          <Link
+                            to="/meet-the-makers"
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                          >
+                            Meet the Makers
+                          </Link>
                           <button
                             onClick={handleLogout}
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left"
+                          >
                             Logout
                           </button>
                         </div>
@@ -216,12 +235,14 @@ const UserNavbar = ({ isAdmin }) => {
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
-                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none">
+                className="inline-flex items-center justify-center p-2 rounded-md text-green-800 hover:text-gray-600 focus:outline-none"
+              >
                 <svg
                   className="h-6 w-6"
                   stroke="#15803D"
                   fill="#15803D"
-                  viewBox="0 0 24 24">
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
