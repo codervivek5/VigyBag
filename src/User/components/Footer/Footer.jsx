@@ -35,6 +35,7 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -44,7 +45,6 @@ const Footer = () => {
               <img src={Logo} alt="VigyBag Logo" className="brand-logo" />
             </Link>
 
-            {/* move google play badge below logo as requested */}
             <div className="app-badge-wrapper">
               <a
                 href="https://play.google.com/store/apps/details?id=com.vigybag"
@@ -84,13 +84,15 @@ const Footer = () => {
                 <FaBriefcase className="li-icon" />
                 <Link to="/career" onClick={scrollToTop} className="link-3d">Careers</Link>
               </li>
+
+              {/* Disabled links to prevent broken links */}
               <li>
                 <FaCertificate className="li-icon" />
-                <Link to="/certification" onClick={scrollToTop} className="link-3d">Certification Page</Link>
+                <Link to="#" className="link-3d">Certification Page</Link>
               </li>
               <li>
                 <FaUsers className="li-icon" />
-                <Link to="/contributors" onClick={scrollToTop} className="link-3d">Meet our contributor</Link>
+                <Link to="#" className="link-3d">Meet our contributor</Link>
               </li>
             </ul>
           </div>
