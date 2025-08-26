@@ -87,7 +87,7 @@ import OrganicTea from "./User/pages/Latest_in_the_Market/OrganicTea";
 import NaturalCosmetics from "./User/pages/Latest_in_the_Market/NaturalCosmetics";
 
 // Private Route
-import PrivateRoute from "./context/PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 export default function App() {
   return (
@@ -99,7 +99,7 @@ export default function App() {
       </Helmet>
 
       <Routes>
-        {/* Public user-facing routes */}
+        {/* ✅ All user-facing routes go inside UserLayout */}
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />} />
 
@@ -125,7 +125,7 @@ export default function App() {
           <Route path="popularCategories/healthSupplements" element={<HealthSupplements />} />
           <Route path="popularCategories/printingStationery" element={<PrintingStationery />} />
 
-          {/* Other user routes */}
+          {/* Other public user routes */}
           <Route path="about" element={<AboutUs />} />
           <Route path="contributors" element={<Contributors />} />
           <Route path="help" element={<Help />} />
@@ -147,48 +147,54 @@ export default function App() {
           <Route path="service" element={<ServicePage />} />
           <Route path="shipping" element={<Shipping />} />
           <Route path="gift-card" element={<GiftCard />} />
-
-          {/* Certifications & Error */}
-          <Route path="dashboard" element={<Dashboard />} />
           <Route path="roadmaps" element={<RoadmapsPage />} />
           <Route path="vigy" element={<Vigy />} />
-          <Route path="events" element={<EventsPage />} />
+          <Route path="events" element={<EventsPage />} /> {/* keep if public */}
           <Route path="certificate" element={<Certifications />} />
+
+          {/* 🔒 Private (authenticated) user routes */}
+          <Route element={<PrivateRoute />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="confirm" element={<Confirmation />} />
+            <Route path="cancel" element={<Cancellation />} />
+            <Route path="orderDetails" element={<OrderDetails />} />
+            <Route path="my-orders" element={<MyOrders />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="dashboard-order" element={<DashboardOrders />} />
+            <Route path="dashboard-cart" element={<DashboardCart />} />
+            <Route path="dashboard-wishlist" element={<DashboardWishlist />} />
+            <Route path="dashboard-notifications" element={<NotificationPage />} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="giftcard" element={<GiftcardPage />} />
+            <Route path="sponsorships" element={<Sponsorships />} />
+            <Route path="warranty" element={<Warranty />} />
+            <Route path="productCare" element={<ProductCare />} />
+            <Route path="subscription" element={<Subscription />} />
+            <Route path="my-events" element={<Events />} /> {/* renamed to avoid conflict */}
+            <Route path="profile" element={<ProfilePage />} />
+          </Route>
+
+          {/* Catch-all for unknown routes */}
           <Route path="*" element={<Error />} />
         </Route>
 
-        {/* Private (authenticated) routes */}
+        {/* ✅ Admin private routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminPanel />} />
             <Route path="vigy-form" element={<VigyForm />} />
             <Route path="product-form" element={<ProductForm />} />
           </Route>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="confirm" element={<Confirmation />} />
-          <Route path="cancel" element={<Cancellation />} />
-          <Route path="orderDetails" element={<OrderDetails />} />
-          <Route path="my-orders" element={<MyOrders />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="payment" element={<Payment />} />
-          <Route path="dashboard-order" element={<DashboardOrders />} />
-          <Route path="dashboard-cart" element={<DashboardCart />} />
-          <Route path="dashboard-wishlist" element={<DashboardWishlist />} />
-          <Route path="dashboard-notifications" element={<NotificationPage />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="giftcard" element={<GiftcardPage />} />
-          <Route path="sponsorships" element={<Sponsorships />} />
-          <Route path="warranty" element={<Warranty />} />
-          <Route path="productCare" element={<ProductCare />} />
-          <Route path="subscription" element={<Subscription />} />
-          <Route path="events" element={<Events />} />
-          <Route path="profile" element={<ProfilePage />} />
         </Route>
 
-        {/* Public admin routes */}
+        {/* ✅ Admin public routes */}
         <Route path="admin-verification" element={<AdminVerificationPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
       </Routes>
     </AuthProvider>
+  );
+}
+
   );
 }
