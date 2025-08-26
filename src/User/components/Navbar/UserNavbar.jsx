@@ -172,7 +172,7 @@ const UserNavbar = ({ isAdmin }) => {
                 </div>
                 <div className="md:block hidden">
                   {isLoggedIn ? (
-                    <div className="relative z-10">
+                    <div className="relative z-20">
                       <div
                         className="flex gap-3 items-center cursor-pointer"
                         onClick={handleDropdownToggle}
