@@ -181,13 +181,17 @@ export default function App() {
         </Route>
 
         {/* ✅ Admin private routes */}
-        <Route element={<PrivateRoute />}>
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminPanel />} />
-            <Route path="vigy-form" element={<VigyForm />} />
-            <Route path="product-form" element={<ProductForm />} />
-          </Route>
-        </Route>
+       {/* ✅ Admin private routes (admin-only) */}
+<Route element={<AdminRoute />}>
+  <Route path="/admin" element={<AdminLayout />}>
+    <Route index element={<AdminPanel />} />
+    <Route path="vigy-form" element={<VigyForm />} />
+    <Route path="product-form" element={<ProductForm />} />
+    {/* Catch-all for unknown admin routes */}
+    <Route path="*" element={<Error />} />
+  </Route>
+</Route>
+
 
         {/* ✅ Admin public routes */}
         <Route path="admin-verification" element={<AdminVerificationPage />} />
