@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Aside from "../../components/Aside/Aside";
 import copy from "../../../assets/copy.png";
 import toast from "react-hot-toast";
@@ -6,16 +6,40 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import "./model.css";
 import "./profile.css";
+import axios from "axios";
+
+const API_URL = "http://localhost:3000/api/users";
 
 const ProfilePage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    password: "",
-    profilePicture:
-      "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg", // Sample avatar URL
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState([
+    {
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+      gender: "",
+      profilePicture:
+        "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg", // Sample avatar URL
+    },
+  ]);
+
+  const username = localStorage.getItem("username") || "";
+
+  const fetchUserDetails = () => {
+    try {
+      axios.get(API_URL + `/${username}`).then((res) => {
+        console.log(res);
+        setUser(res.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserDetails();
+  }, []);
 
   const DeactivateAccount = () => (
     <Popup
@@ -25,7 +49,8 @@ const ProfilePage = () => {
         </button>
       }
       modal
-      nested>
+      nested
+    >
       {(close) => (
         <div className="modal p-4">
           <button className="close" onClick={close}>
@@ -97,7 +122,8 @@ const ProfilePage = () => {
               onClick={() => {
                 console.log("modal closed ");
                 close();
-              }}>
+              }}
+            >
               CONFIRM DEACTIVATION
             </button>
           </div>
@@ -114,7 +140,8 @@ const ProfilePage = () => {
         </button>
       }
       modal
-      nested>
+      nested
+    >
       {(close) => (
         <div className="modal p-4">
           <button className="close" onClick={close}>
@@ -217,7 +244,8 @@ const ProfilePage = () => {
               onClick={() => {
                 console.log("modal closed ");
                 close();
-              }}>
+              }}
+            >
               Delete Account
             </button>
           </div>
@@ -230,7 +258,7 @@ const ProfilePage = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
+    setUser((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -243,7 +271,7 @@ const ProfilePage = () => {
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setFormData((prevData) => ({
+      setUser((prevData) => ({
         ...prevData,
         profilePicture: e.target.files[0],
       }));
@@ -253,7 +281,26 @@ const ProfilePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission and file upload here
-    console.log("Form data:", formData);
+    console.log("User data:", user);
+    if (!user._id) {
+      return;
+    }
+    try {
+      axios
+        .put(API_URL + `/${user._id}`, user)
+        .then((res) => {
+          console.log(res);
+          toast.success(res.data.message);
+          setUser(res.data.user);
+        })
+        .catch((err) => {
+          toast.error(
+            err.response.data.message || "Error while updating profile"
+          );
+        });
+    } catch (err) {
+      toast.error(err.response.data.message || "Failed to updated profile");
+    }
   };
 
   const toggleCouponVisibility = (index) => {
@@ -262,13 +309,13 @@ const ProfilePage = () => {
     );
   };
 
-  const getProfilePicture = () => {
-    if (typeof formData.profilePicture === "string") {
-      return formData.profilePicture;
-    } else {
-      return URL.createObjectURL(formData.profilePicture);
-    }
-  };
+  // const getProfilePicture = () => {
+  //   if (typeof user.profilePicture === "string") {
+  //     return user.profilePicture;
+  //   } else {
+  //     return URL.createObjectURL(user.profilePicture);
+  //   }
+  // };
 
   return (
     <div className="flex min-h-screen bg-[#fff1e6]">
@@ -285,7 +332,7 @@ const ProfilePage = () => {
           <div className="flex flex-col md:flex-row items-center mb-8">
             <div className="relative w-32 h-32 mb-4 md:mb-0 md:mr-4">
               <img
-                src={getProfilePicture()}
+                src={user.profilePicture || ""}
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover"
               />
@@ -293,7 +340,8 @@ const ProfilePage = () => {
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
               <label
                 htmlFor="fileUpload"
-                className="text-white bg-blue-400 px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out cursor-pointer">
+                className="text-white bg-blue-400 px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out cursor-pointer"
+              >
                 Upload
               </label>
               <input
@@ -316,11 +364,12 @@ const ProfilePage = () => {
                 <input
                   type="text"
                   name="name"
-                  value={formData.name}
+                  value={user.name}
                   onChange={handleChange}
                   placeholder="Enter your full name"
                   className="block w-[40vw] border border-gray-300  shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
                   style={{ backgroundColor: "#ffffff", borderColor: "#ffffff" }}
+                  required
                 />
                 <button className="ml-2 text-blue-600 px-4 py-2 transition duration-300 ease-in-out">
                   Edit
@@ -328,35 +377,18 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="mb-5">
+              <select name="gender" value={user.gender} onChange={handleChange} className="w-[40vw] p-2 text-center">
+                
+                <option value="" hidden>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+              </select>
               <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
                 Select your gender:
               </label>
-              <input type="radio" id="male" name="gender" value="male" />
-              <label className="pr-5" for="male">
-                Male
-              </label>
 
-              <input type="radio" id="female" name="gender" value="female" />
-              <label className="pr-5" for="female">
-                Female
-              </label>
-
-              <input type="radio" id="other" name="gender" value="other" />
-              <label className="pr-5" for="other">
-                Other
-              </label>
-
-              <input
-                type="radio"
-                id="prefer_not_to_say"
-                name="gender"
-                value="prefer_not_to_say"
-              />
-              <label className="pr-5" for="prefer_not_to_say">
-                Prefer not to say
-              </label>
-              <br />
-              <div className="flex items-center"></div>
             </div>
             <div className="mb-5">
               <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
@@ -365,12 +397,13 @@ const ProfilePage = () => {
               <div className="flex items-center">
                 <input
                   type="tel"
-                  name="mobile"
-                  value={formData.mobile}
+                  name="phone"
+                  value={user.phone}
                   onChange={handleChange}
                   placeholder="Enter your mobile number"
                   className="block w-[40vw] border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
                   style={{ backgroundColor: "#ffffff", borderColor: "#ffffff" }}
+                  required
                 />
                 <button className="ml-2 text-blue-600 px-4 py-2 transition duration-300 ease-in-out">
                   Edit
@@ -385,11 +418,12 @@ const ProfilePage = () => {
                 <input
                   type="email"
                   name="email"
-                  value={formData.email}
+                  value={user.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
                   className="block w-[40vw] border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm p-3"
                   style={{ backgroundColor: "#ffffff", borderColor: "#ffffff" }}
+                  required
                 />
                 <button className="ml-2 text-blue-600 px-4 py-2  transition duration-300 ease-in-out">
                   Edit
@@ -509,7 +543,8 @@ const ProfilePage = () => {
                 </div>
                 <button
                   onClick={() => toggleCouponVisibility(index)}
-                  className="bg-pink-300 text-blue  px-3 py-1 rounded-md hover:bg-pink-300 transition duration-300 ease-in-out">
+                  className="bg-pink-300 text-blue  px-3 py-1 rounded-md hover:bg-pink-300 transition duration-300 ease-in-out"
+                >
                   {couponVisibility[index] ? "Hide Coupon" : "Show Coupon"}
                 </button>
               </div>

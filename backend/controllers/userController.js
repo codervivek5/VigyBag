@@ -21,7 +21,7 @@ exports.getUserByUsername = async (req, res) => {
 
     if (!user) return res.status(404).json({ message: "Account not found" });
 
-    return res.status(200).json({ user });
+    return res.send(user);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -32,10 +32,10 @@ exports.updateUser = async (req, res) => {
     const { id } = req.params;
     const { name, email, phone, gender } = req.body;
 
-    if (!name || !email || !phone || !gender) return;
-    res
-      .status(400)
-      .json({ message: "Enter the required fields to update your profile" });
+    if (!name || !email || !phone || !gender)
+      return res
+        .status(400)
+        .json({ message: "Enter the required fields to update your profile" });
 
     const user = await User.findById(id);
 
@@ -48,9 +48,7 @@ exports.updateUser = async (req, res) => {
     );
 
     if (updatedUser)
-      return res
-        .status(200)
-        .json({ message: "Profile updated", data: updatedUser });
+      return res.status(200).json({ message: "Profile updated", user: updatedUser });
 
     return res.status(500).json({ message: "Failed to your profile" });
   } catch (error) {
