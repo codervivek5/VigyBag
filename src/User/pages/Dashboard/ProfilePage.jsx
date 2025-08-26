@@ -7,6 +7,7 @@ import "reactjs-popup/dist/index.css";
 import "./model.css";
 import "./profile.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const API_URL = "http://localhost:3000/api/users";
 
@@ -19,10 +20,12 @@ const ProfilePage = () => {
       phone: "",
       password: "",
       gender: "",
-      profilePicture:
-        "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg", // Sample avatar URL
+      profile_picture: "",
     },
   ]);
+
+  const profile_picture =
+    "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg";
 
   const username = localStorage.getItem("username") || "";
 
@@ -269,15 +272,6 @@ const ProfilePage = () => {
     navigator.clipboard.writeText(text);
   };
 
-  const handleFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setUser((prevData) => ({
-        ...prevData,
-        profilePicture: e.target.files[0],
-      }));
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission and file upload here
@@ -309,13 +303,37 @@ const ProfilePage = () => {
     );
   };
 
-  // const getProfilePicture = () => {
-  //   if (typeof user.profilePicture === "string") {
-  //     return user.profilePicture;
-  //   } else {
-  //     return URL.createObjectURL(user.profilePicture);
-  //   }
-  // };
+  const handleProfilePicChange = async () => {
+    const { value: imageUrl } = await Swal.fire({
+      title: "Enter Image URL",
+      input: "url",
+      inputPlaceholder: "https://example.com/profile.jpg",
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      cancelButtonText: "Cancel",
+      inputValidator: (value) => {
+        if (!value) {
+          return "You must enter a URL!";
+        }
+      },
+    });
+
+    if (imageUrl) {
+      // Update user profile picture state
+      setUser((prev) => ({
+        ...prev,
+        profile_picture: imageUrl,
+      }));
+
+      Swal.fire({
+        icon: "success",
+        title: "Profile Picture Updated!",
+        text: "Click the save button to update it permanently",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-[#fff1e6]">
@@ -330,28 +348,20 @@ const ProfilePage = () => {
             Personal Information
           </h1>
           <div className="flex flex-col md:flex-row items-center mb-8">
-            <div className="relative w-32 h-32 mb-4 md:mb-0 md:mr-4">
+            <div className="relative w-32 h-32 mb-4 md:mb-0 md:mr-4 rounded-full border text-center">
               <img
-                src={user.profilePicture || ""}
+                src={user.profile_picture || profile_picture}
                 alt="Profile"
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <label
-                htmlFor="fileUpload"
+              <button
+                type="button"
+                onClick={handleProfilePicChange}
                 className="text-white bg-blue-400 px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out cursor-pointer"
               >
-                Upload
-              </label>
-              <input
-                type="file"
-                id="fileUpload"
-                className="hidden"
-                onChange={handleFileChange}
-              />
-              <button className="bg-yellow-500 text-white border px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-300 ease-in-out">
-                Save
+                Change
               </button>
             </div>
           </div>
@@ -377,18 +387,23 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="mb-5">
-              <select name="gender" value={user.gender} onChange={handleChange} className="w-[40vw] p-2 text-center">
-                
-                <option value="" hidden>Select Gender</option>
+              <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
+                Gender
+              </label>
+              <select
+                name="gender"
+                value={user.gender}
+                onChange={handleChange}
+                className="w-[40vw] p-2 text-center"
+              >
+                <option value="" hidden>
+                  Select Gender
+                </option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
                 <option value="Prefer not to say">Prefer not to say</option>
               </select>
-              <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
-                Select your gender:
-              </label>
-
             </div>
             <div className="mb-5">
               <label className="block text-lg font-bold font-baloo text-gray-700 mb-2">
@@ -431,7 +446,10 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="flex flex-col md:flex-row justify-start md:gap-96  space-y-4 md:space-y-0">
-              <button className="bg-blue-400 text-white border px-4 py-2 rounded-md hover:bg-blue-300 transition duration-300 ease-in-out">
+              <button
+                type="button"
+                className="bg-blue-400 text-white border px-4 py-2 rounded-md hover:bg-blue-300 transition duration-300 ease-in-out"
+              >
                 Change/Update Password
               </button>
               <button className="bg-yellow-500 text-white  px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-300 ease-in-out">

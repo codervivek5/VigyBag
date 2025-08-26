@@ -30,9 +30,10 @@ exports.getUserByUsername = async (req, res) => {
 exports.updateUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, email, phone, gender } = req.body;
+    const { name, email, phone, gender, profile_picture } = req.body;
+    console.log(req.body);
 
-    if (!name || !email || !phone || !gender)
+    if (!name || !email || !phone || !gender || !profile_picture)
       return res
         .status(400)
         .json({ message: "Enter the required fields to update your profile" });
@@ -43,7 +44,7 @@ exports.updateUser = async (req, res) => {
 
     const updatedUser = await User.findByIdAndUpdate(
       { _id: id },
-      { name, email, phone, gender },
+      { name, email, phone, gender, profile_picture },
       { new: true }
     );
 
