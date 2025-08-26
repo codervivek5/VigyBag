@@ -1,21 +1,45 @@
 const express = require("express");
 const router = express.Router();
 const Subscriber = require("../models/subscriber");
+const validator = require("validator");
 
 // POST /api/subscribe
 router.post("/", async (req, res) => {
-  const { email } = req.body;
-  if (!email) return res.status(400).json({ message: "Email is required" });
+  const emailRaw = (req.body?.email ?? "").toString();
+  const email = emailRaw.trim().toLowerCase();
+
+  // Check if email is provided
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
+  // Validate email format
+  if (!validator.isEmail(email)) {
+    return res
+      .status(400)
+      .json({ message: "Please provide a valid email address" });
+  }
 
   try {
     const subscriber = new Subscriber({ email });
     await subscriber.save();
-    res.status(200).json({ message: "Subscribed successfully!" });
+    return res.status(201).json({ message: "Subscribed successfully!" });
   } catch (err) {
-    if (err.code === 11000) {
+    // Duplicate email
+    if (err?.code === 11000) {
       return res.status(400).json({ message: "Email already subscribed" });
     }
-    res.status(500).json({ message: "Server error" });
+
+    // Schema validation error
+    if (err?.name === "ValidationError") {
+      return res
+        .status(400)
+        .json({ message: "Please provide a valid email address" });
+    }
+
+    // Server error
+    console.error("Subscription error:", err);
+    return res.status(500).json({ message: "Server error" });
   }
 });
 
