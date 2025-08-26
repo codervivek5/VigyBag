@@ -27,8 +27,8 @@ app.use(
   })
 );
 app.use("/api/subscribe", subscribeRoute);
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Route setup
 app.use("/auth", authRoutes);
