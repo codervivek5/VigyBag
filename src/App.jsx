@@ -88,6 +88,7 @@ import NaturalCosmetics from "./User/pages/Latest_in_the_Market/NaturalCosmetics
 
 // Private Route
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 export default function App() {
   return (
