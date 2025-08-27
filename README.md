@@ -72,7 +72,7 @@ Technologies Used :
 - ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 - ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-blueviolet)
 - ![Android](https://img.shields.io/badge/Android-9%2B-brightgreen)
-- ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
+- ![Node.js](https://img.shields.io/badge/Node.js-14%2B-green)
 - ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 - ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 - ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
@@ -175,7 +175,7 @@ git push -u origin <your_branch_name>
 
 Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission to be accepted and your PR to be merged by a maintainer.
 
-## 🦄 Django Project Setup: For Backend Developers
+## Node.js Project Setup: For Backend Developers
 
 **1.** Navigate to the project directory Backend Code.
 
@@ -183,20 +183,29 @@ Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission
 cd Backend Code
 ```
 
-**2.** Navigate to the project directory VigyBag.
+**2.** Install dependencies.
 
 ```bash
-cd VigyBag
+npm install
 ```
-**3.** If you get manage.py in the file structure then run this command.
+**3.** Start the development server.
 
 ```bash
-python manage.py runserver
+npm run dev
+```
+**4.** Start in production mode.
+
+```bash
+npm start
 ```
 
-### 🦄 Django Admin Authentificaion 
+### 🛠️ Environment Variables
+Create a .env file in the root directory with the following (example):
+
 ```bash
-later on...
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
 ## ⚛️ React Project Setup 
