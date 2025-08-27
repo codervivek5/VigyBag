@@ -20,15 +20,17 @@ const ProfilePage = () => {
     profile_picture: "",
   });
 
+  // Default profile picture URL
   const profile_picture =
     "https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg";
 
+  // Get username from localStorage
   const username = localStorage.getItem("username") || "";
 
+  // Fetch user details from API
   const fetchUserDetails = () => {
     try {
       axios.get(API_URL + `/${username}`).then((res) => {
-        console.log(res);
         setUser(res.data.user);
       });
     } catch (err) {
@@ -36,11 +38,97 @@ const ProfilePage = () => {
     }
   };
 
+  // Fetch user details on component mount
   useEffect(() => {
-    fetchUserDetails();
+    if (username) fetchUserDetails();
   }, []);
 
-  console.log(user);
+  // State for coupon visibility (show/hide)
+  const [couponVisibility, setCouponVisibility] = useState([false, false]);
+
+  // Handle input changes for profile form
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Copy coupon code to clipboard
+  const copyText = (text) => {
+    toast("Copied to Clipboard!");
+    navigator.clipboard.writeText(text);
+  };
+
+  // Handle profile form submit (update user details)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!user._id) return;
+
+    try {
+      const data = {
+        name: user.name ?? "",
+        email: user.email ?? "",
+        phone: user.phone ?? "",
+        gender: user.gender ?? "",
+        profile_picture: user.profile_picture ?? "",
+      };
+      axios
+        .put(API_URL + `/${user._id}`, data)
+        .then((res) => {
+          setUser((prev) => ({ ...prev, ...res.data.user }));
+          toast.success(res.data?.message || "Profile updated");
+        })
+        .catch((err) => {
+          toast.error(
+            err.response?.data?.message || "Error while updating profile"
+          );
+        });
+    } catch (err) {
+      toast.error("Failed to update profile");
+    }
+  };
+
+  // Handle password change button click
+  const handlePasswordChange = () => {
+    toast("This feature will be available soon!");
+  };
+
+  // Toggle coupon code visibility
+  const toggleCouponVisibility = (index) => {
+    setCouponVisibility((prevVisibility) =>
+      prevVisibility.map((visible, i) => (i === index ? !visible : visible))
+    );
+  };
+
+  // Handle profile picture change (prompt for new URL)
+  const handleProfilePicChange = async () => {
+    const { value: imageUrl } = await Swal.fire({
+      title: "Enter Image URL",
+      input: "url",
+      inputPlaceholder: "https://example.com/profile.jpg",
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      cancelButtonText: "Cancel",
+      inputValidator: (value) => {
+        if (!value) return "You must enter a URL!";
+      },
+    });
+
+    if (imageUrl) {
+      setUser((prev) => ({ ...prev, profile_picture: imageUrl }));
+
+      Swal.fire({
+        icon: "success",
+        title: "Profile Picture uploaded!",
+        text: "Click save to update permanently!",
+        timer: 2500,
+        showConfirmButton: false,
+      });
+    }
+  };
+
   // --- Deactivate and Delete modals remain as you wrote them ---
   const DeactivateAccount = () => (
     <Popup
@@ -284,86 +372,6 @@ const ProfilePage = () => {
       )}
     </Popup>
   );
-
-  const [couponVisibility, setCouponVisibility] = useState([false, false]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const copyText = (text) => {
-    toast("Copied to Clipboard!");
-    navigator.clipboard.writeText(text);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!user._id) return;
-
-    try {
-      const data = {
-        name: user.name ?? "",
-        email: user.email ?? "",
-        phone: user.phone ?? "",
-        gender: user.gender ?? "",
-        profile_picture: user.profile_picture ?? "",
-      };
-      axios
-        .put(API_URL + `/${user._id}`, user)
-        .then((res) => {
-          setUser((prev) => ({...prev, ...res.data.user}));
-          toast.success(res.data?.message || "Profile updated");
-        })
-        .catch((err) => {
-          toast.error(
-            err.response?.data?.message || "Error while updating profile"
-          );
-        });
-    } catch (err) {
-      toast.error("Failed to update profile");
-    }
-  };
-
-  const handlePasswordChange = () => {
-    toast("This feature will be available soon!");
-  };
-
-  const toggleCouponVisibility = (index) => {
-    setCouponVisibility((prevVisibility) =>
-      prevVisibility.map((visible, i) => (i === index ? !visible : visible))
-    );
-  };
-
-  const handleProfilePicChange = async () => {
-    const { value: imageUrl } = await Swal.fire({
-      title: "Enter Image URL",
-      input: "url",
-      inputPlaceholder: "https://example.com/profile.jpg",
-      showCancelButton: true,
-      confirmButtonText: "Save",
-      cancelButtonText: "Cancel",
-      inputValidator: (value) => {
-        if (!value) return "You must enter a URL!";
-      },
-    });
-
-    if (imageUrl) {
-      setUser((prev) => ({ ...prev, profile_picture: imageUrl }));
-
-      Swal.fire({
-        icon: "success",
-        title: "Profile Picture uploaded!",
-        text: "Click save to update permanently!",
-        timer: 2500,
-        showConfirmButton: false,
-      });
-    }
-  };
-
   return (
     <div className="flex min-h-screen bg-[#fff1e6]">
       {/* Sidebar */}
