@@ -31,7 +31,7 @@ const ProfilePage = () => {
   const fetchUserDetails = () => {
     try {
       axios.get(API_URL + `/${username}`).then((res) => {
-        setUser(res.data.user);
+        setUser(res.data?.user ?? res.data);
       });
     } catch (err) {
       console.log(err);
@@ -41,7 +41,7 @@ const ProfilePage = () => {
   // Fetch user details on component mount
   useEffect(() => {
     if (username) fetchUserDetails();
-  }, []);
+  }, [username]);
 
   // State for coupon visibility (show/hide)
   const [couponVisibility, setCouponVisibility] = useState([false, false]);
