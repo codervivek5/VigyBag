@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 
 // User components
@@ -26,8 +26,10 @@ import ProductDetails from "./User/components/Products/ProductDetails";
 import Help from "./User/pages/Help/Help";
 import Privacy from "./User/pages/Privacy-Policy/Privacy";
 import Payment from "./User/pages/Payment/Payment";
+import MeetTheMakers from "./User/pages/MeetTheMakers/MeetTheMakers.jsx";
+
 import ReturnAndCancellation from "./User/pages/ReturnAndCancellation/returnAndCancellation";
-import EPRPage from "./User/pages/EPRPage/EPR_Page";
+import EPR_Page from "./User/pages/EPRPage/EPR_Page";
 import FAQ from "./User/pages/FAQ/Faq";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
@@ -40,6 +42,7 @@ import ServicePage from "./User/pages/Service-Page/service.jsx";
 import Shipping from "./User/pages/Shipping/shipping";
 import GiftCard from "./User/pages/Gift-Card/gift-card.jsx";
 import Payment_Policy from "./User/pages/Payment-Policy/payment-policy.jsx";
+import Certification from "./User/pages/Certification/Certification.jsx";
 // Admin components
 import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
@@ -47,7 +50,6 @@ import AdminLogin from "./Admin/Pages/AdminLogin";
 import VigyForm from "./Admin/Pages/VigyForm";
 import AdminPanel from "./Admin/Pages/AdminPanel";
 import ProductForm from "./Admin/Pages/ProductForm";
-import Certifications from "./User/pages/Certifications/Certifications";
 
 // Latest In Market
 import LatestInMarket from "./User/pages/Latest_in_the_Market/LatestInMarket";
@@ -72,7 +74,7 @@ import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
 
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // Additional pages
 import Blog from "./User/pages/Blog/Blog.jsx";
@@ -157,6 +159,8 @@ export default function App() {
           {/* Other user routes */}
           <Route path="contributors" element={<Contributors />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route path="meet-the-makers" element={<MeetTheMakers />} />
+
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy-policy" element={<Privacy />} />
           {/* Privacy policy page route */}
@@ -186,7 +190,9 @@ export default function App() {
           />
           <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
-          <Route path="epr" element={<EPRPage />} /> {/* EPR page route */}
+          <Route path="epr-compliance" element={<EPR_Page />} /> {/* EPR page route */}
+          {/* Backward-compat: legacy URL */}
+          <Route path="epr" element={<Navigate to="/epr-compliance" replace />} />
           <Route path="career" element={<CareerPage />} />
           <Route path="service" element={<ServicePage />} />
           <Route path="shipping" element={<Shipping />} />
@@ -209,7 +215,10 @@ export default function App() {
             {/* Order cancellation route */}
             <Route path="orderDetails" element={<OrderDetails />} />
             {/* Order details route */}
-            <Route path="my-orders" element={<MyOrders />} />
+            <Route path="myorders" element={<MyOrders />} />
+            {/* Backward-compatibility redirects */}
+            <Route path="my-orders" element={<Navigate to="/myorders" replace />} />
+            <Route path="myOrders" element={<Navigate to="/myorders" replace />} />
             {/* My orders route */}
             <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
@@ -239,8 +248,10 @@ export default function App() {
             <Route path="profile" element={<ProfilePage />} />
             {/* Dashboard Profile route */}
           </Route>
-          {/* Certifications page route */}
-          <Route path="certificate" element={<Certifications />} />
+          {/* Certification page route */}
+          <Route path="certification" element={<Certification />} />
+          {/* Backward-compat: legacy URL */}
+          <Route path="certificate" element={<Navigate to="/certification" replace />} />
           {/* 404 Error page route */}
           <Route path="*" element={<Error />} />
         </Route>

@@ -114,6 +114,7 @@ const UserNavbar = ({ isAdmin }) => {
     { to: "/popularCategories/furnitureDecor", text: "Furniture" },
     { to: "/popularCategories/printingStationery", text: "Stationary" },
     { to: "/popularCategories/bodyCare", text: "Body-Care" },
+    //  { to: "/meet-the-makers", text: "Meet the Makers" },
   ];
 
   const handleResultClick = (link) => {
@@ -191,6 +192,13 @@ const UserNavbar = ({ isAdmin }) => {
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
                             Dashboard
                           </Link>
+
+                           <Link
+      to="/meet-the-makers"
+      className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+    >
+      Meet the Makers
+    </Link>
                           <button
                             onClick={handleLogout}
                             className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">
