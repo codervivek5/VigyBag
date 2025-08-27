@@ -46,7 +46,7 @@ const Navbar = ({ isAdmin }) => {
     };
   }, []);
 
-  // Breadcrumb logic (show only for product/category routes)
+  // ✅ Breadcrumb logic (show only for product/category routes)
   const renderBreadcrumbs = () => {
     if (!location.pathname.startsWith("/popularCategories")) return null;
     const parts = location.pathname.split("/").filter(Boolean);
@@ -76,6 +76,13 @@ const Navbar = ({ isAdmin }) => {
             <div className="hidden md:block lg:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <div className="py-1 flex justify-evenly items-center">
+                  {/* ✅ Added Home link */}
+                  <Link
+                    to="/"
+                    className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
+                  >
+                    Home
+                  </Link>
                   <Link
                     to="/popularCategories/fashionAccessories"
                     className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
@@ -111,6 +118,7 @@ const Navbar = ({ isAdmin }) => {
             </div>
           </div>
 
+          {/* ✅ Right-side buttons */}
           <div className="flex items-center">
             <div className="md:block hidden">
               <div className="ml-4 flex items-center md:ml-6 gap-6">
@@ -120,7 +128,10 @@ const Navbar = ({ isAdmin }) => {
                 />
                 <CartIcon />
                 {isLoggedIn ? (
-                  <div className="relative flex gap-3 items-center" ref={dropdownRef}>
+                  <div
+                    className="relative flex gap-3 items-center"
+                    ref={dropdownRef}
+                  >
                     <FaUserCircle
                       onClick={handleDropdownToggle}
                       className="text-3xl cursor-pointer"
@@ -148,6 +159,8 @@ const Navbar = ({ isAdmin }) => {
                 )}
               </div>
             </div>
+
+            {/* ✅ Mobile Menu Button */}
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={toggleNavbar}
@@ -191,6 +204,7 @@ const Navbar = ({ isAdmin }) => {
       {/* ✅ Breadcrumbs */}
       {renderBreadcrumbs()}
 
+      {/* ✅ Pass Home link to MobileMenu */}
       <MobileMenu
         isOpen={isOpen}
         searchTerm={searchTerm}
