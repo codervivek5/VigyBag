@@ -12,12 +12,10 @@ import Swal from "sweetalert2";
 const API_URL = "http://localhost:3000/api/users";
 
 const ProfilePage = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState({
     name: "",
     email: "",
     phone: "",
-    password: "",
     gender: "",
     profile_picture: "",
   });
@@ -30,7 +28,8 @@ const ProfilePage = () => {
   const fetchUserDetails = () => {
     try {
       axios.get(API_URL + `/${username}`).then((res) => {
-        setUser(res.data);
+        console.log(res);
+        setUser(res.data.user);
       });
     } catch (err) {
       console.log(err);
@@ -41,6 +40,7 @@ const ProfilePage = () => {
     fetchUserDetails();
   }, []);
 
+  console.log(user);
   // --- Deactivate and Delete modals remain as you wrote them ---
   const DeactivateAccount = () => (
     <Popup
@@ -305,11 +305,18 @@ const ProfilePage = () => {
     if (!user._id) return;
 
     try {
+      const data = {
+        name: user.name ?? "",
+        email: user.email ?? "",
+        phone: user.phone ?? "",
+        gender: user.gender ?? "",
+        profile_picture: user.profile_picture ?? "",
+      };
       axios
         .put(API_URL + `/${user._id}`, user)
         .then((res) => {
-          toast.success(res.data.message);
-          setUser(res.data.user);
+          setUser((prev) => ({...prev, ...res.data.user}));
+          toast.success(res.data?.message || "Profile updated");
         })
         .catch((err) => {
           toast.error(
@@ -349,7 +356,7 @@ const ProfilePage = () => {
 
       Swal.fire({
         icon: "success",
-        title: "Profile Picture Updated!",
+        title: "Profile Picture uploaded!",
         text: "Click save to update permanently!",
         timer: 2500,
         showConfirmButton: false,
@@ -438,6 +445,8 @@ const ProfilePage = () => {
                 onChange={handleChange}
                 className="w-full md:w-[70%] border p-3"
                 placeholder="Enter your phone number"
+                minLength={10}
+                maxLength={10}
               />
             </div>
 
