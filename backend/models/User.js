@@ -10,6 +10,10 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+  name: {
+    type: String,
+    default: null
+  },
   email: {
     type: String,
     required: false,
@@ -28,6 +32,14 @@ const userSchema = new Schema({
     required: false,
     trim: true,
     match: [/^\d{10}$/, "Please enter a 10-digit phone number"],
+  },
+  gender: {
+    type: String,
+    default: null
+  },
+  profile_picture: {
+    type: String,
+    default: null
   },
   role: {
     type: Number,
