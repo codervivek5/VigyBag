@@ -46,7 +46,7 @@ const Navbar = ({ isAdmin }) => {
     };
   }, []);
 
-  // ✅ Breadcrumb logic (show only for product/category routes)
+  // ✅ Breadcrumb logic
   const renderBreadcrumbs = () => {
     if (!location.pathname.startsWith("/popularCategories")) return null;
     const parts = location.pathname.split("/").filter(Boolean);
@@ -76,7 +76,7 @@ const Navbar = ({ isAdmin }) => {
             <div className="hidden md:block lg:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <div className="py-1 flex justify-evenly items-center">
-                  {/* ✅ Added Home link */}
+                  {/* ✅ Added Home link (desktop) */}
                   <Link
                     to="/"
                     className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base"
@@ -214,6 +214,15 @@ const Navbar = ({ isAdmin }) => {
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
         username={username}
+        // 👇 pass the new Home link
+        navLinks={[
+          { name: "Home", path: "/" },
+          { name: "Fashion", path: "/popularCategories/fashionAccessories" },
+          { name: "Gifts", path: "/popularCategories/customizedGifts" },
+          { name: "Furniture", path: "/popularCategories/furnitureDecor" },
+          { name: "Stationery", path: "/popularCategories/printingStationery" },
+          { name: "Body-Care", path: "/popularCategories/bodyCare" },
+        ]}
       />
     </nav>
   );
