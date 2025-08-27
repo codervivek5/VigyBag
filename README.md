@@ -175,7 +175,7 @@ git push -u origin <your_branch_name>
 
 Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission to be accepted and your PR to be merged by a maintainer.
 
-## 🦄 Django Project Setup: For Backend Developers
+## Node.js Project Setup: For Backend Developers
 
 **1.** Navigate to the project directory Backend Code.
 
@@ -183,20 +183,29 @@ Congratulations🎉, you have made a PR to the VigyBag. Wait for your submission
 cd Backend Code
 ```
 
-**2.** Navigate to the project directory VigyBag.
+**2.** Install dependencies.
 
 ```bash
-cd VigyBag
+npm install
 ```
-**3.** If you get manage.py in the file structure then run this command.
+**3.** Start the development server.
 
 ```bash
-python manage.py runserver
+npm run dev
+```
+**4.** Start in production mode.
+
+```bash
+npm start
 ```
 
-### 🦄 Django Admin Authentificaion 
+### 🛠️ Environment Variables
+Create a .env file in the root directory with the following (example):
+
 ```bash
-later on...
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
 ## ⚛️ React Project Setup 
