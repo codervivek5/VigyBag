@@ -72,7 +72,7 @@ Technologies Used :
 - ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 - ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-blueviolet)
 - ![Android](https://img.shields.io/badge/Android-9%2B-brightgreen)
-- ![Django](https://img.shields.io/badge/Django-3.2%2B-green)
+- ![Node.js](https://img.shields.io/badge/Node.js-14%2B-green)
 - ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 - ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 - ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
