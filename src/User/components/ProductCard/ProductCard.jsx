@@ -1,7 +1,23 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { useAuth } from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ image, title, price, rating }) => {
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    if (!isLoggedIn) {
+      alert("Please login to add items to your cart!");
+      navigate("/auth");
+      return;
+    }
+    
+    // Add to cart logic here
+    alert(`${title} added to cart!`);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
       <img
@@ -22,6 +38,7 @@ const ProductCard = ({ image, title, price, rating }) => {
         </div>
 
         <button
+          onClick={handleAddToCart}
           className="mt-auto w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600"
           style={{
             display: "flex",
