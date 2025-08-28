@@ -40,7 +40,7 @@ const CareerPage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen md:w-auto w-fit">
+    <div className="bg-gradient-to-b from-[#fff0e3] to-white min-h-screen w-full">
       <Header />
 
       <section>
