@@ -44,9 +44,15 @@ const CareerPage = () => {
       <Header />
 
       <section>
-        <div className="relative mt-8">
-          <img src={career} alt="" className="w-full h-full object-cover mx-auto" />
-          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-1/2 flex flex-col items-center justify-center px-4 md:px-8">
+        <div className="relative mt-8 h-64 sm:h-80 md:h-[28rem] rounded-lg overflow-hidden">
+          <img
+            src={career}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" aria-hidden="true"></div>
+          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 w-full sm:w-2/3 md:w-1/2 flex flex-col items-center justify-center px-4 md:px-8">
             <h2 className="font-bold text-white text-center">
               <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white drop-shadow-lg">
                 Maximise
@@ -65,7 +71,7 @@ const CareerPage = () => {
         {/* Split background */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-[#f0fdf4]" />
-          <div className="absolute bottom-0 left-0 w-full h-1/2" style={{ background: "#97c49f" }} />
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#97c49f]" />
         </div>
         <div className="relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-green-800">
@@ -75,15 +81,16 @@ const CareerPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 w-full max-w-7xl mx-auto">
               {leadershipData.map((leader, index) => (
                 <div
-                  key={index}
-                  className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105 w-full"
-                  style={{ minWidth: 0 }}
+                  key={leader.name}
+                  className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-500 hover:scale-105 w-full min-w-0"
                 >
-                  <div className="relative h-40 md:h-48">
+                  <div className="relative h-40 md:h-48 aspect-[16/10]">
                     <img
                       src={leader.image}
                       alt={leader.name}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
