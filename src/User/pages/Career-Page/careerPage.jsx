@@ -1,5 +1,5 @@
 import React from "react";
-import career from "../../../assets/career_page_cover.png";
+import career from "../../../assets/career_page_cover.webp";
 import UX from "../../../assets/uxui designer.jpg";
 import video from "../../../assets/video editing.jpg";
 import content from "../../../assets/Content_Writer.avif";
