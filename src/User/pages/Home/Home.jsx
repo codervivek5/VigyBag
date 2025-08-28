@@ -841,18 +841,65 @@ const Home = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className={`w-full p-3 rounded-lg text-black border ${isError ? "border-red-500" : "border-gray-300"}`}
                   />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`px-6 py-2 rounded-lg transition text-white ${
-                      isSubmitting ? "bg-gray-500 cursor-not-allowed" : "bg-green-600 hover:bg-green-700"
-                    }`}
-                  >
-                    {isSubmitting ? "Submitting..." : "Subscribe"}
-                  </button>
-                </form>
+                <button
+  type="submit"
+  disabled={isSubmitting}
+  className={`relative px-6 py-2 rounded-xl font-medium text-white transition-all duration-300
+    ${isSubmitting 
+      ? "bg-gradient-to-r from-gray-400 to-gray-500 cursor-not-allowed shadow-inner" 
+      : "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-md hover:shadow-lg"
+    }`}
+>
+  {isSubmitting ? (
+    <span className="flex items-center justify-center gap-2">
+      <svg
+        className="animate-spin h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          className="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="4"
+        ></circle>
+        <path
+          className="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+        ></path>
+      </svg>
+      Processing...
+    </span>
+  ) : (
+    "Submit"
+  )}
+</button>
 
-                {message && <p className={`mt-2 text-sm ${isError ? "text-red-400" : "text-green-400"}`}>{message}</p>}
+                </form>
+<AnimatePresence>
+  {message && (
+    <motion.div
+      key={message} // re-animate on new message
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4 }}
+      className={`mt-4 px-4 py-3 rounded-xl font-medium shadow-md text-center w-full
+        ${isError ? "bg-red-500 text-white" : "bg-green-500 text-white"}
+      `}
+    >
+      {isError ? (
+        <span>❌ {message}</span>
+      ) : (
+        <span>🎉 {message}</span>
+      )}
+    </motion.div>
+  )}
+</AnimatePresence>
               </section>
             </div>
           </div>
