@@ -73,7 +73,7 @@ function PrintingStationery() {
       }
       if (ratingFilter) {
         updatedProducts = updatedProducts.filter(
-          (product) => Math.round(product.rating.rate) >= ratingFilter
+          (product) => Math.round(product.rating.rate) === ratingFilter
         );
       }
       setFilteredProducts(updatedProducts);

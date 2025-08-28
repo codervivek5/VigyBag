@@ -35,7 +35,7 @@ function BambooProducts() {
               image: product.images[0] || "",
               discountPercentage: product.discountPercentage,
               rating: {
-                rate: product.rating,
+                rate: Math.round(product.rating),
                 count: product.reviews ? product.reviews.length : 0,
               },
             }));
@@ -74,7 +74,7 @@ function BambooProducts() {
       }
       if (ratingFilter) {
         updatedProducts = updatedProducts.filter(
-          (product) => Math.round(product.rating.rate) >= ratingFilter
+          (product) => product.rating.rate === ratingFilter
         );
       }
       setFilteredProducts(updatedProducts);
