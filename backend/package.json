@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",        // ✅ production
-    "dev": "nodemon server.js"        // ✅ development
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "eslint": "^8.45.0",
-    "nodemon": "^3.1.4"   // ✅ moved from dependencies
+    "nodemon": "^3.1.4"
   },
   "browserslist": [
     "defaults",
