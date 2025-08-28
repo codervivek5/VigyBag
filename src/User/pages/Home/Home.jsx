@@ -290,6 +290,8 @@ const Home = () => {
       className={`mt-4 px-4 py-3 rounded-xl font-medium shadow-md text-center w-full
         ${isError ? "bg-red-500 text-white" : "bg-green-500 text-white"}
       `}
+      aria-live="polite"   // ✅ accessibility for assistive tech
+      role="status"        // ✅ makes it a live region announcement
     >
       {isError ? (
         <span>❌ {message}</span>
