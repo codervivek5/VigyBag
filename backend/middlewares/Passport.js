@@ -8,8 +8,8 @@ dotenv.config();
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID: process.env.GOOGLE_CLIENT_ID || "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",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "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",
       callbackURL: "http://vigybag.com/auth/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
