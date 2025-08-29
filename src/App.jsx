@@ -169,7 +169,7 @@ export default function App() {
             path="productDetails/:productId"
             element={<ProductDetails />}
           />{" "}
-          {/* Product details route */}
+          {/* Product detailsF route */}
           <Route path="wishlist" element={<Wishlist />} />
           {/* Wishlist page route */}
           <Route path="contact" element={<Contact />} />

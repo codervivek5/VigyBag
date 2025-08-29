@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
 import background from "../../../assets/background.png";
 import app from "../../../assets/app.png";
-import { Link } from "react-router-dom";
 import SearchBar from "../../pages/Home/SearchBar";
 
 // Import category images
@@ -25,7 +24,6 @@ import BambooProductsImg from "../../../assets/Bamboo-Products.png";
 import StorageBasketsImg from "../../../assets/Storage-Baskets.png";
 import DownArrow from "../../components/DownArrow/downArrow";
 
-// Redirecting links
 const popularCategories = [
   {
     name: "Fashion & Accessories",
@@ -129,6 +127,8 @@ const latestProducts = [
   },
 ];
 
+const fullText = "Welcome to VigyBag!";
+
 const Home = () => {
   const sectionRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -138,11 +138,32 @@ const Home = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [email, setEmail] = useState("");
 
+  // Typing animation states (updated)
+  const [typedText, setTypedText] = useState('');
+  const [isTypingDone, setIsTypingDone] = useState(false);
+
+  useEffect(() => {
+    setTypedText('');
+    setIsTypingDone(false);
+    const idx = { current: 0 };
+    const displayRef = { current: "" };
+    const interval = setInterval(() => {
+      if (idx.current < fullText.length) {
+        displayRef.current += fullText.charAt(idx.current);
+        setTypedText(displayRef.current);
+        idx.current += 1;
+      } else {
+        clearInterval(interval);
+        setIsTypingDone(true);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    // Filter categories and products for suggestions
     const filteredSuggestions = [
       ...popularCategories.filter((category) =>
         category.name.toLowerCase().includes(term.toLowerCase())
@@ -155,7 +176,6 @@ const Home = () => {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    // Navigate to the corresponding path
     navigate(suggestion.path);
   };
 
@@ -165,18 +185,17 @@ const Home = () => {
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    setIsSubscribed(true); // Show the success message
+    setIsSubscribed(true);
     setTimeout(() => {
-      setIsSubscribed(false); // Hide the message
-      setEmail(""); // Clear the email input
-    }, 3000); // 3 seconds
+      setIsSubscribed(false);
+      setEmail("");
+    }, 3000);
   };
-
 
   return (
     <div className="bg-gradient-to-b from-orange-50 to-orange-100 min-h-screen">
-      <main className="">
-        {/* ENHANCED: Mobile search with glassmorphism */}
+      <main>
+        {/* Mobile search */}
         <div className="sm:block md:hidden bg-gradient-to-r from-emerald-50 to-teal-50 pt-5 backdrop-blur-sm">
           <SearchBar
             searchTerm={searchTerm}
@@ -202,15 +221,55 @@ const Home = () => {
 
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
             <div className="w-full md:w-2/3 lg:w-1/2 text-center md:text-left">
-              {/* Heading without extra margin-top */}
-              <h1 className="block text-[33px] sm:text-4xl md:text-[53px] font-extrabold mb-4 leading-snug pb-2 bg-gradient-to-r from-gray-900 via-emerald-800 to-gray-900 bg-clip-text text-transparent animate-fade-in">
-                Welcome to{" "}
-                <span className="text-transparent bg-gradient-to-r from-emerald-600 to-teal-700 bg-clip-text">
-                  VigyBag!
+              {/* Typing Animation Heading (updated) */}
+              <h1 className="block text-[33px] sm:text-4xl md:text-[53px] font-extrabold mb-4 leading-snug pb-2">
+                <span
+                  className={
+                    isTypingDone
+                      ? "bg-gradient-to-r from-gray-900 via-emerald-800 to-gray-900 bg-clip-text text-transparent"
+                      : ""
+                  }
+                  style={{ transition: "all 0.3s" }}
+                >
+                  {typedText}
                 </span>
+                <span
+                  className="typing-cursor text-emerald-600"
+                  style={{
+                    animation: "blink 1s steps(2, start) infinite",
+                    marginLeft: "2px",
+                  }}
+                >
+                  |
+                </span>
+                <style>
+                  {`
+                      @keyframes blink {
+                        0% { opacity: 1; }
+                        50% { opacity: 0; }
+                        100% { opacity: 1; }
+                      }
+                      .typing-cursor {
+                        display: inline-block;
+                        width: 1ch;
+                      }
+                  `}
+                </style>
               </h1>
-
-
+              {/* Blinking animation keyframes */}
+              <style>
+                {`
+                  @keyframes blink {
+                    0% { opacity: 1; }
+                    50% { opacity: 0; }
+                    100% { opacity: 1; }
+                  }
+                  .typing-cursor {
+                    display: inline-block;
+                    width: 1ch;
+                  }
+                `}
+              </style>
 
               <h2
                 className="text-[25px] sm:text-2xl md:text-[33px] font-bold mb-6 text-gray-800 drop-shadow-sm"
@@ -245,29 +304,24 @@ const Home = () => {
           </div>
         </section>
 
-
-        {/* ENHANCED: Popular Categories with glassmorphism and hover effects */}
+        {/* Popular Categories */}
         <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-orange-100 to-orange-50 relative">
-          {/* ENHANCED: Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-10 left-10 w-32 h-32 bg-emerald-200 rounded-full opacity-20 blur-3xl"></div>
             <div className="absolute bottom-20 right-10 w-40 h-40 bg-orange-200 rounded-full opacity-20 blur-3xl"></div>
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            {/* ENHANCED: Section title with gradient and better typography */}
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-transparent bg-gradient-to-r from-gray-800 to-emerald-800 bg-clip-text text-center">
               Popular Categories
             </h2>
 
-            {/* ENHANCED: Grid with hover animations */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {popularCategories.map((category, index) => (
                 <div
                   key={index}
                   className="group transform hover:scale-105 transition-all duration-300 hover:z-10"
                 >
-                  {/* ENHANCED: Card wrapper with glassmorphism */}
                   <div className="backdrop-blur-sm bg-white/60 rounded-2xl p-2 shadow-lg hover:shadow-2xl border border-white/40 group-hover:bg-white/80 transition-all duration-300">
                     <CategoryCard
                       name={category.name}
@@ -281,13 +335,12 @@ const Home = () => {
           </div>
         </section>
 
-        {/* ENHANCED: Latest in the Market with improved styling */}
+        {/* Latest in the Market */}
         <section
           className="bg-gradient-to-b from-orange-50 to-amber-50 py-8 sm:py-12 md:py-16 relative overflow-hidden"
           id="sect"
-          ref={sectionRef}>
-
-          {/* ENHANCED: Animated background pattern */}
+          ref={sectionRef}
+        >
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-full h-full opacity-5">
               <div className="absolute top-20 left-20 w-24 h-24 bg-emerald-400 rounded-full animate-bounce"></div>
@@ -297,12 +350,10 @@ const Home = () => {
           </div>
 
           <div className="container mx-auto px-4 relative z-10">
-            {/* ENHANCED: Section title with animation */}
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-transparent bg-gradient-to-r from-gray-800 to-teal-800 bg-clip-text text-center animate-fade-in">
               Latest in the Market
             </h2>
 
-            {/* ENHANCED: Product grid with staggered animations */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
               {latestProducts.map((product, index) => (
                 <div
@@ -313,7 +364,6 @@ const Home = () => {
                   }}
                 >
                   <div className="w-full max-w-[220px] transform group-hover:scale-105 transition-all duration-300">
-                    {/* ENHANCED: Product card wrapper with glassmorphism */}
                     <div className="backdrop-blur-sm bg-white/70 rounded-2xl p-3 shadow-lg hover:shadow-2xl border border-white/50 group-hover:bg-white/90 transition-all duration-300">
                       <LatestInMarketCard product={product} />
                     </div>
@@ -324,35 +374,30 @@ const Home = () => {
           </div>
         </section>
 
-        {/* ENHANCED: Newsletter Section with modern glassmorphism design */}
+        {/* Newsletter Section */}
         <section
           className="py-8 sm:py-12 md:py-16 relative mb-[-1px] overflow-hidden"
           style={{
             backgroundImage: `url(${app})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}>
-
-          {/* ENHANCED: Multi-layered background overlay */}
+          }}
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/70 via-emerald-900/50 to-gray-900/70"></div>
           <div className="absolute inset-0 backdrop-blur-sm"></div>
 
           <div className="container mx-auto px-4 relative z-10">
-            {/* ENHANCED: Newsletter card with advanced glassmorphism */}
             <div className="backdrop-blur-xl bg-white/10 rounded-3xl p-6 sm:p-8 md:p-12 max-w-3xl mx-auto border border-white/20 shadow-2xl">
               <div className="text-center">
-                {/* ENHANCED: Title with gradient text */}
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-transparent bg-gradient-to-r from-white to-emerald-200 bg-clip-text">
                   Stay Updated with Our Latest News
                 </h2>
 
-                {/* ENHANCED: Subtitle with better styling */}
                 <p className="text-base sm:text-lg md:text-xl mb-8 text-gray-200 leading-relaxed">
                   Subscribe to our newsletter to receive exclusive updates,
                   promotions, and tips for sustainable living.
                 </p>
 
-                {/* ENHANCED: Form with modern styling */}
                 <form onSubmit={handleSubscribe} className="space-y-4">
                   <div className="relative">
                     <input
@@ -373,7 +418,6 @@ const Home = () => {
                   </button>
                 </form>
 
-                {/* ENHANCED: Success message with animation */}
                 {isSubscribed && (
                   <div className="mt-6 p-4 bg-emerald-500/80 backdrop-blur-sm rounded-xl border border-emerald-400/50 animate-bounce">
                     <p className="text-white font-semibold">
