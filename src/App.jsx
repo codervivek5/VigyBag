@@ -50,10 +50,11 @@ import AdminPanel from "./Admin/pages/AdminPanel/AdminPanel";
 import VigyForm from "./Admin/pages/VigyForm/VigyForm";
 import ProductForm from "./Admin/pages/ProductForm/ProductForm";
 import AdminVerificationPage from "./Admin/pages/AdminVerificationPage/AdminVerificationPage";
+import AdminNotFound from "./Admin/pages/AdminNotFound";
 
 // Layouts
-import UserLayout from "./Layouts/UserLayout/UserLayout";
-import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
+import UserLayout from "./User/UserLayout";
+import AdminLayout from "./Admin/AdminLayout";
 
 // Additional pages
 import Blog from "./User/pages/Blog/Blog.jsx";
@@ -188,7 +189,7 @@ export default function App() {
     <Route path="vigy-form" element={<VigyForm />} />
     <Route path="product-form" element={<ProductForm />} />
     {/* Catch-all for unknown admin routes */}
-    <Route path="*" element={<Error />} />
+      <Route path="*" element={<AdminNotFound />} />
   </Route>
 </Route>
 
