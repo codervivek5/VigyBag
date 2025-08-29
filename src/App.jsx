@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // User components
 import UserAuth from "./User/pages/UserAuth/UserAuth";
@@ -93,11 +93,11 @@ import AdminRoute from "./AdminRoute";
 export default function App() {
   return (
     <AuthProvider>
-      <Helmet>
+      <HelmetProvider>
         {/* Botpress chatbot script */}
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
         <script src="https://mediafiles.botpress.cloud/f910a06e-f7d4-4424-8642-e3cdffe933b5/webchat/v2/config.js"></script>
-      </Helmet>
+     </HelmetProvider>
 
       <Routes>
         {/* ✅ All user-facing routes go inside UserLayout */}
