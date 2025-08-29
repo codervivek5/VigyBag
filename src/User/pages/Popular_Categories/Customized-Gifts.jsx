@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 
-
 function CustomizedGifts() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -17,12 +16,22 @@ function CustomizedGifts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const categoriesToFetch = ["tops", "womens-watches", "mens-watches", "mobile-accessories", "sports-accessories", "motorcycle", "vehicle"]; // desired categories
+        const categoriesToFetch = [
+          "tops",
+          "womens-watches",
+          "mens-watches",
+          "mobile-accessories",
+          "sports-accessories",
+          "motorcycle",
+          "vehicle",
+        ]; // desired categories
         let allProducts = [];
 
         // Fetch products from each category
         for (let category of categoriesToFetch) {
-          const response = await axios.get(`https://dummyjson.com/products/category/${category}`);
+          const response = await axios.get(
+            `https://dummyjson.com/products/category/${category}`
+          );
           if (response.data && Array.isArray(response.data.products)) {
             const mappedProducts = response.data.products.map((product) => ({
               id: product.id,
@@ -44,9 +53,10 @@ function CustomizedGifts() {
         setFilteredProducts(allProducts);
 
         // Extract unique categories from the fetched products
-        const uniqueCategories = [...new Set(allProducts.map(product => product.category))];
+        const uniqueCategories = [
+          ...new Set(allProducts.map((product) => product.category)),
+        ];
         setAvailableCategories(uniqueCategories); // Update available categories
-
       } catch (error) {
         toast.error("Oops, can't get your products, sorry! Try refreshing the page.");
         console.error("Fetching products failed:", error);
@@ -59,21 +69,26 @@ function CustomizedGifts() {
   useEffect(() => {
     const filterProducts = () => {
       let updatedProducts = products;
+
       if (categoryFilter) {
         updatedProducts = updatedProducts.filter(
           (product) => product.category === categoryFilter
         );
       }
+
       if (priceFilter) {
+        const [min, max] = priceFilter.split("-").map(Number);
         updatedProducts = updatedProducts.filter(
-          (product) => product.price <= parseInt(priceFilter)
+          (product) => product.price >= min && product.price <= max
         );
       }
+
       if (ratingFilter) {
         updatedProducts = updatedProducts.filter(
           (product) => Math.round(product.rating.rate) >= ratingFilter
         );
       }
+
       setFilteredProducts(updatedProducts);
     };
 
@@ -84,7 +99,10 @@ function CustomizedGifts() {
     <div className="bg-[#fff5edff] min-h-screen">
       <Helmet>
         <title>Customized Gifts | VigyBag</title>
-        <meta name="description" content="Explore a wide range of beauty and wellness products at VigyBag. Find the best products to enhance your beauty and wellbeing." />
+        <meta
+          name="description"
+          content="Explore a wide range of beauty and wellness products at VigyBag. Find the best products to enhance your beauty and wellbeing."
+        />
       </Helmet>
       <main className="container">
         <div className="flex flex-col lg:flex-row gap-8 relative">
@@ -95,10 +113,7 @@ function CustomizedGifts() {
             setRatingFilter={setRatingFilter}
             backgroundColor="#e5ebe4ff"
           />
-          <ProductGrid
-            products={filteredProducts}
-            headingText="Customized Gifts"
-          />
+          <ProductGrid products={filteredProducts} headingText="Customized Gifts" />
         </div>
       </main>
     </div>
