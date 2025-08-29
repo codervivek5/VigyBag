@@ -4,6 +4,8 @@ import ProductGrid from "../../components/Popular_Categories/ProductGrid";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import { normalizeAndFilterByRating } from "../../utils/productFilters";
+
 
 
 function BodyCare() {
@@ -69,11 +71,8 @@ function BodyCare() {
           (product) => product.price <= parseInt(priceFilter)
         );
       }
-      if (ratingFilter) {
-        updatedProducts = updatedProducts.filter(
-          (product) => product.rating.rate === ratingFilter
-        );
-      }
+      updatedProducts = normalizeAndFilterByRating(updatedProducts, ratingFilter);
+
       setFilteredProducts(updatedProducts);
     };
 
