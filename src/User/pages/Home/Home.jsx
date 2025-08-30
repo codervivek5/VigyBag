@@ -76,15 +76,15 @@ const Home = () => {
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
  // backend URL
 
-  const handleSubscribe = async (e) => {
+// Subscribe handler
+const handleSubscribe = async (e) => {
   e.preventDefault();
-  if (isSubmitting) return; // prevent multiple clicks
+  if (isSubmitting) return;
   setIsSubmitting(true);
 
   const normalized = email.trim().toLowerCase();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Validate email
   if (!normalized || !emailPattern.test(normalized)) {
     setMessage("⚠️ Please enter a valid email address.");
     setIsError(true);
@@ -93,7 +93,10 @@ const Home = () => {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/api/subscribe", {
+    // Construct endpoint safely, handle trailing slash
+    const endpoint = `${API_BASE.replace(/\/$/, "")}/api/subscribe`;
+
+    const res = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -103,9 +106,8 @@ const Home = () => {
     });
 
     let data = {};
-    const contentType = res.headers.get("content-type") || "";
-
-    if (contentType.includes("application/json")) {
+    const ct = res.headers.get("content-type") || "";
+    if (ct.includes("application/json")) {
       data = await res.json();
     } else {
       const text = await res.text();
@@ -121,52 +123,15 @@ const Home = () => {
       setIsError(true);
     }
 
+    setTimeout(() => setMessage(""), 4000);
   } catch (err) {
     console.error("Subscribe error:", err);
     setMessage("❌ Server error. Try again later.");
     setIsError(true);
   } finally {
     setIsSubmitting(false);
-    // Hide message after 4 seconds
-    setTimeout(() => setMessage(""), 4000);
   }
 };
-
-// const handleSubscribe = async (e) => {
-//   e.preventDefault();
-
-//   if (!email) {
-//     setMessage("⚠️ Please enter your email.");
-//     setIsError(true);
-//     return;
-//   }
-
-//   try {
-//     const res = await fetch("http://localhost:3000/api/subscribe", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ email: email.trim().toLowerCase() }),
-//     });
-
-//     const data = await res.json();
-
-//     if (res.ok) {
-//       setMessage("🎉 " + (data.message || "Subscribed successfully!"));
-//       setIsError(false);
-//       setEmail("");
-//     } else {
-//       setMessage("❌ " + (data.message || "Subscription failed."));
-//       setIsError(true);
-//     }
-
-//     setTimeout(() => setMessage(""), 3000);
-//   } catch (err) {
-//     console.error(err);
-//     setMessage("❌ Server error. Try again later.");
-//     setIsError(true);
-//   }
-// };
-
   return (
     <div className="bg-[#fff0e3ff] min-h-screen">
       <main>
