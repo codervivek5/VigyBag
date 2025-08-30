@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";  // Import Helmet for SEO
+import { Helmet } from "react-helmet-async";  // Import Helmet for SEO
 import TUMBLER from "../../../assets/TUMBLER.png";
 import tick from "../../../assets/tick.png";
 import { Link } from "react-router-dom";

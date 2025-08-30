@@ -3,7 +3,7 @@ import Filters from "../../components/Popular_Categories/Filters";
 import ProductGrid from "../../components/Popular_Categories/ProductGrid";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 
 function BodyCare() {

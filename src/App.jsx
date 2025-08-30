@@ -74,7 +74,7 @@ import FurnitureDecor from "./User/pages/Popular_Categories/Furniture-Decor";
 import HealthSupplements from "./User/pages/Popular_Categories/Health-Supplements";
 import PrintingStationery from "./User/pages/Popular_Categories/Printing-Stationery";
 
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 // Additional pages
 import Blog from "./User/pages/Blog/Blog.jsx";
