@@ -40,15 +40,15 @@ function Filters({
           onChange={(e) => setPriceFilter(e.target.value)}
         />
         {/* Filter section for Rating */}
-        <FilterSection
-          title="Rating"
-          options={["1", "2", "3", "4", "5"]}
-          onChange={(e) => {
-            const value = parseInt(e.target.value, 10); //converting into int from decimal
-            setRatingFilter(Number.isNaN(value) ? 0.00 : value); //applying condition for rating or higher
-          }
-        }  
-        />
+<FilterSection
+  title="Rating"
+  options={["1", "2", "3", "4", "5"]}
+  onChange={(e) => {
+    const value = parseInt(e.target.value, 10);
+    setRatingFilter(Number.isNaN(value) ? null : value); // null means "All"
+  }}
+/>
+
       </div>
     </aside>
   );
