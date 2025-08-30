@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
+import EnhancedHero from "../../components/EnhancedHero/EnhancedHero";
+import EnhancedProductCard from "../../components/EnhancedProductCard/EnhancedProductCard";
+import ProductCardSkeleton from "../../components/LoadingComponents/ProductCardSkeleton";
 import background from "../../../assets/background.png";
 import app from "../../../assets/app.png";
 import { Link } from "react-router-dom";
@@ -133,10 +137,16 @@ const Home = () => {
   const sectionRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(true);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  // Simulate loading
+  React.useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -185,85 +195,94 @@ const Home = () => {
             handleSuggestionClick={handleSuggestionClick}
           />
         </div>
-        {/* Hero Section */}
-        <section
-          className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
-          style={{
-            backgroundImage: `url(${background})`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            minHeight: "87vh",
-            height: "auto",
-          }}>
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 pr-0 md:pr-8 text-center md:text-left md:mt-20">
-              <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
-                Welcome to <span className="text-green-700">VigyBag!</span>
-              </h1>
-              <h2
-                className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6"
-                style={{ lineHeight: "1.5" }}>
-                Your Eco-Friendly Shopping Heaven
-              </h2>
-              <p
-                className="mb-6 text-gray-700 text-[20px] sm:text-[23px]"
-                style={{ lineHeight: "1.5" }}>
-                At VigyBag, we curate the finest earth-friendly essentials to
-                help you reduce your environmental footprint without
-                compromising on quality or style. Shop smart, live green, and
-                embrace a sustainable future with VigyBag.
-              </p>
-              <button
-                type="button"
-                onClick={scrollToSection}
-                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-green-800 transition duration-300">
-                Shop Now
-              </button>
-              <DownArrow />
-            </div>
-          </div>
-        </section>
+        {/* Enhanced Hero Section */}
+        <EnhancedHero onShopNowClick={scrollToSection} />
         {/* Popular Categories */}
-        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
+        <motion.section 
+          className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
+            <motion.h2 
+              className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               Popular Categories
-            </h2>
+            </motion.h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-              {popularCategories.map((category, index) => (
-                <div key={index} className="custom-shadow">
-                <CategoryCard
-                  key={index}
-                  name={category.name}
-                  image={category.image}
-                  path={category.path}
-                />
-                  </div>
-              ))}
+              {isLoading ? (
+                [...Array(8)].map((_, index) => (
+                  <ProductCardSkeleton key={index} />
+                ))
+              ) : (
+                popularCategories.map((category, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="custom-shadow"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <CategoryCard
+                      name={category.name}
+                      image={category.image}
+                      path={category.path}
+                    />
+                  </motion.div>
+                ))
+              )}
             </div>
           </div>
-        </section>
+        </motion.section>
         {/* Latest in the Market */}
-        <section
+        <motion.section
           className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16"
           id="sect"
-          ref={sectionRef}>
+          ref={sectionRef}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
+            <motion.h2 
+              className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               Latest in the Market
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-              {latestProducts.map((product, index) => (
-                <div key={index} className="flex justify-center">
-                  <div className="w-full max-w-[220px]">
-                    <LatestInMarketCard product={product} />
-                  </div>
-                </div>
-              ))}
+            </motion.h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+              {isLoading ? (
+                [...Array(8)].map((_, index) => (
+                  <ProductCardSkeleton key={index} />
+                ))
+              ) : (
+                latestProducts.map((product, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="flex justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <EnhancedProductCard product={product} />
+                  </motion.div>
+                ))
+              )}
             </div>
           </div>
-        </section>
+        </motion.section>
 
 
 
