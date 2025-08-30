@@ -27,3 +27,12 @@
   cursor: pointer; 
 }
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  animation: blink 2s step-end infinite;
+}
