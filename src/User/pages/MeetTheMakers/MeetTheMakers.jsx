@@ -283,8 +283,8 @@ export default function MeetTheMakers() {
 
   if (view === "waiting") {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-pink-50 to-yellow-50 p-6">
-        <h1 className="text-3xl font-extrabold text-pink-600 mb-4">Thank you!</h1>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-orange-50 to-yellow-50 p-6">
+        <h1 className="text-3xl font-extrabold text-orange-600 mb-4">Thank you!</h1>
         <p className="text-lg text-gray-700 max-w-md text-center">
           Your story has been submitted successfully and is waiting for admin approval.
         </p>
@@ -293,8 +293,8 @@ export default function MeetTheMakers() {
   }
 
   return (
-    <section className="bg-gradient-to-b from-pink-50 to-yellow-50 py-16 px-6">
-      <h1 className="text-4xl font-extrabold text-center text-pink-600 mb-4">
+    <section className="bg-gradient-to-b from-orange-50 to-yellow-50 py-16 px-6">
+      <h1 className="text-4xl font-extrabold text-center text-orange-600 mb-4">
         Meet the Makers
       </h1>
       <p className="text-center text-gray-600 text-lg mb-12">
@@ -310,7 +310,7 @@ export default function MeetTheMakers() {
               <h3 className="text-xl font-bold text-gray-800">
                 {maker.emoji} {maker.name} — {maker.location}
               </h3>
-              <h4 className="text-md text-pink-500 mb-2">{maker.category}</h4>
+              <h4 className="text-md text-orange-500 mb-2">{maker.category}</h4>
               <p className="mt-3 text-gray-600">{maker.story}</p>
               <ul className="mt-4 text-left text-sm text-gray-700">
                 {maker.highlights.map((h, i) => (
@@ -336,14 +336,14 @@ export default function MeetTheMakers() {
           <button
             onClick={() => handlePageChange(1)}
             disabled={currentPage === 1}
-            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-orange-100 text-orange-600 hover:bg-orange-200'}`}
           >
             First
           </button>
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+            className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-200 text-gray-400' : 'bg-orange-100 text-orange-600 hover:bg-orange-200'}`}
           >
             Prev
           </button>
@@ -351,7 +351,7 @@ export default function MeetTheMakers() {
             <button
               key={num}
               onClick={() => handlePageChange(num)}
-              className={`px-3 py-1 rounded font-semibold ${num === currentPage ? 'bg-pink-600 text-white' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+              className={`px-3 py-1 rounded font-semibold ${num === currentPage ? 'bg-orange-600 text-white' : 'bg-orange-100 text-orange-600 hover:bg-orange-200'}`}
             >
               {num}
             </button>
@@ -359,14 +359,14 @@ export default function MeetTheMakers() {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-orange-100 text-orange-600 hover:bg-orange-200'}`}
           >
             Next
           </button>
           <button
             onClick={() => handlePageChange(totalPages)}
             disabled={currentPage === totalPages}
-            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-pink-100 text-pink-600 hover:bg-pink-200'}`}
+            className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-200 text-gray-400' : 'bg-orange-100 text-orange-600 hover:bg-orange-200'}`}
           >
             Last
           </button>
@@ -378,7 +378,7 @@ export default function MeetTheMakers() {
         <button
           type="button"
           onClick={() => setShowModal(true)}
-          className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition font-semibold"
+          className="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition font-semibold"
         >
           Submit Your Story
         </button>
@@ -389,13 +389,13 @@ export default function MeetTheMakers() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
           <div className="bg-white rounded-xl shadow-lg p-8 max-w-lg w-full relative">
             <button
-              className="absolute top-3 right-4 text-pink-600 text-xl font-bold"
+              className="absolute top-3 right-4 text-orange-600 text-xl font-bold"
               onClick={() => setShowModal(false)}
               aria-label="Close"
             >
               ×
             </button>
-            <h2 className="text-2xl font-semibold mb-4 text-pink-600 text-center">Submit Your Story</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-orange-600 text-center">Submit Your Story</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
@@ -445,7 +445,7 @@ export default function MeetTheMakers() {
                 className="w-full px-3 py-2 border rounded resize-none"
                 rows={5}
               />
-              <button type="submit" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition font-semibold">
+              <button type="submit" className="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition font-semibold">
                 Submit
               </button>
             </form>
