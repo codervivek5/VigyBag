@@ -1,32 +1,45 @@
 const express = require("express");
 const router = express.Router();
+const validator = require("validator");
 const Subscriber = require("../models/subscriber");
 
+// POST /api/subscribe
 router.post("/", async (req, res) => {
-  const { email } = req.body;
+  const emailRaw = (req.body?.email ?? "").toString();
+  const email = emailRaw.trim().toLowerCase();
 
-  if (!email || typeof email !== "string") {
+  // Check if email is provided
+  if (!email) {
     return res.status(400).json({ message: "⚠️ A valid email is required." });
   }
 
-  const normalizedEmail = email.trim().toLowerCase();
+  // Validate email format
+  if (!validator.isEmail(email)) {
+    return res
+      .status(400)
+      .json({ message: "⚠️ Please provide a valid email address." });
+  }
 
   try {
-    const newSubscriber = new Subscriber({ email: normalizedEmail });
-    await newSubscriber.save();
+    const subscriber = new Subscriber({ email });
+    await subscriber.save();
 
     return res.status(201).json({ message: "🎉 Subscribed successfully!" });
   } catch (err) {
     console.error("Subscribe error:", err);
 
+    // Duplicate email
     if (err.code === 11000) {
-      // Duplicate key error
       return res.status(409).json({ message: "This email is already subscribed." });
-    } else if (err.name === "ValidationError") {
-      return res.status(400).json({ message: err.message });
-    } else {
-      return res.status(500).json({ message: "❌ Server error. Try again later." });
     }
+
+    // Schema validation error
+    if (err.name === "ValidationError") {
+      return res.status(400).json({ message: err.message });
+    }
+
+    // Server error
+    return res.status(500).json({ message: "❌ Server error. Try again later." });
   }
 });
 
