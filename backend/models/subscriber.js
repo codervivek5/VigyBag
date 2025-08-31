@@ -1,12 +1,8 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-
 const subscriberSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,      // ensures DB-level uniqueness
-    index: true,       // improves query performance
+    unique: true,   // ensures DB-level uniqueness
     trim: true,
     lowercase: true,
     validate: {
@@ -19,10 +15,3 @@ const subscriberSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-
-// Explicit index creation (important for uniqueness)
-subscriberSchema.index({ email: 1 }, { unique: true });
-
-const Subscriber = mongoose.model("Subscriber", subscriberSchema);
-
-module.exports = Subscriber;
