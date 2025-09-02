@@ -4,11 +4,12 @@
   "description": "VigyBag server and backend credentials",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node server.js",     
+    "dev": "nodemon server.js",         
+    "prod": "node server.js",          
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,7 @@
     "bcrypt": "^5.1.1",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.6.1",
     "express": "^4.21.2",
     "express-session": "^1.18.2",
     "jsonwebtoken": "^9.0.2",
