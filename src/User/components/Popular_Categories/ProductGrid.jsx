@@ -132,7 +132,7 @@ function ProductCard({ product }) {
               ⭐
             </span>
           ))}
-          <span className="text-gray-500 ml-1">({product.rating.count})</span>
+          <span className="text-gray-500 ml-1">({Math.round(product.rating.rate)})</span>
         </div>
         {/* Add to cart button */}
         <div className="flex h-13 gap-2">
