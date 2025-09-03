@@ -6,6 +6,7 @@ import {
   FaFacebookF,
   FaWhatsapp,
   FaLinkedinIn,
+  FaGithub,
   FaHome,
   FaQuestionCircle,
   FaInfoCircle,
@@ -152,6 +153,7 @@ const Footer = () => {
               <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link"><FaFacebookF className="social-icon" /></a>
               <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link"><FaLinkedinIn className="social-icon" /></a>
               <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-link"><FaWhatsapp className="social-icon" /></a>
+              <a href="https://github.com/codervivek5/VigyBag" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" className="social-link"><FaGithub className="social-icon" /></a>
               <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="social-link"><FaDiscord className="social-icon" /></a>
             </div>
           </div>

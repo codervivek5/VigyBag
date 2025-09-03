@@ -40,21 +40,22 @@ const Help = () => {
   };
 
   return (
-    <div>
-      <h1
-        className="helph1"
-        style={{
-          color: "#3d784aff",
-        }}>
-        Hello, What can we help you with?
-      </h1>
-      <div
-        style={{
-          borderBottom: "2px solid black",
-          width: "100%",
-          margin: "20px 0",
-        }}
-      />{" "}
+    <div className="min-h-screen bg-gradient-to-b from-[#fff0e3] to-white">
+      <div className="container mx-auto px-4 py-8">
+        <h1
+          className="helph1"
+          style={{
+            color: "#3d784aff",
+          }}>
+          Hello, What can we help you with?
+        </h1>
+        <div
+          style={{
+            borderBottom: "2px solid #3d784aff",
+            width: "100%",
+            margin: "20px 0",
+          }}
+        />{" "}
       <div className="helpcontainer">
         <div className="helpcard">
           <lord-icon
@@ -174,6 +175,7 @@ const Help = () => {
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </div>
   );

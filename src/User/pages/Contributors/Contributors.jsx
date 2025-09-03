@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import anuja from "../../../assets/ANUJA-SINGH.png";
@@ -18,12 +18,14 @@ import Networkdiagram from "../../components/About/Networkdiagram";
 import Header from "../../components/About/Header";
 
 const Contributors = () => {
+  const [visibleContributors, setVisibleContributors] = useState(6);
+
   const handleSeeMore = () => {
-    setVisibleProducts((prevCount) => prevCount + getProductsPerRow());
+    setVisibleContributors(contributorsData.length);
   };
 
   const handleViewLess = () => {
-    setVisibleProducts(getProductsPerRow());
+    setVisibleContributors(6);
   };
 
   const contributorsData = [
@@ -362,7 +364,7 @@ const Contributors = () => {
           </h2>
           <hr className="border-2 border-green-600 w-1/2 mx-auto mb-10" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {contributorsData.map((contributor, index) => (
+            {contributorsData.slice(0, visibleContributors).map((contributor, index) => (
               <ContributorCard
                 key={index}
                 {...contributor}
@@ -370,17 +372,17 @@ const Contributors = () => {
               />
             ))}
           </div>
-          <div className="flex justify-center mt-4">
-            {contributorsData < 18 ? (
+          <div className="flex justify-center mt-8">
+            {visibleContributors < contributorsData.length ? (
               <button
                 onClick={handleSeeMore}
-                className="px-4 py-2 bg-[#15a349ff] text-white rounded-lg mr-4 hover:bg-green-600 focus:outline-none transition duration-300">
-                See More
+                className="px-6 py-3 bg-[#15a349ff] text-white rounded-lg hover:bg-green-600 focus:outline-none transition duration-300 font-semibold">
+                See More Contributors
               </button>
             ) : (
               <button
                 onClick={handleViewLess}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg mr-4 hover:bg-red-600 focus:outline-none transition duration-300">
+                className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none transition duration-300 font-semibold">
                 View Less
               </button>
             )}
