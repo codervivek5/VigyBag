@@ -7,7 +7,14 @@ body {
 }
 
 .privacy-policy {
-    margin-top: -29px;
+    background-color: #fff0e3;  /* same as terms */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0;
+    padding: 40px 0;
 }
 
 .nav_menu .nav_link li a {
@@ -15,12 +22,13 @@ body {
 }
 
 .containerprivacy {
-    max-width: 80%;
-    margin: 30px auto;
-    padding: 20px;
-    /* background: #f1f0ef; */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 85%;
+    margin: 40px auto 25px auto;  /* 👈 same spacing jaise terms */
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000;
 }
 
 .containerprivacy .head {
@@ -28,18 +36,13 @@ body {
     margin-bottom: 20px;
 }
 
-.containerprivacy main {
-    margin-top: 110px;
-}
-
 
 .containerprivacy .head h1 {
     font-size: x-large;
     font-weight: bolder;
-    margin-top: -90px;
-    margin-right: 60px;
-    margin-bottom: 36px;
+    margin: 0;   /* 👈 upar chipka hua */
     color: rgb(77, 146, 78);
+    background: #fff;
 }
 
 .a {
@@ -52,10 +55,11 @@ ul li {
 
 .h1 {
     text-align: center;
-    font-size: medium;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #4e6d2e;
-    padding-bottom: 5px;
+    margin-top: 10px;   /* 👈 isko adjust karo (-90px hata ke chhota rakho) */
+    margin-bottom: 20px;
 }
 
 h2 {
@@ -80,3 +84,10 @@ h3 {
 #last-updated-date {
     font-size: 17px;
   }
+.navbar {
+  background-color: #edd1bb;  /* 👈 dark peach */
+  height: 100px;              /* apni requirement ke hisaab se */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
