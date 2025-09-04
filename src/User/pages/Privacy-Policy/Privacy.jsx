@@ -61,11 +61,12 @@ const Privacy = () => {
       <div className="containerprivacy">
         <main id="pdf-content" >
           <div className="head">
-            <h1>VigyBag Privacy Policy</h1>
+            <h1
+            style={{ marginTop: "0px" , marginBottom: "20px" , color: "forestgreen" }}>VigyBag Privacy Policy</h1>
           </div>
           <section>
           <div className="Lastupdate">
-            Last updated: <span id="last-updated-date"></span>
+            Last Updated: <span id="last-updated-date"></span>
   </div>
             <p>
               We value the trust you place in us and recognize the importance of
@@ -92,7 +93,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Collection of Your Information </h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Collection of Your Information </h2>
             <p>
               When you use our Platform, we collect and store your information
               which is provided by you from time to time. Once you give us your
@@ -143,7 +144,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Use of Demographic / Profile Data / Your Information </h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Use of Demographic / Profile Data / Your Information </h2>
             <p>
               We use your personal data to take and fulfill orders, deliver
               products and services, process payments, and communicate with you
@@ -211,7 +212,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Cookies</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Cookies</h2>
             <p>
               We use data collection devices such as "cookies" on certain pages
               of the Platform to help analyze our web page flow, measure
@@ -245,7 +246,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Sharing of Personal Data</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Sharing of Personal Data</h2>
             <p>
               We may share personal data internally within VigyBag group
               companies and third parties, including Credit Bureaus and business
@@ -290,7 +291,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Links to Other Sites</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Links to Other Sites</h2>
             <p>
               Our Platform may provide links to other websites or applications
               that may collect personal data about you, and you will be governed
@@ -301,7 +302,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Security Precautions</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Security Precautions</h2>
             <p>
               We maintain reasonable physical, electronic, and procedural
               safeguards to protect your personal data from unauthorized access
@@ -312,7 +313,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Your Consent</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Your Consent</h2>
             <p>
               By using the Platform and/or by providing your information, you
               consent to the collection and use of the information you disclose
@@ -328,7 +329,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Grievance Officer</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Grievance Officer</h2>
             <p>
               In accordance with the Information Technology Act, 2000 and the
               rules made thereunder, the name and contact details of the
@@ -354,7 +355,7 @@ const Privacy = () => {
             </p>
           </section>
           <section>
-            <h2>Queries</h2>
+            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Queries</h2>
             <p>
               If you have a question, issue, complaint, or feedback in relation
               to the processing of your personal data or this Privacy Policy,
