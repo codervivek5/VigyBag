@@ -105,12 +105,12 @@ function ProductCard({ product }) {
         </p>
         {/* Rating */}
         <div className="flex items-center ">
-          {[...Array(Math.round(product.rating.rate))].map((_, i) => (
+          {[...Array(Math.round(product.rating?.rate || 0))].map((_, i) => (
             <span key={i} className="text-yellow-400">
               ⭐
             </span>
           ))}
-          <span className="text-gray-500 ml-1">({Math.round(product.rating.rate)})</span>
+          <span className="text-gray-500 ml-1">({Math.round(product.rating?.rate || 0)})</span>
         </div>
         {/* Add to cart button */}
         <div className="flex h-13 gap-2">
