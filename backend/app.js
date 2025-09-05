@@ -19,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 =======
 const vigyRoutes = require("./routes/vigyRoutes");
+const subscribeRoute = require("./routes/subscribe");
 
 const app = express();
 
@@ -69,6 +70,7 @@ app.get("/", (req, res) => {
 });
 
 // Route setup
+app.use("/api/subscribe", subscribeRoute); // POST /api/subscribe
 app.use("/auth", authRoutes);
 app.use("/api", routes);
 app.use("/api", passwordResetRoutes);
