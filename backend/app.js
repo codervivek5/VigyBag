@@ -3,12 +3,14 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("./middlewares/Passport");
-const routes = require("./routes");
+
+const routes = require("./routes"); // general /api routes
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const passwordResetRoutes = require("./routes/passwordResetRoutes");
 const adminRegistrationRoutes = require("./routes/adminRegistrationRoutes");
 const vigyRoutes = require("./routes/vigyRoutes");
+const subscribeRoute = require("./routes/subscribe");
 
 const app = express();
 
@@ -49,6 +51,7 @@ app.get("/", (req, res) => {
 });
 
 // Route setup
+app.use("/api/subscribe", subscribeRoute); // POST /api/subscribe
 app.use("/auth", authRoutes);
 app.use("/api", routes);
 app.use("/api", passwordResetRoutes);
