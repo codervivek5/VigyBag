@@ -4,17 +4,138 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Variables for theming */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-accent: #145332;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --button-bg: #145332;
+  --button-hover: #1a6b3e;
+  --input-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: linear-gradient(rgb(20, 83, 45), #d6a075);
+}
 
+.dark {
+  /* Dark theme colors */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-accent: #4ade80;
+  --border-color: #30363d;
+  --card-bg: #161b22;
+  --navbar-bg: rgba(13, 17, 23, 0.95);
+  --button-bg: #238636;
+  --button-hover: #2ea043;
+  --input-bg: #21262d;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --scrollbar-track: #21262d;
+  --scrollbar-thumb: linear-gradient(#238636, #4ade80);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode (default) */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+}
+
+/* Dark mode styles */
+.dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+}
+
+/* Apply dark mode to body and main sections */
+.dark body {
+  background-color: #1a1a1a;
+}
+
+/* Dark mode for the peach/cream colored sections */
+.dark section:not([class*="image"]):not([class*="card"]):not([class*="product"]) {
+  background-color: #1a1a1a !important;
+}
+
+/* Target specific background areas that are peach/cream colored */
+.dark .hero-section,
+.dark [style*="background-color"]:not([class*="card"]):not([class*="product"]) {
+  background-color: #1a1a1a !important;
+}
+
+/* Make sure the Popular Categories section background is dark */
+.dark .popular-categories {
+  background-color: #1a1a1a !important;
+}
+
+/* Make text visible in dark mode with shadows for readability */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.dark p, .dark span {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Keep green text elements green but visible */
+.dark .text-green-800,
+.dark .text-green-700,
+.dark .text-green-600,
+.dark .text-green-500 {
+  color: #4ade80 !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Dark mode for buttons */
+.dark button {
+  background-color: rgba(55, 65, 81, 0.9);
+  color: #ffffff;
+  border-color: #4ade80;
+}
+
+/* Keep ALL images and backgrounds normal */
+.dark img {
+  filter: none !important;
+}
+
+/* DON'T override any backgrounds except body */
+.dark [style*="background-image"],
+.dark [style*="background-color"] {
+  background-color: transparent !important;
+}
+
+/* Scrollbar theming */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(rgb(20, 83, 45), #d6a075);
+  background: var(--scrollbar-thumb);
   border-radius: 4px;
   box-shadow: none;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -22,8 +143,83 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(rgb(20, 83, 45), #d6a075); 
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), inset 0 0 0 100px rgba(0, 0, 0, 0.1); 
+  background: var(--scrollbar-thumb); 
+  box-shadow: 0 0 8px var(--shadow), inset 0 0 0 100px rgba(0, 0, 0, 0.1); 
   cursor: pointer; 
 }
 
+/* Dark mode utility classes */
+@layer utilities {
+  .bg-theme-primary {
+    background-color: var(--bg-primary);
+  }
+  
+  .bg-theme-secondary {
+    background-color: var(--bg-secondary);
+  }
+  
+  .bg-theme-tertiary {
+    background-color: var(--bg-tertiary);
+  }
+  
+  .text-theme-primary {
+    color: var(--text-primary);
+  }
+  
+  .text-theme-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .text-theme-accent {
+    color: var(--text-accent);
+  }
+  
+  .border-theme {
+    border-color: var(--border-color);
+  }
+  
+  .card-theme {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+  
+  .btn-theme {
+    background-color: var(--button-bg);
+    color: #ffffff;
+  }
+  
+  .btn-theme:hover {
+    background-color: var(--button-hover);
+  }
+  
+  .input-theme {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+  
+  .navbar-theme {
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    border-color: var(--border-color);
+  }
+  
+  .shadow-theme {
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific adjustments */
+.dark img {
+  filter: brightness(0.8);
+}
+
+.dark .logo {
+  filter: brightness(1.2);
+}

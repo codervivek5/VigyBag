@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import NavLogo from "./NavLogo";
 import SearchBar from "../SearchBar/SearchBar";
@@ -6,8 +6,9 @@ import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
+import DarkModeToggle from "./DarkModeToggle";
 
-const Navbar = ({ isAdmin }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const username = localStorage.getItem("username");
@@ -68,7 +69,19 @@ const Navbar = ({ isAdmin }) => {
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-lg md:w-full md:z-50 -mt-1 w-[100vw] z-50 pt-4 sm:pt-5">
+    <nav className="bg-[#ecd5c5] shadow-lg md:w-full md:z-50 -mt-1 w-[100vw] z-50 pt-4 sm:pt-5 relative">
+      {/* SUPER VISIBLE DarkModeToggle at top right */}
+      <div style={{ 
+        position: 'fixed', 
+        top: '20px', 
+        right: '20px', 
+        zIndex: 999999,
+        backgroundColor: '#ff0000',
+        padding: '10px',
+        borderRadius: '10px'
+      }}>
+        <DarkModeToggle />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center w-full">

@@ -8,8 +8,10 @@ import MobileMenu from "./MobileMenu";
 import { FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import WishlistIcon from "./WishlistIcon";
+import { useTheme } from "../../../context/ThemeContext";
 
 const UserNavbar = ({ isAdmin }) => {
+  const { isDarkMode, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -124,19 +126,27 @@ const UserNavbar = ({ isAdmin }) => {
   };
 
   return (
-    <nav className="bg-[#ecd5c5] shadow-lg w-full z-50 -mt-1">
+    <nav className={`shadow-lg w-full z-50 -mt-1 relative transition-colors duration-300 ${
+      isDarkMode ? 'bg-gray-800' : 'bg-[#ecd5c5]'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center w-full">
-            <NavLogo />
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
+            <div className="flex-shrink-0">
+              <NavLogo />
+            </div>
+            <div className="hidden md:block flex-1">
+              <div className="ml-6 flex items-baseline space-x-2">
                 <div className="py-1 flex justify-evenly items-center">
                   {navLinks.map((link) => (
                     <Link
                       key={link.text}
                       to={link.to}
-                      className="text-green-800 hover:text-green-500 hover:underline block px-4 py-2 font-bold text-base">
+                      className={`hover:underline block px-3 py-2 font-bold text-sm transition-colors duration-300 whitespace-nowrap ${
+                        isDarkMode 
+                          ? 'text-green-400 hover:text-green-300' 
+                          : 'text-green-800 hover:text-green-500'
+                      }`}>
                       {link.text}
                     </Link>
                   ))}
@@ -159,6 +169,20 @@ const UserNavbar = ({ isAdmin }) => {
                 <div className="flex md:gap-6 gap-7 mr-4 md:mr-0">
                   <WishlistIcon />
                   <CartIcon />
+                  {/* Dark Mode Toggle next to cart */}
+                  <button
+                    onClick={toggleTheme}
+                    className="flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                    style={{
+                      backgroundColor: isDarkMode ? '#374151' : '#f3f4f6',
+                      border: '2px solid #145332'
+                    }}
+                    aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                  >
+                    <span style={{ fontSize: '20px' }}>
+                      {isDarkMode ? '☀️' : '🌙'}
+                    </span>
+                  </button>
                 </div>
                 <div className="md:block hidden">
                   {isLoggedIn ? (
