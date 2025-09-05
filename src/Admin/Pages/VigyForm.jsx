@@ -312,17 +312,40 @@ const VigyForm = () => {
 
 
    try {
-     const response = await axios.post('https://www.vigybag.com/api/vigy_form', formDataToSend, {
-       headers: {
-         'Content-Type': 'multipart/form-data',
-       },
-     });
-    //  console.log(response.data);
-     console.log('Form submitted successfully!');
-     // Handle successful submission (e.g., show success message, redirect)
+     // Prepare data for the new API
+     const registrationData = {
+       fullname: formData.personal.fullname || '',
+       email: formData.contact.email || '',
+       password: 'defaultPassword123', // You might want to add a password field to the form
+       phoneNumber: formData.contact.phoneNumber || '',
+       address: formData.contact.address || '',
+       aadhaarNumber: formData.personal.aadhaarNumber || '',
+       gender: formData.personal.gender || '',
+       dob: formData.personal.dob || '',
+       bankAccountName: formData.banking.bankAccountName || '',
+       bankAccountNumber: formData.banking.bankAccountNumber || '',
+       bankName: formData.banking.bankName || '',
+       bankBranch: formData.banking.bankBranch || '',
+       ifscCode: formData.banking.ifscCode || '',
+       referralCode: formData.additional.referralCode || '',
+       promotionalCode: formData.additional.promotionalCode || ''
+     };
+
+           // Use local backend for development, change to production URL when deploying
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? 'https://vigybag-backend.onrender.com/api/vigy/register'
+        : 'http://localhost:5000/api/vigy/register';
+      
+      const response = await axios.post(apiUrl, registrationData);
+     
+     if (response.data.success) {
+       console.log('Registration successful!');
+       alert('Registration submitted successfully! Please wait for approval.');
+       // You can redirect to login page or show success message
+     }
    } catch (error) {
      console.error('Error submitting form:', error);
-     // Handle error (e.g., show error message)
+     alert(error.response?.data?.message || 'Registration failed. Please try again.');
    }
  };
 

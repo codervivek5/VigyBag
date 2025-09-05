@@ -9,7 +9,8 @@ const connectDB = async () => {
     console.log("Connected to MongoDB");
   } catch (err) {
     console.error("Error connecting to MongoDB:", err.message);
-    process.exit(1);
+    console.log("⚠️  MongoDB not available. Using in-memory fallback for development.");
+    // Don't exit for development - let the app continue
   }
 };
 
