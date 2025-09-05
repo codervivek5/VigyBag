@@ -209,7 +209,7 @@ const AuthForm = () => {
               Login as Admin
             </Link>
             <Link
-              to="/vigy-form"
+              to="/vigy-login"
               className="bg-[#f9efe4] text-[#2d3e40] px-6 py-2 rounded-full border border-[#2d3e40] hover:bg-[#2d3e40] hover:text-white transition duration-300"
             >
               Login as Vigy
