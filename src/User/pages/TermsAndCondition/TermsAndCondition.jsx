@@ -235,7 +235,8 @@ const TermsAndConditions = () => {
           <ul>
             <li>Breach of these Terms,</li>
             <li>Fraudulent, illegal, or abusive activities,</li>
-            <li>Extended inactivity of the account.</li></ul>
+            <li>Extended inactivity of the account.</li>
+          </ul>
           <p>17.2 Users may also choose to terminate their account voluntarily by contacting VigyBag customer support.<br />
           17.3 Upon termination, all outstanding obligations including pending payments, disputes, or indemnity claims shall continue to remain enforceable.
     
