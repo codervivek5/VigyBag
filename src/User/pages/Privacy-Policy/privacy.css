@@ -80,7 +80,7 @@ li {
   font-weight: bold;
 }
 /* Specific rule only for the last Queries section */
-section.queries-fix {
+.queries-fix {
   page-break-inside: auto !important;   /* allow breaking */
   break-inside: auto !important;
   page-break-before: avoid !important;  /* stick with previous */
