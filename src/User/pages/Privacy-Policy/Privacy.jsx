@@ -3,71 +3,55 @@ import { Link } from "react-router-dom";
 import "./privacy.css";
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import * as html2pdf from "html2pdf.js";
 
 const Privacy = () => {
   useEffect(() => {
     document.title = "VigyBag | Privacy Policy";
   }, []);
 
-  const updateLastUpdatedDate = () => {
-    const dateElement = document.getElementById("last-updated-date");
-    if (!dateElement) {
-      console.error("Element with ID 'last-updated-date' not found.");
-      return;
-    }
-    const now = new Date();
-    const day = now.getDate();
-    const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    const month = monthNames[now.getMonth()]; // Get the full month name
-    const year = now.getFullYear();
-    dateElement.textContent = `${month} ${day}, ${year}`; // Fixed template literal
-  };
-
-  const updateWeekly = () => {
-    const now = new Date();
-    const dayOfWeek = now.getDay(); // 0 (Sunday) to 6 (Saturday)
-    const timeUntilNextUpdate = (7 - dayOfWeek) * 24 * 60 * 60 * 1000; // Time until next Sunday
-    updateLastUpdatedDate();
-    setTimeout(updateWeekly, timeUntilNextUpdate);
-  };
-
-  updateWeekly();
-
 
   const generatePdf = () => {
-    const input = document.getElementById('pdf-content');
-    html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const imgWidth = 210; // A4 width in mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        const padding = 10; // Adjust padding as needed
-        pdf.addImage(imgData, 'PNG', padding, padding, imgWidth - 2 * padding, imgHeight - 2 * padding);
-        pdf.save('privacy_policy.pdf');
-        console.log("PDF generated and saved"); // Debug log
-      })
-      .catch((error) => {
-        console.error('Error generating PDF', error);
-        alert('An error occurred while generating the PDF. Please try again.');  
-            
-      });
+    const element = document.getElementById("pdf-content");
+
+    const opt = {
+      margin: [10, 20, 10, 20], // thoda clean spacing, left/right balance
+      filename: "privacy_policy.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        logging: false,
+        letterRendering: true,   // ✅ text not clipped
+        useCORS: true
+      },
+      jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
+      pagebreak: {
+        mode: ["css", "legacy"],
+        before: ".queries-fix"   // ⚡ force Queries to stay with previous content
+      },
+    };
+    html2pdf.default().set(opt).from(element).save();
   };
+
+
+
   return (
     <div className="privacy-policy">
       <div className="containerprivacy">
-        <main id="pdf-content" >
-          <div className="head">
-            <h1
-            style={{ marginTop: "0px" , marginBottom: "20px" , color: "forestgreen" }}>VigyBag Privacy Policy</h1>
+        <main id="pdf-content" style={{ lineHeight: "1.4" }}>
+          <div className="head" style={{ textAlign: "center", marginBottom: "8px" }}>
+            <h1 style={{
+              margin: "0",
+              fontWeight: "bold",   // 🔹 made bold
+              color: "forestgreen"
+            }}>
+              VigyBag Privacy Policy
+            </h1>
           </div>
           <section>
-          <div className="Lastupdate">
-            Last Updated: <span id="last-updated-date"></span>
-  </div>
+            <div className="Lastupdate" style={{ marginBottom: "6px" }}>
+              Last Updated: September 5, 2025
+            </div>
             <p>
               We value the trust you place in us and recognize the importance of
               secure transactions and information privacy. This Privacy Policy
@@ -92,8 +76,8 @@ const Privacy = () => {
               use or access our Platform.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Collection of Your Information </h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Collection of Your Information </h2>
             <p>
               When you use our Platform, we collect and store your information
               which is provided by you from time to time. Once you give us your
@@ -143,8 +127,8 @@ const Privacy = () => {
               information into a file specific to you.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Use of Demographic / Profile Data / Your Information </h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Use of Demographic / Profile Data / Your Information </h2>
             <p>
               We use your personal data to take and fulfill orders, deliver
               products and services, process payments, and communicate with you
@@ -170,22 +154,13 @@ const Privacy = () => {
               provide your PAN, credit information report (from credit
               agencies), GST Number, Government-issued ID cards/number, and
               Know-Your-Customer (KYC) details to:
-              <p>
-                (i) check your eligibility for certain products and services
-                like insurance, credit, and payment products;
-              </p>
-              <p>
-                (ii) issue GST invoice for the products and services purchased
-                for your business requirements;
-              </p>
-              <p>
-                (iii) enhance your experience on the Platform and provide you
-                access to the products and services being offered by us,
-                sellers, affiliates, or lending partners. You understand that
-                your access to these products/services may be affected in the
-                event consent is not provided to us.
-              </p>
             </p>
+            <ul style={{ marginLeft: "20px" }}>
+              <li> Check your eligibility for certain products and services like insurance, credit, and payment products;</li>
+              <li> Issue GST invoice for the products and services purchased for your business requirements;</li>
+              <li> Enhance your experience on the Platform and provide you access to the products and services...</li>
+            </ul>
+
             <p>
               In our efforts to continually improve our product and service
               offerings, we and our affiliates collect and analyze demographic
@@ -211,8 +186,8 @@ const Privacy = () => {
               preferences.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Cookies</h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Cookies</h2>
             <p>
               We use data collection devices such as "cookies" on certain pages
               of the Platform to help analyze our web page flow, measure
@@ -245,8 +220,8 @@ const Privacy = () => {
               features or functions on the services.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Sharing of Personal Data</h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Sharing of Personal Data</h2>
             <p>
               We may share personal data internally within VigyBag group
               companies and third parties, including Credit Bureaus and business
@@ -290,8 +265,8 @@ const Privacy = () => {
               with respect to your personal data.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Links to Other Sites</h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Links to Other Sites</h2>
             <p>
               Our Platform may provide links to other websites or applications
               that may collect personal data about you, and you will be governed
@@ -301,8 +276,8 @@ const Privacy = () => {
               disclosing any information.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Security Precautions</h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Security Precautions</h2>
             <p>
               We maintain reasonable physical, electronic, and procedural
               safeguards to protect your personal data from unauthorized access
@@ -312,10 +287,10 @@ const Privacy = () => {
               protecting it against unauthorized access.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Your Consent</h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Your Consent</h2>
             <p>
-              By using the Platform and/or by providing your information, you
+              By using the Platform and/or by providing your information, yous
               consent to the collection and use of the information you disclose
               on the Platform in accordance with this Privacy Policy, including
               but not limited to your consent for sharing your information as
@@ -328,56 +303,65 @@ const Privacy = () => {
               circumstances we disclose it.
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Grievance Officer</h2>
+          <section className="keep-together">
+            <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>Grievance Officer</h2>
             <p>
               In accordance with the Information Technology Act, 2000 and the
               rules made thereunder, the name and contact details of the
               Grievance Officer are provided below:
-              <p>
-                <b>Name:</b> Vivek Prajapati
-              </p>
-              <p>
-                <b>Email:</b>{" "}
-                <a
-                  className="a"
-                  href="mailto:grievanceofficer@vigybag.com"
-                  target="_blank">
-                  grievanceofficer@vigybag.com
-                </a>
-              </p>
-              <p>
-                <b>Time:</b> Mon - Fri (9:00 - 18:00)
-              </p>
-              <p>
-                <b>Address:</b> Kanpur , Uttar Pradesh
-              </p>
+              <p>In accordance with the Information Technology Act, 2000 and the rules made thereunder, the name and contact details of the Grievance Officer are provided below:</p>
+              <ul style={{ marginLeft: "20px", listStyleType: "none" }}>
+                <li><b>Name:</b> Vivek Prajapati</li>
+                <li><b>Email:</b> <a className="a" href="mailto:grievanceofficer@vigybag.com" target="_blank">grievanceofficer@vigybag.com</a></li>
+                <li><b>Time:</b> Mon - Fri (9:00 - 18:00)</li>
+                <li><b>Address:</b> Kanpur, Uttar Pradesh</li>
+              </ul>
             </p>
           </section>
-          <section>
-            <h2 style={{ color: "#4e6d2e" , fontSize: "1.5rem" , fontWeight: 550}}>Queries</h2>
-            <p>
+          <div
+            className="queries-fix"
+            style={{
+              pageBreakInside: "avoid",
+              breakInside: "avoid",
+              marginBottom: "20px",   // extra space at bottom
+              paddingBottom: "20px",  // ensures last line not cut
+            }}
+          >
+            <h2
+              style={{
+                color: "#4e6d2e",
+                fontSize: "1.5rem",
+                fontWeight: 550,
+                marginBottom: "6px"
+              }}
+            >
+              Queries
+            </h2>
+            <p style={{ marginTop: "4px", marginBottom: "0px" }}>
               If you have a question, issue, complaint, or feedback in relation
               to the processing of your personal data or this Privacy Policy,
               you may reach out to our data protection officer at{" "}
               <a
                 className="a"
                 href="mailto:grievanceofficer@vigybag.com"
-                target="_blank">
-                grievanceofficer@vigybag.com.
+                target="_blank"
+              >
+                grievanceofficer@vigybag.com
               </a>
             </p>
-          </section>
+          </div>
+
+
         </main>
-        <button onClick={generatePdf} style={{ 
-                 color: '#4CAF50', 
-                 fontSize:'20px',
-                 padding: '10px 20px', 
-                 borderRadius: '5px', 
-                 cursor: 'pointer',
-                 display: 'block', 
-                 margin: '0 auto'
-              }} >Download a copy of this Privacy Policy(PDF)</button>
+        <button onClick={generatePdf} style={{
+          color: '#4CAF50',
+          fontSize: '20px',
+          padding: '10px 20px',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          display: 'block',
+          margin: '0 auto'
+        }} >Download a copy of this Privacy Policy(PDF)</button>
 
       </div>
     </div>
