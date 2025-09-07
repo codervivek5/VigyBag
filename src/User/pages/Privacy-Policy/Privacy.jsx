@@ -15,19 +15,19 @@ const Privacy = () => {
     const element = document.getElementById("pdf-content");
 
     const opt = {
-      margin: [10, 20, 10, 20], // thoda clean spacing, left/right balance
+      margin: [10, 20, 10, 20],
       filename: "privacy_policy.pdf",
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: {
         scale: 2,
         logging: false,
-        letterRendering: true,   // ✅ text not clipped
+        letterRendering: true,   
         useCORS: true
       },
       jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
       pagebreak: {
         mode: ["css", "legacy"],
-        before: ".queries-fix"   // ⚡ force Queries to stay with previous content
+        before: ".queries-fix"  
       },
     };
     html2pdf.default().set(opt).from(element).save();
@@ -42,7 +42,7 @@ const Privacy = () => {
           <div className="head" style={{ textAlign: "center", marginBottom: "8px" }}>
             <h1 style={{
               margin: "0",
-              fontWeight: "bold",   // 🔹 made bold
+              fontWeight: "bold",   
               color: "forestgreen"
             }}>
               VigyBag Privacy Policy
