@@ -75,12 +75,13 @@ const TermsAndConditions = () => {
         <p>
           5.1 An order placed on the Platform constitutes an offer to purchase products or services, subject to acceptance by VigyBag.<br />
           5.2 Orders are deemed accepted only upon dispatch confirmation sent to the User’s registered email or mobile number. Mere acknowledgment of an order request does not constitute acceptance.<br />
-          5.3 VigyBag reserves the right to refuse or cancel any order for reasons including but not limited to:
+          5.3 VigyBag reserves the right to refuse or cancel any order for reasons including but not limited to:</p>
           <ul><li>	Product unavailability,</li>
             <li>Inaccuracies in pricing or description,</li>
             <li>Suspicion of fraudulent transactions,</li>
             <li>Payment issues, or</li>
             <li>Breach of these Terms.</li></ul>
+          <p>
           5.4 Users may cancel an order prior to dispatch, subject to the cancellation policy published on the Platform. Once dispatched, cancellations or modifications are no longer possible.<br />
           5.5 In the event of a cancellation initiated by VigyBag or the User, any payment received will be refunded in accordance with the Refund Policy (Section 9).<br />
           5.6 VigyBag shall not be held responsible for any delay or inability to process an order due to unforeseen circumstances including strikes, natural disasters, or supply chain disruptions.
@@ -105,62 +106,73 @@ const TermsAndConditions = () => {
           7.3 Delivery shall be made to the shipping address provided by the User at the time of order placement. Users are responsible for ensuring accuracy of the address. Incorrect addresses may result in delivery failures or delays.<br />
           7.4 Title and risk of loss for products pass to the User upon delivery at the designated address. In the case of COD, risk passes upon acceptance of the package and payment of dues.<br />
           7.5 Delivery attempts:
-          <ul><li>If the User is unavailable, delivery personnel may attempt redelivery or leave the package with a neighbor/concierge (if permitted).</li>
-            <li>After multiple failed attempts, the product may be returned to the warehouse, and refund (if applicable) will be processed after deducting shipping charges.</li></ul>
+          </p>
+          <ul>
+            <li>If the User is unavailable, delivery personnel may attempt redelivery or leave the package with a neighbor/concierge (if permitted)</li>
+            <li>After multiple failed attempts, the product may be returned to the warehouse, and refund (if applicable) will be processed after deducting shipping charges.</li>
+          </ul>
+          <p>
           7.6 Certain regions may attract additional shipping fees due to distance, accessibility, or government regulations.<br />
           7.7 VigyBag shall not be liable for delays caused by force majeure events including strikes, riots, natural calamities, or other events beyond reasonable control
         </p>
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>8. Returns and Replacement Policy</h2>
         <p>
           8.1 VigyBag aims to provide complete customer satisfaction. If you are not fully satisfied with your purchase, you may request a return or replacement in accordance with this Policy.<br />
-          8.2 Eligibility for returns:
+          8.2 Eligibility for returns:</p>
           <ul>
             <li>Products must be returned within 7–10 days of delivery</li>
             <li>Products must be unused, unwashed, and in their original packaging with all tags intact.</li>
             <li>Certain categories such as perishable goods, hygiene-related items, and customized products may not be eligible for returns unless defective.</li>
           </ul>
-          8.3 Process for returns:
+          <p>
+          8.3 Process for returns:</p>
           <ul>
             <li>Users must initiate a return request through their VigyBag account or customer support helpline.</li>
             <li>Our logistics partner will arrange pickup, subject to serviceability in the User’s location.</li>
             <li>Returned items will undergo a quality check before approval.</li>
           </ul>
-          8.4 Replacements:
+          <p>
+          8.4 Replacements:</p>
           <ul>
             <li>Replacement will be issued only if the exact product is available in stock.</li>
             <li>If not available, a refund or store credit may be offered.</li>
           </ul>
 
-
-        </p>
-
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>9. Refund Policy</h2>
         <p>
           9.1 Approved refunds will be processed within 7–14 business days from the date of approval.<br />
-          9.2 Mode of refund:
-          <ul><li>Prepaid orders will be refunded to the original payment method.</li>
+          9.2 Mode of refund:</p>
+          <ul>
+            <li>Prepaid orders will be refunded to the original payment method.</li>
             <li>COD orders may be refunded via bank transfer, UPI, or store wallet credit.</li></ul>
+          <p>
           9.3 Refunds may be delayed in case of banking holidays, third-party issues, or incomplete account details provided by the User.<br />
           9.4 In case of partial order returns, only the returned item’s value (minus delivery charges, if applicable) will be refunded.<br />
           9.5 Promotional vouchers or coupon discounts are non-refundable and will not be reinstated.<br />
-          9.6 VigyBag reserves the right to deduct convenience charges, reverse logistics fees, or restocking fees where applicable.
-
-        </p>
+          9.6 VigyBag reserves the right to deduct convenience charges, reverse logistics fees, or restocking fees where applicable.</p>
 
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>10. Intellectual Property Rights</h2>
         <p>
           10.1 All intellectual property rights in the Platform, including trademarks, trade names, service marks, designs, logos, product names, software code, and other proprietary material, are owned by or licensed to VigyBag.<br />
-          10.2 Users are prohibited from:
-          <ul><li>Copying, reproducing, or redistributing any part of the Platform or content without prior written consent,</li><li>Reverse engineering or attempting to derive source code from any software on the Platform,</li><li>Using VigyBag’s trademarks or branding in any misleading or unauthorized manner.</li></ul>
+          10.2 Users are prohibited from:</p>
+          <ul>
+            <li>Copying, reproducing, or redistributing any part of the Platform or content without prior written consent,</li>
+            <li>Reverse engineering or attempting to derive source code from any software on the Platform,</li>
+            <li>Using VigyBag’s trademarks or branding in any misleading or unauthorized manner.</li></ul>
+          <p>
           10.3 Content displayed on the Platform, including product images, descriptions, and promotional material, is protected under applicable intellectual property laws. Unauthorized use may result in legal action.<br />
-          10.4 Users retain rights over the content they voluntarily upload (such as reviews), but grant VigyBag a royalty-free, worldwide, perpetual license to use, reproduce, and display such content for promotional and operational purposes.
-
-        </p>
+          10.4 Users retain rights over the content they voluntarily upload (such as reviews), but grant VigyBag a royalty-free, worldwide, perpetual license to use, reproduce, and display such content for promotional and operational purposes.</p>
 
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>11. User Conduct and Responsibilities</h2>
         <p>
-          11.1 Users agree to access and use the Platform only for lawful purposes. Prohibited activities include but are not limited to:
-          <ul><li>Submitting false, misleading, or inaccurate personal details,</li><li>Engaging in fraudulent transactions or impersonation,</li><li>Uploading harmful content including viruses, malware, or offensive material,</li><li>Harassing, threatening, or abusing other Users, staff, or third parties associated with VigyBag,</li><li>Violating applicable laws, including consumer protection, data privacy, and intellectual property rights.</li></ul>
+          11.1 Users agree to access and use the Platform only for lawful purposes. Prohibited activities include but are not limited to:</p>
+          <ul>
+            <li>Submitting false, misleading, or inaccurate personal details,</li>
+            <li>Engaging in fraudulent transactions or impersonation,</li>
+            <li>Uploading harmful content including viruses, malware, or offensive material,</li>
+            <li>Harassing, threatening, or abusing other Users, staff, or third parties associated with VigyBag,</li>
+            <li>Violating applicable laws, including consumer protection, data privacy, and intellectual property rights.</li></ul>
+          <p>
           11.2 Users are solely responsible for maintaining confidentiality of their login credentials. VigyBag will not be liable for unauthorized access resulting from negligence in safeguarding passwords.<br />
           11.3 Any breach of this clause may result in suspension or permanent termination of the User’s account, along with potential legal consequences.<br />
           11.4 VigyBag reserves the right to monitor activity on the Platform for compliance purposes but is under no obligation to review all User conduct.
@@ -170,8 +182,13 @@ const TermsAndConditions = () => {
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>12. User-Generated Content and Reviews</h2>
         <p>
           12.1 VigyBag encourages Users to share feedback, reviews, and ratings to enhance community trust. However, content must be accurate, respectful, and not misleading.<br />
-          12.2 Prohibited content includes:
-          <ul><li>Offensive, defamatory, or discriminatory language,</li><li>Fake reviews intended to manipulate product ratings,</li><li>Advertising or promotional links for third-party businesses,</li><li>Personal data such as phone numbers or addresses</li></ul>
+          12.2 Prohibited content includes:</p>
+          <ul>
+            <li>Offensive, defamatory, or discriminatory language,</li>
+            <li>Fake reviews intended to manipulate product ratings,</li>
+            <li>Advertising or promotional links for third-party businesses,</li>
+            <li>Personal data such as phone numbers or addresses</li></ul>
+          <p>
           12.3 By submitting reviews, Users grant VigyBag a non-exclusive license to use, display, and share such content on the Platform and across marketing channels.<br />
           12.4 VigyBag reserves the right to remove or moderate any review that violates these Terms or applicable law, without prior notice.<br />
           12.5 While VigyBag makes efforts to ensure authenticity of reviews, it cannot guarantee accuracy or endorse views expressed by individual Users.
@@ -205,16 +222,21 @@ const TermsAndConditions = () => {
 
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>16. Indemnity</h2>
         <p>
-          16.1 The User agrees to indemnify, defend, and hold harmless VigyBag, its affiliates, officers, directors, employees, agents, and partners from and against any claims, liabilities, damages, losses, or expenses (including reasonable legal fees) arising from:
-          <ul><li>Breach of these Terms by the User,</li><li>Misuse of the Platform,</li><li>Violation of any applicable laws or third-party rights.</li></ul>
-          16.2 This indemnity obligation will survive termination of these Terms and continued use of the Platform.
+          16.1 The User agrees to indemnify, defend, and hold harmless VigyBag, its affiliates, officers, directors, employees, agents, and partners from and against any claims, liabilities, damages, losses, or expenses (including reasonable legal fees) arising from:</p>
+          <ul>
+            <li>Breach of these Terms by the User,</li><li>Misuse of the Platform,</li>
+            <li>Violation of any applicable laws or third-party rights.</li></ul>
+         <p> 16.2 This indemnity obligation will survive termination of these Terms and continued use of the Platform.
         </p>
 
         <h2 style={{ color: "#4e6d2e", fontSize: "1.5rem", fontWeight: 550 }}>17. Termination</h2>
         <p>
-          17.1 VigyBag reserves the right, at its sole discretion, to suspend, restrict, or terminate a User’s account and access to the Platform at any time, without prior notice, in cases including but not limited to:
-          <ul><li>Breach of these Terms,</li><li>Fraudulent, illegal, or abusive activities,</li><li>Extended inactivity of the account.</li></ul>
-          17.2 Users may also choose to terminate their account voluntarily by contacting VigyBag customer support.<br />
+          17.1 VigyBag reserves the right, at its sole discretion, to suspend, restrict, or terminate a User’s account and access to the Platform at any time, without prior notice, in cases including but not limited to:</p>
+          <ul>
+            <li>Breach of these Terms,</li>
+            <li>Fraudulent, illegal, or abusive activities,</li>
+            <li>Extended inactivity of the account.</li></ul>
+          <p>17.2 Users may also choose to terminate their account voluntarily by contacting VigyBag customer support.<br />
           17.3 Upon termination, all outstanding obligations including pending payments, disputes, or indemnity claims shall continue to remain enforceable.
     
         </p>
