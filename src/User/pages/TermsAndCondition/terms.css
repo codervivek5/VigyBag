@@ -91,3 +91,12 @@ h3 {
   align-items: center;
   padding: 0 20px;
 }
+.privacy-policy ul {
+  margin: 8px 0 8px 1.5rem; /* left indent thoda maintain karne ke liye */
+  padding-left: 1.2rem;     /* bullet aur text align ho jaye */
+}
+
+.privacy-policy li {
+  margin-bottom: 6px;       /* thoda spacing har point ke beech */
+  line-height: 1.6;         /* readability ke liye */
+}
