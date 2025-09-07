@@ -55,7 +55,7 @@ const Privacy = () => {
             <p>
               We value the trust you place in us and recognize the importance of
               secure transactions and information privacy. This Privacy Policy
-              describes how VigyBag E-Commerce Pvt. Ltd. and its affiliates
+              describes how VigyBag Pvt. Ltd. and its affiliates
               (collectively “VigyBag, we, our, us”) collect, use, share, or
               otherwise process your personal data through the VigyBag website{" "}
               <a className="a" href="https://www.vigybag.com/" target="_blank">
