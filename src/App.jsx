@@ -221,6 +221,7 @@ export default function App() {
             <Route path="myOrders" element={<Navigate to="/myorders" replace />} />
             {/* My orders route */}
             <Route path="checkout" element={<Checkout />} />
+            
             {/* Checkout route */}
             <Route path="productDetails" element={<ProductDetails />} />
             {/* Product details route */}

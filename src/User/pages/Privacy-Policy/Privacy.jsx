@@ -1,9 +1,22 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./privacy.css";
-import { jsPDF } from 'jspdf';
-import html2canvas from "html2canvas";
-import html2pdf from "html2pdf.js/dist/html2pdf.bundle.min.js";
+
+// Lightweight loader for html2pdf.js via CDN to avoid bundler resolution issues
+const loadHtml2Pdf = () => {
+  return new Promise((resolve, reject) => {
+    if (typeof window !== "undefined" && window.html2pdf) {
+      resolve(window.html2pdf);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/html2pdf.js@0.12.0/dist/html2pdf.bundle.min.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.onload = () => resolve(window.html2pdf);
+    script.onerror = () => reject(new Error("Failed to load html2pdf.js"));
+    document.body.appendChild(script);
+  });
+};
 
 const Privacy = () => {
   useEffect(() => {
@@ -11,8 +24,11 @@ const Privacy = () => {
   }, []);
 
 
-  const generatePdf = () => {
+  const generatePdf = async () => {
     const element = document.getElementById("pdf-content");
+    if (!element) return;
+
+    const html2pdf = await loadHtml2Pdf();
 
     const opt = {
       margin: [10, 20, 10, 20],
@@ -21,16 +37,16 @@ const Privacy = () => {
       html2canvas: {
         scale: 2,
         logging: false,
-        letterRendering: true,   
-        useCORS: true
+        letterRendering: true,
+        useCORS: true,
       },
       jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
       pagebreak: {
         mode: ["css", "legacy"],
-        before: ".queries-fix"  
+        before: ".queries-fix",
       },
     };
-    html2pdf.default().set(opt).from(element).save();
+    html2pdf().set(opt).from(element).save();
   };
 
 
