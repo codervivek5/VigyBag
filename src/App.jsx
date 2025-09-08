@@ -48,6 +48,8 @@ import AdminVerificationPage from "./User/pages/Admin-Verification/Admin.jsx";
 import AdminLayout from "./Admin/AdminLayout";
 import AdminLogin from "./Admin/Pages/AdminLogin";
 import VigyForm from "./Admin/Pages/VigyForm";
+import VigyLogin from "./Admin/Pages/VigyLogin";
+import VigyDashboard from "./Admin/Pages/VigyDashboard";
 import AdminPanel from "./Admin/Pages/AdminPanel";
 import ProductForm from "./Admin/Pages/ProductForm";
 
@@ -269,6 +271,9 @@ export default function App() {
         {/* Admin verification and login routes */}
         <Route path="admin-verification" element={<AdminVerificationPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/vigy-login" element={<VigyLogin />} />
+        <Route path="/vigy-form" element={<VigyForm />} />
+        <Route path="/vigy-dashboard" element={<VigyDashboard />} />
       </Routes>
     </AuthProvider>
   );
