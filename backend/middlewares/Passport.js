@@ -14,11 +14,13 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
 const resolvedCallbackUrl = (() => {
   const fromEnv = process.env.GOOGLE_CALLBACK_URL;
   if (fromEnv && fromEnv.trim().length > 0) return fromEnv.trim();
-  if (process.env.NODE_ENV === 'development') {
-    return 'http://localhost:5000/auth/google/callback';
+
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:5000/auth/google/callback";
   }
-  console.error("❌ GOOGLE_CALLBACK_URL is missing in production. Set it to your backend callback, e.g. https://vigybag-backend.onrender.com/auth/google/callback");
-  return undefined;
+
+  // Optional: Production fallback
+  return "https://vigybag.com/auth/google/callback";
 })();
 
 passport.use(
@@ -50,6 +52,7 @@ passport.use(
 
         done(null, newUser);
       } catch (err) {
+        console.error("Google OAuth error:", err);
         if (err.code === 11000) {
           done(new Error("User with this email already exists."), null);
         } else {
