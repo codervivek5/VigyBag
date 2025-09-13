@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import PaymentPage from "../../pages/Payment/Payment";
+import { useAuth } from "../../../context/AuthContext";
 
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
@@ -35,6 +36,7 @@ function ProductGrid({ products, headingText }) {
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { isLoggedIn } = useAuth();
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
 
@@ -43,11 +45,21 @@ function ProductCard({ product }) {
   };
 
   const handleBuyNow = () => {
+    if (!isLoggedIn) {
+      toast.error("Please login to buy products!");
+      navigate("/auth");
+      return;
+    }
     navigate(`/checkout`);
   };
 
   // Function to add product to cart
   const onAddToCart = (product) => {
+    if (!isLoggedIn) {
+      toast.error("Please login to add items to cart!");
+      navigate("/auth");
+      return;
+    }
     const quantity = 1;
     dispatch(manageCartItem({ product, quantity }));
     toast.success("Successfully added to cart!");
@@ -66,6 +78,11 @@ function ProductCard({ product }) {
         <button
           className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition"
           onClick={() => {
+            if (!isLoggedIn) {
+              toast.error("Please login to manage wishlist!");
+              navigate("/auth");
+              return;
+            }
             onAddToWishlist(product);
             toast.success("Item removed from wishlist!");
           }}>
@@ -75,6 +92,11 @@ function ProductCard({ product }) {
         <button
           className="mt-2 md:ml-48 ml-80 text-red-600 absolute top-0 right-2 p-2 bg-red-100 rounded-full hover:bg-red-200 transition"
           onClick={() => {
+            if (!isLoggedIn) {
+              toast.error("Please login to add items to wishlist!");
+              navigate("/auth");
+              return;
+            }
             onAddToWishlist(product);
             toast.success("Item added to wishlist!");
           }}>
