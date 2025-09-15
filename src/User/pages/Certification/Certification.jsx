@@ -223,6 +223,23 @@ function Certification() {
       
       if (contributor) {
         // Show success message with contributor info
+        // Fetch user's contributions to VigyBag
+        const contributionsResponse = await axios.get(
+          `https://api.github.com/repos/codervivek5/VigyBag/commits?author=${contributor.login}`
+        );
+        
+        const contributions = contributionsResponse.data || [];
+        const contributionCount = contributions.length;
+        const lastContribution = contributions[0] ? new Date(contributions[0].commit.author.date).toLocaleDateString() : 'N/A';
+        
+        // Prepare commits list HTML
+        const commitsList = contributions.slice(0, 5).map(commit => `
+          <div class="text-left py-2 border-b border-gray-100 last:border-0">
+            <p class="text-sm font-medium text-gray-800 truncate">${commit.commit.message.split('\n')[0]}</p>
+            <p class="text-xs text-gray-500">${new Date(commit.commit.author.date).toLocaleString()}</p>
+          </div>
+        `).join('');
+        
         Swal.fire({
           title: '✅ Certificate Verified!',
           html: `
@@ -233,21 +250,44 @@ function Certification() {
                 class="w-20 h-20 rounded-full mx-auto mb-4"
               />
               <p class="text-lg font-semibold text-gray-800">${contributor.login}</p>
-              <p class="text-sm text-gray-600">Contributions: ${contributor.contributions}</p>
+              <p class="text-sm text-gray-600">Total Contributions: ${contributor.contributions}</p>
+              
+              <div class="mt-4 p-4 bg-gray-50 rounded-lg text-left">
+                <h4 class="font-medium text-gray-800 mb-2">VigyBag Contributions:</h4>
+                <p class="text-sm text-gray-700">
+                  <span class="font-medium">${contributionCount}</span> commits
+                  ${lastContribution !== 'N/A' ? `<span class="text-gray-500 text-xs block mt-1">Last contribution: ${lastContribution}</span>` : ''}
+                </p>
+                
+                ${contributionCount > 0 ? `
+                  <div class="mt-3 max-h-40 overflow-y-auto border rounded p-2 bg-white">
+                    <p class="text-xs font-medium text-gray-500 mb-2">Recent Commits:</p>
+                    ${commitsList}
+                    ${contributionCount > 5 ? `<p class="text-xs text-gray-500 mt-2">+ ${contributionCount - 5} more commits</p>` : ''}
+                  </div>
+                ` : '<p class="text-sm text-gray-500 mt-2">No commits found in the main repository.</p>'}
+              </div>
+              
               <div class="mt-4 p-3 bg-green-50 rounded-lg">
                 <p class="text-sm text-green-700">This certificate is valid and verified.</p>
                 <p class="text-xs text-green-600 mt-1">User ID: ${contributor.id}</p>
               </div>
             </div>
           `,
-          confirmButtonText: 'View Profile',
+          confirmButtonText: 'View GitHub Profile',
           confirmButtonColor: '#10b981',
           showCancelButton: true,
           cancelButtonText: 'Close',
           cancelButtonColor: '#6b7280',
+          showDenyButton: contributionCount > 0,
+          denyButtonText: 'View All Commits',
+          denyButtonColor: '#3b82f6',
+          width: '500px'
         }).then((result) => {
           if (result.isConfirmed) {
             window.open(contributor.html_url, '_blank');
+          } else if (result.isDenied) {
+            window.open(`https://github.com/codervivek5/VigyBag/commits?author=${contributor.login}`, '_blank');
           }
         });
       } else {
