@@ -9,15 +9,6 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const passwordResetRoutes = require("./routes/passwordResetRoutes");
 const adminRegistrationRoutes = require("./routes/adminRegistrationRoutes");
-<<<<<<< HEAD
-const subscribeRoute = require("./routes/subscribe");
-
-const app = express();
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-=======
 const vigyRoutes = require("./routes/vigyRoutes");
 const subscribeRoute = require("./routes/subscribe");
 
@@ -29,7 +20,6 @@ app.use(cors({
   origin: process.env.FRONTEND_URL || "http://localhost:3000",
   credentials: true
 }));
->>>>>>> b4f65404 (Fix: Corrected routing for 'Login as Vigy' button (Issue #2638))
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "Our little secret.",
@@ -44,16 +34,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
-<<<<<<< HEAD
-// Routes
-app.use("/api/subscribe", subscribeRoute); // POST /api/subscribe
-app.use("/auth", authRoutes);              // /auth
-app.use("/api", routes);                   // general /api routes (e.g. products)
-app.use("/api", passwordResetRoutes);      // /api/password-reset
-app.use("/vpi", userRoutes);               // /vpi
-app.use("/api/v1", adminRegistrationRoutes); // /api/v1/admin
-=======
 
 // Root route for testing
 app.get("/", (req, res) => {
@@ -104,8 +84,5 @@ app.get("/auth/google/test", (req, res) => {
     }
   });
 });
-
-
->>>>>>> b4f65404 (Fix: Corrected routing for 'Login as Vigy' button (Issue #2638))
 
 module.exports = app;
