@@ -7,6 +7,7 @@ import app from "../../../assets/app.png";
 import SearchBar from "../../pages/Home/SearchBar";
 import DownArrow from "../../components/DownArrow/downArrow";
 import { AnimatePresence, motion } from "framer-motion";
+import TypingAnimation from "../../components/TypingAnimation/TypingAnimation";
 
 // Category Images
 import customisedGiftsImg from "../../../assets/Customized-Gifts.png";
@@ -147,7 +148,17 @@ const handleSubscribe = async (e) => {
         >
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-2/3 lg:w-1/2 text-center md:text-left md:mt-20">
-              <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">Welcome to <span className="text-green-700">VigyBag!</span></h1>
+              <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
+                <TypingAnimation 
+                  text="Welcome to VigyBag!" 
+                  speed={100}
+                  showCursor={true}
+                  cursorBlinkSpeed={600}
+                  className="inline"
+                  highlightText="VigyBag!"
+                  highlightClass="text-green-700"
+                />
+              </h1>
               <h2 className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6">Your Eco-Friendly Shopping Heaven</h2>
               <p className="mb-6 text-gray-700 text-[20px] sm:text-[23px]">
                 At VigyBag, we curate the finest earth-friendly essentials to help you reduce your environmental footprint without compromising on quality or style.
