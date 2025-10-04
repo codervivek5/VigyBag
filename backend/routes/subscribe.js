@@ -1,7 +1,9 @@
+// subscribe.js
 const express = require("express");
 const router = express.Router();
 const validator = require("validator");
-const Subscriber = require("../models/subscriber");
+const Subscriber = require("../models/Subscriber");
+
 
 // POST /api/subscribe
 router.post("/", async (req, res) => {

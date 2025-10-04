@@ -1,8 +1,7 @@
 // server.js
 const app = require("./app");
 const connectDB = require("./config/db"); // Import the connectDB function from db.js
-const config = require("./config/config"); // Import configuration
-
+const config = require("./config/config"); 
 // Connect to MongoDB
 connectDB();
 

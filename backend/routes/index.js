@@ -1,12 +1,12 @@
+// index.js
 const express = require("express");
-const { getProducts } = require("../controllers/productController");
 const router = express.Router();
-
 const authRoutes = require("./authRoutes");
 const subscribeRouter = require("./subscribe");
+const productRoutes = require("./products");
 
 router.use("/auth", authRoutes);
 router.use("/subscribe", subscribeRouter); // ← add this
-router.get("/products", getProducts);
+router.use("/products", productRoutes);
 
 module.exports = router;

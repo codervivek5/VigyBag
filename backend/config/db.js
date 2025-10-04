@@ -1,5 +1,4 @@
 // config/db.js
-
 const mongoose = require("mongoose");
 const config = require("./config"); // Import config.js from the same directory
 

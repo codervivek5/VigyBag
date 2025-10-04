@@ -1,8 +1,12 @@
+// Subscriber.js
+const mongoose = require("mongoose");
+const validator = require("validator");
+
 const subscriberSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,   // ensures DB-level uniqueness
+    unique: true, // ensures DB-level uniqueness
     trim: true,
     lowercase: true,
     validate: {
@@ -15,3 +19,5 @@ const subscriberSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+module.exports = mongoose.model("Subscriber", subscriberSchema);
