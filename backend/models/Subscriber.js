@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
+
 const subscriberSchema = new mongoose.Schema({
   email: {
     type: String,

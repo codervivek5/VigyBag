@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 
 // Passport configuration (middleware)
 const passport = require("./middlewares/Passport");
@@ -30,9 +31,17 @@ app.use(express.json());
 // Session middleware (for login sessions)
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "Our little secret.", // use env if available
+    secret: process.env.SESSION_SECRET || "Our little secret.",
     resave: false,
     saveUninitialized: false,
+    // 2. CONFIGURE THE MONGOSTORE
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      collectionName: 'sessions' // Optional: name of the collection to store sessions
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7 // Optional: 1 week
+    }
   })
 );
 
