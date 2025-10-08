@@ -76,28 +76,31 @@ exports.signup = async (req, res) => {
 
     // More robust validation
     if (!validator.isEmail(email)) {
-      return res.status(400).json({ message: "Invalid request." }); // generic to avoid enumeration
+      return res.status(400).json({ message: "Invalid email format." }); 
     }
+
     if (!/^\d{10}$/.test(phone)) {
-      return res.status(400).json({ message: "Invalid request." });
+      return res.status(400).json({ message: "Phone must be 10 digits." });
     }
+
     if (typeof username !== "string" || username.length < 3) {
-      return res.status(400).json({ message: "Invalid request." });
+      return res.status(400).json({ message: "Username must be at least 3 characters." });
     }
+
     // Password strength minimal enforcement (customize as needed)
     if (password.length < 8) {
-      return res.status(400).json({ message: "Invalid request." });
+      return res.status(400).json({ message: "Password must be at least 8 characters." });
     }
 
-    // Check uniqueness - using generic response to avoid enumeration
-    const [existingUserByEmail, existingUserByUsername] = await Promise.all([
-      User.findOne({ email }).lean(),
-      User.findOne({ username }).lean(),
-    ]);
+        // Check uniqueness separately
+    const existingUserByEmail = await User.findOne({ email }).lean();
+    if (existingUserByEmail) {
+      return res.status(400).json({ message: "Email already exists." });
+    }
 
-    if (existingUserByEmail || existingUserByUsername) {
-      // Generic message
-      return res.status(400).json({ message: "Unable to process request." });
+    const existingUserByUsername = await User.findOne({ username }).lean();
+    if (existingUserByUsername) {
+      return res.status(400).json({ message: "Username already exists." });
     }
 
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
@@ -124,7 +127,7 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body || {};
     if (!email || !password) {
-      return res.status(400).json({ message: "Invalid credentials." });
+      return res.status(400).json({ message: "Email and password are required." });
     }
 
     // Find user (do not reveal whether email exists)
@@ -132,7 +135,7 @@ exports.login = async (req, res) => {
     if (!user) {
       // small delay to mitigate user enumeration timing
       await new Promise((r) => setTimeout(r, 300));
-      return res.status(401).json({ message: "Invalid credentials." });
+      return res.status(401).json({ message: "Invalid email or password." });
     }
 
     // Optional: account lockout after repeated failed logins
@@ -157,7 +160,7 @@ exports.login = async (req, res) => {
       user.failedLogin = (user.failedLogin || 0) + 1;
       user.lastFailedAt = new Date();
       await user.save();
-      return res.status(401).json({ message: "Invalid credentials." });
+      return res.status(401).json({ message: "Invalid email or password." });
     }
 
     // reset failed counters on success
@@ -275,7 +278,7 @@ exports.verifyOtp = async (req, res) => {
   try {
     const { email, otp } = req.body || {};
     if (!email || !otp || !validator.isEmail(email)) {
-      return res.status(400).json({ message: "Invalid request." });
+      return res.status(400).json({ message: "Invalid email or OTP." });
     }
 
     const user = await User.findOne({ email });
@@ -290,12 +293,12 @@ exports.verifyOtp = async (req, res) => {
       user.otpExpires = undefined;
       user.otpRequests = user.otpRequests || [];
       await user.save();
-      return res.status(400).json({ message: "Invalid code or expired." });
+      return res.status(400).json({ message: "OTP expired." });
     }
 
     const match = await bcrypt.compare(String(otp), user.otp);
     if (!match) {
-      return res.status(400).json({ message: "Invalid code or expired." });
+      return res.status(400).json({ message: "Invalid code." });
     }
 
     // success: clear otp fields
