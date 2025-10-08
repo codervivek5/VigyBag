@@ -17,7 +17,7 @@ router.get(
     const email = req.user.email;
     const username = req.user.username;
     res.redirect(
-      `https://vigybag.com/dashboard?email=${email}&username=${username}`
+      `https://vigy-bag.vercel.app/dashboard?email=${email}&username=${username}`
     );
   }
 );
