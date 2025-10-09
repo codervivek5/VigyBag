@@ -1,3 +1,4 @@
+// UserAuth.jsx
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import {
@@ -44,24 +45,28 @@ const AuthForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    // HIGHLIGHT: Ab API URL hardcoded nahi hai .env file se aayega
+    const apiUrl = process.env.REACT_APP_API_URL || "https://vigybag-backend.onrender.com";
     try {
       const response = await axios.post(
-        "https://vigybag-backend.onrender.com/api/auth/login",
+        `${apiUrl}/auth/login`,
         { email: loginEmail, password: loginPassword }
       );
 
-      localStorage.setItem("isLoggedIn", "true");
-      const username = response.data.username;
-      const adminRole = response.data.adminrole;
+    // HIGHLIGHT: Login successful hone par accessToken aur user details save karein
+      const { accessToken, username, role } = response.data;
+      localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("username", username);
-      if (adminRole !== undefined) {
-        localStorage.setItem("adminRole", adminRole);
+      localStorage.setItem("isLoggedIn", "true");
+      if (role !== undefined) {
+        localStorage.setItem("role", role);
       }
 
       setLoginEmail("");
       setLoginPassword("");
 
-      if (adminRole === 1) {
+      // HIGHLIGHT: Bug fix - 'adminRole' ko 'role' se replace kiya gaya hai
+      if (role === 1) {
         Swal.fire({
           title: "Admin login detected",
           text: `Welcome, ${username}! Redirecting to admin verification page...`,
@@ -117,8 +122,9 @@ const AuthForm = () => {
       return;
     }
 
+    const apiUrl = process.env.REACT_APP_API_URL || "https://vigybag-backend.onrender.com";
     try {
-      await axios.post("https://vigybag-backend.onrender.com/api/auth/signup", {
+      await axios.post(`${apiUrl}/api/auth/signup`, {
         username,
         email: signupEmail,
         password: signupPassword,
@@ -143,6 +149,7 @@ const AuthForm = () => {
     }
   };
 
+  // HIGHLIGHT: Facebook login code is now restored and working alongside Google login.
   const handleSocialLogin = (provider) => {
     if (provider === "facebook") {
       const facebookProvider = new FacebookAuthProvider();
@@ -171,7 +178,9 @@ const AuthForm = () => {
           });
         });
     } else if (provider === "google") {
-      window.location.href = `https://vigybag-backend.onrender.com/auth/google`;
+      // HIGHLIGHT: URL ab .env file se aayega
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://vigybag-backend.onrender.com';
+      window.location.href = `${apiUrl}/auth/google`;
     }
   };
 
