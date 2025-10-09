@@ -4,7 +4,7 @@ import { createTransport } from 'nodemailer';
 import { json as _json, urlencoded as _urlencoded } from 'body-parser';
 import { send } from 'vite';
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 //Middleware to parse JSON bodies
 app.use(_json());
@@ -53,6 +53,8 @@ app.post('/send-email', async (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  const serverAddress = process.env.SERVER_URL || `http://localhost:${PORT}`;
+  
+  console.log(`🚀 Server is live and running on: ${serverAddress}`);
 });
 
