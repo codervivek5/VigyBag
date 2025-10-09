@@ -1,12 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const jwt = require("jsonwebtoken"); 
+const jwt = require("jsonwebtoken");
 const authController = require("../controllers/authController.js");
 
 // HIGHLIGHT: .env file se secret aur expiry time load karein
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
-const ACCESS_TOKEN_EXPIRES = process.env.ACCESS_TOKEN_EXPIRES;
+if (!ACCESS_TOKEN_SECRET) {
+  throw new Error('ACCESS_TOKEN_SECRET environment variable is required');
+}
+if (!ACCESS_TOKEN_EXPIRES) {
+  throw new Error('ACCESS_TOKEN_EXPIRES environment variable is required');
+}
 
 // --- Standard Auth Routes ---
 router.post("/signup", authController.signup);
@@ -17,7 +21,7 @@ router.post("/verify-otp", authController.verifyOtp);
 // --- Google OAuth Routes ---
 router.get(
   "/google",
-  
+
   passport.authenticate("google", {
     scope: ["profile", "email"],
   })
@@ -32,7 +36,7 @@ router.get(
   (req, res) => {
     // HIGHLIGHT: DEBUGGING KE LIYE LOGS ADD KIYE GAYE HAIN
     console.log("\n✅ [Google Callback] Route hit successfully.");
-    console.log("👤 User data from Google:", req.user);
+    console.log("👤 Google user authenticated:", req.user?._id);
 
     const payload = {
       sub: req.user._id,
@@ -44,16 +48,21 @@ router.get(
     });
 
     console.log("🔑 Generated Access Token:", accessToken);
-
     const username = req.user.username;
 
-    const redirectUrl = `https://vigy-bag.vercel.app/auth/success?token=${accessToken}&username=${username}`;
-    
-    console.log(`🚀 Redirecting to frontend: ${redirectUrl}`);
-    console.log("--------------------------------------------------\n");
-    // HIGHLIGHT: LOGS KA END
 
-    // Frontend par redirect karein
+    // Set secure HttpOnly cookie
+    res.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    });
+
+    const frontendUrl = process.env.FRONTEND_URL || 'https://vigy-bag.vercel.app';
+    const redirectUrl = `${frontendUrl}/auth/success?username=${username}`;
+
+    console.log(`🚀 Redirecting to frontend: ${redirectUrl}`);
     res.redirect(redirectUrl);
   }
 );

@@ -36,8 +36,15 @@ const Dashboard = () => {
       localStorage.setItem("accessToken", token);
       localStorage.setItem("username", usernameFromUrl);
       localStorage.setItem("isLoggedIn", "true");
-      // Role humein URL se nahi mil raha, isliye default 0 set kar sakte hain
-      localStorage.setItem("role", "0");
+
+      try {
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        const role = payload?.role ?? 0;
+        localStorage.setItem("role", String(role));
+      } catch (error) {
+        console.warn("Unable to decode role from token.", error);
+        localStorage.setItem("role", "0");
+      }
 
       // Success message dikhayein
       Swal.fire({
@@ -55,19 +62,49 @@ const Dashboard = () => {
 
   // Aapka baaki ka code...
   const initialProducts = [
-    { image: granola, title: "Snacker's Special Granola", price: 350, rating: 5 },
-    { image: cuttery, title: "Wooden Cutlery Set of 7", price: 1200, rating: 4 },
+    {
+      image: granola,
+      title: "Snacker's Special Granola",
+      price: 350,
+      rating: 5,
+    },
+    {
+      image: cuttery,
+      title: "Wooden Cutlery Set of 7",
+      price: 1200,
+      rating: 4,
+    },
     { image: basket, title: "Jute Cotton Basket", price: 399, rating: 4 },
     { image: shawls, title: "Premium Woolen Shawls", price: 5000, rating: 5 },
   ];
 
   const moreProducts = [
     { image: notebooks, title: "Eco-Friendly Notebook", price: 250, rating: 4 },
-    { image: toothbrushes, title: "Bamboo Toothbrush Set", price: 150, rating: 5 },
+    {
+      image: toothbrushes,
+      title: "Bamboo Toothbrush Set",
+      price: 150,
+      rating: 5,
+    },
     { image: towels, title: "Organic Cotton Towels", price: 600, rating: 4 },
-    { image: shoppingBags, title: "Reusable Shopping Bags", price: 300, rating: 5 },
-    { image: phoneCase, title: "Biodegradable Phone Case", price: 450, rating: 5 },
-    { image: journals, title: "Recycled Paper Journals", price: 200, rating: 4 },
+    {
+      image: shoppingBags,
+      title: "Reusable Shopping Bags",
+      price: 300,
+      rating: 5,
+    },
+    {
+      image: phoneCase,
+      title: "Biodegradable Phone Case",
+      price: 450,
+      rating: 5,
+    },
+    {
+      image: journals,
+      title: "Recycled Paper Journals",
+      price: 200,
+      rating: 4,
+    },
     { image: waterBottle, title: "Glass Water Bottle", price: 350, rating: 5 },
     { image: teaSet, title: "Organic Tea Set", price: 750, rating: 5 },
   ];
@@ -130,11 +167,10 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="flex-1 p-6 mt-10">
         {/* Header */}
-        <Header handleLogout={handleLogout} /> {/* Pass handleLogout to Header */}
-
+        <Header handleLogout={handleLogout} />{" "}
+        {/* Pass handleLogout to Header */}
         {/* Search Bar */}
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-
         {/* New Today Section */}
         <section>
           <div className="flex justify-between">
@@ -168,4 +204,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
