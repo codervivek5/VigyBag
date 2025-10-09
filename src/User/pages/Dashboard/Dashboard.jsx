@@ -38,7 +38,10 @@ const Dashboard = () => {
       localStorage.setItem("isLoggedIn", "true");
 
       try {
-        const payload = JSON.parse(atob(token.split(".")[1]));
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const padded = base64 + "=".repeat((4 - (base64.length % 4)) % 4);
+        const payload = JSON.parse(atob(padded));
         const role = payload?.role ?? 0;
         localStorage.setItem("role", String(role));
       } catch (error) {

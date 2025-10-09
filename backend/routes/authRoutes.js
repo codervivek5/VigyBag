@@ -5,12 +5,8 @@ const jwt = require("jsonwebtoken");
 const authController = require("../controllers/authController.js");
 
 // HIGHLIGHT: .env file se secret aur expiry time load karein
-if (!ACCESS_TOKEN_SECRET) {
-  throw new Error('ACCESS_TOKEN_SECRET environment variable is required');
-}
-if (!ACCESS_TOKEN_EXPIRES) {
-  throw new Error('ACCESS_TOKEN_EXPIRES environment variable is required');
-}
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const ACCESS_TOKEN_EXPIRES = process.env.ACCESS_TOKEN_EXPIRES;
 
 // --- Standard Auth Routes ---
 router.post("/signup", authController.signup);
@@ -49,7 +45,6 @@ router.get(
 
     console.log("🔑 Generated Access Token:", accessToken);
     const username = req.user.username;
-
 
     // Set secure HttpOnly cookie
     res.cookie('accessToken', accessToken, {

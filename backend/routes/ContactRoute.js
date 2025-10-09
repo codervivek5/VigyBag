@@ -4,7 +4,7 @@ import { createTransport } from 'nodemailer';
 import { json as _json, urlencoded as _urlencoded } from 'body-parser';
 import { send } from 'vite';
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 //Middleware to parse JSON bodies
 app.use(_json());
