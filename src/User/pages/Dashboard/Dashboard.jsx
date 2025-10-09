@@ -30,6 +30,12 @@ const Dashboard = () => {
     const token = searchParams.get("token");
     const usernameFromUrl = searchParams.get("username");
 
+    // Skip if already logged in
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true") {
+      return;
+    }
+
     // Agar URL mein token hai, to yeh Google se login hokar aaya hai
     if (token && usernameFromUrl) {
       // Data ko localStorage mein save karein
@@ -171,9 +177,7 @@ const Dashboard = () => {
       <main className="flex-1 p-6 mt-10">
         {/* Header */}
         <Header handleLogout={handleLogout} />{" "}
-        
         {/* Pass handleLogout to Header */}
-      
         {/* Search Bar */}
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
         {/* New Today Section */}
