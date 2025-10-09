@@ -171,7 +171,9 @@ const Dashboard = () => {
       <main className="flex-1 p-6 mt-10">
         {/* Header */}
         <Header handleLogout={handleLogout} />{" "}
+        
         {/* Pass handleLogout to Header */}
+      
         {/* Search Bar */}
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
         {/* New Today Section */}
