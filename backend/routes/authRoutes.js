@@ -17,6 +17,7 @@ router.post("/verify-otp", authController.verifyOtp);
 // --- Google OAuth Routes ---
 router.get(
   "/google",
+  
   passport.authenticate("google", {
     scope: ["profile", "email"],
   })

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import granola from "../../../assets/granola.jpg";
 import cuttery from "../../../assets/cuttery-set.jpg";
 import basket from "../../../assets/basket.png";
@@ -22,95 +23,53 @@ import Dropdown from "../../components/Dashboard/Dropdown";
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
+  // HIGHLIGHT: Yeh useEffect Google se redirect hokar aaye token ko handle karega
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get("email");
-    const username = params.get("username");
+    const token = searchParams.get("token");
+    const usernameFromUrl = searchParams.get("username");
 
-    if (email && username) {
-      localStorage.setItem("email", email);
+    // Agar URL mein token hai, to yeh Google se login hokar aaya hai
+    if (token && usernameFromUrl) {
+      // Data ko localStorage mein save karein
+      localStorage.setItem("accessToken", token);
+      localStorage.setItem("username", usernameFromUrl);
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("username", username);
-    }
-  }, [location]);
+      // Role humein URL se nahi mil raha, isliye default 0 set kar sakte hain
+      localStorage.setItem("role", "0");
 
+      // Success message dikhayein
+      Swal.fire({
+        title: "Login Successful!",
+        text: `Welcome, ${usernameFromUrl}!`,
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
+      // URL ko saaf karein taaki token dikhna band ho jaye
+      navigate("/dashboard", { replace: true });
+    }
+  }, [searchParams, navigate]);
+
+  // Aapka baaki ka code...
   const initialProducts = [
-    {
-      image: granola,
-      title: "Snacker's Special Granola",
-      price: 350,
-      rating: 5,
-    },
-    {
-      image: cuttery,
-      title: "Wooden Cutlery Set of 7",
-      price: 1200,
-      rating: 4,
-    },
-    {
-      image: basket,
-      title: "Jute Cotton Basket",
-      price: 399,
-      rating: 4,
-    },
-    {
-      image: shawls,
-      title: "Premium Woolen Shawls",
-      price: 5000,
-      rating: 5,
-    },
+    { image: granola, title: "Snacker's Special Granola", price: 350, rating: 5 },
+    { image: cuttery, title: "Wooden Cutlery Set of 7", price: 1200, rating: 4 },
+    { image: basket, title: "Jute Cotton Basket", price: 399, rating: 4 },
+    { image: shawls, title: "Premium Woolen Shawls", price: 5000, rating: 5 },
   ];
 
   const moreProducts = [
-    {
-      image: notebooks,
-      title: "Eco-Friendly Notebook",
-      price: 250,
-      rating: 4,
-    },
-    {
-      image: toothbrushes,
-      title: "Bamboo Toothbrush Set",
-      price: 150,
-      rating: 5,
-    },
-    {
-      image: towels,
-      title: "Organic Cotton Towels",
-      price: 600,
-      rating: 4,
-    },
-    {
-      image: shoppingBags,
-      title: "Reusable Shopping Bags",
-      price: 300,
-      rating: 5,
-    },
-    {
-      image: phoneCase,
-      title: "Biodegradable Phone Case",
-      price: 450,
-      rating: 5,
-    },
-    {
-      image: journals,
-      title: "Recycled Paper Journals",
-      price: 200,
-      rating: 4,
-    },
-    {
-      image: waterBottle,
-      title: "Glass Water Bottle",
-      price: 350,
-      rating: 5,
-    },
-    {
-      image: teaSet,
-      title: "Organic Tea Set",
-      price: 750,
-      rating: 5,
-    },
+    { image: notebooks, title: "Eco-Friendly Notebook", price: 250, rating: 4 },
+    { image: toothbrushes, title: "Bamboo Toothbrush Set", price: 150, rating: 5 },
+    { image: towels, title: "Organic Cotton Towels", price: 600, rating: 4 },
+    { image: shoppingBags, title: "Reusable Shopping Bags", price: 300, rating: 5 },
+    { image: phoneCase, title: "Biodegradable Phone Case", price: 450, rating: 5 },
+    { image: journals, title: "Recycled Paper Journals", price: 200, rating: 4 },
+    { image: waterBottle, title: "Glass Water Bottle", price: 350, rating: 5 },
+    { image: teaSet, title: "Organic Tea Set", price: 750, rating: 5 },
   ];
 
   const [products] = useState([...initialProducts, ...moreProducts]);
@@ -140,22 +99,27 @@ const Dashboard = () => {
     setShowViewLess(false);
   };
 
+  // HIGHLIGHT: Logout function ko Swal se update kiya gaya hai
   const handleLogout = () => {
-    try {
-      let confirmed = confirm("Are you sure you want to logout?");
-      if (confirmed) {
+    Swal.fire({
+      title: "Are you sure you want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Saare login-related items ko clear karein
         localStorage.removeItem("isLoggedIn");
         localStorage.removeItem("email");
         localStorage.removeItem("username");
-        alert("Logout Successfully and safely.");
-        navigate("/login");
-      } else {
-        return;
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("role");
+
+        navigate("/home");
       }
-    } catch (error) {
-      alert("Logout Failed. Try Again later");
-      console.log(error);
-    }
+    });
   };
 
   return (
@@ -166,7 +130,7 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="flex-1 p-6 mt-10">
         {/* Header */}
-        <Header />
+        <Header handleLogout={handleLogout} /> {/* Pass handleLogout to Header */}
 
         {/* Search Bar */}
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
@@ -204,3 +168,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
