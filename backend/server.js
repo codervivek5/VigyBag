@@ -6,7 +6,9 @@ const config = require("./config/config");
 connectDB();
 
 // Start the server
-const PORT = config.port;
+const PORT = config.port || 30000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+
+  const serverAddress = process.env.SERVER_URL || `http://localhost:${PORT}`;
+  console.log(`🚀 Server is live and running on: ${serverAddress}`);
 });
