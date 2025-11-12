@@ -14,7 +14,7 @@ dotenv.config();
 // Configs
 const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS, 10);
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
-const ACCESS_TOKEN_EXPIRES = process.env.ACCESS_TOKEN_EXPIRES; // short lived
+const ACCESS_TOKEN_EXPIRES = process.env.ACCESS_TOKEN_EXPIRES;
 const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
 const REFRESH_TOKEN_EXPIRES = process.env.REFRESH_TOKEN_EXPIRES; // longer lived
 
@@ -208,7 +208,7 @@ exports.otp = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) {
       // don't reveal registration state — respond with generic success message to avoid enumeration.
-      // But do not send email obviously.
+      // But do not send email, obviously.
       return res.status(200).json({ message: "If this email is registered, you will receive an OTP." });
     }
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/AdminNavbar/AdminNavbar';
 import SearchBar from '../components/AdminPanel/SearchBar';
 import ExportButton from '../components/AdminPanel/ExportButton';
 import StatsSummary from '../components/AdminPanel/StatsSummary';

@@ -1,7 +1,7 @@
 import React from "react";
 import gift from "../../../assets/giftcard.jpg";
-import { FaSearch } from "react-icons/fa";
-import { MdHeight } from "react-icons/md";
+// import { FaSearch } from "react-icons/fa";
+// import { MdHeight } from "react-icons/md";
 
 function Header() {
   return (

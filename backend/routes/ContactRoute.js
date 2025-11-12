@@ -2,7 +2,6 @@ require('dotenv').config(); //load environment variables
 import express from 'express';
 import { createTransport } from 'nodemailer';
 import { json as _json, urlencoded as _urlencoded } from 'body-parser';
-import { send } from 'vite';
 const app = express();
 const PORT = process.env.PORT || 3000;
 

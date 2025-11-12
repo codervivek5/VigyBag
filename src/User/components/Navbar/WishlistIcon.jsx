@@ -27,6 +27,6 @@ function WishlistIcon() {
       </div>
     </Link>
   )
-};
+}
 
 export default WishlistIcon;

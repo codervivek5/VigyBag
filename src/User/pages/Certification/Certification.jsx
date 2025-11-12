@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState,  useRef } from "react";
 import axios from "axios";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Certificate from "../../../assets/images/Certificate.png";
 import Swal from 'sweetalert2';
 import confetti from 'canvas-confetti';
-import { Route, Routes, Navigate } from "react-router-dom";
+// import { Route, Routes, Navigate } from "react-router-dom";
 
 function Certification() {
   const [githubUsername, setGithubUsername] = useState("");

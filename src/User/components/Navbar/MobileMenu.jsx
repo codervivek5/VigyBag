@@ -1,7 +1,7 @@
 // MobileMenu.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
+// import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 
 const MobileMenu = ({ isOpen, isLoggedIn, username, onClose }) => (
   <div className={`${isOpen ? "block" : "hidden"} md:hidden relative z-50`}>

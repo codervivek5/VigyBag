@@ -5,7 +5,7 @@ import { manageWishlistItem } from "../../redux/wishlist";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import PaymentPage from "../../pages/Payment/Payment";
+// import PaymentPage from "../../pages/Payment/Payment";
 
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {

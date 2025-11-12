@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import empty from "../../../assets/empty-cart.png";
 
-const CartEmpty = () => {
+const CartEmpty = () => {   
   const buttonBgClass =
     "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out mt-3";
 
