@@ -5,35 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38b2e442-4924-4f31-a7d1-ca3e2c8b4cac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/qodana_code_quality.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qodana.sarif.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/ContactRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/ContactRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/authRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/authRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/AdminLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdminLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/Pages/AdminPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/Pages/AdminPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/About/GiftHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/About/GiftHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/About/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/About/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Navbar/AuthButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Navbar/AuthButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Navbar/CartIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Navbar/CartIcon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Navbar/MobileMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Navbar/MobileMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Navbar/UserNavbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Navbar/UserNavbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Navbar/WishlistIcon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Navbar/WishlistIcon.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Order/OrderSummary.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Order/OrderSummary.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/components/Popular_Categories/ProductGrid.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/components/Popular_Categories/ProductGrid.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/Admin-Verification/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/Admin-Verification/Admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/Certification/Certification.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/Certification/Certification.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/Dashboard/dashboard-wishlist.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/Dashboard/dashboard-wishlist.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/Order/CartEmpty.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/Order/CartEmpty.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/Order/Checkout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/Order/Checkout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/Popular_Categories/Popular_Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/Popular_Categories/Popular_Categories.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/pages/UserAuth/UserAuth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/pages/UserAuth/UserAuth.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qodana.sarif.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qodana.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,18 +93,6 @@
   <component name="QodanaCIConfigService">
     <option name="path" value="$PROJECT_DIR$/.github/workflows/qodana_code_quality.yml" />
   </component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localReportPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="C:\Users\VivekKumar\Desktop\Open_source_project\VigyBag\qodana.sarif.json" />
-        <option name="reportGuid" value="72b4c51f-45f0-45df-a2a0-ded94d076eed" />
-        <option name="reportName" value="VigyBag/qodana/2025-10-11" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription path="C:\Users\VivekKumar\Desktop\Open_source_project\VigyBag\qodana.sarif.json" reportGuid="72b4c51f-45f0-45df-a2a0-ded94d076eed" reportId="VigyBag/qodana/2025-10-11" />
@@ -155,7 +116,7 @@
       <workItem from="1760107276525" duration="339000" />
       <workItem from="1760107653011" duration="3790000" />
       <workItem from="1762585260884" duration="3361000" />
-      <workItem from="1762948992832" duration="3437000" />
+      <workItem from="1762948992832" duration="3796000" />
     </task>
     <servers />
   </component>
