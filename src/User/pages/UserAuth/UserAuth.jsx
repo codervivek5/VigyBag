@@ -86,7 +86,7 @@ const AuthForm = () => {
     setLoading(true);
     // HIGHLIGHT: Ab API URL hardcoded nahi hai .env file se aayega
     const apiUrl =
-      process.env.REACT_APP_API_URL || "https://vigybag-backend.onrender.com";
+      "http://localhost:3000";
     try {
       const response = await axios.post(`${apiUrl}/auth/login`, {
         email: loginEmail,
@@ -95,7 +95,7 @@ const AuthForm = () => {
 
       handleLoginSuccess(response.data); // Login success ke baad kaam karein
     } catch (error) {
-      Swal.fire({
+      await Swal.fire({
         title: "Login failed",
         text: error.response?.data?.message,
         icon: "error",
@@ -111,13 +111,13 @@ const AuthForm = () => {
     e.preventDefault();
     setLoading(true);
     if (signupPassword !== confirmPassword) {
-      Swal.fire({ title: "Passwords do not match", icon: "error" });
+      await Swal.fire({ title: "Passwords do not match", icon: "error" });
       setLoading(false);
       return;
     }
     // ... baaki validation ...
     const apiUrl =
-      process.env.REACT_APP_API_URL || "https://vigybag-backend.onrender.com";
+      "http://localhost:3000";
     try {
       await axios.post(`${apiUrl}/api/auth/signup`, {
         username,
@@ -126,13 +126,13 @@ const AuthForm = () => {
         phone,
       });
       setIsFlipped(false);
-      Swal.fire({
+      await Swal.fire({
         title: "Signup successful!",
         text: "Please log in with your new account",
         icon: "success",
       });
     } catch (error) {
-      Swal.fire({
+      await Swal.fire({
         title: "Signup failed",
         text: error.response?.data?.message,
         icon: "error",
@@ -166,7 +166,7 @@ const AuthForm = () => {
         });
     } else if (provider === "google") {
       const apiUrl =
-        process.env.REACT_APP_API_URL || "https://vigybag-backend.onrender.com";
+        "http://localhost:3000";
       // Google ke liye backend par redirect karein
       window.location.href = `${apiUrl}/auth/google`;
     }

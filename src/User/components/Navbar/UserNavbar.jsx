@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import CartIcon from "./CartIcon";
 import AuthButton from "./AuthButton";
 import MobileMenu from "./MobileMenu";
-import { FaUserCircle } from "react-icons/fa";
+// import { FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import WishlistIcon from "./WishlistIcon";
 

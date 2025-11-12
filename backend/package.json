@@ -4,7 +4,7 @@
   "description": "VigyBag server and backend credentials",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "prod": "node server.js",
     "lint": "eslint .",
@@ -41,7 +41,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.0",
     "mongoose-findorcreate": "^4.0.0",
-    "multer": "^1.4.5-lts.1",
+    "multer": "2.0.2",
     "nodemailer": "^6.10.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",

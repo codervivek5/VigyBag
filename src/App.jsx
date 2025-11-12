@@ -33,7 +33,7 @@ import EPR_Page from "./User/pages/EPRPage/EPR_Page";
 import FAQ from "./User/pages/FAQ/Faq";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
-import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
+// import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 import NotificationPage from "./User/pages/Dashboard/NotificationPage";
 import ProfilePage from "./User/pages/Dashboard/ProfilePage";
@@ -114,6 +114,10 @@ export default function App() {
           />
           <Route
             path="latestInMarket/storageBaskets"
+            element={<StorageBaskets />}
+          />
+          <Route
+            path="auth/success"
             element={<StorageBaskets />}
           />
           <Route

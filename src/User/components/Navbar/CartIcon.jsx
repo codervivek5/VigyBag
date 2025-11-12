@@ -28,6 +28,6 @@ function CartIcon() {
       </div>
     </Link>
   )
-};
+}
 
 export default CartIcon;
