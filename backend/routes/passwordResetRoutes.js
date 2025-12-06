@@ -2,45 +2,69 @@ const express = require("express");
 const router = express.Router();
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+const fs = require("fs-extra");
+const path = require("path");
 const User = require("../models/User");
+
+// Helper: generic server error response
+const serverError = (res, err) => {
+  console.error("Password Reset Error:", err);
+  return res.status(500).json({ message: "Something went wrong. Please try again later." });
+};
 
 router.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: "User with this email does not exist." });
+      return res.status(200).json({ message: "If your email is registered, you will receive a password reset link." });
     }
 
     const token = crypto.randomBytes(20).toString("hex");
     user.resetPasswordToken = token;
-    user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+    // --- VALIDITY UPDATED TO 10 MINUTES ---
+    user.resetPasswordExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
     await user.save();
 
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT, 10),
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASSWORD,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
+    const resetUrl = `${process.env.PASSWORD_RESET_URL}/${token}`;
+
+    // Read and prepare the HTML template
+    const templatePath = path.join(__dirname, "..", "templates", "passwordResetTemplate.html");
+    let htmlTemplate;
+    try {
+        htmlTemplate = await fs.readFile(templatePath, "utf-8");
+    } catch (err) {
+        console.error("Email template read error:", err);
+        return res.status(500).json({ message: "Unable to build email." });
+    }
+
+    const currentYear = new Date().getFullYear();
+    const finalHtml = htmlTemplate
+        .replace(/{{resetUrl}}/g, resetUrl)
+        .replace(/{{currentYear}}/g, currentYear);
+
     const mailOptions = {
       to: user.email,
-      from: "passwordreset@demo.com",
-      subject: "Password Reset",
-      text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
-        Please click on the following link, or paste this into your browser to complete the process:\n\n
-        http://${req.headers.host}/reset-password/${token}\n\n
-        If you did not request this, please ignore this email and your password will remain unchanged.\n`,
+      from: `VigyBag <${process.env.SMTP_USER}>`,
+      subject: "VigyBag Password Reset Request",
+      html: finalHtml,
+      text: `Please reset your password by clicking the following link: ${resetUrl}`
     };
 
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Password reset email sent." });
+    res.status(200).json({ message: "If your email is registered, you will receive a password reset link." });
   } catch (error) {
-    res.status(500).json({ message: "Server error." });
+    return serverError(res, error);
   }
 });
 
@@ -52,14 +76,12 @@ router.get("/reset-password/:token", async (req, res) => {
     });
 
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Password reset token is invalid or has expired." });
+      return res.status(400).json({ message: "Password reset token is invalid or has expired." });
     }
 
-    res.status(200).json({ message: "Token is valid.", userId: user._id });
+    res.status(200).json({ message: "Token is valid." });
   } catch (error) {
-    res.status(500).json({ message: "Server error." });
+    return serverError(res, error);
   }
 });
 
@@ -72,24 +94,32 @@ router.post("/reset-password/:token", async (req, res) => {
     });
 
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: "Password reset token is invalid or has expired." });
+      return res.status(400).json({ message: "Password reset token is invalid or has expired." });
+    }
+    
+    if (typeof user.setPassword !== 'function') {
+        const bcrypt = require('bcrypt');
+        const saltRounds = parseInt(process.env.SALT_ROUNDS, 10) || 10;
+        user.password = await bcrypt.hash(password, saltRounds);
+    } else {
+        await new Promise((resolve, reject) => {
+            user.setPassword(password, (err) => {
+                if (err) return reject(err);
+                resolve();
+            });
+        });
     }
 
-    user.setPassword(password, async (err) => {
-      if (err) {
-        return res.status(500).json({ message: "Error resetting password." });
-      }
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+    await user.save();
 
-      user.resetPasswordToken = undefined;
-      user.resetPasswordExpires = undefined;
-      await user.save();
-      res.status(200).json({ message: "Password has been reset." });
-    });
+    res.status(200).json({ message: "Password has been successfully reset." });
+
   } catch (error) {
-    res.status(500).json({ message: "Server error." });
+    return serverError(res, error);
   }
 });
 
 module.exports = router;
+

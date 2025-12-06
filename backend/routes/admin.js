@@ -1,3 +1,4 @@
+// admin.js
 const { Router } = require('express');
 const router = Router();
 const Admin = require('../models/Admin');
@@ -6,7 +7,6 @@ const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
  const { email, password } = req.body;
-
 
 //   console.log("Received email:", email);
 //   console.log("Received password:", password);

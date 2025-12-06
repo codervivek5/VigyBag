@@ -4,6 +4,8 @@ import ProductGrid from "../../components/Popular_Categories/ProductGrid";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
+import { normalizeAndFilterByRating } from "../../utils/productFilters";
+
 
 
 function BeautyWellness() {
@@ -32,7 +34,7 @@ function BeautyWellness() {
               image: product.images[0] || "",
               discountPercentage: product.discountPercentage,
               rating: {
-                rate: product.rating,
+                rate:  Math.round(product.rating),
                 count: product.reviews ? product.reviews.length : 0,
               },
             }));
@@ -69,11 +71,8 @@ function BeautyWellness() {
           (product) => product.price <= parseInt(priceFilter)
         );
       }
-      if (ratingFilter) {
-        updatedProducts = updatedProducts.filter(
-          (product) => Math.round(product.rating.rate) >= ratingFilter
-        );
-      }
+      updatedProducts = normalizeAndFilterByRating(updatedProducts, ratingFilter);
+
       setFilteredProducts(updatedProducts);
     };
 

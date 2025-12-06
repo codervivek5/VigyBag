@@ -1,5 +1,6 @@
 import React from 'react';
-import Navbar from "../../components/Navbar/UserNavbar";
+// import Navbar from "../../components/Navbar/UserNavbar";
+
 
 function Popular_Categories() {
   return (

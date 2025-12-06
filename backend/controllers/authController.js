@@ -1,257 +1,314 @@
+// authController.js
 const User = require("../models/User.js");
+const Admin = require("../models/Admin.js");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
-const crypto = require("crypto");
-const Admin = require("../models/Admin.js");
+const fs = require("fs-extra");
+const path = require("path");
+const validator = require("validator");
 
 dotenv.config();
 
+// Configs
+const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS, 10);
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+const ACCESS_TOKEN_EXPIRES = process.env.ACCESS_TOKEN_EXPIRES;
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
+const REFRESH_TOKEN_EXPIRES = process.env.REFRESH_TOKEN_EXPIRES; // longer lived
+
+// OTP Configs  
+
+const OTP_TTL_MS = (process.env.OTP_TTL_MINUTES ? parseInt(process.env.OTP_TTL_MINUTES) : 10) * 60 * 1000; 
+const OTP_REQUEST_WINDOW_MS = (process.env.OTP_WINDOW_MINUTES ? parseInt(process.env.OTP_WINDOW_MINUTES) : 60) * 60 * 1000; // window length for request counting
+const OTP_MAX_REQUESTS_PER_WINDOW = parseInt(process.env.OTP_MAX_REQUESTS_PER_WINDOW, 10) // max OTP requests per window
+
+// Setup transporter from env (preferred), fallback to nodemailer's well-known Gmail if provided (less recommended)
+const transporter = nodemailer.createTransport(
+  process.env.SMTP_HOST
+    ? {
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT, 10),
+      secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    }
+    : {
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    }
+);
+
+// Helper: generate numeric OTP
+const generateOTP = () => {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+};
+
+// Helper: create tokens
+const signAccessToken = (payload) => {
+  return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: ACCESS_TOKEN_EXPIRES });
+};
+const signRefreshToken = (payload) => {
+  return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: REFRESH_TOKEN_EXPIRES });
+};
+
+// Helper: generic server error response
+const serverError = (res, err) => {
+  console.error(err);
+  return res.status(500).json({ message: "Something went wrong. Please try again later." });
+};
+
+// ---------------- SIGNUP ----------------
 exports.signup = async (req, res) => {
   try {
-    const { username, email, password, phone } = req.body;
+    const { username, email, password, phone } = req.body || {};
 
-    // Validate if all required fields are present
+    // Basic presence validation
     if (!username || !email || !password || !phone) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "All fields are required." });
     }
 
-    // Validate email format
-    const emailRegex = /^\S+@\S+\.\S+$/;
-    if (!emailRegex.test(email)) {
-      return res
-        .status(400)
-        .json({ message: "Please enter a valid email address" });
+    // More robust validation
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({ message: "Invalid email format." }); 
     }
 
-    // Validate phone number format
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(phone)) {
-      return res
-        .status(400)
-        .json({ message: "Please enter a 10-digit phone number" });
+    if (!/^\d{10}$/.test(phone)) {
+      return res.status(400).json({ message: "Phone must be 10 digits." });
     }
 
-    // Check if username already exists
-    const existingUsername = await User.findOne({ username });
-    if (existingUsername) {
-      return res.status(400).json({ message: "Username already exists" });
+    if (typeof username !== "string" || username.length < 3) {
+      return res.status(400).json({ message: "Username must be at least 3 characters." });
     }
 
-    // Check if email already exists
-    const existingEmail = await User.findOne({ email });
-    if (existingEmail) {
-      return res.status(400).json({ message: "Email already exists" });
+    // Password strength minimal enforcement (customize as needed)
+    if (password.length < 8) {
+      return res.status(400).json({ message: "Password must be at least 8 characters." });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+        // Check uniqueness separately
+    const existingUserByEmail = await User.findOne({ email }).lean();
+    if (existingUserByEmail) {
+      return res.status(400).json({ message: "Email already exists." });
+    }
+
+    const existingUserByUsername = await User.findOne({ username }).lean();
+    if (existingUserByUsername) {
+      return res.status(400).json({ message: "Username already exists." });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+
     const newUser = await User.create({
       username,
       email,
       password: hashedPassword,
       phone,
+      role: 0, // default role
     });
 
-    res.status(201).json({ message: "User created successfully", newUser });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    // Return minimal info (no sensitive data)
+    return res.status(201).json({ message: "Account created successfully." });
+  } catch (err) {
+    return serverError(res, err);
   }
 };
 
+// ---------------- LOGIN ----------------
+// This endpoint handles normal user login and returns tokens.
+// Admin login should ideally be on a separate endpoint for admin dashboard.
 exports.login = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const admin = await Admin.findOne({ email });
-    if (admin) {
-      const isMatch = await bcrypt.compare(password, admin.password);
-      if (isMatch) {
-        const adminRole = 1;
-        const adminUsername = admin.username;
+    const { email, password } = req.body || {};
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required." });
+    }
 
-        await User.updateOne(
-          { email },
-          { $set: { role: adminRole, username: adminUsername } }
-        );
+    // Find user (do not reveal whether email exists)
+    const user = await User.findOne({ email });
+    if (!user) {
+      // small delay to mitigate user enumeration timing
+      await new Promise((r) => setTimeout(r, 300));
+      return res.status(401).json({ message: "Invalid email or password." });
+    }
 
-        return res.status(200).json({
-          message: "Admin access granted.",
-          adminrole: adminRole,
-          username: adminUsername,
-        });
-      } else {
-        return res.status(401).json({ message: "Invalid admin password" });
+    // Optional: account lockout after repeated failed logins
+    const LOCK_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+    const MAX_FAILED = parseInt(process.env.MAX_FAILED_LOGIN || "5", 10);
+
+    if (user.failedLogin && user.lastFailedAt) {
+      const lastFailedAge = Date.now() - new Date(user.lastFailedAt).getTime();
+      if (user.failedLogin >= MAX_FAILED && lastFailedAge < LOCK_WINDOW_MS) {
+        return res.status(429).json({ message: "Too many attempts. Try again later." });
+      }
+      // Reset failed count if old
+      if (lastFailedAge >= LOCK_WINDOW_MS) {
+        user.failedLogin = 0;
+        user.lastFailedAt = undefined;
       }
     }
 
-    // Normal user login
-    const user = await User.findOne({ email });
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ message: "Invalid email or password" });
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      // increment failed count
+      user.failedLogin = (user.failedLogin || 0) + 1;
+      user.lastFailedAt = new Date();
+      await user.save();
+      return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    // Send username along with success message
-    res.status(200).json({
-      message: "Login successful",
+    // reset failed counters on success
+    user.failedLogin = 0;
+    user.lastFailedAt = undefined;
+    await user.save();
+
+    // If admin should be handled: check Admin collection but do not overwrite user doc
+    const admin = await Admin.findOne({ email });
+    let role = user.role || 0;
+    if (admin) {
+      // require admin password separately (admins should use admin login route ideally)
+      const adminPasswordMatch = await bcrypt.compare(password, admin.password);
+      if (adminPasswordMatch) {
+        role = 1;
+      }
+      // do not overwrite user data; log if needed
+    }
+
+    // Issue tokens
+    const accessToken = signAccessToken({ sub: user._id.toString(), role });
+    const refreshToken = signRefreshToken({ sub: user._id.toString(), role });
+
+    // Optionally store refresh token hash in DB for revocation (not implemented here)
+    return res.status(200).json({
+      message: "Login successful.",
+      accessToken,
+      refreshToken,
       username: user.username,
+      role,
     });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    return serverError(res, err);
   }
 };
 
-const generateOTP = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-};
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-
+// ---------------- OTP SEND ----------------
 exports.otp = async (req, res) => {
   try {
-    const { email } = req.body;
-
-    // Check if the email is registered
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: "Email not registered" });
+    const { email } = req.body || {};
+    if (!email || !validator.isEmail(email)) {
+      return res.status(400).json({ message: "Invalid request." });
     }
 
-    // Generate OTP
-    const otp = generateOTP();
+    const user = await User.findOne({ email });
+    if (!user) {
+      // don't reveal registration state — respond with generic success message to avoid enumeration.
+      // But do not send email, obviously.
+      return res.status(200).json({ message: "If this email is registered, you will receive an OTP." });
+    }
 
-    // Save OTP to user's document or in-memory store
-    user.otp = otp;
-    user.otpExpires = Date.now() + 3600000; // OTP expires in 1 hour
+    // Rate limiting per user (sliding window)
+    const now = Date.now();
+    user.otpRequests = user.otpRequests || [];
+    // keep only requests within the window
+    user.otpRequests = user.otpRequests.filter((ts) => now - ts < OTP_REQUEST_WINDOW_MS);
+    if (user.otpRequests.length >= OTP_MAX_REQUESTS_PER_WINDOW) {
+      return res.status(429).json({ message: "Too many OTP requests. Try again later." });
+    }
+
+    // push this request
+    user.otpRequests.push(now);
+
+    // Generate OTP and hash it
+    const otp = generateOTP();
+    const otpHash = await bcrypt.hash(otp, SALT_ROUNDS);
+    user.otp = otpHash;
+    user.otpExpires = new Date(Date.now() + OTP_TTL_MS);
     await user.save();
 
-    // Send OTP via email
+    // Read external template (async)
+    const templatePath = path.join(__dirname, "..", "templates", "otpEmailTemplate.html");
+    let htmlTemplate;
+    try {
+      htmlTemplate = await fs.readFile(templatePath, "utf-8");
+    } catch (err) {
+      console.error("Email template read error:", err);
+      return res.status(500).json({ message: "Unable to build email." });
+    }
+
+    // Replace placeholders (simple safe replacement)
+    const currentDate = new Date().toLocaleDateString();
+    const currentYear = new Date().getFullYear();
+
+    let finalHtml = htmlTemplate
+      .replace(/{{username}}/g, user.username || "Customer")
+      .replace(/{{otp}}/g, otp)
+      .replace(/{{currentDate}}/g, currentDate)
+      .replace(/{{currentYear}}/g, currentYear);
+
     const mailOptions = {
-      from: process.env.EMAIL,
+      from: process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.EMAIL,
       to: email,
-      subject: "Your OTP Code for VIGYBAG",
-      html: `
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-          <title>VigyBag</title>
-          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-        </head>
-        <body style="margin: 0; font-family: 'Poppins', sans-serif; background: #ffffff; font-size: 14px;">
-          <div style="max-width: 680px; margin: 0 auto; padding: 45px 30px 60px; background: #f4f7ff; background-image: url('https://archisketch-resources.s3.ap-northeast-2.amazonaws.com/vrstyler/1661497957196_595865/email-template-background-banner'); background-repeat: no-repeat; background-size: 800px 452px; background-position: top center; font-size: 14px; color: #434343;">
-            <header>
-              <table style="width: 100%;">
-                <tbody>
-                  <tr style="height: 0;">
-                    <td>
-                      <img alt="VigyBag" src="https://www.vigybag.com/assets/Logo-HJo2K1MQ.svg" height="30px" />
-                    </td>
-                    <td style="text-align: right;">
-                      <span style="font-size: 16px; line-height: 30px; color: #ffffff;">${new Date().toLocaleDateString()}</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </header>
-
-            <main>
-              <div style="margin: 0; margin-top: 70px; padding: 92px 30px 115px; background: #ffffff; border-radius: 30px; text-align: center;">
-                <div style="width: 100%; max-width: 489px; margin: 0 auto;">
-                  <h1 style="margin: 0; font-size: 24px; font-weight: 500; color: #1f1f1f;">
-                    Your OTP
-                  </h1>
-                  <p style="margin: 0; margin-top: 17px; font-size: 16px; font-weight: 500;">
-                    Hello ${user.username || "Customer"},
-                  </p>
-                  <p style="margin: 0; margin-top: 17px; font-weight: 500; letter-spacing: 0.56px;">
-                    Thank you for choosing VigyBag. Use the following OTP to complete your verification process. The OTP is valid for <span style="font-weight: 600; color: #1f1f1f;">1 hour</span>. Do not share this code with anyone.
-                  </p>
-                  <p style="margin: 0; margin-top: 60px; font-size: 40px; font-weight: 600; letter-spacing: 25px; color: #ba3d4f;">
-                    ${otp}
-                  </p>
-                </div>
-              </div>
-
-              <p style="max-width: 400px; margin: 0 auto; margin-top: 90px; text-align: center; font-weight: 500; color: #8c8c8c;">
-                Need help? Ask at
-                <a href="mailto:vigybag@gmail.com" style="color: #499fb6; text-decoration: none;">vigybag@gmail.com</a>
-                or visit our
-                <a href="https://vigybag.com/help" target="_blank" style="color: #499fb6; text-decoration: none;">Help Center</a>
-              </p>
-            </main>
-
-            <footer style="width: 100%; max-width: 490px; margin: 20px auto 0; text-align: center; border-top: 1px solid #e6ebf1;">
-              <p style="margin: 0; margin-top: 40px; font-size: 16px; font-weight: 600; color: #434343;">
-                VigyBag
-              </p>
-              <p style="margin: 0; margin-top: 8px; color: #434343;">
-                Address 540, City, State.
-              </p>
-              <div style="margin: 0; margin-top: 16px;">
-                <a href="https://facebook.com/vigybag" target="_blank" style="display: inline-block;">
-                  <img width="36px" alt="Facebook" src="https://archisketch-resources.s3.ap-northeast-2.amazonaws.com/vrstyler/1661502815169_682499/email-template-icon-facebook" />
-                </a>
-                <a href="https://instagram.com/vigybag" target="_blank" style="display: inline-block; margin-left: 8px;">
-                  <img width="36px" alt="Instagram" src="https://archisketch-resources.s3.ap-northeast-2.amazonaws.com/vrstyler/1661504218208_684135/email-template-icon-instagram" />
-                </a>
-                <a href="https://twitter.com/vigybag" target="_blank" style="display: inline-block; margin-left: 8px;">
-                  <img width="36px" alt="Twitter" src="https://archisketch-resources.s3.ap-northeast-2.amazonaws.com/vrstyler/1661503043040_372004/email-template-icon-twitter" />
-                </a>
-                <a href="https://youtube.com/vigybag" target="_blank" style="display: inline-block; margin-left: 8px;">
-                  <img width="36px" alt="Youtube" src="https://archisketch-resources.s3.ap-northeast-2.amazonaws.com/vrstyler/1661503195931_210869/email-template-icon-youtube" />
-                </a>
-              </div>
-              <p style="margin: 0; margin-top: 16px; color: #434343;">
-                Copyright © ${new Date().getFullYear()} VigyBag. All rights reserved.
-              </p>
-            </footer>
-          </div>
-        </body>
-      </html>
-    `,
+      subject: "Your VigyBag verification code",
+      html: finalHtml,
     };
+
+    // Send email
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        return res.status(500).json({ error: error.message });
+        console.error("SendMail error:", error);
+        // Do not expose details to client
+        return res.status(500).json({ message: "Failed to send OTP. Please try again later." });
       }
-      return res.status(200).json({ message: "OTP sent successfully" });
+      // Respond generic success to avoid enumeration timing differences
+      return res.status(200).json({ message: "If this email is registered, you will receive an OTP." });
     });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
+  } catch (err) {
+    return serverError(res, err);
   }
 };
 
+// ---------------- OTP VERIFY ----------------
 exports.verifyOtp = async (req, res) => {
   try {
-    const { email, otp } = req.body;
+    const { email, otp } = req.body || {};
+    if (!email || !otp || !validator.isEmail(email)) {
+      return res.status(400).json({ message: "Invalid email or OTP." });
+    }
 
-    // Find the user by email
     const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!user || !user.otp || !user.otpExpires) {
+      // Generic failure
+      return res.status(400).json({ message: "Invalid code or expired." });
     }
 
-    if (user.otp !== otp) {
-      return res.status(400).json({ message: "Invalid OTP" });
+    if (Date.now() > new Date(user.otpExpires).getTime()) {
+      // Clear OTP fields
+      user.otp = undefined;
+      user.otpExpires = undefined;
+      user.otpRequests = user.otpRequests || [];
+      await user.save();
+      return res.status(400).json({ message: "OTP expired." });
     }
 
-    if (Date.now() > user.otpExpires) {
-      return res.status(400).json({ message: "OTP has expired" });
+    const match = await bcrypt.compare(String(otp), user.otp);
+    if (!match) {
+      return res.status(400).json({ message: "Invalid code." });
     }
 
+    // success: clear otp fields
     user.otp = undefined;
     user.otpExpires = undefined;
+    user.otpRequests = [];
     await user.save();
 
-    return res.status(200).json({ message: "OTP verified successfully" });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(200).json({ message: "OTP verified successfully." });
+  } catch (err) {
+    return serverError(res, err);
   }
 };

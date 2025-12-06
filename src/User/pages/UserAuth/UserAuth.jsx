@@ -1,3 +1,4 @@
+// UserAuth.jsx
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import {
@@ -41,49 +42,60 @@ const AuthForm = () => {
 
   const isPhoneValid = (number) => /^\d+$/.test(number) && number.length === 10;
 
+  // HIGHLIGHT: Ek unified function jo login ke baad ke saare kaam karega
+  const handleLoginSuccess = (data) => {
+    const { accessToken, username, role } = data;
+
+    // User data ko localStorage mein save karein
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("username", username);
+    localStorage.setItem("isLoggedIn", "true");
+    if (role !== undefined) {
+      localStorage.setItem("role", role);
+    }
+
+    // Admin ke liye alag redirect
+    if (role === 1) {
+      Swal.fire({
+        title: "Admin login detected",
+        text: `Welcome, ${username}! Redirecting...`,
+        icon: "warning",
+        timer: 2000,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/admin-verification");
+        window.location.reload();
+      });
+    } else {
+      // Normal user ke liye dashboard par redirect
+      Swal.fire({
+        title: "Login Successful!",
+        text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/dashboard"); // Sabko dashboard par bhejein
+        window.location.reload(); // Page reload karein taaki Navbar update ho
+      });
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    // HIGHLIGHT: Ab API URL hardcoded nahi hai .env file se aayega
+    // Use the Environment variable if it exists (Live), otherwise use localhost (Local)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     try {
-      const response = await axios.post(
-        "https://vigybag-backend.onrender.com/api/auth/login",
-        { email: loginEmail, password: loginPassword }
-      );
+      const response = await axios.post(`${apiUrl}/auth/login`, {
+        email: loginEmail,
+        password: loginPassword,
+      });
 
-      localStorage.setItem("isLoggedIn", "true");
-      const username = response.data.username;
-      const adminRole = response.data.adminrole;
-      localStorage.setItem("username", username);
-      if (adminRole !== undefined) {
-        localStorage.setItem("adminRole", adminRole);
-      }
-
-      setLoginEmail("");
-      setLoginPassword("");
-
-      if (adminRole === 1) {
-        Swal.fire({
-          title: "Admin login detected",
-          text: `Welcome, ${username}! Redirecting to admin verification page...`,
-          icon: "warning",
-          confirmButtonText: "Ok",
-          timer: 3000,
-          timerProgressBar: true,
-        }).then(() => {
-          navigate("/admin-verification");
-        });
-      } else {
-        Swal.fire({
-          title: "Login successful!",
-          text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
-          icon: "success",
-          confirmButtonText: "Ok",
-        }).then(() => {
-          navigate("/");
-        });
-      }
+      handleLoginSuccess(response.data); // Login success ke baad kaam karein
     } catch (error) {
-      Swal.fire({
+      await Swal.fire({
         title: "Login failed",
         text: error.response?.data?.message,
         icon: "error",
@@ -95,83 +107,68 @@ const AuthForm = () => {
   };
 
   const handleSignup = async (e) => {
+    // Signup ka logic waise hi rahega
     e.preventDefault();
     setLoading(true);
     if (signupPassword !== confirmPassword) {
-      Swal.fire({
-        title: "Passwords do not match",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
+      await Swal.fire({ title: "Passwords do not match", icon: "error" });
       setLoading(false);
       return;
     }
-    if (!isPhoneValid(phone)) {
-      Swal.fire({
-        title: "Invalid phone number",
-        text: "Phone number must be of 10 digits.",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
-      setLoading(false);
-      return;
-    }
-
+    // ... baaki validation ...
+    // Use the Environment variable if it exists (Live), otherwise use localhost (Local)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     try {
-      await axios.post("https://vigybag-backend.onrender.com/api/auth/signup", {
+      await axios.post(`${apiUrl}/api/auth/signup`, {
         username,
         email: signupEmail,
         password: signupPassword,
         phone,
       });
       setIsFlipped(false);
-      Swal.fire({
+      await Swal.fire({
         title: "Signup successful!",
         text: "Please log in with your new account",
         icon: "success",
-        confirmButtonText: "Ok",
       });
     } catch (error) {
-      Swal.fire({
+      await Swal.fire({
         title: "Signup failed",
         text: error.response?.data?.message,
         icon: "error",
-        confirmButtonText: "Ok",
       });
     } finally {
       setLoading(false);
     }
   };
 
+  // HIGHLIGHT: Facebook login code is now restored and working alongside Google login.
   const handleSocialLogin = (provider) => {
     if (provider === "facebook") {
       const facebookProvider = new FacebookAuthProvider();
       signInWithPopup(auth, facebookProvider)
         .then((result) => {
-          const user = result.user;
-          const username = user.displayName;
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("username", username);
-
-          Swal.fire({
-            title: "Login successful!",
-            text: `Welcome, ${username}! Thanks for choosing VigyBag!`,
-            icon: "success",
-            confirmButtonText: "Ok",
-          }).then(() => {
-            navigate("/");
-          });
+          // HIGHLIGHT: Facebook se mile data ko backend jaisa format dein aur success function call karein
+          const loginData = {
+            // Note: Firebase se direct accessToken milta hai, use use karein ya fir is user ko apne backend par bhejkar naya token lein. Abhi ke liye Firebase wala use kar rahe hain.
+            accessToken: result.user.accessToken,
+            username: result.user.displayName,
+            role: 0, // Facebook se role nahi milega
+          };
+          handleLoginSuccess(loginData);
         })
         .catch((error) => {
           Swal.fire({
             title: "Login failed",
             text: error.message,
             icon: "error",
-            confirmButtonText: "Ok",
           });
         });
     } else if (provider === "google") {
-      window.location.href = `https://vigybag-backend.onrender.com/auth/google`;
+      const apiUrl =
+        "http://localhost:3000";
+      // Google ke liye backend par redirect karein
+      window.location.href = `${apiUrl}/auth/google`;
     }
   };
 

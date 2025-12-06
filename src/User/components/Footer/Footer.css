@@ -274,54 +274,34 @@
 }
 
 .socials{ display:flex; gap:12px; margin-top:14px; align-items:center }
-.social-link{
-  display: grid;
-  place-items: center;
-  width:44px;
-  height:44px;
-  border-radius:10px;
-  background:transparent;
-  transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease;
-}
-.social-icon {
-  font-size: 24px; /* Increase icon size */
-  color: var(--heading);
-  transition: color .3s ease;
-  transform: translateY(1px); /* Final nudge for perfect centering */
-}
-/* New Social Icon Hover Effect */
-.social-link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.social-link:hover .social-icon {
-  color: #fff;
-  transform: translateY(1px); /* Maintain nudge on hover */
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 45px;
+  align-items: center;
 }
 
 .social-link {
-  position: relative;
-  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #555;
+  transition: all 0.3s ease;
 }
 
-.social-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  z-index: -1;
-  opacity: 0;
-  background: radial-gradient(circle, rgba(46, 164, 79, 0.5) 0%, transparent 80%);
-  transform: scale(0.5);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-link:hover::after {
-  opacity: 1;
+.social-link:hover {
   transform: scale(1.2);
 }
+
+/* अलग-अलग icons के लिए brand colors */
+.social-link[aria-label="Instagram"]:hover { color: #e1306c; }
+.social-link[aria-label="X"]:hover        { color: #1da1f2; }
+.social-link[aria-label="Facebook"]:hover { color: #1877f2; }
+.social-link[aria-label="LinkedIn"]:hover { color: #0077b5; }
+.social-link[aria-label="WhatsApp"]:hover { color: #25d366; }
+.social-link[aria-label="Discord"]:hover  { color: #5865f2; }
+.social-icon{ width:36px; height:36px; flex-shrink:0; }
 
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,0.04);
@@ -350,6 +330,25 @@
   text-decoration: none;
   transition: color 0.3s ease;
 }
+.link-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 
 .footer-nav a:hover {
   color: var(--accent);

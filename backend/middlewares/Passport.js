@@ -1,3 +1,4 @@
+// Passport.js
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
@@ -10,9 +11,12 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://vigybag.com/auth/google/callback",
+      callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
     async (accessToken, refreshToken, profile, done) => {
+
+
+
       try {
         let user = await User.findOne({ googleId: profile.id });
         if (user) {
@@ -34,6 +38,7 @@ passport.use(
 
         done(null, newUser);
       } catch (err) {
+        console.error("Google OAuth error:", err);
         if (err.code === 11000) {
           done(new Error("User with this email already exists."), null);
         } else {

@@ -8,6 +8,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import PaymentPage from "../../pages/Payment/Payment";
 import { useAuth } from "../../../context/AuthContext";
 
+
 // ProductGrid component to display a grid of products
 function ProductGrid({ products, headingText }) {
   function getNewPrice(discountPercent, actualPrice) {

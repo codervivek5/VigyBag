@@ -33,7 +33,7 @@ import EPR_Page from "./User/pages/EPRPage/EPR_Page";
 import FAQ from "./User/pages/FAQ/Faq";
 import PrivateRoute from "./PrivateRoute";
 import TermsAndConditions from "./User/pages/TermsAndCondition/TermsAndCondition";
-import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
+// import FeedbackButton from "./User/components/FeedbackForm/FeedBtn";
 import FeedbackModal from "./User/components/FeedbackForm/Feedback";
 import NotificationPage from "./User/pages/Dashboard/NotificationPage";
 import ProfilePage from "./User/pages/Dashboard/ProfilePage";
@@ -117,6 +117,10 @@ export default function App() {
             element={<StorageBaskets />}
           />
           <Route
+            path="auth/success"
+            element={<StorageBaskets />}
+          />
+          <Route
             path="latestInMarket/organicSoaps"
             element={<OrganicSoaps />}
           />
@@ -160,11 +164,10 @@ export default function App() {
           <Route path="contributors" element={<Contributors />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="meet-the-makers" element={<MeetTheMakers />} />
-
           <Route path="help" element={<Help />} /> {/* Help page route */}
           <Route path="privacy-policy" element={<Privacy />} />
           {/* Privacy policy page route */}
-          <Route path="cart" element={<Cart />} /> 
+          <Route path="cart" element={<Cart />} />
           <Route
             path="productDetails/:productId"
             element={<ProductDetails />}
@@ -190,9 +193,13 @@ export default function App() {
           />
           <Route path="payment-policy" element={<Payment_Policy />} />
           {/* Return and Cancellation page route */}
-          <Route path="epr-compliance" element={<EPR_Page />} /> {/* EPR page route */}
+          <Route path="epr-compliance" element={<EPR_Page />} />{" "}
+          {/* EPR page route */}
           {/* Backward-compat: legacy URL */}
-          <Route path="epr" element={<Navigate to="/epr-compliance" replace />} />
+          <Route
+            path="epr"
+            element={<Navigate to="/epr-compliance" replace />}
+          />
           <Route path="career" element={<CareerPage />} />
           <Route path="service" element={<ServicePage />} />
           <Route path="shipping" element={<Shipping />} />
@@ -217,8 +224,14 @@ export default function App() {
             {/* Order details route */}
             <Route path="myorders" element={<MyOrders />} />
             {/* Backward-compatibility redirects */}
-            <Route path="my-orders" element={<Navigate to="/myorders" replace />} />
-            <Route path="myOrders" element={<Navigate to="/myorders" replace />} />
+            <Route
+              path="my-orders"
+              element={<Navigate to="/myorders" replace />}
+            />
+            <Route
+              path="myOrders"
+              element={<Navigate to="/myorders" replace />}
+            />
             {/* My orders route */}
             <Route path="checkout" element={<Checkout />} />
             {/* Checkout route */}
@@ -251,7 +264,10 @@ export default function App() {
           {/* Certification page route */}
           <Route path="certification" element={<Certification />} />
           {/* Backward-compat: legacy URL */}
-          <Route path="certificate" element={<Navigate to="/certification" replace />} />
+          <Route
+            path="certificate"
+            element={<Navigate to="/certification" replace />}
+          />
           {/* 404 Error page route */}
           <Route path="*" element={<Error />} />
         </Route>

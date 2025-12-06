@@ -10,7 +10,7 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
 
 const calculateShipping = (itemsTotal, threshold, rate) => {
-  return itemsTotal >= threshold || itemsTotal == 0 ? 0.0 : rate;
+  return itemsTotal >= threshold || itemsTotal === 0 ? 0.0 : rate;
 };
 
 function OrderSummary() {
