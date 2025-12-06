@@ -85,8 +85,8 @@ const AuthForm = () => {
     e.preventDefault();
     setLoading(true);
     // HIGHLIGHT: Ab API URL hardcoded nahi hai .env file se aayega
-    const apiUrl =
-      "http://localhost:3000";
+    // Use the Environment variable if it exists (Live), otherwise use localhost (Local)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     try {
       const response = await axios.post(`${apiUrl}/auth/login`, {
         email: loginEmail,
@@ -116,8 +116,8 @@ const AuthForm = () => {
       return;
     }
     // ... baaki validation ...
-    const apiUrl =
-      "http://localhost:3000";
+    // Use the Environment variable if it exists (Live), otherwise use localhost (Local)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     try {
       await axios.post(`${apiUrl}/api/auth/signup`, {
         username,

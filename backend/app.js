@@ -1,9 +1,8 @@
-// app.js
+// backend/app.js - FINAL WORKING VERSION
 require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
-const MongoStore = require('connect-mongo');
 
 // Passport configuration (middleware)
 const passport = require("./middlewares/Passport");
@@ -19,52 +18,48 @@ const subscribeRoute = require("./routes/subscribe");
 const app = express();
 
 /* ========================
-   Middleware
+   1. MIDDLEWARE (The Fixes)
 ======================== */
 
-// Enable CORS
-app.use(cors());
+// FIX: UNIVERSAL CORS (Accepts Port 5173, 5174, etc.) ---
+app.use(cors({
+  origin: true,        // Automatically allows the caller
+  credentials: true,   // Allows cookies/sessions
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
-// Parse JSON request bodies
+// Parse JSON
 app.use(express.json());
 
-// Session middleware (for login sessions)
+// --- FIX: Session (Memory only, prevents MongoStore crash) ---
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "Our little secret.",
+    secret: process.env.SESSION_SECRET || "vigybag_secret",
     resave: false,
     saveUninitialized: false,
-    // 2. CONFIGURE THE MONGOSTORE
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGO_URI,
-      collectionName: 'sessions' // Optional: name of the collection to store sessions
-    }),
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7 // Optional: 1 week
+      maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
     }
   })
 );
 
-// Initialize Passport for authentication
+// Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
 /* ========================
-   Routes
+   2. ROUTES
 ======================== */
-
-// Public routes
-app.use("/", routes);                      // Root-level routes
-app.use("/auth", authRoutes);              // Authentication routes
-app.use("/api/subscribe", subscribeRoute); // POST /api/subscribe
-
-// API routes
-app.use("/api", routes);                   // General /api routes
-app.use("/api", passwordResetRoutes);      // Password reset routes
-app.use("/vpi", userRoutes);               // VPI routes
-app.use("/api/v1", adminRegistrationRoutes); // Admin registration routes
+app.use("/", routes);
+app.use("/auth", authRoutes);
+app.use("/api/subscribe", subscribeRoute);
+app.use("/api", routes);
+app.use("/api", passwordResetRoutes);
+app.use("/vpi", userRoutes);
+app.use("/api/v1", adminRegistrationRoutes);
 
 /* ========================
-   Export App
+   3. EXPORT
 ======================== */
 module.exports = app;
