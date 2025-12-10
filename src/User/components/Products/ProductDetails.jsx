@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import avatar from "../../../assets/avatar.png";
 import Similarproducts from "../Products/Similarproducts";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,26 +17,46 @@ const sharedClasses = {
   buttonGreen: "px-4 py-2 bg-green-600 text-white rounded-lg",
 };
 
-const ProductImage = ({ thumbnail, images }) => (
-  <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
-    <img
-      src={thumbnail}
-      alt="Product Image"
-      className={`${sharedClasses.roundedLg} ${sharedClasses.mb4} w-full h-auto max-h-[50vh] object-contain bg-gray-100 border-2 border-green-700 hover:cursor-pointer`}
-    />
-    <div
-      className={`${sharedClasses.flexSpaceX2} ${sharedClasses.mb4} justify-center`}>
-      {images?.map((i) => (
+const ProductImage = ({ thumbnail, images }) => {
+
+ 
+  const [updateThumb,setUpdateThumb] = useState();
+  const handleClick = (i)=>{
+    setUpdateThumb(i)
+  }
+
+
+
+  return (
+    <>
+      <div className="w-full lg:w-1/2 mb-6 lg:mb-0">
         <img
-          key={i}
-          src={i}
-          alt={`Thumbnail ${i}`}
-          className="w-1/4 h-auto rounded-lg object-cover bg-gray-100 border-2 border-green-700 hover:cursor-pointer "
+          src={updateThumb == undefined?thumbnail:updateThumb}
+          alt="Product Image"
+          className={`${sharedClasses.roundedLg} ${sharedClasses.mb4} w-full h-auto max-h-[50vh] object-contain bg-gray-100 border-2 border-green-700 hover:cursor-pointer`}
         />
-      ))}
-    </div>
-  </div>
-);
+        <div
+          className={`${sharedClasses.flexSpaceX2} ${sharedClasses.mb4} justify-center`}>
+          {images?.map((i) => (
+            <img
+              onClick={()=>handleClick(i)}
+              key={i}
+              src={i}
+              alt={`Thumbnail ${i}`}
+              className={`w-1/4 h-auto rounded-lg object-cover bg-gray-100 border-2 border-green-700  hover:cursor-pointer`}
+            />
+          ))}
+        </div>
+      </div>
+
+    </>
+  )
+}
+
+
+
+
+
 
 const ProductDetails = ({ product }) => {
   return (
