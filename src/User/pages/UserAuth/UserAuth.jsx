@@ -455,6 +455,32 @@ const AuthForm = () => {
                         {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                       </button>
                     </div>
+                    <div className="flex items-start space-x-2">
+                      <input
+                        type="checkbox"
+                        id="termsAccepted"
+                        required
+                        className="mt-1 h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+                      />
+                      <label htmlFor="termsAccepted" className="text-xs text-gray-300">
+                        I agree to the{" "}
+                        <Link
+                          to="/terms-and-condition"
+                          className="text-[#4caf50] hover:underline"
+                          target="_blank"
+                        >
+                          Terms and Conditions
+                        </Link>{" "}
+                        and{" "}
+                        <Link
+                          to="/privacy-policy"
+                          className="text-[#4caf50] hover:underline"
+                          target="_blank"
+                        >
+                          Privacy Policy
+                        </Link>
+                      </label>
+                    </div>
                     <button
                       type="submit"
                       className="w-full bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-2.5 rounded-lg hover:from-blue-700 hover:to-emerald-700 transition duration-300 shadow-lg"

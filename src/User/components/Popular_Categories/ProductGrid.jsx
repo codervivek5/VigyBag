@@ -105,12 +105,19 @@ function ProductCard({ product }) {
         </p>
         {/* Rating */}
         <div className="flex items-center ">
-          {[...Array(Math.round(product.rating.rate))].map((_, i) => (
-            <span key={i} className="text-yellow-400">
-              ⭐
-            </span>
-          ))}
-          <span className="text-gray-500 ml-1">({product.rating.count})</span>
+          {(() => {
+            const rating = Math.max(0, Math.min(5, Math.round(Number(product.rating?.rate) || 0)));
+            return (
+              <>
+                {Array.from({ length: rating }).map((_, i) => (
+                  <span key={i} className="text-yellow-400">
+                    ⭐
+                  </span>
+                ))}
+                <span className="text-gray-500 ml-1">({rating})</span>
+              </>
+            );
+          })()}
         </div>
         {/* Add to cart button */}
         <div className="flex h-13 gap-2">
