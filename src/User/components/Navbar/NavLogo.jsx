@@ -16,7 +16,7 @@ const NavLogo = () => {
           src={isSpecialDay ? NationalFestLogo : DefaultLogo}
           // src={NationalFestLogo}
           alt="VigyBag Logo"
-          className="md:h-[9vh] h-[6vh]"
+          className="md:h-[7vh] h-[5vh]"
         />
       </Link>
     </div>
