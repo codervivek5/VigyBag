@@ -40,7 +40,61 @@ const AuthForm = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState(0);
 
+  // Error states for inline validation
+  const [usernameError, setUsernameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+
   const isPhoneValid = (number) => /^\d+$/.test(number) && number.length === 10;
+
+  // Real-time validation functions
+  const validateUsername = (value) => {
+    if (value.length < 3) {
+      setUsernameError("Username must be at least 3 characters");
+      return false;
+    }
+    setUsernameError("");
+    return true;
+  };
+
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
+  const validatePhone = (value) => {
+    if (!isPhoneValid(value)) {
+      setPhoneError("Phone number must be exactly 10 digits");
+      return false;
+    }
+    setPhoneError("");
+    return true;
+  };
+
+  const validatePassword = (value) => {
+    if (value.length < 8) {
+      setPasswordError("Password must be at least 8 characters");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
+
+  const validateConfirmPassword = (value) => {
+    if (value !== signupPassword) {
+      setConfirmPasswordError("Passwords do not match");
+      return false;
+    }
+    setConfirmPasswordError("");
+    return true;
+  };
 
   // HIGHLIGHT: Ek unified function jo login ke baad ke saare kaam karega
   const handleLoginSuccess = (data) => {
@@ -107,35 +161,140 @@ const AuthForm = () => {
   };
 
   const handleSignup = async (e) => {
-    // Signup ka logic waise hi rahega
     e.preventDefault();
-    setLoading(true);
+    
+    // Frontend validation before making API call
     if (signupPassword !== confirmPassword) {
-      await Swal.fire({ title: "Passwords do not match", icon: "error" });
-      setLoading(false);
+      await Swal.fire({
+        title: "Passwords do not match",
+        text: "Please ensure both password fields match.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       return;
     }
-    // ... baaki validation ...
+
+    // Validate phone number
+    if (!isPhoneValid(phone)) {
+      await Swal.fire({
+        title: "Invalid Phone Number",
+        text: "Phone number must be exactly 10 digits.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    // Validate password strength
+    if (signupPassword.length < 8) {
+      await Swal.fire({
+        title: "Weak Password",
+        text: "Password must be at least 8 characters long.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    // Validate username length
+    if (username.length < 3) {
+      await Swal.fire({
+        title: "Invalid Username",
+        text: "Username must be at least 3 characters long.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    setLoading(true);
+
     // Use the Environment variable if it exists (Live), otherwise use localhost (Local)
     const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    
     try {
-      await axios.post(`${apiUrl}/api/auth/signup`, {
+      console.log("🚀 Attempting signup with:", {
+        username,
+        email: signupEmail,
+        phone,
+        apiUrl: `${apiUrl}/auth/signup`
+      });
+
+      const response = await axios.post(`${apiUrl}/auth/signup`, {
         username,
         email: signupEmail,
         password: signupPassword,
         phone,
       });
-      setIsFlipped(false);
+
+      console.log("✅ Signup successful:", response.data);
+
+      // Clear form fields after successful signup
+      setUsername("");
+      setSignupEmail("");
+      setPhone("");
+      setSignupPassword("");
+      setConfirmPassword("");
+      setPasswordStrength(0);
+
+      // Show success message and redirect to login
       await Swal.fire({
-        title: "Signup successful!",
-        text: "Please log in with your new account",
+        title: "Account Created Successfully!",
+        text: "Welcome to VigyBag! Please log in with your new account.",
         icon: "success",
+        confirmButtonText: "Login Now",
+        timer: 3000,
       });
+
+      // Switch to login form
+      setIsFlipped(false);
+
     } catch (error) {
+      console.error("❌ Signup error:", error);
+
+      // Handle different types of errors
+      let errorTitle = "Signup Failed";
+      let errorMessage = "Something went wrong. Please try again.";
+
+      if (error.response) {
+        // Server responded with error status
+        const status = error.response.status;
+        const data = error.response.data;
+
+        console.log("📡 Server response:", { status, data });
+
+        switch (status) {
+          case 400:
+            errorTitle = "Invalid Input";
+            errorMessage = data.message || "Please check your input and try again.";
+            break;
+          case 409:
+            errorTitle = "Account Already Exists";
+            errorMessage = data.message || "An account with this email or username already exists.";
+            break;
+          case 500:
+            errorTitle = "Server Error";
+            errorMessage = "Our server encountered an error. Please try again later.";
+            break;
+          default:
+            errorMessage = data.message || "An unexpected error occurred.";
+        }
+      } else if (error.request) {
+        // Request was made but no response received
+        console.error("🔌 No response from server:", error.request);
+        errorTitle = "Connection Error";
+        errorMessage = "Unable to reach the server. Please check your internet connection and try again.";
+      } else {
+        // Error in setting up the request
+        console.error("⚙️ Request setup error:", error.message);
+        errorMessage = error.message;
+      }
+
       await Swal.fire({
-        title: "Signup failed",
-        text: error.response?.data?.message,
+        title: errorTitle,
+        text: errorMessage,
         icon: "error",
+        confirmButtonText: "Try Again",
       });
     } finally {
       setLoading(false);
@@ -349,68 +508,116 @@ const AuthForm = () => {
                     <MdAssignmentInd className="mr-2" /> Sign Up as a User
                   </h2>
                   <form onSubmit={handleSignup} className="space-y-3">
-                    <div className="relative">
-                      <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                      <input
-                        type="text"
-                        placeholder="Username"
-                        className="w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-3 py-2.5 border border-gray-200 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="relative">
-                      <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-3 py-2.5 border border-gray-200 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
-                        value={signupEmail}
-                        onChange={(e) => setSignupEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="relative">
-                      <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                      <input
-                        type="text"
-                        placeholder="Phone Number"
-                        className="w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-3 py-2.5 border border-gray-200 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 mobile-input"
-                        value={phone}
-                        onChange={(e) => {
-                          if (/^\d*$/.test(e.target.value))
-                            setPhone(e.target.value);
-                        }}
-                        required
-                      />
-                    </div>
-                    <div className="relative">
-                      <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                      <input
-                        type={showSignupPassword ? "text" : "password"}
-                        placeholder="Password"
-                        className="w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-10 py-2.5 border border-gray-200 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
-                        value={signupPassword}
-                        onChange={(e) => {
-                          setSignupPassword(e.target.value);
-                          setPasswordStrength(
-                            checkPasswordStrength(e.target.value)
-                          );
-                        }}
-                        required
-                      />
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setShowSignupPassword(!showSignupPassword)
-                        }
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                      >
-                        {showSignupPassword ? <FaEyeSlash /> : <FaEye />}
-                      </button>
-                    </div>
+                    {/* Username Field */}
                     <div>
+                      <div className="relative">
+                        <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                        <input
+                          type="text"
+                          placeholder="Username"
+                          className={`w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-3 py-2.5 border ${
+                            usernameError ? 'border-red-500' : 'border-gray-200'
+                          } outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500`}
+                          value={username}
+                          onChange={(e) => {
+                            setUsername(e.target.value);
+                            if (e.target.value.length >= 3) validateUsername(e.target.value);
+                          }}
+                          onBlur={(e) => validateUsername(e.target.value)}
+                          required
+                        />
+                      </div>
+                      {usernameError && (
+                        <p className="text-red-400 text-xs mt-1 ml-1">{usernameError}</p>
+                      )}
+                    </div>
+
+                    {/* Email Field */}
+                    <div>
+                      <div className="relative">
+                        <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          className={`w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-3 py-2.5 border ${
+                            emailError ? 'border-red-500' : 'border-gray-200'
+                          } outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500`}
+                          value={signupEmail}
+                          onChange={(e) => {
+                            setSignupEmail(e.target.value);
+                            if (e.target.value.includes('@')) validateEmail(e.target.value);
+                          }}
+                          onBlur={(e) => validateEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                      {emailError && (
+                        <p className="text-red-400 text-xs mt-1 ml-1">{emailError}</p>
+                      )}
+                    </div>
+
+                    {/* Phone Field */}
+                    <div>
+                      <div className="relative">
+                        <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                        <input
+                          type="text"
+                          placeholder="Phone Number"
+                          className={`w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-3 py-2.5 border ${
+                            phoneError ? 'border-red-500' : 'border-gray-200'
+                          } outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 mobile-input`}
+                          value={phone}
+                          onChange={(e) => {
+                            if (/^\d*$/.test(e.target.value)) {
+                              setPhone(e.target.value);
+                              if (e.target.value.length === 10) validatePhone(e.target.value);
+                            }
+                          }}
+                          onBlur={(e) => validatePhone(e.target.value)}
+                          maxLength={10}
+                          required
+                        />
+                      </div>
+                      {phoneError && (
+                        <p className="text-red-400 text-xs mt-1 ml-1">{phoneError}</p>
+                      )}
+                    </div>
+
+                    {/* Password Field */}
+                    <div>
+                      <div className="relative">
+                        <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                        <input
+                          type={showSignupPassword ? "text" : "password"}
+                          placeholder="Password"
+                          className={`w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-10 py-2.5 border ${
+                            passwordError ? 'border-red-500' : 'border-gray-200'
+                          } outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500`}
+                          value={signupPassword}
+                          onChange={(e) => {
+                            setSignupPassword(e.target.value);
+                            setPasswordStrength(
+                              checkPasswordStrength(e.target.value)
+                            );
+                            if (e.target.value.length >= 8) validatePassword(e.target.value);
+                            if (confirmPassword) validateConfirmPassword(confirmPassword);
+                          }}
+                          onBlur={(e) => validatePassword(e.target.value)}
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setShowSignupPassword(!showSignupPassword)
+                          }
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                        >
+                          {showSignupPassword ? <FaEyeSlash /> : <FaEye />}
+                        </button>
+                      </div>
+                      {passwordError && (
+                        <p className="text-red-400 text-xs mt-1 ml-1">{passwordError}</p>
+                      )}
                       <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                         <div
                           className={`password-strength-bar h-full rounded-full ${
@@ -426,7 +633,7 @@ const AuthForm = () => {
                         ></div>
                       </div>
                       <p className="text-xs mt-1">
-                        {passwordStrength === 3
+                        Password Strength: {passwordStrength === 3
                           ? "Strong"
                           : passwordStrength === 2
                           ? "Medium"
@@ -435,32 +642,55 @@ const AuthForm = () => {
                           : "Very Weak"}
                       </p>
                     </div>
-                    <div className="relative">
-                      <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                      <input
-                        type={showConfirmPassword ? "text" : "password"}
-                        placeholder="Confirm Password"
-                        className="w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-10 py-2.5 border border-gray-200 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                      />
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setShowConfirmPassword(!showConfirmPassword)
-                        }
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                      >
-                        {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                      </button>
+
+                    {/* Confirm Password Field */}
+                    <div>
+                      <div className="relative">
+                        <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                        <input
+                          type={showConfirmPassword ? "text" : "password"}
+                          placeholder="Confirm Password"
+                          className={`w-full rounded-lg bg-white/90 text-gray-900 placeholder:text-gray-500 pl-10 pr-10 py-2.5 border ${
+                            confirmPasswordError ? 'border-red-500' : 'border-gray-200'
+                          } outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500`}
+                          value={confirmPassword}
+                          onChange={(e) => {
+                            setConfirmPassword(e.target.value);
+                            if (e.target.value.length >= signupPassword.length) {
+                              validateConfirmPassword(e.target.value);
+                            }
+                          }}
+                          onBlur={(e) => validateConfirmPassword(e.target.value)}
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setShowConfirmPassword(!showConfirmPassword)
+                          }
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                        >
+                          {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                        </button>
+                      </div>
+                      {confirmPasswordError && (
+                        <p className="text-red-400 text-xs mt-1 ml-1">{confirmPasswordError}</p>
+                      )}
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-2.5 rounded-lg hover:from-blue-700 hover:to-emerald-700 transition duration-300 shadow-lg"
+                      disabled={loading || usernameError || emailError || phoneError || passwordError || confirmPasswordError}
+                      className={`w-full bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-2.5 rounded-lg transition duration-300 shadow-lg ${
+                        loading || usernameError || emailError || phoneError || passwordError || confirmPasswordError
+                          ? 'opacity-50 cursor-not-allowed'
+                          : 'hover:from-blue-700 hover:to-emerald-700'
+                      }`}
                     >
                       {loading ? (
-                        <DotLoader color="#ffffff" size={24} />
+                        <div className="flex items-center justify-center">
+                          <DotLoader color="#ffffff" size={24} />
+                          <span className="ml-2">Creating Account...</span>
+                        </div>
                       ) : (
                         "Sign Up"
                       )}
