@@ -182,6 +182,7 @@ export default function App() {
           <Route path="team" element={<Team />} /> {/* Team page route */}
           <Route path="auth" element={<UserAuth />} />
           {/* User authentication page route */}
+          <Route path="vigy-login" element={<VigyForm />} />
           <Route path="faq" element={<FAQ />} /> {/* FAQ page route */}
           <Route path="terms-and-condition" element={<TermsAndConditions />} />
           {/* Terms and Conditions page route */}
