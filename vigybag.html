@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VigyBag - Legal Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== ROOT VARIABLES & RESET ===== */
+        :root {
+            --primary-green: #2E8B57;
+            --secondary-green: #3CB371;
+            --light-green: #F0F8F0;
+            --dark-green: #1A3C2E;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --gray-border: #E0E0E0;
+            --background: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: #fefefe;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        /* ===== CONSISTENT HEADER ===== */
+        .legal-header {
+            background-color: var(--background);
+            border-bottom: 1px solid var(--gray-border);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .legal-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-link.active {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--primary-green);
+            border-radius: 3px;
+        }
+
+        /* ===== MAIN CONTENT CONTAINER ===== */
+        .legal-container {
+            max-width: 1000px;
+            margin: 2.5rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .page-title {
+            font-size: 2.75rem;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            background-color: var(--light-green);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(46, 139, 87, 0.2);
+        }
+
+        .last-updated i {
+            color: var(--primary-green);
+        }
+
+        /* ===== CONSISTENT CONTENT SECTIONS ===== */
+        .legal-section {
+            margin-bottom: 2.75rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .legal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            color: var(--primary-green);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--dark-green);
+            margin-bottom: 0;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-left: 2.5rem;
+        }
+
+        .section-content p {
+            margin-bottom: 1.25rem;
+        }
+
+        .section-content ul, .section-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background-color: var(--light-green);
+            border-left: 4px solid var(--primary-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .contact-details {
+            background-color: #f9f9f9;
+            padding: 1.75rem;
+            border-radius: var(--radius);
+            margin-top: 1.5rem;
+            border: 1px solid var(--gray-border);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-green);
+            width: 1.25rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .legal-footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 2.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .legal-header {
+                padding: 1rem 1.25rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .legal-nav {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .page-title {
+                font-size: 2.25rem;
+            }
+            
+            .legal-container {
+                padding: 0 1.25rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .section-content {
+                margin-left: 0;
+            }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            .legal-header, .legal-footer, .nav-link, .last-updated {
+                display: none;
+            }
+            
+            .legal-container {
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            body {
+                font-size: 12pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Consistent Header Navigation -->
+    <header class="legal-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <i class="fas fa-leaf logo-icon"></i>
+                <a href="/" class="logo-text">VigyBag</a>
+            </div>
+            <nav class="legal-nav">
+                <a href="/privacy-policy" class="nav-link active">Privacy Policy</a>
+                <a href="/terms" class="nav-link">Terms & Conditions</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="legal-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Privacy Policy</h1>
+            <p class="page-subtitle">We value the trust you place in us and recognize the importance of secure transactions and information privacy.</p>
+            <div class="last-updated">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Last Updated: September 5, 2025</span>
+            </div>
+        </div>
+
+        <!-- Privacy Policy Content -->
+        <section class="legal-section">
+            <div class="section-header">
+                <i class="fas fa-info-circle section-icon"></i>
+                <h2 class="section-title">Introduction & Scope</h2>
+            </div>
+            <div class="section-content">
+                <p>This Privacy Policy describes how VigyBag Pvt. Ltd. and its affiliates (collectively "VigyBag, we, our, us") collect, use, share, or otherwise process your personal data through the VigyBag website https://www.vigybag.com/, its mobile application, and m-site (hereinafter referred to as the "Platform").</p>
+                <div class="highlight-box">
+                    <p><strong>Important Note:</strong> We do not offer any product or service under this Platform outside India and your personal data will primarily be stored and processed in India. By visiting this Platform, you expressly agree to be bound by these terms.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <div class="section-header">
+                <i class="fas fa-database section-icon"></i>
+                <h2 class="section-title">Collection of Your Information</h2>
+            </div>
+            <div class="section-content">
+                <p>When you use our Platform, we collect and store your information which is provided by you from time to time. Once you give us your personal data, you are not anonymous to us. Where possible, we indicate which fields are required and which fields are optional.</p>
+                <p>We may collect personal data (such as email address, delivery address, name, phone number, credit card/debit card, and other payment instrument details) from you when you:</p>
+                <ul>
+                    <li>Set up an account or transact with us</li>
+                    <li>Participate in any event or contest</li>
+                    <li>Post messages on message boards or chat rooms</li>
+                    <li>Use voice commands or virtual try-and-buy features</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <div class="section-header">
+                <i class="fas fa-cookie-bite section-icon"></i>
+                <h2 class="section-title">Cookies & Tracking</h2>
+            </div>
+            <div class="section-content">
+                <p>We use data collection devices such as "cookies" on certain pages of the Platform to help analyze our web page flow, measure promotional effectiveness, and promote trust and safety. "Cookies" are small files placed on your hard drive that assist us in providing our services.</p>
+                <p>You are always free to decline/delete our cookies if your browser permits, although in that case, you may not be able to use certain features on the Platform. You can control the use of cookies at the individual browser level.</p>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <div class="section-header">
+                <i class="fas fa-shield-alt section-icon"></i>
+                <h2 class="section-title">Security & Your Rights</h2>
+            </div>
+            <div class="section-content">
+                <p>We maintain reasonable physical, electronic, and procedural safeguards to protect your personal data from unauthorized access or disclosure. Once your data is in our possession, we adhere to reasonable security guidelines, protecting it against unauthorized access.</p>
+                <p>If you have a question, issue, complaint, or feedback in relation to the processing of your personal data or this Privacy Policy, please contact our data protection officer.</p>
+                
+                <div class="contact-details">
+                    <h3 style="color: var(--dark-green); margin-bottom: 1rem;">Grievance Officer Contact</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-user"></i>
+                        <span><strong>Name:</strong> Vivek Prajapati</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><strong>Email:</strong> grievanceofficer@vigybag.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>Hours:</strong> Mon - Fri (9:00 - 18:00)</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span><strong>Address:</strong> Kanpur, Uttar Pradesh</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Consistent Footer -->
+    <footer class="legal-footer">
+        <div class="footer-container">
+            <div class="footer-logo">VigyBag</div>
+            <p class="footer-tagline">Your Eco-Friendly Shopping Heaven – Curating earth-friendly essentials to reduce environmental footprint without compromising quality or style.</p>
+            <div class="copyright">
+                &copy; 2025 VigyBag Pvt. Ltd. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for navigation and last updated date
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update current year in footer
+            document.querySelector('.copyright').innerHTML = `&copy; ${new Date().getFullYear()} VigyBag Pvt. Ltd. All rights reserved.`;
+            
+            // Highlight current page in navigation
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
