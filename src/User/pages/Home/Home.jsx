@@ -234,14 +234,12 @@ const Home = () => {
                 help you reduce your environmental footprint without
                 compromising on quality or style.
               </p>
-              <Link to="/shop">
-                <button
-                  onClick={scrollToSection}
-                  className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-green-800 transition duration-300"
-                >
-                  Shop Now
-                </button>
-              </Link>
+              <button
+                onClick={scrollToSection}
+                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-green-800 transition duration-300"
+              >
+                Shop Now
+              </button>
               <DownArrow />
             </div>
           </div>

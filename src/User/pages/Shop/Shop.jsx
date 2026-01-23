@@ -1,11 +1,13 @@
 import { FaShoppingCart, FaStar } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 import { products } from '../../../data/products';
+import { manageCartItem } from '../../../redux/cartSlice';
 
 const Shop = () => {
+  const dispatch = useDispatch();
+
   const addToCart = (product) => {
-    const existingCart = JSON.parse(localStorage.getItem('vigybag-cart')) || [];
-    const updatedCart = [...existingCart, product];
-    localStorage.setItem('vigybag-cart', JSON.stringify(updatedCart));
+    dispatch(manageCartItem({ product, quantity: 1 }));
     alert(`${product.title} added to cart!`);
   };
 

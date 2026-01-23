@@ -62,14 +62,12 @@ function LatestInMarketCard({ product }) {
           <div className="flex items-center justify-between pt-2 border-t border-gray-600/30">
             
             {/* ENHANCED: Shop now button with modern design */}
-            <Link to="/shop">
-              <button 
-                type="button" 
-                className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs sm:text-sm font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ring-2 ring-emerald-500/20 hover:ring-emerald-400/40"
-              >
-                Shop Now
-              </button>
-            </Link>
+            <button 
+              type="button" 
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs sm:text-sm font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ring-2 ring-emerald-500/20 hover:ring-emerald-400/40"
+            >
+              Shop Now
+            </button>
 
             {/* ENHANCED: Add to cart icon button */}
             <button 
