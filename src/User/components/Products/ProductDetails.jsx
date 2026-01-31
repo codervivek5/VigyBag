@@ -94,7 +94,9 @@ const ColorOptions = () => (
   </div>
 );
 
-const SizeOptions = () => (
+const SizeOptions = () => {
+   const [selectedSize, setSelectedSize] = useState(null);
+  return  (
   <div className={sharedClasses.mb4}>
     <label className="block text-zinc-700 dark:white mb-2">Select Size</label>
     <div className={sharedClasses.flexSpaceX2}>
@@ -102,15 +104,19 @@ const SizeOptions = () => (
         <button
           key={size}
           className={sharedClasses.buttonBase}
+          onClick={ ()=>setSelectedSize(size)}
           style={{
             border: "1px solid black",
+            backgroundColor: selectedSize === size ? "green" : "white",
+            color: selectedSize === size ? "white" : "black",
           }}>
           {size}{" "}
         </button>
       ))}
     </div>
   </div>
-);
+  );
+};
 
 const DeliveryOptions = () => (
   <div className={sharedClasses.mb4}>

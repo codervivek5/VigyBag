@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "./CartEmpty";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, manageCartItem } from "../../redux/cartSlice";
-import toast from "react-hot-toast";
+import toast , { Toaster } from "react-hot-toast";
 import OrderSummary from "../../components/Order/OrderSummary";
 import Swal from "sweetalert2";
 
@@ -89,15 +89,27 @@ const Breadcrumbs = () => (
 );
 
 const ProceedToCheckout = () => {
+    const [coupon, setCoupon] = useState("");
+    const handleRedeem = () => {
+    const validCoupons = ["SAVE10"];               //demo coupon
+    if (validCoupons.includes(coupon.trim().toUpperCase())) {
+      toast.success("Coupon applied successfully!");
+    } else {
+      toast.error("Invalid coupon code");
+    }
+  };
+
   return (
     <div className="mt-6">
       <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
         <input
           type="text"
           placeholder="Enter coupon code"
+          onChange={(e) => setCoupon(e.target.value)}
+          value={coupon}
           className="p-2 border border-gray-300 rounded-md w-full"
         />
-        <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>
+        <button type="button" className={`${buttonBgClass} w-full sm:w-auto`} onClick={handleRedeem}>
           Redeem
         </button>
       </div>
@@ -157,6 +169,8 @@ const Cart = () => {
   };
 
   return (
+    <>
+    <Toaster position="top-right" reverseOrder={false} />
     <div className="w-full min-h-screen flex flex-col bg-[#fff0e3ff] py-10">
       <div className="container mx-auto p-4 w-full max-w-7xl mt-20">
         <div className="flex flex-col lg:flex-row lg:space-x-8">
@@ -194,6 +208,7 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
