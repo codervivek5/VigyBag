@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
@@ -107,18 +107,30 @@ const latestProducts = [
   },
 ];
 
+// Debounce utility
+const debounce = (fn, delay = 400) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+};
+
 const Home = () => {
   const sectionRef = useRef(null);
   const navigate = useNavigate();
 
-  // Search
+  // 🔍 Search State
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const handleSearch = (e) => {
-    const term = e.target.value;
-    setSearchTerm(term);
 
-    const filtered = [
+  const performSearch = (term) => {
+    if (!term.trim()) {
+      setSuggestions([]);
+      return;
+    }
+
+    const results = [
       ...popularCategories.filter((c) =>
         c.name.toLowerCase().includes(term.toLowerCase())
       ),
@@ -126,32 +138,49 @@ const Home = () => {
         p.name.toLowerCase().includes(term.toLowerCase())
       ),
     ];
-    setSuggestions(filtered);
+
+    setSuggestions(results);
   };
-  const handleSuggestionClick = (s) => navigate(s.path);
+
+  const debouncedSearch = useCallback(
+    debounce((value) => {
+      performSearch(value);
+    }, 400),
+    []
+  );
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    debouncedSearch(value);
+  };
+
+  const handleSuggestionClick = (item) => {
+    setSearchTerm("");
+    setSuggestions([]);
+    navigate(item.path);
+  };
 
   const scrollToSection = () =>
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
 
-  // Subscription
+  // 📧 Newsletter Subscription
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
-  // backend URL
 
-  // Subscribe handler
   const handleSubscribe = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
-    setIsSubmitting(true);
 
+    setIsSubmitting(true);
     const normalized = email.trim().toLowerCase();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!normalized || !emailPattern.test(normalized)) {
+    if (!emailPattern.test(normalized)) {
       setMessage("⚠️ Please enter a valid email address.");
       setIsError(true);
       setIsSubmitting(false);
@@ -159,26 +188,15 @@ const Home = () => {
     }
 
     try {
-      // Construct endpoint safely, handle trailing slash
       const endpoint = `${API_BASE.replace(/\/$/, "")}/api/subscribe`;
 
       const res = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: normalized }),
       });
 
-      let data = {};
-      const ct = res.headers.get("content-type") || "";
-      if (ct.includes("application/json")) {
-        data = await res.json();
-      } else {
-        const text = await res.text();
-        data = { message: text };
-      }
+      const data = await res.json();
 
       if (res.ok) {
         setMessage(data.message || "🎉 Subscribed successfully!");
@@ -191,13 +209,14 @@ const Home = () => {
 
       setTimeout(() => setMessage(""), 4000);
     } catch (err) {
-      console.error("Subscribe error:", err);
+      console.error(err);
       setMessage("❌ Server error. Try again later.");
       setIsError(true);
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className="bg-[#fff0e3ff] min-h-screen">
       <main>
@@ -213,7 +232,7 @@ const Home = () => {
 
         {/* Hero Section */}
         <section
-          className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
+          className="bg-[#FFF5EA] py-12 md:py-20 flex items-center"
           style={{
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
@@ -221,21 +240,16 @@ const Home = () => {
           }}
         >
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 text-center md:text-left md:mt-20">
-              <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
+            <div className="w-full md:w-2/3 lg:w-1/2 text-center md:text-left">
+              <h1 className="text-[33px] md:text-[53px] font-bold mb-4">
                 Welcome to <span className="text-green-700">VigyBag!</span>
               </h1>
-              <h2 className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6">
-                Your Eco-Friendly Shopping Heaven
-              </h2>
-              <p className="mb-6 text-gray-700 text-[20px] sm:text-[23px]">
-                At VigyBag, we curate the finest earth-friendly essentials to
-                help you reduce your environmental footprint without
-                compromising on quality or style.
+              <p className="mb-6 text-gray-700 text-[20px]">
+                Eco-friendly products, directly from local artisans.
               </p>
               <button
                 onClick={scrollToSection}
-                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-green-800 transition duration-300"
+                className="bg-green-700 text-white px-6 py-3 rounded-full hover:bg-green-800 transition"
               >
                 Shop Now
               </button>
@@ -245,35 +259,22 @@ const Home = () => {
         </section>
 
         {/* Popular Categories */}
-        <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
+        <section className="py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
-              Popular Categories
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            <h2 className="text-3xl font-bold mb-8">Popular Categories</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {popularCategories.map((cat, i) => (
-                <CategoryCard
-                  key={i}
-                  name={cat.name}
-                  image={cat.image}
-                  path={cat.path}
-                />
+                <CategoryCard key={i} {...cat} />
               ))}
             </div>
           </div>
         </section>
 
         {/* Latest Products */}
-        <section
-          className="bg-[#fff0e3ff] py-8 sm:py-12 md:py-16"
-          id="sect"
-          ref={sectionRef}
-        >
+        <section ref={sectionRef} className="py-12">
           <div className="container mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-black">
-              Latest in the Market
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+            <h2 className="text-3xl font-bold mb-8">Latest in the Market</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {latestProducts.map((prod, i) => (
                 <LatestInMarketCard key={i} product={prod} />
               ))}
@@ -281,43 +282,33 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Newsletter Section */}
+        {/* Newsletter */}
         <section
-          className="py-8 sm:py-12 md:py-16 relative mb-[-1px]"
+          className="py-12 relative"
           style={{
             backgroundImage: `url(${app})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
           }}
         >
           <div className="container mx-auto px-4 relative z-10">
-            <div className="bg-[#373b3aff] rounded-lg p-6 sm:p-8 md:p-12 max-w-3xl mx-auto backdrop-blur-lg text-center text-white">
+            <div className="bg-[#373b3aff] p-8 rounded-lg text-white text-center">
               <h2 className="text-2xl font-bold mb-2">
-                Stay Updated with Our Latest News
+                Stay Updated with VigyBag
               </h2>
-              <p className="mb-4">
-                Subscribe to our newsletter to receive exclusive updates,
-                promotions, and tips.
-              </p>
-              <form
-                onSubmit={handleSubscribe}
-                className="flex flex-col items-center space-y-3"
-              >
+
+              <form onSubmit={handleSubscribe} className="space-y-3">
                 <input
                   type="email"
-                  placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className={`w-full p-3 rounded-lg text-black border ${isError ? "border-red-500" : "border-gray-300"
-                    }`}
+                  placeholder="Enter your email"
+                  className="w-full p-3 rounded text-black"
                 />
                 <button
-                  type="submit"
                   disabled={isSubmitting}
-                  className={`px-6 py-2 rounded-xl font-medium text-white transition-all duration-300 ${isSubmitting
-                      ? "bg-gray-500 cursor-not-allowed"
-                      : "bg-green-500 hover:bg-green-600"
-                    }`}
+                  className={`px-6 py-2 rounded ${
+                    isSubmitting ? "bg-gray-500" : "bg-green-500"
+                  }`}
                 >
                   {isSubmitting ? "Processing..." : "Subscribe"}
                 </button>
@@ -326,16 +317,12 @@ const Home = () => {
               <AnimatePresence>
                 {message && (
                   <motion.div
-                    key={message}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className={`mt-4 px-4 py-3 rounded-xl font-medium text-center w-full ${isError
-                        ? "bg-red-500 text-white"
-                        : "bg-green-500 text-white"
-                      }`}
-                    role="status"
-                    aria-live="polite"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className={`mt-4 p-3 rounded ${
+                      isError ? "bg-red-500" : "bg-green-500"
+                    }`}
                   >
                     {message}
                   </motion.div>
