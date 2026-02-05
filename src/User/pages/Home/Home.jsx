@@ -243,9 +243,14 @@ const Home = () => {
   </div>
   
   {/* Centered Down Arrow - positioned relative to section */}
-  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+  <button
+    type="button"
+    onClick={scrollToSection}
+    aria-label="Scroll to latest products"
+    className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-none border-none p-0 cursor-pointer"
+  >
     <DownArrow />
-  </div>
+  </button>
 </section>
 
         {/* Popular Categories */}
