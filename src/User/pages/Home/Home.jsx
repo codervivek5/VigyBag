@@ -211,38 +211,42 @@ const Home = () => {
           />
         </div>
 
-        {/* Hero Section */}
-        <section
-          className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 flex items-center"
-          style={{
-            backgroundImage: `url(${background})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-2/3 lg:w-1/2 text-center md:text-left md:mt-20">
-              <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
-                Welcome to <span className="text-green-700">VigyBag!</span>
-              </h1>
-              <h2 className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6">
-                Your Eco-Friendly Shopping Heaven
-              </h2>
-              <p className="mb-6 text-gray-700 text-[20px] sm:text-[23px]">
-                At VigyBag, we curate the finest earth-friendly essentials to
-                help you reduce your environmental footprint without
-                compromising on quality or style.
-              </p>
-              <button
-                onClick={scrollToSection}
-                className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-green-800 transition duration-300"
-              >
-                Shop Now
-              </button>
-              <DownArrow />
-            </div>
-          </div>
-        </section>
+{/* Hero Section */}
+<section
+  className="bg-[#FFF5EA] py-12 md:py-20 lg:py-24 min-h-screen flex flex-col items-center justify-center relative"
+  style={{
+    backgroundImage: `url(${background})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <div className="w-full md:w-2/3 lg:w-1/2 text-center md:text-left md:mt-20">
+      <h1 className="text-[33px] sm:text-4xl md:text-[53px] font-bold mb-4">
+        Welcome to <span className="text-green-700">VigyBag!</span>
+      </h1>
+      <h2 className="text-[25px] sm:text-2xl md:text-[33px] font-semibold mb-6">
+        Your Eco-Friendly Shopping Heaven
+      </h2>
+      <p className="mb-6 text-gray-700 text-[20px] sm:text-[23px]">
+        At VigyBag, we curate the finest earth-friendly essentials to
+        help you reduce your environmental footprint without
+        compromising on quality or style.
+      </p>
+      <button
+        onClick={scrollToSection}
+        className="bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-green-800 transition duration-300"
+      >
+        Shop Now
+      </button>
+    </div>
+  </div>
+  
+  {/* Centered Down Arrow - positioned relative to section */}
+  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+    <DownArrow />
+  </div>
+</section>
 
         {/* Popular Categories */}
         <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
