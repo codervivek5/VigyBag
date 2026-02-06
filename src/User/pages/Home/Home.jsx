@@ -217,7 +217,7 @@ const Home = () => {
           style={{
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center"
           }}
         >
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -239,7 +239,6 @@ const Home = () => {
               >
                 Shop Now
               </button>
-              {/* Centered DownArrow */}
               {/* Centered DownArrow */}
             </div>
           </div>
