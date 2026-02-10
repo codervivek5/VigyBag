@@ -114,24 +114,59 @@ const Subtotal = ({ items }) => {
 };
 
 const ProceedToCheckout = () => {
-  return (
+  const [coupon, setCoupon] = useState("");
+  const [message, setMessage] = useState("");
+  const [isApplied, setIsApplied] = useState(false);
+
+  const handleRedeem = () => {
+    if (!coupon.trim()) {
+      setMessage("Please enter a coupon code");
+      setIsApplied(false);
+      return;
+    }
+if (coupon.trim().toUpperCase() === "VIGYBAG") {
+      setMessage("Coupon applied successfully! 🎉 10% discount added");
+      setIsApplied(true);
+    } else {
+      setMessage("Invalid redeem code ❌");
+      setIsApplied(false);
+    }
+  };
+   return (
     <div className="mt-6">
       <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
         <input
           type="text"
           placeholder="Enter coupon code"
           className="p-2 border border-gray-300 rounded-md w-full"
+          value={coupon}
+          onChange={(e) => setCoupon(e.target.value)}
         />
-        <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>
+        <button
+          type="button"
+          onClick={handleRedeem}
+          className={`${buttonBgClass} w-full sm:w-auto`}
+        >
           Redeem
         </button>
       </div>
+
+      {message && (
+        <p
+          className={`mt-2 text-sm ${
+            isApplied ? "text-green-600" : "text-red-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
         <Link to="/Checkout">
           <button
             type="button"
             className={`${buttonBgClass} w-full sm:w-auto`}
-            style={{ minWidth: "375px" }}>
+            style={{ minWidth: "375px" }}
+          >
             Check Out
           </button>
         </Link>
