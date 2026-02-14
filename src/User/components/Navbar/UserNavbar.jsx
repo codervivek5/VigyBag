@@ -26,31 +26,54 @@ const UserNavbar = ({ isAdmin }) => {
   const closeNavbar = () => setIsOpen(false);
   const handleSearch = (e) => setSearchTerm(e.target.value);
 
-  const searchableItems = [
-    { name: "Fashion & Accessories", link: "/popularCategories/fashionAccessories" },
-    { name: "Printing & Stationery", link: "/popularCategories/printingStationery" },
-    { name: "Food & Beverages", link: "/popularCategories/foodBeverages" },
-    { name: "Beauty & Wellness", link: "/popularCategories/beautyWellness" },
-    { name: "Furniture & Decor", link: "/popularCategories/furnitureDecor" },
-    { name: "Body Care", link: "/popularCategories/bodyCare" },
-    { name: "Health Supplements", link: "/popularCategories/healthSupplements" },
-    { name: "Customized Gifts", link: "/popularCategories/customizedGifts" },
-    { name: "Handmade Soaps", link: "/latestInMarket/handmadeSoaps" },
-    { name: "Art Supplies", link: "/latestInMarket/artSupplies" },
-    { name: "Ceramic Dinnerware", link: "/latestInMarket/ceramicDinnerware" },
-    { name: "Bamboo Products", link: "/latestInMarket/bambooProducts" },
-    { name: "Storage Baskets", link: "/latestInMarket/storageBaskets" },
-    { name: "Organic Soaps", link: "/latestInMarket/organicSoaps" },
-    { name: "Organic Tea", link: "/latestInMarket/organicTea" },
-    { name: "Natural Cosmetics", link: "/latestInMarket/naturalCosmetics" },
+  // Category for filtering; each item has category for search filter
+  const SEARCH_CATEGORIES = [
+    "All",
+    "Fashion",
+    "Gifts",
+    "Body Care",
+    "Furniture",
+    "Stationery",
+    "Food & Beverages",
+    "Beauty & Wellness",
+    "Health Supplements",
+    "Latest in Market",
   ];
 
+  const searchableItems = [
+    { name: "Fashion & Accessories", link: "/popularCategories/fashionAccessories", category: "Fashion" },
+    { name: "Printing & Stationery", link: "/popularCategories/printingStationery", category: "Stationery" },
+    { name: "Food & Beverages", link: "/popularCategories/foodBeverages", category: "Food & Beverages" },
+    { name: "Beauty & Wellness", link: "/popularCategories/beautyWellness", category: "Beauty & Wellness" },
+    { name: "Furniture & Decor", link: "/popularCategories/furnitureDecor", category: "Furniture" },
+    { name: "Body Care", link: "/popularCategories/bodyCare", category: "Body Care" },
+    { name: "Health Supplements", link: "/popularCategories/healthSupplements", category: "Health Supplements" },
+    { name: "Customized Gifts", link: "/popularCategories/customizedGifts", category: "Gifts" },
+    { name: "Handmade Soaps", link: "/latestInMarket/handmadeSoaps", category: "Latest in Market" },
+    { name: "Art Supplies", link: "/latestInMarket/artSupplies", category: "Latest in Market" },
+    { name: "Ceramic Dinnerware", link: "/latestInMarket/ceramicDinnerware", category: "Latest in Market" },
+    { name: "Bamboo Products", link: "/latestInMarket/bambooProducts", category: "Latest in Market" },
+    { name: "Storage Baskets", link: "/latestInMarket/storageBaskets", category: "Latest in Market" },
+    { name: "Organic Soaps", link: "/latestInMarket/organicSoaps", category: "Latest in Market" },
+    { name: "Organic Tea", link: "/latestInMarket/organicTea", category: "Latest in Market" },
+    { name: "Natural Cosmetics", link: "/latestInMarket/naturalCosmetics", category: "Latest in Market" },
+  ];
+
+  // Filter + rank: prioritize "starts with query", then "contains"; alphabetical within each group
   useEffect(() => {
     if (searchTerm) {
-      const results = searchableItems.filter(item =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setSearchResults(results);
+      const query = searchTerm.trim().toLowerCase();
+      const startsWith = [];
+      const contains = [];
+      searchableItems.forEach((item) => {
+        const name = item.name.toLowerCase();
+        if (!name.includes(query)) return;
+        if (name.startsWith(query)) startsWith.push(item);
+        else contains.push(item);
+      });
+      startsWith.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+      contains.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+      setSearchResults([...startsWith, ...contains]);
     } else {
       setSearchResults([]);
     }
@@ -159,6 +182,7 @@ const UserNavbar = ({ isAdmin }) => {
                 handleSearch={handleSearch}
                 searchResults={searchResults}
                 onResultClick={handleResultClick}
+                categories={SEARCH_CATEGORIES}
               />
             </div>
 
