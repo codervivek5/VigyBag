@@ -239,7 +239,9 @@ const Home = () => {
               >
                 Shop Now
               </button>
+              <div className="w-32 flex justify-center mt-1">
               <DownArrow />
+              </div>
             </div>
           </div>
         </section>
