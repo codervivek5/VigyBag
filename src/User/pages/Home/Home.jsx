@@ -120,10 +120,10 @@ const Home = () => {
 
     const filtered = [
       ...popularCategories.filter((c) =>
-        c.name.toLowerCase().includes(term.toLowerCase())
+        c.name.toLowerCase().includes(term.toLowerCase()),
       ),
       ...latestProducts.filter((p) =>
-        p.name.toLowerCase().includes(term.toLowerCase())
+        p.name.toLowerCase().includes(term.toLowerCase()),
       ),
     ];
     setSuggestions(filtered);
@@ -217,7 +217,7 @@ const Home = () => {
           style={{
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "center"
           }}
         >
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -239,10 +239,14 @@ const Home = () => {
               >
                 Shop Now
               </button>
-              <DownArrow />
+              {/* Centered DownArrow */}
             </div>
           </div>
         </section>
+
+        <div className="w-full flex justify-center mt-6" onClick={scrollToSection}>
+          <DownArrow />
+        </div>
 
         {/* Popular Categories */}
         <section className="py-8 sm:py-12 md:py-16 bg-[#fff0e3ff]">
@@ -308,16 +312,18 @@ const Home = () => {
                   placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className={`w-full p-3 rounded-lg text-black border ${isError ? "border-red-500" : "border-gray-300"
-                    }`}
+                  className={`w-full p-3 rounded-lg text-black border ${
+                    isError ? "border-red-500" : "border-gray-300"
+                  }`}
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-6 py-2 rounded-xl font-medium text-white transition-all duration-300 ${isSubmitting
+                  className={`px-6 py-2 rounded-xl font-medium text-white transition-all duration-300 ${
+                    isSubmitting
                       ? "bg-gray-500 cursor-not-allowed"
                       : "bg-green-500 hover:bg-green-600"
-                    }`}
+                  }`}
                 >
                   {isSubmitting ? "Processing..." : "Subscribe"}
                 </button>
@@ -330,10 +336,11 @@ const Home = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className={`mt-4 px-4 py-3 rounded-xl font-medium text-center w-full ${isError
+                    className={`mt-4 px-4 py-3 rounded-xl font-medium text-center w-full ${
+                      isError
                         ? "bg-red-500 text-white"
                         : "bg-green-500 text-white"
-                      }`}
+                    }`}
                     role="status"
                     aria-live="polite"
                   >
