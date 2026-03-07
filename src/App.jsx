@@ -84,6 +84,7 @@ import Warranty from "./User/pages/Warranty/Warranty";
 import ProductCare from "./User/pages/ProductCare/ProductCare";
 import Subscription from "./User/pages/Subscription/Subscription";
 import Events from "./User/pages/Events/Events";
+import Shop from "./User/pages/Shop/Shop.jsx";
 
 export default function App() {
   return (
@@ -103,6 +104,7 @@ export default function App() {
             path="latestInMarket/handMadeSoaps"
             element={<HandMadeSoaps />}
           />
+          <Route path="/shop" element={<Shop />} />
           <Route path="latestInMarket/artSupplies" element={<ArtSupplies />} />
           <Route
             path="latestInMarket/ceramicDinnerware"

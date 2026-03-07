@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CategoryCard from "../../components/HomPageCard/CategoryCard";
 import LatestInMarketCard from "../../components/HomPageCard/LatestInMarketCard";
@@ -7,6 +7,7 @@ import app from "../../../assets/app.png";
 import SearchBar from "../../pages/Home/SearchBar";
 import DownArrow from "../../components/DownArrow/downArrow";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 // Category Images
 import customisedGiftsImg from "../../../assets/Customized-Gifts.png";

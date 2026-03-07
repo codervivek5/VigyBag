@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 function LatestInMarketCard({ product }) {
@@ -69,7 +68,7 @@ function LatestInMarketCard({ product }) {
             >
               Shop Now
             </button>
-            
+
             {/* ENHANCED: Add to cart icon button */}
             <button 
               type="button" 

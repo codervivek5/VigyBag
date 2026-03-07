@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import empty from "../../../assets/empty-cart.png";
 
@@ -16,7 +15,7 @@ const CartEmpty = () => {
       </p>
 
       <div className="flex">
-        <Link to="/">
+        <Link to="/shop">
           <button className={`${buttonBgClass} w-full sm:w-auto`}>
             Shop now
           </button>
