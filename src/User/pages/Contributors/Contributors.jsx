@@ -18,7 +18,15 @@ import Networkdiagram from "../../components/About/Networkdiagram";
 import Header from "../../components/About/Header";
 
 const Contributors = () => {
-  const [showAll, setShowAll] = useState(false);
+  const [visibleContributors, setVisibleContributors] = useState(6);
+
+  const handleSeeMore = () => {
+    setVisibleContributors(contributorsData.length);
+  };
+
+  const handleViewLess = () => {
+    setVisibleContributors(6);
+  };
 
   const contributorsData = [
     {
@@ -291,7 +299,7 @@ const Contributors = () => {
     },
   ];
 
-  const displayedContributors = showAll ? contributorsData : contributorsData.slice(0, 6);
+
 
   return (
     <div className="bg-gradient-to-br from-orange-50 via-white to-emerald-50 min-h-screen">
@@ -415,7 +423,6 @@ const Contributors = () => {
       {/* ENHANCED: Contributors Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-white to-orange-50 relative">
         <div className="container mx-auto px-4">
-          {/* ENHANCED: Section header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-6 shadow-lg">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -431,9 +438,8 @@ const Contributors = () => {
             </p>
           </div>
 
-          {/* ENHANCED: Contributors grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-            {displayedContributors.map((contributor, index) => (
+            {contributorsData.slice(0, visibleContributors).map((contributor, index) => (
               <div
                 key={index}
                 className="group backdrop-blur-sm bg-white/90 rounded-2xl shadow-xl border border-white/50 overflow-hidden transform transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
@@ -451,29 +457,22 @@ const Contributors = () => {
               </div>
             ))}
           </div>
-
-          {/* ENHANCED: Show more/less button */}
-          <div className="flex justify-center mt-12">
-            <button
-              onClick={() => setShowAll(!showAll)}
-              className="group relative px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-full transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center space-x-3"
-            >
-              <span>{showAll ? "View Less" : "See More Contributors"}</span>
-              <svg 
-                className={`w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-              
-              {/* Button glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
-            </button>
+          <div className="flex justify-center mt-8">
+            {visibleContributors < contributorsData.length ? (
+              <button
+                onClick={handleSeeMore}
+                className="px-6 py-3 bg-[#15a349ff] text-white rounded-lg hover:bg-green-600 focus:outline-none transition duration-300 font-semibold">
+                See More Contributors
+              </button>
+            ) : (
+              <button
+                onClick={handleViewLess}
+                className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none transition duration-300 font-semibold">
+                View Less
+              </button>
+            )}
           </div>
 
-          {/* ENHANCED: Statistics */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div className="text-center p-6 backdrop-blur-sm bg-white/60 rounded-2xl border border-white/30">
               <div className="text-3xl font-bold text-emerald-600 mb-2">{contributorsData.length}+</div>
