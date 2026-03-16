@@ -91,7 +91,7 @@ Technologies Used :
 - [Check it out here :eyes:](https://www.figma.com/design/sttuMcIvVuk7AORRMS70s5/VigyBag-Redesign?node-id=0-1&t=hA6fe3u7c9kflZzx-0)
 
 
-We accpet contributions to our project pertaining to the [Code of Conduct](https://github.com/codervivek5/VigyBag?tab=coc-ov-file) and [Contributing Guidelines](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md) stated below.
+We accept contributions to our project pertaining to the [Code of Conduct](https://github.com/codervivek5/VigyBag?tab=coc-ov-file) and [Contributing Guidelines](https://github.com/codervivek5/VigyBag/blob/main/CONTRIBUTING.md) stated below.
 
     
 ## :handshake: Contributing <a name="contributing"></a>
