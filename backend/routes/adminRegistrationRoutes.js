@@ -2,12 +2,22 @@ const express = require('express');
 const router = express.Router();
 const AdminRegistration = require('../models/AdminRegistration');
 const multer = require('multer');
+const { authenticate } = require('../middlewares/authenticate');
 
+const ALLOWED_DOC_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
-const upload = multer();
+const fileFilter = (req, file, cb) => {
+  if (ALLOWED_DOC_TYPES.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error(`File type '${file.mimetype}' is not allowed. Use JPEG, PNG, or PDF.`));
+  }
+};
 
+const upload = multer({ fileFilter, limits: { fileSize: MAX_FILE_SIZE } });
 
-router.post('/vigy_form', upload.fields([
+router.post('/vigy_form', authenticate, upload.fields([
  { name: 'panCard', maxCount: 1 },
  { name: 'addressProof', maxCount: 1 },
  { name: 'profilePicture', maxCount: 1 }
