@@ -115,7 +115,7 @@ function ProductCard({ product }) {
         {/* Add to cart button */}
         <div className="flex h-13 gap-2">
           <button
-            className="mt-1 bg-[#166635ff] text-white px-4 py-2 rounded text-sm w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none"
+            className="mt-1 bg-[#166635ff] text-white px-2 py-2 rounded text-xs w-full hover:bg-[#3d9970ff] transition-colors disabled:opacity-45 disabled:pointer-events-none whitespace-nowrap"
             onClick={() => {
               onAddToCart(product);
             }}
@@ -129,7 +129,7 @@ function ProductCard({ product }) {
               onAddToCart(product); // First, add the product to the cart
               handleBuyNow(); // Then, navigate to the payment page
             }}
-            className="mt-1 bg-orange-600 text-white px-4 py-2 rounded text-sm w-full hover:bg-orange-700 transition-colors disabled:opacity-45 disabled:pointer-events-none"
+            className="mt-1 bg-orange-600 text-white px-2 py-2 rounded text-xs w-full hover:bg-orange-700 transition-colors disabled:opacity-45 disabled:pointer-events-none whitespace-nowrap"
             disabled={cartItems.find((item) => item.id === product.id)}>
             {cartItems.find((item) => item.id === product.id)
               ? "⚡Buy Now"
