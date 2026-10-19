@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 import CartEmpty from "./CartEmpty";
@@ -7,6 +7,10 @@ import { clearCart, manageCartItem } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 import OrderSummary from "../../components/Order/OrderSummary";
 import Swal from "sweetalert2";
+
+const VALID_COUPONS = {
+  VIGYBAG: 10,
+};
 
 const cardClass = "p-4 bg-white rounded-lg shadow-md";
 const textClass = "text-zinc-500";
@@ -89,18 +93,42 @@ const Breadcrumbs = () => (
 );
 
 const ProceedToCheckout = () => {
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedDiscount, setAppliedDiscount] = useState(null);
+
+  const handleRedeem = () => {
+    const code = couponCode.trim().toUpperCase();
+    if (!code) {
+      toast.error("Please enter a coupon code.");
+      return;
+    }
+    if (VALID_COUPONS[code] !== undefined) {
+      setAppliedDiscount(VALID_COUPONS[code]);
+      toast.success(`Coupon applied! ${VALID_COUPONS[code]}% discount added.`);
+    } else {
+      toast.error("Invalid coupon code. Please try again.");
+    }
+  };
+
   return (
     <div className="mt-6">
       <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
         <input
           type="text"
+          value={couponCode}
+          onChange={(e) => setCouponCode(e.target.value)}
           placeholder="Enter coupon code"
           className="p-2 border border-gray-300 rounded-md w-full"
         />
-        <button type="button" className={`${buttonBgClass} w-full sm:w-auto`}>
+        <button type="button" onClick={handleRedeem} className={`${buttonBgClass} w-full sm:w-auto`}>
           Redeem
         </button>
       </div>
+      {appliedDiscount !== null && (
+        <p className="mt-2 text-green-600 text-sm font-medium">
+          ✅ {appliedDiscount}% discount applied with code &quot;{couponCode.trim().toUpperCase()}&quot;
+        </p>
+      )}
       <div className="mt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-8">
         <Link to="/Checkout" className="w-full">
           <button
