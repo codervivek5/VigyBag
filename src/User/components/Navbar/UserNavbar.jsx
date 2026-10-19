@@ -165,7 +165,7 @@ const UserNavbar = ({ isAdmin }) => {
                 <Link
                   key={link.text}
                   to={link.to}
-                  className="relative text-gray-700 font-bold text-[19px] hover:text-green-700 px-4 py-2.5 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-md group">
+                  className="relative text-gray-700 font-bold text-[19px] hover:text-green-700 px-4 py-2.5 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-md group whitespace-nowrap">
                   <span className="relative z-10">{link.text}</span>
                   <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-600 to-emerald-600 group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
                 </Link>
