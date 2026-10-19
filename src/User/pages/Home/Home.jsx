@@ -117,15 +117,15 @@ const Home = () => {
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
+    const lc = term.toLowerCase();
+
+    const rank = (item) => item.name.toLowerCase().startsWith(lc) ? 0 : 1;
 
     const filtered = [
-      ...popularCategories.filter((c) =>
-        c.name.toLowerCase().includes(term.toLowerCase()),
-      ),
-      ...latestProducts.filter((p) =>
-        p.name.toLowerCase().includes(term.toLowerCase()),
-      ),
-    ];
+      ...popularCategories.filter((c) => c.name.toLowerCase().includes(lc)),
+      ...latestProducts.filter((p) => p.name.toLowerCase().includes(lc)),
+    ].sort((a, b) => rank(a) - rank(b));
+
     setSuggestions(filtered);
   };
   const handleSuggestionClick = (s) => navigate(s.path);
