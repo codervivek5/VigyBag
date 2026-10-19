@@ -368,6 +368,13 @@
 @media (max-width: 719px){
   .brand-logo{ width:72px }
   .social-icon{ width:30px; height:30px }
+  .footer-grid{ grid-template-columns: 1fr; }
+  .footer-bottom{ flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-nav{ flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
+}
+
+@media (min-width: 480px) and (max-width: 719px){
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width:420px){
