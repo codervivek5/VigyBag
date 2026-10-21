@@ -345,8 +345,8 @@ const AuthForm = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-[#f9efe4] to-sky-50 flex items-center justify-center px-0 sm:px-4">
       <div
-        className="bg-[#e7f0e7]/80 backdrop-blur-lg rounded-2xl p-0 md:p-10 shadow-2xl 
-                      border border-white/60 flex flex-col md:flex-row w-full items-center justify-center max-w-sm sm:max-w-7xl mx-auto my-auto 
+        className="bg-[#e7f0e7]/80 backdrop-blur-lg rounded-2xl p-0 md:p-10 shadow-2xl
+                      border border-white/60 flex flex-col md:flex-row w-full items-center justify-center max-w-md sm:max-w-7xl mx-auto my-auto
                       gap-8 md:gap-16 lg:gap-20 min-h-[77vh] sm:min-h-[70vh]"
       >
         {/* Left side */}
