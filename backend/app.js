@@ -21,6 +21,14 @@ const app = express();
    1. MIDDLEWARE (The Fixes)
 ======================== */
 
+// Security headers to prevent XSS via SVG content-type sniffing and clickjacking
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  next();
+});
+
 // FIX: UNIVERSAL CORS (Accepts Port 5173, 5174, etc.) ---
 app.use(cors({
   origin: true,        // Automatically allows the caller
